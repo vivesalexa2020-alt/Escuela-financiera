@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educación Financiera | Aprende, ahorra y haz crecer tu dinero</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-dark: #06402d;
+      --primary-forest: #053b29;
+      --primary-deep: #032d1f;
+      --hero-glow: #0c6a49;
+      --accent-lime: #cbf63e;
+      --accent-yellow: #fabb15;
+      --accent-yellow-hover: #ffd242;
+      --btn-green: #00ba6d;
+      --btn-green-hover: #00a45f;
+      --text-dark: #083c29;
+      --text-muted: #5e7a70;
+      --text-light-mint: #bfe5d4;
+      --card-bg: #ffffff;
+      --card-border: #e6f0eb;
+      --banner-mint-bg: #d7f4e6;
+      --banner-mint-border: #bce9d2;
+      --footer-bg: #053724;
+      --footer-link: #d2ebe0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #ffffff;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       TOP HEADER / NAVBAR
+       ============================================================ */
+    .site-header {
+      background: #06432f;
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+      gap: 20px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    .brand-logo img,
+    .brand-logo svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-lime);
+    }
+
+    .nav-menu a.active {
+      font-weight: 600;
+    }
+
+    .nav-menu a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 4px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-search {
+      background: transparent;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-search:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(1.05);
+    }
+
+    .btn-login {
+      background: rgba(4, 52, 36, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      padding: 8px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-login:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      color: white;
+      font-size: 26px;
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero-section {
+      background: radial-gradient(circle at 72% 38%, #0d704d 0%, #06402d 48%, #032b1d 100%);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      padding-top: 36px;
+      padding-bottom: 40px;
+    }
+
+    /* Left decorative ribbons */
+    .hero-swoosh {
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 58px;
+      height: 380px;
+      background: url('img/wave-hero.png') no-repeat left top;
+      background-size: contain;
+      pointer-events: none;
+      opacity: 0.95;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      color: var(--accent-yellow);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4vw, 50px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      margin-bottom: 18px;
+    }
+
+    .hero-title .highlight {
+      color: var(--accent-lime);
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #e1f5eb;
+      max-width: 460px;
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-cta-yellow {
+      background: var(--accent-yellow);
+      color: #1a2f1c;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(250, 187, 21, 0.35);
+    }
+
+    .btn-cta-yellow:hover {
+      background: var(--accent-yellow-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(250, 187, 21, 0.5);
+    }
+
+    .btn-cta-outline {
+      background: rgba(4, 45, 30, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cta-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .hero-art-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-art-img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.28));
+      transition: transform 0.4s ease;
+    }
+
+    .hero-art-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Bottom 4 Feature Cards inside Hero */
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card {
+      background: rgba(2, 45, 30, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      background: rgba(2, 55, 36, 0.85);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .feature-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--btn-green);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 186, 109, 0.3);
+    }
+
+    .feature-icon-circle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .feature-text h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .feature-text p {
+      font-size: 11.5px;
+      color: var(--text-light-mint);
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    /* Curved bottom transition below hero */
+    .hero-bottom-curve {
+      position: relative;
+      height: 30px;
+      background: #032b1d;
+      margin-top: -1px;
+      border-bottom-left-radius: 36px;
+      border-bottom-right-radius: 36px;
+      display: none;
+    }
+
+    /* ============================================================
+       COURSES SECTION
+       ============================================================ */
+    .courses-section {
+      padding: 42px 0 32px;
+      background: #ffffff;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 20px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.3px;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .link-view-all {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #009355;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .link-view-all:hover {
+      color: #006e3f;
+      transform: translateX(4px);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 22px 18px 20px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(6, 64, 45, 0.09);
+      border-color: #c9e8d8;
+    }
+
+    .course-icon-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .badge-green {
+      background: var(--btn-green);
+    }
+
+    .badge-yellow {
+      background: #f59e0b;
+    }
+
+    .course-icon-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .course-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .course-card .course-desc {
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .course-progress-meta {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #556c64;
+      margin-bottom: 6px;
+    }
+
+    .course-progress-bar {
+      height: 6px;
+      background: #e6eee9;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .course-progress-fill {
+      height: 100%;
+      background: var(--btn-green);
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .btn-course-action {
+      width: 100%;
+      background: var(--btn-green);
+      color: #ffffff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-course-action:hover {
+      background: var(--btn-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 186, 109, 0.35);
+    }
+
+    /* ============================================================
+       PROGRESS BANNER SECTION ("Tu progreso importa")
+       ============================================================ */
+    .progress-banner-wrap {
+      padding: 10px 0 46px;
+    }
+
+    .progress-banner-card {
+      background: var(--banner-mint-bg);
+      border: 1px solid var(--banner-mint-border);
+      border-radius: 20px;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .progress-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .target-circle-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      color: #00a45f;
+    }
+
+    .progress-banner-text h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+
+    .progress-banner-text p {
+      font-size: 12px;
+      color: #386352;
+      margin-top: 3px;
+    }
+
+    .progress-banner-right {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+      flex-shrink: 0;
+    }
+
+    .stat-col {
+      min-width: 170px;
+    }
+
+    .stat-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+
+    .overall-progress-bar {
+      height: 7px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .overall-progress-fill {
+      width: 50%;
+      height: 100%;
+      background: var(--btn-green);
+      border-radius: 999px;
+    }
+
+    .stat-col .stat-sub {
+      font-size: 9.5px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .medal-icon-badge {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      color: #f59e0b;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--footer-bg);
+      color: #ffffff;
+      padding: 38px 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-swoosh {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 55px;
+      height: 95px;
+      background: url('img/wave-footer.png') no-repeat left bottom;
+      background-size: contain;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-brand .brand-logo {
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 11.5px;
+      color: #bfe3d3;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+
+    .footer-col h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 7px;
+    }
+
+    .footer-col ul a {
+      font-size: 11.5px;
+      color: var(--footer-link);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--accent-lime);
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .social-icon-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #facc15;
+      color: #06402d;
+      display: grid;
+      place-items: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .social-icon-btn:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+    }
+
+    .social-icon-btn svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .copyright {
+      font-size: 10px;
+      color: #a1cebb;
+    }
+
+    /* ============================================================
+       MODAL POPUPS (INTERACTIVE FEATURES)
+       ============================================================ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 40, 27, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 300;
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: grid;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: modalSlideUp 0.25s ease-out;
+      text-align: center;
+    }
+
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #eef7f2;
+      color: var(--text-dark);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: #d8eee2;
+    }
+
+    .modal-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .modal-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .progress-banner-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .progress-banner-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-description {
+        margin: 0 auto 24px;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-art-img {
+        max-width: 400px;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: #06432f;
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        justify-content: center;
+        text-align: center;
+      }
+      .hero-swoosh, .footer-swoosh {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       ENCABEZADO / BARRA DE NAVEGACIÓN
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav-wrap">
+        <!-- Logo -->
+        <a href="#inicio" class="brand-logo">
+          <!-- Sprout plant icon with yellow flower and green leaves -->
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
+            <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
+            <circle cx="18" cy="12" r="1.5" fill="#15803D"/>
+            <path d="M17.5 23C11.5 20.5 6 24 5 29.5C11 31.5 16.5 28 17.5 23Z" fill="#4ADE80"/>
+            <path d="M18.5 23C24.5 20.5 30 24 31 29.5C25 31.5 19.5 28 18.5 23Z" fill="#22C55E"/>
+            <path d="M18 19V30" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <div>Educación</div>
+            <div>Financiera</div>
+          </div>
+        </a>
+
+        <!-- Menú enlaces centrales -->
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#inicio" class="active">Inicio</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+        </ul>
+
+        <!-- Acciones a la derecha -->
+        <div class="nav-actions">
+          <button class="btn-search" id="btnSearch" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <button class="btn-login" id="btnLogin">Iniciar sesión</button>
+
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO PRINCIPAL
+       ============================================================ -->
+  <section class="hero-section" id="inicio">
+    <!-- Cinta decorativa curva izquierda -->
+    <div class="hero-swoosh"></div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Texto Hero -->
+        <div class="hero-text-col">
+          <span class="hero-badge">TU FUTURO FINANCIERO COMIENZA AQUÍ</span>
+          <h1 class="hero-title">
+            Aprende, ahorra<br>
+            y haz crecer<br>
+            <span class="highlight">tu dinero</span>
+          </h1>
+
+          <p class="hero-description">
+            En nuestra escuela virtual encontrarás cursos, herramientas y recursos para mejorar tu relación con el dinero y alcanzar tus metas.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#cursos" class="btn-cta-yellow">
+              Comenzar ahora
+              <span>→</span>
+            </a>
+            <a href="#cursos" class="btn-cta-outline">
+              Explorar cursos
+            </a>
+          </div>
+        </div>
+
+        <!-- Ilustración 3D de la chica, laptop, planta, moneda, gráfico y burbuja -->
+        <div class="hero-art-col">
+          <img src="img/hero-illustration.png" alt="Aprende Educación Financiera" class="hero-art-img">
+        </div>
+      </div>
+
+      <!-- 4 Tarjetas de beneficios en la parte inferior del Hero -->
+      <div class="hero-features">
+        <!-- 1: 100% en línea -->
+        <div class="feature-card">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>100% en línea</h4>
+            <p>A tu ritmo</p>
+          </div>
+        </div>
+
+        <!-- 2: Certificado -->
+        <div class="feature-card">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Certificado</h4>
+            <p>al finalizar</p>
+          </div>
+        </div>
+
+        <!-- 3: Acceso desde cualquier dispositivo -->
+        <div class="feature-card">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="12" x="2" y="3" rx="2"></rect>
+              <rect width="6" height="10" x="16" y="11" rx="1"></rect>
+              <path d="M12 19h-6"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Acceso desde</h4>
+            <p>cualquier dispositivo</p>
+          </div>
+        </div>
+
+        <!-- 4: Soporte personalizado -->
+        <div class="feature-card">
+          <div class="feature-icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <div class="feature-text">
+            <h4>Soporte</h4>
+            <p>personalizado</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECCIÓN: NUESTROS CURSOS
+       ============================================================ -->
+  <section class="courses-section" id="cursos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Nuestros cursos</h2>
+          <p>Elige el curso que mejor se adapte a tus objetivos y empieza a aprender.</p>
+        </div>
+        <a href="#cursos" class="link-view-all">
+          Ver todos los cursos <span>→</span>
+        </a>
+      </div>
+
+      <div class="courses-grid">
+        <!-- CURSO 1: Finanzas personales -->
+        <article class="course-card">
+          <div class="course-icon-badge badge-green">
+            <!-- Piggy Bank Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"></path>
+              <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
+              <path d="M16 11h.01"></path>
+            </svg>
+          </div>
+          <h3>Finanzas personales</h3>
+          <p class="course-desc">
+            Aprende a administrar tu dinero, controlar tus gastos y crear hábitos financieros saludables.
+          </p>
+          <div class="course-progress-meta">50% completado</div>
+          <div class="course-progress-bar">
+            <div class="course-progress-fill" style="width: 50%;"></div>
+          </div>
+          <button class="btn-course-action" onclick="openCourseModal('Finanzas personales', 'Aprende a administrar tu presupuesto diario, controlar los gastos hormiga y fijar metas de ahorro efectivas.')">
+            Continuar curso <span>→</span>
+          </button>
+        </article>
+
+        <!-- CURSO 2: Ahorro e inversión -->
+        <article class="course-card">
+          <div class="course-icon-badge badge-yellow">
+            <!-- Trending Growth Bar Chart Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"></path>
+              <path d="m19 9-5 5-4-4-3 3"></path>
+              <path d="M14 9h5v5"></path>
+            </svg>
+          </div>
+          <h3>Ahorro e inversión</h3>
+          <p class="course-desc">
+            Descubre cómo hacer crecer tu dinero y lograr tus metas a largo plazo.
+          </p>
+          <div class="course-progress-meta">20% completado</div>
+          <div class="course-progress-bar">
+            <div class="course-progress-fill" style="width: 20%;"></div>
+          </div>
+          <button class="btn-course-action" onclick="openCourseModal('Ahorro e inversión', 'Aprende instrumentos de bajo riesgo, interés compuesto y estrategias para diversificar tus ahorros.')">
+            Ver curso <span>→</span>
+          </button>
+        </article>
+
+        <!-- CURSO 3: Presupuesto -->
+        <article class="course-card">
+          <div class="course-icon-badge badge-green">
+            <!-- Wallet Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+            </svg>
+          </div>
+          <h3>Presupuesto</h3>
+          <p class="course-desc">
+            Planifica tus ingresos y gastos para tener mayor estabilidad financiera.
+          </p>
+          <div class="course-progress-meta">0% completado</div>
+          <div class="course-progress-bar">
+            <div class="course-progress-fill" style="width: 0%;"></div>
+          </div>
+          <button class="btn-course-action" onclick="openCourseModal('Presupuesto', 'Domina la regla 50/30/20 y diseña presupuestos mensuales adaptados a tu estilo de vida.')">
+            Ver curso <span>→</span>
+          </button>
+        </article>
+
+        <!-- CURSO 4: Emprendimiento -->
+        <article class="course-card">
+          <div class="course-icon-badge badge-yellow">
+            <!-- Lightbulb Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
+            </svg>
+          </div>
+          <h3>Emprendimiento</h3>
+          <p class="course-desc">
+            Conoce las bases para iniciar tu propio negocio y generar ingresos.
+          </p>
+          <div class="course-progress-meta">0% completado</div>
+          <div class="course-progress-bar">
+            <div class="course-progress-fill" style="width: 0%;"></div>
+          </div>
+          <button class="btn-course-action" onclick="openCourseModal('Emprendimiento', 'Valida ideas de negocio, crea tu plan financiero inicial y conoce aspectos legales básicos.')">
+            Ver curso <span>→</span>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BANNER: TU PROGRESO IMPORTA
+       ============================================================ -->
+  <section class="progress-banner-wrap" id="progreso">
+    <div class="container">
+      <div class="progress-banner-card">
+        <!-- Izquierda: Target icon + Textos -->
+        <div class="progress-banner-left">
+          <svg class="target-circle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+            <path d="m14 10 7-7"></path>
+          </svg>
+          <div class="progress-banner-text">
+            <h3>Tu progreso importa</h3>
+            <p>Cada paso cuenta. Sigue aprendiendo, completa tus cursos y gana insignias.</p>
+          </div>
+        </div>
+
+        <!-- Derecha: Tarjeta blanca con barra y medalla dorada -->
+        <div class="progress-banner-right">
+          <div class="stat-col">
+            <h4>Tu avance general</h4>
+            <div class="overall-progress-bar">
+              <div class="overall-progress-fill"></div>
+            </div>
+            <span class="stat-sub">3 de 6 cursos completados</span>
+          </div>
+
+          <!-- Medalla dorada con estrella y lazos -->
+          <svg class="medal-icon-badge" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="14" r="11" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+            <polygon points="18,7 20,12 25,12 21,15 22.5,20 18,17 13.5,20 15,15 11,12 16,12" fill="#FEF3C7"/>
+            <path d="M13 22L10 32L16 28L18 24" fill="#D97706"/>
+            <path d="M23 22L26 32L20 28L18 24" fill="#B45309"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PIE DE PÁGINA (FOOTER)
+       ============================================================ -->
+  <footer class="site-footer">
+    <!-- Cinta decorativa curva inferior izquierda -->
+    <div class="footer-swoosh"></div>
+
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Columna 1: Logo & lema -->
+        <div class="footer-brand">
+          <a href="#inicio" class="brand-logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
+              <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
+              <circle cx="18" cy="12" r="1.5" fill="#15803D"/>
+              <path d="M17.5 23C11.5 20.5 6 24 5 29.5C11 31.5 16.5 28 17.5 23Z" fill="#4ADE80"/>
+              <path d="M18.5 23C24.5 20.5 30 24 31 29.5C25 31.5 19.5 28 18.5 23Z" fill="#22C55E"/>
+              <path d="M18 19V30" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div>Educación</div>
+              <div>Financiera</div>
+            </div>
+          </a>
+          <p>Mejores decisiones, un futuro más seguro.</p>
+        </div>
+
+        <!-- Columna 2: Enlaces rápidos -->
+        <div class="footer-col" id="enlaces">
+          <h4>Enlaces rápidos</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Recursos -->
+        <div class="footer-col" id="recursos">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="openResourceModal('Guías financieras', 'Accede a guías descargables en PDF sobre ahorro, control de deudas e inversiones.')">Guías</a></li>
+            <li><a href="javascript:void(0)" onclick="openResourceModal('Calculadoras interactivas', 'Simula planes de ahorro, amortización de deudas e interés compuesto.')">Calculadoras</a></li>
+            <li><a href="javascript:void(0)" onclick="openResourceModal('Preguntas frecuentes', 'Encuentra respuestas inmediatas sobre el acceso a los cursos, certificaciones y contenidos.')">Preguntas frecuentes</a></li>
+            <li><a href="javascript:void(0)" onclick="openResourceModal('Contacto', 'Escríbenos a soporte@educacionfinanciera.edu o a través de nuestras redes sociales.')">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Síguenos -->
+        <div class="footer-col" id="nosotros">
+          <h4>Síguenos</h4>
+          <div class="social-links">
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.97v7.69c0 1.52-.37 3.06-1.2 4.34-1.2 1.83-3.23 3.07-5.46 3.32-1.92.21-3.9-.2-5.52-1.3-1.66-1.13-2.77-2.94-3.05-4.94-.3-2.02.26-4.13 1.55-5.74 1.34-1.68 3.4-2.65 5.56-2.67.37 0 .74.03 1.1.1v4.13c-.34-.1-.7-.14-1.06-.13-1.02.01-2.02.48-2.66 1.28-.68.85-.86 2.02-.49 3.05.37 1.02 1.32 1.77 2.41 1.93.99.14 2.03-.13 2.78-.8.67-.6 1.07-1.48 1.07-2.39V.02h-.87z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 Educación Financiera. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL POPUP
+       ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar">×</button>
+      <div style="font-size: 38px; margin-bottom: 8px;">🌱</div>
+      <h3 id="modalTitle">Detalle del curso</h3>
+      <p id="modalDescription">Información del curso y temario disponible.</p>
+      <button class="btn-cta-yellow" style="width: 100%; justify-content: center;" onclick="closeModal()">
+        ¡Entendido!
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Búsqueda -->
+  <div class="modal-overlay" id="searchModal" role="dialog" aria-modal="true">
+    <div class="modal-card" style="text-align: left;">
+      <button class="modal-close-btn" onclick="closeSearchModal()">×</button>
+      <h3 style="margin-bottom: 12px;">Buscar en la plataforma</h3>
+      <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones o herramientas..." 
+             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 14px; margin-bottom: 16px; outline: none;">
+      <div id="searchResults" style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+        Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Inicio de Sesión -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeLoginModal()">×</button>
+      <div style="font-size: 36px; margin-bottom: 10px;">🔐</div>
+      <h3>Iniciar sesión</h3>
+      <p>Accede a tu cuenta de estudiante para continuar tu avance y ver tus certificados.</p>
+      <form onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+          <input type="password" required placeholder="••••••••" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+        </div>
+        <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
+          Ingresar al aula virtual
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS INTERACTIVOS
+       ============================================================ -->
+  <script>
+    // Toggle Menú Móvil
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      mobileToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
+    });
+
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        mobileToggle.textContent = '☰';
+      });
+    });
+
+    // Modales de Cursos y Recursos
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    function openCourseModal(title, desc) {
+      modalTitle.textContent = title;
+      modalDescription.textContent = desc;
+      modalOverlay.classList.add('open');
+    }
+
+    function openResourceModal(title, desc) {
+      modalTitle.textContent = title;
+      modalDescription.textContent = desc;
+      modalOverlay.classList.add('open');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('open');
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+
+    // Modal de Búsqueda
+    const searchModal = document.getElementById('searchModal');
+    const btnSearch = document.getElementById('btnSearch');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    btnSearch.addEventListener('click', () => {
+      searchModal.classList.add('open');
+      setTimeout(() => searchInput.focus(), 100);
+    });
+
+    function closeSearchModal() {
+      searchModal.classList.remove('open');
+    }
+
+    searchModal.addEventListener('click', (e) => {
+      if (e.target === searchModal) closeSearchModal();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        searchResults.innerHTML = 'Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.';
+        return;
+      }
+
+      const items = [
+        { name: 'Finanzas personales', type: 'Curso', link: '#cursos' },
+        { name: 'Ahorro e inversión', type: 'Curso', link: '#cursos' },
+        { name: 'Presupuesto', type: 'Curso', link: '#cursos' },
+        { name: 'Emprendimiento', type: 'Curso', link: '#cursos' },
+        { name: 'Calculadoras de ahorro', type: 'Recurso', link: '#recursos' },
+        { name: 'Guías de inversión', type: 'Recurso', link: '#recursos' }
+      ];
+
+      const matches = items.filter(it => it.name.toLowerCase().includes(q));
+      if (matches.length > 0) {
+        searchResults.innerHTML = matches.map(m => `
+          <div style="padding: 8px 0; border-bottom: 1px solid #f0f6f3; display: flex; justify-content: space-between;">
+            <strong>${m.name}</strong>
+            <span style="color: #00ba6d; font-size: 11px;">${m.type}</span>
+          </div>
+        `).join('');
+      } else {
+        searchResults.innerHTML = 'No se encontraron resultados para "' + q + '".';
+      }
+    });
+
+    // Modal de Login
+    const loginModal = document.getElementById('loginModal');
+    const btnLogin = document.getElementById('btnLogin');
+
+    btnLogin.addEventListener('click', () => {
+      loginModal.classList.add('open');
+    });
+
+    function closeLoginModal() {
+      loginModal.classList.remove('open');
+    }
+
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) closeLoginModal();
+    });
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      alert('¡Bienvenido! Has iniciado sesión correctamente.');
+      closeLoginModal();
+    }
+
+    // Tecla Escape cierra todos los modales
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeSearchModal();
+        closeLoginModal();
+      }
+    });
+  </script>
+</body>
+</html>
