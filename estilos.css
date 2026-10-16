@@ -1949,3 +1949,10 @@ body.user-logged-in .logged-topbar {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  #navGuestNotice {
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+  }
+}

@@ -504,6 +504,7 @@ function updateAuthUI() {
   const lockedBanner = document.getElementById('lockedBanner');
   const guestLanding = document.getElementById('guestLanding');
   const studentDashboard = document.getElementById('studentDashboard');
+  const navGuestNotice = document.getElementById('navGuestNotice');
 
   if (user) {
     // USUARIO AUTENTICADO:
@@ -523,6 +524,7 @@ function updateAuthUI() {
     // En index.html: mostrar panel del estudiante y ocultar portada
     if (studentDashboard) studentDashboard.style.display = 'block';
     if (guestLanding) guestLanding.style.display = 'none';
+    if (navGuestNotice) navGuestNotice.style.display = 'none';
   } else {
     // USUARIO VISITANTE (SIN SESIÓN):
     document.body.classList.add('not-logged-in');
@@ -534,6 +536,7 @@ function updateAuthUI() {
     // En index.html: mostrar portada pública y ocultar panel privado
     if (studentDashboard) studentDashboard.style.display = 'none';
     if (guestLanding) guestLanding.style.display = 'block';
+    if (navGuestNotice) navGuestNotice.style.display = 'flex';
 
     // Cerrar sidebar si estaba abierto en responsive
     if (sidebar) sidebar.classList.remove('open');
