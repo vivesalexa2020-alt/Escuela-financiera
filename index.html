@@ -2500,6 +2500,7 @@
     
 
 </script>
-</body>
+<script>let splashTimer=setTimeout(hideSplash,5200);function hideSplash(){const sp=document.getElementById(" splash);if(!sp||sp.classList.contains(hide))return;sp.classList.add(hide);clearTimeout(splashTimer);setTimeout(()=>{sp.style.display=
+one;},900);}document.body.addEventListener(click,e=>{if(e.target.closest(.splash))hideSplash();});</script></body>
 </html>
 
