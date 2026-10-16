@@ -10,8 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="estilos.css">
+
   <style>
-    :root {
+:root {
       --primary-dark: #06402d;
       --primary-forest: #053b29;
       --primary-deep: #032d1f;
@@ -1468,14 +1470,624 @@
       .splash .bar,
       .splash .skip { animation: none !important; }
     }
+
+/* ============================================================
+   ESTILOS PARA CAMPO DE CONTRASEÑA CON OJITO
+   ============================================================ */
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  width: 100% !important;
+  padding: 10px 42px 10px 14px !important;
+  border: 1px solid #d4e7de;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.password-field input:focus {
+  border-color: #00ba6d;
+  box-shadow: 0 0 0 3px rgba(0, 186, 109, 0.12);
+}
+
+.btn-toggle-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7b968c;
+  transition: color 0.2s ease;
+  line-height: 0;
+}
+
+.btn-toggle-eye:hover {
+  color: var(--primary-forest);
+}
+
+/* ============================================================
+   ESTILOS PARA PÁGINAS INDIVIDUALES (HERO BANNER SECUNDARIO)
+   ============================================================ */
+.subpage-hero {
+  background: radial-gradient(circle at 75% 30%, #0d704d 0%, #06402d 55%, #032b1d 100%);
+  color: #ffffff;
+  padding: 50px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.subpage-hero .subpage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(203, 246, 62, 0.12);
+  color: var(--accent-lime);
+  border: 1px solid rgba(203, 246, 62, 0.3);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.subpage-hero h1 {
+  font-size: clamp(30px, 4.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.subpage-hero h1 span {
+  color: var(--accent-yellow);
+}
+
+.subpage-hero p {
+  color: var(--text-light-mint);
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.auth-lock-card {
+  max-width: 520px;
+  margin: 60px auto;
+  background: #ffffff;
+  border: 1px solid #d4e7de;
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(6, 64, 45, 0.06);
+}
+
+
+/* ============================================================
+   ESTILOS PARA SIDEBAR LATERAL IZQUIERDA (POST-LOGIN)
+   ============================================================ */
+body.user-logged-in .sidebar-left {
+  display: flex !important;
+}
+
+body.user-logged-in .main-wrapper {
+  margin-left: 260px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.not-logged-in .sidebar-left {
+  display: none !important;
+}
+
+body.not-logged-in .main-wrapper {
+  margin-left: 0 !important;
+  min-height: 100vh;
+}
+
+body.user-logged-in .site-header.guest-header {
+  display: none !important;
+}
+
+body.not-logged-in .logged-topbar {
+  display: none !important;
+}
+
+body.user-logged-in .logged-topbar {
+  display: flex !important;
+}
+
+/* Sidebar lateral izquierda fija */
+.sidebar-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: linear-gradient(185deg, #053724 0%, #032518 100%);
+  color: #ffffff;
+  z-index: 150;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.16);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-brand {
+  padding: 22px 20px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-close-mobile {
+  display: none;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+.sidebar-nav-title {
+  padding: 20px 22px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-light-mint);
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #d2ebe0;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.sidebar-link.active {
+  background: rgba(203, 246, 62, 0.16);
+  color: var(--accent-lime);
+  font-weight: 700;
+  border-left: 4px solid var(--accent-lime);
+}
+
+.sidebar-icon {
+  font-size: 18px;
+  line-height: 1;
+  display: inline-block;
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar-user-panel {
+  padding: 16px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sidebar-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sidebar-user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--btn-green);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-user-details {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sidebar-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-role {
+  font-size: 11px;
+  color: var(--accent-lime);
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-logout-btn {
+  background: transparent;
+  border: none;
+  color: #fca5a5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.sidebar-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.16);
+  color: #ef4444;
+}
+
+/* Barra superior privada (cuando hay sesión iniciada) */
+.logged-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e6f0eb;
+  padding: 14px 28px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  box-shadow: 0 2px 10px rgba(6, 64, 45, 0.03);
+}
+
+.logged-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-sidebar-toggle {
+  display: none;
+  background: #f0f6f3;
+  border: 1px solid #d4e7de;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-dark);
+}
+
+.page-current-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.logged-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-greeting {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+.topbar-greeting strong {
+  color: var(--text-dark);
+}
+
+/* Calculadora Interactiva en Recursos */
+.calc-card {
+  background: #ffffff;
+  border: 1px solid #d4e7de;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(6, 64, 45, 0.05);
+  margin-bottom: 40px;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.calc-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.calc-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.calc-group input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d4e7de;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.calc-result-box {
+  background: linear-gradient(135deg, #06402d 0%, #032b1d 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.calc-result-val {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--accent-lime);
+  margin: 10px 0 6px;
+}
+
+/* FAQ Acordeón */
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e6f0eb;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 18px 22px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-answer {
+  padding: 0 22px 18px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-arrow {
+  transition: transform 0.2s;
+  font-size: 14px;
+  color: var(--btn-green);
+}
+
+/* Backdrop para mobile */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 140;
+}
+
+@media (max-width: 992px) {
+  body.user-logged-in .main-wrapper {
+    margin-left: 0 !important;
+  }
+  .sidebar-left {
+    transform: translateX(-100%);
+  }
+  .sidebar-left.open {
+    transform: translateX(0);
+  }
+  .sidebar-close-mobile {
+    display: block;
+  }
+  .btn-sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sidebar-backdrop.open {
+    display: block;
+  }
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
-<body>
+<body class="not-logged-in">
 
-  <!-- ============================================================
-       PANTALLA DE INICIO (SPLASH)
+    <!-- ============================================================
+       SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
        ============================================================ -->
-  <div class="splash" id="splash">
+  <aside class="sidebar-left" id="sidebarLeft" style="display: none;">
+    <div>
+      <div class="sidebar-brand">
+        <a href="index.html" class="brand-logo">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
+            <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
+            <circle cx="18" cy="12" r="1.5" fill="#15803D"/>
+            <path d="M17.5 23C11.5 20.5 6 24 5 29.5C11 31.5 16.5 28 17.5 23Z" fill="#4ADE80"/>
+            <path d="M18.5 23C24.5 20.5 30 24 31 29.5C25 31.5 19.5 28 18.5 23Z" fill="#22C55E"/>
+            <path d="M18 19V30" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <div>Educación</div>
+            <div>Financiera</div>
+          </div>
+        </a>
+        <button class="sidebar-close-mobile" onclick="toggleSidebar(false)" aria-label="Cerrar menú">✕</button>
+      </div>
+
+      <div class="sidebar-nav-title">MENÚ PRINCIPAL</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link active">
+          <span class="sidebar-icon">🏠</span>
+          <span>Inicio</span>
+        </a>
+        <a href="cursos.html" class="sidebar-link ">
+          <span class="sidebar-icon">📚</span>
+          <span>Cursos</span>
+        </a>
+        <a href="recursos.html" class="sidebar-link ">
+          <span class="sidebar-icon">🧮</span>
+          <span>Recursos</span>
+        </a>
+        <a href="nosotros.html" class="sidebar-link ">
+          <span class="sidebar-icon">👥</span>
+          <span>Nosotros</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Perfil del estudiante en la parte inferior del Sidebar -->
+    <div class="sidebar-user-panel">
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebarUserName">Estudiante</div>
+          <div class="sidebar-user-role">Estudiante Activo</div>
+        </div>
+      </div>
+      <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Salir</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Backdrop para cerrar sidebar en responsive -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+
+  <div class="main-wrapper" id="mainWrapper">
+      <!-- ============================================================
+       ENCABEZADO PÚBLICO (Visible cuando NO hay sesión)
+       ============================================================ -->
+  <header class="site-header guest-header">
+    <div class="container">
+      <nav class="nav-wrap">
+        <a href="index.html" class="brand-logo">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
+            <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
+            <circle cx="18" cy="12" r="1.5" fill="#15803D"/>
+            <path d="M17.5 23C11.5 20.5 6 24 5 29.5C11 31.5 16.5 28 17.5 23Z" fill="#4ADE80"/>
+            <path d="M18.5 23C24.5 20.5 30 24 31 29.5C25 31.5 19.5 28 18.5 23Z" fill="#22C55E"/>
+            <path d="M18 19V30" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <div>Educación</div>
+            <div>Financiera</div>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <button class="btn-login" onclick="openLoginModal()">Iniciar sesión</button>
+          <button class="btn-signup" onclick="openSignupModal()">Crear cuenta</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+      <!-- Barra superior del estudiante (tras iniciar sesión) -->
+  <div class="logged-topbar">
+    <div class="logged-topbar-left">
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">☰</button>
+      <div class="page-current-title">Mi Aula Virtual</div>
+    </div>
+    <div class="logged-topbar-right">
+      <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
+      <button class="btn-search" onclick="openSearchModal()" aria-label="Buscar" style="color: var(--text-dark);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+    <main>
+
+  <!-- VISTA PÚBLICA PARA VISITANTES (ANTES DE INICIAR SESIÓN) -->
+  <div id="guestLanding">
+    <div class="splash" id="splash">
     <div class="glow g1"></div>
     <div class="glow g2"></div>
 
@@ -1511,62 +2123,7 @@
     <div class="bar"><i></i></div>
     <button class="skip" onclick="hideSplash()">Continuar al sitio</button>
   </div>
-
-  <!-- ============================================================
-       ENCABEZADO / BARRA DE NAVEGACIÓN
-       ============================================================ -->
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav-wrap">
-        <!-- Logo -->
-        <a href="#inicio" class="brand-logo">
-          <!-- Sprout plant icon with yellow flower and green leaves -->
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
-            <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
-            <circle cx="18" cy="12" r="1.5" fill="#15803D"/>
-            <path d="M17.5 23C11.5 20.5 6 24 5 29.5C11 31.5 16.5 28 17.5 23Z" fill="#4ADE80"/>
-            <path d="M18.5 23C24.5 20.5 30 24 31 29.5C25 31.5 19.5 28 18.5 23Z" fill="#22C55E"/>
-            <path d="M18 19V30" stroke="#15803D" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <div>Educación</div>
-            <div>Financiera</div>
-          </div>
-        </a>
-
-        <!-- Menú enlaces centrales -->
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#inicio" class="active">Inicio</a></li>
-          <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#recursos">Recursos</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-        </ul>
-
-        <!-- Acciones a la derecha -->
-        <div class="nav-actions">
-          <button class="btn-search" id="btnSearch" aria-label="Buscar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </button>
-
-          <button class="btn-login" id="btnLogin">Iniciar sesión</button>
-          <button class="btn-signup" id="btnSignup">Crear cuenta</button>
-          
-          
-
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">☰</button>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ============================================================
-       HERO PRINCIPAL
-       ============================================================ -->
-  <section class="hero-section" id="inicio">
+    <section class="hero-section" id="inicio">
     <!-- Cinta decorativa curva izquierda -->
     <div class="hero-swoosh"></div>
 
@@ -1586,11 +2143,11 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="#cursos" class="btn-cta-yellow">
+            <a href="cursos.html" class="btn-cta-yellow">
               Comenzar ahora
               <span>→</span>
             </a>
-            <a href="#cursos" class="btn-cta-outline">
+            <a href="cursos.html" class="btn-cta-outline">
               Explorar cursos
             </a>
           </div>
@@ -1663,11 +2220,7 @@
       </div>
     </div>
   </section>
-
-  <!-- ============================================================
-       SECCIÓN: LO QUE APRENDERÁS
-       ============================================================ -->
-  <section class="learn-section" id="aprender">
+    <section class="learn-section" id="aprender">
     <div class="container">
       <div class="section-header">
         <div>
@@ -1718,268 +2271,7 @@
       </div>
     </div>
   </section>
-
-  <!-- ============================================================
-       SECCIÓN: NUESTROS CURSOS
-       ============================================================ -->
-  <section class="courses-section" id="cursos">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Nuestros cursos</h2>
-          <p>Elige el curso que mejor se adapte a tus objetivos y empieza a aprender.</p>
-        </div>
-        <a href="#cursos" class="link-view-all">
-          Ver todos los cursos <span>→</span>
-        </a>
-      </div>
-
-      <div class="courses-grid">
-        <!-- CURSO 1: Finanzas personales -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-green">
-            <!-- Piggy Bank Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"></path>
-              <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
-              <path d="M16 11h.01"></path>
-            </svg>
-          </div>
-          <span class="course-level level-basico">Nivel básico</span>
-          <h3>Finanzas personales</h3>
-          <p class="course-desc">
-            Aprende a administrar tu dinero, controlar tus gastos y crear hábitos financieros saludables.
-          </p>
-          <div class="course-progress-meta">50% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 50%;"></div>
-          </div>
-          <button class="btn-course-action" onclick="openCourseModal('Finanzas personales', 'Aprende a administrar tu presupuesto diario, controlar los gastos hormiga y fijar metas de ahorro efectivas.')">
-            Continuar curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 2: Ahorro e inversión -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-yellow">
-            <!-- Trending Growth Bar Chart Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 3v18h18"></path>
-              <path d="m19 9-5 5-4-4-3 3"></path>
-              <path d="M14 9h5v5"></path>
-            </svg>
-          </div>
-          <span class="course-level level-intermedio">Nivel intermedio</span>
-          <h3>Ahorro e inversión</h3>
-          <p class="course-desc">
-            Descubre cómo hacer crecer tu dinero y lograr tus metas a largo plazo.
-          </p>
-          <div class="course-progress-meta">20% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 20%;"></div>
-          </div>
-          <button class="btn-course-action" onclick="openCourseModal('Ahorro e inversión', 'Aprende instrumentos de bajo riesgo, interés compuesto y estrategias para diversificar tus ahorros.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 3: Presupuesto -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-green">
-            <!-- Wallet Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-            </svg>
-          </div>
-          <span class="course-level level-basico">Nivel básico</span>
-          <h3>Presupuesto</h3>
-          <p class="course-desc">
-            Planifica tus ingresos y gastos para tener mayor estabilidad financiera.
-          </p>
-          <div class="course-progress-meta">0% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 0%;"></div>
-          </div>
-          <button class="btn-course-action" onclick="openCourseModal('Presupuesto', 'Domina la regla 50/30/20 y diseña presupuestos mensuales adaptados a tu estilo de vida.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 4: Emprendimiento -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-yellow">
-            <!-- Lightbulb Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6"></path>
-              <path d="M10 22h4"></path>
-              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
-            </svg>
-          </div>
-          <span class="course-level level-avanzado">Nivel avanzado</span>
-          <h3>Emprendimiento</h3>
-          <p class="course-desc">
-            Conoce las bases para iniciar tu propio negocio y generar ingresos.
-          </p>
-          <div class="course-progress-meta">0% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 0%;"></div>
-          </div>
-          <button class="btn-course-action" onclick="openCourseModal('Emprendimiento', 'Valida ideas de negocio, crea tu plan financiero inicial y conoce aspectos legales básicos.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       BANNER: TU PROGRESO IMPORTA
-       ============================================================ -->
-  <section class="progress-banner-wrap" id="progreso">
-    <div class="container">
-      <div class="progress-banner-card">
-        <!-- Izquierda: Target icon + Textos -->
-        <div class="progress-banner-left">
-          <svg class="target-circle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="6"></circle>
-            <circle cx="12" cy="12" r="2"></circle>
-            <path d="m14 10 7-7"></path>
-          </svg>
-          <div class="progress-banner-text">
-            <h3>Tu progreso importa</h3>
-            <p>Cada paso cuenta. Sigue aprendiendo, completa tus cursos y gana insignias.</p>
-          </div>
-        </div>
-
-        <!-- Derecha: Tarjeta blanca con barra y medalla dorada -->
-        <div class="progress-banner-right">
-          <div class="stat-col">
-            <h4>Tu avance general</h4>
-            <div class="overall-progress-bar">
-              <div class="overall-progress-fill"></div>
-            </div>
-            <span class="stat-sub">3 de 6 cursos completados</span>
-          </div>
-
-          <!-- Medalla dorada con estrella y lazos -->
-          <svg class="medal-icon-badge" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="18" cy="14" r="11" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
-            <polygon points="18,7 20,12 25,12 21,15 22.5,20 18,17 13.5,20 15,15 11,12 16,12" fill="#FEF3C7"/>
-            <path d="M13 22L10 32L16 28L18 24" fill="#D97706"/>
-            <path d="M23 22L26 32L20 28L18 24" fill="#B45309"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECCIÓN: RECURSOS (GRATUITOS Y DE PAGO)
-       ============================================================ -->
-  <section class="resources-section" id="recursos">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Recursos gratuitos y de pago</h2>
-          <p>Herramientas y materiales para acompañar tu aprendizaje dentro y fuera del aula.</p>
-        </div>
-        <a href="#cursos" class="link-view-all">
-          Ver todos los recursos <span>→</span>
-        </a>
-      </div>
-
-      <div class="resources-grid">
-        <!-- Recurso gratis 1 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
-          <h3>Guía de ahorro para principiantes</h3>
-          <p>PDF descargable con pasos simples para empezar a ahorrar desde el primer mes.</p>
-          <div class="resource-price">$0</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Guía de ahorro para principiantes', 'Descarga gratuita en PDF con ejercicios prácticos para empezar a ahorrar, crear un fondo de emergencia y fijar tus primeras metas.')">
-            Descargar gratis
-          </a>
-        </article>
-
-        <!-- Recurso gratis 2 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
-          <h3>Plantilla de presupuesto mensual</h3>
-          <p>Formato editable para registrar tus ingresos y gastos y controlar tu dinero.</p>
-          <div class="resource-price">$0</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Plantilla de presupuesto mensual', 'Plantilla editable (Excel / Google Sheets) con la regla 50/30/20 lista para usar y adaptar a tu estilo de vida.')">
-            Descargar gratis
-          </a>
-        </article>
-
-        <!-- Recurso de pago 1 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
-          <h3>Calculadoras interactivas PRO</h3>
-          <p>Simula ahorro, inversión, interés compuesto y amortización de deudas.</p>
-          <div class="resource-price">Incluido en tu curso</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Calculadoras interactivas PRO', 'Herramientas avanzadas para simular planes de ahorro e inversión, calcular interés compuesto y planificar el pago de deudas.')">
-            Ver recurso
-          </a>
-        </article>
-
-        <!-- Recurso de pago 2 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
-          <h3>Certificación y mentorías</h3>
-          <p>Certificado al finalizar tus cursos y sesiones personalizadas con un tutor.</p>
-          <div class="resource-price">Según el plan</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Certificación y mentorías', 'Obtén tu certificado al completar los cursos y agenda mentorías personalizadas para resolver tus dudas financieras.')">
-            Ver detalle
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECCIÓN: NOSOTROS
-       ============================================================ -->
-  <section class="about-section" id="nosotros">
-    <div class="container">
-      <div class="about-card">
-        <div>
-          <h2>Sobre Educación Financiera</h2>
-          <p>Somos una escuela virtual creada para que cualquier persona pueda aprender a manejar su dinero con confianza. Nuestro objetivo es acercar la educación financiera de forma simple, práctica y sin tecnicismos.</p>
-          <p>A través de cursos guiados, recursos descargables y herramientas interactivas, te acompañamos desde tus primeros ahorros hasta decisiones de inversión y emprendimiento.</p>
-        </div>
-        <div class="about-stats">
-          <div class="about-stat">
-            <strong>+4</strong>
-            <span>Cursos disponibles</span>
-          </div>
-          <div class="about-stat">
-            <strong>3</strong>
-            <span>Niveles de aprendizaje</span>
-          </div>
-          <div class="about-stat">
-            <strong>100%</strong>
-            <span>En línea y a tu ritmo</span>
-          </div>
-          <div class="about-stat">
-            <strong>Gratis</strong>
-            <span>Recursos de inicio</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       BANDA CTA: REGISTRO / INICIAR SESIÓN
-       ============================================================ -->
-  <section class="cta-band">
+    <section class="cta-band">
     <div class="container">
       <div class="cta-band-inner">
         <div>
@@ -1993,11 +2285,104 @@
       </div>
     </div>
   </section>
+  </div>
 
-  <!-- ============================================================
-       PIE DE PÁGINA (FOOTER)
-       ============================================================ -->
-  <footer class="site-footer">
+  <!-- VISTA PRIVADA DEL ESTUDIANTE (DESPUÉS DE INICIAR SESIÓN) -->
+  <div id="studentDashboard" style="display: none;">
+    <section class="subpage-hero" style="text-align: left; padding: 40px 0 50px;">
+      <div class="container">
+        <span class="subpage-badge">🎓 Aula Virtual</span>
+        <h1>¡Bienvenido a tu <span>Panel de Aprendizaje</span>!</h1>
+        <p>Selecciona una opción del menú lateral izquierdo para acceder a tus cursos, calculadoras y herramientas financieras.</p>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 40px; padding-bottom: 50px;">
+      <h3 style="font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px;">Accesos Rápidos de tu Formación</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+        <!-- Card 1: Cursos -->
+        <div style="background: #ffffff; border: 1px solid #e6f0eb; border-radius: 18px; padding: 24px; box-shadow: 0 4px 20px rgba(6, 64, 45, 0.04); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 32px; margin-bottom: 12px;">📚</div>
+          <h4 style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Mis Cursos Disponibles</h4>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 18px;">Explora los 3 niveles: Básico, Intermedio y Avanzado con temarios y certificaciones.</p>
+          <a href="cursos.html" class="btn-cta-yellow" style="padding: 8px 18px; font-size: 13px;">Ir a Cursos →</a>
+        </div>
+
+        <!-- Card 2: Calculadoras -->
+        <div style="background: #ffffff; border: 1px solid #e6f0eb; border-radius: 18px; padding: 24px; box-shadow: 0 4px 20px rgba(6, 64, 45, 0.04); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 32px; margin-bottom: 12px;">🧮</div>
+          <h4 style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Calculadora de Ahorro</h4>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 18px;">Simula en tiempo real el crecimiento de tu dinero con interés compuesto mensual.</p>
+          <a href="recursos.html" class="btn-cta-yellow" style="padding: 8px 18px; font-size: 13px;">Usar Calculadora →</a>
+        </div>
+
+        <!-- Card 3: Nosotros -->
+        <div style="background: #ffffff; border: 1px solid #e6f0eb; border-radius: 18px; padding: 24px; box-shadow: 0 4px 20px rgba(6, 64, 45, 0.04); transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+          <div style="font-size: 32px; margin-bottom: 12px;">👥</div>
+          <h4 style="font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Comunidad y Ayuda</h4>
+          <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 18px;">Conoce nuestra misión pedagógica, resuelve preguntas frecuentes y contáctanos.</p>
+          <a href="nosotros.html" class="btn-cta-yellow" style="padding: 8px 18px; font-size: 13px;">Ver Comunidad →</a>
+        </div>
+      </div>
+
+      <section class="learn-section" id="aprender">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Lo que aprenderás</h2>
+          <p>Tres pilares para tomar el control de tus finanzas desde el primer día.</p>
+        </div>
+      </div>
+
+      <div class="learn-grid">
+        <!-- Ahorro -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"></path>
+              <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
+              <path d="M16 11h.01"></path>
+            </svg>
+          </div>
+          <h3>Ahorro</h3>
+          <p>Aprende a guardar una parte de tus ingresos cada mes, crear un fondo de emergencia y fijar metas de ahorro claras y alcanzables.</p>
+        </article>
+
+        <!-- Gastos -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"></path>
+              <path d="m19 9-5 5-4-4-3 3"></path>
+              <path d="M14 9h5v5"></path>
+            </svg>
+          </div>
+          <h3>Gastos</h3>
+          <p>Identifica en qué se va tu dinero, distingue gastos fijos de variables y elimina los gastos hormiga que afectan tu bolsillo.</p>
+        </article>
+
+        <!-- Presupuesto -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+            </svg>
+          </div>
+          <h3>Presupuesto</h3>
+          <p>Diseña un presupuesto mensual con la regla 50/30/20, planifica tus ingresos y gastos y alcanza mayor estabilidad financiera.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="site-footer">
     <!-- Cinta decorativa curva inferior izquierda -->
     <div class="footer-swoosh"></div>
 
@@ -2005,7 +2390,7 @@
       <div class="footer-grid">
         <!-- Columna 1: Logo & lema -->
         <div class="footer-brand">
-          <a href="#inicio" class="brand-logo">
+          <a href="index.html" class="brand-logo">
             <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 4L24 10C24 10 24.5 15.5 21.5 18C19.5 19.5 16.5 19.5 14.5 18C11.5 15.5 12 10 12 10L18 4Z" fill="#FACC15"/>
               <path d="M18 7L14.5 11C14.5 13.5 16 16.5 18 16.5C20 16.5 21.5 13.5 21.5 11L18 7Z" fill="#FEF08A"/>
@@ -2026,11 +2411,11 @@
         <div class="footer-col" id="enlaces">
           <h4>Enlaces rápidos</h4>
           <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="recursos.html">Recursos</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
           </ul>
         </div>
 
@@ -2087,6 +2472,7 @@
       </div>
     </div>
   </footer>
+  </div>
 
   <!-- ============================================================
        MODAL POPUP
@@ -2109,12 +2495,13 @@
       <button class="modal-close-btn" onclick="closeSearchModal()">×</button>
       <h3 style="margin-bottom: 12px;">Buscar en la plataforma</h3>
       <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones o herramientas..." 
-             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 14px; margin-bottom: 16px; outline: none;">
+             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 14px; margin-bottom: 16px; outline: none; box-sizing: border-box;">
       <div id="searchResults" style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
         Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.
       </div>
     </div>
   </div>
+
 
   <!-- Modal de Inicio de Sesión -->
   <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
@@ -2122,15 +2509,29 @@
       <button class="modal-close-btn" onclick="closeLoginModal()">×</button>
       <div style="font-size: 36px; margin-bottom: 10px;">🔐</div>
       <h3>Iniciar sesión</h3>
-      <p>Accede a tu cuenta de estudiante para continuar tu avance y ver tus certificados.</p>
-      <form onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <p>Accede a tu aula virtual para acceder al menú completo y continuar tus cursos.</p>
+      <div id="loginMsg" class="form-message"></div>
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
           <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
+          <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
-          <input type="password" required placeholder="••••••••" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+            <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 11.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
+          </div>
+          <div class="password-field">
+            <input type="password" id="loginPassword" required placeholder="••••••••">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('loginPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu contraseña.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Ingresar al aula virtual
@@ -2142,28 +2543,103 @@
     </div>
   </div>
 
+  <!-- Modal de Recuperar Contraseña -->
+  <div class="modal-overlay" id="forgotModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeForgotModal()">×</button>
+      <div style="font-size: 36px; margin-bottom: 10px;">🔑</div>
+      <h3>Recuperar contraseña</h3>
+      <p>Ingresa tu correo registrado y define tu nueva contraseña para restablecer tu acceso.</p>
+      <div id="forgotMsg" class="form-message"></div>
+      <form id="forgotForm" onsubmit="handleForgotSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
+          <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
+          <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
+          <div class="password-field">
+            <input type="password" id="forgotPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
+          <div class="password-field">
+            <input type="password" id="forgotConfirm" required minlength="6" placeholder="Repite tu nueva contraseña">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+        </div>
+        <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
+          Restablecer mi contraseña
+        </button>
+      </form>
+      <p class="modal-switch-text">
+        ¿Recordaste tu contraseña? <button type="button" onclick="openLoginModal()">Iniciar sesión</button>
+      </p>
+    </div>
+  </div>
+
   <!-- Modal de Crear Cuenta -->
   <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true">
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeSignupModal()">×</button>
       <div style="font-size: 36px; margin-bottom: 10px;">🌱</div>
       <h3>Crear cuenta</h3>
-      <p>Regístrate gratis y empieza a aprender educación financiera a tu ritmo.</p>
-      <form onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <p>Regístrate gratis para acceder a tu aula virtual y desbloquear el menú de la escuela.</p>
+      <div id="signupMsg" class="form-message"></div>
+      <form id="signupForm" onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
           <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
-          <input type="text" required placeholder="Tu nombre" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu nombre completo.</span>
         </div>
         <div>
           <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
           <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
-          <input type="password" required minlength="6" placeholder="Mínimo 6 caracteres" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+          <div class="password-field">
+            <input type="password" id="signupPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
+          <div class="password-field">
+            <input type="password" id="signupConfirm" required minlength="6" placeholder="Repite tu contraseña">
+            <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+          <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
-          Registrarme
+          Registrarme y acceder
         </button>
       </form>
       <p class="modal-switch-text">
@@ -2172,335 +2648,7 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       SCRIPTS INTERACTIVOS
-       ============================================================ -->
-  <script>
-    // Toggle Menú Móvil
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
 
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      mobileToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
-    });
-
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        mobileToggle.textContent = '☰';
-      });
-    });
-
-    // Modales de Cursos y Recursos
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-
-    function openCourseModal(title, desc) {
-      modalTitle.textContent = title;
-      modalDescription.textContent = desc;
-      modalOverlay.classList.add('open');
-    }
-
-    function openResourceModal(title, desc) {
-      modalTitle.textContent = title;
-      modalDescription.textContent = desc;
-      modalOverlay.classList.add('open');
-    }
-
-    function closeModal() {
-      modalOverlay.classList.remove('open');
-    }
-
-    modalCloseBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
-    });
-
-    // Modal de Búsqueda
-    const searchModal = document.getElementById('searchModal');
-    const btnSearch = document.getElementById('btnSearch');
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    btnSearch.addEventListener('click', () => {
-      searchModal.classList.add('open');
-      setTimeout(() => searchInput.focus(), 100);
-    });
-
-    function closeSearchModal() {
-      searchModal.classList.remove('open');
-    }
-
-    searchModal.addEventListener('click', (e) => {
-      if (e.target === searchModal) closeSearchModal();
-    });
-
-    searchInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      if (!q) {
-        searchResults.innerHTML = 'Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.';
-        return;
-      }
-
-      const items = [
-        { name: 'Finanzas personales', type: 'Curso', link: '#cursos' },
-        { name: 'Ahorro e inversión', type: 'Curso', link: '#cursos' },
-        { name: 'Presupuesto', type: 'Curso', link: '#cursos' },
-        { name: 'Emprendimiento', type: 'Curso', link: '#cursos' },
-        { name: 'Calculadoras de ahorro', type: 'Recurso', link: '#recursos' },
-        { name: 'Guías de inversión', type: 'Recurso', link: '#recursos' }
-      ];
-
-      const matches = items.filter(it => it.name.toLowerCase().includes(q));
-      if (matches.length > 0) {
-        searchResults.innerHTML = matches.map(m => `
-          <div style="padding: 8px 0; border-bottom: 1px solid #f0f6f3; display: flex; justify-content: space-between;">
-            <strong>${m.name}</strong>
-            <span style="color: #00ba6d; font-size: 11px;">${m.type}</span>
-          </div>
-        `).join('');
-      } else {
-        searchResults.innerHTML = 'No se encontraron resultados para "' + q + '".';
-      }
-    });
-
-    // Modal de Login
-    const loginModal = document.getElementById('loginModal');
-    const loginForm = document.getElementById('loginForm');
-    const loginEmail = document.getElementById('loginEmail');
-    const loginPassword = document.getElementById('loginPassword');
-    const loginMsg = document.getElementById('loginMsg');
-    const loginEmailErr = document.getElementById('loginEmailErr');
-    const loginPasswordErr = document.getElementById('loginPasswordErr');
-    const btnLogin = document.getElementById('btnLogin');
-
-    btnLogin.addEventListener('click', openLoginModal);
-
-    function openLoginModal() {
-      closeSignupModal();
-      
-      clearLoginErrors();
-      loginMsg.className = 'form-message';
-      loginMsg.textContent = '';
-      loginForm.reset();
-      
-      setTimeout(() => loginEmail.focus(), 100);
-    }
-
-    function closeLoginModal() {
-      
-    }
-
-    loginModal.addEventListener('click', (e) => {
-      if (e.target === loginModal) closeLoginModal();
-    });
-
-    function clearLoginErrors() {
-      loginEmail.classList.remove('input-invalid');
-      loginPassword.classList.remove('input-invalid');
-      loginEmailErr.style.display = 'none';
-      loginPasswordErr.style.display = 'none';
-    }
-
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      clearLoginErrors();
-      loginMsg.className = 'form-message';
-
-      const email = loginEmail.value.trim();
-      const pass = loginPassword.value;
-
-      let valid = true;
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        loginEmail.classList.add('input-invalid');
-        loginEmailErr.style.display = 'block';
-        valid = false;
-      }
-      if (pass.length < 1) {
-        loginPassword.classList.add('input-invalid');
-        loginPasswordErr.textContent = 'Ingresa tu contraseña.';
-        loginPasswordErr.style.display = 'block';
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      const users = getUsers();
-      const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === pass);
-      if (!user) {
-        loginMsg.className = 'form-message error';
-        loginMsg.textContent = 'Correo o contraseña incorrectos. Verifica tus datos.';
-        return;
-      }
-
-      setCurrentUser(user);
-      
-      closeLoginModal();
-      
-    }
-
-    // Modal de Crear Cuenta
-    const signupModal = document.getElementById('signupModal');
-    const signupForm = document.getElementById('signupForm');
-    const signupName = document.getElementById('signupName');
-    const signupEmail = document.getElementById('signupEmail');
-    const signupPassword = document.getElementById('signupPassword');
-    const signupConfirm = document.getElementById('signupConfirm');
-    const signupMsg = document.getElementById('signupMsg');
-    const signupNameErr = document.getElementById('signupNameErr');
-    const signupEmailErr = document.getElementById('signupEmailErr');
-    const signupPasswordErr = document.getElementById('signupPasswordErr');
-    const signupConfirmErr = document.getElementById('signupConfirmErr');
-    const btnSignup = document.getElementById('btnSignup');
-
-    btnSignup.addEventListener('click', openSignupModal);
-
-    function openSignupModal() {
-      closeLoginModal();
-      
-      clearSignupErrors();
-      signupMsg.className = 'form-message';
-      signupMsg.textContent = '';
-      signupForm.reset();
-      signupModal.classList.add('open');
-      setTimeout(() => signupName.focus(), 100);
-    }
-
-    function closeSignupModal() {
-      
-    }
-
-    signupModal.addEventListener('click', (e) => {
-      if (e.target === signupModal) closeSignupModal();
-    });
-
-    function clearSignupErrors() {
-      [signupName, signupEmail, signupPassword, signupConfirm].forEach(i => i.classList.remove('input-invalid'));
-      [signupNameErr, signupEmailErr, signupPasswordErr, signupConfirmErr].forEach(e => e.style.display = 'none');
-    }
-
-    function handleSignupSubmit(e) {
-      e.preventDefault();
-      clearSignupErrors();
-      signupMsg.className = 'form-message';
-
-      const name = signupName.value.trim();
-      const email = signupEmail.value.trim();
-      const pass = signupPassword.value;
-      const confirm = signupConfirm.value;
-
-      let valid = true;
-      if (name.length < 2) {
-        signupName.classList.add('input-invalid');
-        signupNameErr.style.display = 'block';
-        valid = false;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        signupEmail.classList.add('input-invalid');
-        signupEmailErr.style.display = 'block';
-        valid = false;
-      }
-      if (pass.length < 6) {
-        signupPassword.classList.add('input-invalid');
-        signupPasswordErr.style.display = 'block';
-        valid = false;
-      }
-      if (confirm !== pass) {
-        signupConfirm.classList.add('input-invalid');
-        signupConfirmErr.style.display = 'block';
-        valid = false;
-      }
-      if (!valid) return;
-
-      let users = getUsers();
-      if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
-        signupMsg.className = 'form-message error';
-        signupMsg.textContent = 'Ya existe una cuenta con ese correo electrónico.';
-        return;
-      }
-
-      const newUser = { name, email: email.toLowerCase(), password: pass, createdAt: Date.now() };
-      users.push(newUser);
-      saveUsers(users);
-      setCurrentUser(newUser);
-      
-      closeSignupModal();
-      
-      signupForm.reset();
-    }
-
-    // Dashboard / Espacio personal
-    
-    const dashName = document.getElementById('dashName');
-    const dashEmail = document.getElementById('dashEmail');
-    
-    
-
-    
-    
-
-    );
-
-    // Almacenamiento
-    
-    
-
-    function getUsers() {
-      try {
-        const raw = localStorage.getItem(USERS_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch (e) {
-        return [];
-      }
-    }
-
-    function saveUsers(users) {
-      try {
-        localStorage.setItem(USERS_KEY, JSON.stringify(users));
-      } catch (e) {}
-    }
-
-    function setCurrentUser(user) {
-      try {
-        localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email }));
-      } catch (e) {}
-    }
-
-    function getCurrentUser() {
-      try {
-        const raw = localStorage.getItem(SESSION_KEY);
-        return raw ? JSON.parse(raw) : null;
-      } catch (e) {
-        return null;
-      }
-    }
-
-    function logout() {
-      try {
-        localStorage.removeItem(SESSION_KEY);
-      } catch (e) {}
-      
-      
-    }
-
-     else {
-        btnLogin.style.display = 'inline-block';
-        btnSignup.style.display = 'inline-block';
-        
-        
-      }
-    }
-
-    ón
-    
-
-</script>
-<script>let splashTimer=setTimeout(hideSplash,5200);function hideSplash(){const sp=document.getElementById(" splash);if(!sp||sp.classList.contains(hide))return;sp.classList.add(hide);clearTimeout(splashTimer);setTimeout(()=>{sp.style.display=
-one;},900);}document.body.addEventListener(click,e=>{if(e.target.closest(.splash))hideSplash();});</script></body>
+  <script src="script.js"></script>
+</body>
 </html>
-
