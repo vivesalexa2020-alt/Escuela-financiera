@@ -178,6 +178,135 @@
       transform: translateY(-1px);
     }
 
+    .btn-signup {
+      background: var(--accent-yellow);
+      border: 1px solid var(--accent-yellow);
+      color: var(--primary-deep);
+      padding: 8px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-signup:hover {
+      background: var(--accent-yellow-hover);
+      border-color: var(--accent-yellow-hover);
+      transform: translateY(-1px);
+    }
+
+    .modal-switch-text {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .modal-switch-text button {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--btn-green);
+      text-decoration: underline;
+    }
+
+    .field-error {
+      margin-top: 6px;
+      font-size: 11.5px;
+      color: #e11d48;
+      display: none;
+    }
+
+    .input-invalid {
+      border-color: #fca5a5 !important;
+      background: #fff1f2;
+    }
+
+    .form-message {
+      font-size: 12.5px;
+      margin-bottom: 6px;
+      display: none;
+    }
+
+    .form-message.error {
+      color: #e11d48;
+      display: block;
+    }
+
+    .form-message.success {
+      color: #059669;
+      display: block;
+    }
+
+    .nav-user {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .nav-user:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-1px);
+    }
+
+    /* Panel Mi espacio (dashboard) */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .dashboard-card {
+      background: #f7fbf9;
+      border: 1px solid #e6f0eb;
+      border-radius: 16px;
+      padding: 18px;
+      text-align: left;
+    }
+
+    .dashboard-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .dashboard-card p,
+    .dashboard-card li {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .dashboard-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .progress-mini {
+      height: 8px;
+      background: #e6eee9;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 12px 0 8px;
+    }
+
+    .progress-mini-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--btn-green), var(--accent-lime));
+      width: 50%;
+    }
+
     .mobile-toggle {
       display: none;
       background: transparent;
@@ -632,6 +761,307 @@
     }
 
     /* ============================================================
+       SECCIÓN: LO QUE APRENDERÁS
+       ============================================================ */
+    .learn-section {
+      padding: 46px 0 12px;
+      background: #ffffff;
+    }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .learn-card {
+      background: linear-gradient(180deg, #f3fbf7 0%, #ffffff 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px 22px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .learn-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(6, 64, 45, 0.09);
+      border-color: #c9e8d8;
+    }
+
+    .learn-card .learn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: var(--btn-green);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 186, 109, 0.28);
+    }
+
+    .learn-card:nth-child(2) .learn-icon {
+      background: var(--accent-yellow);
+      box-shadow: 0 4px 12px rgba(250, 187, 21, 0.3);
+    }
+
+    .learn-card:nth-child(3) .learn-icon {
+      background: #06402d;
+      box-shadow: 0 4px 12px rgba(6, 64, 45, 0.28);
+    }
+
+    .learn-card .learn-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .learn-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .learn-card p {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* Nivel del curso */
+    .course-level {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .level-basico {
+      background: #e6f0eb;
+      color: #009355;
+    }
+
+    .level-intermedio {
+      background: #fff4d6;
+      color: #b4770a;
+    }
+
+    .level-avanzado {
+      background: #e7ecff;
+      color: #3b4fd1;
+    }
+
+    /* ============================================================
+       SECCIÓN: RECURSOS (gratis y de pago)
+       ============================================================ */
+    .resources-section {
+      padding: 46px 0 26px;
+      background: #f7fbf9;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .resource-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.035);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(6, 64, 45, 0.09);
+      border-color: #c9e8d8;
+    }
+
+    .resource-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .tag-free {
+      background: #d7f4e6;
+      color: #00804b;
+    }
+
+    .tag-paid {
+      background: #fff4d6;
+      color: #b4770a;
+    }
+
+    .resource-card h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .resource-card p {
+      font-size: 11.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .resource-price {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .resource-card .btn-resource {
+      width: 100%;
+      background: #eef7f2;
+      color: #00804b;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .resource-card .btn-resource:hover {
+      background: var(--btn-green);
+      color: #ffffff;
+    }
+
+    /* ============================================================
+       SECCIÓN: NOSOTROS
+       ============================================================ */
+    .about-section {
+      padding: 46px 0 50px;
+      background: #ffffff;
+    }
+
+    .about-card {
+      background: radial-gradient(circle at 85% 20%, #0d704d 0%, #06402d 55%, #032d1f 100%);
+      border-radius: 22px;
+      padding: 40px;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-card h2 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+    }
+
+    .about-card p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-light-mint);
+      margin-bottom: 12px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .about-stat {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      padding: 18px 16px;
+    }
+
+    .about-stat strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-lime);
+    }
+
+    .about-stat span {
+      font-size: 11.5px;
+      color: var(--text-light-mint);
+    }
+
+    /* ============================================================
+       BANDA CTA: REGISTRO / INICIAR SESIÓN
+       ============================================================ */
+    .cta-band {
+      background: var(--banner-mint-bg);
+      border-top: 1px solid var(--banner-mint-border);
+      border-bottom: 1px solid var(--banner-mint-border);
+      padding: 34px 0;
+    }
+
+    .cta-band-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band-inner h3 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .cta-band-inner p {
+      font-size: 13px;
+      color: #386352;
+      margin-top: 4px;
+    }
+
+    .cta-band-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band .btn-cta-yellow {
+      border: 1px solid var(--accent-yellow);
+    }
+
+    .cta-band .btn-cta-outline {
+      background: transparent;
+      border: 1px solid #00a45f;
+      color: var(--text-dark);
+    }
+
+    .cta-band .btn-cta-outline:hover {
+      background: #00a45f;
+      border-color: #00a45f;
+      color: #ffffff;
+      box-shadow: 0 6px 14px rgba(0, 164, 95, 0.3);
+    }
+
+    /* ============================================================
        FOOTER
        ============================================================ */
     .site-footer {
@@ -814,6 +1244,13 @@
       .courses-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-card {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
       .hero-features {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -828,6 +1265,10 @@
     }
 
     @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -865,11 +1306,30 @@
       .hero-features {
         grid-template-columns: 1fr;
       }
+      .learn-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-band-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .cta-band-actions {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 540px) {
       .courses-grid {
         grid-template-columns: 1fr;
+      }
+      .resources-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+      .about-card {
+        padding: 26px 22px;
       }
       .footer-grid {
         grid-template-columns: 1fr;
@@ -879,6 +1339,16 @@
         text-align: center;
       }
       .hero-swoosh, .footer-swoosh {
+        display: none;
+      }
+      .nav-actions {
+        gap: 10px;
+      }
+      .btn-login, .btn-signup {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+      .btn-signup {
         display: none;
       }
     }
@@ -1083,6 +1553,9 @@
           </button>
 
           <button class="btn-login" id="btnLogin">Iniciar sesión</button>
+          <button class="btn-signup" id="btnSignup">Crear cuenta</button>
+          
+          
 
           <button class="mobile-toggle" id="mobileToggle" aria-label="Menú">☰</button>
         </div>
@@ -1192,6 +1665,61 @@
   </section>
 
   <!-- ============================================================
+       SECCIÓN: LO QUE APRENDERÁS
+       ============================================================ -->
+  <section class="learn-section" id="aprender">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Lo que aprenderás</h2>
+          <p>Tres pilares para tomar el control de tus finanzas desde el primer día.</p>
+        </div>
+      </div>
+
+      <div class="learn-grid">
+        <!-- Ahorro -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"></path>
+              <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
+              <path d="M16 11h.01"></path>
+            </svg>
+          </div>
+          <h3>Ahorro</h3>
+          <p>Aprende a guardar una parte de tus ingresos cada mes, crear un fondo de emergencia y fijar metas de ahorro claras y alcanzables.</p>
+        </article>
+
+        <!-- Gastos -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3v18h18"></path>
+              <path d="m19 9-5 5-4-4-3 3"></path>
+              <path d="M14 9h5v5"></path>
+            </svg>
+          </div>
+          <h3>Gastos</h3>
+          <p>Identifica en qué se va tu dinero, distingue gastos fijos de variables y elimina los gastos hormiga que afectan tu bolsillo.</p>
+        </article>
+
+        <!-- Presupuesto -->
+        <article class="learn-card">
+          <div class="learn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+            </svg>
+          </div>
+          <h3>Presupuesto</h3>
+          <p>Diseña un presupuesto mensual con la regla 50/30/20, planifica tus ingresos y gastos y alcanza mayor estabilidad financiera.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SECCIÓN: NUESTROS CURSOS
        ============================================================ -->
   <section class="courses-section" id="cursos">
@@ -1217,6 +1745,7 @@
               <path d="M16 11h.01"></path>
             </svg>
           </div>
+          <span class="course-level level-basico">Nivel básico</span>
           <h3>Finanzas personales</h3>
           <p class="course-desc">
             Aprende a administrar tu dinero, controlar tus gastos y crear hábitos financieros saludables.
@@ -1240,6 +1769,7 @@
               <path d="M14 9h5v5"></path>
             </svg>
           </div>
+          <span class="course-level level-intermedio">Nivel intermedio</span>
           <h3>Ahorro e inversión</h3>
           <p class="course-desc">
             Descubre cómo hacer crecer tu dinero y lograr tus metas a largo plazo.
@@ -1263,6 +1793,7 @@
               <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
             </svg>
           </div>
+          <span class="course-level level-basico">Nivel básico</span>
           <h3>Presupuesto</h3>
           <p class="course-desc">
             Planifica tus ingresos y gastos para tener mayor estabilidad financiera.
@@ -1286,6 +1817,7 @@
               <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
             </svg>
           </div>
+          <span class="course-level level-avanzado">Nivel avanzado</span>
           <h3>Emprendimiento</h3>
           <p class="course-desc">
             Conoce las bases para iniciar tu propio negocio y generar ingresos.
@@ -1345,6 +1877,124 @@
   </section>
 
   <!-- ============================================================
+       SECCIÓN: RECURSOS (GRATUITOS Y DE PAGO)
+       ============================================================ -->
+  <section class="resources-section" id="recursos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Recursos gratuitos y de pago</h2>
+          <p>Herramientas y materiales para acompañar tu aprendizaje dentro y fuera del aula.</p>
+        </div>
+        <a href="#cursos" class="link-view-all">
+          Ver todos los recursos <span>→</span>
+        </a>
+      </div>
+
+      <div class="resources-grid">
+        <!-- Recurso gratis 1 -->
+        <article class="resource-card">
+          <span class="resource-tag tag-free">Gratis</span>
+          <h3>Guía de ahorro para principiantes</h3>
+          <p>PDF descargable con pasos simples para empezar a ahorrar desde el primer mes.</p>
+          <div class="resource-price">$0</div>
+          <a href="javascript:void(0)" class="btn-resource"
+             onclick="openResourceModal('Guía de ahorro para principiantes', 'Descarga gratuita en PDF con ejercicios prácticos para empezar a ahorrar, crear un fondo de emergencia y fijar tus primeras metas.')">
+            Descargar gratis
+          </a>
+        </article>
+
+        <!-- Recurso gratis 2 -->
+        <article class="resource-card">
+          <span class="resource-tag tag-free">Gratis</span>
+          <h3>Plantilla de presupuesto mensual</h3>
+          <p>Formato editable para registrar tus ingresos y gastos y controlar tu dinero.</p>
+          <div class="resource-price">$0</div>
+          <a href="javascript:void(0)" class="btn-resource"
+             onclick="openResourceModal('Plantilla de presupuesto mensual', 'Plantilla editable (Excel / Google Sheets) con la regla 50/30/20 lista para usar y adaptar a tu estilo de vida.')">
+            Descargar gratis
+          </a>
+        </article>
+
+        <!-- Recurso de pago 1 -->
+        <article class="resource-card">
+          <span class="resource-tag tag-paid">De pago</span>
+          <h3>Calculadoras interactivas PRO</h3>
+          <p>Simula ahorro, inversión, interés compuesto y amortización de deudas.</p>
+          <div class="resource-price">Incluido en tu curso</div>
+          <a href="javascript:void(0)" class="btn-resource"
+             onclick="openResourceModal('Calculadoras interactivas PRO', 'Herramientas avanzadas para simular planes de ahorro e inversión, calcular interés compuesto y planificar el pago de deudas.')">
+            Ver recurso
+          </a>
+        </article>
+
+        <!-- Recurso de pago 2 -->
+        <article class="resource-card">
+          <span class="resource-tag tag-paid">De pago</span>
+          <h3>Certificación y mentorías</h3>
+          <p>Certificado al finalizar tus cursos y sesiones personalizadas con un tutor.</p>
+          <div class="resource-price">Según el plan</div>
+          <a href="javascript:void(0)" class="btn-resource"
+             onclick="openResourceModal('Certificación y mentorías', 'Obtén tu certificado al completar los cursos y agenda mentorías personalizadas para resolver tus dudas financieras.')">
+            Ver detalle
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECCIÓN: NOSOTROS
+       ============================================================ -->
+  <section class="about-section" id="nosotros">
+    <div class="container">
+      <div class="about-card">
+        <div>
+          <h2>Sobre Educación Financiera</h2>
+          <p>Somos una escuela virtual creada para que cualquier persona pueda aprender a manejar su dinero con confianza. Nuestro objetivo es acercar la educación financiera de forma simple, práctica y sin tecnicismos.</p>
+          <p>A través de cursos guiados, recursos descargables y herramientas interactivas, te acompañamos desde tus primeros ahorros hasta decisiones de inversión y emprendimiento.</p>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <strong>+4</strong>
+            <span>Cursos disponibles</span>
+          </div>
+          <div class="about-stat">
+            <strong>3</strong>
+            <span>Niveles de aprendizaje</span>
+          </div>
+          <div class="about-stat">
+            <strong>100%</strong>
+            <span>En línea y a tu ritmo</span>
+          </div>
+          <div class="about-stat">
+            <strong>Gratis</strong>
+            <span>Recursos de inicio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BANDA CTA: REGISTRO / INICIAR SESIÓN
+       ============================================================ -->
+  <section class="cta-band">
+    <div class="container">
+      <div class="cta-band-inner">
+        <div>
+          <h3>Empieza tu educación financiera hoy</h3>
+          <p>Crea tu cuenta gratis o inicia sesión para continuar tu progreso.</p>
+        </div>
+        <div class="cta-band-actions">
+          <button class="btn-cta-yellow" onclick="openSignupModal()">Crear cuenta gratis</button>
+          <button class="btn-cta-outline" onclick="openLoginModal()">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        PIE DE PÁGINA (FOOTER)
        ============================================================ -->
   <footer class="site-footer">
@@ -1385,7 +2035,7 @@
         </div>
 
         <!-- Columna 3: Recursos -->
-        <div class="footer-col" id="recursos">
+        <div class="footer-col" id="recursos-footer">
           <h4>Recursos</h4>
           <ul>
             <li><a href="javascript:void(0)" onclick="openResourceModal('Guías financieras', 'Accede a guías descargables en PDF sobre ahorro, control de deudas e inversiones.')">Guías</a></li>
@@ -1396,7 +2046,7 @@
         </div>
 
         <!-- Columna 4: Síguenos -->
-        <div class="footer-col" id="nosotros">
+        <div class="footer-col" id="nosotros-footer">
           <h4>Síguenos</h4>
           <div class="social-links">
             <!-- Facebook -->
@@ -1486,6 +2136,39 @@
           Ingresar al aula virtual
         </button>
       </form>
+      <p class="modal-switch-text">
+        ¿No tienes cuenta? <button type="button" onclick="openSignupModal()">Crear cuenta</button>
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal de Crear Cuenta -->
+  <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeSignupModal()">×</button>
+      <div style="font-size: 36px; margin-bottom: 10px;">🌱</div>
+      <h3>Crear cuenta</h3>
+      <p>Regístrate gratis y empieza a aprender educación financiera a tu ritmo.</p>
+      <form onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
+          <input type="text" required placeholder="Tu nombre" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+        </div>
+        <div>
+          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+          <input type="password" required minlength="6" placeholder="Mínimo 6 caracteres" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px;">
+        </div>
+        <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
+          Registrarme
+        </button>
+      </form>
+      <p class="modal-switch-text">
+        ¿Ya tienes cuenta? <button type="button" onclick="openLoginModal()">Iniciar sesión</button>
+      </p>
     </div>
   </div>
 
@@ -1586,49 +2269,232 @@
 
     // Modal de Login
     const loginModal = document.getElementById('loginModal');
+    const loginForm = document.getElementById('loginForm');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const loginMsg = document.getElementById('loginMsg');
+    const loginEmailErr = document.getElementById('loginEmailErr');
+    const loginPasswordErr = document.getElementById('loginPasswordErr');
     const btnLogin = document.getElementById('btnLogin');
 
-    btnLogin.addEventListener('click', () => {
-      loginModal.classList.add('open');
-    });
+    btnLogin.addEventListener('click', openLoginModal);
+
+    function openLoginModal() {
+      closeSignupModal();
+      
+      clearLoginErrors();
+      loginMsg.className = 'form-message';
+      loginMsg.textContent = '';
+      loginForm.reset();
+      
+      setTimeout(() => loginEmail.focus(), 100);
+    }
 
     function closeLoginModal() {
-      loginModal.classList.remove('open');
+      
     }
 
     loginModal.addEventListener('click', (e) => {
       if (e.target === loginModal) closeLoginModal();
     });
 
+    function clearLoginErrors() {
+      loginEmail.classList.remove('input-invalid');
+      loginPassword.classList.remove('input-invalid');
+      loginEmailErr.style.display = 'none';
+      loginPasswordErr.style.display = 'none';
+    }
+
     function handleLoginSubmit(e) {
       e.preventDefault();
-      alert('¡Bienvenido! Has iniciado sesión correctamente.');
-      closeLoginModal();
-    }
+      clearLoginErrors();
+      loginMsg.className = 'form-message';
 
-    // Tecla Escape cierra todos los modales
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-        closeSearchModal();
-        closeLoginModal();
+      const email = loginEmail.value.trim();
+      const pass = loginPassword.value;
+
+      let valid = true;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        loginEmail.classList.add('input-invalid');
+        loginEmailErr.style.display = 'block';
+        valid = false;
       }
-    });
+      if (pass.length < 1) {
+        loginPassword.classList.add('input-invalid');
+        loginPasswordErr.textContent = 'Ingresa tu contraseña.';
+        loginPasswordErr.style.display = 'block';
+        valid = false;
+      }
 
-    // Pantalla de inicio (splash)
-    let splashTimer = setTimeout(hideSplash, 5200);
+      if (!valid) return;
 
-    function hideSplash() {
-      const splash = document.getElementById('splash');
-      if (!splash || splash.classList.contains('hide')) return;
-      splash.classList.add('hide');
-      clearTimeout(splashTimer);
-      setTimeout(() => { splash.style.display = 'none'; }, 900);
+      const users = getUsers();
+      const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === pass);
+      if (!user) {
+        loginMsg.className = 'form-message error';
+        loginMsg.textContent = 'Correo o contraseña incorrectos. Verifica tus datos.';
+        return;
+      }
+
+      setCurrentUser(user);
+      
+      closeLoginModal();
+      
     }
 
-    document.body.addEventListener('click', (e) => {
-      if (e.target.closest('.splash')) hideSplash();
+    // Modal de Crear Cuenta
+    const signupModal = document.getElementById('signupModal');
+    const signupForm = document.getElementById('signupForm');
+    const signupName = document.getElementById('signupName');
+    const signupEmail = document.getElementById('signupEmail');
+    const signupPassword = document.getElementById('signupPassword');
+    const signupConfirm = document.getElementById('signupConfirm');
+    const signupMsg = document.getElementById('signupMsg');
+    const signupNameErr = document.getElementById('signupNameErr');
+    const signupEmailErr = document.getElementById('signupEmailErr');
+    const signupPasswordErr = document.getElementById('signupPasswordErr');
+    const signupConfirmErr = document.getElementById('signupConfirmErr');
+    const btnSignup = document.getElementById('btnSignup');
+
+    btnSignup.addEventListener('click', openSignupModal);
+
+    function openSignupModal() {
+      closeLoginModal();
+      
+      clearSignupErrors();
+      signupMsg.className = 'form-message';
+      signupMsg.textContent = '';
+      signupForm.reset();
+      signupModal.classList.add('open');
+      setTimeout(() => signupName.focus(), 100);
+    }
+
+    function closeSignupModal() {
+      
+    }
+
+    signupModal.addEventListener('click', (e) => {
+      if (e.target === signupModal) closeSignupModal();
     });
-  </script>
-</body>
-</html>
+
+    function clearSignupErrors() {
+      [signupName, signupEmail, signupPassword, signupConfirm].forEach(i => i.classList.remove('input-invalid'));
+      [signupNameErr, signupEmailErr, signupPasswordErr, signupConfirmErr].forEach(e => e.style.display = 'none');
+    }
+
+    function handleSignupSubmit(e) {
+      e.preventDefault();
+      clearSignupErrors();
+      signupMsg.className = 'form-message';
+
+      const name = signupName.value.trim();
+      const email = signupEmail.value.trim();
+      const pass = signupPassword.value;
+      const confirm = signupConfirm.value;
+
+      let valid = true;
+      if (name.length < 2) {
+        signupName.classList.add('input-invalid');
+        signupNameErr.style.display = 'block';
+        valid = false;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        signupEmail.classList.add('input-invalid');
+        signupEmailErr.style.display = 'block';
+        valid = false;
+      }
+      if (pass.length < 6) {
+        signupPassword.classList.add('input-invalid');
+        signupPasswordErr.style.display = 'block';
+        valid = false;
+      }
+      if (confirm !== pass) {
+        signupConfirm.classList.add('input-invalid');
+        signupConfirmErr.style.display = 'block';
+        valid = false;
+      }
+      if (!valid) return;
+
+      let users = getUsers();
+      if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+        signupMsg.className = 'form-message error';
+        signupMsg.textContent = 'Ya existe una cuenta con ese correo electrónico.';
+        return;
+      }
+
+      const newUser = { name, email: email.toLowerCase(), password: pass, createdAt: Date.now() };
+      users.push(newUser);
+      saveUsers(users);
+      setCurrentUser(newUser);
+      
+      closeSignupModal();
+      
+      signupForm.reset();
+    }
+
+    // Dashboard / Espacio personal
+    
+    const dashName = document.getElementById('dashName');
+    const dashEmail = document.getElementById('dashEmail');
+    
+    
+
+    
+    
+
+    );
+
+    // Almacenamiento
+    
+    
+
+    function getUsers() {
+      try {
+        const raw = localStorage.getItem(USERS_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveUsers(users) {
+      try {
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+      } catch (e) {}
+    }
+
+    function setCurrentUser(user) {
+      try {
+        localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email }));
+      } catch (e) {}
+    }
+
+    function getCurrentUser() {
+      try {
+        const raw = localStorage.getItem(SESSION_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function logout() {
+      try {
+        localStorage.removeItem(SESSION_KEY);
+      } catch (e) {}
+      
+      
+    }
+
+     else {
+        btnLogin.style.display = 'inline-block';
+        btnSignup.style.display = 'inline-block';
+        
+        
+      }
+    }
+
+    ón
+    
