@@ -1,4 +1,4 @@
-:root {
+﻿:root {
       --primary-dark: #06402d;
       --primary-forest: #053b29;
       --primary-deep: #032d1f;
@@ -1956,3 +1956,520 @@ body.user-logged-in .logged-topbar {
     padding: 5px 10px !important;
   }
 }
+
+
+/* ============================================================
+   NUEVO HERO - ADAPTACIÓN ESTILO PÓSTER SUITE (3 NIVELES)
+   ============================================================ */
+.hero-suite-section {
+  position: relative;
+  background: radial-gradient(circle at 65% 35%, #0c6a49 0%, #06402d 52%, #022015 100%);
+  color: #ffffff;
+  overflow: hidden;
+  padding-top: 38px;
+  padding-bottom: 42px;
+}
+
+/* Trazo curvo punteado decorativo */
+.suite-bg-paths {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Globos / esferas oscuras de fondo */
+.suite-balloon {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 35% 35%, rgba(12, 106, 73, 0.45), rgba(3, 35, 24, 0.85));
+  box-shadow: inset -6px -6px 14px rgba(0, 0, 0, 0.4);
+}
+.suite-balloon.b1 {
+  width: 110px;
+  height: 140px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 140px;
+  left: 36%;
+  opacity: 0.6;
+}
+.suite-balloon.b2 {
+  width: 85px;
+  height: 110px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  bottom: 80px;
+  left: 40%;
+  opacity: 0.55;
+}
+.suite-balloon.b3 {
+  width: 130px;
+  height: 160px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 260px;
+  right: -20px;
+  opacity: 0.45;
+}
+
+.suite-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenedor principal */
+.suite-container {
+  position: relative;
+  z-index: 3;
+}
+
+.suite-main-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 28px;
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+.suite-left-col {
+  position: relative;
+}
+
+.suite-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(203, 246, 62, 0.35);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-lime);
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.suite-hero-title {
+  margin-bottom: 16px;
+  line-height: 1.08;
+}
+
+.title-lime {
+  display: block;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--accent-lime);
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 20px rgba(203, 246, 62, 0.22);
+}
+
+.title-yellow {
+  display: block;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 900;
+  color: var(--accent-yellow);
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 18px rgba(250, 187, 21, 0.25);
+}
+
+.suite-hero-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d2ebe0;
+  max-width: 450px;
+  margin-bottom: 24px;
+}
+
+.suite-hero-description strong {
+  color: #ffffff;
+}
+
+/* Bloque CTA */
+.suite-cta-block {
+  margin-bottom: 14px;
+}
+
+.suite-cta-lead {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+.suite-cta-action-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-suite-enroll {
+  background: var(--btn-green);
+  color: #032d1f;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px rgba(0, 186, 109, 0.45);
+  transition: all 0.22s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-suite-enroll:hover {
+  background: #00d67d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 186, 109, 0.6);
+}
+
+.suite-price-badge {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-val {
+  font-size: 30px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.price-sub {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.suite-pencil-decor {
+  position: absolute;
+  bottom: -32px;
+  left: 270px;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+  animation: floatPencil 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatPencil {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(4deg); }
+}
+
+/* --- COLUMNA DERECHA (3 NIVELES MÁS GRANDES Y SIN INTERACCIÓN) --- */
+.suite-right-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sombrero de graduación flotante */
+.suite-floating-cap {
+  position: absolute;
+  top: -52px;
+  right: -20px;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.48));
+  animation: floatCap 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatCap {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Contenedor apilado de los 3 niveles: MÁS GRANDE */
+.suite-levels-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Tarjeta individual de nivel: MÁS GRANDE Y ESTÁTICA (SIN INTERACCIÓN) */
+.suite-level-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  border-radius: 22px;
+  background: rgba(4, 38, 25, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+  cursor: default;
+  pointer-events: none; /* Sin interacción */
+  user-select: none;
+  position: relative;
+}
+
+/* Bordes elegantes estáticos */
+.card-basico {
+  border: 1.5px solid rgba(250, 187, 21, 0.7);
+}
+.card-medio {
+  border: 1.5px solid rgba(0, 186, 109, 0.75);
+}
+.card-avanzado {
+  border: 1.5px solid rgba(203, 246, 62, 0.8);
+}
+
+/* Miniatura de la tarjeta: MÁS GRANDE */
+.card-thumb-wrap {
+  width: 110px;
+  height: 98px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  background: #032015;
+}
+
+.card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenido de la tarjeta: MÁS GRANDE */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.tag-basico {
+  border: 1px solid rgba(250, 187, 21, 0.55);
+  color: var(--accent-yellow);
+}
+
+.tag-medio {
+  border: 1px solid rgba(0, 186, 109, 0.55);
+  color: #3bf1a9;
+}
+
+.tag-avanzado {
+  border: 1px solid rgba(203, 246, 62, 0.55);
+  color: var(--accent-lime);
+}
+
+.card-course-title {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.card-footer-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.partner-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-orange {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #ffffff;
+}
+
+.badge-teal {
+  background: linear-gradient(135deg, #059669, #0d9488);
+  color: #ffffff;
+}
+
+.badge-green {
+  background: linear-gradient(135deg, #84cc16, #16a34a);
+  color: #ffffff;
+}
+
+/* Libros y manzana al pie */
+.suite-books-decor {
+  position: absolute;
+  bottom: -36px;
+  right: 20px;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+}
+
+/* ============================================================
+   BARRAS DE BENEFICIOS (SOPORTE, CERTIFICADO, ACCESO, EN LÍNEA)
+   MÁS CORTAS Y COMPACTAS
+   ============================================================ */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 820px;
+  margin: 22px auto 0;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-card {
+  background: rgba(3, 35, 24, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  background: rgba(3, 45, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.feature-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--btn-green);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 186, 109, 0.3);
+}
+
+.feature-icon-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.feature-text h4 {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.feature-text p {
+  font-size: 10px;
+  color: var(--text-light-mint);
+  margin-top: 1px;
+  line-height: 1.15;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .suite-main-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .suite-left-col {
+    text-align: center;
+  }
+  .suite-brand-pill {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .suite-hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .suite-cta-action-row {
+    justify-content: center;
+  }
+  .suite-pencil-decor {
+    display: none;
+  }
+  .suite-levels-stack {
+    max-width: 100%;
+  }
+  .suite-floating-cap {
+    top: -40px;
+    right: 5px;
+    width: 130px;
+    height: 90px;
+  }
+  .hero-features {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 540px) {
+  .suite-level-card {
+    grid-template-columns: 88px 1fr;
+    gap: 14px;
+    padding: 12px 14px;
+  }
+  .card-thumb-wrap {
+    width: 88px;
+    height: 82px;
+  }
+  .card-course-title {
+    font-size: 15px;
+  }
+  .partner-badge {
+    font-size: 10.5px;
+    padding: 3px 8px;
+  }
+  .suite-books-decor {
+    display: none;
+  }
+  .hero-features {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+}
+
