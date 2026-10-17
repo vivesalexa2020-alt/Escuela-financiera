@@ -635,6 +635,7 @@ document.addEventListener('keydown', (e) => {
     closeSignupModal();
     closeForgotModal();
     closeReticulaModal();
+    cerrarAsistente();
     toggleSidebar(false);
   }
 });
@@ -667,6 +668,7 @@ function hideSplash() {
 // Inicializar estado de interfaz al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
   updateAuthUI();
+  initAsistente();
   calculateCompoundInterest();
   if (window.location.hash === '#reticula') {
     setTimeout(() => {
@@ -1098,5 +1100,214 @@ function togglePref(key, value) {
   savePrefs(prefs);
 }
 
+// ------------------------------------------------------------
+// 17. ASISTENTE FINANCIERO "FIN" (local, por reglas)
+// ------------------------------------------------------------
+const FIN_CONOCIMIENTO = [
+  {
+    claves: ['ahorro', 'ahorrar', 'guardar dinero', 'fondo de emergencia', 'emergencia'],
+    respuesta: 'El ahorro es la base de tu salud financiera: aparta primero una parte de tus ingresos y gasta después. Empieza con un fondo de emergencia de 3 a 6 meses de tus gastos fijos.',
+    enlaces: [{ texto: 'Ver cursos de ahorro', href: 'cursos.html' }]
+  },
+  {
+    claves: ['interes compuesto', 'interes', 'inversion', 'invertir', 'rendimiento', 'capital'],
+    respuesta: 'El interés compuesto es ganar intereses sobre tus intereses. Con el tiempo, ese efecto hace crecer tu dinero de forma exponencial. Puedes probarlo en la calculadora de Recursos.',
+    enlaces: [{ texto: 'Abrir calculadora', href: 'recursos.html' }]
+  },
+  {
+    claves: ['presupuesto', '50/30/20', 'gastos', 'ingresos', 'planificar'],
+    respuesta: 'La regla 50/30/20 sugiere destinar 50% de tus ingresos a necesidades, 30% a gustos y 20% a ahorro o deudas. Es una guía simple para ordenar tus finanzas cada mes.',
+    enlaces: [{ texto: 'Ver curso de presupuesto', href: 'cursos.html' }]
+  },
+  {
+    claves: ['deuda', 'deudas', 'tarjeta', 'tarjeta de credito', 'credito', 'prestamo'],
+    respuesta: 'Para salir de deudas, prioriza las de mayor interés (método avalancha) o las más pequeñas para ganar impulso (método bola de nieve). Evita financiar gustos con tarjeta de crédito.',
+    enlaces: [{ texto: 'Ver recursos', href: 'recursos.html' }]
+  },
+  {
+    claves: ['reticula', 'inscribir', 'inscripcion', 'semestre', 'materia', 'materias', 'curso'],
+    respuesta: 'En tu Retícula Académica te inscribes primero a 2 unidades y luego avanzas una materia por semestre. Entra y haz clic en cada materia para ver su temario.',
+    enlaces: [{ texto: 'Ir a Retícula', href: 'reticula.html' }]
+  },
+  {
+    claves: ['contrasena', 'contraseña', 'configuracion', 'configuraciones', 'perfil', 'cuenta', 'correo'],
+    respuesta: 'Puedes actualizar tu perfil, cambiar tu contraseña y ajustar tus preferencias desde la página de Configuraciones.',
+    enlaces: [{ texto: 'Ir a Configuraciones', href: 'configuraciones.html' }]
+  },
+  {
+    claves: ['contacto', 'soporte', 'ayuda', 'duda', 'problema', 'correo de contacto'],
+    respuesta: 'Estoy aquí para orientarte sobre finanzas y sobre cómo usar la plataforma. Si necesitas soporte, revisa la sección de Recursos.',
+    enlaces: [{ texto: 'Ver Recursos', href: 'recursos.html' }]
+  },
+  {
+    claves: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'hey', 'saludos', 'que tal'],
+    respuesta: '¡Hola! Soy Fin 🪙. Puedo explicarte conceptos de finanzas o guiarte por la plataforma. ¿Qué necesitas?',
+    enlaces: []
+  },
+  {
+    claves: ['gracias', 'muchas gracias', 'perfecto', 'excelente', 'genial'],
+    respuesta: '¡Con gusto! 💚 Si tienes otra duda sobre tus finanzas, aquí estoy.',
+    enlaces: []
+  }
+];
+
+const FIN_SUGERENCIAS = [
+  { label: '¿Qué es el ahorro?', texto: '¿Qué es el ahorro?' },
+  { label: 'Interés compuesto', texto: 'Explícame el interés compuesto' },
+  { label: 'Presupuesto 50/30/20', texto: 'Cómo hago un presupuesto 50/30/20' },
+  { label: 'Cómo inscribirme', texto: 'Cómo me inscribo en la retícula' },
+  { label: 'Cambiar contraseña', texto: 'Cómo cambio mi contraseña' }
+];
+
+function finNormalizar(txt) {
+  return (txt || '').toString().toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[¿?¡!.,;:()"'`]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+
+function finEscapar(txt) {
+  return (txt || '').toString().replace(/[&<>]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c];
+  });
+}
+
+function finBuscarRespuesta(texto) {
+  const q = finNormalizar(texto);
+  if (!q) return null;
+  let mejor = null;
+  let mejorPunt = 0;
+  FIN_CONOCIMIENTO.forEach(function (tema) {
+    let punt = 0;
+    tema.claves.forEach(function (k) {
+      const kk = finNormalizar(k);
+      if (kk && q.includes(kk)) punt += kk.indexOf(' ') !== -1 ? 2 : 1;
+    });
+    if (punt > mejorPunt) { mejorPunt = punt; mejor = tema; }
+  });
+  return mejor;
+}
+
+function finConstruirRespuesta(tema) {
+  let html = finEscapar(tema.respuesta);
+  if (tema.enlaces && tema.enlaces.length) {
+    const links = tema.enlaces.map(function (l) {
+      return '<a href="' + l.href + '">' + finEscapar(l.texto) + '</a>';
+    }).join(' · ');
+    html += '\n' + links;
+  }
+  return html;
+}
+
+function initAsistente() {
+  if (document.getElementById('finToggle')) return;
+
+  const btn = document.createElement('button');
+  btn.id = 'finToggle';
+  btn.className = 'fin-btn';
+  btn.setAttribute('type', 'button');
+  btn.setAttribute('aria-label', 'Abrir asistente Fin');
+  btn.innerHTML = '🪙<span class="fin-btn-ping"></span>';
+
+  const panel = document.createElement('div');
+  panel.id = 'finPanel';
+  panel.className = 'fin-panel';
+  panel.setAttribute('role', 'dialog');
+  panel.setAttribute('aria-label', 'Asistente Fin');
+  panel.innerHTML =
+    '<div class="fin-header">' +
+      '<div class="fin-avatar">🪙</div>' +
+      '<div class="fin-header-text"><strong>Fin</strong><span>Tu asistente financiero</span></div>' +
+      '<button class="fin-close" id="finClose" type="button" aria-label="Cerrar">×</button>' +
+    '</div>' +
+    '<div class="fin-messages" id="finMessages"></div>' +
+    '<div class="fin-chips" id="finChips"></div>' +
+    '<form class="fin-form" id="finForm">' +
+      '<input type="text" id="finInput" placeholder="Escribe tu pregunta..." autocomplete="off" />' +
+      '<button type="submit" aria-label="Enviar">➤</button>' +
+    '</form>';
+
+  document.body.appendChild(btn);
+  document.body.appendChild(panel);
+
+  const messages = panel.querySelector('#finMessages');
+  const chips = panel.querySelector('#finChips');
+  const form = panel.querySelector('#finForm');
+  const input = panel.querySelector('#finInput');
+  let yaSaludo = false;
+
+  function agregar(rol, html) {
+    const div = document.createElement('div');
+    div.className = 'fin-msg ' + rol;
+    div.innerHTML = html;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  function pintarSugerencias() {
+    chips.innerHTML = '';
+    FIN_SUGERENCIAS.forEach(function (s) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'fin-chip';
+      b.textContent = s.label;
+      b.addEventListener('click', function () { enviar(s.texto); });
+      chips.appendChild(b);
+    });
+  }
+
+  function responder(texto) {
+    const escribiendo = agregar('bot', '<span class="fin-typing"><span></span><span></span><span></span></span>');
+    setTimeout(function () {
+      escribiendo.remove();
+      const tema = finBuscarRespuesta(texto);
+      if (tema) {
+        agregar('bot', finConstruirRespuesta(tema));
+      } else {
+        agregar('bot', 'Aún estoy aprendiendo sobre ese tema 🤔. Prueba con una de estas preguntas o escríbela de otra forma:');
+        pintarSugerencias();
+      }
+    }, 420);
+  }
+
+  function enviar(texto) {
+    const t = (texto || '').trim();
+    if (!t) return;
+    agregar('user', finEscapar(t));
+    input.value = '';
+    responder(t);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    enviar(input.value);
+  });
+
+  btn.addEventListener('click', function () {
+    const abrir = !panel.classList.contains('open');
+    panel.classList.toggle('open', abrir);
+    btn.setAttribute('aria-label', abrir ? 'Cerrar asistente Fin' : 'Abrir asistente Fin');
+    if (abrir) {
+      if (!yaSaludo) {
+        yaSaludo = true;
+        agregar('bot', '¡Hola! Soy <strong>Fin</strong> 🪙, tu asistente financiero. ¿En qué te ayudo hoy?');
+        pintarSugerencias();
+      }
+      setTimeout(function () { input.focus(); }, 150);
+    }
+  });
+
+  panel.querySelector('#finClose').addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+}
+
+function cerrarAsistente() {
+  const panel = document.getElementById('finPanel');
+  if (panel) panel.classList.remove('open');
+}
+
 // Llamada inicial (tras declarar los datos de la retícula y las preferencias)
 updateAuthUI();
+initAsistente();
