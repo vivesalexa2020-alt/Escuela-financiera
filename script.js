@@ -1310,4 +1310,70 @@ function cerrarAsistente() {
 
 // Llamada inicial (tras declarar los datos de la retÃ­cula y las preferencias)
 updateAuthUI();
-initAsistente();
+initAsistente();// ------------------------------------------------------------
+// 18. WHATSAPP QUICK CONTACT
+// ------------------------------------------------------------
+const WHATSAPP_NUM = '5210000000000'; // Cambiar por número real
+const WHATSAPP_OPTS = [
+  { label: 'Dudas de cursos', texto: 'Hola, tengo una duda sobre los cursos de Educación Financiera.' },
+  { label: 'Soporte técnico', texto: 'Hola, necesito soporte para acceder a la plataforma.' },
+  { label: 'Certificaciones', texto: 'Hola, tengo dudas sobre las certificaciones.' }
+];
+
+function abrirWhatsApp(msg) {
+  const texto = encodeURIComponent(msg || 'Hola, me gustaría recibir ayuda.');
+  const url = 'https://wa.me/' + WHATSAPP_NUM.replace(/\D/g,'') + '?text=' + texto;
+  window.open(url, '_blank');
+}
+
+function cerrarWhatsApp() {
+  const panel = document.getElementById('wappPanel');
+  if (panel) panel.classList.remove('open');
+}
+
+function initWhatsApp() {
+  if (document.getElementById('wappToggle')) return;
+
+  const svgWa = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C12.831-3.984 0 1.407 0 11.251c0 2.05.549 4.052 1.596 5.828L0 24l6.242-1.636c1.746.954 3.719 1.461 5.725 1.461 9.72 0 15.52-10.556 8.553-20.376zm-8.198 17.029c-1.676 0-3.321-.486-4.752-1.403l-.34-.202-3.703.971.987-3.614-.222-.357C1.687 13.801 2.172 7.591 7.07 4.537 11.968 1.482 18.18 4.904 19.76 9.795c1.58 4.892-.29 10.211-5.438 12.683zm5.436-7.554c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>';
+  const btn = document.createElement('button');
+  btn.id = 'wappToggle';
+  btn.className = 'wapp-btn';
+  btn.setAttribute('type','button');
+  btn.setAttribute('aria-label','Abrir WhatsApp');
+  btn.innerHTML = svgWa;
+
+  const panel = document.createElement('div');
+  panel.id = 'wappPanel';
+  panel.className = 'wapp-panel';
+  panel.setAttribute('role','dialog');
+  panel.setAttribute('aria-label','Atención por WhatsApp');
+  panel.innerHTML =
+    '<div class="wapp-header">' +
+      '<div class="wapp-avatar">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM20.52 3.449C12.831-3.984 0 1.407 0 11.251c0 2.05.549 4.052 1.596 5.828L0 24l6.242-1.636c1.746.954 3.719 1.461 5.725 1.461 9.72 0 15.52-10.556 8.553-20.376z"/></svg>' +
+      '</div>' +
+      '<div class="wapp-header-text"><strong>Atención por WhatsApp</strong><span>En línea para ayudarte</span></div>' +
+      '<button class="wapp-close" id="wappClose" type="button" aria-label="Cerrar">×</button>' +
+    '</div>' +
+    '<div class="wapp-body">' +
+      '<div class="wapp-hint">¿En qué puedo ayudarte?</div>' +
+      (WHATSAPP_OPTS.map(function(o){ return '<button class="wapp-option" data-text="'+o.texto.replace(/"/g,'&quot;')+'">'+o.label+'</button>'; }).join('')) +
+    '</div>';
+
+  document.body.appendChild(btn);
+  document.body.appendChild(panel);
+
+  panel.querySelectorAll('.wapp-option').forEach(function(b){
+    b.addEventListener('click', function(){
+      abrirWhatsApp(this.getAttribute('data-text'));
+      cerrarWhatsApp();
+    });
+  });
+  btn.addEventListener('click', function(){
+    panel.classList.toggle('open');
+  });
+  panel.querySelector('#wappClose').addEventListener('click', cerrarWhatsApp);
+}
+
+document.addEventListener('DOMContentLoaded', function(){ initWhatsApp(); });
+initWhatsApp();
