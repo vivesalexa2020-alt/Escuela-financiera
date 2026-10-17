@@ -484,7 +484,7 @@ function logout() {
 
   // Si estamos en una página protegida, redirigir a inicio
   const path = window.location.pathname.toLowerCase();
-  if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('nosotros.html')) {
+  if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('nosotros.html') || path.includes('reticula.html') || path.includes('configuraciones.html')) {
     window.location.href = 'index.html';
   }
 }
@@ -541,6 +541,11 @@ function updateAuthUI() {
     // Cerrar sidebar si estaba abierto en responsive
     if (sidebar) sidebar.classList.remove('open');
   }
+
+  // Refrescar la retícula académica según el usuario actual
+  renderReticula();
+  // Refrescar la página de configuraciones si está presente
+  renderConfiguracion();
 }
 
 // ------------------------------------------------------------
@@ -609,7 +614,7 @@ function toggleFaq(btn) {
 // 12. PROTECCIÓN DE ENLACES PARA VISITANTES
 // ------------------------------------------------------------
 document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="nosotros.html"]');
+  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="nosotros.html"], a[href="reticula.html"], a[href="configuraciones.html"]');
   if (link && !getCurrentUser()) {
     e.preventDefault();
     openLoginModal();
@@ -630,6 +635,7 @@ document.addEventListener('keydown', (e) => {
     closeLoginModal();
     closeSignupModal();
     closeForgotModal();
+    closeReticulaModal();
     toggleSidebar(false);
   }
 });
@@ -663,5 +669,435 @@ function hideSplash() {
 document.addEventListener('DOMContentLoaded', () => {
   updateAuthUI();
   calculateCompoundInterest();
+  if (window.location.hash === '#reticula') {
+    setTimeout(() => {
+      const el = document.getElementById('reticula');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 250);
+  }
 });
+
+// ------------------------------------------------------------
+// 15. RETÍCULA ACADÉMICA INTERACTIVA
+// ------------------------------------------------------------
+const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
+
+const RETICULA_SEMESTRES = [
+  { id: 1, titulo: 'Semestre 1', limite: 2, requeridoPrevio: 0 },
+  { id: 2, titulo: 'Semestre 2', limite: 1, requeridoPrevio: 2 }
+];
+
+const RETICULA_MATERIAS = [
+  {
+    id: 'finanzas-personales', semestre: 1, icon: '🐷',
+    nombre: 'Finanzas personales',
+    desc: 'Administra tu dinero, controla tus gastos y crea hábitos financieros saludables.',
+    temario: ['Registro de ingresos y gastos', 'Fondo de emergencia', 'Definición de metas financieras']
+  },
+  {
+    id: 'presupuesto', semestre: 1, icon: '💰',
+    nombre: 'Presupuesto',
+    desc: 'Planifica tus ingresos y gastos para alcanzar mayor estabilidad financiera.',
+    temario: ['La regla 50/30/20', 'Presupuesto mensual paso a paso', 'Ahorro programado']
+  },
+  {
+    id: 'gasto-hormiga', semestre: 1, icon: '🐜',
+    nombre: 'Gasto hormiga',
+    desc: 'Detecta y elimina esos pequeños gastos diarios que se comen tus finanzas sin que lo notes.',
+    temario: ['¿Qué es el gasto hormiga?', 'Cómo identificarlo en tu día a día', 'Redirigir esos montos al ahorro']
+  },
+  {
+    id: 'ahorro-inversion', semestre: 2, icon: '📈',
+    nombre: 'Ahorro e inversión',
+    desc: 'Haz crecer tu dinero y alcanza tus metas a largo plazo con estrategias de inversión.',
+    temario: ['Interés compuesto', 'Instrumentos de ahorro e inversión', 'Diversificación del riesgo']
+  },
+  {
+    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
+    nombre: 'Materiales y herramientas',
+    desc: 'Conoce las herramientas, plantillas y recursos para gestionar tus finanzas como un profesional.',
+    temario: ['Plantillas financieras', 'Apps y recursos digitales', 'Calculadoras de ahorro y deuda']
+  },
+  {
+    id: 'emprendimiento', semestre: 2, icon: '💡',
+    nombre: 'Emprendimiento',
+    desc: 'Conoce las bases para iniciar tu propio negocio y generar ingresos adicionales.',
+    temario: ['Validación de ideas de negocio', 'Plan financiero inicial', 'Aspectos legales básicos']
+  }
+];
+
+function getReticulaStorageKey() {
+  const user = getCurrentUser();
+  const who = (user && user.email) ? String(user.email).toLowerCase() : 'invitado';
+  return RETICULA_ARRAY_KEY + who;
+}
+
+function getReticulaState() {
+  try {
+    const raw = localStorage.getItem(getReticulaStorageKey());
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && Array.isArray(parsed.inscritas)) return parsed;
+  } catch (e) {}
+  return { inscritas: [] };
+}
+
+function saveReticulaState(state) {
+  try {
+    localStorage.setItem(getReticulaStorageKey(), JSON.stringify(state));
+  } catch (e) {}
+}
+
+function getMateriaPorId(id) {
+  return RETICULA_MATERIAS.find(function (m) { return m.id === id; }) || null;
+}
+
+function getSemestreConfig(semId) {
+  return RETICULA_SEMESTRES.find(function (s) { return s.id === semId; }) || null;
+}
+
+function contarInscritasEnSemestre(state, semId) {
+  return state.inscritas.filter(function (id) {
+    const m = getMateriaPorId(id);
+    return m && m.semestre === semId;
+  }).length;
+}
+
+function semestreEstaBloqueado(state, semId) {
+  const cfg = getSemestreConfig(semId);
+  if (!cfg || cfg.requeridoPrevio <= 0) return false;
+  const prev = RETICULA_SEMESTRES.find(function (s) { return s.id === semId - 1; });
+  if (!prev) return false;
+  return contarInscritasEnSemestre(state, prev.id) < cfg.requeridoPrevio;
+}
+
+function puedeInscribir(id) {
+  const state = getReticulaState();
+  const m = getMateriaPorId(id);
+  if (!m) return { ok: false, motivo: 'error' };
+  if (state.inscritas.indexOf(id) !== -1) return { ok: false, motivo: 'inscrita' };
+  if (semestreEstaBloqueado(state, m.semestre)) return { ok: false, motivo: 'bloqueado' };
+  const cfg = getSemestreConfig(m.semestre);
+  const limite = cfg ? cfg.limite : 1;
+  if (contarInscritasEnSemestre(state, m.semestre) >= limite) {
+    return { ok: false, motivo: 'limite' };
+  }
+  return { ok: true };
+}
+
+function estadoMateria(id, state) {
+  if (state.inscritas.indexOf(id) !== -1) return 'inscrita';
+  if (puedeInscribir(id).ok) return 'disponible';
+  return 'bloqueada';
+}
+
+function renderReticula() {
+  const grid = document.getElementById('reticulaGrid');
+  if (!grid) return;
+
+  const state = getReticulaState();
+  const total = RETICULA_MATERIAS.length;
+  const inscritas = state.inscritas.length;
+
+  const resumen = document.getElementById('reticulaResumen');
+  if (resumen) {
+    let hint;
+    if (contarInscritasEnSemestre(state, 1) < 2) {
+      const faltan = 2 - contarInscritasEnSemestre(state, 1);
+      hint = 'Inscríbete a ' + faltan + ' unidad' + (faltan === 1 ? '' : 'es') + ' más del Semestre 1';
+    } else if (contarInscritasEnSemestre(state, 2) < 1) {
+      hint = '¡Semestre 2 desbloqueado! Elige 1 materia';
+    } else {
+      hint = '¡Retícula en curso! Sigue avanzando';
+    }
+    resumen.innerHTML =
+      '<div class="reticula-resumen-num">' + inscritas + '<span> / ' + total + '</span></div>' +
+      '<div class="reticula-resumen-txt">materias inscritas en tu retícula</div>' +
+      '<div class="reticula-resumen-hint">🎯 ' + hint + '</div>';
+  }
+
+  grid.innerHTML = RETICULA_SEMESTRES.map(function (sem) {
+    const cfg = sem;
+    const materias = RETICULA_MATERIAS.filter(function (m) { return m.semestre === sem.id; });
+    const inscritasSem = contarInscritasEnSemestre(state, sem.id);
+    const bloqueado = semestreEstaBloqueado(state, sem.id);
+    const pct = Math.min(100, Math.round((inscritasSem / cfg.limite) * 100));
+
+    const chip = bloqueado
+      ? '<span class="reticula-semester-chip locked">🔒 Bloqueado</span>'
+      : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
+        (cfg.limite === 1 ? ' materia' : ' unidades') + '</span>';
+
+    const cards = materias.map(function (m) {
+      const st = estadoMateria(m.id, state);
+      let etiqueta = 'Disponible';
+      if (st === 'inscrita') etiqueta = '✓ Inscrita';
+      else if (st === 'bloqueada') etiqueta = '🔒 Bloqueada';
+      return '' +
+        '<div class="reticula-materia is-' + st + '" onclick="openReticulaModal(\'' + m.id + '\')">' +
+          '<div class="reticula-materia-ico">' + m.icon + '</div>' +
+          '<div class="reticula-materia-info">' +
+            '<h5>' + m.nombre + '</h5>' +
+            '<p>' + m.desc + '</p>' +
+          '</div>' +
+          '<div class="reticula-materia-estado">' + etiqueta + '</div>' +
+        '</div>';
+    }).join('');
+
+    return '' +
+      '<div class="reticula-semester">' +
+        '<div class="reticula-semester-head">' +
+          '<h4>🎓 ' + sem.titulo + '</h4>' +
+          chip +
+        '</div>' +
+        '<div class="reticula-semester-bar"><i style="width:' + pct + '%"></i></div>' +
+        '<div class="reticula-materias">' + cards + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+let reticulaActualId = null;
+
+function openReticulaModal(id) {
+  const m = getMateriaPorId(id);
+  if (!m) return;
+
+  reticulaActualId = id;
+  const state = getReticulaState();
+  const cfg = getSemestreConfig(m.semestre);
+
+  const levelEl = document.getElementById('reticulaModalLevel');
+  const titleEl = document.getElementById('reticulaModalTitle');
+  const descEl = document.getElementById('reticulaModalDesc');
+  const temarioEl = document.getElementById('reticulaModalTemario');
+  const estadoEl = document.getElementById('reticulaModalEstado');
+  const actionEl = document.getElementById('reticulaModalAction');
+
+  if (levelEl) levelEl.textContent = (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + ' · ' + m.icon;
+  if (titleEl) titleEl.textContent = m.nombre;
+  if (descEl) descEl.textContent = m.desc;
+  if (temarioEl) {
+    temarioEl.innerHTML = m.temario.map(function (t) { return '<li>' + t + '</li>'; }).join('');
+  }
+
+  let tipo = 'info';
+  let texto = '';
+  let label = 'Inscribirme';
+  let deshabilitado = false;
+
+  if (state.inscritas.indexOf(id) !== -1) {
+    tipo = 'ok';
+    texto = '✅ Ya estás inscrito en esta materia. ¡Continúa con tu formación!';
+    label = '✓ Inscrito';
+    deshabilitado = true;
+  } else {
+    const chk = puedeInscribir(id);
+    if (chk.ok) {
+      tipo = 'warn';
+      texto = '🟡 Materia disponible. Puedes inscribirte ahora mismo.';
+      label = 'Inscribirme a esta materia';
+    } else if (chk.motivo === 'bloqueado') {
+      tipo = 'info';
+      texto = '🔒 Esta materia se desbloquea cuando completes las 2 unidades iniciales del Semestre 1.';
+      label = 'Materia bloqueada';
+      deshabilitado = true;
+    } else if (chk.motivo === 'limite') {
+      const limite = cfg ? cfg.limite : 1;
+      tipo = 'info';
+      texto = '⏳ Ya alcanzaste el límite de ' + limite +
+        (limite === 1 ? ' materia' : ' unidades') + ' en este semestre. Avanza para desbloquear más.';
+      label = 'Sin cupo este semestre';
+      deshabilitado = true;
+    } else {
+      deshabilitado = true;
+    }
+  }
+
+  if (estadoEl) {
+    estadoEl.setAttribute('data-tipo', tipo);
+    estadoEl.textContent = texto;
+  }
+  if (actionEl) {
+    actionEl.textContent = label;
+    actionEl.disabled = deshabilitado;
+  }
+
+  const modal = document.getElementById('reticulaModal');
+  if (modal) modal.classList.add('open');
+}
+
+function closeReticulaModal() {
+  const modal = document.getElementById('reticulaModal');
+  if (modal) modal.classList.remove('open');
+  reticulaActualId = null;
+}
+
+function inscribirMateriaActual() {
+  if (!reticulaActualId) return;
+  const id = reticulaActualId;
+  const chk = puedeInscribir(id);
+  if (!chk.ok) { openReticulaModal(id); return; }
+
+  const state = getReticulaState();
+  state.inscritas.push(id);
+  saveReticulaState(state);
+
+  renderReticula();
+  openReticulaModal(id);
+}
+
+// ------------------------------------------------------------
+// 16. CONFIGURACIONES (PERFIL, SEGURIDAD Y PREFERENCIAS)
+// ------------------------------------------------------------
+const PREFS_KEY = 'edu_fin_prefs_';
+const PREF_DEFAULTS = { recordatorios: true, novedades: true, tema: 'claro' };
+
+function getPrefsStorageKey() {
+  const user = getCurrentUser();
+  const who = (user && user.email) ? String(user.email).toLowerCase() : 'invitado';
+  return PREFS_KEY + who;
+}
+
+function getPrefs() {
+  try {
+    const raw = localStorage.getItem(getPrefsStorageKey());
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && typeof parsed === 'object') {
+      return Object.assign({}, PREF_DEFAULTS, parsed);
+    }
+  } catch (e) {}
+  return Object.assign({}, PREF_DEFAULTS);
+}
+
+function savePrefs(prefs) {
+  try {
+    localStorage.setItem(getPrefsStorageKey(), JSON.stringify(prefs));
+  } catch (e) {}
+}
+
+function renderConfiguracion() {
+  const profileForm = document.getElementById('configProfileForm');
+  if (!profileForm) return;
+
+  const user = getCurrentUser();
+  const nombre = (user && user.name) ? user.name : '';
+  const correo = (user && user.email) ? user.email : '';
+
+  const avatar = document.getElementById('configAvatar');
+  if (avatar) avatar.textContent = nombre ? nombre.charAt(0).toUpperCase() : 'E';
+
+  const nameEl = document.getElementById('configName');
+  const emailEl = document.getElementById('configEmail');
+  if (nameEl && document.activeElement !== nameEl) nameEl.value = nombre;
+  if (emailEl && document.activeElement !== emailEl) emailEl.value = correo;
+
+  const prefs = getPrefs();
+  const rec = document.getElementById('prefRecordatorios');
+  const nov = document.getElementById('prefNovedades');
+  const tema = document.getElementById('prefTema');
+  if (rec) rec.checked = !!prefs.recordatorios;
+  if (nov) nov.checked = !!prefs.novedades;
+  if (tema) tema.value = prefs.tema || 'claro';
+}
+
+function handleProfileSubmit(e) {
+  e.preventDefault();
+  const user = getCurrentUser();
+  const msg = document.getElementById('configProfileMsg');
+  if (!user) return;
+  if (msg) { msg.className = 'form-message'; msg.textContent = ''; }
+
+  const nameEl = document.getElementById('configName');
+  const emailEl = document.getElementById('configEmail');
+  const name = nameEl ? nameEl.value.trim() : '';
+  const email = emailEl ? emailEl.value.trim().toLowerCase() : '';
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (name.length < 2) {
+    if (nameEl) nameEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Ingresa tu nombre completo.'; }
+    return;
+  }
+  if (!emailRegex.test(email)) {
+    if (emailEl) emailEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Ingresa un correo electrónico válido.'; }
+    return;
+  }
+
+  const users = getUsers();
+  const duplicado = users.some(function (u) {
+    return u.email.toLowerCase() === email && u.email.toLowerCase() !== user.email.toLowerCase();
+  });
+  if (duplicado) {
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Ese correo ya está registrado en otra cuenta.'; }
+    return;
+  }
+
+  const idx = users.findIndex(function (u) {
+    return u.email.toLowerCase() === user.email.toLowerCase();
+  });
+  if (idx !== -1) {
+    users[idx].name = name;
+    users[idx].email = email;
+    saveUsers(users);
+  }
+
+  setCurrentUser({ name: name, email: email });
+  updateAuthUI();
+
+  if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado correctamente.'; }
+}
+
+function handlePasswordSubmit(e) {
+  e.preventDefault();
+  const user = getCurrentUser();
+  const msg = document.getElementById('configPasswordMsg');
+  if (!user) return;
+  if (msg) { msg.className = 'form-message'; msg.textContent = ''; }
+
+  const curEl = document.getElementById('configCurrentPassword');
+  const newEl = document.getElementById('configNewPassword');
+  const confEl = document.getElementById('configConfirmPassword');
+  const current = curEl ? curEl.value : '';
+  const nueva = newEl ? newEl.value : '';
+  const conf = confEl ? confEl.value : '';
+
+  [curEl, newEl, confEl].forEach(function (i) { if (i) i.classList.remove('input-invalid'); });
+
+  const users = getUsers();
+  const idx = users.findIndex(function (u) {
+    return u.email.toLowerCase() === user.email.toLowerCase();
+  });
+
+  if (idx === -1 || users[idx].password !== current) {
+    if (curEl) curEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Tu contraseña actual no es correcta.'; }
+    return;
+  }
+  if (nueva.length < 6) {
+    if (newEl) newEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'La nueva contraseña debe tener al menos 6 caracteres.'; }
+    return;
+  }
+  if (nueva !== conf) {
+    if (confEl) confEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Las contraseñas no coinciden.'; }
+    return;
+  }
+
+  users[idx].password = nueva;
+  saveUsers(users);
+
+  const form = document.getElementById('configPasswordForm');
+  if (form) form.reset();
+
+  if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Contraseña actualizada correctamente.'; }
+}
+
+function togglePref(key, value) {
+  const prefs = getPrefs();
+  prefs[key] = value;
+  savePrefs(prefs);
+}
+
+// Llamada inicial (tras declarar los datos de la retícula y las preferencias)
 updateAuthUI();
