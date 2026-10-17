@@ -146,8 +146,7 @@ if (searchInput && searchResults) {
       { name: 'Presupuesto mensual 50/30/20', type: 'Curso', link: 'cursos.html' },
       { name: 'Emprendimiento y negocios', type: 'Curso', link: 'cursos.html' },
       { name: 'Calculadora de interés compuesto', type: 'Recurso', link: 'recursos.html' },
-      { name: 'Guía de ahorro descargable en PDF', type: 'Recurso', link: 'recursos.html' },
-      { name: 'Nuestra misión y valores', type: 'Nosotros', link: 'nosotros.html' }
+      { name: 'Guía de ahorro descargable en PDF', type: 'Recurso', link: 'recursos.html' }
     ];
 
     const matches = items.filter(it => it.name.toLowerCase().includes(q));
@@ -484,7 +483,7 @@ function logout() {
 
   // Si estamos en una página protegida, redirigir a inicio
   const path = window.location.pathname.toLowerCase();
-  if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('nosotros.html') || path.includes('reticula.html') || path.includes('configuraciones.html')) {
+  if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('reticula.html') || path.includes('configuraciones.html')) {
     window.location.href = 'index.html';
   }
 }
@@ -614,7 +613,7 @@ function toggleFaq(btn) {
 // 12. PROTECCIÓN DE ENLACES PARA VISITANTES
 // ------------------------------------------------------------
 document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="nosotros.html"], a[href="reticula.html"], a[href="configuraciones.html"]');
+  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="reticula.html"], a[href="configuraciones.html"]');
   if (link && !getCurrentUser()) {
     e.preventDefault();
     openLoginModal();
