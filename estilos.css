@@ -2215,7 +2215,7 @@ body.user-logged-in .logged-topbar {
 /* Tarjeta individual de nivel: MÁS GRANDE Y ESTÁTICA (SIN INTERACCIÓN) */
 .suite-level-card {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 124px 1fr;
   align-items: center;
   gap: 18px;
   padding: 16px 20px;
@@ -2245,8 +2245,8 @@ body.user-logged-in .logged-topbar {
 
 /* Miniatura de la tarjeta: MÁS GRANDE */
 .card-thumb-wrap {
-  width: 110px;
-  height: 98px;
+  width: 124px;
+  height: 110px;
   border-radius: 16px;
   overflow: hidden;
   flex-shrink: 0;
@@ -2301,7 +2301,15 @@ body.user-logged-in .logged-topbar {
   font-weight: 800;
   line-height: 1.25;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.card-course-desc {
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #d2ebe0;
+  margin-bottom: 10px;
 }
 
 .card-footer-badge {
@@ -3103,12 +3111,12 @@ body.user-logged-in .logged-topbar {
 .fin-panel {
   position: fixed;
   right: 22px;
-  bottom: 92px;
+  bottom: 160px;
   z-index: 120;
   width: 360px;
   max-width: calc(100vw - 32px);
   height: 520px;
-  max-height: calc(100vh - 130px);
+  max-height: calc(100vh - 200px);
   background: #ffffff;
   border: 1px solid var(--card-border);
   border-radius: 20px;
@@ -3318,7 +3326,7 @@ body.user-logged-in .logged-topbar {
     right: 12px;
     left: 12px;
     width: auto;
-    bottom: 84px;
+    bottom: 152px;
   }
 
   .fin-btn {
@@ -3333,8 +3341,8 @@ body.user-logged-in .logged-topbar {
    ============================================================ */
 .wapp-btn {
   position: fixed;
-  left: 22px;
-  bottom: 22px;
+  right: 22px;
+  bottom: 92px;
   z-index: 120;
   width: 56px;
   height: 56px;
@@ -3353,8 +3361,8 @@ body.user-logged-in .logged-topbar {
 .wapp-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45); }
 .wapp-panel {
   position: fixed;
-  left: 22px;
-  bottom: 92px;
+  right: 22px;
+  bottom: 160px;
   z-index: 120;
   width: 320px;
   max-width: calc(100vw - 32px);
@@ -3404,6 +3412,95 @@ body.user-logged-in .logged-topbar {
 }
 .wapp-option:hover { background: var(--banner-mint-bg); border-color: var(--banner-mint-border); }
 @media (max-width: 480px) {
-  .wapp-panel { left: 12px; right: 12px; width: auto; bottom: 84px; }
-  .wapp-btn { left: 16px; bottom: 16px; }
+  .wapp-panel { left: 12px; right: 12px; width: auto; bottom: 152px; }
+  .wapp-btn { right: 16px; bottom: 84px; }
+}
+
+
+/* ============================================================
+   SECCIÓN: 3 NIVELES (IMÁGENES SECUENCIALES)
+   ============================================================ */
+.levels-section {
+  padding: 46px 0 40px;
+  background: #ffffff;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.level-showcase {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.level-showcase:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(6, 64, 45, 0.09);
+  border-color: #c9e8d8;
+}
+
+.level-img-wrap {
+  width: 100%;
+  height: 170px;
+  overflow: hidden;
+  background: #032d1f;
+}
+
+.level-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.level-showcase:hover .level-img-wrap img {
+  transform: scale(1.04);
+}
+
+.level-body {
+  padding: 18px 20px 20px;
+}
+
+.level-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.level-badge-1 { background: linear-gradient(135deg, #f97316, #ea580c); }
+.level-badge-2 { background: linear-gradient(135deg, #059669, #0d9488); }
+.level-badge-3 { background: linear-gradient(135deg, #84cc16, #16a34a); }
+
+.level-body h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.level-body p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .levels-grid { grid-template-columns: 1fr; }
+  .level-img-wrap { height: 200px; }
 }
