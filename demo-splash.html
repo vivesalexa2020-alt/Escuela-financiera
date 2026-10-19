@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo | Pantalla de inicio - Escuela Financiera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: #f4faf7;
+      overflow-x: hidden;
+    }
+
+    /* ---------- Contenido "real" de la página (detrás del splash) ---------- */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      gap: 18px;
+    }
+    .page h1 { color: #083c29; font-size: clamp(28px, 5vw, 44px); }
+    .page p { color: #5e7a70; max-width: 520px; }
+    .page .hint {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #8aa79c;
+      background: #e6f0eb;
+      padding: 8px 16px;
+      border-radius: 999px;
+    }
+
+    /* ---------- Pantalla verde de inicio ---------- */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      background: radial-gradient(circle at 50% 35%, #0c6a49 0%, #06402d 55%, #032d1f 100%);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+    .splash.hide { opacity: 0; visibility: hidden; }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .35;
+      pointer-events: none;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+    .glow.g1 { width: 340px; height: 340px; background: #00ba6d; top: -80px; left: -80px; }
+    .glow.g2 { width: 300px; height: 300px; background: #cbf63e; bottom: -90px; right: -70px; opacity: .18; animation-delay: -4s; }
+
+    @keyframes floatGlow {
+      from { transform: translate(0, 0) scale(1); }
+      to   { transform: translate(30px, 24px) scale(1.15); }
+    }
+
+    .logo-mark {
+      width: clamp(240px, 46vw, 370px);
+      animation: logoIn .9s cubic-bezier(.2, .9, .3, 1.2) both, bob 3.4s ease-in-out 1s infinite;
+      filter: drop-shadow(0 18px 30px rgba(0,0,0,.35));
+    }
+    @keyframes logoIn {
+      from { opacity: 0; transform: translateY(-40px) scale(.7); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-12px) rotate(-1.5deg); }
+    }
+
+    .splash h1 {
+      margin-top: 26px;
+      color: #ffffff;
+      font-size: clamp(32px, 7vw, 58px);
+      font-weight: 800;
+      letter-spacing: .5px;
+      line-height: 1.1;
+      animation: fadeUp .7s ease .5s both;
+    }
+
+    .splash h1 span { color: #cbf63e; }
+
+    .tagline {
+      margin-top: 14px;
+      display: inline-block;
+      background: #fabb15;
+      color: #06402d;
+      font-weight: 700;
+      font-size: clamp(15px, 2.6vw, 20px);
+      padding: 10px 26px;
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(250,187,21,.35);
+      animation: fadeUp .7s ease .8s both;
+    }
+
+    .bar {
+      margin-top: 38px;
+      width: min(260px, 70vw);
+      height: 6px;
+      background: rgba(255,255,255,.18);
+      border-radius: 999px;
+      overflow: hidden;
+      animation: fadeUp .7s ease 1.1s both;
+    }
+    .bar i {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #cbf63e, #00ba6d);
+      border-radius: 999px;
+      animation: load 4.2s ease 1.2s forwards;
+    }
+    @keyframes load { to { width: 100%; } }
+
+    .skip {
+      margin-top: 26px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.7);
+      font-family: inherit;
+      font-size: 13px;
+      text-decoration: underline;
+      cursor: pointer;
+      animation: fadeUp .7s ease 1.4s both;
+    }
+    .skip:hover { color: #ffffff; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenido de la página que queda debajo -->
+  <main class="page">
+    <h1>Aquí comenzaría tu página normal</h1>
+    <p>Esta es una demo: la pantalla verde aparece al abrir, dura unos segundos y luego se oculta mostrando el sitio.</p>
+    <button class="hint" onclick="replay()">Ver la pantalla de inicio de nuevo</button>
+  </main>
+
+  <!-- Pantalla verde de inicio -->
+  <div class="splash" id="splash">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+
+    <svg class="logo-mark" viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sombrero de graduación con libros">
+      <!-- Libros -->
+      <g>
+        <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
+        <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
+        <rect x="26" y="162" width="26" height="30" rx="8" fill="#e09800"/>
+
+        <rect x="42" y="128" width="156" height="30" rx="8" fill="#cbf63e" transform="rotate(-2 120 143)"/>
+        <rect x="50" y="134" width="140" height="18" rx="4" fill="#f2ffcd" transform="rotate(-2 120 143)"/>
+        <rect x="42" y="128" width="26" height="30" rx="8" fill="#a9cf1e" transform="rotate(-2 120 143)"/>
+
+        <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
+        <rect x="66" y="100" width="108" height="18" rx="4" fill="#d7f4e6" transform="rotate(2 120 109)"/>
+        <rect x="58" y="94" width="26" height="30" rx="8" fill="#bce9d2" transform="rotate(2 120 109)"/>
+      </g>
+
+      <!-- Sombrero de graduación -->
+      <g>
+        <!-- parte inferior (cabeza) -->
+        <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
+        <!-- tablero superior -->
+        <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
+        <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="none" stroke="#d7f4e6" stroke-width="3"/>
+        <!-- botón + cordón -->
+        <circle cx="120" cy="58" r="7" fill="#fabb15"/>
+        <path d="M120,58 C160,58 196,60 204,62 L204,104" fill="none" stroke="#fabb15" stroke-width="5" stroke-linecap="round"/>
+        <!-- borla -->
+        <path d="M197,104 h14 l4,26 h-22 z" fill="#fabb15"/>
+        <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </svg>
+
+    <h1>Escuela <span>Financiera</span></h1>
+    <div class="tagline">¡Haz la prueba!</div>
+
+    <div class="bar"><i></i></div>
+    <button class="skip" onclick="hide()">Continuar al sitio</button>
+  </div>
+
+  <script>
+    const splash = document.getElementById('splash');
+    setTimeout(hide, 5200);
+
+    function hide() { splash.classList.add('hide'); }
+    function replay() {
+      splash.classList.remove('hide');
+      const bar = splash.querySelector('.bar i');
+      bar.style.animation = 'none';
+      void bar.offsetWidth;
+      bar.style.animation = '';
+      setTimeout(hide, 5200);
+    }
+  </script>
+
+</body>
+</html>
