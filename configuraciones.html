@@ -2333,11 +2333,15 @@ body.user-logged-in .logged-topbar {
             <div class="settings-card-head">
               <div class="settings-card-icon">🚪</div>
               <div>
-                <h3>Sesión</h3>
-                <p>Cierra la sesión en este dispositivo.</p>
+                <h3>Sesión y cuenta</h3>
+                <p>Cierra tu sesión o elimina tu cuenta de forma permanente.</p>
               </div>
             </div>
-            <button class="btn-cta-outline" onclick="logout()" style="border-color: #e11d48; color: #e11d48;">Cerrar sesión</button>
+            <div class="settings-card-body" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+              <button class="btn-outline" onclick="logout()">Cerrar sesión</button>
+              <button class="btn-danger" id="btnDeleteAccount">Eliminar cuenta</button>
+              <small style="color: var(--text-muted);">Esta acción es irreversible.</small>
+            </div>
           </article>
 
         </div>

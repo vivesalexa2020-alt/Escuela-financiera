@@ -1102,6 +1102,54 @@ function togglePref(key, value) {
 }
 
 // ------------------------------------------------------------
+// ELIMINAR CUENTA (BAJA PERMANENTE)
+// ------------------------------------------------------------
+function deleteAccount() {
+  try {
+    const user = getCurrentUser();
+    const email = (user && user.email) ? String(user.email).toLowerCase() : '';
+    if (email) {
+      // Borrar datos del usuario en localStorage
+      const keysToRemove = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.includes(email)) keysToRemove.push(k);
+      }
+      keysToRemove.forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
+      // Borrar cuenta registrada
+      let users = [];
+      try { users = JSON.parse(localStorage.getItem(USERS_KEY)) || []; } catch (e) {}
+      users = users.filter(u => String(u.email).toLowerCase() !== email);
+      try { localStorage.setItem(USERS_KEY, JSON.stringify(users)); } catch (e) {}
+    }
+    // Cerrar sesión
+    try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+    updateAuthUI();
+    alert('Tu cuenta ha sido eliminada permanentemente.');
+    window.location.href = 'index.html';
+  } catch (e) {
+    alert('No se pudo eliminar la cuenta. Intenta de nuevo.');
+  }
+}
+
+// ------------------------------------------------------------
+// INICIALIZACIÓN DE BOTONES DE CONFIGURACIÓN
+// ------------------------------------------------------------
+function initConfigButtons() {
+  const btn = document.getElementById('btnDeleteAccount');
+  if (btn && !btn.dataset.bound) {
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', function () {
+      if (confirm('¿Seguro que deseas eliminar tu cuenta? Esta acción no se puede deshacer.')) {
+        deleteAccount();
+      }
+    });
+  }
+}
+initConfigButtons();
+
+
+// ------------------------------------------------------------
 // 17. ASISTENTE FINANCIERO "FIN" (local, por reglas)
 // ------------------------------------------------------------
 const FIN_CONOCIMIENTO = [
