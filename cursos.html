@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -14,23 +14,38 @@
 
   <style>
 :root {
-      --primary-dark: #06402d;
-      --primary-forest: #053b29;
+      /* Paleta Oficial */
+      --verde-principal: #00703C;     /* Confianza, crecimiento */
+      --verde-bosque: #06402d;        /* Verde oscuro institucional */
+      --verde-profundo: #032d1f;      /* Fondo hero y contrastes */
+      --verde-claro: #28C76F;          /* Botones, resaltados, éxitos */
+      --verde-claro-hover: #22ad60;
+      --amarillo-dorado: #F5B800;      /* Acentos, notificaciones */
+      --amarillo-dorado-hover: #dba400;
+      --amarillo-suave: #fff8e6;
+      --gris-oscuro: #343A40;         /* Textos principales, cabecera */
+      --gris-medio: #6C757D;          /* Textos secundarios */
+      --gris-claro: #F8F9FA;          /* Fondos limpios */
+      --blanco: #FFFFFF;              /* Tarjetas y secciones */
+
+      /* Mapeo de tokens */
+      --primary-dark: #00703C;
+      --primary-forest: #06402d;
       --primary-deep: #032d1f;
-      --hero-glow: #0c6a49;
-      --accent-lime: #cbf63e;
-      --accent-yellow: #fabb15;
-      --accent-yellow-hover: #ffd242;
-      --btn-green: #00ba6d;
-      --btn-green-hover: #00a45f;
-      --text-dark: #083c29;
-      --text-muted: #5e7a70;
-      --text-light-mint: #bfe5d4;
+      --hero-glow: #00703C;
+      --accent-lime: #28C76F;
+      --accent-yellow: #F5B800;
+      --accent-yellow-hover: #dba400;
+      --btn-green: #28C76F;
+      --btn-green-hover: #22ad60;
+      --text-dark: #343A40;
+      --text-muted: #6C757D;
+      --text-light-mint: #d1fae5;
       --card-bg: #ffffff;
-      --card-border: #e6f0eb;
-      --banner-mint-bg: #d7f4e6;
-      --banner-mint-border: #bce9d2;
-      --footer-bg: #053724;
+      --card-border: #E9ECEF;
+      --banner-mint-bg: #eafaf1;
+      --banner-mint-border: #bbf0d0;
+      --footer-bg: #343A40;
       --footer-link: #d2ebe0;
     }
 
@@ -1270,7 +1285,6 @@
       .dashboard-grid {
         grid-template-columns: 1fr;
       }
-    }
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2107,14 +2121,21 @@ body.user-logged-in .logged-topbar {
           </div>
         </a>
 
-        <!-- Aviso en la parte superior: Menú bloqueado -->
-        <div id="navGuestNotice" onclick="openLoginModal()" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--accent-lime); background: rgba(203, 246, 62, 0.12); padding: 7px 18px; border-radius: 999px; border: 1px solid rgba(203, 246, 62, 0.35); cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Haz clic para iniciar sesión">
-          <span>🔒</span> Inicia sesión para acceder al menú
-        </div>
+        <!-- Menú de navegación a las interfaces individuales -->
+        <ul class="nav-menu" style="display: flex !important; flex-direction: row !important; align-items: center !important; gap: 20px !important; list-style: none !important; margin: 0 !important; padding: 0 !important; position: static !important; background: transparent !important;">
+          <li><a href="index.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Inicio</a></li>
+          <li><a href="reticula.html" style="color: var(--amarillo-dorado); font-weight: 700; font-size: 13.5px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;">🚀 Aula Demo (Gratis)</a></li>
+          <li><a href="cursos.html" class="active" style="color: #ffffff; font-weight: 700; font-size: 13.5px; white-space: nowrap;">Cursos</a></li>
+          <li><a href="reticula.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Plan de Estudios</a></li>
+          <li><a href="recursos.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Recursos</a></li>
+          <li><a href="suscripcion.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Membresía</a></li>
+        </ul>
 
-        <div class="nav-actions">
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
+          <a href="reticula.html" style="background: var(--verde-claro); color: #fff; padding: 9px 20px; border-radius: 30px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 12px rgba(40,199,111,0.35); transition: all 0.2s;">
+            Probar Demo Gratis
+          </a>
           <button class="btn-login" onclick="openLoginModal()">Iniciar sesión</button>
-          <button class="btn-signup" onclick="openSignupModal()">Crear cuenta</button>
         </div>
       </nav>
     </div>
@@ -2818,3 +2839,4 @@ body.user-logged-in .logged-topbar {
   <script src="script.js"></script>
 </body>
 </html>
+

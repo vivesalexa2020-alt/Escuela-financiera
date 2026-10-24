@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membresía y Formas de Pago | Educación Financiera</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-principal: #00703C;     /* Confianza, crecimiento */
+      --verde-bosque: #06402d;        /* Verde oscuro institucional */
+      --verde-profundo: #032d1f;      /* Fondo hero y contrastes */
+      --verde-claro: #28C76F;          /* Botones, resaltados, éxitos */
+      --verde-claro-hover: #22ad60;
+      --amarillo-dorado: #F5B800;      /* Acentos, notificaciones */
+      --amarillo-dorado-hover: #dba400;
+      --amarillo-suave: #fff8e6;
+      --gris-oscuro: #343A40;         /* Textos principales, cabecera */
+      --gris-medio: #6C757D;          /* Textos secundarios */
+      --gris-claro: #F8F9FA;          /* Fondos limpios */
+      --blanco: #FFFFFF;              /* Tarjetas y secciones */
+      --borde-suave: #E9ECEF;         /* Separadores y bordes limpios */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--gris-claro);
+      color: var(--gris-oscuro);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    /* HEADER */
+    .site-header {
+      background: var(--verde-principal);
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--amarillo-dorado);
+    }
+
+    .btn-nav-demo {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-nav-demo:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* HERO SUSCRIPCIÓN */
+    .pricing-hero {
+      background: linear-gradient(180deg, var(--verde-bosque) 0%, var(--verde-profundo) 100%);
+      color: #fff;
+      padding: 50px 0 70px;
+      text-align: center;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 184, 0, 0.18);
+      border: 1px solid var(--amarillo-dorado);
+      color: var(--amarillo-dorado);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pricing-hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .pricing-hero p {
+      font-size: 15.5px;
+      color: #d1fae5;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* GRID PRINCIPAL: RESUMEN DEL PLAN + FORMULARIO DE PAGO */
+    .pricing-layout {
+      margin-top: -40px;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 70px;
+    }
+
+    @media (max-width: 860px) {
+      .pricing-layout {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+    }
+
+    /* COLUMNA 1: BENEFICIOS INCLUIDOS */
+    .plan-summary-card {
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: 34px;
+      border: 1px solid var(--borde-suave);
+      box-shadow: 0 8px 30px rgba(52, 58, 64, 0.06);
+    }
+
+    .plan-tag {
+      background: #eafaf1;
+      color: var(--verde-principal);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .plan-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .plan-price-wrap .amount {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--verde-principal);
+    }
+
+    .plan-price-wrap .period {
+      font-size: 14px;
+      color: var(--gris-medio);
+      font-weight: 600;
+    }
+
+    .plan-desc {
+      font-size: 13.5px;
+      color: var(--gris-medio);
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--borde-suave);
+    }
+
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 13.5px;
+      color: var(--gris-oscuro);
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .benefit-icon {
+      color: var(--verde-claro);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    /* COLUMNA 2: SELECCIÓN DE MÉTODO DE PAGO */
+    .checkout-card {
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: 34px;
+      border: 2px solid #e1eee7;
+      box-shadow: 0 10px 35px rgba(52, 58, 64, 0.08);
+    }
+
+    .checkout-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gris-oscuro);
+      margin-bottom: 6px;
+    }
+
+    .checkout-card p.subtitle {
+      font-size: 13px;
+      color: var(--gris-medio);
+      margin-bottom: 22px;
+    }
+
+    .payment-methods-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 540px) {
+      .payment-methods-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .method-card {
+      border: 2px solid var(--borde-suave);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--blanco);
+      transition: all 0.2s;
+    }
+
+    .method-card:hover {
+      border-color: var(--verde-principal);
+    }
+
+    .method-card.selected {
+      border-color: var(--verde-principal);
+      background: #f0faf4;
+    }
+
+    .method-card input {
+      margin-top: 3px;
+      accent-color: var(--verde-principal);
+    }
+
+    .method-details h5 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      margin-bottom: 2px;
+    }
+
+    .method-details p {
+      font-size: 11.5px;
+      color: var(--gris-medio);
+    }
+
+    /* CAJA TRANSFERENCIA SPEI */
+    .bank-box {
+      background: var(--gris-claro);
+      border: 1px solid #cce8d8;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+
+    .bank-box h4 {
+      color: var(--verde-principal);
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bank-data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--borde-suave);
+      font-size: 13px;
+    }
+
+    .bank-data-row:last-child {
+      border-bottom: none;
+    }
+
+    .bank-label {
+      color: var(--gris-medio);
+    }
+
+    .bank-val {
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      font-family: monospace;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-copy {
+      background: var(--blanco);
+      border: 1px solid #cce8d8;
+      color: var(--verde-principal);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-copy:hover {
+      background: #eafaf1;
+    }
+
+    /* FORMULARIO TARJETA */
+    .card-box {
+      background: var(--gris-claro);
+      border: 1px solid var(--borde-suave);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gris-oscuro);
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--borde-suave);
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: var(--gris-oscuro);
+      background: var(--blanco);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--verde-principal);
+    }
+
+    .btn-complete-pay {
+      width: 100%;
+      background: var(--verde-claro);
+      color: #fff;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 4px 16px rgba(40, 199, 111, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-complete-pay:hover {
+      background: var(--verde-claro-hover);
+      transform: translateY(-1px);
+    }
+
+    .secure-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gris-medio);
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--gris-oscuro);
+      color: #a7dfc6;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 13px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <svg viewBox="0 0 240 210" width="32" height="28" role="img" aria-label="Logo Sombrero de Graduación con Libros">
+          <g>
+            <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
+            <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
+            <rect x="42" y="128" width="156" height="30" rx="8" fill="#28C76F" transform="rotate(-2 120 143)"/>
+            <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
+          </g>
+          <g>
+            <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
+            <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
+            <circle cx="120" cy="58" r="7" fill="#F5B800"/>
+          </g>
+        </svg>
+        <span>Educación <strong>Financiera</strong></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="reticula.html">Aula Demo</a></li>
+        <li><a href="reticula.html">Plan de Estudios</a></li>
+        <li><a href="recursos.html">Recursos</a></li>
+      </ul>
+
+      <div>
+        <a href="reticula.html" class="btn-nav-demo">← Volver a la Retícula</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pricing-hero">
+    <div class="container">
+      <div class="pricing-badge">
+        <span>🔒 Inversión en tu futuro</span>
+      </div>
+      <h1>Membresía Completa de Educación Financiera</h1>
+      <p>
+        Accede a todo el programa formativo paso a paso: Unidad 1, 2 y 3, plantillas financieras descargables y asesoría continua.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL: 2 COLUMNAS -->
+  <main class="container">
+    <div class="pricing-layout">
+
+      <!-- COLUMNA 1: RESUMEN DE BENEFICIOS -->
+      <div class="plan-summary-card">
+        <span class="plan-tag">ACCESO TOTAL</span>
+        <div class="plan-price-wrap">
+          <span class="amount">$299</span>
+          <span class="period">MXN / mes</span>
+        </div>
+        <p class="plan-desc">
+          Cancela en cualquier momento sin penalizaciones. Formación práctica enfocada en resultados reales en tus finanzas.
+        </p>
+
+        <ul class="benefit-list">
+          <li>
+            <span class="benefit-icon">✓</span>
+            <span><strong>Las 3 Unidades completas</strong> (Básico, Intermedio y Avanzado).</span>
+          </li>
+          <li>
+            <span class="benefit-icon">✓</span>
+            <span><strong>Método anti-deuda guiado</strong> con plantillas de amortización en Excel.</span>
+          </li>
+          <li>
+            <span class="benefit-icon">✓</span>
+            <span><strong>Fondo de emergencia e inversión inicial</strong> explicados sin rodeos.</span>
+          </li>
+          <li>
+            <span class="benefit-icon">✓</span>
+            <span><strong>Calculadoras interactivas</strong> y recursos exclusivos para alumnos.</span>
+          </li>
+          <li>
+            <span class="benefit-icon">✓</span>
+            <span><strong>Certificado de acreditación</strong> al completar cada nivel formativo.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- COLUMNA 2: PAGO Y DATOS BANCARIOS -->
+      <div class="checkout-card">
+        <h3>Elige tu método de pago</h3>
+        <p class="subtitle">Acreditación rápida y segura de tu cuenta de estudiante</p>
+
+        <!-- SELECTOR DE MÉTODO -->
+        <div class="payment-methods-grid">
+          <label class="method-card selected" id="methodSpeiLabel" onclick="selectMethod('spei')">
+            <input type="radio" name="paymethod" id="paySpei" checked>
+            <div class="method-details">
+              <h5>🏦 Transferencia SPEI</h5>
+              <p>Directo desde tu app bancaria.</p>
+            </div>
+          </label>
+
+          <label class="method-card" id="methodCardLabel" onclick="selectMethod('card')">
+            <input type="radio" name="paymethod" id="payCard">
+            <div class="method-details">
+              <h5>💳 Tarjeta Débito/Crédito</h5>
+              <p>Cobro seguro en línea.</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- DETALLES BANCARIOS SPEI -->
+        <div class="bank-box" id="bankBox">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"/></svg>
+            Datos para tu Transferencia Interbancaria (SPEI):
+          </h4>
+
+          <div class="bank-data-row">
+            <span class="bank-label">Banco receptor:</span>
+            <span class="bank-val">BBVA México</span>
+          </div>
+          <div class="bank-data-row">
+            <span class="bank-label">Beneficiario:</span>
+            <span class="bank-val">Educación Financiera MX A.C.</span>
+          </div>
+          <div class="bank-data-row">
+            <span class="bank-label">CLABE Interbancaria:</span>
+            <span class="bank-val">
+              <span id="clabeVal">012 180 01548962314 5</span>
+              <button class="btn-copy" onclick="copyClabe()">Copiar</button>
+            </span>
+          </div>
+          <div class="bank-data-row">
+            <span class="bank-label">Monto exacto:</span>
+            <span class="bank-val" style="color: var(--verde-principal); font-size: 15px;">$299.00 MXN</span>
+          </div>
+          <div class="bank-data-row">
+            <span class="bank-label">Concepto / Referencia:</span>
+            <span class="bank-val">EDU-8429</span>
+          </div>
+
+          <p style="font-size: 11.5px; color: var(--gris-medio); margin-top: 14px;">
+            💡 <em>Al realizar tu transferencia, conserva tu comprobante. Tu cuenta se activará automáticamente al reportar la referencia.</em>
+          </p>
+        </div>
+
+        <!-- FORMULARIO TARJETA (OCULTO POR DEFECTO) -->
+        <div class="card-box" id="cardBox" style="display: none;">
+          <div class="form-group">
+            <label>Nombre del titular de la tarjeta</label>
+            <input type="text" placeholder="Ej. Juan Pérez López">
+          </div>
+          <div class="form-group">
+            <label>Número de tarjeta</label>
+            <input type="text" placeholder="•••• •••• •••• ••••">
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label>Vencimiento (MM/AA)</label>
+              <input type="text" placeholder="12/28">
+            </div>
+            <div class="form-group">
+              <label>CVV (3 dígitos)</label>
+              <input type="text" placeholder="123">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-complete-pay" onclick="handlePayAction()">
+          Confirmar y Activar Membresía ($299 MXN)
+        </button>
+
+        <div class="secure-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Conexión cifrada de 256 bits • Garantía de satisfacción de 30 días</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Educación Financiera</strong> — Plataforma Educativa de Formación Integral.</p>
+    </div>
+  </footer>
+
+  <script>
+    function selectMethod(method) {
+      const speiLabel = document.getElementById('methodSpeiLabel');
+      const cardLabel = document.getElementById('methodCardLabel');
+      const bankBox = document.getElementById('bankBox');
+      const cardBox = document.getElementById('cardBox');
+
+      if (method === 'spei') {
+        speiLabel.classList.add('selected');
+        cardLabel.classList.remove('selected');
+        document.getElementById('paySpei').checked = true;
+        bankBox.style.display = 'block';
+        cardBox.style.display = 'none';
+      } else {
+        cardLabel.classList.add('selected');
+        speiLabel.classList.remove('selected');
+        document.getElementById('payCard').checked = true;
+        bankBox.style.display = 'none';
+        cardBox.style.display = 'block';
+      }
+    }
+
+    function copyClabe() {
+      const clabe = document.getElementById('clabeVal').innerText.replace(/\s+/g, '');
+      navigator.clipboard.writeText(clabe).then(() => {
+        alert("📋 ¡CLABE copiada al portapapeles! Ya puedes pegarla en la app de tu banco.");
+      }).catch(() => {
+        alert("CLABE: " + clabe);
+      });
+    }
+
+    function handlePayAction() {
+      alert("✅ ¡Excelente! Tu orden ha sido registrada. Te redirigiremos al Aula Virtual para que comiences de inmediato.");
+      window.location.href = "reticula.html";
+    }
+  </script>
+</body>
+</html>
+

@@ -526,19 +526,24 @@ function updateAuthUI() {
     if (navGuestNotice) navGuestNotice.style.display = 'none';
   } else {
     // USUARIO VISITANTE (SIN SESIÓN):
-    document.body.classList.add('not-logged-in');
-    document.body.classList.remove('user-logged-in');
+    // Permitir acceso directo a la retícula académica con Semestre 1 libre (Cero fricción)
+    document.body.classList.add('user-logged-in');
+    document.body.classList.remove('not-logged-in');
 
-    if (protectedSection) protectedSection.style.display = 'none';
-    if (lockedBanner) lockedBanner.style.display = 'block';
+    if (sidebarUserName) sidebarUserName.textContent = 'Invitado (Demo)';
+    if (sidebarUserAvatar) sidebarUserAvatar.textContent = '👋';
+    if (topbarUserName) topbarUserName.textContent = 'Invitado (Semestre 1 Libre)';
 
-    // En index.html: mostrar portada pública y ocultar panel privado
+    if (protectedSection) protectedSection.style.display = 'block';
+    if (lockedBanner) lockedBanner.style.display = 'none';
+
+    // En index.html: mostrar portada pública
     if (studentDashboard) studentDashboard.style.display = 'none';
     if (guestLanding) guestLanding.style.display = 'block';
-    if (navGuestNotice) navGuestNotice.style.display = 'flex';
+    if (navGuestNotice) navGuestNotice.style.display = 'none';
 
     // Cerrar sidebar si estaba abierto en responsive
-    if (sidebar) sidebar.classList.remove('open');
+    if (sidebar && window.innerWidth <= 992) sidebar.classList.remove('open');
   }
 
   // Refrescar la retícula académica según el usuario actual
@@ -899,9 +904,9 @@ function openReticulaModal(id) {
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'bloqueado') {
       tipo = 'info';
-      texto = '🔒 Esta materia se desbloquea cuando completes las 2 unidades iniciales del Semestre 1.';
-      label = 'Materia bloqueada';
-      deshabilitado = true;
+      texto = '🔒 Esta materia pertenece al Semestre 2. Para desbloquearla y continuar tu formación, activa tu membresía de $299 MXN (Transferencia SPEI o Tarjeta).';
+      label = 'Desbloquear con Membresía ($299 MXN) →';
+      deshabilitado = false;
     } else if (chk.motivo === 'limite') {
       const limite = cfg ? cfg.limite : 1;
       tipo = 'info';
@@ -937,7 +942,14 @@ function inscribirMateriaActual() {
   if (!reticulaActualId) return;
   const id = reticulaActualId;
   const chk = puedeInscribir(id);
-  if (!chk.ok) { openReticulaModal(id); return; }
+  if (!chk.ok) {
+    if (chk.motivo === 'bloqueado') {
+      window.location.href = 'suscripcion.html';
+      return;
+    }
+    openReticulaModal(id);
+    return;
+  }
 
   const state = getReticulaState();
   state.inscritas.push(id);
