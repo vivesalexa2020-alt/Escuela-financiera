@@ -690,46 +690,91 @@ document.addEventListener('DOMContentLoaded', () => {
 const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
 
 const RETICULA_SEMESTRES = [
-  { id: 1, titulo: 'Semestre 1', limite: 2, requeridoPrevio: 0 },
-  { id: 2, titulo: 'Semestre 2', limite: 1, requeridoPrevio: 2 }
+  { id: 1, anio: 'Año 1', nivel: 'Básico', titulo: 'Semestre 1 (Nivel Básico — Prueba 100% Gratis)', limite: 3, requeridoPrevio: 0, gratis: true },
+  { id: 2, anio: 'Año 1', nivel: 'Intermedio I', titulo: 'Semestre 2 (Nivel Intermedio I — Consolidación)', limite: 2, requeridoPrevio: 2, gratis: false },
+  { id: 3, anio: 'Año 2', nivel: 'Intermedio II', titulo: 'Semestre 3 (Nivel Intermedio II — Inversiones)', limite: 2, requeridoPrevio: 1, gratis: false },
+  { id: 4, anio: 'Año 2', nivel: 'Avanzado', titulo: 'Semestre 4 (Nivel Avanzado — Libertad Financiera)', limite: 2, requeridoPrevio: 1, gratis: false }
 ];
 
 const RETICULA_MATERIAS = [
+  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis)
   {
     id: 'finanzas-personales', semestre: 1, icon: '🐷',
     nombre: 'Finanzas personales',
     desc: 'Administra tu dinero, controla tus gastos y crea hábitos financieros saludables.',
-    temario: ['Registro de ingresos y gastos', 'Fondo de emergencia', 'Definición de metas financieras']
+    temario: ['Registro de ingresos y gastos', 'Fondo de emergencia inicial', 'Definición de metas financieras']
   },
   {
     id: 'presupuesto', semestre: 1, icon: '💰',
-    nombre: 'Presupuesto',
+    nombre: 'Presupuesto mensual',
     desc: 'Planifica tus ingresos y gastos para alcanzar mayor estabilidad financiera.',
     temario: ['La regla 50/30/20', 'Presupuesto mensual paso a paso', 'Ahorro programado']
   },
   {
     id: 'gasto-hormiga', semestre: 1, icon: '🐜',
-    nombre: 'Gasto hormiga',
+    nombre: 'Gasto hormiga y saneamiento',
     desc: 'Detecta y elimina esos pequeños gastos diarios que se comen tus finanzas sin que lo notes.',
-    temario: ['¿Qué es el gasto hormiga?', 'Cómo identificarlo en tu día a día', 'Redirigir esos montos al ahorro']
+    temario: ['¿Qué es el gasto hormiga?', 'Auditoría de fugas de dinero', 'Redirigir montos al ahorro']
+  },
+
+  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
+  {
+    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
+    nombre: 'Ahorro formal y fondo de emergencia',
+    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
+    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo']
   },
   {
-    id: 'ahorro-inversion', semestre: 2, icon: '📈',
-    nombre: 'Ahorro e inversión',
-    desc: 'Haz crecer tu dinero y alcanza tus metas a largo plazo con estrategias de inversión.',
-    temario: ['Interés compuesto', 'Instrumentos de ahorro e inversión', 'Diversificación del riesgo']
+    id: 'control-deudas', semestre: 2, icon: '💳',
+    nombre: 'Control de deudas y crédito bancario',
+    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
+    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas']
   },
   {
     id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas',
-    desc: 'Conoce las herramientas, plantillas y recursos para gestionar tus finanzas como un profesional.',
-    temario: ['Plantillas financieras', 'Apps y recursos digitales', 'Calculadoras de ahorro y deuda']
+    nombre: 'Materiales y herramientas digitales',
+    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
+    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización']
+  },
+
+  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
+  {
+    id: 'ahorro-inversion', semestre: 3, icon: '📈',
+    nombre: 'Estrategias de inversión y renta fija',
+    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
+    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real']
   },
   {
-    id: 'emprendimiento', semestre: 2, icon: '💡',
-    nombre: 'Emprendimiento',
-    desc: 'Conoce las bases para iniciar tu propio negocio y generar ingresos adicionales.',
-    temario: ['Validación de ideas de negocio', 'Plan financiero inicial', 'Aspectos legales básicos']
+    id: 'fondos-bolsa', semestre: 3, icon: '📊',
+    nombre: 'Fondos indexados y renta variable',
+    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
+    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal']
+  },
+  {
+    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
+    nombre: 'Protección patrimonial e impuestos',
+    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
+    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)']
+  },
+
+  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
+  {
+    id: 'emprendimiento', semestre: 4, icon: '💡',
+    nombre: 'Emprendimiento y modelos de negocio',
+    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
+    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing']
+  },
+  {
+    id: 'bienes-raices', semestre: 4, icon: '🏢',
+    nombre: 'Inversión inmobiliaria y FIBRAs',
+    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
+    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante']
+  },
+  {
+    id: 'libertad-financiera', semestre: 4, icon: '🏆',
+    nombre: 'Independencia y legado financiero',
+    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
+    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años']
   }
 ];
 
@@ -810,11 +855,15 @@ function renderReticula() {
     let hint;
     if (contarInscritasEnSemestre(state, 1) < 2) {
       const faltan = 2 - contarInscritasEnSemestre(state, 1);
-      hint = 'Inscríbete a ' + faltan + ' unidad' + (faltan === 1 ? '' : 'es') + ' más del Semestre 1';
+      hint = 'Semestre 1 (Prueba Gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
     } else if (contarInscritasEnSemestre(state, 2) < 1) {
-      hint = '¡Semestre 2 desbloqueado! Elige 1 materia';
+      hint = '¡Semestre 1 aprobado! Continúa tu carrera de 2 años en el Semestre 2';
+    } else if (contarInscritasEnSemestre(state, 3) < 1) {
+      hint = '¡Año 2 desbloqueado! Inicia el Semestre 3 de Inversiones';
+    } else if (contarInscritasEnSemestre(state, 4) < 1) {
+      hint = '¡Nivel Avanzado! Semestre 4 de Libertad Financiera y Emprendimiento';
     } else {
-      hint = '¡Retícula en curso! Sigue avanzando';
+      hint = '¡Excelente! Has completado tu retícula formativa de 2 años';
     }
     resumen.innerHTML =
       '<div class="reticula-resumen-num">' + inscritas + '<span> / ' + total + '</span></div>' +
@@ -904,8 +953,8 @@ function openReticulaModal(id) {
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'bloqueado') {
       tipo = 'info';
-      texto = '🔒 Esta materia pertenece al Semestre 2. Para desbloquearla y continuar tu formación, activa tu membresía de $299 MXN (Transferencia SPEI o Tarjeta).';
-      label = 'Desbloquear con Membresía ($299 MXN) →';
+      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) fue de prueba 100% GRATIS. Para continuar tu formación en los niveles Intermedio y Avanzado del programa de 2 años, activa tu membresía de $299 MXN (SPEI o Tarjeta).';
+      label = 'Continuar Formación con Membresía ($299 MXN) →';
       deshabilitado = false;
     } else if (chk.motivo === 'limite') {
       const limite = cfg ? cfg.limite : 1;
