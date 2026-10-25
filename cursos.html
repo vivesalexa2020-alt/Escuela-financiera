@@ -2251,7 +2251,7 @@ body.user-logged-in .logged-topbar {
 
       <div class="courses-grid">
         <!-- CURSO 1: Finanzas personales -->
-        <article class="course-card">
+        <article class="course-card course-card-featured">
           <div class="course-icon-badge badge-green">
             <!-- Piggy Bank Icon -->
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2265,13 +2265,25 @@ body.user-logged-in .logged-topbar {
           <p class="course-desc">
             Aprende a administrar tu dinero, controlar tus gastos y crear hábitos financieros saludables.
           </p>
+
+          <div class="course-tutorials-pill-box">
+            <span class="tutorials-pill">🌟 4 Tutoriales interactivos incluidos</span>
+            <span class="tutorials-pill-tag">Gastos hormiga &amp; Cómo empezar a ahorrar</span>
+          </div>
+
           <div class="course-progress-meta">50% completado</div>
           <div class="course-progress-bar">
             <div class="course-progress-fill" style="width: 50%;"></div>
           </div>
-          <button class="btn-course-action" onclick="openCourseModal('Finanzas personales', 'Aprende a administrar tu presupuesto diario, controlar los gastos hormiga y fijar metas de ahorro efectivas.')">
-            Continuar curso <span>→</span>
-          </button>
+          <div class="course-card-btn-group">
+            <button class="btn-course-action" onclick="openCourseModal('Finanzas personales', 'Aprende a administrar tu presupuesto diario, controlar los gastos hormiga y fijar metas de ahorro efectivas.')">
+              Continuar curso <span>→</span>
+            </button>
+            <button class="btn-course-subaction" type="button" onclick="scrollToTutorials()">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              Ver tutoriales prácticos
+            </button>
+          </div>
         </article>
 
         <!-- CURSO 2: Ahorro e inversión -->
@@ -2348,7 +2360,58 @@ body.user-logged-in .logged-topbar {
       </div>
     </div>
   </section>
-    <section class="progress-banner-wrap" id="progreso">
+
+  <!-- SECCIÓN DE TUTORIALES PRÁCTICOS: GASTOS HORMIGA Y CÓMO EMPEZAR A AHORRAR -->
+  <section class="tutorials-section" id="tutoriales-finanzas">
+    <div class="container">
+      <div class="tutorials-header">
+        <div class="tutorials-header-left">
+          <span class="tutorials-eyebrow">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            FINANZAS PERSONALES • TUTORIALES INTERACTIVOS
+          </span>
+          <h2 class="tutorials-title">Aprende a dominar tus Gastos Hormiga y cómo empezar a Ahorrar</h2>
+          <p class="tutorials-subtitle">
+            Mini-guías paso a paso diseñadas para poner en práctica hoy mismo: detecta fugas silenciosas de dinero, aplica el método de sustitución inteligente y activa el hábito de 'Pagarte a ti primero'.
+          </p>
+        </div>
+        <div class="tutorials-stats-box" id="tutorialsStatsBox">
+          <div class="tut-stat-circle" id="tutStatCircle">
+            <span id="tutCompletedCount">0</span>/<span id="tutTotalCount">4</span>
+          </div>
+          <div class="tut-stat-text">
+            <strong id="tutStatHeading">Progreso de tutoriales</strong>
+            <span id="tutProgressLabel">Completa los 4 tutoriales prácticos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de filtros -->
+      <div class="tutorials-filter-bar">
+        <div class="tutorials-filters" role="tablist" aria-label="Filtro de tutoriales de finanzas personales">
+          <button class="tut-filter-btn active" data-filter="todos" onclick="filtrarTutoriales('todos', this)" role="tab" aria-selected="true">
+            Todos los tutoriales <span class="tut-count" id="countFilterTodos">4</span>
+          </button>
+          <button class="tut-filter-btn" data-filter="gastos-hormiga" onclick="filtrarTutoriales('gastos-hormiga', this)" role="tab" aria-selected="false">
+            🐜 Gastos Hormiga <span class="tut-count" id="countFilterHormiga">2</span>
+          </button>
+          <button class="tut-filter-btn" data-filter="ahorro" onclick="filtrarTutoriales('ahorro', this)" role="tab" aria-selected="false">
+            🌱 Cómo Empezar a Ahorrar <span class="tut-count" id="countFilterAhorro">2</span>
+          </button>
+        </div>
+        <div class="tutorials-quick-summary">
+          <span>💡 <strong>Dato clave:</strong> Ahorrar $50 al día equivale a $18,250 MXN al año en tu bolsillo.</span>
+        </div>
+      </div>
+
+      <!-- Contenedor dinámico de tutoriales -->
+      <div class="tutorials-grid" id="tutorialsGrid">
+        <!-- Renderizado dinámicamente por script.js -->
+      </div>
+    </div>
+  </section>
+
+  <section class="progress-banner-wrap" id="progreso">
     <div class="container">
       <div class="progress-banner-card">
         <!-- Izquierda: Target icon + Textos -->
@@ -2546,9 +2609,20 @@ body.user-logged-in .logged-topbar {
   </svg></div>
       <h3 id="modalTitle">Detalle del curso</h3>
       <p id="modalDescription">Información del curso y temario disponible.</p>
+      <div id="modalExtraContent" class="modal-extra-tutorials"></div>
       <button class="btn-cta-yellow" style="width: 100%; justify-content: center;" onclick="closeModal()">
         ¡Entendido!
       </button>
+    </div>
+  </div>
+
+  <!-- Modal de Detalle de Tutorial Interactivo -->
+  <div class="modal-overlay" id="tutorialDetailModal" role="dialog" aria-modal="true" aria-labelledby="tutDetailHeading">
+    <div class="modal-card modal-card-tutorial" id="tutorialModalCard">
+      <button class="modal-close-btn" onclick="closeTutorialModal()" aria-label="Cerrar tutorial">×</button>
+      <div id="tutorialModalContent">
+        <!-- Contenido interactivo renderizado por script.js -->
+      </div>
     </div>
   </div>
 

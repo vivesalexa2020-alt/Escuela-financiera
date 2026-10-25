@@ -2192,7 +2192,7 @@ body.user-logged-in .logged-topbar {
         <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
       </div>
       <h1>Tu <span>Retícula Académica</span></h1>
-      <p>Inscríbete a tus primeras 2 unidades y avanza una materia por semestre. Haz clic en cada materia para ver su temario e inscribirte.</p>
+      <p>Etapa Inicial: Responde tu <strong>Diagnóstico gratuito</strong> sobre tus hábitos financieros (gasto, ahorro, deudas y metas) para recibir tu recomendación de nivel básico o intermedio antes de inscribirte.</p>
     </div>
   </section>
 
@@ -2227,7 +2227,7 @@ body.user-logged-in .logged-topbar {
       </div>
       <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
       <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
-        Para acceder a la interfaz de <strong>Retícula Académica</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
+        Para acceder a tu <strong>Retícula Académica</strong>, realizar tu <strong>Diagnóstico Gratuito inicial</strong> e inscribirte a tus materias, por favor inicia sesión con tu cuenta o crea una gratis.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <button class="btn-cta-yellow" onclick="openLoginModal()" style="padding: 10px 22px;">Iniciar sesión</button>
@@ -2243,11 +2243,21 @@ body.user-logged-in .logged-topbar {
           <div>
             <span class="reticula-badge">🗺️ Mapa de Aprendizaje</span>
             <h3>Tu Retícula Académica</h3>
-            <p>Inscríbete a tus primeras <strong>2 unidades</strong> y después avanzarás <strong>una materia por semestre</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
+            <p>Avanza en orden por cada etapa formativa: comienza con la <strong>Etapa 1 (Diagnóstico Gratuito)</strong>, continúa con la <strong>Etapa 2 (Semestre 1)</strong> y finaliza con la <strong>Etapa 3 (Semestre 2)</strong>.</p>
           </div>
           <div class="reticula-resumen" id="reticulaResumen">
             <!-- Se llena con JavaScript -->
           </div>
+        </div>
+
+        <!-- Línea de Progreso y Orden de Etapas -->
+        <div class="reticula-etapas-stepper" id="reticulaEtapasStepper">
+          <!-- Se genera dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Etapa 1: Diagnóstico Gratuito -->
+        <div class="reticula-etapa-inicial" id="reticulaEtapaInicial">
+          <!-- Se llena con JavaScript según el estado del diagnóstico -->
         </div>
 
         <div class="reticula-grid" id="reticulaGrid">
@@ -2440,6 +2450,13 @@ body.user-logged-in .logged-topbar {
       <button class="btn-cta-yellow reticula-modal-action" id="reticulaModalAction" onclick="inscribirMateriaActual()">
         Inscribirme
       </button>
+    </div>
+  </div>
+
+  <!-- Modal de Diagnóstico Gratuito (Etapa Inicial) -->
+  <div class="modal-overlay" id="diagnosticoModal" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card-diag" id="diagnosticoCard">
+      <!-- El contenido dinámico se genera con JavaScript -->
     </div>
   </div>
 
