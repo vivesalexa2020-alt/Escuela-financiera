@@ -618,7 +618,7 @@ function toggleFaq(btn) {
 // 12. PROTECCIÓN DE ENLACES PARA VISITANTES
 // ------------------------------------------------------------
 document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="reticula.html"], a[href="configuraciones.html"]');
+  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="configuraciones.html"]');
   if (link && !getCurrentUser()) {
     e.preventDefault();
     openLoginModal();
@@ -799,6 +799,14 @@ function saveReticulaState(state) {
   } catch (e) {}
 }
 
+function resetInscripciones() {
+  if (!confirm('¿Quitar todas las materias inscritas de tu retícula? Esta acción no se puede deshacer.')) return;
+  saveReticulaState({ inscritas: [] });
+  closeReticulaModal();
+  renderReticula();
+  alert('✅ Tus inscripciones fueron eliminadas. Ya puedes inscribirte de nuevo desde el Semestre 1.');
+}
+
 function getMateriaPorId(id) {
   return RETICULA_MATERIAS.find(function (m) { return m.id === id; }) || null;
 }
@@ -814,9 +822,68 @@ function contarInscritasEnSemestre(state, semId) {
   }).length;
 }
 
+const MEMBRESIA_KEY = 'edu_fin_membresia_';
+
+function getMembresiaStorageKey() {
+  const user = getCurrentUser();
+  const who = (user && user.email) ? String(user.email).toLowerCase() : 'invitado';
+  return MEMBRESIA_KEY + who;
+}
+
+function getMembresia() {
+  const key = getMembresiaStorageKey();
+  try {
+    const raw = localStorage.getItem(key);
+    const parsed = raw ? JSON.parse(raw) : null;
+    if (parsed && parsed.activa) return parsed;
+  } catch (e) {}
+
+  // Si pagó como invitado y después creó su cuenta, heredar la inscripción.
+  if (getCurrentUser()) {
+    try {
+      const rawInvitado = localStorage.getItem(MEMBRESIA_KEY + 'invitado');
+      const parsedInvitado = rawInvitado ? JSON.parse(rawInvitado) : null;
+      if (parsedInvitado && parsedInvitado.activa) {
+        localStorage.setItem(key, rawInvitado);
+        return parsedInvitado;
+      }
+    } catch (e) {}
+  }
+
+  return { activa: false };
+}
+
+function tieneMembresiaActiva() {
+  return getMembresia().activa === true;
+}
+
+function activarMembresia(metodo) {
+  try {
+    localStorage.setItem(getMembresiaStorageKey(), JSON.stringify({
+      activa: true,
+      metodo: metodo || 'spei',
+      fecha: Date.now()
+    }));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function semestreRequierePago(semId) {
+  const cfg = getSemestreConfig(semId);
+  return !!(cfg && !cfg.gratis);
+}
+
+function semestreEstaBloqueadoPorPago(semId) {
+  return semestreRequierePago(semId) && !tieneMembresiaActiva();
+}
+
 function semestreEstaBloqueado(state, semId) {
   const cfg = getSemestreConfig(semId);
-  if (!cfg || cfg.requeridoPrevio <= 0) return false;
+  if (!cfg) return false;
+  if (semestreEstaBloqueadoPorPago(semId)) return true;
+  if (cfg.requeridoPrevio <= 0) return false;
   const prev = RETICULA_SEMESTRES.find(function (s) { return s.id === semId - 1; });
   if (!prev) return false;
   return contarInscritasEnSemestre(state, prev.id) < cfg.requeridoPrevio;
@@ -827,6 +894,7 @@ function puedeInscribir(id) {
   const m = getMateriaPorId(id);
   if (!m) return { ok: false, motivo: 'error' };
   if (state.inscritas.indexOf(id) !== -1) return { ok: false, motivo: 'inscrita' };
+  if (semestreEstaBloqueadoPorPago(m.semestre)) return { ok: false, motivo: 'pago' };
   if (semestreEstaBloqueado(state, m.semestre)) return { ok: false, motivo: 'bloqueado' };
   const cfg = getSemestreConfig(m.semestre);
   const limite = cfg ? cfg.limite : 1;
@@ -857,7 +925,9 @@ function renderReticula() {
       const faltan = 2 - contarInscritasEnSemestre(state, 1);
       hint = 'Semestre 1 (Prueba Gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
     } else if (contarInscritasEnSemestre(state, 2) < 1) {
-      hint = '¡Semestre 1 aprobado! Continúa tu carrera de 2 años en el Semestre 2';
+      hint = tieneMembresiaActiva()
+        ? '¡Semestre 1 aprobado! Continúa tu carrera de 2 años en el Semestre 2'
+        : '¡Semestre 1 completado! Activa tu inscripción para acceder al Semestre 2';
     } else if (contarInscritasEnSemestre(state, 3) < 1) {
       hint = '¡Año 2 desbloqueado! Inicia el Semestre 3 de Inversiones';
     } else if (contarInscritasEnSemestre(state, 4) < 1) {
@@ -876,10 +946,11 @@ function renderReticula() {
     const materias = RETICULA_MATERIAS.filter(function (m) { return m.semestre === sem.id; });
     const inscritasSem = contarInscritasEnSemestre(state, sem.id);
     const bloqueado = semestreEstaBloqueado(state, sem.id);
+    const requierePago = semestreEstaBloqueadoPorPago(sem.id);
     const pct = Math.min(100, Math.round((inscritasSem / cfg.limite) * 100));
 
     const chip = bloqueado
-      ? '<span class="reticula-semester-chip locked">🔒 Bloqueado</span>'
+      ? '<span class="reticula-semester-chip locked">' + (requierePago ? '🔒 Requiere inscripción' : '🔒 Bloqueado') + '</span>'
       : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
         (cfg.limite === 1 ? ' materia' : ' unidades') + '</span>';
 
@@ -951,11 +1022,19 @@ function openReticulaModal(id) {
       tipo = 'warn';
       texto = '🟡 Materia disponible. Puedes inscribirte ahora mismo.';
       label = 'Inscribirme a esta materia';
+    } else if (chk.motivo === 'pago') {
+      tipo = 'info';
+      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) es de prueba 100% GRATIS. Para acceder del Semestre 2 en adelante necesitas pagar tu inscripción de $299 MXN (SPEI o Tarjeta).';
+      label = 'Pagar inscripción y desbloquear acceso →';
+      deshabilitado = false;
     } else if (chk.motivo === 'bloqueado') {
       tipo = 'info';
-      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) fue de prueba 100% GRATIS. Para continuar tu formación en los niveles Intermedio y Avanzado del programa de 2 años, activa tu membresía de $299 MXN (SPEI o Tarjeta).';
-      label = 'Continuar Formación con Membresía ($299 MXN) →';
-      deshabilitado = false;
+      const prevSem = m.semestre - 1;
+      const faltan = cfg ? Math.max(0, cfg.requeridoPrevio - contarInscritasEnSemestre(state, prevSem)) : 1;
+      texto = '🔒 Para inscribir esta materia primero debes completar ' + faltan +
+        (faltan === 1 ? ' materia' : ' materias') + ' del Semestre ' + prevSem + '.';
+      label = 'Completa el semestre anterior';
+      deshabilitado = true;
     } else if (chk.motivo === 'limite') {
       const limite = cfg ? cfg.limite : 1;
       tipo = 'info';
@@ -992,7 +1071,7 @@ function inscribirMateriaActual() {
   const id = reticulaActualId;
   const chk = puedeInscribir(id);
   if (!chk.ok) {
-    if (chk.motivo === 'bloqueado') {
+    if (chk.motivo === 'pago') {
       window.location.href = 'suscripcion.html';
       return;
     }
@@ -1211,7 +1290,7 @@ initConfigButtons();
 
 
 // ------------------------------------------------------------
-// 17. ASISTENTE FINANCIERO "FIN" (local, por reglas)
+// 17. ASISTENTE FINANCIERO "NEXO" (local, por reglas)
 // ------------------------------------------------------------
 const FIN_CONOCIMIENTO = [
   {
@@ -1251,7 +1330,7 @@ const FIN_CONOCIMIENTO = [
   },
   {
     claves: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'hey', 'saludos', 'que tal'],
-    respuesta: '¡Hola! Soy Fin 🪙. Puedo explicarte conceptos de finanzas o guiarte por la plataforma. ¿Qué necesitas?',
+    respuesta: '¡Hola! Soy NEXO 🤖. Puedo explicarte conceptos de finanzas o guiarte por la plataforma. ¿Qué necesitas?',
     enlaces: []
   },
   {
@@ -1312,22 +1391,31 @@ function finConstruirRespuesta(tema) {
 function initAsistente() {
   if (document.getElementById('finToggle')) return;
 
+  const nexoBotHTML =
+    '<span class="nexo-bot">' +
+      '<span class="nexo-antenna"></span>' +
+      '<span class="nexo-head">' +
+        '<span class="nexo-eyes"><i></i><i></i></span>' +
+        '<span class="nexo-mouth"></span>' +
+      '</span>' +
+    '</span>';
+
   const btn = document.createElement('button');
   btn.id = 'finToggle';
   btn.className = 'fin-btn';
   btn.setAttribute('type', 'button');
-  btn.setAttribute('aria-label', 'Abrir asistente Fin');
-  btn.innerHTML = '🪙<span class="fin-btn-ping"></span>';
+  btn.setAttribute('aria-label', 'Abrir asistente NEXO');
+  btn.innerHTML = nexoBotHTML + '<span class="fin-btn-ping"></span>';
 
   const panel = document.createElement('div');
   panel.id = 'finPanel';
   panel.className = 'fin-panel';
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'Asistente Fin');
+  panel.setAttribute('aria-label', 'Asistente NEXO');
   panel.innerHTML =
     '<div class="fin-header">' +
-      '<div class="fin-avatar">🪙</div>' +
-      '<div class="fin-header-text"><strong>Fin</strong><span>Tu asistente financiero</span></div>' +
+      '<div class="fin-avatar">' + nexoBotHTML + '</div>' +
+      '<div class="fin-header-text"><strong>NEXO</strong><span><i class="fin-online-dot"></i>En línea · Asistente financiero</span></div>' +
       '<button class="fin-close" id="finClose" type="button" aria-label="Cerrar">×</button>' +
     '</div>' +
     '<div class="fin-messages" id="finMessages"></div>' +
@@ -1397,11 +1485,11 @@ function initAsistente() {
   btn.addEventListener('click', function () {
     const abrir = !panel.classList.contains('open');
     panel.classList.toggle('open', abrir);
-    btn.setAttribute('aria-label', abrir ? 'Cerrar asistente Fin' : 'Abrir asistente Fin');
+    btn.setAttribute('aria-label', abrir ? 'Cerrar asistente NEXO' : 'Abrir asistente NEXO');
     if (abrir) {
       if (!yaSaludo) {
         yaSaludo = true;
-        agregar('bot', '¡Hola! Soy <strong>Fin</strong> 🪙, tu asistente financiero. ¿En qué te ayudo hoy?');
+        agregar('bot', '¡Hola! Soy <strong>NEXO</strong> 🤖, tu asistente financiero. ¿En qué te ayudo hoy?');
         pintarSugerencias();
       }
       setTimeout(function () { input.focus(); }, 150);

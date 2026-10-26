@@ -436,121 +436,301 @@
     }
 
     /* ============================================================
-       2. SECCIÓN: CÓMO funciona NUESTRO SISTEMA (LAS 3 INTERFACES)
+       2. SECCIÓN: LOS 3 PILARES DE LA EDUCACIÓN FINANCIERA (INFOGRAFÍA)
        ============================================================ */
-    .funnel-overview-section {
-      padding: 70px 0 90px;
+    .pillars-overview-section {
+      padding: 75px 0 95px;
       background: var(--gris-claro);
     }
 
-    .funnel-overview-header {
+    .pillars-overview-header {
       text-align: center;
-      max-width: 780px;
+      max-width: 860px;
       margin: 0 auto 50px;
     }
 
-    .funnel-overview-header h2 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--gris-oscuro);
-      margin-bottom: 12px;
+    .pillars-tagline {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #03528e;
+      background: #e3f1fb;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .funnel-overview-header p {
-      font-size: 15px;
+    .pillars-overview-header h2 {
+      font-size: 34px;
+      font-weight: 900;
+      color: #032d1f;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .pillars-overview-header p.pillars-sub {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--verde-principal);
+      margin-bottom: 8px;
+    }
+
+    .pillars-overview-header p.pillars-slogan {
+      font-size: 15.5px;
       color: var(--gris-medio);
+      font-style: italic;
     }
 
-    .funnel-cards-grid {
+    .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      margin-bottom: 40px;
+      gap: 28px;
+      margin-bottom: 55px;
+      align-items: stretch;
     }
 
-    @media (max-width: 900px) {
-      .funnel-cards-grid {
+    @media (max-width: 960px) {
+      .pillars-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .funnel-card {
-      background: var(--blanco);
-      border-radius: 20px;
-      border: 1px solid var(--borde-suave);
-      padding: 32px 26px;
-      box-shadow: 0 4px 20px rgba(52, 58, 64, 0.05);
+    .pillar-card {
+      border-radius: 22px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: #ffffff;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.13);
+    }
+
+    /* HEADER DE CADA TARJETA */
+    .pillar-header {
+      padding: 26px 22px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .funnel-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(52, 58, 64, 0.09);
+    .pillar-card.pillar-blue .pillar-header {
+      background: linear-gradient(145deg, #03528e 0%, #076eb8 100%);
     }
 
-    .funnel-card.highlight {
-      border: 2px solid var(--verde-principal);
+    .pillar-card.pillar-green .pillar-header {
+      background: linear-gradient(145deg, #007640 0%, #00995e 100%);
     }
 
-    .funnel-num {
-      width: 36px;
-      height: 36px;
-      background: var(--verde-principal);
-      color: #fff;
+    .pillar-card.pillar-indigo .pillar-header {
+      background: linear-gradient(145deg, #24307a 0%, #36449f 100%);
+    }
+
+    .pillar-number {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      font-size: 15px;
-      font-weight: 800;
+      background: rgba(0, 0, 0, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.45);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      font-size: 21px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 14px;
     }
 
-    .funnel-card h3 {
+    .pillar-header h3 {
       font-size: 18px;
       font-weight: 800;
-      color: var(--gris-oscuro);
+      line-height: 1.25;
       margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: -0.2px;
     }
 
-    .funnel-card p {
+    .pillar-header p {
       font-size: 13.5px;
-      color: var(--gris-medio);
-      line-height: 1.6;
-      margin-bottom: 22px;
-      flex-grow: 1;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.45;
     }
 
-    .btn-card-link {
-      background: var(--gris-claro);
-      color: var(--verde-principal);
-      border: 1px solid #d1fae5;
-      padding: 10px 18px;
+    /* CUERPO DE CADA TARJETA */
+    .pillar-body {
+      padding: 24px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-card.pillar-blue .pillar-body {
+      background: #f1f8fe;
+      border: 1px solid #d0e7f8;
+      border-top: none;
+    }
+
+    .pillar-card.pillar-green .pillar-body {
+      background: #edf9f3;
+      border: 1px solid #c8f0dc;
+      border-top: none;
+    }
+
+    .pillar-card.pillar-indigo .pillar-body {
+      background: #f3f5fd;
+      border: 1px solid #d7ddfa;
+      border-top: none;
+    }
+
+    .pillar-temas-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+
+    .pillar-card.pillar-blue .pillar-temas-pill {
+      background: #03528e;
+    }
+
+    .pillar-card.pillar-green .pillar-temas-pill {
+      background: #007640;
+    }
+
+    .pillar-card.pillar-indigo .pillar-temas-pill {
+      background: #24307a;
+    }
+
+    .pillar-topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .pillar-topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .topic-icon-wrap {
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pillar-card.pillar-blue .topic-icon-wrap {
+      background: #dbeefc;
+      color: #03528e;
+    }
+
+    .pillar-card.pillar-green .topic-icon-wrap {
+      background: #d8f5e6;
+      color: #007640;
+    }
+
+    .pillar-card.pillar-indigo .topic-icon-wrap {
+      background: #e2e6fa;
+      color: #24307a;
+    }
+
+    .topic-texts h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gris-oscuro);
+      margin-bottom: 2px;
+    }
+
+    .topic-texts p {
+      font-size: 12.5px;
+      color: var(--gris-medio);
+      line-height: 1.45;
+    }
+
+    .pillar-bottom-banner {
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      text-align: center;
       font-weight: 700;
       font-size: 13px;
+      font-style: italic;
+      letter-spacing: 0.2px;
+    }
+
+    .pillar-card.pillar-blue .pillar-bottom-banner {
+      background: #03528e;
+    }
+
+    .pillar-card.pillar-green .pillar-bottom-banner {
+      background: #007640;
+    }
+
+    .pillar-card.pillar-indigo .pillar-bottom-banner {
+      background: #24307a;
+    }
+
+    /* SECCIÓN DE INSCRIPCIÓN / BOTÓN FINAL PARA INICIAR DEMO GRATIS */
+    .enroll-cta-wrapper {
+      background: linear-gradient(135deg, #032d1f 0%, #06402d 100%);
+      border-radius: 26px;
+      padding: 50px 30px;
       text-align: center;
-      transition: all 0.2s;
-      display: inline-block;
+      color: #ffffff;
+      box-shadow: 0 16px 40px rgba(3, 45, 31, 0.25);
+      border: 1px solid rgba(40, 199, 111, 0.35);
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-card-link:hover {
-      background: var(--verde-principal);
-      color: #fff;
+    .enroll-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 184, 0, 0.22);
+      border: 1px solid var(--amarillo-dorado);
+      color: var(--amarillo-dorado);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(6px);
     }
 
-    .btn-card-link.primary {
-      background: var(--verde-claro);
-      color: #fff;
-      border-color: var(--verde-claro);
+    .enroll-cta-wrapper h2 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #ffffff;
     }
 
-    .btn-card-link.primary:hover {
-      background: var(--verde-claro-hover);
+    .enroll-cta-wrapper p {
+      font-size: 16px;
+      color: #d1fae5;
+      max-width: 680px;
+      margin: 0 auto 26px;
+      line-height: 1.6;
     }
 
     /* FOOTER */
@@ -688,18 +868,7 @@
         <span>Educación <strong>Financiera</strong></span>
       </a>
 
-      <!-- ENLACES A LAS INTERFACES INDIVIDUALES -->
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="reticula.html" style="color: var(--amarillo-dorado); font-weight: 700; display: inline-flex; align-items: center; gap: 5px;">🚀 Aula Demo (Gratis)</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="reticula.html">Plan de Estudios</a></li>
-        <li><a href="recursos.html">Recursos</a></li>
-        <li><a href="suscripcion.html">Membresía</a></li>
-      </ul>
-
       <div class="nav-actions">
-        <button class="btn-login-outline" onclick="openLoginModal()">Iniciar sesión</button>
         <a href="reticula.html" class="btn-demo-cta">
           <span>Probar Demo Gratis</span>
         </a>
@@ -815,80 +984,233 @@
 
         </div>
 
-        <!-- LLAMADO DIRECTO: SIN FASTIDIO DE registro previo -->
-        <div class="hero-direct-cta">
-          <h3>¿Quieres comprobar si esto realmente funciona para ti?</h3>
-          <p>
-            No te pedimos ingresar tarjetas de crédito ni pagos previos. <strong>Inicia hoy tu Primer Semestre de prueba 100% GRATIS</strong> de nuestro programa formativo de 2 años.
-          </p>
-          <div class="cta-button-group">
-            <a href="reticula.html" class="btn-main-pulse">
-              <span>👉 Iniciar Semestre 1 de Prueba Gratis</span>
-            </a>
-          </div>
-          <div class="no-register-note">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Programa de 2 años (4 semestres) • Semestre 1 libre de prueba • Sin tarjeta de crédito</span>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- ============================================================
-         2. SECCIÓN: TRES ETAPAS DE FORMACIÓN (2 AÑOS · 3 NIVELES)
+         2. SECCIÓN: LOS 3 PILARES DE EDUCACIÓN FINANCIERA (INFOGRAFÍA)
          ============================================================ -->
-    <section class="funnel-overview-section">
+    <section class="pillars-overview-section" id="pilares">
       <div class="container">
         
-        <div class="funnel-overview-header">
-          <div class="section-eyebrow" style="background: #eafaf1; color: var(--verde-principal); border-color: #bbf0d0;">
-            <span>🎓 PROGRAMA COMPLETO DE 2 AÑOS</span>
+        <div class="pillars-overview-header">
+          <div class="pillars-tagline">
+            <span>🌱 Pequeñas decisiones, grandes resultados</span>
           </div>
-          <h2>3 Niveles de formación con tu 1er Semestre Gratis de prueba</h2>
-          <p>
-            Un plan académico estructurado en 4 semestres para transformar tus finanzas desde el control de gastos hasta inversiones y negocios:
-          </p>
+          <h2>EDUCACIÓN FINANCIERA</h2>
+          <p class="pillars-sub">3 Bloques fundamentales para transformar tu economía personal</p>
+          <p class="pillars-slogan">"Tu futuro también se construye con buenas decisiones"</p>
         </div>
 
-        <div class="funnel-cards-grid">
+        <div class="pillars-grid">
 
-          <!-- tarjeta 1: Semestre 1 Gratis -->
-          <div class="funnel-card highlight">
-            <div class="funnel-num">1</div>
-            <h3>Semestre 1: Prueba Gratis</h3>
-            <p>
-              Comienza con el <strong>Nivel Básico 100% gratuito</strong>. Aprende administración del dinero, presupuesto y control de deudas sin ingresar tarjeta de crédito.
-            </p>
-            <a href="reticula.html" class="btn-card-link primary">
-              Entrar al Semestre 1 Gratis →
-            </a>
+          <!-- BLOQUE 1: ADMINISTRACIÓN DE TUS FINANZAS (AZUL) -->
+          <div class="pillar-card pillar-blue">
+            <div class="pillar-header">
+              <div class="pillar-number">1</div>
+              <h3>ADMINISTRACIÓN DE TUS FINANZAS</h3>
+              <p>Aprende a manejar tu dinero de forma inteligente.</p>
+            </div>
+            <div class="pillar-body">
+              <div>
+                <span class="pillar-temas-pill">Temas:</span>
+                <div class="pillar-topic-list">
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                        <path d="M18 12a2 2 0 0 0 0 4h4v-4z"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Ingresos y gastos</h4>
+                      <p>Conoce cuánto entra y cómo se usa tu dinero.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3L22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Presupuesto</h4>
+                      <p>Planifica y controla tus gastos diarios y fijos.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Metas financieras</h4>
+                      <p>Define lo que quieres y traza un plan alcanzable.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="pillar-bottom-banner">
+                ¡Organiza hoy, asegura mañana!
+              </div>
+            </div>
           </div>
 
-          <!-- tarjeta 2: 3 Niveles -->
-          <div class="funnel-card">
-            <div class="funnel-num">2</div>
-            <h3>3 Niveles Progresivos</h3>
-            <p>
-              Plan de <strong>2 años (4 semestres)</strong>: <strong>Básico</strong> (Año 1), <strong>Intermedio</strong> (Ahorro, crédito e inversiones) y <strong>Avanzado</strong> (Emprendimiento y libertad financiera).
-            </p>
-            <a href="reticula.html" class="btn-card-link">
-              Ver Retícula de 4 Semestres →
-            </a>
+          <!-- BLOQUE 2: AHORRO E INVERSIÓN (VERDE) -->
+          <div class="pillar-card pillar-green">
+            <div class="pillar-header">
+              <div class="pillar-number">2</div>
+              <h3>AHORRO E INVERSIÓN</h3>
+              <p>Haz que tu dinero trabaje para ti.</p>
+            </div>
+            <div class="pillar-body">
+              <div>
+                <span class="pillar-temas-pill">Temas:</span>
+                <div class="pillar-topic-list">
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12a7 7 0 1 0-14 0c0 2.5 1.3 4.7 3.2 6H19a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-1z"/>
+                        <circle cx="16" cy="8" r="1" fill="currentColor"/>
+                        <path d="M11 6a4 4 0 0 1 4 4"/>
+                        <path d="M9 18v3"/>
+                        <path d="M15 18v3"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>El hábito del ahorro</h4>
+                      <p>Pequeños aportes constantes, grandes logros.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                        <path d="M4 14l8-8 6 6 4-4"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Tipos de inversión</h4>
+                      <p>Conoce las opciones que se ajustan a tus objetivos.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="6" rx="8" ry="3"/>
+                        <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/>
+                        <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Interés compuesto</h4>
+                      <p>Tu dinero puede multiplicarse y crecer con el tiempo.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="pillar-bottom-banner">
+                Ahorra, invierte, crece.
+              </div>
+            </div>
           </div>
 
-          <!-- tarjeta 3: Membresía Continua -->
-          <div class="funnel-card">
-            <div class="funnel-num">3</div>
-            <h3>Membresía Continua</h3>
-            <p>
-              Al concluir tu semestre gratuito de prueba, continúa los Semestres 2, 3 y 4 por solo <strong>$299 MXN/mes</strong> vía SPEI o tarjeta, cancelable cuando desees.
-            </p>
-            <a href="suscripcion.html" class="btn-card-link">
-              Ver Membresía y Formas de Pago →
-            </a>
+          <!-- BLOQUE 3: USO RESPONSABLE DEL CRÉDITO (ÍNDIGO) -->
+          <div class="pillar-card pillar-indigo">
+            <div class="pillar-header">
+              <div class="pillar-number">3</div>
+              <h3>USO RESPONSABLE DEL CRÉDITO</h3>
+              <p>El crédito puede ser una herramienta, si lo usas con inteligencia.</p>
+            </div>
+            <div class="pillar-body">
+              <div>
+                <span class="pillar-temas-pill">Temas:</span>
+                <div class="pillar-topic-list">
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2"/>
+                        <line x1="2" y1="10" x2="22" y2="10"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Tipos de crédito</h4>
+                      <p>Conoce sus características, plazos y diferencias.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <polyline points="9 15 11 17 15 13"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Buenas prácticas</h4>
+                      <p>Evita deudas innecesarias y cumple tus pagos a tiempo.</p>
+                    </div>
+                  </div>
+
+                  <div class="pillar-topic-item">
+                    <div class="topic-icon-wrap">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                      </svg>
+                    </div>
+                    <div class="topic-texts">
+                      <h4>Riesgos del sobreendeudamiento</h4>
+                      <p>Cuida tu historial crediticio y tu estabilidad familiar.</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="pillar-bottom-banner">
+                El buen crédito también es libertad.
+              </div>
+            </div>
           </div>
 
+        </div>
+
+        <!-- MÁS BAJITO: SECCIÓN PARA INSCRIBIRSE CON EL BOTÓN FINAL PARA INICIAR DEMO GRATIS -->
+        <div class="enroll-cta-wrapper">
+          <div class="enroll-badge">
+            <span>🎁 1ER SEMESTRE DE PRUEBA 100% GRATIS</span>
+          </div>
+          <h2>Inscríbete y da el primer paso hacia tu libertad financiera</h2>
+          <p>
+            No te pedimos ingresar tarjetas de crédito ni datos bancarios. Comienza a estudiar hoy mismo nuestro programa de 2 años con acceso libre a las materias del Nivel Básico.
+          </p>
+          <div class="cta-button-group">
+            <a href="reticula.html" class="btn-main-pulse">
+              <span>👉 Iniciar Demo Gratis Ahora</span>
+            </a>
+          </div>
+          <div class="no-register-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Acceso libre • Sin tarjeta de crédito • Comienza en menos de 1 minuto</span>
+          </div>
         </div>
 
       </div>

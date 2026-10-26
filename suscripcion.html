@@ -502,9 +502,9 @@
       <div class="pricing-badge">
         <span>🔒 Inversión en tu futuro</span>
       </div>
-      <h1>Membresía Completa de Educación Financiera</h1>
+      <h1>Inscripción a la Carrera de Educación Financiera</h1>
       <p>
-        Carrera formativa de 2 años estructurada en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba 100% GRATIS</strong>; continúa los siguientes semestres por $299 MXN/mes con cancelación libre.
+        Carrera formativa de 2 años estructurada en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba 100% GRATIS</strong>; para acceder del <strong>Segundo Semestre en adelante</strong> necesitas pagar tu inscripción de $299 MXN/mes con cancelación libre.
       </p>
     </div>
   </section>
@@ -515,7 +515,7 @@
 
       <!-- COLUMNA 1: RESUMEN DE BENEFICIOS -->
       <div class="plan-summary-card">
-        <span class="plan-tag">ACCESO TOTAL</span>
+        <span class="plan-tag">INSCRIPCIÓN A LA CARRERA</span>
         <div class="plan-price-wrap">
           <span class="amount">$299</span>
           <span class="period">MXN / mes</span>
@@ -631,7 +631,7 @@
         </div>
 
         <button class="btn-complete-pay" onclick="handlePayAction()">
-          Confirmar y Activar Membresía ($299 MXN)
+          Confirmar y Activar Inscripción ($299 MXN)
         </button>
 
         <div class="secure-note">
@@ -681,7 +681,26 @@
     }
 
     function handlePayAction() {
-      alert("✅ ¡Excelente! Tu orden ha sido registrada. Te redirigiremos al Aula Virtual para que comiences de inmediato.");
+      const usaTarjeta = document.getElementById('payCard').checked;
+      let quien = 'invitado';
+      try {
+        const sesion = localStorage.getItem('edu_fin_session');
+        const usuario = sesion ? JSON.parse(sesion) : null;
+        if (usuario && usuario.email) quien = String(usuario.email).toLowerCase();
+      } catch (e) {}
+
+      try {
+        localStorage.setItem('edu_fin_membresia_' + quien, JSON.stringify({
+          activa: true,
+          metodo: usaTarjeta ? 'tarjeta' : 'spei',
+          fecha: Date.now()
+        }));
+      } catch (e) {
+        alert("No se pudo guardar tu inscripción. Revisa que tu navegador permita el almacenamiento local.");
+        return;
+      }
+
+      alert("✅ ¡Inscripción activada! Ya puedes acceder a los Semestres 2, 3 y 4. Te redirigiremos a tu Retícula.");
       window.location.href = "reticula.html";
     }
   </script>

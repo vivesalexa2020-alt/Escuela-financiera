@@ -1059,12 +1059,37 @@
       list.style.display = (list.style.display === 'none') ? 'block' : 'none';
     }
 
+    function tieneInscripcionActiva() {
+      try {
+        let quien = 'invitado';
+        const sesion = localStorage.getItem('edu_fin_session');
+        const usuario = sesion ? JSON.parse(sesion) : null;
+        if (usuario && usuario.email) quien = String(usuario.email).toLowerCase();
+
+        let raw = localStorage.getItem('edu_fin_membresia_' + quien);
+        if (!raw && quien !== 'invitado') raw = localStorage.getItem('edu_fin_membresia_invitado');
+        const membresia = raw ? JSON.parse(raw) : null;
+        return !!(membresia && membresia.activa);
+      } catch (e) {
+        return false;
+      }
+    }
+
     function showLockedAlert(unitName) {
-      alert(`🔒 La ${unitName} forma parte de la Membresía Mensual. Haz clic en "Aceptar" para ver las formas de pago.`);
+      if (tieneInscripcionActiva()) {
+        alert(`✅ Tu inscripción está activa. La ${unitName} la desbloqueas desde tu Retícula Académica.`);
+        window.location.href = "reticula.html";
+        return;
+      }
+      alert(`🔒 La ${unitName} forma parte de la Inscripción a la Carrera. Haz clic en "Aceptar" para ver las formas de pago.`);
       window.location.href = "suscripcion.html";
     }
 
     function goToSubscription() {
+      if (tieneInscripcionActiva()) {
+        window.location.href = "reticula.html";
+        return;
+      }
       window.location.href = "suscripcion.html";
     }
 

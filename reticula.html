@@ -2046,6 +2046,10 @@ body.user-logged-in .main-wrapper {
           <span class="sidebar-icon">🗺️</span>
           <span>Retícula Académica</span>
         </a>
+        <a href="aula-demo.html" class="sidebar-link ">
+          <span class="sidebar-icon">🚀</span>
+          <span>Aula Demo</span>
+        </a>
         <a href="cursos.html" class="sidebar-link ">
           <span class="sidebar-icon">📚</span>
           <span>Cursos</span>
@@ -2057,6 +2061,10 @@ body.user-logged-in .main-wrapper {
         <a href="recursos.html" class="sidebar-link ">
           <span class="sidebar-icon">🧮</span>
           <span>Recursos</span>
+        </a>
+        <a href="suscripcion.html" class="sidebar-link ">
+          <span class="sidebar-icon">💳</span>
+          <span>Membresía</span>
         </a>
         <a href="configuraciones.html" class="sidebar-link ">
           <span class="sidebar-icon">⚙️</span>
@@ -2127,21 +2135,10 @@ body.user-logged-in .main-wrapper {
           </div>
         </a>
 
-        <!-- Menú de navegación a las interfaces individuales -->
-        <ul class="nav-menu" style="display: flex !important; flex-direction: row !important; align-items: center !important; gap: 20px !important; list-style: none !important; margin: 0 !important; padding: 0 !important; position: static !important; background: transparent !important;">
-          <li><a href="index.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Inicio</a></li>
-          
-          <li><a href="cursos.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Cursos</a></li>
-          <li><a href="reticula.html" class="active" style="color: #ffffff; font-weight: 700; font-size: 13.5px; white-space: nowrap;">Plan de Estudios</a></li>
-          <li><a href="recursos.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Recursos</a></li>
-          <li><a href="suscripcion.html" style="color: #ffffff; font-size: 13.5px; white-space: nowrap;">Membresía</a></li>
-        </ul>
-
         <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
           <a href="reticula.html" style="background: var(--verde-claro); color: #fff; padding: 9px 20px; border-radius: 30px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 12px rgba(40,199,111,0.35); transition: all 0.2s;">
             Probar Demo Gratis
           </a>
-          <button class="btn-login" onclick="openLoginModal()">Iniciar sesión</button>
         </div>
       </nav>
     </div>
@@ -2279,6 +2276,12 @@ body.user-logged-in .main-wrapper {
           <div class="reticula-resumen" id="reticulaResumen">
             <!-- Se llena con JavaScript -->
           </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin: 0 0 16px;">
+          <button type="button" class="btn-cta-outline" onclick="resetInscripciones()" style="padding: 8px 16px; font-size: 13px; color: var(--text-dark); border-color: var(--btn-green);">
+            🗑️ Quitar inscripciones
+          </button>
         </div>
 
         <div class="reticula-grid" id="reticulaGrid">
