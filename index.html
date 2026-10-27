@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -168,10 +168,9 @@
        1. HERO SUPERIOR: HISTORIAS DE ÉXITO REALES (CERO FASTIDIO)
        ============================================================ */
     .success-hero-section {
-      background: linear-gradient(180deg, rgba(3, 45, 31, 0.88) 0%, rgba(6, 64, 45, 0.82) 50%, rgba(3, 45, 31, 0.94) 100%),
-                  url('img/fondo-experiencias.png') center center / cover no-repeat;
+      background: linear-gradient(135deg, #032d1f 0%, #06402d 40%, #0a4d35 70%, #032d1f 100%);
       color: #fff;
-      padding: 70px 0 90px;
+      padding: 48px 0 56px;
       position: relative;
       overflow: hidden;
     }
@@ -411,7 +410,472 @@
       font-size: 13.5px;
     }
 
-    /* LLAMADO A LA ACCIÓN DEL HERO */
+    /* ============================================================
+   HERO DOS COLUMNAS
+   ============================================================ */
+    .hero-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      min-height: 520px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-two-col {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .hero-right {
+        display: none;
+      }
+    }
+
+    .hero-left {
+      position: relative;
+    }
+
+    .hero-left h1 {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.22;
+      margin-bottom: 16px;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .hero-left > p {
+      font-size: 16px;
+      color: #d4f5e4;
+      max-width: 600px;
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .hero-person-area {
+      position: relative;
+      margin-top: 28px;
+      height: 240px;
+    }
+
+    .hero-person-img {
+      width: 180px;
+      height: 220px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+    }
+
+    .hero-float-bubble {
+      position: absolute;
+      top: 20px;
+      left: 170px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #032d1f;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+      animation: floatBubble 3s ease-in-out infinite;
+    }
+
+    .hero-float-metas {
+      position: absolute;
+      top: 100px;
+      right: 0;
+      background: rgba(255,255,255,0.95);
+      border-radius: 14px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #032d1f;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: floatBubble 3.5s ease-in-out infinite 0.5s;
+    }
+
+    .metas-icon { font-size: 22px; }
+    .metas-label { font-size: 10px; color: #666; font-weight: 500; }
+    .metas-value { font-size: 13px; font-weight: 700; color: #00703C; }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    .hero-quick-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 200px;
+      margin-left: auto;
+    }
+
+    .quick-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 14px 18px;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .quick-btn:hover {
+      background: var(--verde-claro);
+      border-color: var(--verde-claro);
+      transform: translateX(-4px);
+      box-shadow: 0 6px 20px rgba(40,199,111,0.4);
+    }
+
+    .qb-icon { font-size: 20px; }
+    .qb-label { font-size: 15px; font-weight: 700; }
+
+    .hero-chart-deco {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      opacity: 0.7;
+    }
+
+    .hero-piggy {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      animation: floatBubble 4s ease-in-out infinite;
+    }
+
+    .hero-plant {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      animation: floatBubble 3.2s ease-in-out infinite 0.8s;
+    }
+
+    /* ============================================================
+       SECCIÓN: NUESTROS ESTUDIANTES
+       ============================================================ */
+    .estudiantes-section {
+      background: #f4faf7;
+      padding: 52px 0 0;
+    }
+
+    .estudiantes-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .estudiantes-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .estudiantes-icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: var(--verde-principal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .estudiantes-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #032d1f;
+      line-height: 1.2;
+    }
+
+    .highlight-green {
+      color: var(--verde-claro);
+    }
+
+    .estudiantes-subtitle {
+      font-size: 14px;
+      color: var(--gris-medio);
+      margin-top: 4px;
+    }
+
+    .estudiantes-header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .ya-lograron-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: #032d1f;
+      text-align: right;
+      line-height: 1.5;
+      position: relative;
+      font-style: italic;
+    }
+
+    .badge-arrow {
+      width: 50px;
+      height: 30px;
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+    }
+
+    .carousel-nav-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #dce9e3;
+      color: #00703C;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      line-height: 1;
+    }
+
+    .carousel-btn:hover {
+      background: var(--verde-principal);
+      color: #fff;
+      border-color: var(--verde-principal);
+      box-shadow: 0 4px 14px rgba(0,112,60,0.35);
+    }
+
+    /* CARRUSEL */
+    .testimonios-carousel-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonios-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    /* TARJETA DE TESTIMONIO */
+    .testimonio-card {
+      flex: 0 0 280px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px 20px 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      border: 1.5px solid #e8f5ee;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+
+    .testimonio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      border-color: var(--verde-claro);
+    }
+
+    .testimonio-card.featured {
+      border: 2px solid var(--amarillo-dorado);
+      background: linear-gradient(145deg, #fffbec 0%, #fff 60%);
+    }
+
+    .testimonio-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonio-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .testimonio-info {
+      flex: 1;
+    }
+
+    .testimonio-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #032d1f;
+      line-height: 1.2;
+    }
+
+    .testimonio-info p {
+      font-size: 11px;
+      color: var(--gris-medio);
+      margin-top: 2px;
+    }
+
+    .testimonio-play {
+      color: #d0d5d1;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .testimonio-play:hover {
+      color: var(--verde-claro);
+    }
+
+    .testimonio-quote {
+      font-size: 13.5px;
+      color: #344;
+      font-style: italic;
+      line-height: 1.6;
+      border-left: 3px solid var(--verde-claro);
+      padding-left: 12px;
+      flex: 1;
+    }
+
+    .testimonio-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid #eaf5ee;
+    }
+
+    .t-metric {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .t-metric > div > span {
+      display: block;
+      font-size: 10.5px;
+      color: #888;
+    }
+
+    .t-metric > div > strong {
+      font-size: 13px;
+      color: #032d1f;
+      font-weight: 700;
+    }
+
+    /* Dots del carrusel */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding-bottom: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c8ddd5;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .carousel-dot.active {
+      background: var(--verde-principal);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* BARRA DE FEATURES */
+    .features-bar {
+      background: linear-gradient(90deg, #032d1f 0%, #06402d 50%, #032d1f 100%);
+      margin-top: 40px;
+      padding: 20px 0;
+    }
+
+    .features-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .feature-item strong {
+      font-weight: 700;
+    }
+
+    .feature-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .feature-item + .feature-item {
+      border-left: 1px solid rgba(255,255,255,0.12);
+      padding-left: 16px;
+    }
+
+    .feature-handwritten {
+      border-left: none !important;
+    }
+/* LLAMADO A LA ACCIÓN DEL HERO */
     .hero-direct-cta {
       background: rgba(40, 199, 111, 0.08);
       border: 1px solid rgba(40, 199, 111, 0.35);
@@ -2266,9 +2730,16 @@
         <span>Educación <strong>Financiera</strong></span>
       </a>
 
+      <ul class="nav-links">
+        <li><a href="index.html" class="active"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Inicio</a></li>
+        <li><a href="#pilares"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg> Aprender</a></li>
+        <li><a href="#herramientas"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg> Herramientas</a></li>
+        <li><a href="#cuestionario"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg> Cuestionario</a></li>
+      </ul>
+
       <div class="nav-actions">
         <a href="reticula.html" class="btn-demo-cta">
-          <span>Probar Demo Gratis</span>
+          <span>👤 Probar Demo Gratis →</span>
         </a>
       </div>
     </div>
@@ -2280,239 +2751,139 @@
          ============================================================ -->
     <section class="success-hero-section" id="testimonios">
       <div class="container">
-        
-        <div class="success-header">
-          <div class="section-eyebrow">
-            <span>✨ RESULTADOS REALES, CERO HUMO</span>
+
+        <!-- HERO 2 COLUMNAS -->
+        <div class="hero-two-col">
+
+          <!-- COLUMNA IZQUIERDA: Texto + imagen persona -->
+          <div class="hero-left">
+            <div class="section-eyebrow">
+              <span>⭐ RESULTADOS REALES, CERO HUMO</span>
+            </div>
+            <h1>
+              Personas reales que recuperaron su paz y <span class="highlight">transformaron sus finanzas</span>
+            </h1>
+            <p>
+              Aquí no hay fórmulas mágicas ni promesas vacías. Descubre cómo personas comunes lograron liquidar deudas, crear ahorros de emergencia y empezar a invertir con nuestro método práctico paso a paso.
+            </p>
+            <div class="success-header-badges">
+              <span class="success-mini-tag">⏳ Carrera de 2 Años</span>
+              <span class="success-mini-tag">🏆 3 Niveles: Básico, Intermedio y Avanzado</span>
+              <span class="success-mini-tag">🎁 1er Semestre de prueba 100% GRATIS</span>
+            </div>
+
+            <!-- Imagen de persona + elemento flotante -->
+            <div class="hero-person-area">
+              <div class="hero-person-img">
+                <svg viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                  <defs>
+                    <radialGradient id="skinGrad" cx="50%" cy="40%" r="55%">
+                      <stop offset="0%" stop-color="#f5c5a3"/>
+                      <stop offset="100%" stop-color="#d4956b"/>
+                    </radialGradient>
+                    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#2d8c5b"/>
+                      <stop offset="100%" stop-color="#1a5e3a"/>
+                    </linearGradient>
+                    <radialGradient id="bgCircle" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(40,199,111,0.25)"/>
+                      <stop offset="100%" stop-color="rgba(40,199,111,0)"/>
+                    </radialGradient>
+                  </defs>
+                  <!-- Fondo decorativo -->
+                  <circle cx="130" cy="190" r="135" fill="url(#bgCircle)"/>
+                  <ellipse cx="130" cy="300" rx="110" ry="28" fill="rgba(0,0,0,0.15)"/>
+                  <!-- Cuerpo / camisa verde -->
+                  <path d="M50,310 C50,240 80,210 130,205 C180,210 210,240 210,310 Z" fill="url(#shirtGrad)"/>
+                  <!-- Cuello -->
+                  <path d="M108,205 L130,225 L152,205 L145,190 L115,190 Z" fill="url(#skinGrad)"/>
+                  <!-- Cabeza -->
+                  <ellipse cx="130" cy="155" rx="52" ry="60" fill="url(#skinGrad)"/>
+                  <!-- Cabello oscuro -->
+                  <path d="M78,140 C78,100 104,78 130,78 C156,78 182,100 182,140 C182,120 175,95 155,88 C145,85 135,86 130,86 C125,86 115,85 105,88 C85,95 78,120 78,140 Z" fill="#2d1a10"/>
+                  <path d="M78,130 C78,110 82,95 90,88 L85,145 Z" fill="#2d1a10"/>
+                  <path d="M182,130 C182,110 178,95 170,88 L175,145 Z" fill="#2d1a10"/>
+                  <!-- Ojos -->
+                  <ellipse cx="112" cy="155" rx="8" ry="6" fill="#fff"/>
+                  <ellipse cx="112" cy="155" rx="5" ry="5" fill="#3d2010"/>
+                  <ellipse cx="148" cy="155" rx="8" ry="6" fill="#fff"/>
+                  <ellipse cx="148" cy="155" rx="5" ry="5" fill="#3d2010"/>
+                  <!-- Sonrisa -->
+                  <path d="M113,178 Q130,194 147,178" stroke="#a06040" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  <!-- Mejillas -->
+                  <ellipse cx="104" cy="172" rx="9" ry="6" fill="rgba(220,130,100,0.3)"/>
+                  <ellipse cx="156" cy="172" rx="9" ry="6" fill="rgba(220,130,100,0.3)"/>
+                  <!-- Laptop (decorativo) -->
+                  <rect x="68" y="272" width="124" height="6" rx="3" fill="#1a3a25"/>
+                  <rect x="78" y="245" width="104" height="30" rx="5" fill="#264d35"/>
+                  <rect x="82" y="249" width="96" height="22" rx="3" fill="#1a8c52"/>
+                  <!-- Texto en pantalla -->
+                  <rect x="86" y="254" width="40" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
+                  <rect x="86" y="260" width="60" height="3" rx="1" fill="rgba(255,255,255,0.5)"/>
+                  <rect x="86" y="266" width="30" height="3" rx="1" fill="#F5B800"/>
+                </svg>
+              </div>
+              <!-- Elemento flotante: "Tú también puedes" -->
+              <div class="hero-float-bubble">
+                <span class="float-icon">✨</span>
+                <span>Tú también<br><strong>puedes</strong></span>
+              </div>
+              <!-- Elemento flotante: Metas financieras -->
+              <div class="hero-float-metas">
+                <div class="metas-icon">📈</div>
+                <div>
+                  <div class="metas-label">Metas</div>
+                  <div class="metas-value">financieras</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1>
-            Personas reales que recuperaron su paz y <span class="highlight">transformaron sus finanzas</span>
-          </h1>
-          <p>
-            Aquí no hay fórmulas mágicas ni promesas vacías. Descubre cómo personas con ingresos comunes lograron liquidar deudas, crear ahorros de emergencia y empezar a invertir con nuestro método práctico paso a paso.
-          </p>
-          <div class="success-header-badges">
-            <span class="success-mini-tag">⏳ Carrera de 2 Años</span>
-            <span class="success-mini-tag">🏆 3 Niveles: Básico, Intermedio y Avanzado</span>
-            <span class="success-mini-tag">🎁 1er Semestre de prueba 100% GRATIS</span>
+
+          <!-- COLUMNA DERECHA: Panel de accesos rápidos -->
+          <div class="hero-right">
+            <div class="hero-quick-panel">
+              <a href="#pilares" class="quick-btn quick-aprende">
+                <span class="qb-icon">📚</span>
+                <span class="qb-label">Aprende</span>
+              </a>
+              <a href="#ahorro" class="quick-btn quick-ahorra">
+                <span class="qb-icon">💰</span>
+                <span class="qb-label">Ahorra</span>
+              </a>
+              <a href="#inversiones" class="quick-btn quick-invierte">
+                <span class="qb-icon">📊</span>
+                <span class="qb-label">Invierte</span>
+              </a>
+            </div>
+
+            <!-- Decorativo: gráfica de crecimiento -->
+            <div class="hero-chart-deco">
+              <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px;opacity:0.85">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(40,199,111,0.4)"/>
+                    <stop offset="100%" stop-color="rgba(40,199,111,0)"/>
+                  </linearGradient>
+                </defs>
+                <path d="M10,100 L30,85 L60,70 L80,60 L100,45 L130,30 L160,18 L190,10 L190,110 L10,110 Z" fill="url(#chartGrad)"/>
+                <path d="M10,100 L30,85 L60,70 L80,60 L100,45 L130,30 L160,18 L190,10" stroke="#28C76F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="190" cy="10" r="5" fill="#28C76F"/>
+                <text x="175" y="8" font-size="10" fill="#28C76F" font-family="sans-serif">+↑</text>
+              </svg>
+            </div>
+
+            <!-- Alcancía decorativa -->
+            <div class="hero-piggy">
+              <span style="font-size:52px;">🐷</span>
+            </div>
+
+            <!-- Planta decorativa -->
+            <div class="hero-plant">
+              <span style="font-size:36px;">🌿</span>
+            </div>
           </div>
-        </div>
 
-        <!-- GRID DE HISTORIAS DE ÉXITO -->
-        <div class="stories-wrapper">
-          <div class="stories-grid">
-
-            <!-- Historia 1 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">CR</div>
-                  <div class="story-name">
-                    <h4>Carlos Ramírez</h4>
-                    <p>Empleado administrativo • 34 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Vivía estresado, pagando mínimos en 3 tarjetas y llegando a fin de quincena en ceros. En la Unidad 1 entendí cómo renegociar con el banco sin trucos. Hoy ya no debo un solo peso y tengo 4 meses de gastos ahorrados."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Deuda liquidada:</span>
-                  <strong>$42,000 MXN</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Tiempo de cambio:</span>
-                  <strong>4 meses</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 2 (DESTACADA) -->
-            <div class="story-card featured">
-              <span class="story-badge">⭐ Historia DESTACADA</span>
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle" style="border-color: var(--amarillo-dorado); color: var(--amarillo-dorado);">MG</div>
-                  <div class="story-name">
-                    <h4>Mariana González</h4>
-                    <p>Comerciante independiente • 29 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Siempre creí que la educación financiera era para ricos o cursos de vendehumos en redes. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Ahorro mensual:</span>
-                  <strong>+35% de ingresos</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Primera inversión:</span>
-                  <strong>Con solo $500</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 3 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">RS</div>
-                  <div class="story-name">
-                    <h4>Roberto y Silvia</h4>
-                    <p>Pareja y padres de familia • 41 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Meta familiar:</span>
-                  <strong>Fondo universitario</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Control de gastos:</span>
-                  <strong>100% organizado</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 4 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">JM</div>
-                  <div class="story-name">
-                    <h4>Jorge Mendoza</h4>
-                    <p>Vendedor de autos • 36 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Pasaba de comisión en comisión sin guardar nada. Con el método aprendí a separar mi ahorro el mismo día que cobraba. Ya tengo mi fondo de emergencia completo y hasta empecé a invertir en CETES."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Fondo de emergencia:</span>
-                  <strong>6 meses cubiertos</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Invertido:</span>
-                  <strong>$15,000 MXN</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 5 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">AL</div>
-                  <div class="story-name">
-                    <h4>Ana López</h4>
-                    <p>Enfermera • 31 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses logré saldar todo y ahora ahorro el 20% de mi sueldo sin esfuerzo."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Deudas liquidadas:</span>
-                  <strong>$28,500 MXN</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Ahorro mensual:</span>
-                  <strong>20% de sueldo</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 6 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">DT</div>
-                  <div class="story-name">
-                    <h4>Diego Torres</h4>
-                    <p>Estudiante y emprendedor • 24 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "A mi edad pensé que era muy temprano para pensar en finanzas, pero este curso me abrió los ojos. Ya sé presupuestar mi negocio, separo utilidades y tengo metas claras para crecer sin endeudarme."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Negocio creciendo:</span>
-                  <strong>+40% ingresos</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Sin deudas:</span>
-                  <strong>100% sano</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 7 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">LC</div>
-                  <div class="story-name">
-                    <h4>Laura Castillo</h4>
-                    <p>Maestra • 38 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Siempre ahorraba poco y lo gastaba todo. Con las plantillas aprendí a automatizar mi ahorro y ya veo crecer mi cuenta. Por primera vez me siento tranquila pensando en mi futuro."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Ahorro acumulado:</span>
-                  <strong>$65,000 MXN</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Constancia:</span>
-                  <strong>12 meses seguidos</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Historia 8 -->
-            <div class="story-card">
-              <div>
-                <div class="story-person">
-                  <div class="avatar-circle">FV</div>
-                  <div class="story-name">
-                    <h4>Fernando Vargas</h4>
-                    <p>Obrero especializado • 42 años</p>
-                  </div>
-                </div>
-                <p class="story-quote">
-                  "Creí que con mi sueldo nunca podría invertir. Me equivoqué. Con poco empecé en CETES y ya estoy diversificando. Ahora sé que invertir es para todos, no solo para ricos."
-                </p>
-              </div>
-              <div class="story-metrics">
-                <div class="metric-pill">
-                  <span>Capital invertido:</span>
-                  <strong>$32,000 MXN</strong>
-                </div>
-                <div class="metric-pill">
-                  <span>Rendimiento anual:</span>
-                  <strong>+11% promedio</strong>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+        </div><!-- fin hero-two-col -->
 
       </div>
     </section>
@@ -2520,7 +2891,241 @@
     <!-- ============================================================
          2. SECCIÓN: LOS 3 PILARES DE EDUCACIÓN FINANCIERA (INFOGRAFÍA)
          ============================================================ -->
-    <section class="pillars-overview-section" id="pilares">
+    <!-- ============================================================
+     SECCIÓN: NUESTROS ESTUDIANTES (CARRUSEL CON UX MEJORADO)
+     ============================================================ -->
+    <section class="estudiantes-section" id="estudiantes">
+      <div class="container">
+
+        <!-- Header de la sección -->
+        <div class="estudiantes-header">
+          <div class="estudiantes-header-left">
+            <div class="estudiantes-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h2>Nuestros <span class="highlight-green">estudiantes</span></h2>
+              <p class="estudiantes-subtitle">Historias reales de personas que decidieron cambiar su futuro.</p>
+            </div>
+          </div>
+          <div class="estudiantes-header-right">
+            <div class="ya-lograron-badge">
+              <span>Ellos ya<br>lo lograron,<br><strong>¿y tú?</strong></span>
+              <svg class="badge-arrow" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 35 C20 35 40 25 55 5" stroke="#28C76F" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M48 3 L55 5 L50 12" stroke="#28C76F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <!-- Flechas de navegación -->
+            <div class="carousel-nav-btns">
+              <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" aria-label="Anterior">&#8249;</button>
+              <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)" aria-label="Siguiente">&#8250;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrusel de testimonios -->
+        <div class="testimonios-carousel-wrap" id="testimoniosCarousel">
+          <div class="testimonios-track" id="testimoniosTrack">
+
+            <!-- Tarjeta 1 -->
+            <div class="testimonio-card">
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#28C76F,#1a8c48);">CR</div>
+                <div class="testimonio-info">
+                  <h4>Carlos Ramírez</h4>
+                  <p>34 años • Empleado administrativo</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "Vivía estresado, pagando mínimos en 3 tarjetas y llegando a fin de quincena en ceros. En la Unidad 1 entendí cómo renegociar con el banco sin trucos. Hoy ya no debo un solo peso y tengo 4 meses de gastos ahorrados."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <div><span>Deuda liquidada:</span><strong>$42,000 MXN</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div><span>Tiempo de cambio:</span><strong>4 meses</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 2 (DESTACADA) -->
+            <div class="testimonio-card featured">
+              <span class="story-badge">⭐ Historia DESTACADA</span>
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#F5B800,#d4940a); color:#fff; border-color: #F5B800;">MG</div>
+                <div class="testimonio-info">
+                  <h4>Mariana González</h4>
+                  <p>29 años • Independiente</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5B800"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "Siempre creí que la educación financiera era para ricos o cursos de vendehumos en redes. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  <div><span>Ahorro mensual:</span><strong>+35% de ingresos</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <div><span>Primera inversión:</span><strong>Con solo $500</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="testimonio-card">
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#3a7bd5,#1a4fa0);">RS</div>
+                <div class="testimonio-info">
+                  <h4>Roberto y Silvia</h4>
+                  <p>Pareja y padres de familia • 41 años</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                  <div><span>Meta familiar:</span><strong>Fondo universitario</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                  <div><span>Control de gastos:</span><strong>100% organizado</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="testimonio-card">
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#8e44ad,#6c3483);">JM</div>
+                <div class="testimonio-info">
+                  <h4>Jorge Martínez</h4>
+                  <p>28 años • Vendedor</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear y a ser constante. Hoy tengo más tranquilidad y estoy construyendo mis metas."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  <div><span>Fondo de emergencia:</span><strong>6 meses cubiertos</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <div><span>Control financiero:</span><strong>100% logrado</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 5 -->
+            <div class="testimonio-card">
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#e74c3c,#a93226);">AL</div>
+                <div class="testimonio-info">
+                  <h4>Ana López</h4>
+                  <p>31 años • Enfermera</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses logré saldar todo y ahora ahorro el 20% de mi sueldo sin esfuerzo."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <div><span>Deudas liquidadas:</span><strong>$28,500 MXN</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  <div><span>Ahorro mensual:</span><strong>20% de sueldo</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tarjeta 6 -->
+            <div class="testimonio-card">
+              <div class="testimonio-top">
+                <div class="testimonio-avatar" style="background: linear-gradient(135deg,#1abc9c,#16a085);">FV</div>
+                <div class="testimonio-info">
+                  <h4>Fernando Vargas</h4>
+                  <p>42 años • Obrero especializado</p>
+                </div>
+                <div class="testimonio-play">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+                </div>
+              </div>
+              <blockquote class="testimonio-quote">
+                "Creí que con mi sueldo nunca podría invertir. Me equivoqué. Con poco empecé en CETES y ya estoy diversificando. Ahora sé que invertir es para todos, no solo para ricos."
+              </blockquote>
+              <div class="testimonio-metrics">
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <div><span>Capital invertido:</span><strong>$32,000 MXN</strong></div>
+                </div>
+                <div class="t-metric">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#28C76F" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  <div><span>Rendimiento anual:</span><strong>+11% promedio</strong></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Dots indicadores -->
+        <div class="carousel-dots" id="carouselDots"></div>
+
+      </div>
+
+      <!-- BARRA DE FEATURES -->
+      <div class="features-bar">
+        <div class="container features-bar-inner">
+          <div class="feature-item">
+            <span class="feature-icon">🔥</span>
+            <span>Tu futuro financiero<br><strong>también se aprende</strong></span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">💻</span>
+            <span>100% en línea<br><strong>y a tu ritmo</strong></span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🛡️</span>
+            <span>Contenido práctico<br><strong>y fácil de aplicar</strong></span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">⭐</span>
+            <span>Soporte de mentores<br><strong>y comunidad</strong></span>
+          </div>
+          <div class="feature-item feature-handwritten">
+            <span style="font-size:13px; font-style:italic; color:#28C76F; font-weight:600;">No es solo un curso,<br>es una nueva forma<br>de ver tu dinero 💚</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+<section class="pillars-overview-section" id="pilares">
       <div class="container">
         
         <div class="pillars-overview-header">
@@ -4295,6 +4900,92 @@
         }
       ]
     });
+  </script>
+  <!-- CARRUSEL TESTIMONIOS JS -->
+  <script>
+    (function() {
+      const track = document.getElementById('testimoniosTrack');
+      const dotsContainer = document.getElementById('carouselDots');
+      if (!track) return;
+
+      const cards = track.querySelectorAll('.testimonio-card');
+      const cardCount = cards.length;
+      let currentIndex = 0;
+      let cardWidth = 0;
+      let visibleCount = 4;
+      const gap = 20;
+
+      function getVisibleCount() {
+        const w = window.innerWidth;
+        if (w < 600) return 1;
+        if (w < 900) return 2;
+        if (w < 1200) return 3;
+        return 4;
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        const groups = Math.ceil(cardCount / visibleCount);
+        for (let i = 0; i < groups; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', function() { goTo(i * visibleCount); });
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        const activeGroup = Math.floor(currentIndex / visibleCount);
+        dots.forEach((d, i) => d.classList.toggle('active', i === activeGroup));
+      }
+
+      function getCardWidth() {
+        if (cards.length === 0) return 300;
+        return cards[0].getBoundingClientRect().width;
+      }
+
+      function goTo(idx) {
+        const maxIdx = Math.max(0, cardCount - visibleCount);
+        currentIndex = Math.max(0, Math.min(idx, maxIdx));
+        cardWidth = getCardWidth();
+        const offset = currentIndex * (cardWidth + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        updateDots();
+      }
+
+      window.moveCarousel = function(dir) {
+        goTo(currentIndex + dir * visibleCount);
+      };
+
+      function init() {
+        visibleCount = getVisibleCount();
+        buildDots();
+        goTo(0);
+      }
+
+      window.addEventListener('resize', function() {
+        visibleCount = getVisibleCount();
+        buildDots();
+        goTo(currentIndex);
+      });
+
+      // Auto-slide cada 6 segundos
+      setInterval(function() {
+        const maxIdx = Math.max(0, cardCount - visibleCount);
+        if (currentIndex >= maxIdx) {
+          goTo(0);
+        } else {
+          goTo(currentIndex + 1);
+        }
+      }, 6000);
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
 </body>
 </html>
