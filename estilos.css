@@ -3946,7 +3946,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .story-card {
-  background: rgba(3, 45, 31, 0.72);
+  background: rgba(10, 38, 47, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -3963,7 +3963,7 @@ body.user-logged-in .logged-topbar {
 .story-card:hover {
   transform: translateY(-5px);
   border-color: var(--verde-claro);
-  background: rgba(3, 45, 31, 0.86);
+  background: rgba(10, 38, 47, 0.92);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 

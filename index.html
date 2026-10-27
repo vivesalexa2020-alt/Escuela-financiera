@@ -257,12 +257,43 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
-    /* GRID DE HISTORIAS DE ÉXITO */
-    .stories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+    /* GRID DE HISTORIAS DE ÉXITO - CARRUSEL HORIZONTAL */
+    .stories-wrapper {
       margin-bottom: 50px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .stories-wrapper::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .stories-wrapper::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .stories-wrapper::-webkit-scrollbar-thumb {
+      background: var(--verde-claro);
+      border-radius: 10px;
+    }
+
+    .stories-wrapper::-webkit-scrollbar-thumb:hover {
+      background: var(--verde-claro-hover);
+    }
+
+    .stories-grid {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+    }
+
+    .story-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
     }
 
     .story-card {
@@ -2268,87 +2299,219 @@
         </div>
 
         <!-- GRID DE HISTORIAS DE ÉXITO -->
-        <div class="stories-grid">
+        <div class="stories-wrapper">
+          <div class="stories-grid">
 
-          <!-- Historia 1 -->
-          <div class="story-card">
-            <div>
-              <div class="story-person">
-                <div class="avatar-circle">CR</div>
-                <div class="story-name">
-                  <h4>Carlos Ramírez</h4>
-                  <p>Empleado administrativo • 34 años</p>
+            <!-- Historia 1 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">CR</div>
+                  <div class="story-name">
+                    <h4>Carlos Ramírez</h4>
+                    <p>Empleado administrativo • 34 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Vivía estresado, pagando mínimos en 3 tarjetas y llegando a fin de quincena en ceros. En la Unidad 1 entendí cómo renegociar con el banco sin trucos. Hoy ya no debo un solo peso y tengo 4 meses de gastos ahorrados."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Deuda liquidada:</span>
+                  <strong>$42,000 MXN</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Tiempo de cambio:</span>
+                  <strong>4 meses</strong>
                 </div>
               </div>
-              <p class="story-quote">
-                "Vivía estresado, pagando mínimos en 3 tarjetas y llegando a fin de quincena en ceros. En la Unidad 1 entendí cómo renegociar con el banco sin trucos. Hoy ya no debo un solo peso y tengo 4 meses de gastos ahorrados."
-              </p>
             </div>
-            <div class="story-metrics">
-              <div class="metric-pill">
-                <span>Deuda liquidada:</span>
-                <strong>$42,000 MXN</strong>
-              </div>
-              <div class="metric-pill">
-                <span>Tiempo de cambio:</span>
-                <strong>4 meses</strong>
-              </div>
-            </div>
-          </div>
 
-          <!-- Historia 2 (DESTACADA) -->
-          <div class="story-card featured">
-            <span class="story-badge">⭐ Historia DESTACADA</span>
-            <div>
-              <div class="story-person">
-                <div class="avatar-circle" style="border-color: var(--amarillo-dorado); color: var(--amarillo-dorado);">MG</div>
-                <div class="story-name">
-                  <h4>Mariana González</h4>
-                  <p>Comerciante independiente • 29 años</p>
+            <!-- Historia 2 (DESTACADA) -->
+            <div class="story-card featured">
+              <span class="story-badge">⭐ Historia DESTACADA</span>
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle" style="border-color: var(--amarillo-dorado); color: var(--amarillo-dorado);">MG</div>
+                  <div class="story-name">
+                    <h4>Mariana González</h4>
+                    <p>Comerciante independiente • 29 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Siempre creí que la educación financiera era para ricos o cursos de vendehumos en redes. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Ahorro mensual:</span>
+                  <strong>+35% de ingresos</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Primera inversión:</span>
+                  <strong>Con solo $500</strong>
                 </div>
               </div>
-              <p class="story-quote">
-                "Siempre creí que la educación financiera era para ricos o cursos de vendehumos en redes. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
-              </p>
             </div>
-            <div class="story-metrics">
-              <div class="metric-pill">
-                <span>Ahorro mensual:</span>
-                <strong>+35% de ingresos</strong>
-              </div>
-              <div class="metric-pill">
-                <span>Primera inversión:</span>
-                <strong>Con solo $500</strong>
-              </div>
-            </div>
-          </div>
 
-          <!-- Historia 3 -->
-          <div class="story-card">
-            <div>
-              <div class="story-person">
-                <div class="avatar-circle">RS</div>
-                <div class="story-name">
-                  <h4>Roberto y Silvia</h4>
-                  <p>Pareja y padres de familia • 41 años</p>
+            <!-- Historia 3 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">RS</div>
+                  <div class="story-name">
+                    <h4>Roberto y Silvia</h4>
+                    <p>Pareja y padres de familia • 41 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Meta familiar:</span>
+                  <strong>Fondo universitario</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Control de gastos:</span>
+                  <strong>100% organizado</strong>
                 </div>
               </div>
-              <p class="story-quote">
-                "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
-              </p>
             </div>
-            <div class="story-metrics">
-              <div class="metric-pill">
-                <span>Meta familiar:</span>
-                <strong>Fondo universitario</strong>
-              </div>
-              <div class="metric-pill">
-                <span>control de gastos:</span>
-                <strong>100% organizado</strong>
-              </div>
-            </div>
-          </div>
 
+            <!-- Historia 4 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">JM</div>
+                  <div class="story-name">
+                    <h4>Jorge Mendoza</h4>
+                    <p>Vendedor de autos • 36 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Pasaba de comisión en comisión sin guardar nada. Con el método aprendí a separar mi ahorro el mismo día que cobraba. Ya tengo mi fondo de emergencia completo y hasta empecé a invertir en CETES."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Fondo de emergencia:</span>
+                  <strong>6 meses cubiertos</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Invertido:</span>
+                  <strong>$15,000 MXN</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historia 5 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">AL</div>
+                  <div class="story-name">
+                    <h4>Ana López</h4>
+                    <p>Enfermera • 31 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses logré saldar todo y ahora ahorro el 20% de mi sueldo sin esfuerzo."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Deudas liquidadas:</span>
+                  <strong>$28,500 MXN</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Ahorro mensual:</span>
+                  <strong>20% de sueldo</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historia 6 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">DT</div>
+                  <div class="story-name">
+                    <h4>Diego Torres</h4>
+                    <p>Estudiante y emprendedor • 24 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "A mi edad pensé que era muy temprano para pensar en finanzas, pero este curso me abrió los ojos. Ya sé presupuestar mi negocio, separo utilidades y tengo metas claras para crecer sin endeudarme."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Negocio creciendo:</span>
+                  <strong>+40% ingresos</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Sin deudas:</span>
+                  <strong>100% sano</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historia 7 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">LC</div>
+                  <div class="story-name">
+                    <h4>Laura Castillo</h4>
+                    <p>Maestra • 38 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Siempre ahorraba poco y lo gastaba todo. Con las plantillas aprendí a automatizar mi ahorro y ya veo crecer mi cuenta. Por primera vez me siento tranquila pensando en mi futuro."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Ahorro acumulado:</span>
+                  <strong>$65,000 MXN</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Constancia:</span>
+                  <strong>12 meses seguidos</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historia 8 -->
+            <div class="story-card">
+              <div>
+                <div class="story-person">
+                  <div class="avatar-circle">FV</div>
+                  <div class="story-name">
+                    <h4>Fernando Vargas</h4>
+                    <p>Obrero especializado • 42 años</p>
+                  </div>
+                </div>
+                <p class="story-quote">
+                  "Creí que con mi sueldo nunca podría invertir. Me equivoqué. Con poco empecé en CETES y ya estoy diversificando. Ahora sé que invertir es para todos, no solo para ricos."
+                </p>
+              </div>
+              <div class="story-metrics">
+                <div class="metric-pill">
+                  <span>Capital invertido:</span>
+                  <strong>$32,000 MXN</strong>
+                </div>
+                <div class="metric-pill">
+                  <span>Rendimiento anual:</span>
+                  <strong>+11% promedio</strong>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
