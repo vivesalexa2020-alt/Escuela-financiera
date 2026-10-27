@@ -491,13 +491,46 @@ function logout() {
 // ------------------------------------------------------------
 // 9. ACTUALIZACIÓN DE UI: CONTROL DEL MENÚ LATERAL Y PRIVACIDAD
 // ------------------------------------------------------------
+function ensureGuestAuthUI() {
+  const topbarRight = document.querySelector('.logged-topbar-right');
+  if (topbarRight && !document.getElementById('guestLoginBtn')) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'guestLoginBtn';
+    btn.className = 'btn-guest-login';
+    btn.textContent = 'Iniciar sesión';
+    btn.addEventListener('click', function () { openLoginModal(); });
+    topbarRight.appendChild(btn);
+  }
+
+  const userPanel = document.querySelector('.sidebar-user-panel');
+  if (userPanel && !document.getElementById('sidebarGuestLoginBtn')) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'sidebarGuestLoginBtn';
+    btn.className = 'sidebar-guest-login-btn';
+    btn.textContent = 'Iniciar sesión';
+    btn.addEventListener('click', function () {
+      toggleSidebar(false);
+      openLoginModal();
+    });
+    userPanel.appendChild(btn);
+  }
+}
+
 function updateAuthUI() {
+  ensureGuestAuthUI();
+
   const user = getCurrentUser();
 
   const sidebar = document.getElementById('sidebarLeft');
   const sidebarUserName = document.getElementById('sidebarUserName');
   const sidebarUserAvatar = document.getElementById('sidebarUserAvatar');
   const topbarUserName = document.getElementById('topbarUserName');
+  const sidebarUserRole = document.querySelector('.sidebar-user-role');
+  const sidebarLogoutBtn = document.querySelector('.sidebar-logout-btn');
+  const guestLoginBtn = document.getElementById('guestLoginBtn');
+  const sidebarGuestLoginBtn = document.getElementById('sidebarGuestLoginBtn');
 
   const protectedSection = document.getElementById('protectedContent');
   const lockedBanner = document.getElementById('lockedBanner');
@@ -516,6 +549,10 @@ function updateAuthUI() {
     if (sidebarUserName) sidebarUserName.textContent = displayName;
     if (sidebarUserAvatar) sidebarUserAvatar.textContent = initial;
     if (topbarUserName) topbarUserName.textContent = displayName;
+    if (sidebarUserRole) sidebarUserRole.textContent = 'Estudiante Activo';
+    if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'flex';
+    if (guestLoginBtn) guestLoginBtn.style.display = 'none';
+    if (sidebarGuestLoginBtn) sidebarGuestLoginBtn.style.display = 'none';
 
     if (protectedSection) protectedSection.style.display = 'block';
     if (lockedBanner) lockedBanner.style.display = 'none';
@@ -532,7 +569,11 @@ function updateAuthUI() {
 
     if (sidebarUserName) sidebarUserName.textContent = 'Invitado (Demo)';
     if (sidebarUserAvatar) sidebarUserAvatar.textContent = '👋';
-    if (topbarUserName) topbarUserName.textContent = 'Invitado (Semestre 1 Libre)';
+    if (topbarUserName) topbarUserName.textContent = 'Invitado';
+    if (sidebarUserRole) sidebarUserRole.textContent = 'Invitado';
+    if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'none';
+    if (guestLoginBtn) guestLoginBtn.style.display = 'inline-flex';
+    if (sidebarGuestLoginBtn) sidebarGuestLoginBtn.style.display = 'inline-flex';
 
     if (protectedSection) protectedSection.style.display = 'block';
     if (lockedBanner) lockedBanner.style.display = 'none';
@@ -691,30 +732,35 @@ const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
 
 const RETICULA_SEMESTRES = [
   { id: 1, anio: 'Año 1', nivel: 'Básico', titulo: 'Semestre 1 (Nivel Básico — Prueba 100% Gratis)', limite: 3, requeridoPrevio: 0, gratis: true },
-  { id: 2, anio: 'Año 1', nivel: 'Intermedio I', titulo: 'Semestre 2 (Nivel Intermedio I — Consolidación)', limite: 2, requeridoPrevio: 2, gratis: false },
-  { id: 3, anio: 'Año 2', nivel: 'Intermedio II', titulo: 'Semestre 3 (Nivel Intermedio II — Inversiones)', limite: 2, requeridoPrevio: 1, gratis: false },
-  { id: 4, anio: 'Año 2', nivel: 'Avanzado', titulo: 'Semestre 4 (Nivel Avanzado — Libertad Financiera)', limite: 2, requeridoPrevio: 1, gratis: false }
+  { id: 2, anio: 'Año 1', nivel: 'Intermedio I', titulo: 'Semestre 2 (Nivel Intermedio I — Consolidación)', limite: 3, requeridoPrevio: 2, gratis: false },
+  { id: 3, anio: 'Año 2', nivel: 'Intermedio II', titulo: 'Semestre 3 (Nivel Intermedio II — Inversiones)', limite: 3, requeridoPrevio: 1, gratis: false },
+  { id: 4, anio: 'Año 2', nivel: 'Avanzado', titulo: 'Semestre 4 (Nivel Avanzado — Libertad Financiera)', limite: 3, requeridoPrevio: 1, gratis: false }
 ];
 
 const RETICULA_MATERIAS = [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis)
+  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
   {
-    id: 'finanzas-personales', semestre: 1, icon: '🐷',
-    nombre: 'Finanzas personales',
-    desc: 'Administra tu dinero, controla tus gastos y crea hábitos financieros saludables.',
-    temario: ['Registro de ingresos y gastos', 'Fondo de emergencia inicial', 'Definición de metas financieras']
+    id: 'finanzas-personales', semestre: 1, icon: '📗',
+    nombre: 'Unidad 1: Rompe el ciclo',
+    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
+    temario: [
+      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
+      'Fugas y micro-gastos hormiga',
+      'Regla 50/30/20 simplificada',
+      'Método anti-deuda acelerado'
+    ]
   },
   {
-    id: 'presupuesto', semestre: 1, icon: '💰',
-    nombre: 'Presupuesto mensual',
-    desc: 'Planifica tus ingresos y gastos para alcanzar mayor estabilidad financiera.',
-    temario: ['La regla 50/30/20', 'Presupuesto mensual paso a paso', 'Ahorro programado']
+    id: 'presupuesto', semestre: 1, icon: '📘',
+    nombre: 'Unidad 2: Construye tu fortaleza',
+    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
+    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos']
   },
   {
-    id: 'gasto-hormiga', semestre: 1, icon: '🐜',
-    nombre: 'Gasto hormiga y saneamiento',
-    desc: 'Detecta y elimina esos pequeños gastos diarios que se comen tus finanzas sin que lo notes.',
-    temario: ['¿Qué es el gasto hormiga?', 'Auditoría de fugas de dinero', 'Redirigir montos al ahorro']
+    id: 'gasto-hormiga', semestre: 1, icon: '📙',
+    nombre: 'Unidad 3: Multiplica e invierte',
+    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
+    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso']
   },
 
   // SEMESTRE 2 (Nivel Intermedio I - Año 1)
@@ -921,19 +967,21 @@ function renderReticula() {
   const resumen = document.getElementById('reticulaResumen');
   if (resumen) {
     let hint;
-    if (contarInscritasEnSemestre(state, 1) < 2) {
-      const faltan = 2 - contarInscritasEnSemestre(state, 1);
-      hint = 'Semestre 1 (Prueba Gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
-    } else if (contarInscritasEnSemestre(state, 2) < 1) {
-      hint = tieneMembresiaActiva()
-        ? '¡Semestre 1 aprobado! Continúa tu carrera de 2 años en el Semestre 2'
-        : '¡Semestre 1 completado! Activa tu inscripción para acceder al Semestre 2';
-    } else if (contarInscritasEnSemestre(state, 3) < 1) {
-      hint = '¡Año 2 desbloqueado! Inicia el Semestre 3 de Inversiones';
-    } else if (contarInscritasEnSemestre(state, 4) < 1) {
-      hint = '¡Nivel Avanzado! Semestre 4 de Libertad Financiera y Emprendimiento';
-    } else {
+    const inscritasSem1 = contarInscritasEnSemestre(state, 1);
+    const limiteSem1 = (getSemestreConfig(1) || {}).limite || 3;
+    if (inscritas >= total) {
       hint = '¡Excelente! Has completado tu retícula formativa de 2 años';
+    } else if (inscritasSem1 < limiteSem1) {
+      const faltan = limiteSem1 - inscritasSem1;
+      hint = 'Semestre 1 (Prueba Gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
+    } else if (contarInscritasEnSemestre(state, 2) < 3) {
+      hint = tieneMembresiaActiva()
+        ? '¡Semestre 1 completado! Continúa tu carrera de 2 años en el Semestre 2'
+        : '¡Semestre 1 completado! Activa tu inscripción para continuar en el Semestre 2';
+    } else if (contarInscritasEnSemestre(state, 3) < 3) {
+      hint = '¡Año 2 desbloqueado! Inicia el Semestre 3 de Inversiones';
+    } else {
+      hint = '¡Nivel Avanzado! Completa el Semestre 4 de Libertad Financiera y Emprendimiento';
     }
     resumen.innerHTML =
       '<div class="reticula-resumen-num">' + inscritas + '<span> / ' + total + '</span></div>' +
@@ -952,7 +1000,7 @@ function renderReticula() {
     const chip = bloqueado
       ? '<span class="reticula-semester-chip locked">' + (requierePago ? '🔒 Requiere inscripción' : '🔒 Bloqueado') + '</span>'
       : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
-        (cfg.limite === 1 ? ' materia' : ' unidades') + '</span>';
+        (cfg.limite === 1 ? ' materia' : ' materias') + '</span>';
 
     const cards = materias.map(function (m) {
       const st = estadoMateria(m.id, state);
@@ -1039,7 +1087,7 @@ function openReticulaModal(id) {
       const limite = cfg ? cfg.limite : 1;
       tipo = 'info';
       texto = '⏳ Ya alcanzaste el límite de ' + limite +
-        (limite === 1 ? ' materia' : ' unidades') + ' en este semestre. Avanza para desbloquear más.';
+        (limite === 1 ? ' materia' : ' materias') + ' en este semestre. Ya tienes todas las materias disponibles.';
       label = 'Sin cupo este semestre';
       deshabilitado = true;
     } else {
@@ -1315,7 +1363,7 @@ const FIN_CONOCIMIENTO = [
   },
   {
     claves: ['reticula', 'inscribir', 'inscripcion', 'semestre', 'materia', 'materias', 'curso'],
-    respuesta: 'En tu Retícula Académica te inscribes primero a 2 unidades y luego avanzas una materia por semestre. Entra y haz clic en cada materia para ver su temario.',
+    respuesta: 'En tu Retícula Académica puedes inscribir hasta 3 materias por semestre. Entra y haz clic en cada materia para ver su temario e inscribirte.',
     enlaces: [{ texto: 'Ir a Retícula', href: 'reticula.html' }]
   },
   {
@@ -1575,3 +1623,17 @@ function initWhatsApp() {
 
 document.addEventListener('DOMContentLoaded', function(){ initWhatsApp(); });
 initWhatsApp();
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (getCurrentUser()) return;
+  const hash = (window.location.hash || '').toLowerCase();
+  if (hash !== '#login' && hash !== '#signup') return;
+  if (hash === '#login') {
+    openLoginModal();
+  } else {
+    openSignupModal();
+  }
+  if (history.replaceState) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+});

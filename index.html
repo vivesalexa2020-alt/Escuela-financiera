@@ -164,6 +164,23 @@
       box-shadow: 0 6px 18px rgba(40, 199, 111, 0.5);
     }
 
+    @media (max-width: 520px) {
+      .brand-logo span {
+        display: none;
+      }
+      .nav-actions {
+        gap: 8px;
+      }
+      .btn-login-outline {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      .btn-demo-cta {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+    }
+
     /* ============================================================
        1. HERO SUPERIOR: HISTORIAS DE ÉXITO REALES (CERO FASTIDIO)
        ============================================================ */
@@ -2967,6 +2984,7 @@
       </a>
 
       <div class="nav-actions">
+        <a href="reticula.html#login" class="btn-login-outline">Iniciar sesión</a>
         <a href="reticula.html" class="btn-demo-cta">
           <span>Probar Demo Gratis</span>
         </a>
@@ -3780,27 +3798,6 @@
     </section>
   </main>
 
-  <!-- MODAL DE INICIO DE SESIÓN -->
-  <div class="modal-backdrop" id="loginModal" role="dialog" aria-modal="true">
-    <div class="modal-panel">
-      <button class="modal-close" onclick="closeLoginModal()">✕</button>
-      <h3>Iniciar Sesión</h3>
-      <p>Accede con tus datos para continuar tu avance.</p>
-
-      <form onsubmit="handleLoginSubmit(event)">
-        <div class="form-group">
-          <label>Correo Electrónico</label>
-          <input type="email" placeholder="tucorreo@ejemplo.com" required>
-        </div>
-        <div class="form-group">
-          <label>Contraseña</label>
-          <input type="password" placeholder="Tu contraseña" required>
-        </div>
-        <button type="submit" class="btn-submit-login">Entrar a mi Aula Virtual</button>
-      </form>
-    </div>
-  </div>
-
   <footer class="site-footer">
     <div class="container">
       <p><strong>Educación Financiera</strong> — Plataforma Educativa de Aprendizaje y Transformación.</p>
@@ -3808,21 +3805,6 @@
   </footer>
 
   <script>
-    function openLoginModal() {
-      document.getElementById('loginModal').classList.add('open');
-    }
-
-    function closeLoginModal() {
-      document.getElementById('loginModal').classList.remove('open');
-    }
-
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      closeLoginModal();
-      alert("✅ ¡Bienvenido! Redirigiendo a tu aula virtual...");
-      window.location.href = "reticula.html";
-    }
-
     /* ============================================================
        LÓGICA DE TARJETAS FLASH INTERACTIVAS (INGRESOS Y GASTOS)
        ============================================================ */
