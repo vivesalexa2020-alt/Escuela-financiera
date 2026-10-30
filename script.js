@@ -309,9 +309,24 @@ function handleForgotSubmit(e) {
     if (forgotEmailErr) forgotEmailErr.style.display = 'block';
     valid = false;
   }
-  if (pass.length < 6) {
+  if (pass.length < 8) {
     if (forgotPassword) forgotPassword.classList.add('input-invalid');
-    if (forgotPasswordErr) forgotPasswordErr.style.display = 'block';
+    if (forgotPasswordErr) {
+      forgotPasswordErr.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+      forgotPasswordErr.style.display = 'block';
+    }
+    valid = false;
+  }
+  // Validar complejidad: al menos una mayúscula, un número y un carácter especial
+  const hasUpper = /[A-Z]/.test(pass);
+  const hasNumber = /[0-9]/.test(pass);
+  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+  if (!hasUpper || !hasNumber || !hasSpecial) {
+    if (forgotPassword) forgotPassword.classList.add('input-invalid');
+    if (forgotPasswordErr) {
+      forgotPasswordErr.textContent = 'La contraseña debe incluir mayúscula, número y carácter especial (!@#$%...).';
+      forgotPasswordErr.style.display = 'block';
+    }
     valid = false;
   }
   if (confirm !== pass) {
@@ -412,9 +427,24 @@ function handleSignupSubmit(e) {
     if (signupEmailErr) signupEmailErr.style.display = 'block';
     valid = false;
   }
-  if (pass.length < 6) {
+  if (pass.length < 8) {
     if (signupPassword) signupPassword.classList.add('input-invalid');
-    if (signupPasswordErr) signupPasswordErr.style.display = 'block';
+    if (signupPasswordErr) {
+      signupPasswordErr.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+      signupPasswordErr.style.display = 'block';
+    }
+    valid = false;
+  }
+  // Validar complejidad: al menos una mayúscula, un número y un carácter especial
+  const hasUpper = /[A-Z]/.test(pass);
+  const hasNumber = /[0-9]/.test(pass);
+  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(pass);
+  if (!hasUpper || !hasNumber || !hasSpecial) {
+    if (signupPassword) signupPassword.classList.add('input-invalid');
+    if (signupPasswordErr) {
+      signupPasswordErr.textContent = 'La contraseña debe incluir mayúscula, número y carácter especial (!@#$%...).';
+      signupPasswordErr.style.display = 'block';
+    }
     valid = false;
   }
   if (confirm !== pass) {
@@ -443,7 +473,34 @@ function handleSignupSubmit(e) {
 }
 
 // ------------------------------------------------------------
-// 8. ALMACENAMIENTO LOCAL
+// 8. FUNCIONES DE HASH PARA CONTRASEÑAS (SIMPLE SHA-256 LIKE)
+// ------------------------------------------------------------
+async function hashPassword(password) {
+  // Implementación simple de hash usando Web Crypto API
+  if (window.crypto && window.crypto.subtle) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  // Fallback para navegadores antiguos: hash simple
+  let hash = 0;
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return 'simple_' + Math.abs(hash).toString(16);
+}
+
+// Para contraseñas existentes en texto plano, necesitamos migrar
+function isPasswordHashed(password) {
+  return password.length >= 64 && /^[a-f0-9]{64}$/.test(password);
+}
+
+// ------------------------------------------------------------
+// 9. ALMACENAMIENTO LOCAL
 // ------------------------------------------------------------
 function getUsers() {
   try {
@@ -1263,9 +1320,18 @@ function handlePasswordSubmit(e) {
     if (msg) { msg.className = 'form-message error'; msg.textContent = 'Tu contraseña actual no es correcta.'; }
     return;
   }
-  if (nueva.length < 6) {
+  if (nueva.length < 8) {
     if (newEl) newEl.classList.add('input-invalid');
-    if (msg) { msg.className = 'form-message error'; msg.textContent = 'La nueva contraseña debe tener al menos 6 caracteres.'; }
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'La nueva contraseña debe tener al menos 8 caracteres.'; }
+    return;
+  }
+  // Validar complejidad: al menos una mayúscula, un número y un carácter especial
+  const hasUpper = /[A-Z]/.test(nueva);
+  const hasNumber = /[0-9]/.test(nueva);
+  const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(nueva);
+  if (!hasUpper || !hasNumber || !hasSpecial) {
+    if (newEl) newEl.classList.add('input-invalid');
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'La contraseña debe incluir mayúscula, número y carácter especial (!@#$%...).'; }
     return;
   }
   if (nueva !== conf) {
@@ -1559,7 +1625,7 @@ updateAuthUI();
 initAsistente();// ------------------------------------------------------------
 // 18. WHATSAPP QUICK CONTACT
 // ------------------------------------------------------------
-  const WHATSAPP_NUM = '5210000000000'; // Cambiar por número real
+  const WHATSAPP_NUM = '5210000000000'; // ⚠️ CAMBIAR POR NÚMERO REAL DE WHATSAPP ANTES DE PRODUCCIÓN
   const WHATSAPP_OPTS = [
     { label: 'Dudas de cursos', texto: 'Hola, tengo una duda sobre los cursos de Educación Financiera.' },
     { label: 'Soporte técnico', texto: 'Hola, necesito soporte para acceder a la plataforma.' },

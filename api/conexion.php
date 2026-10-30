@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost, http://127.0.0.1');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -9,10 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-$host = 'localhost';
-$dbname = 'educacion_financiera';
-$username = 'root';
-$password = '';
+// Cargar variables de entorno desde archivo .env
+$envFile = __DIR__ . '/../.env';
+if (file_exists($envFile)) {
+    $env = parse_ini_file($envFile);
+    $host = $env['DB_HOST'] ?? 'localhost';
+    $dbname = $env['DB_NAME'] ?? 'educacion_financiera';
+    $username = $env['DB_USER'] ?? 'root';
+    $password = $env['DB_PASSWORD'] ?? '';
+} else {
+    // Valores por defecto si no existe .env
+    $host = 'localhost';
+    $dbname = 'educacion_financiera';
+    $username = 'root';
+    $password = '';
+}
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

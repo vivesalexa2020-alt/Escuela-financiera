@@ -1,0 +1,19 @@
+# Variables de entorno (credenciales sensibles)
+.env
+.env.local
+.env.production
+
+# Archivos de backup
+*.bak
+*.bak2
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de log
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db

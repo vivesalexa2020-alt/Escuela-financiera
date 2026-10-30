@@ -32,18 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
-    $materiaId = $data['materia_id'] ?? '';
+    $materiaId = trim($data['materia_id'] ?? '');
     $semestre = intval($data['semestre'] ?? 0);
-    
+
+    // Validar que el semestre esté entre 1 y 4
+    if ($semestre < 1 || $semestre > 4) {
+        echo json_encode(['success' => false, 'message' => 'El semestre debe estar entre 1 y 4']);
+        exit();
+    }
+
     if (empty($materiaId) || $semestre < 1) {
         echo json_encode(['success' => false, 'message' => 'Datos inválidos']);
         exit();
     }
-    
+
     try {
         $stmt = $pdo->prepare("INSERT IGNORE INTO inscripciones (usuario_id, materia_id, semestre) VALUES (?, ?, ?)");
         $stmt->execute([$usuarioId, $materiaId, $semestre]);
-        
+
         echo json_encode(['success' => true, 'message' => 'Inscripción exitosa']);
     } catch (PDOException $e) {
         http_response_code(500);
