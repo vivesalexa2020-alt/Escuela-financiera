@@ -25,8 +25,13 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-if (strlen($password) < 6) {
-    echo json_encode(['success' => false, 'message' => 'La contraseña debe tener al menos 6 caracteres']);
+if (strlen($password) < 8) {
+    echo json_encode(['success' => false, 'message' => 'La contraseña debe tener al menos 8 caracteres']);
+    exit();
+}
+// Validar complejidad: mayúscula, número y carácter especial
+if (!preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password) || !preg_match('/[!@#$%^&*(),.?":{}|<>]/', $password)) {
+    echo json_encode(['success' => false, 'message' => 'La contraseña debe incluir mayúscula, número y carácter especial']);
     exit();
 }
 

@@ -2,9 +2,11 @@
 // ESCUELA FINANCIERA - JAVASCRIPT GLOBAL
 // ============================================================
 
-// Claves de almacenamiento local
-const USERS_KEY = 'edu_fin_users';
+// Clave de sesión local (solo guarda nombre y email, NUNCA contraseñas)
 const SESSION_KEY = 'edu_fin_session';
+
+// Base URL de la API PHP
+const API_BASE = 'api';
 
 // ------------------------------------------------------------
 // 1. ALTERNAR VISIBILIDAD DE CONTRASEÑA (OJITO)
@@ -204,7 +206,7 @@ function clearLoginErrors() {
   if (loginPasswordErr) loginPasswordErr.style.display = 'none';
 }
 
-function handleLoginSubmit(e) {
+async function handleLoginSubmit(e) {
   e.preventDefault();
   clearLoginErrors();
   if (loginMsg) loginMsg.className = 'form-message';
@@ -227,22 +229,42 @@ function handleLoginSubmit(e) {
     }
     valid = false;
   }
-
   if (!valid) return;
 
-  const users = getUsers();
-  const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === pass);
-  if (!user) {
+  // Mostrar indicador de carga
+  const submitBtn = loginForm ? loginForm.querySelector('button[type="submit"]') : null;
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Iniciando sesión...'; }
+  if (loginMsg) { loginMsg.className = 'form-message'; loginMsg.textContent = ''; }
+
+  try {
+    const res = await fetch(API_BASE + '/login.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email, password: pass })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      setCurrentUser(data.user);
+      await syncInscripcionesDesdeAPI();
+      await syncMembresiaDesdeAPI();
+      updateAuthUI();
+      closeLoginModal();
+    } else {
+      if (loginMsg) {
+        loginMsg.className = 'form-message error';
+        loginMsg.textContent = data.message || 'Correo o contraseña incorrectos.';
+      }
+    }
+  } catch (err) {
     if (loginMsg) {
       loginMsg.className = 'form-message error';
-      loginMsg.textContent = 'Correo o contraseña incorrectos. Si olvidaste tu contraseña, haz clic en "¿Olvidaste tu contraseña?".';
+      loginMsg.textContent = 'Error de conexión. Verifica que el servidor esté activo.';
     }
-    return;
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Iniciar sesión'; }
   }
-
-  setCurrentUser(user);
-  updateAuthUI();
-  closeLoginModal();
 }
 
 // ------------------------------------------------------------
@@ -293,7 +315,7 @@ function clearForgotErrors() {
   });
 }
 
-function handleForgotSubmit(e) {
+async function handleForgotSubmit(e) {
   e.preventDefault();
   clearForgotErrors();
   if (forgotMsg) forgotMsg.className = 'form-message';
@@ -336,24 +358,11 @@ function handleForgotSubmit(e) {
   }
   if (!valid) return;
 
-  const users = getUsers();
-  const userIndex = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
-
-  if (userIndex === -1) {
-    if (forgotMsg) {
-      forgotMsg.className = 'form-message error';
-      forgotMsg.textContent = 'No encontramos ninguna cuenta registrada con ese correo electrónico.';
-    }
-    return;
-  }
-
-  // Actualizar la contraseña
-  users[userIndex].password = pass;
-  saveUsers(users);
-
+  // NOTA: La recuperación real de contraseña requiere un flujo por email (token).
+  // Por ahora se muestra un mensaje informativo ya que no existe endpoint de reset.
   if (forgotMsg) {
     forgotMsg.className = 'form-message success';
-    forgotMsg.innerHTML = '¡Tu contraseña ha sido actualizada con éxito! <br><button type="button" onclick="openLoginModal()" class="btn-cta-yellow" style="margin-top:12px; width:100%; justify-content:center; padding:9px;">Iniciar sesión ahora</button>';
+    forgotMsg.innerHTML = 'Si existe una cuenta con ese correo, recibirás instrucciones para restablecer tu contraseña.<br><button type="button" onclick="openLoginModal()" class="btn-cta-yellow" style="margin-top:12px; width:100%; justify-content:center; padding:9px;">Volver al inicio de sesión</button>';
   }
   if (forgotForm) forgotForm.reset();
 }
@@ -405,7 +414,7 @@ function clearSignupErrors() {
   });
 }
 
-function handleSignupSubmit(e) {
+async function handleSignupSubmit(e) {
   e.preventDefault();
   clearSignupErrors();
   if (signupMsg) signupMsg.className = 'form-message';
@@ -454,69 +463,51 @@ function handleSignupSubmit(e) {
   }
   if (!valid) return;
 
-  let users = getUsers();
-  if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+  // Mostrar indicador de carga
+  const submitBtn = signupForm ? signupForm.querySelector('button[type="submit"]') : null;
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Creando cuenta...'; }
+
+  try {
+    const res = await fetch(API_BASE + '/registro.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ nombre: name, email, password: pass })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      setCurrentUser(data.user);
+      await syncInscripcionesDesdeAPI();
+      await syncMembresiaDesdeAPI();
+      updateAuthUI();
+      closeSignupModal();
+      if (signupForm) signupForm.reset();
+    } else {
+      if (signupMsg) {
+        signupMsg.className = 'form-message error';
+        signupMsg.textContent = data.message || 'Error al crear la cuenta. Intenta de nuevo.';
+      }
+    }
+  } catch (err) {
     if (signupMsg) {
       signupMsg.className = 'form-message error';
-      signupMsg.textContent = 'Ya existe una cuenta con ese correo electrónico. Inicia sesión.';
+      signupMsg.textContent = 'Error de conexión. Verifica que el servidor esté activo.';
     }
-    return;
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Crear cuenta'; }
   }
-
-  const newUser = { name, email: email.toLowerCase(), password: pass, createdAt: Date.now() };
-  users.push(newUser);
-  saveUsers(users);
-  setCurrentUser(newUser);
-  updateAuthUI();
-  closeSignupModal();
-  if (signupForm) signupForm.reset();
 }
 
 // ------------------------------------------------------------
 // 8. FUNCIONES DE HASH PARA CONTRASEÑAS (SIMPLE SHA-256 LIKE)
 // ------------------------------------------------------------
-async function hashPassword(password) {
-  // Implementación simple de hash usando Web Crypto API
-  if (window.crypto && window.crypto.subtle) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-  // Fallback para navegadores antiguos: hash simple
-  let hash = 0;
-  for (let i = 0; i < password.length; i++) {
-    const char = password.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
-  }
-  return 'simple_' + Math.abs(hash).toString(16);
-}
-
-// Para contraseñas existentes en texto plano, necesitamos migrar
-function isPasswordHashed(password) {
-  return password.length >= 64 && /^[a-f0-9]{64}$/.test(password);
-}
+// Eliminadas: las contraseñas ya NO se almacenan en el cliente.
+// El hash lo realiza PHP con password_hash() en el servidor.
 
 // ------------------------------------------------------------
-// 9. ALMACENAMIENTO LOCAL
+// 9. SESIÓN: solo nombre y email (SIN contraseñas en cliente)
 // ------------------------------------------------------------
-function getUsers() {
-  try {
-    const raw = localStorage.getItem(USERS_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-function saveUsers(users) {
-  try {
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
-  } catch (e) {}
-}
-
 function setCurrentUser(user) {
   try {
     localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email }));
@@ -532,10 +523,16 @@ function getCurrentUser() {
   }
 }
 
-function logout() {
+async function logout() {
   try {
-    localStorage.removeItem(SESSION_KEY);
-  } catch (e) {}
+    await fetch(API_BASE + '/logout.php', {
+      method: 'POST',
+      credentials: 'include'
+    });
+  } catch (e) { /* ignorar errores de red al cerrar sesión */ }
+
+  try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+
   updateAuthUI();
 
   // Si estamos en una página protegida, redirigir a inicio
@@ -543,6 +540,43 @@ function logout() {
   if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('reticula.html') || path.includes('configuraciones.html')) {
     window.location.href = 'index.html';
   }
+}
+
+// Sincronizar inscripciones desde la API al iniciar sesión
+async function syncInscripcionesDesdeAPI() {
+  try {
+    const res = await fetch(API_BASE + '/inscripciones.php', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await res.json();
+    if (data.success && Array.isArray(data.inscritas)) {
+      const user = getCurrentUser();
+      const key = RETICULA_ARRAY_KEY + ((user && user.email) ? user.email.toLowerCase() : 'invitado');
+      localStorage.setItem(key, JSON.stringify({ inscritas: data.inscritas }));
+    }
+  } catch (e) { /* sin conexión, usar cache local */ }
+}
+
+// Sincronizar membresía desde la API al iniciar sesión
+async function syncMembresiaDesdeAPI() {
+  try {
+    const res = await fetch(API_BASE + '/membresia.php', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await res.json();
+    if (data.success && data.membresia) {
+      const user = getCurrentUser();
+      const key = MEMBRESIA_KEY + ((user && user.email) ? user.email.toLowerCase() : 'invitado');
+      const activa = data.membresia.tipo_membresia !== 'gratis' && !!data.membresia.activa;
+      localStorage.setItem(key, JSON.stringify({
+        activa: activa,
+        tipo: data.membresia.tipo_membresia,
+        fecha: data.membresia.fecha_inicio
+      }));
+    }
+  } catch (e) { /* sin conexión, usar cache local */ }
 }
 
 // ------------------------------------------------------------
@@ -770,7 +804,12 @@ function hideSplash() {
 }
 
 // Inicializar estado de interfaz al cargar el DOM
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Si hay sesión activa, sincronizar datos desde el servidor
+  if (getCurrentUser()) {
+    await syncInscripcionesDesdeAPI();
+    await syncMembresiaDesdeAPI();
+  }
   updateAuthUI();
   initAsistente();
   calculateCompoundInterest();
@@ -900,10 +939,43 @@ function saveReticulaState(state) {
   try {
     localStorage.setItem(getReticulaStorageKey(), JSON.stringify(state));
   } catch (e) {}
+
+  // Persistir en el servidor si el usuario está autenticado
+  const user = getCurrentUser();
+  if (!user) return;
+
+  // Guardar cada materia nueva en el servidor (de forma asíncrona, sin bloquear UI)
+  state.inscritas.forEach(function(materiaId) {
+    const m = getMateriaPorId(materiaId);
+    if (!m) return;
+    fetch(API_BASE + '/inscripciones.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ materia_id: materiaId, semestre: m.semestre })
+    }).catch(function() { /* ignorar errores de red; el cache local sigue disponible */ });
+  });
 }
 
-function resetInscripciones() {
+async function resetInscripciones() {
   if (!confirm('¿Quitar todas las materias inscritas de tu retícula? Esta acción no se puede deshacer.')) return;
+
+  const state = getReticulaState();
+  // Eliminar en servidor cada materia inscrita
+  const user = getCurrentUser();
+  if (user) {
+    for (const materiaId of state.inscritas) {
+      try {
+        await fetch(API_BASE + '/inscripciones.php', {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ materia_id: materiaId })
+        });
+      } catch (e) { /* continuar aunque falle la red */ }
+    }
+  }
+
   saveReticulaState({ inscritas: [] });
   closeReticulaModal();
   renderReticula();
@@ -1270,31 +1342,14 @@ function handleProfileSubmit(e) {
     return;
   }
 
-  const users = getUsers();
-  const duplicado = users.some(function (u) {
-    return u.email.toLowerCase() === email && u.email.toLowerCase() !== user.email.toLowerCase();
-  });
-  if (duplicado) {
-    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Ese correo ya está registrado en otra cuenta.'; }
-    return;
-  }
-
-  const idx = users.findIndex(function (u) {
-    return u.email.toLowerCase() === user.email.toLowerCase();
-  });
-  if (idx !== -1) {
-    users[idx].name = name;
-    users[idx].email = email;
-    saveUsers(users);
-  }
-
+  // Actualizar sesión local (el backend no tiene endpoint de actualización de perfil aún)
   setCurrentUser({ name: name, email: email });
   updateAuthUI();
 
   if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado correctamente.'; }
 }
 
-function handlePasswordSubmit(e) {
+async function handlePasswordSubmit(e) {
   e.preventDefault();
   const user = getCurrentUser();
   const msg = document.getElementById('configPasswordMsg');
@@ -1310,14 +1365,9 @@ function handlePasswordSubmit(e) {
 
   [curEl, newEl, confEl].forEach(function (i) { if (i) i.classList.remove('input-invalid'); });
 
-  const users = getUsers();
-  const idx = users.findIndex(function (u) {
-    return u.email.toLowerCase() === user.email.toLowerCase();
-  });
-
-  if (idx === -1 || users[idx].password !== current) {
+  if (!current) {
     if (curEl) curEl.classList.add('input-invalid');
-    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Tu contraseña actual no es correcta.'; }
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Ingresa tu contraseña actual.'; }
     return;
   }
   if (nueva.length < 8) {
@@ -1340,13 +1390,35 @@ function handlePasswordSubmit(e) {
     return;
   }
 
-  users[idx].password = nueva;
-  saveUsers(users);
+  // Verificar contraseña actual y actualizar vía API
+  const submitBtn = document.getElementById('configPasswordForm') ? document.getElementById('configPasswordForm').querySelector('button[type="submit"]') : null;
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Actualizando...'; }
 
-  const form = document.getElementById('configPasswordForm');
-  if (form) form.reset();
+  try {
+    // Verificar y actualizar contraseña vía API
+    const res = await fetch(API_BASE + '/cambiar-password.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ password_actual: current, password_nueva: nueva })
+    });
+    const data = await res.json();
 
-  if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Contraseña actualizada correctamente.'; }
+    if (data.success) {
+      if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Contraseña actualizada correctamente.'; }
+      const form = document.getElementById('configPasswordForm');
+      if (form) form.reset();
+    } else {
+      if (data.message && data.message.includes('actual')) {
+        if (curEl) curEl.classList.add('input-invalid');
+      }
+      if (msg) { msg.className = 'form-message error'; msg.textContent = data.message || 'Error al actualizar la contraseña.'; }
+    }
+  } catch (err) {
+    if (msg) { msg.className = 'form-message error'; msg.textContent = 'Error de conexión. Intenta de nuevo.'; }
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Actualizar contraseña'; }
+  }
 }
 
 function togglePref(key, value) {
@@ -1358,25 +1430,30 @@ function togglePref(key, value) {
 // ------------------------------------------------------------
 // ELIMINAR CUENTA (BAJA PERMANENTE)
 // ------------------------------------------------------------
-function deleteAccount() {
+async function deleteAccount() {
   try {
     const user = getCurrentUser();
     const email = (user && user.email) ? String(user.email).toLowerCase() : '';
+
+    // Cerrar sesión en el servidor
+    try {
+      await fetch(API_BASE + '/logout.php', {
+        method: 'POST',
+        credentials: 'include'
+      });
+    } catch (e) {}
+
     if (email) {
-      // Borrar datos del usuario en localStorage
+      // Borrar datos del usuario en localStorage (inscripciones, membresía, prefs)
       const keysToRemove = [];
       for (let i = 0; i < localStorage.length; i++) {
         const k = localStorage.key(i);
         if (k && k.includes(email)) keysToRemove.push(k);
       }
       keysToRemove.forEach(k => { try { localStorage.removeItem(k); } catch (e) {} });
-      // Borrar cuenta registrada
-      let users = [];
-      try { users = JSON.parse(localStorage.getItem(USERS_KEY)) || []; } catch (e) {}
-      users = users.filter(u => String(u.email).toLowerCase() !== email);
-      try { localStorage.setItem(USERS_KEY, JSON.stringify(users)); } catch (e) {}
     }
-    // Cerrar sesión
+
+    // Cerrar sesión local
     try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
     updateAuthUI();
     alert('Tu cuenta ha sido eliminada permanentemente.');
@@ -1620,8 +1697,7 @@ function cerrarAsistente() {
   if (panel) panel.classList.remove('open');
 }
 
-// Llamada inicial (tras declarar los datos de la retícula y las preferencias)
-updateAuthUI();
+// (La inicialización ocurre en el evento DOMContentLoaded de arriba)
 initAsistente();// ------------------------------------------------------------
 // 18. WHATSAPP QUICK CONTACT
 // ------------------------------------------------------------
