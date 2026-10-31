@@ -1,18 +1,34 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-// CORS: permite origen del mismo servidor (para producción, ajusta al dominio real)
-$allowedOrigins = ['http://localhost', 'http://127.0.0.1', 'http://localhost:80', 'http://127.0.0.1:80'];
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (in_array($origin, $allowedOrigins, true)) {
-    header('Access-Control-Allow-Origin: ' . $origin);
-} elseif (empty($origin)) {
-    // Petición del mismo servidor (sin cabecera Origin), siempre permitida
-    header('Access-Control-Allow-Origin: *');
+// Configuración de cookies de sesión seguras antes de iniciar cualquier sesión
+if (session_status() === PHP_SESSION_NONE) {
+    $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+    session_set_cookie_params([
+        'lifetime' => 86400, // 24 horas
+        'path'     => '/',
+        'domain'   => '',
+        'secure'   => $isSecure,
+        'httponly' => true,
+        'samesite' => 'Lax'
+    ]);
 }
+
+// CORS: Permite origenes locales y dinamicos de desarrollo/produccion
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (!empty($origin)) {
+    // Permitir localhost, 127.0.0.1 (cualquier puerto) o dominios especificos
+    if (preg_match('/^https?:\/\/(localhost|127\.0\.0\.1)(:[0-9]+)?$/', $origin)) {
+        header('Access-Control-Allow-Origin: ' . $origin);
+        header('Access-Control-Allow-Credentials: true');
+    }
+} else {
+    // Petición del mismo servidor
+    header('Access-Control-Allow-Credentials: true');
+}
+
 header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Credentials: true');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -45,3 +61,4 @@ try {
     echo json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']);
     exit();
 }
+

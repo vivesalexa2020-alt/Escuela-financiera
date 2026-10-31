@@ -1318,7 +1318,7 @@ function renderConfiguracion() {
   if (tema) tema.value = prefs.tema || 'claro';
 }
 
-function handleProfileSubmit(e) {
+async function handleProfileSubmit(e) {
   e.preventDefault();
   const user = getCurrentUser();
   const msg = document.getElementById('configProfileMsg');
@@ -1342,11 +1342,33 @@ function handleProfileSubmit(e) {
     return;
   }
 
-  // Actualizar sesión local (el backend no tiene endpoint de actualización de perfil aún)
-  setCurrentUser({ name: name, email: email });
-  updateAuthUI();
+  const submitBtn = document.getElementById('configProfileForm') ? document.getElementById('configProfileForm').querySelector('button[type="submit"]') : null;
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Guardando...'; }
 
-  if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado correctamente.'; }
+  try {
+    const res = await fetch(API_BASE + '/actualizar-perfil.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ nombre: name, email: email })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      setCurrentUser({ name: name, email: email });
+      updateAuthUI();
+      if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado correctamente.'; }
+    } else {
+      if (msg) { msg.className = 'form-message error'; msg.textContent = data.message || 'Error al actualizar el perfil.'; }
+    }
+  } catch (err) {
+    // Si no hay respuesta del backend, actualizar al menos en almacenamiento local
+    setCurrentUser({ name: name, email: email });
+    updateAuthUI();
+    if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado localmente.'; }
+  } finally {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Guardar cambios'; }
+  }
 }
 
 async function handlePasswordSubmit(e) {
@@ -1435,9 +1457,9 @@ async function deleteAccount() {
     const user = getCurrentUser();
     const email = (user && user.email) ? String(user.email).toLowerCase() : '';
 
-    // Cerrar sesión en el servidor
+    // Eliminar cuenta en el servidor (base de datos + destrucción de sesión)
     try {
-      await fetch(API_BASE + '/logout.php', {
+      await fetch(API_BASE + '/eliminar-cuenta.php', {
         method: 'POST',
         credentials: 'include'
       });

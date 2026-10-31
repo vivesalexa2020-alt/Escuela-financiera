@@ -56,6 +56,7 @@ try {
     
     $pdo->commit();
     
+    session_regenerate_id(true);
     $_SESSION['usuario_id'] = $usuarioId;
     $_SESSION['nombre'] = $nombre;
     $_SESSION['email'] = $email;

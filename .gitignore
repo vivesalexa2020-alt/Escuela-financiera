@@ -6,6 +6,7 @@
 # Archivos de backup
 *.bak
 *.bak2
+*.backup*
 
 # Archivos temporales
 *.tmp
