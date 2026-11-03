@@ -1401,6 +1401,9 @@ function closeVideoPlayerModal() {
   if (modal) modal.classList.remove('open');
 }
 
+let currentExerciseType = 'quiz';
+let currentExerciseExplanation = '';
+
 function abrirEjercicioMateria(titulo, descripcion) {
   const modal = document.getElementById('exercisePlayerModal');
   const titleEl = document.getElementById('exerciseModalTitle');
@@ -1418,24 +1421,233 @@ function abrirEjercicioMateria(titulo, descripcion) {
   if (feedbackEl) feedbackEl.style.display = 'none';
 
   selectedModalOptionIdx = null;
-  currentExerciseCorrectIdx = 1;
+  const t = (titulo || '').toLowerCase();
 
-  const mockOptions = [
-    'Anotar mentalmente los gastos y no llevar registro estricto',
-    'Aplicar el principio analizado en clase auditando tus números reales por escrito',
-    'Posponer el ahorro hasta ganar el doble de ingresos',
-    'Ignorar los estados de cuenta bancarios'
-  ];
-
-  if (optionsEl) {
-    optionsEl.innerHTML = mockOptions.map(function(opt, idx) {
-      return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:13.5px; display:flex; align-items:center; gap:10px;">' +
-        '<span style="font-size:16px;">🔘</span> <span>' + opt + '</span>' +
+  // 1. CALCULADORA INTERACTIVA DE PRESUPUESTO 50/30/20
+  if (t.includes('presupuesto') || t.includes('50/30/20') || t.includes('rastreador') || t.includes('gasto')) {
+    currentExerciseType = 'calc_presupuesto';
+    optionsEl.innerHTML = 
+      '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
+        '<label style="display:block; font-size:13px; font-weight:700; color:#1e293b; margin-bottom:6px;">' +
+          '💵 Ingresa tu Ingreso Mensual Neto ($ MXN):' +
+        '</label>' +
+        '<div style="display:flex; gap:10px; margin-bottom:14px;">' +
+          '<input type="number" id="inputPresupuestoUser" value="16000" min="1000" step="500" style="flex:1; padding:10px 14px; border:1.5px solid #94a3b8; border-radius:8px; font-size:15px; font-weight:700;" oninput="recalcularPresupuestoModal()">' +
+          '<button type="button" class="btn-cta-yellow" onclick="recalcularPresupuestoModal()" style="padding:10px 18px; font-size:13px;">Calcular</button>' +
+        '</div>' +
+        '<div style="display:flex; flex-direction:column; gap:8px;">' +
+          '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #00703C; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
+            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#00703C;">' +
+              '<span>🏠 50% Necesidades Básicas:</span>' +
+              '<span id="resPresupuesto50">$8,000 MXN</span>' +
+            '</div>' +
+            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">Renta, despensa, transporte y servicios fijos indispensables.</div>' +
+          '</div>' +
+          '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #f59e0b; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
+            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#d97706;">' +
+              '<span>🎉 30% Deseos y Estilo de Vida:</span>' +
+              '<span id="resPresupuesto30">$4,800 MXN</span>' +
+            '</div>' +
+            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">Salidas, entretenimiento y gustos personales sin culpa.</div>' +
+          '</div>' +
+          '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #28C76F; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
+            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#047857;">' +
+              '<span>🛡️ 20% Ahorro e Inversión:</span>' +
+              '<span id="resPresupuesto20">$3,200 MXN</span>' +
+            '</div>' +
+            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">En 1 año acumulas <strong>$38,400 MXN</strong> directo a tu patrimonio personal.</div>' +
+          '</div>' +
+        '</div>' +
       '</div>';
-    }).join('');
+    modal.classList.add('open');
+    recalcularPresupuestoModal();
+    return;
   }
 
+  // 2. CALCULADORA DE FONDO DE EMERGENCIA
+  if (t.includes('fondo') || t.includes('emergencia') || t.includes('paz')) {
+    currentExerciseType = 'calc_fondo';
+    optionsEl.innerHTML = 
+      '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
+        '<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">' +
+          '<div>' +
+            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Gastos básicos mensuales ($):</label>' +
+            '<input type="number" id="inputGastoFondoUser" value="9500" min="1000" step="500" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularFondoModal()">' +
+          '</div>' +
+          '<div>' +
+            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Meses de respaldo:</label>' +
+            '<select id="selectMesesFondoUser" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" onchange="recalcularFondoModal()">' +
+              '<option value="3">3 Meses (Ingreso fijo)</option>' +
+              '<option value="6" selected>6 Meses (Recomendado estándar)</option>' +
+              '<option value="12">12 Meses (Independientes)</option>' +
+            '</select>' +
+          '</div>' +
+        '</div>' +
+        '<div style="background:#ecfdf5; border:1.5px solid #a7f3d0; padding:12px 14px; border-radius:8px; color:#06402d;">' +
+          '<div style="font-size:12.5px; font-weight:600;">Meta de tu Fondo de Paz Mental:</div>' +
+          '<div style="font-size:24px; font-weight:800; color:#047857; margin:2px 0;" id="resFondoTotal">$57,000 MXN</div>' +
+          '<div style="font-size:12px; color:#065f46; line-height:1.4;">' +
+            '💡 <strong>Regla de oro:</strong> Guardar en cuentas a la vista con rendimiento (CETES Directo Bonddia o cuenta con rendimiento diario). Nunca arriesgar en renta variable.' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    modal.classList.add('open');
+    recalcularFondoModal();
+    return;
+  }
+
+  // 3. SIMULADOR DE INVERSIÓN EN CETES & INTERÉS COMPUESTO
+  if (t.includes('cetes') || t.includes('interés') || t.includes('inversión') || t.includes('portafolio') || t.includes('ahorro-inversion')) {
+    currentExerciseType = 'calc_cetes';
+    optionsEl.innerHTML = 
+      '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
+        '<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">' +
+          '<div>' +
+            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Inversión inicial ($):</label>' +
+            '<input type="number" id="inputCetesInicial" value="3000" min="100" step="500" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularCetesModal()">' +
+          '</div>' +
+          '<div>' +
+            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Aporte mensual ($):</label>' +
+            '<input type="number" id="inputCetesMensual" value="1200" min="100" step="100" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularCetesModal()">' +
+          '</div>' +
+        '</div>' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
+          '<span style="font-size:12px; color:#64748b; font-weight:600;">Tasa estimada CETES: <strong>11% Anual</strong></span>' +
+          '<div style="width:120px;">' +
+            '<select id="selectCetesAnios" style="width:100%; padding:6px 8px; border:1px solid #94a3b8; border-radius:6px; font-weight:700;" onchange="recalcularCetesModal()">' +
+              '<option value="3">3 Años</option>' +
+              '<option value="5" selected>5 Años</option>' +
+              '<option value="10">10 Años</option>' +
+            '</select>' +
+          '</div>' +
+        '</div>' +
+        '<div style="background:#ecfdf5; border:1.5px solid #a7f3d0; padding:12px 14px; border-radius:8px; color:#06402d;">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center;">' +
+            '<span style="font-size:12.5px; font-weight:600;">Capital estimado final:</span>' +
+            '<span style="font-size:22px; font-weight:800; color:#047857;" id="resCetesTotal">$98,400 MXN</span>' +
+          '</div>' +
+          '<div style="font-size:12px; color:#047857; margin-top:3px;" id="resCetesInteres">' +
+            '📈 Ganancia pura por interés compuesto: <strong>$23,400 MXN</strong> sobre tu ahorro.' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    modal.classList.add('open');
+    recalcularCetesModal();
+    return;
+  }
+
+  // 4. QUIZZES ESPECÍFICOS Y CASOS DE ANÁLISIS
+  currentExerciseType = 'quiz';
+  let pregunta = '¿Cuál es el criterio financiero fundamental que debes aplicar según lo aprendido en esta lección?';
+  let opciones = [
+    'Anotar mentalmente los gastos y posponer el registro hasta fin de mes',
+    'Auditar y registrar tus números reales por escrito antes de realizar cualquier gasto',
+    'Pedir un préstamo bancario adicional para pagar gastos corrientes',
+    'Esperar a ganar el doble de ingresos antes de comenzar a ahorrar'
+  ];
+  let correcta = 1;
+  let explicacion = '¡Exacto! El principio innegociable de la inteligencia financiera es tener control visible y por escrito de cada peso que entra y sale de tu bolsillo.';
+
+  if (t.includes('score') || t.includes('crédito') || t.includes('deuda')) {
+    pregunta = 'Al pagar tus tarjetas de crédito cada mes, ¿cuál es la mejor práctica para proteger tu dinero y tu historial?';
+    opciones = [
+      'Pagar solamente el monto mínimo marcado en el estado de cuenta',
+      'Pagar el saldo total para no generar intereses antes de la fecha límite (ser cliente totalero)',
+      'Retirar dinero en efectivo de la tarjeta de crédito para pagar la despensa',
+      'Dejar vencer la fecha de pago y negociar una quita con el banco después'
+    ];
+    correcta = 1;
+    explicacion = '¡Correcto! Pagar el monto total para no generar intereses evita que te cobren costos financieros astronómicos y construye un historial crediticio intachable.';
+  } else if (t.includes('fibra') || t.includes('inmobiliari') || t.includes('bienes')) {
+    pregunta = '¿Por qué las FIBRAs son una excelente alternativa para iniciar en bienes raíces con poco dinero?';
+    opciones = [
+      'Porque te obligan a comprar una casa completa con crédito Infonavit',
+      'Porque permiten comprar títulos desde $20-$100 pesos de portafolios comerciales e industriales que reparten rentas periódicas',
+      'Porque nunca fluctúan de precio y están exentas de todo tipo de regulación',
+      'Porque sustituyen a las cuentas de débito de los bancos tradicionales'
+    ];
+    correcta = 1;
+    explicacion = '¡Excelente! Las FIBRAs democratizan los bienes raíces: cualquier persona puede comprar participaciones en naves industriales y centros comerciales de alta plusvalía.';
+  } else if (t.includes('libertad') || t.includes('retiro') || t.includes('independencia')) {
+    pregunta = '¿En qué consiste la regla del 4% para alcanzar la libertad financiera y el retiro temprano?';
+    opciones = [
+      'En ahorrar el 4% de tu salario durante toda tu vida laboral',
+      'En acumular 25 veces tus gastos anuales para poder retirar el 4% anual sin descapitalizar tu portafolio de inversión',
+      'En pedir prestado el 4% del valor de tu casa al banco',
+      'En invertir el 4% de tu dinero en criptomonedas especulativas'
+    ];
+    correcta = 1;
+    explicacion = '¡Correcto! La regla del 4% (Estudio Trinity) demuestra matemáticamente que retirando el 4% de un portafolio diversificado puedes vivir de tus rentas indefinidamente.';
+  }
+
+  currentExerciseCorrectIdx = correcta;
+  currentExerciseExplanation = explicacion;
+
+  optionsEl.innerHTML = 
+    '<div style="font-size:14px; font-weight:600; color:#1e293b; margin-bottom:12px; line-height:1.5;">' +
+      '❓ ' + pregunta +
+    '</div>' +
+    '<div style="display:flex; flex-direction:column; gap:8px;">' +
+      opciones.map(function(opt, idx) {
+        return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:13.5px; display:flex; align-items:center; gap:10px; transition:all 0.2s ease;">' +
+          '<span style="font-size:16px;">🔘</span> <span>' + opt + '</span>' +
+        '</div>';
+      }).join('') +
+    '</div>';
+
   modal.classList.add('open');
+}
+
+function recalcularPresupuestoModal() {
+  const el = document.getElementById('inputPresupuestoUser');
+  if (!el) return;
+  const val = parseFloat(el.value) || 0;
+  const n50 = Math.round(val * 0.50);
+  const n30 = Math.round(val * 0.30);
+  const n20 = Math.round(val * 0.20);
+  const t50 = document.getElementById('resPresupuesto50');
+  const t30 = document.getElementById('resPresupuesto30');
+  const t20 = document.getElementById('resPresupuesto20');
+  if (t50) t50.textContent = '$' + n50.toLocaleString('es-MX') + ' MXN';
+  if (t30) t30.textContent = '$' + n30.toLocaleString('es-MX') + ' MXN';
+  if (t20) t20.textContent = '$' + n20.toLocaleString('es-MX') + ' MXN';
+}
+
+function recalcularFondoModal() {
+  const gEl = document.getElementById('inputGastoFondoUser');
+  const mEl = document.getElementById('selectMesesFondoUser');
+  const resEl = document.getElementById('resFondoTotal');
+  if (!gEl || !mEl || !resEl) return;
+  const gasto = parseFloat(gEl.value) || 0;
+  const meses = parseInt(mEl.value, 10) || 6;
+  const total = gasto * meses;
+  resEl.textContent = '$' + total.toLocaleString('es-MX') + ' MXN';
+}
+
+function recalcularCetesModal() {
+  const iniEl = document.getElementById('inputCetesInicial');
+  const menEl = document.getElementById('inputCetesMensual');
+  const aniEl = document.getElementById('selectCetesAnios');
+  const totEl = document.getElementById('resCetesTotal');
+  const intEl = document.getElementById('resCetesInteres');
+  if (!iniEl || !menEl || !aniEl || !totEl) return;
+  const inicial = parseFloat(iniEl.value) || 0;
+  const mensual = parseFloat(menEl.value) || 0;
+  const anios = parseInt(aniEl.value, 10) || 5;
+  const mesesTotales = anios * 12;
+  const rMensual = 0.11 / 12;
+
+  let total = inicial;
+  let totalAportado = inicial;
+  for (let i = 1; i <= mesesTotales; i++) {
+    total = (total + mensual) * (1 + rMensual);
+    totalAportado += mensual;
+  }
+  const ganancia = Math.round(total - totalAportado);
+  totEl.textContent = '$' + Math.round(total).toLocaleString('es-MX') + ' MXN';
+  if (intEl) {
+    intEl.innerHTML = '📈 Ganancia pura por interés compuesto: <strong>$' + ganancia.toLocaleString('es-MX') + ' MXN</strong> sobre tu ahorro.';
+  }
 }
 
 function seleccionarOpcionModal(idx) {
@@ -1462,8 +1674,17 @@ function comprobarEjercicioModal() {
   const feedbackEl = document.getElementById('exerciseModalFeedback');
   if (!feedbackEl) return;
 
+  feedbackEl.style.display = 'block';
+
+  if (currentExerciseType === 'calc_presupuesto' || currentExerciseType === 'calc_fondo' || currentExerciseType === 'calc_cetes') {
+    feedbackEl.style.background = '#ecfdf5';
+    feedbackEl.style.color = '#047857';
+    feedbackEl.style.border = '1px solid #a7f3d0';
+    feedbackEl.innerHTML = '🎉 <strong>¡Actividad práctica resuelta y guardada!</strong><br>Has configurado tus números financieros con éxito.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    return;
+  }
+
   if (selectedModalOptionIdx === null) {
-    feedbackEl.style.display = 'block';
     feedbackEl.style.background = '#fef2f2';
     feedbackEl.style.color = '#b91c1c';
     feedbackEl.style.border = '1px solid #fecaca';
@@ -1471,12 +1692,11 @@ function comprobarEjercicioModal() {
     return;
   }
 
-  feedbackEl.style.display = 'block';
   if (selectedModalOptionIdx === currentExerciseCorrectIdx) {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> Has aplicado el criterio financiero adecuado.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> ' + (currentExerciseExplanation || 'Has demostrado aplicar el criterio financiero adecuado.') + '<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
   } else {
     feedbackEl.style.background = '#fffbeb';
     feedbackEl.style.color = '#b45309';
