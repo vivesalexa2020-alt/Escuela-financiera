@@ -826,188 +826,6 @@ const RETICULA_SEMESTRES = [
 ];
 
 const RETICULA_MATERIAS = [
-  {
-    "id": "finanzas-personales",
-    "semestre": 1,
-    "icon": "📗",
-    "nombre": "Unidad 1: Rompe el ciclo",
-    "desc": "Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.",
-    "temario": [
-      "Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
-      "Fugas y micro-gastos hormiga",
-      "Regla 50/30/20 simplificada",
-      "Método anti-deuda acelerado"
-    ],
-    "videos": [
-      {
-        "titulo": "Finanzas Personales para Principiantes: Cómo Empezar",
-        "url": "https://www.youtube.com/embed/WF6qLnuh4EA",
-        "duracion": "14:30"
-      },
-      {
-        "titulo": "Cómo Administrar tu Dinero con Inteligencia",
-        "url": "https://www.youtube.com/embed/zkOaCfv9esg",
-        "duracion": "12:15"
-      },
-      {
-        "titulo": "Guía Básica de Finanzas y Control de Gastos",
-        "url": "https://www.youtube.com/embed/BEFw4fIh4Lg",
-        "duracion": "16:00"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Quiz: ¿Qué tan saludables son tus finanzas?",
-        "tipo": "quiz",
-        "descripcion": "Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora."
-      },
-      {
-        "titulo": "Rastreador de gastos semanal",
-        "tipo": "practica",
-        "descripcion": "Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real."
-      },
-      {
-        "titulo": "Mi presupuesto 50/30/20",
-        "tipo": "proyecto",
-        "descripcion": "Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Mitos del dinero que te mantienen pobre",
-        "descripcion": "Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.",
-        "duracion": "22:15"
-      },
-      {
-        "titulo": "¿Por qué no me alcanza el quincena?",
-        "descripcion": "Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.",
-        "duracion": "18:40"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "Padre Rico, Padre Pobre",
-        "autor": "Robert T. Kiyosaki",
-        "descripcion": "El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Pequeño Cerdo Capitalista",
-        "autor": "Sofía Macías",
-        "descripcion": "La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.",
-        "tipo": "pdf"
-      }
-    ]
-  },
-  {
-    "id": "presupuesto",
-    "semestre": 1,
-    "icon": "📘",
-    "nombre": "Unidad 2: Construye tu fortaleza",
-    "desc": "Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.",
-    "temario": [
-      "Fondo de paz y contingencias",
-      "Negociación inteligente de créditos"
-    ],
-    "videos": [
-      {
-        "titulo": "Cómo Hacer un Presupuesto Mensual con la Regla 50/30/20",
-        "url": "https://www.youtube.com/embed/_7a55m4opPw",
-        "duracion": "15:20"
-      },
-      {
-        "titulo": "Crea tu Presupuesto Personal Paso a Paso sin Estrés",
-        "url": "https://www.youtube.com/embed/BEFw4fIh4Lg",
-        "duracion": "13:45"
-      },
-      {
-        "titulo": "Cómo Organizar y Distribuir tus Quincenas",
-        "url": "https://www.youtube.com/embed/QlEL-9BOPKc",
-        "duracion": "17:10"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Calculadora de fondo de emergencia",
-        "tipo": "practica",
-        "descripcion": "Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real."
-      },
-      {
-        "titulo": "Simulación de negociación de deuda",
-        "tipo": "simulacion",
-        "descripcion": "Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Historias de crédito: lecciones aprendidas",
-        "descripcion": "Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.",
-        "duracion": "25:10"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "Guía práctica de presupuestos familiares",
-        "autor": "CONDUSEF",
-        "descripcion": "Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.",
-        "tipo": "pdf"
-      },
-      {
-        "titulo": "Los secretos de la mente millonaria",
-        "autor": "T. Harv Eker",
-        "descripcion": "Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.",
-        "tipo": "ebook"
-      }
-    ]
-  },
-  {
-    "id": "gasto-hormiga",
-    "semestre": 1,
-    "icon": "📙",
-    "nombre": "Unidad 3: Multiplica e invierte",
-    "desc": "Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.",
-    "temario": [
-      "Rendimientos reales contra inflación",
-      "Portafolios pasivos paso a paso"
-    ],
-    "videos": [
-      {
-        "titulo": "Gastos Hormiga: Qué Son y Cómo Eliminarlos para Ahorrar",
-        "url": "https://www.youtube.com/embed/Of1490doP8c",
-        "duracion": "11:40"
-      },
-      {
-        "titulo": "Cómo Detectar las Fugas Invisibles de tu Dinero",
-        "url": "https://www.youtube.com/embed/5tL96a8FZU4",
-        "duracion": "14:25"
-      },
-      {
-        "titulo": "Estrategias Prácticas para Multiplicar tu Capacidad de Ahorro",
-        "url": "https://www.youtube.com/embed/Xqalur0qgOc",
-        "duracion": "12:50"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Calculadora de interés compuesto",
-        "tipo": "practica",
-        "descripcion": "Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años."
-      },
-      {
-        "titulo": "Proyecto: Mi primer portafolio de inversión",
-        "tipo": "proyecto",
-        "descripcion": "Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Inversiones para principiantes: por dónde empezar",
-        "descripcion": "Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.",
-        "duracion": "20:05"
-      },
-      {
-        "titulo": "La magia del interés compuesto con ejemplos reales",
-        "descripcion": "Casos prácticos de cómo [
   // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
   {
     id: 'finanzas-personales', semestre: 1, icon: '📗',
@@ -1020,9 +838,9 @@ const RETICULA_MATERIAS = [
       'Método anti-deuda acelerado'
     ],
     videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
+      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/WF6qLnuh4EA', duracion: '14:32' },
+      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/Of1490doP8c', duracion: '11:18' },
+      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/_7a55m4opPw', duracion: '16:05' }
     ],
     ejercicios: [
       { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
@@ -1044,8 +862,8 @@ const RETICULA_MATERIAS = [
     desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
     temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
     videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
+      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/zA67rkRiGXI', duracion: '13:22' },
+      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/xnDpXyRsKlU', duracion: '17:45' },
       { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
     ],
     ejercicios: [
@@ -1091,8 +909,8 @@ const RETICULA_MATERIAS = [
     desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
     temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
     videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
+      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9xHOEs6WtaM', duracion: '14:50' },
+      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/H48qw1QRGSA', duracion: '11:35' },
       { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
     ],
     ejercicios: [
@@ -1116,8 +934,8 @@ const RETICULA_MATERIAS = [
     temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
     videos: [
       { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
+      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/LK7qEnwi_R0', duracion: '12:15' },
+      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/Hjv473hOiB0', duracion: '18:40' }
     ],
     ejercicios: [
       { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
@@ -1185,7 +1003,7 @@ const RETICULA_MATERIAS = [
     desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
     temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
     videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
+      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/fUr4GVauePo', duracion: '17:40' },
       { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
       { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
     ],
@@ -1258,7 +1076,7 @@ const RETICULA_MATERIAS = [
     desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
     temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
     videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
+      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/WI5NKIe0DBk', duracion: '17:35' },
       { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
       { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
     ],
@@ -1281,7 +1099,7 @@ const RETICULA_MATERIAS = [
     desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
     temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
     videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
+      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/15RJzvoS2nc', duracion: '16:40' },
       { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
       { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
     ],
@@ -1297,2103 +1115,6 @@ const RETICULA_MATERIAS = [
     libros: [
       { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
       { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];,000 pesos mensuales pueden convertirse en un patrimonio significativo.",
-        "duracion": "16:30"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "El inversor inteligente",
-        "autor": "Benjamin Graham",
-        "descripcion": "La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Cómo invertir en CETES y más",
-        "autor": "Banco de México",
-        "descripcion": "Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
-  {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
-    temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
-    ],
-    videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
-    ],
-    ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
-    ],
-    audios: [
-      { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
-    ],
-    libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
-    videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
-    ],
-    audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
-    ],
-    libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
-    videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
-    ],
-    audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
-    ],
-    libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
-    ]
-  },
-
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
-  {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
-    videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
-      { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
-    ],
-    audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
-    ],
-    libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
-    videos: [
-      { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
-      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México.' },
-      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
-    ],
-    audios: [
-      { titulo: 'Mi camino libre de deudas', descripcion: 'Podcast con tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
-    ],
-    libros: [
-      { titulo: 'La transformación total de su dinero', autor: 'Dave Ramsey', descripcion: 'Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.', tipo: 'ebook' },
-      { titulo: 'Guía para entender tu Buró de Crédito', autor: 'Círculo de Crédito', descripcion: 'Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.', tipo: 'articulo' }
-    ]
-  },
-  {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas digitales',
-    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
-    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
-    videos: [
-      { titulo: 'Crea tu plantilla de presupuesto en Excel desde cero', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '22:10' },
-      { titulo: 'Las 5 mejores apps de finanzas personales en México 2025', url: 'https://www.youtube.com/embed/FTQbiNvZqaY', duracion: '15:33' },
-      { titulo: 'Google Sheets para tus finanzas: automatiza todo', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '19:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Construye tu hoja de cálculo financiera', tipo: 'proyecto', descripcion: 'Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas.' },
-      { titulo: 'Comparativo de apps financieras', tipo: 'practica', descripcion: 'Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras.' }
-    ],
-    audios: [
-      { titulo: 'Fintech en México: revolución digital de tus finanzas', descripcion: 'Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.', duracion: '21:15' }
-    ],
-    libros: [
-      { titulo: 'Excel para finanzas personales', autor: 'María del Carmen Ruiz', descripcion: 'Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.', tipo: 'pdf' },
-      { titulo: 'La era de las fintech', autor: 'Banco de México', descripcion: 'Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
-  {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
-    nombre: 'Estrategias de inversión y renta fija',
-    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
-    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
-    videos: [
-      { titulo: 'CETES Directo: tutorial completo para invertir desde $100', url: 'https://www.youtube.com/embed/hT_nvWreIhg', duracion: '18:25' },
-      { titulo: 'Bonos gubernamentales explicados con manzanas', url: 'https://www.youtube.com/embed/YQHsXMglC9A', duracion: '14:10' },
-      { titulo: 'Valor del dinero en el tiempo: ¿$10,000 hoy o mañana?', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '12:55' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de inversión en CETES', tipo: 'simulacion', descripcion: 'Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos.' },
-      { titulo: 'Quiz: Valor del dinero en el tiempo', tipo: 'quiz', descripcion: 'Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas.' },
-      { titulo: 'Proyecto: Análisis de renta fija mexicana', tipo: 'proyecto', descripcion: 'Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones.' }
-    ],
-    audios: [
-      { titulo: 'Renta fija en México: lo que nadie te cuenta', descripcion: 'Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.', duracion: '24:30' }
-    ],
-    libros: [
-      { titulo: 'Fundamentos de inversiones', autor: 'Lawrence J. Gitman', descripcion: 'Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.', tipo: 'ebook' },
-      { titulo: 'Guía del inversionista en CETES Directo', autor: 'Gobierno de México', descripcion: 'Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
-    nombre: 'Fondos indexados y renta variable',
-    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
-    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
-    videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
-      { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
-      { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Constructor de portafolio diversificado', tipo: 'proyecto', descripcion: 'Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia.' },
-      { titulo: 'Quiz: Evaluación de perfil de riesgo', tipo: 'quiz', descripcion: 'Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado.' },
-      { titulo: 'Simulación: DCA vs inversión de golpe', tipo: 'simulacion', descripcion: 'Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales.' }
-    ],
-    audios: [
-      { titulo: 'La bolsa de valores desmitificada', descripcion: 'Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.', duracion: '26:10' },
-      { titulo: 'Entrevista: 10 años invirtiendo en ETFs desde México', descripcion: 'Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.', duracion: '32:45' }
-    ],
-    libros: [
-      { titulo: 'El pequeño libro para invertir con sentido común', autor: 'John C. Bogle', descripcion: 'El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.', tipo: 'ebook' },
-      { titulo: 'Un paso adelante en Wall Street', autor: 'Peter Lynch', descripcion: 'Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
-    nombre: 'Protección patrimonial e impuestos',
-    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
-    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
-    videos: [
-      { titulo: 'Seguros que realmente necesitas (y los que no)', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '15:30' },
-      { titulo: 'Deducciones fiscales en México: recupera miles de pesos', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '18:22' },
-      { titulo: 'PPR: tu arma secreta para el retiro y los impuestos', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '14:08' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de deducciones fiscales', tipo: 'practica', descripcion: 'Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT.' },
-      { titulo: 'Evaluación de necesidades de seguros', tipo: 'quiz', descripcion: 'Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura.' },
-      { titulo: 'Caso de estudio: Optimización fiscal de Ana', tipo: 'caso-estudio', descripcion: 'Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización.' }
-    ],
-    audios: [
-      { titulo: 'Tips de optimización fiscal que tu contador no te dice', descripcion: 'Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.', duracion: '23:40' }
-    ],
-    libros: [
-      { titulo: 'Planeación fiscal para personas físicas', autor: 'IMCP', descripcion: 'Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.', tipo: 'pdf' },
-      { titulo: 'Seguros y finanzas personales', autor: 'AMIS', descripcion: 'Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
-  {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
-    nombre: 'Emprendimiento y modelos de negocio',
-    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
-    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
-    videos: [
-      { titulo: 'Cómo validar tu idea de negocio sin gastar un peso', url: 'https://www.youtube.com/embed/SqcY0GlETPk', duracion: '16:55' },
-      { titulo: 'Flujo de caja: el rey de los negocios rentables', url: 'https://www.youtube.com/embed/vLnPwxZdW4Y', duracion: '14:30' },
-      { titulo: 'Pricing: cómo poner precio a tu producto o servicio', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '19:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Lienzo de modelo de negocio (Canvas)', tipo: 'proyecto', descripcion: 'Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas.' },
-      { titulo: 'Estrategia de pricing para tu producto', tipo: 'practica', descripcion: 'Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético.' },
-      { titulo: 'Caso de estudio: De empleado a emprendedor', tipo: 'caso-estudio', descripcion: 'Analiza cómo un mexicano pasó de ganar $15,000 como empleado a generar $80,000 mensuales con su negocio propio.' }
-    ],
-    audios: [
-      { titulo: 'Entrevistas con emprendedores mexicanos exitosos', descripcion: 'Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.', duracion: '35:20' },
-      { titulo: 'Errores financieros fatales al emprender', descripcion: 'Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.', duracion: '18:55' }
-    ],
-    libros: [
-      { titulo: 'El método Lean Startup', autor: 'Eric Ries', descripcion: 'Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.', tipo: 'ebook' },
-      { titulo: 'La semana laboral de 4 horas', autor: 'Timothy Ferriss', descripcion: 'Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
-    nombre: 'Inversión inmobiliaria y FIBRAs',
-    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
-    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
-    videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
-      { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
-      { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Análisis comparativo de FIBRAs mexicanas', tipo: 'proyecto', descripcion: 'Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3.' },
-      { titulo: 'Calculadora de rendimiento por renta', tipo: 'simulacion', descripcion: 'Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia.' },
-      { titulo: 'Quiz: ¿Sabes lo básico de inversión inmobiliaria?', tipo: 'quiz', descripcion: 'Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México.' }
-    ],
-    audios: [
-      { titulo: 'Inversión inmobiliaria para no millonarios', descripcion: 'Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.', duracion: '27:40' }
-    ],
-    libros: [
-      { titulo: 'El ABC de la inversión en bienes raíces', autor: 'Ken McElroy', descripcion: 'Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.', tipo: 'ebook' },
-      { titulo: 'FIBRAs: inversión inmobiliaria en México', autor: 'BMV Educación', descripcion: 'Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
-    nombre: 'Independencia y legado financiero',
-    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
-    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
-    videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
-      { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
-      { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de retiro e independencia financiera', tipo: 'simulacion', descripcion: 'Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera.' },
-      { titulo: 'Proyecto: Mi plan patrimonial y legado', tipo: 'proyecto', descripcion: 'Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar.' },
-      { titulo: 'Quiz: ¿Qué tan cerca estás de la libertad financiera?', tipo: 'quiz', descripcion: 'Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo.' }
-    ],
-    audios: [
-      { titulo: 'Historias FIRE: mexicanos financieramente libres', descripcion: 'Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.', duracion: '38:15' },
-      { titulo: 'Diseña la vida que quieres, luego ahorra para ella', descripcion: 'Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.', duracion: '15:50' }
-    ],
-    libros: [
-      { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
-      { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];00 pesos.",
-        "tipo": "pdf"
-      }
-    ]
-  },
-  {
-    "id": "fondo-emergencia",
-    "semestre": 2,
-    "icon": "🛡️",
-    "nombre": "Ahorro formal y fondo de emergencia",
-    "desc": "Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.",
-    "temario": [
-      "Cálculo de tu fondo de paz mental",
-      "Cuentas de ahorro de alta liquidez",
-      "Estrategias antibloqueo"
-    ],
-    "videos": [
-      {
-        "titulo": "Cómo Crear tu Fondo de Emergencia desde Cero",
-        "url": "https://www.youtube.com/embed/zA67rkRiGXI",
-        "duracion": "16:15"
-      },
-      {
-        "titulo": "Fondo de Paz Mental: Cuánto Ahorrar y Dónde Guardarlo",
-        "url": "https://www.youtube.com/embed/49HUroxXlaA",
-        "duracion": "13:50"
-      },
-      {
-        "titulo": "Cuentas de Ahorro con Liquidez y Rendimiento en México",
-        "url": "https://www.youtube.com/embed/xw2IViHSH7Q",
-        "duracion": "15:40"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Calculadora de fondo de emergencia avanzada",
-        "tipo": "simulacion",
-        "descripcion": "Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?"
-      },
-      {
-        "titulo": "Plan de ahorro personalizado a 6 meses",
-        "tipo": "practica",
-        "descripcion": "Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento."
-      },
-      {
-        "titulo": "Quiz: ¿Estás preparado para una emergencia financiera?",
-        "tipo": "quiz",
-        "descripcion": "Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Historias de paz financiera",
-        "descripcion": "Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.",
-        "duracion": "19:45"
-      },
-      {
-        "titulo": "El ahorro no es sacrificio, es libertad",
-        "descripcion": "Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.",
-        "duracion": "17:20"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "El hombre más rico de Babilonia",
-        "autor": "George S. Clason",
-        "descripcion": "Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Estrategias de ahorro para mexicanos",
-        "autor": "CONDUSEF",
-        "descripcion": "Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.",
-        "tipo": "pdf"
-      }
-    ]
-  },
-  {
-    "id": "control-deudas",
-    "semestre": 2,
-    "icon": "💳",
-    "nombre": "Control de deudas y crédito bancario",
-    "desc": "Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.",
-    "temario": [
-      "El costo real de las tasas de interés",
-      "Estrategia bola de nieve vs avalancha",
-      "Renegociación sin quitas destructivas"
-    ],
-    "videos": [
-      {
-        "titulo": "Método Bola de Nieve vs Avalancha: Sal de Deudas Rápido",
-        "url": "https://www.youtube.com/embed/xnDpXyRsKlU",
-        "duracion": "18:30"
-      },
-      {
-        "titulo": "Cómo Liquidar Tarjetas de Crédito sin Dañar tu Historial",
-        "url": "https://www.youtube.com/embed/BuPcOYbI35A",
-        "duracion": "14:10"
-      },
-      {
-        "titulo": "Estrategia para Negociar y Reestructurar tus Créditos",
-        "url": "https://www.youtube.com/embed/xo4v-oa7m6s",
-        "duracion": "16:25"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Simulador de pago de deudas",
-        "tipo": "simulacion",
-        "descripcion": "Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método."
-      },
-      {
-        "titulo": "Quiz: ¿Conoces tu score crediticio?",
-        "tipo": "quiz",
-        "descripcion": "Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México."
-      },
-      {
-        "titulo": "Caso de estudio: Familia García sale de deudas",
-        "tipo": "caso-estudio",
-        "descripcion": "Analiza el caso real de una familia con [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
-  {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
-    temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
-    ],
-    videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
-    ],
-    ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
-    ],
-    audios: [
-      { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
-    ],
-    libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
-    videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
-    ],
-    audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
-    ],
-    libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
-    videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
-    ],
-    audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
-    ],
-    libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
-    ]
-  },
-
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
-  {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
-    videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
-      { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
-    ],
-    audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
-    ],
-    libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
-    videos: [
-      { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
-      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México.' },
-      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
-    ],
-    audios: [
-      { titulo: 'Mi camino libre de deudas', descripcion: 'Podcast con tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
-    ],
-    libros: [
-      { titulo: 'La transformación total de su dinero', autor: 'Dave Ramsey', descripcion: 'Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.', tipo: 'ebook' },
-      { titulo: 'Guía para entender tu Buró de Crédito', autor: 'Círculo de Crédito', descripcion: 'Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.', tipo: 'articulo' }
-    ]
-  },
-  {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas digitales',
-    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
-    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
-    videos: [
-      { titulo: 'Crea tu plantilla de presupuesto en Excel desde cero', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '22:10' },
-      { titulo: 'Las 5 mejores apps de finanzas personales en México 2025', url: 'https://www.youtube.com/embed/FTQbiNvZqaY', duracion: '15:33' },
-      { titulo: 'Google Sheets para tus finanzas: automatiza todo', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '19:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Construye tu hoja de cálculo financiera', tipo: 'proyecto', descripcion: 'Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas.' },
-      { titulo: 'Comparativo de apps financieras', tipo: 'practica', descripcion: 'Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras.' }
-    ],
-    audios: [
-      { titulo: 'Fintech en México: revolución digital de tus finanzas', descripcion: 'Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.', duracion: '21:15' }
-    ],
-    libros: [
-      { titulo: 'Excel para finanzas personales', autor: 'María del Carmen Ruiz', descripcion: 'Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.', tipo: 'pdf' },
-      { titulo: 'La era de las fintech', autor: 'Banco de México', descripcion: 'Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
-  {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
-    nombre: 'Estrategias de inversión y renta fija',
-    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
-    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
-    videos: [
-      { titulo: 'CETES Directo: tutorial completo para invertir desde $100', url: 'https://www.youtube.com/embed/hT_nvWreIhg', duracion: '18:25' },
-      { titulo: 'Bonos gubernamentales explicados con manzanas', url: 'https://www.youtube.com/embed/YQHsXMglC9A', duracion: '14:10' },
-      { titulo: 'Valor del dinero en el tiempo: ¿$10,000 hoy o mañana?', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '12:55' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de inversión en CETES', tipo: 'simulacion', descripcion: 'Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos.' },
-      { titulo: 'Quiz: Valor del dinero en el tiempo', tipo: 'quiz', descripcion: 'Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas.' },
-      { titulo: 'Proyecto: Análisis de renta fija mexicana', tipo: 'proyecto', descripcion: 'Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones.' }
-    ],
-    audios: [
-      { titulo: 'Renta fija en México: lo que nadie te cuenta', descripcion: 'Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.', duracion: '24:30' }
-    ],
-    libros: [
-      { titulo: 'Fundamentos de inversiones', autor: 'Lawrence J. Gitman', descripcion: 'Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.', tipo: 'ebook' },
-      { titulo: 'Guía del inversionista en CETES Directo', autor: 'Gobierno de México', descripcion: 'Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
-    nombre: 'Fondos indexados y renta variable',
-    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
-    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
-    videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
-      { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
-      { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Constructor de portafolio diversificado', tipo: 'proyecto', descripcion: 'Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia.' },
-      { titulo: 'Quiz: Evaluación de perfil de riesgo', tipo: 'quiz', descripcion: 'Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado.' },
-      { titulo: 'Simulación: DCA vs inversión de golpe', tipo: 'simulacion', descripcion: 'Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales.' }
-    ],
-    audios: [
-      { titulo: 'La bolsa de valores desmitificada', descripcion: 'Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.', duracion: '26:10' },
-      { titulo: 'Entrevista: 10 años invirtiendo en ETFs desde México', descripcion: 'Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.', duracion: '32:45' }
-    ],
-    libros: [
-      { titulo: 'El pequeño libro para invertir con sentido común', autor: 'John C. Bogle', descripcion: 'El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.', tipo: 'ebook' },
-      { titulo: 'Un paso adelante en Wall Street', autor: 'Peter Lynch', descripcion: 'Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
-    nombre: 'Protección patrimonial e impuestos',
-    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
-    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
-    videos: [
-      { titulo: 'Seguros que realmente necesitas (y los que no)', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '15:30' },
-      { titulo: 'Deducciones fiscales en México: recupera miles de pesos', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '18:22' },
-      { titulo: 'PPR: tu arma secreta para el retiro y los impuestos', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '14:08' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de deducciones fiscales', tipo: 'practica', descripcion: 'Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT.' },
-      { titulo: 'Evaluación de necesidades de seguros', tipo: 'quiz', descripcion: 'Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura.' },
-      { titulo: 'Caso de estudio: Optimización fiscal de Ana', tipo: 'caso-estudio', descripcion: 'Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización.' }
-    ],
-    audios: [
-      { titulo: 'Tips de optimización fiscal que tu contador no te dice', descripcion: 'Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.', duracion: '23:40' }
-    ],
-    libros: [
-      { titulo: 'Planeación fiscal para personas físicas', autor: 'IMCP', descripcion: 'Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.', tipo: 'pdf' },
-      { titulo: 'Seguros y finanzas personales', autor: 'AMIS', descripcion: 'Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
-  {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
-    nombre: 'Emprendimiento y modelos de negocio',
-    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
-    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
-    videos: [
-      { titulo: 'Cómo validar tu idea de negocio sin gastar un peso', url: 'https://www.youtube.com/embed/SqcY0GlETPk', duracion: '16:55' },
-      { titulo: 'Flujo de caja: el rey de los negocios rentables', url: 'https://www.youtube.com/embed/vLnPwxZdW4Y', duracion: '14:30' },
-      { titulo: 'Pricing: cómo poner precio a tu producto o servicio', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '19:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Lienzo de modelo de negocio (Canvas)', tipo: 'proyecto', descripcion: 'Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas.' },
-      { titulo: 'Estrategia de pricing para tu producto', tipo: 'practica', descripcion: 'Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético.' },
-      { titulo: 'Caso de estudio: De empleado a emprendedor', tipo: 'caso-estudio', descripcion: 'Analiza cómo un mexicano pasó de ganar $15,000 como empleado a generar $80,000 mensuales con su negocio propio.' }
-    ],
-    audios: [
-      { titulo: 'Entrevistas con emprendedores mexicanos exitosos', descripcion: 'Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.', duracion: '35:20' },
-      { titulo: 'Errores financieros fatales al emprender', descripcion: 'Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.', duracion: '18:55' }
-    ],
-    libros: [
-      { titulo: 'El método Lean Startup', autor: 'Eric Ries', descripcion: 'Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.', tipo: 'ebook' },
-      { titulo: 'La semana laboral de 4 horas', autor: 'Timothy Ferriss', descripcion: 'Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
-    nombre: 'Inversión inmobiliaria y FIBRAs',
-    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
-    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
-    videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
-      { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
-      { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Análisis comparativo de FIBRAs mexicanas', tipo: 'proyecto', descripcion: 'Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3.' },
-      { titulo: 'Calculadora de rendimiento por renta', tipo: 'simulacion', descripcion: 'Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia.' },
-      { titulo: 'Quiz: ¿Sabes lo básico de inversión inmobiliaria?', tipo: 'quiz', descripcion: 'Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México.' }
-    ],
-    audios: [
-      { titulo: 'Inversión inmobiliaria para no millonarios', descripcion: 'Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.', duracion: '27:40' }
-    ],
-    libros: [
-      { titulo: 'El ABC de la inversión en bienes raíces', autor: 'Ken McElroy', descripcion: 'Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.', tipo: 'ebook' },
-      { titulo: 'FIBRAs: inversión inmobiliaria en México', autor: 'BMV Educación', descripcion: 'Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
-    nombre: 'Independencia y legado financiero',
-    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
-    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
-    videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
-      { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
-      { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de retiro e independencia financiera', tipo: 'simulacion', descripcion: 'Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera.' },
-      { titulo: 'Proyecto: Mi plan patrimonial y legado', tipo: 'proyecto', descripcion: 'Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar.' },
-      { titulo: 'Quiz: ¿Qué tan cerca estás de la libertad financiera?', tipo: 'quiz', descripcion: 'Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo.' }
-    ],
-    audios: [
-      { titulo: 'Historias FIRE: mexicanos financieramente libres', descripcion: 'Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.', duracion: '38:15' },
-      { titulo: 'Diseña la vida que quieres, luego ahorra para ella', descripcion: 'Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.', duracion: '15:50' }
-    ],
-    libros: [
-      { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
-      { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];80,000 en deudas y diseña la estrategia óptima de pago."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Mi camino libre de deudas",
-        "descripcion": "Podcast con tres historias reales de mexicanos que liquidaron deudas de más de [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
-  {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
-    temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
-    ],
-    videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
-    ],
-    ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
-    ],
-    audios: [
-      { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
-    ],
-    libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
-    videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
-    ],
-    audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
-    ],
-    libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
-    videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
-    ],
-    audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
-    ],
-    libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
-    ]
-  },
-
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
-  {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
-    videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
-      { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
-    ],
-    audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
-    ],
-    libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
-    videos: [
-      { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
-      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México.' },
-      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
-    ],
-    audios: [
-      { titulo: 'Mi camino libre de deudas', descripcion: 'Podcast con tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
-    ],
-    libros: [
-      { titulo: 'La transformación total de su dinero', autor: 'Dave Ramsey', descripcion: 'Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.', tipo: 'ebook' },
-      { titulo: 'Guía para entender tu Buró de Crédito', autor: 'Círculo de Crédito', descripcion: 'Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.', tipo: 'articulo' }
-    ]
-  },
-  {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas digitales',
-    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
-    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
-    videos: [
-      { titulo: 'Crea tu plantilla de presupuesto en Excel desde cero', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '22:10' },
-      { titulo: 'Las 5 mejores apps de finanzas personales en México 2025', url: 'https://www.youtube.com/embed/FTQbiNvZqaY', duracion: '15:33' },
-      { titulo: 'Google Sheets para tus finanzas: automatiza todo', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '19:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Construye tu hoja de cálculo financiera', tipo: 'proyecto', descripcion: 'Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas.' },
-      { titulo: 'Comparativo de apps financieras', tipo: 'practica', descripcion: 'Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras.' }
-    ],
-    audios: [
-      { titulo: 'Fintech en México: revolución digital de tus finanzas', descripcion: 'Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.', duracion: '21:15' }
-    ],
-    libros: [
-      { titulo: 'Excel para finanzas personales', autor: 'María del Carmen Ruiz', descripcion: 'Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.', tipo: 'pdf' },
-      { titulo: 'La era de las fintech', autor: 'Banco de México', descripcion: 'Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
-  {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
-    nombre: 'Estrategias de inversión y renta fija',
-    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
-    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
-    videos: [
-      { titulo: 'CETES Directo: tutorial completo para invertir desde $100', url: 'https://www.youtube.com/embed/hT_nvWreIhg', duracion: '18:25' },
-      { titulo: 'Bonos gubernamentales explicados con manzanas', url: 'https://www.youtube.com/embed/YQHsXMglC9A', duracion: '14:10' },
-      { titulo: 'Valor del dinero en el tiempo: ¿$10,000 hoy o mañana?', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '12:55' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de inversión en CETES', tipo: 'simulacion', descripcion: 'Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos.' },
-      { titulo: 'Quiz: Valor del dinero en el tiempo', tipo: 'quiz', descripcion: 'Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas.' },
-      { titulo: 'Proyecto: Análisis de renta fija mexicana', tipo: 'proyecto', descripcion: 'Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones.' }
-    ],
-    audios: [
-      { titulo: 'Renta fija en México: lo que nadie te cuenta', descripcion: 'Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.', duracion: '24:30' }
-    ],
-    libros: [
-      { titulo: 'Fundamentos de inversiones', autor: 'Lawrence J. Gitman', descripcion: 'Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.', tipo: 'ebook' },
-      { titulo: 'Guía del inversionista en CETES Directo', autor: 'Gobierno de México', descripcion: 'Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
-    nombre: 'Fondos indexados y renta variable',
-    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
-    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
-    videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
-      { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
-      { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Constructor de portafolio diversificado', tipo: 'proyecto', descripcion: 'Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia.' },
-      { titulo: 'Quiz: Evaluación de perfil de riesgo', tipo: 'quiz', descripcion: 'Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado.' },
-      { titulo: 'Simulación: DCA vs inversión de golpe', tipo: 'simulacion', descripcion: 'Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales.' }
-    ],
-    audios: [
-      { titulo: 'La bolsa de valores desmitificada', descripcion: 'Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.', duracion: '26:10' },
-      { titulo: 'Entrevista: 10 años invirtiendo en ETFs desde México', descripcion: 'Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.', duracion: '32:45' }
-    ],
-    libros: [
-      { titulo: 'El pequeño libro para invertir con sentido común', autor: 'John C. Bogle', descripcion: 'El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.', tipo: 'ebook' },
-      { titulo: 'Un paso adelante en Wall Street', autor: 'Peter Lynch', descripcion: 'Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
-    nombre: 'Protección patrimonial e impuestos',
-    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
-    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
-    videos: [
-      { titulo: 'Seguros que realmente necesitas (y los que no)', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '15:30' },
-      { titulo: 'Deducciones fiscales en México: recupera miles de pesos', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '18:22' },
-      { titulo: 'PPR: tu arma secreta para el retiro y los impuestos', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '14:08' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de deducciones fiscales', tipo: 'practica', descripcion: 'Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT.' },
-      { titulo: 'Evaluación de necesidades de seguros', tipo: 'quiz', descripcion: 'Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura.' },
-      { titulo: 'Caso de estudio: Optimización fiscal de Ana', tipo: 'caso-estudio', descripcion: 'Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización.' }
-    ],
-    audios: [
-      { titulo: 'Tips de optimización fiscal que tu contador no te dice', descripcion: 'Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.', duracion: '23:40' }
-    ],
-    libros: [
-      { titulo: 'Planeación fiscal para personas físicas', autor: 'IMCP', descripcion: 'Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.', tipo: 'pdf' },
-      { titulo: 'Seguros y finanzas personales', autor: 'AMIS', descripcion: 'Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
-  {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
-    nombre: 'Emprendimiento y modelos de negocio',
-    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
-    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
-    videos: [
-      { titulo: 'Cómo validar tu idea de negocio sin gastar un peso', url: 'https://www.youtube.com/embed/SqcY0GlETPk', duracion: '16:55' },
-      { titulo: 'Flujo de caja: el rey de los negocios rentables', url: 'https://www.youtube.com/embed/vLnPwxZdW4Y', duracion: '14:30' },
-      { titulo: 'Pricing: cómo poner precio a tu producto o servicio', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '19:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Lienzo de modelo de negocio (Canvas)', tipo: 'proyecto', descripcion: 'Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas.' },
-      { titulo: 'Estrategia de pricing para tu producto', tipo: 'practica', descripcion: 'Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético.' },
-      { titulo: 'Caso de estudio: De empleado a emprendedor', tipo: 'caso-estudio', descripcion: 'Analiza cómo un mexicano pasó de ganar $15,000 como empleado a generar $80,000 mensuales con su negocio propio.' }
-    ],
-    audios: [
-      { titulo: 'Entrevistas con emprendedores mexicanos exitosos', descripcion: 'Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.', duracion: '35:20' },
-      { titulo: 'Errores financieros fatales al emprender', descripcion: 'Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.', duracion: '18:55' }
-    ],
-    libros: [
-      { titulo: 'El método Lean Startup', autor: 'Eric Ries', descripcion: 'Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.', tipo: 'ebook' },
-      { titulo: 'La semana laboral de 4 horas', autor: 'Timothy Ferriss', descripcion: 'Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
-    nombre: 'Inversión inmobiliaria y FIBRAs',
-    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
-    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
-    videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
-      { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
-      { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Análisis comparativo de FIBRAs mexicanas', tipo: 'proyecto', descripcion: 'Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3.' },
-      { titulo: 'Calculadora de rendimiento por renta', tipo: 'simulacion', descripcion: 'Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia.' },
-      { titulo: 'Quiz: ¿Sabes lo básico de inversión inmobiliaria?', tipo: 'quiz', descripcion: 'Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México.' }
-    ],
-    audios: [
-      { titulo: 'Inversión inmobiliaria para no millonarios', descripcion: 'Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.', duracion: '27:40' }
-    ],
-    libros: [
-      { titulo: 'El ABC de la inversión en bienes raíces', autor: 'Ken McElroy', descripcion: 'Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.', tipo: 'ebook' },
-      { titulo: 'FIBRAs: inversión inmobiliaria en México', autor: 'BMV Educación', descripcion: 'Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
-    nombre: 'Independencia y legado financiero',
-    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
-    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
-    videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
-      { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
-      { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de retiro e independencia financiera', tipo: 'simulacion', descripcion: 'Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera.' },
-      { titulo: 'Proyecto: Mi plan patrimonial y legado', tipo: 'proyecto', descripcion: 'Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar.' },
-      { titulo: 'Quiz: ¿Qué tan cerca estás de la libertad financiera?', tipo: 'quiz', descripcion: 'Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo.' }
-    ],
-    audios: [
-      { titulo: 'Historias FIRE: mexicanos financieramente libres', descripcion: 'Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.', duracion: '38:15' },
-      { titulo: 'Diseña la vida que quieres, luego ahorra para ella', descripcion: 'Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.', duracion: '15:50' }
-    ],
-    libros: [
-      { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
-      { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];00,000 pesos en menos de 2 años.",
-        "duracion": "28:30"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "La transformación total de su dinero",
-        "autor": "Dave Ramsey",
-        "descripcion": "Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Guía para entender tu Buró de Crédito",
-        "autor": "Círculo de Crédito",
-        "descripcion": "Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.",
-        "tipo": "articulo"
-      }
-    ]
-  },
-  {
-    "id": "materiales-herramientas",
-    "semestre": 2,
-    "icon": "🧰",
-    "nombre": "Materiales y herramientas digitales",
-    "desc": "Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.",
-    "temario": [
-      "Plantillas financieras automatizadas",
-      "Apps de seguimiento en tiempo real",
-      "Calculadoras de amortización"
-    ],
-    "videos": [
-      {
-        "titulo": "Tutorial: Plantilla de Excel para Control de Gastos Personales",
-        "url": "https://www.youtube.com/embed/H48qw1QRGSA",
-        "duracion": "19:45"
-      },
-      {
-        "titulo": "Cómo Usar Hojas de Cálculo para Administrar tu Dinero",
-        "url": "https://www.youtube.com/embed/aS9XjmFuP78",
-        "duracion": "15:10"
-      },
-      {
-        "titulo": "Las Mejores Apps y Calculadoras Financieras para tu Celular",
-        "url": "https://www.youtube.com/embed/NdSs5ZZjEr4",
-        "duracion": "13:35"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Construye tu hoja de cálculo financiera",
-        "tipo": "proyecto",
-        "descripcion": "Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas."
-      },
-      {
-        "titulo": "Comparativo de apps financieras",
-        "tipo": "practica",
-        "descripcion": "Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Fintech en México: revolución digital de tus finanzas",
-        "descripcion": "Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.",
-        "duracion": "21:15"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "Excel para finanzas personales",
-        "autor": "María del Carmen Ruiz",
-        "descripcion": "Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.",
-        "tipo": "pdf"
-      },
-      {
-        "titulo": "La era de las fintech",
-        "autor": "Banco de México",
-        "descripcion": "Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.",
-        "tipo": "articulo"
-      }
-    ]
-  },
-  {
-    "id": "ahorro-inversion",
-    "semestre": 3,
-    "icon": "📈",
-    "nombre": "Estrategias de inversión y renta fija",
-    "desc": "Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.",
-    "temario": [
-      "CETES Directo y Bonos gubernamentales",
-      "Interés compuesto y valor del dinero en el tiempo",
-      "Inflación vs rendimiento real"
-    ],
-    "videos": [
-      {
-        "titulo": "Cómo Invertir en CETES Directo: Tutorial Completo Paso a Paso",
-        "url": "https://www.youtube.com/embed/9xHOEs6WtaM",
-        "duracion": "21:15"
-      },
-      {
-        "titulo": "Inversión Segura para Principiantes en México con Cetes",
-        "url": "https://www.youtube.com/embed/qF0gQBKg2os",
-        "duracion": "17:40"
-      },
-      {
-        "titulo": "Interés Compuesto y Renta Fija: Haz Crecer tus Ahorros",
-        "url": "https://www.youtube.com/embed/Fw1Xv1gkh7o",
-        "duracion": "14:55"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Simulador de inversión en CETES",
-        "tipo": "simulacion",
-        "descripcion": "Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos."
-      },
-      {
-        "titulo": "Quiz: Valor del dinero en el tiempo",
-        "tipo": "quiz",
-        "descripcion": "Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas."
-      },
-      {
-        "titulo": "Proyecto: Análisis de renta fija mexicana",
-        "tipo": "proyecto",
-        "descripcion": "Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Renta fija en México: lo que nadie te cuenta",
-        "descripcion": "Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.",
-        "duracion": "24:30"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "Fundamentos de inversiones",
-        "autor": "Lawrence J. Gitman",
-        "descripcion": "Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Guía del inversionista en CETES Directo",
-        "autor": "Gobierno de México",
-        "descripcion": "Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.",
-        "tipo": "pdf"
-      }
-    ]
-  },
-  {
-    "id": "fondos-bolsa",
-    "semestre": 3,
-    "icon": "📊",
-    "nombre": "Fondos indexados y renta variable",
-    "desc": "Aprende a invertir a largo plazo en índices globales como el S&P 500.",
-    "temario": [
-      "Qué son los ETFs y fondos indexados",
-      "Aportaciones periódicas (Dollar Cost Averaging)",
-      "Gestión del riesgo y horizonte temporal"
-    ],
-    "videos": [
-      {
-        "titulo": "Cómo Invertir en el S&P 500 y ETFs desde México",
-        "url": "https://www.youtube.com/embed/Hjv473hOiB0",
-        "duracion": "22:10"
-      },
-      {
-        "titulo": "Bolsa de Valores para Principiantes: Fondos Indexados",
-        "url": "https://www.youtube.com/embed/59N5C7mVC_w",
-        "duracion": "18:25"
-      },
-      {
-        "titulo": "Estrategia Dollar Cost Averaging (DCA) a Largo Plazo",
-        "url": "https://www.youtube.com/embed/UK2w43cxHvo",
-        "duracion": "15:30"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Constructor de portafolio diversificado",
-        "tipo": "proyecto",
-        "descripcion": "Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia."
-      },
-      {
-        "titulo": "Quiz: Evaluación de perfil de riesgo",
-        "tipo": "quiz",
-        "descripcion": "Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado."
-      },
-      {
-        "titulo": "Simulación: DCA vs inversión de golpe",
-        "tipo": "simulacion",
-        "descripcion": "Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "La bolsa de valores desmitificada",
-        "descripcion": "Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.",
-        "duracion": "26:10"
-      },
-      {
-        "titulo": "Entrevista: 10 años invirtiendo en ETFs desde México",
-        "descripcion": "Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.",
-        "duracion": "32:45"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "El pequeño libro para invertir con sentido común",
-        "autor": "John C. Bogle",
-        "descripcion": "El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "Un paso adelante en Wall Street",
-        "autor": "Peter Lynch",
-        "descripcion": "Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.",
-        "tipo": "ebook"
-      }
-    ]
-  },
-  {
-    "id": "proteccion-impuestos",
-    "semestre": 3,
-    "icon": "🏛️",
-    "nombre": "Protección patrimonial e impuestos",
-    "desc": "Seguros indispensables y optimización fiscal para proteger tu capital.",
-    "temario": [
-      "Seguros de gastos médicos y vida",
-      "Deducciones personales para devolución de impuestos",
-      "Plan personal de retiro (PPR)"
-    ],
-    "videos": [
-      {
-        "titulo": "Deducciones Personales en el SAT: Cómo Obtener Devolución",
-        "url": "https://www.youtube.com/embed/LK7qEnwi_R0",
-        "duracion": "19:05"
-      },
-      {
-        "titulo": "Planes Personales de Retiro (PPR) y sus Ventajas Fiscales",
-        "url": "https://www.youtube.com/embed/odZf9f4Uruk",
-        "duracion": "16:50"
-      },
-      {
-        "titulo": "Seguros de Gastos Médicos y Vida: Protección Patrimonial",
-        "url": "https://www.youtube.com/embed/OjEFHWCFo1k",
-        "duracion": "14:20"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Calculadora de deducciones fiscales",
-        "tipo": "practica",
-        "descripcion": "Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT."
-      },
-      {
-        "titulo": "Evaluación de necesidades de seguros",
-        "tipo": "quiz",
-        "descripcion": "Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura."
-      },
-      {
-        "titulo": "Caso de estudio: Optimización fiscal de Ana",
-        "tipo": "caso-estudio",
-        "descripcion": "Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Tips de optimización fiscal que tu contador no te dice",
-        "descripcion": "Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.",
-        "duracion": "23:40"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "Planeación fiscal para personas físicas",
-        "autor": "IMCP",
-        "descripcion": "Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.",
-        "tipo": "pdf"
-      },
-      {
-        "titulo": "Seguros y finanzas personales",
-        "autor": "AMIS",
-        "descripcion": "Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.",
-        "tipo": "articulo"
-      }
-    ]
-  },
-  {
-    "id": "emprendimiento",
-    "semestre": 4,
-    "icon": "💡",
-    "nombre": "Emprendimiento y modelos de negocio",
-    "desc": "Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.",
-    "temario": [
-      "Validación de ideas de negocio con bajo capital",
-      "Flujo de caja del negocio",
-      "Estrategias de ventas y pricing"
-    ],
-    "videos": [
-      {
-        "titulo": "Cómo Iniciar un Negocio con Poco Dinero y Validar tu Idea",
-        "url": "https://www.youtube.com/embed/fUr4GVauePo",
-        "duracion": "20:15"
-      },
-      {
-        "titulo": "Modelo de Negocio y Finanzas para Emprendedores",
-        "url": "https://www.youtube.com/embed/1XmGJ7x4hQE",
-        "duracion": "17:30"
-      },
-      {
-        "titulo": "Flujo de Caja, Precios y Ventas para Empresas Nuevas",
-        "url": "https://www.youtube.com/embed/ermN-jBCdGM",
-        "duracion": "15:45"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Lienzo de modelo de negocio (Canvas)",
-        "tipo": "proyecto",
-        "descripcion": "Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas."
-      },
-      {
-        "titulo": "Estrategia de pricing para tu producto",
-        "tipo": "practica",
-        "descripcion": "Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético."
-      },
-      {
-        "titulo": "Caso de estudio: De empleado a emprendedor",
-        "tipo": "caso-estudio",
-        "descripcion": "Analiza cómo un mexicano pasó de ganar [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
-  {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
-    temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
-    ],
-    videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
-    ],
-    ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
-    ],
-    audios: [
-      { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
-    ],
-    libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
-    videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
-    ],
-    audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
-    ],
-    libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
-    videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
-    ],
-    audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
-    ],
-    libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
-    ]
-  },
-
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
-  {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
-    videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
-      { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
-    ],
-    audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
-    ],
-    libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
-    videos: [
-      { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
-      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México.' },
-      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
-    ],
-    audios: [
-      { titulo: 'Mi camino libre de deudas', descripcion: 'Podcast con tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
-    ],
-    libros: [
-      { titulo: 'La transformación total de su dinero', autor: 'Dave Ramsey', descripcion: 'Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.', tipo: 'ebook' },
-      { titulo: 'Guía para entender tu Buró de Crédito', autor: 'Círculo de Crédito', descripcion: 'Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.', tipo: 'articulo' }
-    ]
-  },
-  {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas digitales',
-    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
-    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
-    videos: [
-      { titulo: 'Crea tu plantilla de presupuesto en Excel desde cero', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '22:10' },
-      { titulo: 'Las 5 mejores apps de finanzas personales en México 2025', url: 'https://www.youtube.com/embed/FTQbiNvZqaY', duracion: '15:33' },
-      { titulo: 'Google Sheets para tus finanzas: automatiza todo', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '19:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Construye tu hoja de cálculo financiera', tipo: 'proyecto', descripcion: 'Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas.' },
-      { titulo: 'Comparativo de apps financieras', tipo: 'practica', descripcion: 'Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras.' }
-    ],
-    audios: [
-      { titulo: 'Fintech en México: revolución digital de tus finanzas', descripcion: 'Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.', duracion: '21:15' }
-    ],
-    libros: [
-      { titulo: 'Excel para finanzas personales', autor: 'María del Carmen Ruiz', descripcion: 'Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.', tipo: 'pdf' },
-      { titulo: 'La era de las fintech', autor: 'Banco de México', descripcion: 'Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
-  {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
-    nombre: 'Estrategias de inversión y renta fija',
-    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
-    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
-    videos: [
-      { titulo: 'CETES Directo: tutorial completo para invertir desde $100', url: 'https://www.youtube.com/embed/hT_nvWreIhg', duracion: '18:25' },
-      { titulo: 'Bonos gubernamentales explicados con manzanas', url: 'https://www.youtube.com/embed/YQHsXMglC9A', duracion: '14:10' },
-      { titulo: 'Valor del dinero en el tiempo: ¿$10,000 hoy o mañana?', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '12:55' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de inversión en CETES', tipo: 'simulacion', descripcion: 'Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos.' },
-      { titulo: 'Quiz: Valor del dinero en el tiempo', tipo: 'quiz', descripcion: 'Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas.' },
-      { titulo: 'Proyecto: Análisis de renta fija mexicana', tipo: 'proyecto', descripcion: 'Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones.' }
-    ],
-    audios: [
-      { titulo: 'Renta fija en México: lo que nadie te cuenta', descripcion: 'Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.', duracion: '24:30' }
-    ],
-    libros: [
-      { titulo: 'Fundamentos de inversiones', autor: 'Lawrence J. Gitman', descripcion: 'Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.', tipo: 'ebook' },
-      { titulo: 'Guía del inversionista en CETES Directo', autor: 'Gobierno de México', descripcion: 'Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
-    nombre: 'Fondos indexados y renta variable',
-    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
-    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
-    videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
-      { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
-      { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Constructor de portafolio diversificado', tipo: 'proyecto', descripcion: 'Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia.' },
-      { titulo: 'Quiz: Evaluación de perfil de riesgo', tipo: 'quiz', descripcion: 'Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado.' },
-      { titulo: 'Simulación: DCA vs inversión de golpe', tipo: 'simulacion', descripcion: 'Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales.' }
-    ],
-    audios: [
-      { titulo: 'La bolsa de valores desmitificada', descripcion: 'Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.', duracion: '26:10' },
-      { titulo: 'Entrevista: 10 años invirtiendo en ETFs desde México', descripcion: 'Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.', duracion: '32:45' }
-    ],
-    libros: [
-      { titulo: 'El pequeño libro para invertir con sentido común', autor: 'John C. Bogle', descripcion: 'El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.', tipo: 'ebook' },
-      { titulo: 'Un paso adelante en Wall Street', autor: 'Peter Lynch', descripcion: 'Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
-    nombre: 'Protección patrimonial e impuestos',
-    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
-    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
-    videos: [
-      { titulo: 'Seguros que realmente necesitas (y los que no)', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '15:30' },
-      { titulo: 'Deducciones fiscales en México: recupera miles de pesos', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '18:22' },
-      { titulo: 'PPR: tu arma secreta para el retiro y los impuestos', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '14:08' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de deducciones fiscales', tipo: 'practica', descripcion: 'Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT.' },
-      { titulo: 'Evaluación de necesidades de seguros', tipo: 'quiz', descripcion: 'Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura.' },
-      { titulo: 'Caso de estudio: Optimización fiscal de Ana', tipo: 'caso-estudio', descripcion: 'Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización.' }
-    ],
-    audios: [
-      { titulo: 'Tips de optimización fiscal que tu contador no te dice', descripcion: 'Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.', duracion: '23:40' }
-    ],
-    libros: [
-      { titulo: 'Planeación fiscal para personas físicas', autor: 'IMCP', descripcion: 'Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.', tipo: 'pdf' },
-      { titulo: 'Seguros y finanzas personales', autor: 'AMIS', descripcion: 'Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
-  {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
-    nombre: 'Emprendimiento y modelos de negocio',
-    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
-    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
-    videos: [
-      { titulo: 'Cómo validar tu idea de negocio sin gastar un peso', url: 'https://www.youtube.com/embed/SqcY0GlETPk', duracion: '16:55' },
-      { titulo: 'Flujo de caja: el rey de los negocios rentables', url: 'https://www.youtube.com/embed/vLnPwxZdW4Y', duracion: '14:30' },
-      { titulo: 'Pricing: cómo poner precio a tu producto o servicio', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '19:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Lienzo de modelo de negocio (Canvas)', tipo: 'proyecto', descripcion: 'Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas.' },
-      { titulo: 'Estrategia de pricing para tu producto', tipo: 'practica', descripcion: 'Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético.' },
-      { titulo: 'Caso de estudio: De empleado a emprendedor', tipo: 'caso-estudio', descripcion: 'Analiza cómo un mexicano pasó de ganar $15,000 como empleado a generar $80,000 mensuales con su negocio propio.' }
-    ],
-    audios: [
-      { titulo: 'Entrevistas con emprendedores mexicanos exitosos', descripcion: 'Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.', duracion: '35:20' },
-      { titulo: 'Errores financieros fatales al emprender', descripcion: 'Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.', duracion: '18:55' }
-    ],
-    libros: [
-      { titulo: 'El método Lean Startup', autor: 'Eric Ries', descripcion: 'Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.', tipo: 'ebook' },
-      { titulo: 'La semana laboral de 4 horas', autor: 'Timothy Ferriss', descripcion: 'Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
-    nombre: 'Inversión inmobiliaria y FIBRAs',
-    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
-    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
-    videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
-      { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
-      { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Análisis comparativo de FIBRAs mexicanas', tipo: 'proyecto', descripcion: 'Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3.' },
-      { titulo: 'Calculadora de rendimiento por renta', tipo: 'simulacion', descripcion: 'Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia.' },
-      { titulo: 'Quiz: ¿Sabes lo básico de inversión inmobiliaria?', tipo: 'quiz', descripcion: 'Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México.' }
-    ],
-    audios: [
-      { titulo: 'Inversión inmobiliaria para no millonarios', descripcion: 'Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.', duracion: '27:40' }
-    ],
-    libros: [
-      { titulo: 'El ABC de la inversión en bienes raíces', autor: 'Ken McElroy', descripcion: 'Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.', tipo: 'ebook' },
-      { titulo: 'FIBRAs: inversión inmobiliaria en México', autor: 'BMV Educación', descripcion: 'Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
-    nombre: 'Independencia y legado financiero',
-    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
-    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
-    videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
-      { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
-      { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de retiro e independencia financiera', tipo: 'simulacion', descripcion: 'Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera.' },
-      { titulo: 'Proyecto: Mi plan patrimonial y legado', tipo: 'proyecto', descripcion: 'Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar.' },
-      { titulo: 'Quiz: ¿Qué tan cerca estás de la libertad financiera?', tipo: 'quiz', descripcion: 'Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo.' }
-    ],
-    audios: [
-      { titulo: 'Historias FIRE: mexicanos financieramente libres', descripcion: 'Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.', duracion: '38:15' },
-      { titulo: 'Diseña la vida que quieres, luego ahorra para ella', descripcion: 'Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.', duracion: '15:50' }
-    ],
-    libros: [
-      { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
-      { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];5,000 como empleado a generar $80,000 mensuales con su negocio propio."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Entrevistas con emprendedores mexicanos exitosos",
-        "descripcion": "Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.",
-        "duracion": "35:20"
-      },
-      {
-        "titulo": "Errores financieros fatales al emprender",
-        "descripcion": "Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.",
-        "duracion": "18:55"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "El método Lean Startup",
-        "autor": "Eric Ries",
-        "descripcion": "Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "La semana laboral de 4 horas",
-        "autor": "Timothy Ferriss",
-        "descripcion": "Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.",
-        "tipo": "ebook"
-      }
-    ]
-  },
-  {
-    "id": "bienes-raices",
-    "semestre": 4,
-    "icon": "🏢",
-    "nombre": "Inversión inmobiliaria y FIBRAs",
-    "desc": "Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.",
-    "temario": [
-      "Fideicomisos de bienes raíces (FIBRAs)",
-      "Rentas tradicionales vs temporales",
-      "Plusvalía y flujo constante"
-    ],
-    "videos": [
-      {
-        "titulo": "FIBRAs en México: Cómo Invertir en Bienes Raíces desde [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
-  {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
-    temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
-    ],
-    videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/3JZ_D3ELwOQ', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/L_jWHffIx5E', duracion: '16:05' }
-    ],
-    ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
-    ],
-    audios: [
-      { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
-    ],
-    libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
-    videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/ZbZSe6N_BXs', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/Ke90Tje7VS0', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
-    ],
-    audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
-    ],
-    libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
-    videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
-    ],
-    audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
-    ],
-    libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
-    ]
-  },
-
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
-  {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
-    videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9bZkp7q19f0', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/kJQP7kiw5Fk', duracion: '11:35' },
-      { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
-    ],
-    audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
-    ],
-    libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
-    videos: [
-      { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
-      { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/OPf0YbXqDm0', duracion: '12:15' },
-      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/fJ9rUzIMcZQ', duracion: '18:40' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
-      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito, score crediticio y cómo mejorarlo en México.' },
-      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
-    ],
-    audios: [
-      { titulo: 'Mi camino libre de deudas', descripcion: 'Podcast con tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
-    ],
-    libros: [
-      { titulo: 'La transformación total de su dinero', autor: 'Dave Ramsey', descripcion: 'Plan paso a paso para salir de deudas usando los 7 pasos del método Ramsey adaptados al contexto latino.', tipo: 'ebook' },
-      { titulo: 'Guía para entender tu Buró de Crédito', autor: 'Círculo de Crédito', descripcion: 'Todo lo que necesitas saber sobre tu historial crediticio, cómo consultarlo y cómo mejorarlo.', tipo: 'articulo' }
-    ]
-  },
-  {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
-    nombre: 'Materiales y herramientas digitales',
-    desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
-    temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
-    videos: [
-      { titulo: 'Crea tu plantilla de presupuesto en Excel desde cero', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '22:10' },
-      { titulo: 'Las 5 mejores apps de finanzas personales en México 2025', url: 'https://www.youtube.com/embed/FTQbiNvZqaY', duracion: '15:33' },
-      { titulo: 'Google Sheets para tus finanzas: automatiza todo', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '19:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Construye tu hoja de cálculo financiera', tipo: 'proyecto', descripcion: 'Crea una hoja de cálculo con presupuesto, rastreador de gastos y gráficas automáticas usando fórmulas avanzadas.' },
-      { titulo: 'Comparativo de apps financieras', tipo: 'practica', descripcion: 'Prueba 3 apps de finanzas personales durante una semana y elabora un análisis comparativo con pros y contras.' }
-    ],
-    audios: [
-      { titulo: 'Fintech en México: revolución digital de tus finanzas', descripcion: 'Panorama de las herramientas fintech disponibles en México: neobancos, apps de inversión y plataformas de ahorro.', duracion: '21:15' }
-    ],
-    libros: [
-      { titulo: 'Excel para finanzas personales', autor: 'María del Carmen Ruiz', descripcion: 'Manual práctico con 20 plantillas descargables para controlar presupuestos, deudas e inversiones.', tipo: 'pdf' },
-      { titulo: 'La era de las fintech', autor: 'Banco de México', descripcion: 'Informe sobre la revolución tecnológica financiera en México y cómo aprovechar las nuevas herramientas digitales.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
-  {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
-    nombre: 'Estrategias de inversión y renta fija',
-    desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
-    temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
-    videos: [
-      { titulo: 'CETES Directo: tutorial completo para invertir desde $100', url: 'https://www.youtube.com/embed/hT_nvWreIhg', duracion: '18:25' },
-      { titulo: 'Bonos gubernamentales explicados con manzanas', url: 'https://www.youtube.com/embed/YQHsXMglC9A', duracion: '14:10' },
-      { titulo: 'Valor del dinero en el tiempo: ¿$10,000 hoy o mañana?', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '12:55' }
-    ],
-    ejercicios: [
-      { titulo: 'Simulador de inversión en CETES', tipo: 'simulacion', descripcion: 'Simula inversiones en CETES a 28, 91, 182 y 364 días. Compara rendimientos netos después de impuestos.' },
-      { titulo: 'Quiz: Valor del dinero en el tiempo', tipo: 'quiz', descripcion: 'Resuelve 10 problemas de valor presente y valor futuro para dominar el concepto más importante de las finanzas.' },
-      { titulo: 'Proyecto: Análisis de renta fija mexicana', tipo: 'proyecto', descripcion: 'Investiga y compara CETES, Bondes, Udibonos y pagarés bancarios. Presenta tu análisis con recomendaciones.' }
-    ],
-    audios: [
-      { titulo: 'Renta fija en México: lo que nadie te cuenta', descripcion: 'Entrevista con un asesor financiero certificado sobre las mejores estrategias de renta fija para 2025.', duracion: '24:30' }
-    ],
-    libros: [
-      { titulo: 'Fundamentos de inversiones', autor: 'Lawrence J. Gitman', descripcion: 'Texto académico de referencia sobre mercados financieros, bonos e instrumentos de deuda con enfoque práctico.', tipo: 'ebook' },
-      { titulo: 'Guía del inversionista en CETES Directo', autor: 'Gobierno de México', descripcion: 'Manual oficial paso a paso para operar en la plataforma CETES Directo del gobierno federal.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
-    nombre: 'Fondos indexados y renta variable',
-    desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
-    temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
-    videos: [
-      { titulo: 'ETFs explicados: invierte en el S&P 500 desde México', url: 'https://www.youtube.com/embed/2Vv-BfVoq4g', duracion: '17:40' },
-      { titulo: 'Dollar Cost Averaging: la estrategia que siempre gana', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '13:55' },
-      { titulo: 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', url: 'https://www.youtube.com/embed/OwMf6gEMfg8', duracion: '20:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Constructor de portafolio diversificado', tipo: 'proyecto', descripcion: 'Diseña un portafolio con ETFs mexicanos e internacionales. Define porcentajes por clase de activo y justifica tu estrategia.' },
-      { titulo: 'Quiz: Evaluación de perfil de riesgo', tipo: 'quiz', descripcion: 'Determina si eres un inversionista conservador, moderado o agresivo con este test de 20 preguntas validado.' },
-      { titulo: 'Simulación: DCA vs inversión de golpe', tipo: 'simulacion', descripcion: 'Compara los resultados de invertir $60,000 de golpe vs $5,000 mensuales durante 12 meses con datos históricos reales.' }
-    ],
-    audios: [
-      { titulo: 'La bolsa de valores desmitificada', descripcion: 'Explicación clara de cómo funciona la Bolsa Mexicana de Valores y por qué no necesitas ser experto para invertir.', duracion: '26:10' },
-      { titulo: 'Entrevista: 10 años invirtiendo en ETFs desde México', descripcion: 'Un inversionista mexicano comparte su experiencia real invirtiendo en fondos indexados con aportaciones mensuales.', duracion: '32:45' }
-    ],
-    libros: [
-      { titulo: 'El pequeño libro para invertir con sentido común', autor: 'John C. Bogle', descripcion: 'El creador de Vanguard explica por qué los fondos indexados son la mejor opción para el inversionista promedio.', tipo: 'ebook' },
-      { titulo: 'Un paso adelante en Wall Street', autor: 'Peter Lynch', descripcion: 'Estrategias del legendario gestor de fondos para que inversionistas comunes superen a los profesionales.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
-    nombre: 'Protección patrimonial e impuestos',
-    desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
-    temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
-    videos: [
-      { titulo: 'Seguros que realmente necesitas (y los que no)', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '15:30' },
-      { titulo: 'Deducciones fiscales en México: recupera miles de pesos', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '18:22' },
-      { titulo: 'PPR: tu arma secreta para el retiro y los impuestos', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '14:08' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de deducciones fiscales', tipo: 'practica', descripcion: 'Ingresa tus gastos deducibles del año y calcula cuánto puedes recuperar en tu declaración anual del SAT.' },
-      { titulo: 'Evaluación de necesidades de seguros', tipo: 'quiz', descripcion: 'Responde preguntas sobre tu situación personal y familiar para determinar qué seguros necesitas y cuánta cobertura.' },
-      { titulo: 'Caso de estudio: Optimización fiscal de Ana', tipo: 'caso-estudio', descripcion: 'Analiza el caso de una profesionista que paga $45,000 al año en impuestos y diseña su estrategia de optimización.' }
-    ],
-    audios: [
-      { titulo: 'Tips de optimización fiscal que tu contador no te dice', descripcion: 'Estrategias legales para reducir tu carga fiscal: desde PPR hasta donativos y gastos médicos deducibles.', duracion: '23:40' }
-    ],
-    libros: [
-      { titulo: 'Planeación fiscal para personas físicas', autor: 'IMCP', descripcion: 'Guía del Instituto Mexicano de Contadores Públicos sobre deducciones, regímenes fiscales y optimización legal.', tipo: 'pdf' },
-      { titulo: 'Seguros y finanzas personales', autor: 'AMIS', descripcion: 'Manual de la Asociación Mexicana de Instituciones de Seguros para elegir la protección adecuada según tu etapa de vida.', tipo: 'articulo' }
-    ]
-  },
-
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
-  {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
-    nombre: 'Emprendimiento y modelos de negocio',
-    desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
-    temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
-    videos: [
-      { titulo: 'Cómo validar tu idea de negocio sin gastar un peso', url: 'https://www.youtube.com/embed/SqcY0GlETPk', duracion: '16:55' },
-      { titulo: 'Flujo de caja: el rey de los negocios rentables', url: 'https://www.youtube.com/embed/vLnPwxZdW4Y', duracion: '14:30' },
-      { titulo: 'Pricing: cómo poner precio a tu producto o servicio', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '19:12' }
-    ],
-    ejercicios: [
-      { titulo: 'Lienzo de modelo de negocio (Canvas)', tipo: 'proyecto', descripcion: 'Completa el Business Model Canvas para tu idea de negocio: propuesta de valor, segmento de clientes, canales y finanzas.' },
-      { titulo: 'Estrategia de pricing para tu producto', tipo: 'practica', descripcion: 'Aplica 3 métodos de fijación de precios (costo plus, valor percibido y competencia) a un producto real o hipotético.' },
-      { titulo: 'Caso de estudio: De empleado a emprendedor', tipo: 'caso-estudio', descripcion: 'Analiza cómo un mexicano pasó de ganar $15,000 como empleado a generar $80,000 mensuales con su negocio propio.' }
-    ],
-    audios: [
-      { titulo: 'Entrevistas con emprendedores mexicanos exitosos', descripcion: 'Tres emprendedores comparten sus aprendizajes, errores y estrategias para crear negocios rentables en México.', duracion: '35:20' },
-      { titulo: 'Errores financieros fatales al emprender', descripcion: 'Los 10 errores de flujo de caja más comunes en negocios nuevos y cómo evitar cada uno de ellos.', duracion: '18:55' }
-    ],
-    libros: [
-      { titulo: 'El método Lean Startup', autor: 'Eric Ries', descripcion: 'Metodología probada para crear negocios exitosos con mínima inversión: construir, medir y aprender.', tipo: 'ebook' },
-      { titulo: 'La semana laboral de 4 horas', autor: 'Timothy Ferriss', descripcion: 'Cómo diseñar un negocio que funcione con sistemas automatizados para generar ingresos sin estar presente.', tipo: 'ebook' }
-    ]
-  },
-  {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
-    nombre: 'Inversión inmobiliaria y FIBRAs',
-    desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
-    temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
-    videos: [
-      { titulo: 'FIBRAs en México: invierte en bienes raíces desde $1,000', url: 'https://www.youtube.com/embed/rfscVS0vtbw', duracion: '17:35' },
-      { titulo: 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', url: 'https://www.youtube.com/embed/pB-5XG-DbAA', duracion: '21:10' },
-      { titulo: 'Cómo analizar plusvalía y rendimiento de una propiedad', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '15:48' }
-    ],
-    ejercicios: [
-      { titulo: 'Análisis comparativo de FIBRAs mexicanas', tipo: 'proyecto', descripcion: 'Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3.' },
-      { titulo: 'Calculadora de rendimiento por renta', tipo: 'simulacion', descripcion: 'Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia.' },
-      { titulo: 'Quiz: ¿Sabes lo básico de inversión inmobiliaria?', tipo: 'quiz', descripcion: 'Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México.' }
-    ],
-    audios: [
-      { titulo: 'Inversión inmobiliaria para no millonarios', descripcion: 'Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.', duracion: '27:40' }
-    ],
-    libros: [
-      { titulo: 'El ABC de la inversión en bienes raíces', autor: 'Ken McElroy', descripcion: 'Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.', tipo: 'ebook' },
-      { titulo: 'FIBRAs: inversión inmobiliaria en México', autor: 'BMV Educación', descripcion: 'Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.', tipo: 'pdf' }
-    ]
-  },
-  {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
-    nombre: 'Independencia y legado financiero',
-    desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
-    temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
-    videos: [
-      { titulo: 'La regla del 4%: cuánto necesitas para retirarte', url: 'https://www.youtube.com/embed/z7rH7xKQsjc', duracion: '16:40' },
-      { titulo: 'Portafolio All-Weather de Ray Dalio explicado', url: 'https://www.youtube.com/embed/Nu4lHaSh7D4', duracion: '20:25' },
-      { titulo: 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', url: 'https://www.youtube.com/embed/wD2cVhC-63I', duracion: '23:15' }
-    ],
-    ejercicios: [
-      { titulo: 'Calculadora de retiro e independencia financiera', tipo: 'simulacion', descripcion: 'Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera.' },
-      { titulo: 'Proyecto: Mi plan patrimonial y legado', tipo: 'proyecto', descripcion: 'Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar.' },
-      { titulo: 'Quiz: ¿Qué tan cerca estás de la libertad financiera?', tipo: 'quiz', descripcion: 'Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo.' }
-    ],
-    audios: [
-      { titulo: 'Historias FIRE: mexicanos financieramente libres', descripcion: 'Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.', duracion: '38:15' },
-      { titulo: 'Diseña la vida que quieres, luego ahorra para ella', descripcion: 'Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.', duracion: '15:50' }
-    ],
-    libros: [
-      { titulo: 'La bolsa o la vida', autor: 'Vicki Robin y Joe Dominguez', descripcion: 'El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.', tipo: 'ebook' },
-      { titulo: 'El camino simple a la riqueza', autor: 'JL Collins', descripcion: 'Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.', tipo: 'ebook' }
-    ]
-  }
-];00",
-        "url": "https://www.youtube.com/embed/WI5NKIe0DBk",
-        "duracion": "23:40"
-      },
-      {
-        "titulo": "Inversión Inmobiliaria para Principiantes: Rentas vs Plusvalía",
-        "url": "https://www.youtube.com/embed/zTj0quTkWfU",
-        "duracion": "18:55"
-      },
-      {
-        "titulo": "Análisis de FIBRAs y Estrategias de Dividendos Inmobiliarios",
-        "url": "https://www.youtube.com/embed/Y1wo7owwSjs",
-        "duracion": "16:10"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Análisis comparativo de FIBRAs mexicanas",
-        "tipo": "proyecto",
-        "descripcion": "Investiga 5 FIBRAs listadas en la BMV, compara rendimientos por dividendo, plusvalía y riesgo. Presenta tu top 3."
-      },
-      {
-        "titulo": "Calculadora de rendimiento por renta",
-        "tipo": "simulacion",
-        "descripcion": "Calcula el yield bruto y neto de una propiedad considerando precio, renta mensual, gastos y vacancia."
-      },
-      {
-        "titulo": "Quiz: ¿Sabes lo básico de inversión inmobiliaria?",
-        "tipo": "quiz",
-        "descripcion": "Evalúa tus conocimientos sobre CAP rate, yield, plusvalía, FIBRAs y financiamiento hipotecario en México."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Inversión inmobiliaria para no millonarios",
-        "descripcion": "Estrategias reales para participar en el mercado inmobiliario mexicano sin necesitar millones de pesos.",
-        "duracion": "27:40"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "El ABC de la inversión en bienes raíces",
-        "autor": "Ken McElroy",
-        "descripcion": "Guía fundamental sobre cómo analizar, comprar y administrar propiedades para generar flujo de efectivo.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "FIBRAs: inversión inmobiliaria en México",
-        "autor": "BMV Educación",
-        "descripcion": "Guía oficial de la Bolsa Mexicana de Valores sobre Fideicomisos de Inversión en Bienes Raíces.",
-        "tipo": "pdf"
-      }
-    ]
-  },
-  {
-    "id": "libertad-financiera",
-    "semestre": 4,
-    "icon": "🏆",
-    "nombre": "Independencia y legado financiero",
-    "desc": "Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.",
-    "temario": [
-      "La regla del 4% para retiro",
-      "Portafolios todo terreno",
-      "Plan financiero a 10 y 20 años"
-    ],
-    "videos": [
-      {
-        "titulo": "La Regla del 4%: Cuánto Dinero Necesitas para Retirarte Joven",
-        "url": "https://www.youtube.com/embed/15RJzvoS2nc",
-        "duracion": "21:30"
-      },
-      {
-        "titulo": "Movimiento FIRE: Cómo Vivir de tus Rentas e Inversiones",
-        "url": "https://www.youtube.com/embed/yEAZe8mlzVg",
-        "duracion": "19:15"
-      },
-      {
-        "titulo": "Tu Plan Patrimonial Definitivo a 10 y 20 Años",
-        "url": "https://www.youtube.com/embed/Z9FPzUIkxZg",
-        "duracion": "24:00"
-      }
-    ],
-    "ejercicios": [
-      {
-        "titulo": "Calculadora de retiro e independencia financiera",
-        "tipo": "simulacion",
-        "descripcion": "Calcula tu número mágico: cuánto necesitas acumular y en cuántos años puedes alcanzar la libertad financiera."
-      },
-      {
-        "titulo": "Proyecto: Mi plan patrimonial y legado",
-        "tipo": "proyecto",
-        "descripcion": "Diseña tu plan financiero integral a 20 años: inversiones, seguros, testamento y estrategia de legado familiar."
-      },
-      {
-        "titulo": "Quiz: ¿Qué tan cerca estás de la libertad financiera?",
-        "tipo": "quiz",
-        "descripcion": "Evalúa tu progreso hacia la independencia financiera con métricas reales: tasa de ahorro, patrimonio neto y flujo pasivo."
-      }
-    ],
-    "audios": [
-      {
-        "titulo": "Historias FIRE: mexicanos financieramente libres",
-        "descripcion": "Entrevistas con personas en México que alcanzaron la independencia financiera antes de los 50 años.",
-        "duracion": "38:15"
-      },
-      {
-        "titulo": "Diseña la vida que quieres, luego ahorra para ella",
-        "descripcion": "Reflexión sobre cómo definir tu estilo de vida ideal y construir el portafolio que lo haga posible.",
-        "duracion": "15:50"
-      }
-    ],
-    "libros": [
-      {
-        "titulo": "La bolsa o la vida",
-        "autor": "Vicki Robin y Joe Dominguez",
-        "descripcion": "El libro fundacional del movimiento FIRE: transforma tu relación con el dinero y alcanza la libertad financiera.",
-        "tipo": "ebook"
-      },
-      {
-        "titulo": "El camino simple a la riqueza",
-        "autor": "JL Collins",
-        "descripcion": "Estrategia minimalista de inversión en fondos indexados para alcanzar la independencia financiera paso a paso.",
-        "tipo": "ebook"
-      }
     ]
   }
 ];
@@ -3657,14 +1378,8 @@ function switchReticulaTab(tabName) {
   });
 }
 
-
-/* ============================================================
-   REPRODUCTORES INTERACTIVOS (VIDEO, AUDIO, LIBRO Y EJERCICIO)
-   ============================================================ */
-let currentAudioPlayer = null;
-let audioIsPlaying = false;
-let audioInterval = null;
-let audioSeconds = 0;
+let currentExerciseCorrectIdx = 1;
+let selectedModalOptionIdx = null;
 
 function reproducirVideoMateria(titulo, url) {
   const modal = document.getElementById('videoPlayerModal');
@@ -3672,7 +1387,7 @@ function reproducirVideoMateria(titulo, url) {
   const iframe = document.getElementById('videoPlayerIframe');
   if (modal && iframe) {
     if (titleEl) titleEl.textContent = titulo;
-    iframe.src = (url || '') + (url.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+    iframe.src = url || 'https://www.youtube.com/embed/WF6qLnuh4EA';
     modal.classList.add('open');
   } else {
     window.open(url, '_blank');
@@ -3685,150 +1400,6 @@ function closeVideoPlayerModal() {
   if (iframe) iframe.src = '';
   if (modal) modal.classList.remove('open');
 }
-
-function reproducirAudioMateria(titulo, duracion, descripcion) {
-  const modal = document.getElementById('audioPlayerModal');
-  if (!modal) {
-    alert('🎧 Reproduciendo podcast: ' + titulo);
-    return;
-  }
-
-  document.getElementById('audioModalTitle').textContent = titulo;
-  document.getElementById('audioModalDuration').textContent = 'Duración: ' + (duracion || '18 min');
-  document.getElementById('audioModalDesc').textContent = descripcion || 'Episodio práctico con conceptos clave y aplicación inmediata.';
-  
-  // Reiniciar barra de audio
-  audioSeconds = 0;
-  audioIsPlaying = false;
-  clearInterval(audioInterval);
-  updateAudioDisplay();
-  
-  modal.classList.add('open');
-  // Auto reproducir
-  toggleAudioPlayback();
-}
-
-function toggleAudioPlayback() {
-  const btn = document.getElementById('btnPlayAudioModal');
-  const wave = document.getElementById('audioWaveVisual');
-  audioIsPlaying = !audioIsPlaying;
-  
-  if (audioIsPlaying) {
-    if (btn) btn.innerHTML = '⏸️ Pausar reproducción';
-    if (wave) wave.classList.add('playing');
-    // Sonido ambiente suave o síntesis de locución
-    playSyntheticVoiceSample();
-    audioInterval = setInterval(function() {
-      audioSeconds++;
-      updateAudioDisplay();
-    }, 1000);
-  } else {
-    if (btn) btn.innerHTML = '▶️ Reproducir episodio';
-    if (wave) wave.classList.remove('playing');
-    clearInterval(audioInterval);
-    stopSyntheticVoice();
-  }
-}
-
-function updateAudioDisplay() {
-  const timeEl = document.getElementById('audioModalCurrentTime');
-  const bar = document.getElementById('audioModalProgressBar');
-  const m = Math.floor(audioSeconds / 60);
-  const s = audioSeconds % 60;
-  if (timeEl) timeEl.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
-  if (bar) {
-    const pct = Math.min(100, (audioSeconds / (18 * 60)) * 100);
-    bar.style.width = pct + '%';
-  }
-}
-
-function closeAudioPlayerModal() {
-  const modal = document.getElementById('audioPlayerModal');
-  if (modal) modal.classList.remove('open');
-  audioIsPlaying = false;
-  clearInterval(audioInterval);
-  stopSyntheticVoice();
-}
-
-let synthUtterance = null;
-function playSyntheticVoiceSample() {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const title = document.getElementById('audioModalTitle').textContent;
-    const desc = document.getElementById('audioModalDesc').textContent;
-    synthUtterance = new SpeechSynthesisUtterance('Bienvenido al episodio de audio: ' + title + '. ' + desc + '. Comencemos con los puntos clave.');
-    synthUtterance.lang = 'es-MX';
-    synthUtterance.rate = 1.0;
-    window.speechSynthesis.speak(synthUtterance);
-  }
-}
-
-function stopSyntheticVoice() {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-  }
-}
-
-// LECTOR Y DESCARGADOR DE LIBROS
-function abrirLibroMateria(titulo, autor, descripcion) {
-  const modal = document.getElementById('bookReaderModal');
-  if (!modal) {
-    alert('📚 Libro: ' + titulo + ' por ' + autor);
-    return;
-  }
-
-  document.getElementById('bookModalTitle').textContent = titulo;
-  document.getElementById('bookModalAuthor').textContent = 'Por ' + autor;
-  document.getElementById('bookModalDesc').textContent = descripcion || 'Material oficial y lectura obligatoria para este módulo formativo.';
-  
-  // Resumen del libro con lecciones prácticas
-  const summaryEl = document.getElementById('bookModalLessons');
-  if (summaryEl) {
-    summaryEl.innerHTML = 
-      '<li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>' +
-      '<li><strong>Principio 2:</strong> Auditar y proteger el 20% de cada peso que ganas.</li>' +
-      '<li><strong>Principio 3:</strong> El costo oculto de la deuda y cómo eliminar intereses abusivos.</li>' +
-      '<li><strong>Principio 4:</strong> Inversión recurrente automatizada para aprovechar el interés compuesto.</li>' +
-      '<li><strong>Principio 5:</strong> Definir tu fecha y número exacto de libertad financiera.</li>';
-  }
-
-  modal.classList.add('open');
-}
-
-function closeBookReaderModal() {
-  const modal = document.getElementById('bookReaderModal');
-  if (modal) modal.classList.remove('open');
-}
-
-function descargarGuiaPdfActual() {
-  const title = document.getElementById('bookModalTitle').textContent || 'Guia-Financiera';
-  const author = document.getElementById('bookModalAuthor').textContent || 'Educación Financiera';
-  
-  const content = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' +
-    '<style>body{font-family:sans-serif;padding:40px;color:#1e293b;line-height:1.6;}h1{color:#00703C;}h2{color:#06402d;}ul{margin-bottom:20px;}li{margin-bottom:8px;}</style></head>' +
-    '<body><h1>' + title + '</h1><h3>' + author + ' - Guía Oficial de Aprendizaje</h3>' +
-    '<hr><p>Esta es la síntesis de estudio para el programa académico de Educación Financiera.</p>' +
-    '<h2>5 Principios Clave:</h2><ul>' +
-    '<li><strong>1. Diagnóstico de tu dinero:</strong> Conoce tu flujo neto antes de gastar.</li>' +
-    '<li><strong>2. Fondo de paz mental:</strong> Construye de 3 a 6 meses de gastos esenciales.</li>' +
-    '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.</li>' +
-    '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.</li>' +
-    '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.</li></ul>' +
-    '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.</footer></body></html>';
-
-  const blob = new Blob([content], { type: 'text/html' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '_Guia_Oficial.html';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  alert('📥 ¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
-}
-
-// EJERCICIOS INTERACTIVOS
-let currentExerciseCorrectIdx = 1;
-let selectedModalOptionIdx = null;
 
 function abrirEjercicioMateria(titulo, descripcion) {
   const modal = document.getElementById('exercisePlayerModal');
@@ -3850,10 +1421,10 @@ function abrirEjercicioMateria(titulo, descripcion) {
   currentExerciseCorrectIdx = 1;
 
   const mockOptions = [
-    'Anotar mentalmente los gastos y posponer el registro hasta fin de mes',
-    'Aplicar el principio analizado en clase auditando y registrando tus números reales por escrito',
-    'Pedir un préstamo bancario adicional para saldar deudas menores',
-    'Esperar a ganar el doble de dinero antes de comenzar a ahorrar'
+    'Anotar mentalmente los gastos y no llevar registro estricto',
+    'Aplicar el principio analizado en clase auditando tus números reales por escrito',
+    'Posponer el ahorro hasta ganar el doble de ingresos',
+    'Ignorar los estados de cuenta bancarios'
   ];
 
   if (optionsEl) {
@@ -3905,12 +1476,12 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> Has demostrado dominar el criterio financiero del tema.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> Has aplicado el criterio financiero adecuado.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
   } else {
     feedbackEl.style.background = '#fffbeb';
     feedbackEl.style.color = '#b45309';
     feedbackEl.style.border = '1px solid #fde68a';
-    feedbackEl.textContent = '❌ Esa no es la mejor opción financiera. Revisa la lección en video e inténtalo de nuevo.';
+    feedbackEl.textContent = '❌ Esa no es la mejor opción financiera. Analiza la situación con el método visto en la video-clase e inténtalo de nuevo.';
   }
 }
 
@@ -3919,13 +1490,152 @@ function closeExercisePlayerModal() {
   if (modal) modal.classList.remove('open');
 }
 
+let currentAudioPlayer = null;
+let audioIsPlaying = false;
+let audioInterval = null;
+let audioSeconds = 0;
+let synthUtterance = null;
 
-function reproducirAudioMateria(titulo, duracion) {
-  alert('🎧 Reproduciendo podcast educativo (' + duracion + '):\n\n"' + titulo + '"\n\n¡Audio en alta definición disponible!');
+function reproducirAudioMateria(titulo, duracion, descripcion) {
+  const modal = document.getElementById('audioPlayerModal');
+  if (!modal) {
+    alert('🎧 Reproduciendo podcast: ' + titulo);
+    return;
+  }
+
+  const titleEl = document.getElementById('audioModalTitle');
+  const durEl = document.getElementById('audioModalDuration');
+  const descEl = document.getElementById('audioModalDesc');
+
+  if (titleEl) titleEl.textContent = titulo;
+  if (durEl) durEl.textContent = 'Duración: ' + (duracion || '18 min');
+  if (descEl) descEl.textContent = descripcion || 'Episodio práctico con conceptos clave y aplicación inmediata.';
+  
+  audioSeconds = 0;
+  audioIsPlaying = false;
+  clearInterval(audioInterval);
+  updateAudioDisplay();
+  
+  modal.classList.add('open');
+  toggleAudioPlayback();
 }
 
-function abrirLibroMateria(titulo, autor) {
-  alert('📚 Abriendo guía y libro oficial:\n\n"' + titulo + '"\nAutor: ' + autor + '\n\nDescargando archivo digital para lectura...');
+function toggleAudioPlayback() {
+  const btn = document.getElementById('btnPlayAudioModal');
+  const wave = document.getElementById('audioWaveVisual');
+  audioIsPlaying = !audioIsPlaying;
+  
+  if (audioIsPlaying) {
+    if (btn) btn.innerHTML = '⏸️ Pausar reproducción';
+    if (wave) wave.classList.add('playing');
+    playSyntheticVoiceSample();
+    audioInterval = setInterval(function() {
+      audioSeconds++;
+      updateAudioDisplay();
+    }, 1000);
+  } else {
+    if (btn) btn.innerHTML = '▶️ Iniciar reproducción';
+    if (wave) wave.classList.remove('playing');
+    clearInterval(audioInterval);
+    stopSyntheticVoice();
+  }
+}
+
+function updateAudioDisplay() {
+  const timeEl = document.getElementById('audioModalCurrentTime');
+  const bar = document.getElementById('audioModalProgressBar');
+  const m = Math.floor(audioSeconds / 60);
+  const s = audioSeconds % 60;
+  if (timeEl) timeEl.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  if (bar) {
+    const pct = Math.min(100, (audioSeconds / (18 * 60)) * 100);
+    bar.style.width = pct + '%';
+  }
+}
+
+function closeAudioPlayerModal() {
+  const modal = document.getElementById('audioPlayerModal');
+  if (modal) modal.classList.remove('open');
+  audioIsPlaying = false;
+  clearInterval(audioInterval);
+  stopSyntheticVoice();
+}
+
+function playSyntheticVoiceSample() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const title = (document.getElementById('audioModalTitle') && document.getElementById('audioModalTitle').textContent) || 'Episodio';
+    const desc = (document.getElementById('audioModalDesc') && document.getElementById('audioModalDesc').textContent) || '';
+    synthUtterance = new SpeechSynthesisUtterance('Bienvenido al episodio de audio: ' + title + '. ' + desc + '. Comencemos con los puntos clave.');
+    synthUtterance.lang = 'es-MX';
+    synthUtterance.rate = 1.0;
+    window.speechSynthesis.speak(synthUtterance);
+  }
+}
+
+function stopSyntheticVoice() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+function abrirLibroMateria(titulo, autor, descripcion) {
+  const modal = document.getElementById('bookReaderModal');
+  if (!modal) {
+    alert('📚 Libro: ' + titulo + ' por ' + autor);
+    return;
+  }
+
+  const titleEl = document.getElementById('bookModalTitle');
+  const authorEl = document.getElementById('bookModalAuthor');
+  const descEl = document.getElementById('bookModalDesc');
+
+  if (titleEl) titleEl.textContent = titulo;
+  if (authorEl) authorEl.textContent = 'Por ' + autor;
+  if (descEl) descEl.textContent = descripcion || 'Material oficial y lectura recomendada para este módulo formativo.';
+  
+  const summaryEl = document.getElementById('bookModalLessons');
+  if (summaryEl) {
+    summaryEl.innerHTML = 
+      '<li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>' +
+      '<li><strong>Principio 2:</strong> Auditar y proteger el 20% de cada peso que ganas.</li>' +
+      '<li><strong>Principio 3:</strong> El costo oculto de la deuda y cómo eliminar intereses abusivos.</li>' +
+      '<li><strong>Principio 4:</strong> Inversión recurrente automatizada para aprovechar el interés compuesto.</li>' +
+      '<li><strong>Principio 5:</strong> Definir tu fecha y número exacto de libertad financiera.</li>';
+  }
+
+  modal.classList.add('open');
+}
+
+function closeBookReaderModal() {
+  const modal = document.getElementById('bookReaderModal');
+  if (modal) modal.classList.remove('open');
+}
+
+function descargarGuiaPdfActual() {
+  const title = (document.getElementById('bookModalTitle') && document.getElementById('bookModalTitle').textContent) || 'Guia-Financiera';
+  const author = (document.getElementById('bookModalAuthor') && document.getElementById('bookModalAuthor').textContent) || 'Educación Financiera';
+  
+  const content = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' +
+    '<style>body{font-family:sans-serif;padding:40px;color:#1e293b;line-height:1.6;}h1{color:#00703C;}h2{color:#06402d;}ul{margin-bottom:20px;}li{margin-bottom:8px;}</style></head>' +
+    '<body><h1>' + title + '</h1><h3>' + author + ' - Guía Oficial de Aprendizaje</h3>' +
+    '<hr><p>Esta es la síntesis de estudio para el programa académico de Educación Financiera.</p>' +
+    '<h2>5 Principios Clave:</h2><ul>' +
+    '<li><strong>1. Diagnóstico de tu dinero:</strong> Conoce tu flujo neto antes de gastar.</li>' +
+    '<li><strong>2. Fondo de paz mental:</strong> Construye de 3 a 6 meses de gastos esenciales.</li>' +
+    '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.</li>' +
+    '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.</li>' +
+    '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.</li></ul>' +
+    '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.</footer></body></html>';
+
+  const blob = new Blob([content], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '_Guia_Oficial.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  alert('📥 ¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
 }
 
 function openReticulaModal(id) {
@@ -4027,7 +1737,7 @@ function openReticulaModal(id) {
               '</div>' +
             '</div>' +
           '</div>' +
-          '<button type="button" class="btn-resource-action" onclick="reproducirAudioMateria(\'' + a.titulo.replace(/'/g, "\\'") + '\', \'' + a.duracion + '\')">▶ Escuchar</button>' +
+          '<button type="button" class="btn-resource-action" onclick="reproducirAudioMateria(\'' + a.titulo.replace(/'/g, "\\'") + '\', \'' + a.duracion + '\', \'' + (a.descripcion || '').replace(/'/g, "\\'") + '\')">▶ Escuchar</button>' +
         '</div>';
       }).join('');
     } else {
@@ -4052,7 +1762,7 @@ function openReticulaModal(id) {
               '</div>' +
             '</div>' +
           '</div>' +
-          '<button type="button" class="btn-resource-action" onclick="abrirLibroMateria(\'' + l.titulo.replace(/'/g, "\\'") + '\', \'' + l.autor.replace(/'/g, "\\'") + '\')">📥 Descargar</button>' +
+          '<button type="button" class="btn-resource-action" onclick="abrirLibroMateria(\'' + l.titulo.replace(/'/g, "\\'") + '\', \'' + l.autor.replace(/'/g, "\\'") + '\', \'' + (l.descripcion || '').replace(/'/g, "\\'") + '\')">📥 Descargar</button>' +
         '</div>';
       }).join('');
     } else {
