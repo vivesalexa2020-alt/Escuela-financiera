@@ -79,12 +79,21 @@ function openCourseModal(title, desc) {
 }
 
 function openResourceModal(title, desc) {
-  if (!getCurrentUser()) {
-    openLoginModal();
-    if (loginMsg) {
-      loginMsg.className = 'form-message error';
-      loginMsg.textContent = '🔒 Inicia sesión o crea tu cuenta para acceder a las herramientas y calculadoras.';
-    }
+  const t = (title || '').toLowerCase();
+  if (t.includes('presupuesto') || t.includes('50/30/20') || t.includes('plantilla')) {
+    abrirEjercicioMateria('Mi presupuesto 50/30/20 (Plantilla interactiva)', desc || 'Calcula automáticamente la distribución óptima de tus ingresos.');
+    return;
+  }
+  if (t.includes('calculadora') || t.includes('interés') || t.includes('inversión') || t.includes('cetes')) {
+    abrirEjercicioMateria('Simulador de inversión en CETES e interés compuesto', desc || 'Calcula el rendimiento compuesto y proyección a plazos.');
+    return;
+  }
+  if (t.includes('guía') || t.includes('ahorro') || t.includes('libro')) {
+    abrirLibroMateria(title, 'Educación Financiera', desc || 'Guía oficial descargable en PDF con ejercicios prácticos.');
+    return;
+  }
+  if (t.includes('certificación') || t.includes('mentoría')) {
+    abrirEjercicioMateria('Test de Certificación Financiera', desc || 'Evalúa tus conocimientos y avanza en tu carrera.');
     return;
   }
   if (modalTitle) modalTitle.textContent = title;
@@ -1250,7 +1259,7 @@ function semestreRequierePago(semId) {
 }
 
 function semestreEstaBloqueadoPorPago(semId) {
-  return semestreRequierePago(semId) && !tieneMembresiaActiva();
+  return false; // Todos los semestres liberados para estudio
 }
 
 function semestreEstaBloqueado(state, semId) {
@@ -2000,8 +2009,8 @@ function openReticulaModal(id) {
 
   if (state.inscritas.indexOf(id) !== -1) {
     tipo = 'ok';
-    texto = '✅ Ya estás inscrito en esta materia. ¡Explora todos sus videos, ejercicios y materiales!';
-    label = '▶ Ir al Aula Demo';
+    texto = '✓ Materia activa. ¡Explora las pestañas de Videos, Ejercicios Interactivos, Podcasts y Libros!';
+    label = '▶ Abrir lección en Aula Virtual';
     deshabilitado = false;
   } else {
     const chk = puedeInscribir(id);

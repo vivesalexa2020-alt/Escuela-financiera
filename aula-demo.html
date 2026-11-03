@@ -949,72 +949,61 @@
           <!-- UNIDAD 1 -->
           <div class="unit-accordion">
             <div class="unit-title-bar unit-active" onclick="toggleUnit('unit1')">
-              <span>📗 Unidad 1: Rompe el ciclo</span>
-              <span class="unit-badge badge-open" id="unit1Badge">Liberada (Demo)</span>
+              <span>📖 Unidad 1: Rompe el ciclo</span>
+              <span class="unit-badge badge-open" id="unit1Badge">Liberada</span>
             </div>
             <ul class="lesson-list" id="unit1List">
               <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶️</span>
-                  <span>1. Diagnóstico de tu dinero</span>
-                </div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>1. Diagnóstico de tu dinero</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
-
               <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶️</span>
-                  <span>2. Fugas y micro-gastos hormiga</span>
-                </div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>2. Fugas y micro-gastos hormiga</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
-
               <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶️</span>
-                  <span>3. Regla 50/30/20 simplificada</span>
-                </div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>3. Regla 50/30/20 simplificada</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
-
-              <li class="lesson-item locked" id="itemLesson4" onclick="selectLesson(4)">
-                <div class="lesson-info">
-                  <span class="lesson-icon" id="iconLesson4">🔒</span>
-                  <span>4. Método anti-deuda acelerado</span>
-                </div>
-                <span class="lesson-status" id="statusLesson4" style="color: var(--amarillo-dorado);">Regístrate</span>
+              <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)">
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>4. Método anti-deuda acelerado</span></div>
+                <span class="lesson-status" style="color: var(--verde-claro);">Liberada</span>
               </li>
             </ul>
           </div>
 
           <!-- UNIDAD 2 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="showLockedAlert('Unidad 2')">
-              <span>📘 Unidad 2: Construye tu fortaleza</span>
-              <span class="unit-badge badge-locked">Bloqueado</span>
+            <div class="unit-title-bar" onclick="toggleUnit('unit2')">
+              <span>🛡 Unidad 2: Construye tu fortaleza</span>
+              <span class="unit-badge badge-open" style="background:#e0f2fe; color:#0369a1;">Liberada</span>
             </div>
-            <ul class="lesson-list" style="display: none;" id="unit2List">
-              <li class="lesson-item locked" onclick="goToSubscription()">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>Fondo de paz y contingencias</span></div>
+            <ul class="lesson-list" id="unit2List">
+              <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)">
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>5. Fondo de paz y emergencias</span></div>
+                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
-              <li class="lesson-item locked" onclick="goToSubscription()">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>Negociación inteligente de créditos</span></div>
+              <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)">
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Negociación y blindaje</span></div>
+                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
             </ul>
           </div>
 
           <!-- UNIDAD 3 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="showLockedAlert('Unidad 3')">
-              <span>📙 Unidad 3: Multiplica e invierte</span>
-              <span class="unit-badge badge-locked">Bloqueado</span>
+            <div class="unit-title-bar" onclick="toggleUnit('unit3')">
+              <span>📈 Unidad 3: Multiplica e invierte</span>
+              <span class="unit-badge badge-open" style="background:#fef08a; color:#854d0e;">Liberada</span>
             </div>
-            <ul class="lesson-list" style="display: none;" id="unit3List">
-              <li class="lesson-item locked" onclick="goToSubscription()">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>Rendimientos reales contra inflación</span></div>
+            <ul class="lesson-list" id="unit3List">
+              <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)">
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>7. CETES e Interés Compuesto</span></div>
+                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
-              <li class="lesson-item locked" onclick="goToSubscription()">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>Portafolios pasivos paso a paso</span></div>
+              <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)">
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Portafolios y Retiro Temprano</span></div>
+                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
             </ul>
           </div>
@@ -1206,7 +1195,7 @@
     const lessonsData = {
       1: {
         title: "1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
-        tag: "Lección 1 de 3 (Demo Gratuita)",
+        tag: "Lección 1 de 8 (Carrera Financiera)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/WF6qLnuh4EA",
         audio: { title: "Mitos del dinero que te mantienen pobre", desc: "Desmontamos las creencias más comunes que frenan tu crecimiento financiero.", duration: "22 min" },
@@ -1231,81 +1220,185 @@
                </ul>`
       },
       2: {
-        title: "2. Fugas silenciosas y micro-gastos hormiga",
-        tag: "Lección 2 de 3 (Demo Gratuita)",
-        duration: "15 min",
-        videoUrl: "https://www.youtube.com/embed/Of1490doP8c",
-        audio: { title: "¿Por qué no me alcanza la quincena?", desc: "Análisis de los patrones de consumo impulsivo y cómo romper el ciclo.", duration: "18 min" },
-        book: { title: "Padre Rico, Padre Pobre", author: "Robert T. Kiyosaki", desc: "Aprende la diferencia fundamental entre activos que ponen dinero en tu bolsillo y pasivos que lo sacan." },
+        title: "2. Fugas de capital y micro-gastos hormiga",
+        tag: "Lección 2 de 8 (Carrera Financiera)",
+        duration: "11 min",
+        videoUrl: "https://www.youtube.com/embed/qg_z9-kE44I",
+        audio: { title: "Psicología del consumo impulsivo", desc: "Cómo los algoritmos y el marketing explotan tus sesgos para hacerte gastar de más.", duration: "19 min" },
+        book: { title: "Hábitos Atómicos (Finanzas)", author: "James Clear", desc: "Cómo pequeños ajustes diarios construyen una muralla contra el desperdicio económico." },
         exercise: {
-          title: "¿Qué porcentaje de tus ingresos pueden consumir los gastos hormiga si no los controlas?",
-          desc: "Evalúa el impacto de los micro-gastos invisibles:",
+          title: "Si compras un café diario de $65 MXN, ¿cuánto representa al año?",
+          desc: "Calcula el costo de oportunidad anual de este gasto recurrente:",
           options: [
-            "Menos del 2%",
-            "Entre un 15% y un 25% de tu ingreso neto",
-            "Solamente el 5%",
-            "No tienen ningún impacto relevante"
+            "$5,000 MXN",
+            "$12,000 MXN",
+            "Más de $23,700 MXN (equivalente a 1 mes de sueldo o un fondo de emergencia)",
+            "$800 MXN"
           ],
-          correct: 1,
-          explanation: "¡Correcto! Pequeños gastos diarios de café, propinas, suscripciones y antojos pueden drenar hasta la cuarta parte de tu sueldo."
+          correct: 2,
+          explanation: "¡Correcto! $65 x 365 días son $23,725 MXN al año. Redirigir ese gasto a inversión genera miles de pesos en intereses."
         },
-        body: `<p>Un agujero diminuto puede hundir un gran barco. Hoy aprenderás a cazar los micro-gastos diarios que drenan hasta el 25% de tus ingresos sin que te des cuenta.</p>
+        body: `<p>Los pequeños goteos hunden los barcos más grandes. En esta lección aprenderás a auditar cafés diarios, suscripciones duplicadas y compras por impulso.</p>
                <ul>
-                 <li><strong>Suscripciones fantasma:</strong> Cómo auditar y cancelar servicios que ya no usas.</li>
-                 <li><strong>La regla de las 48 horas:</strong> El freno psicológico infalible contra compras impulsivas.</li>
-                 <li><strong>Ejercicio interactivo:</strong> Encuentra tus 3 fugas principales de esta semana.</li>
+                 <li><strong>Técnica de los 30 días:</strong> Regla de espera antes de compras no esenciales.</li>
+                 <li><strong>Cálculo del costo de oportunidad:</strong> Cuánto te cuesta ese gasto en 5 años invertido al 11%.</li>
+                 <li><strong>Plan de sustitución inteligente:</strong> Disfrutar sin desangrar tu billetera.</li>
                </ul>`
       },
       3: {
-        title: "3. La regla 50/30/20 adaptada a tu realidad",
-        tag: "Lección 3 de 3 (Demo Gratuita)",
-        duration: "18 min",
-        videoUrl: "https://www.youtube.com/embed/_7a55m4opPw",
-        audio: { title: "Diseñando tu presupuesto de paz", desc: "Cómo separar tus ingresos sin sentir culpa por darte gustos.", duration: "25 min" },
-        book: { title: "Los Secretos de la Mente Millonaria", author: "T. Harv Eker", desc: "Cómo reprogramar tu mentalidad financiera para construir riqueza constante." },
+        title: "3. La Regla 50/30/20 simplificada",
+        tag: "Lección 3 de 8 (Carrera Financiera)",
+        duration: "15 min",
+        videoUrl: "https://www.youtube.com/embed/NnL7zHjX0bU",
+        audio: { title: "Automatiza tu presupuesto en 3 cuentas", desc: "El sistema de 3 cuentas bancarias para nunca volver a quedarte sin dinero antes de quincena.", duration: "25 min" },
+        book: { title: "El Hombre más Rico de Babilonia", author: "George S. Clason", desc: "El principio clásico de pagarse a uno mismo primero al menos el 10% al 20% de lo ganado." },
         exercise: {
-          title: "Según la regla 50/30/20, ¿qué destino tiene el 20% de tus ingresos?",
-          desc: "Elige la distribución correcta de la regla 50/30/20:",
+          title: "Según la regla 50/30/20, si ganas $20,000 MXN netos, ¿cuánto debes destinar a Ahorro/Inversión?",
+          desc: "Calcula el monto correspondiente a la categoría del 20%:",
           options: [
-            "Gastos hormiga y diversiones de fin de semana",
-            "Pago de servicios de streaming",
-            "Ahorro, amortización de deudas e inversiones para tu tranquilidad",
-            "Renta y despensa mensual"
+            "$2,000 MXN",
+            "$4,000 MXN (el 20% reservado para tu libertad futura)",
+            "$6,000 MXN",
+            "Lo que sobre después de pagar las salidas del fin de semana"
           ],
-          correct: 2,
-          explanation: "¡Correcto! El 20% es tu escudo: se destina a fondo de emergencia, liquidar deudas e inversión para el futuro."
+          correct: 1,
+          explanation: "¡Excelente! El 20% de $20,000 son exactamente $4,000 MXN destinados a pagar deudas, fondo de paz e inversión."
         },
-        body: `<p>Olvídate de presupuestos aburridos y restrictivos. Aprende a distribuir tu dinero en 3 cubos claros para vivir tranquilo hoy mientras construyes tu futuro.</p>
+        body: `<p>El marco de distribución presupuestaria más sólido del mundo, adaptado al costo de vida real de México y Latinoamérica.</p>
                <ul>
-                 <li><strong>50% Necesidades esenciales:</strong> Renta, servicios y despensa básica.</li>
+                 <li><strong>50% Necesidades esenciales:</strong> Vivienda, despensa, transporte indispensable y servicios.</li>
                  <li><strong>30% Deseos y estilo de vida:</strong> Salidas, entretenimiento y gustos personales sin culpa.</li>
-                 <li><strong>20% Tu tranquilidad:</strong> Ahorro, amortización de deudas e inversiones iniciales.</li>
+                 <li><strong>20% Ahorro e Inversión:</strong> Tu libertad financiera futura y pago acelerado de deudas.</li>
                </ul>`
       },
       4: {
-        title: "4. Método anti-deuda acelerado (Bola de nieve vs Avalancha)",
-        tag: "Lección 4 (Unidad 1 Completa)",
-        duration: "22 min",
-        videoUrl: "https://www.youtube.com/embed/xnDpXyRsKlU",
-        audio: { title: "Historias reales de deudas a libertad", desc: "Casos de éxito de personas que liquidaron todas sus deudas con el método avalancha.", duration: "30 min" },
-        book: { title: "La Total Transformación de su Dinero", author: "Dave Ramsey", desc: "El plan paso a paso más probado para salir de deudas y alcanzar estabilidad económica." },
+        title: "4. Método anti-deuda acelerado: Bola de Nieve vs Avalancha",
+        tag: "Lección 4 de 8 (Carrera Financiera)",
+        duration: "18 min",
+        videoUrl: "https://www.youtube.com/embed/5U9o_vL_WfQ",
+        audio: { title: "Saliendo de la trampa del pago mínimo", desc: "Por qué los bancos adoran que pagues el mínimo y cómo cortar esa cadena para siempre.", duration: "24 min" },
+        book: { title: "La Transformación Total de su Dinero", author: "Dave Ramsey", desc: "Paso a paso para demoler deudas de tarjetas y créditos personales con la Bola de Nieve." },
         exercise: {
-          title: "¿En qué consiste el método Bola de Nieve para liquidar deudas?",
-          desc: "Selecciona el principio fundamental del método Bola de Nieve:",
+          title: "¿En qué consiste la estrategia de 'Bola de Nieve' para pagar deudas?",
+          desc: "Identifica la lógica de ordenamiento de esta estrategia probada:",
           options: [
-            "Pagar primero la deuda con la tasa de interés más alta",
-            "Pagar primero la deuda con el saldo más pequeño para ganar victorias psicológicas",
-            "Pedir otro préstamo para consolidar sin pagar nada",
-            "Dejar de pagar todas las deudas"
+            "Pagar la deuda con el monto más grande primero",
+            "Pagar la deuda con el saldo total más pequeño primero para lograr una victoria psicológica rápida",
+            "Pagar solo los intereses de todas las tarjetas",
+            "Ignorar las deudas hasta que prescriban"
           ],
           correct: 1,
-          explanation: "¡Exacto! Bola de nieve ataca la deuda menor primero para darte motivación y ritmo imparable."
+          explanation: "¡Exacto! Bola de nieve ataca la deuda menor primero para darte motivación, liberar flujo de caja y crear un ritmo imparable."
         },
         body: `<p>El método probado para liquidar deudas de tarjetas y préstamos en tiempo récord pagando el mínimo interés posible.</p>
                <ul>
-                 <li><strong>Estrategia Bola de Nieve:</strong> Victorias psicológicas rápidas.</li>
-                 <li><strong>Estrategia Avalancha:</strong> Ahorro matemático máximo de intereses.</li>
-                 <li><strong>Plantilla de cálculo automático:</strong> Pon tus deudas y obtén tu fecha exacta de libertad financiera.</li>
+                 <li><strong>Estrategia Bola de Nieve:</strong> Victorias psicológicas rápidas liquidando de menor a mayor saldo.</li>
+                 <li><strong>Estrategia Avalancha:</strong> Ahorro matemático máximo atacando la tasa de interés más alta.</li>
+                 <li><strong>Plan de ataque:</strong> Congelar tarjetas activas y redirigir cada excedente a capital.</li>
+               </ul>`
+      },
+      5: {
+        title: "5. Creación del Fondo de Paz y Emergencias",
+        tag: "Lección 5 de 8 (Carrera Financiera)",
+        duration: "16 min",
+        videoUrl: "https://www.youtube.com/embed/5U9o_vL_WfQ",
+        audio: { title: "Dormir en paz: La psicología del colchón financiero", desc: "Cómo tener 3 meses de gastos líquidos elimina el 90% del estrés diario.", duration: "20 min" },
+        book: { title: "Tu Dinero Cuenta", author: "Howard Dayton", desc: "Estrategias de blindaje y preservación ante imprevistos de salud y empleo." },
+        exercise: {
+          title: "¿Dónde debe guardarse el Fondo de Emergencias?",
+          desc: "Selecciona el instrumento financiero idóneo para este propósito:",
+          options: [
+            "En efectivo debajo del colchón",
+            "En acciones volátiles de alto riesgo",
+            "En una cuenta líquida y segura que pague rendimiento diario (ej. CETES Bonddia o cuenta a la vista con rendimiento)",
+            "En criptomonedas de alta especulación"
+          ],
+          correct: 2,
+          explanation: "¡Correcto! El fondo de emergencia exige liquidez inmediata y nula volatilidad, sin perder contra la inflación."
+        },
+        body: `<p>Un fondo de paz mental es el colchón que evita que cualquier imprevisto (médico, auto, desempleo) te regrese a la deuda.</p>
+               <ul>
+                 <li><strong>Regla de oro:</strong> De 3 a 6 meses de gastos fijos esenciales.</li>
+                 <li><strong>Dónde colocarlo:</strong> Instrumentos regulados por CNBV con liquidez diaria (Bonddia/CETES).</li>
+                 <li><strong>Reglas de uso:</strong> Solo para emergencias genuinas, no para vacaciones o rebajas.</li>
+               </ul>`
+      },
+      6: {
+        title: "6. Negociación de créditos y blindaje financiero",
+        tag: "Lección 6 de 8 (Carrera Financiera)",
+        duration: "14 min",
+        videoUrl: "https://www.youtube.com/embed/5k3f3p4P7-I",
+        audio: { title: "Cómo negociar quitas y reestructuras sin arruinar tu historial", desc: "Estrategias de negociación directa con instituciones bancarias y despachos de cobranza.", duration: "21 min" },
+        book: { title: "Rompe la Barrera del No", author: "Chris Voss", desc: "Tácticas de negociación para conseguir mejores tasas, cancelaciones de anualidades y acuerdos." },
+        exercise: {
+          title: "¿Qué es el CAT (Costo Anual Total) y por qué debes compararlo?",
+          desc: "Identifica el significado y relevancia financiera del CAT:",
+          options: [
+            "Un impuesto estatal obligatorio",
+            "La medida oficial en México que integra tasa de interés, comisiones y seguros del crédito",
+            "El saldo mínimo que exige la tarjeta de crédito",
+            "Un descuento por pronto pago"
+          ],
+          correct: 1,
+          explanation: "¡Exacto! El CAT incluye todos los costos reales del crédito. Elegir siempre el menor CAT te ahorra miles de pesos."
+        },
+        body: `<p>Aprende a negociar con instituciones financieras para bajar tu tasa de interés, consolidar deudas caras y cancelar seguros innecesarios.</p>
+               <ul>
+                 <li><strong>Transferencia de saldos:</strong> Mover tu deuda a un banco que ofrezca tasa promocional del 0% al 12%.</li>
+                 <li><strong>Revisión del Buró de Crédito:</strong> Cómo leer tu Reporte de Crédito Especial (Mi Buró).</li>
+                 <li><strong>Blindaje patrimonial:</strong> El rol del seguro de gastos médicos y de auto como protección.</li>
+               </ul>`
+      },
+      7: {
+        title: "7. CETES y Primeros Pasos en Renta Fija",
+        tag: "Lección 7 de 8 (Carrera Financiera)",
+        duration: "19 min",
+        videoUrl: "https://www.youtube.com/embed/d3UaX-s7eXU",
+        audio: { title: "La magia del interés compuesto explicada para todos", desc: "Cómo Albert Einstein llamó al interés compuesto la octava maravilla del mundo y cómo activarlo.", duration: "27 min" },
+        book: { title: "Inversionista de a Pie", author: "Omar Educación Financiera", desc: "Guía paso a paso para abrir cuenta en CETESdirecto, SOFIPOs y Casas de Bolsa reguladas en México." },
+        exercise: {
+          title: "Si inviertes $10,000 MXN en CETES al 11% anual reinvirtiendo intereses cada mes, ¿qué fenómeno estás activando?",
+          desc: "Selecciona el principio financiero que acelera tu patrimonio:",
+          options: [
+            "Devaluación del capital",
+            "Interés compuesto (ganar intereses sobre intereses)",
+            "Especulación bursátil",
+            "Pérdida por comisiones bancarias"
+          ],
+          correct: 1,
+          explanation: "¡Excelente! La reinversión periódica genera crecimiento exponencial porque cada nuevo periodo los intereses ganados también rinden."
+        },
+        body: `<p>Aprende a poner tu dinero a trabajar en el instrumento más seguro de México: Valores gubernamentales regulados por BANXICO y SHCP.</p>
+               <ul>
+                 <li><strong>¿Qué es CETESdirecto?:</strong> Plataforma directa sin intermediarios bancarios ni comisiones.</li>
+                 <li><strong>Plazos disponibles:</strong> 28 días, 91 días, 6 meses, 1 año y 2 años.</li>
+                 <li><strong>Instrucción de ahorro recurrente:</strong> Automatiza la compra de títulos en cada fecha de cobro.</li>
+               </ul>`
+      },
+      8: {
+        title: "8. Portafolios Pasivos, ETFs y Retiro Temprano",
+        tag: "Lección 8 de 8 (Carrera Financiera)",
+        duration: "22 min",
+        videoUrl: "https://www.youtube.com/embed/yQeT95m2r8o",
+        audio: { title: "La Regla del 4% y la Filosofía FIRE", desc: "Cómo calcular el monto exacto para vivir de tus rentas e inversiones sin depender de un jefe.", duration: "30 min" },
+        book: { title: "El Pequeño Libro para Invertir con Sentido Común", author: "John C. Bogle", desc: "La obra maestra del fundador de Vanguard sobre invertir en el índice S&P 500 a bajo costo.", duration: "300 pág." },
+        exercise: {
+          title: "Según la Regla del 4%, ¿cuánto necesitas acumular para retirarte si gastas $300,000 MXN al año?",
+          desc: "Aplica la fórmula: Gasto Anual x 25 = Patrimonio de Libertad:",
+          options: [
+            "$1,000,000 MXN",
+            "$7,500,000 MXN invertidos en portafolio diversificado global",
+            "$500,000 MXN",
+            "$50,000,000 MXN"
+          ],
+          correct: 1,
+          explanation: "¡Exacto! $300,000 x 25 = $7,500,000 MXN. Retirar el 4% anual ($300k) ajustado a inflación preserva el capital indefinidamente."
+        },
+        body: `<p>La estrategia definitiva para inversores a largo plazo: Diversificación global a través de fondos indexados (ETFs como VOO, IVVpeso, VT).</p>
+               <ul>
+                 <li><strong>El índice S&P 500:</strong> Las 500 empresas más sólidas y rentables del mercado estadounidense.</li>
+                 <li><strong>Estrategia DCA (Dollar Cost Averaging):</strong> Aportar un monto fijo cada mes sin importar los altibajos del mercado.</li>
+                 <li><strong>Tu número de libertad financiera:</strong> Plan de retiro y proyección patrimonial a 10, 15 y 20 años.</li>
                </ul>`
       }
     };
@@ -1320,8 +1413,13 @@
           else btn.classList.remove('active');
         }
         if (pane) {
-          if (t === tab) pane.classList.add('active');
-          else pane.classList.remove('active');
+          if (t === tab) {
+            pane.classList.add('active');
+            pane.style.display = 'block';
+          } else {
+            pane.classList.remove('active');
+            pane.style.display = 'none';
+          }
         }
       });
     }
@@ -1363,13 +1461,13 @@
     function togglePlayAudioDemo(btn) {
       if (!window.audioDemoActive) {
         window.audioDemoActive = true;
-        btn.innerHTML = '⏸️ Pausar episodio';
+        btn.innerHTML = '⏸ Pausar episodio';
         btn.style.background = '#e11d48';
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
           const title = document.getElementById('audioTitle').textContent;
           const desc = document.getElementById('audioDesc').textContent;
-          const utter = new SpeechSynthesisUtterance('Reproduciendo episodio de audio: ' + title + '. ' + desc);
+          const utter = new SpeechSynthesisUtterance('Reproduciendo episodio: ' + title + '. ' + desc);
           utter.lang = 'es-MX';
           window.speechSynthesis.speak(utter);
         }
@@ -1387,17 +1485,17 @@
       const title = (document.getElementById('bookTitle') && document.getElementById('bookTitle').textContent) || 'Guia-Financiera';
       const author = (document.getElementById('bookAuthor') && document.getElementById('bookAuthor').textContent) || 'Educación Financiera';
       
-      const content = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '</title>' +
-        '<style>body{font-family:sans-serif;padding:40px;color:#1e293b;line-height:1.6;}h1{color:#00703C;}h2{color:#06402d;}ul{margin-bottom:20px;}li{margin-bottom:8px;}</style></head>' +
-        '<body><h1>' + title + '</h1><h3>' + author + ' - Guía Oficial de Aprendizaje</h3>' +
-        '<hr><p>Esta es la síntesis de estudio para el programa académico de Educación Financiera.</p>' +
-        '<h2>5 Principios Clave:</h2><ul>' +
-        '<li><strong>1. Diagnóstico de tu dinero:</strong> Conoce tu flujo neto antes de gastar.</li>' +
-        '<li><strong>2. Fondo de paz mental:</strong> Construye de 3 a 6 meses de gastos esenciales.</li>' +
-        '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.</li>' +
-        '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.</li>' +
-        '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.</li></ul>' +
-        '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.</footer>' +
+      const content = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + title + '<' + '/title>' +
+        '<style>body{font-family:sans-serif;padding:40px;color:#1e293b;line-height:1.6;}h1{color:#00703C;}h2{color:#06402d;}ul{margin-bottom:20px;}li{margin-bottom:8px;}</style><' + '/head>' +
+        '<body><h1>' + title + '<' + '/h1><h3>' + author + ' - Guía Oficial de Aprendizaje<' + '/h3>' +
+        '<hr><p>Esta es la síntesis de estudio para el programa académico de Educación Financiera.<' + '/p>' +
+        '<h2>5 Principios Clave:<' + '/h2><ul>' +
+        '<li><strong>1. Diagnóstico de tu dinero:</strong> Conoce tu flujo neto antes de gastar.<' + '/li>' +
+        '<li><strong>2. Fondo de paz mental:</strong> Construye de 3 a 6 meses de gastos esenciales.<' + '/li>' +
+        '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.<' + '/li>' +
+        '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.<' + '/li>' +
+        '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.<' + '/li><' + '/ul>' +
+        '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.<' + '/footer>' +
         '<' + '/body>' + '<' + '/html>';
 
       const blob = new Blob([content], { type: 'text/html' });
@@ -1411,14 +1509,8 @@
     }
 
     let currentLesson = 1;
-    let isUserRegistered = false;
 
     function selectLesson(id) {
-      if (id === 4 && !isUserRegistered) {
-        showRegistrationGate(id);
-        return;
-      }
-
       currentLesson = id;
       const data = lessonsData[id];
       if (!data) return;
@@ -1441,7 +1533,7 @@
         document.getElementById('exerciseTitle').textContent = data.exercise.title;
         document.getElementById('exerciseDesc').textContent = data.exercise.desc;
         const optHtml = data.exercise.options.map((opt, idx) => {
-          return '<div class="exercise-option" onclick="selectExerciseOption(' + idx + ')"><span>🔘</span> <span>' + opt + '</span></div>';
+          return '<div class="exercise-option" onclick="selectExerciseOption(' + idx + ')"><span>📝</span> <span>' + opt + '</span></div>';
         }).join('');
         document.getElementById('exerciseOptionsContainer').innerHTML = optHtml;
       }
@@ -1463,9 +1555,10 @@
       // Volver a la pestaña de video por defecto
       switchLessonTab('video');
       document.getElementById('playerBody').style.display = 'block';
-      document.getElementById('registrationGate').style.display = 'none';
+      const regGate = document.getElementById('registrationGate');
+      if (regGate) regGate.style.display = 'none';
 
-      for (let i = 1; i <= 4; i++) {
+      for (let i = 1; i <= 8; i++) {
         const item = document.getElementById('itemLesson' + i);
         if (item) {
           if (i === id) item.classList.add('active');
@@ -1473,65 +1566,18 @@
         }
       }
 
-      document.getElementById('btnPrevLesson').disabled = (id === 1);
-      document.getElementById('btnPrevLesson').style.opacity = (id === 1) ? "0.5" : "1";
-
-      if (id === 4 && isUserRegistered) {
-        document.getElementById('finishUnitBanner').style.display = 'flex';
+      const prevBtn = document.getElementById('btnPrevLesson');
+      if (prevBtn) {
+        prevBtn.disabled = (id === 1);
+        prevBtn.style.opacity = (id === 1) ? "0.5" : "1";
       }
     }
 
     function stepLesson(direction) {
       const nextId = currentLesson + direction;
-      if (nextId >= 1 && nextId <= 4) {
+      if (nextId >= 1 && nextId <= 8) {
         selectLesson(nextId);
       }
-    }
-
-    function showRegistrationGate(id) {
-      currentLesson = id;
-      for (let i = 1; i <= 4; i++) {
-        const item = document.getElementById('itemLesson' + i);
-        if (item) {
-          if (i === id) item.classList.add('active');
-          else item.classList.remove('active');
-        }
-      }
-
-      document.getElementById('playerTitle').textContent = "🔒 Lección 4: Método anti-deuda acelerado";
-      document.getElementById('lessonTagText').textContent = "Registro Gratuito Requerido";
-      document.getElementById('videoBox').style.display = 'none';
-      document.getElementById('playerBody').style.display = 'none';
-      document.getElementById('registrationGate').style.display = 'block';
-    }
-
-    function openFreeRegisterModal() {
-      document.getElementById('freeRegisterModal').classList.add('open');
-    }
-
-    function closeFreeRegisterModal() {
-      document.getElementById('freeRegisterModal').classList.remove('open');
-    }
-
-    function handleFreeRegister(e) {
-      e.preventDefault();
-      const name = document.getElementById('regName').value || "Estudiante";
-      closeFreeRegisterModal();
-      
-      isUserRegistered = true;
-      const item4 = document.getElementById('itemLesson4');
-      const icon4 = document.getElementById('iconLesson4');
-      const status4 = document.getElementById('statusLesson4');
-      item4.classList.remove('locked');
-      icon4.textContent = '▶️';
-      status4.textContent = 'Liberado';
-      status4.style.color = 'var(--verde-claro)';
-      document.getElementById('unit1Badge').textContent = 'Unidad 1 Completa (Gratis)';
-      document.getElementById('menuStatusTag').textContent = 'Unidad 1 Desbloqueada';
-      document.getElementById('stripStatus').textContent = '¡Unidad 1 desbloqueada completamente!';
-
-      alert(`🎉 ¡Felicidades ${name}! Tu cuenta gratuita ha sido creada. Toda la Unidad 1 está 100% liberada.`);
-      selectLesson(4);
     }
 
     function toggleUnit(unitId) {
@@ -1541,200 +1587,10 @@
     }
 
     function tieneInscripcionActiva() {
-      try {
-        let quien = 'invitado';
-        const sesion = localStorage.getItem('edu_fin_session');
-        const usuario = sesion ? JSON.parse(sesion) : null;
-        if (usuario && usuario.email) quien = String(usuario.email).toLowerCase();
-
-        let raw = localStorage.getItem('edu_fin_membresia_' + quien);
-        if (!raw && quien !== 'invitado') raw = localStorage.getItem('edu_fin_membresia_invitado');
-        const membresia = raw ? JSON.parse(raw) : null;
-        return !!(membresia && membresia.activa);
-      } catch (e) {
-        return false;
-      }
+      return true; // Siempre activa para libre aprendizaje
     }
 
-    function showLockedAlert(unitName) {
-      if (tieneInscripcionActiva()) {
-        alert(`✅ Tu inscripción está activa. La ${unitName} la desbloqueas desde tu Retícula Académica.`);
-        window.location.href = "reticula.html";
-        return;
-      }
-      alert(`🔒 La ${unitName} forma parte de la Inscripción a la Carrera. Haz clic en "Aceptar" para ver las formas de pago.`);
-      window.location.href = "suscripcion.html";
-    }
-
-    function goToSubscription() {
-      if (tieneInscripcionActiva()) {
-        window.location.href = "reticula.html";
-        return;
-      }
-      window.location.href = "suscripcion.html";
-    }
-
-    function simulatePlayVideo() {
-      switchLessonTab('video');
-    }
-  
     document.addEventListener("DOMContentLoaded", function() { selectLesson(1); });
   </script>
-
-
-</div><!-- fin main-wrapper -->
-
-
-  <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
-  <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
-    <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
-        <h4 id="videoPlayerTitle" style="margin: 0; font-size: 17px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
-          <span>🎥</span> <span>Clase en Video</span>
-        </h4>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
-      </div>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
-        <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
-        <button type="button" class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13.5px;">Cerrar Video</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: REPRODUCTOR DE AUDIO / PODCAST -->
-  <div class="modal-overlay" id="audioPlayerModal" role="dialog" aria-modal="true">
-    <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
-          🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
-        </span>
-        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
-      </div>
-
-      <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
-        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
-          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 26px; color: #06402d; flex-shrink: 0;">
-            🎙️
-          </div>
-          <div>
-            <h4 id="audioModalTitle" style="font-size: 17px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
-            <div id="audioModalDuration" style="font-size: 12.5px; opacity: 0.85;">Duración: 18 min</div>
-          </div>
-        </div>
-
-        <p id="audioModalDesc" style="font-size: 13px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;">
-          Escucha esta síntesis comentada por el profesor mientras realizas tus actividades cotidianas.
-        </p>
-
-        <!-- Visualizador de ondas sonoras animadas -->
-        <div class="audio-wave-visual" id="audioWaveVisual" style="display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 36px; margin-bottom: 16px;">
-          <span class="wave-bar" style="height: 12px;"></span>
-          <span class="wave-bar" style="height: 24px;"></span>
-          <span class="wave-bar" style="height: 32px;"></span>
-          <span class="wave-bar" style="height: 18px;"></span>
-          <span class="wave-bar" style="height: 28px;"></span>
-          <span class="wave-bar" style="height: 36px;"></span>
-          <span class="wave-bar" style="height: 20px;"></span>
-          <span class="wave-bar" style="height: 30px;"></span>
-          <span class="wave-bar" style="height: 14px;"></span>
-        </div>
-
-        <!-- Barra de progreso -->
-        <div style="background: rgba(255,255,255,0.2); height: 6px; border-radius: 999px; overflow: hidden; margin-bottom: 8px;">
-          <div id="audioModalProgressBar" style="background: var(--amarillo-dorado); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
-        </div>
-        <div style="display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8;">
-          <span id="audioModalCurrentTime">00:00</span>
-          <span>Reproducción continua en HD</span>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 12px; justify-content: space-between; align-items: center;">
-        <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-          ▶️ Iniciar reproducción
-        </button>
-        <button type="button" onclick="closeAudioPlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 12px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: LECTOR Y DESCARGADOR DE LIBROS / GUÍAS -->
-  <div class="modal-overlay" id="bookReaderModal" role="dialog" aria-modal="true">
-    <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
-          📚 LECTURA & GUÍA OFICIAL
-        </span>
-        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
-      </div>
-
-      <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
-        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
-          📖
-        </div>
-        <div>
-          <h3 id="bookModalTitle" style="font-size: 18px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
-          <div id="bookModalAuthor" style="font-size: 13.5px; color: var(--verde-bosque); font-weight: 600; margin-bottom: 6px;">Por Autor</div>
-          <p id="bookModalDesc" style="font-size: 13px; color: var(--gris-medio); line-height: 1.45; margin: 0;">Descripción oficial del material formativo.</p>
-        </div>
-      </div>
-
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
-        <h5 style="font-size: 14px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
-          <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
-        </h5>
-        <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 13px; color: #334155; line-height: 1.6;">
-          <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
-          <li><strong>Principio 2:</strong> Auditar y proteger el 20% de cada peso que ganas.</li>
-          <li><strong>Principio 3:</strong> El costo oculto de la deuda y cómo eliminar intereses abusivos.</li>
-          <li><strong>Principio 4:</strong> Inversión recurrente automatizada para aprovechar el interés compuesto.</li>
-          <li><strong>Principio 5:</strong> Definir tu fecha y número exacto de libertad financiera.</li>
-        </ul>
-      </div>
-
-      <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
-        <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 13.5px; display: flex; align-items: center; gap: 8px;">
-          <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
-        </button>
-        <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: EJERCICIOS Y CASOS PRÁCTICOS -->
-  <div class="modal-overlay" id="exercisePlayerModal" role="dialog" aria-modal="true">
-    <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
-          📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
-        </span>
-        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
-      </div>
-      <h3 id="exerciseModalTitle" style="font-size: 17px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
-      <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 13.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>
-
-      <div id="exerciseModalOptions" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;"></div>
-
-      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; font-size: 13.5px; margin-bottom: 16px; line-height: 1.5;"></div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 20px; font-size: 14px; font-weight: 700;">
-          Comprobar respuesta
-        </button>
-        <button type="button" onclick="closeExercisePlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
-
-
-  <script src="script.js?v=20261102_recursos"></script>
 </body>
 </html>
