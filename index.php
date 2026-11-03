@@ -8,29 +8,12 @@
 require_once __DIR__ . '/autoload.php';
 
 use App\Core\Router;
-use App\Controllers\PageController;
-
-// Soporte para parámetro query ?page=...
-$page = $_GET['page'] ?? null;
-if ($page !== null) {
-    $pageController = new PageController();
-    match ($page) {
-        'cursos'          => $pageController->cursos(),
-        'aula'            => $pageController->aula(),
-        'recursos'        => $pageController->recursos(),
-        'reticula'        => $pageController->reticula(),
-        'metas'           => $pageController->metas(),
-        'configuraciones' => $pageController->configuraciones(),
-        'suscripcion'     => $pageController->suscripcion(),
-        default           => $pageController->home(),
-    };
-    exit();
-}
 
 $router = new Router();
 
-// Rutas Web
+// Rutas Web (acepta tanto /cursos como index.php?page=cursos)
 $router->get('/', 'PageController@home');
+$router->get('/home', 'PageController@home');
 $router->get('/index.php', 'PageController@home');
 $router->get('/cursos', 'PageController@cursos');
 $router->get('/aula', 'PageController@aula');

@@ -31,7 +31,7 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 ```
 EDUCACION_FINANCIERA/
 ├── autoload.php                 # Autoloader PSR-4 (namespace App\)
-├── index.php                    # Front Controller Web (rutas de vistas)
+├── index.php                    # Front Controller Web (rutas ?page=)
 │
 ├── app/                         # ========= Arquitectura MVC =========
 │   ├── Config/
@@ -42,7 +42,7 @@ EDUCACION_FINANCIERA/
 │   │   ├── Controller.php       # Controlador base (JSON, auth, CSRF)
 │   │   ├── Model.php            # Modelo base (transacciones PDO)
 │   │   ├── View.php             # Motor de vistas con layouts
-│   │   ├── Router.php           # Enrutador HTTP simple
+│   │   ├── Router.php           # Enrutador (soporta ?page= y rutas)
 │   │   ├── Session.php          # Gestión segura de sesiones
 │   │   ├── Csrf.php             # Tokens CSRF
 │   │   ├── RateLimiter.php      # Protección de fuerza bruta
@@ -60,21 +60,17 @@ EDUCACION_FINANCIERA/
 │   │   ├── AuthController.php   # Login, registro, logout, sesión
 │   │   ├── UserController.php   # Perfil, contraseña, eliminar cuenta
 │   │   ├── CourseController.php  # Listado y detalle de cursos
-│   │   ├── EnrollmentController.php # Inscripciones
+│   │   ├── EnrollmentController.php # Inscripciones (GET/POST/DELETE)
 │   │   ├── ProgressController.php   # Progreso de usuario
 │   │   ├── AchievementController.php # Logros y puntos
 │   │   ├── MembershipController.php  # Membresías
-│   │   └── PageController.php        # Renderiza vistas HTML
+│   │   └── PageController.php        # Renderiza las páginas
 │   │
 │   └── Views/                   # Capa de presentación
 │       ├── layouts/
-│       │   ├── main.php         # Layout principal (header+navbar+footer)
-│       │   ├── header.php       # <head> HTML global
-│       │   ├── navbar.php       # Barra de navegación
-│       │   └── footer.php       # Pie de página
-│       ├── components/
-│       │   └── auth_modal.php   # Modal de login/registro
-│       └── pages/
+│       │   ├── header.php       # <head> HTML (title + CSS por página)
+│       │   └── main.php         # Envoltura <body> + contenido
+│       └── pages/               # Una vista por página (contenido completo)
 │           ├── home.php         # Página principal
 │           ├── cursos.php       # Catálogo de cursos
 │           ├── aula.php         # Aula virtual con reproductor
@@ -85,26 +81,23 @@ EDUCACION_FINANCIERA/
 │           └── suscripcion.php  # Planes y membresías
 │
 ├── api/                         # ========= API REST =========
-│   ├── index.php                # Front Controller API (MVC)
-│   ├── conexion.php             # Adaptador de compatibilidad → Database
-│   ├── csrf.php                 # Adaptador de compatibilidad → Csrf
-│   ├── rate_limiter.php         # Adaptador de compatibilidad → RateLimiter
-│   ├── logger.php               # Adaptador de compatibilidad → Logger
-│   ├── login.php                # (legacy, sigue funcionando)
-│   ├── registro.php             # (legacy, sigue funcionando)
-│   └── ...                      # Demás endpoints legacy intactos
+│   └── index.php                # Front Controller API (?endpoint=)
 │
-├── css/                         # Estilos modulares
-│   ├── base/
-│   ├── components/
-│   └── main.css
-├── js/                          # JavaScript modular
-│   ├── modules/
-│   └── main.js
+├── css/                         # Estilos
+│   └── pages/                   # CSS específico por página
 ├── img/                         # Imágenes y assets
 ├── estilos.css                  # Hoja de estilos principal
-├── script.js                    # JavaScript global legacy
+├── script.js                    # JavaScript global (API + CSRF)
 ├── educacion_financiera.sql     # Schema de BD
+├── legacy/                      # Código y datos archivados (no se sirve)
+│   ├── api/                     # Endpoints PHP antiguos
+│   ├── html/                    # Páginas HTML originales
+│   ├── css/                     # CSS antiguo (main, base, components)
+│   ├── js/                      # JS modular antiguo
+│   ├── views/                   # Vistas antiguas (navbar/footer/modales)
+│   ├── backups/                 # Copias .bak
+│   ├── data/                    # JSON auxiliares
+│   └── scripts/                 # Scripts PowerShell de un solo uso
 ├── .env                         # Variables de entorno
 ├── .env.example                 # Plantilla de .env
 └── .gitignore
@@ -145,8 +138,8 @@ EDUCACION_FINANCIERA/
 
 5. **Acceder a la plataforma**
    - **Vistas MVC**: `http://localhost/EDUCACION_FINANCIERA/index.php`
+   - **Páginas**: `index.php?page=home|cursos|aula|recursos|reticula|metas|configuraciones|suscripcion`
    - **API REST MVC**: `http://localhost/EDUCACION_FINANCIERA/api/index.php?endpoint=session`
-   - **API Legacy** (compatibilidad): `http://localhost/EDUCACION_FINANCIERA/api/login.php`
 
 ## 📱 API Endpoints
 
@@ -164,14 +157,14 @@ EDUCACION_FINANCIERA/
 | `?endpoint=eliminar-cuenta` | POST | Eliminar cuenta (soft delete) |
 | `?endpoint=cursos` | GET | Listar cursos |
 | `?endpoint=cursos&id=1` | GET | Detalle de curso |
-| `?endpoint=inscripciones` | GET/POST | Inscripciones a materias |
+| `?endpoint=inscripciones` | GET/POST/DELETE | Inscripciones a materias |
 | `?endpoint=progreso` | GET/POST | Progreso de usuario |
 | `?endpoint=logros` | GET | Logros y puntos |
 | `?endpoint=membresia` | GET | Membresía activa |
 
-### Vía archivos individuales (compatibilidad legacy)
+### Código legacy
 
-Los archivos `api/login.php`, `api/registro.php`, etc. siguen funcionando exactamente igual gracias a los **adaptadores de compatibilidad** en `conexion.php`, `csrf.php`, `rate_limiter.php` y `logger.php`.
+Los endpoints PHP individuales (`login.php`, `registro.php`, etc.) y sus adaptadores de compatibilidad fueron archivados en `legacy/api/` y ya no forman parte del flujo activo. La única entrada de la API es `api/index.php?endpoint=...`.
 
 ## 🔒 Seguridad
 

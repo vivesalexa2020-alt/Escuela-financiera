@@ -3,77 +3,45 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Core\Session;
-use App\Models\CourseModel;
 
 class PageController extends Controller {
     public function home(): void {
-        $courseModel = new CourseModel();
-        $cursos = [];
-        try {
-            $cursos = $courseModel->getAllWithCounts();
-        } catch (\Exception $e) {
-            // Si la BD aún no está importada, se maneja graciosamente
-        }
-
-        $this->view('pages/home', [
-            'pageTitle' => 'Educación Financiera | Resultados Reales, Cero Humo',
-            'user'      => Session::user(),
-            'cursos'    => $cursos,
-        ], 'main');
+        $this->renderPage('home', 'pages/home', 'Inicio | Educación Financiera', '');
     }
 
     public function cursos(): void {
-        $courseModel = new CourseModel();
-        $cursos = [];
-        try {
-            $cursos = $courseModel->getAllWithCounts();
-        } catch (\Exception $e) {}
-
-        $this->view('pages/cursos', [
-            'pageTitle' => 'Cursos y Programas | Educación Financiera',
-            'user'      => Session::user(),
-            'cursos'    => $cursos,
-        ], 'main');
+        $this->renderPage('cursos', 'pages/cursos', 'Cursos y Programas | Educación Financiera', 'user-logged-in');
     }
 
     public function aula(): void {
-        $this->view('pages/aula', [
-            'pageTitle' => 'Aula Virtual | Educación Financiera',
-            'user'      => Session::user(),
-        ], 'main');
+        $this->renderPage('aula', 'pages/aula', 'Aula Virtual | Educación Financiera', 'user-logged-in');
     }
 
     public function recursos(): void {
-        $this->view('pages/recursos', [
-            'pageTitle' => 'Recursos y Herramientas | Educación Financiera',
-            'user'      => Session::user(),
-        ], 'main');
+        $this->renderPage('recursos', 'pages/recursos', 'Recursos y Herramientas | Educación Financiera', 'user-logged-in');
     }
 
     public function reticula(): void {
-        $this->view('pages/reticula', [
-            'pageTitle' => 'Retícula Académica | Educación Financiera',
-            'user'      => Session::user(),
-        ], 'main');
+        $this->renderPage('reticula', 'pages/reticula', 'Retícula Académica | Educación Financiera', 'user-logged-in');
     }
 
     public function metas(): void {
-        $this->view('pages/metas', [
-            'pageTitle' => 'Mis Metas Financieras | Educación Financiera',
-            'user'      => Session::user(),
-        ], 'main');
+        $this->renderPage('metas', 'pages/metas', 'Mis Metas Financieras | Educación Financiera', 'user-logged-in');
     }
 
     public function configuraciones(): void {
-        $this->view('pages/configuraciones', [
-            'pageTitle' => 'Configuración de Perfil | Educación Financiera',
-            'user'      => Session::user(),
-        ], 'main');
+        $this->renderPage('configuraciones', 'pages/configuraciones', 'Configuración de Perfil | Educación Financiera', 'user-logged-in');
     }
 
     public function suscripcion(): void {
-        $this->view('pages/suscripcion', [
-            'pageTitle' => 'Planes y Membresías | Educación Financiera',
+        $this->renderPage('suscripcion', 'pages/suscripcion', 'Planes y Membresías | Educación Financiera', 'user-logged-in');
+    }
+
+    private function renderPage(string $slug, string $view, string $title, string $bodyClass): void {
+        $this->view($view, [
+            'pageTitle' => $title,
+            'pageCss'   => ["css/pages/{$slug}.css"],
+            'bodyClass' => $bodyClass,
             'user'      => Session::user(),
         ], 'main');
     }

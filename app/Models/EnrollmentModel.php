@@ -26,6 +26,11 @@ class EnrollmentModel extends Model {
         return $stmt->execute([$userId, $materiaId, $semestre]);
     }
 
+    public function unenroll(int $userId, string $materiaId): bool {
+        $stmt = $this->db->prepare("DELETE FROM inscripciones WHERE usuario_id = ? AND materia_id = ?");
+        return $stmt->execute([$userId, $materiaId]);
+    }
+
     public function isEnrolled(int $userId, string $materiaId): bool {
         $stmt = $this->db->prepare("SELECT id FROM inscripciones WHERE usuario_id = ? AND materia_id = ?");
         $stmt->execute([$userId, $materiaId]);

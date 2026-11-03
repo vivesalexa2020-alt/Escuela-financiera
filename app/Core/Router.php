@@ -32,6 +32,12 @@ class Router {
         $uri = $uri ?? parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
         $method = strtoupper($method ?? ($_SERVER['REQUEST_METHOD'] ?? 'GET'));
 
+        // Soporte de enrutamiento por query string: index.php?page=cursos
+        if (isset($_GET['page'])) {
+            $page = trim((string)$_GET['page'], '/');
+            $uri = '/' . ($page === '' ? '' : $page);
+        }
+
         // Normalizar URI eliminando carpetas base si se ejecuta en subcarpetas
         $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
         if ($scriptDir !== '/' && strpos($uri, $scriptDir) === 0) {

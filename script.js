@@ -8,6 +8,21 @@ const SESSION_KEY = 'edu_fin_session';
 // Base URL de la API PHP
 const API_BASE = 'api';
 
+// Token CSRF para peticiones autenticadas (se obtiene del endpoint session/login)
+let CSRF_TOKEN = '';
+
+function getCsrfHeaders() {
+  return CSRF_TOKEN ? { 'X-CSRF-Token': CSRF_TOKEN } : {};
+}
+
+async function loadCsrfToken() {
+  try {
+    const res = await fetch(API_BASE + '/index.php?endpoint=session', { credentials: 'include' });
+    const data = await res.json();
+    if (data && data.csrf_token) CSRF_TOKEN = data.csrf_token;
+  } catch (e) { /* sin conexión: se reintentará en la próxima petición */ }
+}
+
 // ------------------------------------------------------------
 // 1. ALTERNAR VISIBILIDAD DE CONTRASEÑA (OJITO)
 // ------------------------------------------------------------
@@ -152,12 +167,12 @@ if (searchInput && searchResults) {
     }
 
     const items = [
-      { name: 'Finanzas personales', type: 'Curso', link: 'cursos.html' },
-      { name: 'Ahorro e inversión', type: 'Curso', link: 'cursos.html' },
-      { name: 'Presupuesto mensual 50/30/20', type: 'Curso', link: 'cursos.html' },
-      { name: 'Emprendimiento y negocios', type: 'Curso', link: 'cursos.html' },
-      { name: 'Calculadora de interés compuesto', type: 'Recurso', link: 'recursos.html' },
-      { name: 'Guía de ahorro descargable en PDF', type: 'Recurso', link: 'recursos.html' }
+      { name: 'Finanzas personales', type: 'Curso', link: 'index.php?page=cursos' },
+      { name: 'Ahorro e inversión', type: 'Curso', link: 'index.php?page=cursos' },
+      { name: 'Presupuesto mensual 50/30/20', type: 'Curso', link: 'index.php?page=cursos' },
+      { name: 'Emprendimiento y negocios', type: 'Curso', link: 'index.php?page=cursos' },
+      { name: 'Calculadora de interés compuesto', type: 'Recurso', link: 'index.php?page=recursos' },
+      { name: 'Guía de ahorro descargable en PDF', type: 'Recurso', link: 'index.php?page=recursos' }
     ];
 
     const matches = items.filter(it => it.name.toLowerCase().includes(q));
@@ -246,7 +261,7 @@ async function handleLoginSubmit(e) {
   if (loginMsg) { loginMsg.className = 'form-message'; loginMsg.textContent = ''; }
 
   try {
-    const res = await fetch(API_BASE + '/login.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -256,6 +271,7 @@ async function handleLoginSubmit(e) {
 
     if (data.success) {
       setCurrentUser(data.user);
+      if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       updateAuthUI();
@@ -477,7 +493,7 @@ async function handleSignupSubmit(e) {
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Creando cuenta...'; }
 
   try {
-    const res = await fetch(API_BASE + '/registro.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -487,6 +503,7 @@ async function handleSignupSubmit(e) {
 
     if (data.success) {
       setCurrentUser(data.user);
+      if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       updateAuthUI();
@@ -534,7 +551,7 @@ function getCurrentUser() {
 
 async function logout() {
   try {
-    await fetch(API_BASE + '/logout.php', {
+    await fetch(API_BASE + '/index.php?endpoint=logout', {
       method: 'POST',
       credentials: 'include'
     });
@@ -545,16 +562,16 @@ async function logout() {
   updateAuthUI();
 
   // Si estamos en una página protegida, redirigir a inicio
-  const path = window.location.pathname.toLowerCase();
-  if (path.includes('cursos.html') || path.includes('recursos.html') || path.includes('reticula.html') || path.includes('configuraciones.html')) {
-    window.location.href = 'index.html';
+  const path = (window.location.pathname + window.location.search).toLowerCase();
+  if (path.includes('page=cursos') || path.includes('page=recursos') || path.includes('page=reticula') || path.includes('page=configuraciones')) {
+    window.location.href = 'index.php';
   }
 }
 
 // Sincronizar inscripciones desde la API al iniciar sesión
 async function syncInscripcionesDesdeAPI() {
   try {
-    const res = await fetch(API_BASE + '/inscripciones.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=inscripciones', {
       method: 'GET',
       credentials: 'include'
     });
@@ -570,7 +587,7 @@ async function syncInscripcionesDesdeAPI() {
 // Sincronizar membresía desde la API al iniciar sesión
 async function syncMembresiaDesdeAPI() {
   try {
-    const res = await fetch(API_BASE + '/membresia.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=membresia', {
       method: 'GET',
       credentials: 'include'
     });
@@ -649,7 +666,7 @@ function updateAuthUI() {
     if (protectedSection) protectedSection.style.display = 'block';
     if (lockedBanner) lockedBanner.style.display = 'none';
 
-    // En index.html: mostrar panel del estudiante y ocultar portada
+    // En index.php: mostrar panel del estudiante y ocultar portada
     if (studentDashboard) studentDashboard.style.display = 'block';
     if (guestLanding) guestLanding.style.display = 'none';
     if (navGuestNotice) navGuestNotice.style.display = 'none';
@@ -670,7 +687,7 @@ function updateAuthUI() {
     if (protectedSection) protectedSection.style.display = 'block';
     if (lockedBanner) lockedBanner.style.display = 'none';
 
-    // En index.html: mostrar portada pública
+    // En index.php: mostrar portada pública
     if (studentDashboard) studentDashboard.style.display = 'none';
     if (guestLanding) guestLanding.style.display = 'block';
     if (navGuestNotice) navGuestNotice.style.display = 'none';
@@ -751,7 +768,7 @@ function toggleFaq(btn) {
 // 12. PROTECCIÓN DE ENLACES PARA VISITANTES
 // ------------------------------------------------------------
 document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href="cursos.html"], a[href="recursos.html"], a[href="configuraciones.html"]');
+  const link = e.target.closest('a[href="index.php?page=cursos"], a[href="index.php?page=recursos"], a[href="index.php?page=configuraciones"]');
   if (link && !getCurrentUser()) {
     e.preventDefault();
     openLoginModal();
@@ -808,6 +825,7 @@ function hideSplash() {
 document.addEventListener('DOMContentLoaded', async () => {
   // Si hay sesión activa, sincronizar datos desde el servidor
   if (getCurrentUser()) {
+    await loadCsrfToken();
     await syncInscripcionesDesdeAPI();
     await syncMembresiaDesdeAPI();
   }
@@ -1156,7 +1174,7 @@ function saveReticulaState(state) {
   state.inscritas.forEach(function(materiaId) {
     const m = getMateriaPorId(materiaId);
     if (!m) return;
-    fetch(API_BASE + '/inscripciones.php', {
+    fetch(API_BASE + '/index.php?endpoint=inscripciones', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -1174,7 +1192,7 @@ async function resetInscripciones() {
   if (user) {
     for (const materiaId of state.inscritas) {
       try {
-        await fetch(API_BASE + '/inscripciones.php', {
+        await fetch(API_BASE + '/index.php?endpoint=inscripciones', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -1345,7 +1363,7 @@ function renderReticula() {
       if (st === 'inscrita') etiqueta = '✓ Inscrita';
       else if (st === 'bloqueada') etiqueta = '🔒 Bloqueada';
       const accionClick = (st === 'inscrita')
-        ? "window.location.href='aula-demo.html'"
+        ? "window.location.href='index.php?page=aula'"
         : "openReticulaModal('" + m.id + "')";
       return '' +
         '<div class="reticula-materia is-' + st + '" onclick="' + accionClick + '">' +
@@ -2069,14 +2087,14 @@ function inscribirMateriaActual() {
 
   // Si ya está inscrita, ir directo al Aula Demo
   if (state.inscritas.indexOf(id) !== -1) {
-    window.location.href = 'aula-demo.html';
+    window.location.href = 'index.php?page=aula';
     return;
   }
 
   const chk = puedeInscribir(id);
   if (!chk.ok) {
     if (chk.motivo === 'pago') {
-      window.location.href = 'suscripcion.html';
+      window.location.href = 'index.php?page=suscripcion';
       return;
     }
     openReticulaModal(id);
@@ -2172,11 +2190,11 @@ async function handleProfileSubmit(e) {
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Guardando...'; }
 
   try {
-    const res = await fetch(API_BASE + '/actualizar-perfil.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=actualizar-perfil', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
       credentials: 'include',
-      body: JSON.stringify({ nombre: name, email: email })
+      body: JSON.stringify({ nombre: name, email: email, csrf_token: CSRF_TOKEN })
     });
     const data = await res.json();
 
@@ -2244,11 +2262,11 @@ async function handlePasswordSubmit(e) {
 
   try {
     // Verificar y actualizar contraseña vía API
-    const res = await fetch(API_BASE + '/cambiar-password.php', {
+    const res = await fetch(API_BASE + '/index.php?endpoint=cambiar-password', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
       credentials: 'include',
-      body: JSON.stringify({ password_actual: current, password_nueva: nueva })
+      body: JSON.stringify({ password_actual: current, password_nueva: nueva, csrf_token: CSRF_TOKEN })
     });
     const data = await res.json();
 
@@ -2285,9 +2303,11 @@ async function deleteAccount() {
 
     // Eliminar cuenta en el servidor (base de datos + destrucción de sesión)
     try {
-      await fetch(API_BASE + '/eliminar-cuenta.php', {
+      await fetch(API_BASE + '/index.php?endpoint=eliminar-cuenta', {
         method: 'POST',
-        credentials: 'include'
+        headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
+        credentials: 'include',
+        body: JSON.stringify({ csrf_token: CSRF_TOKEN })
       });
     } catch (e) {}
 
@@ -2305,7 +2325,7 @@ async function deleteAccount() {
     try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
     updateAuthUI();
     alert('Tu cuenta ha sido eliminada permanentemente.');
-    window.location.href = 'index.html';
+    window.location.href = 'index.php';
   } catch (e) {
     alert('No se pudo eliminar la cuenta. Intenta de nuevo.');
   }
@@ -2335,37 +2355,37 @@ const FIN_CONOCIMIENTO = [
   {
     claves: ['ahorro', 'ahorrar', 'guardar dinero', 'fondo de emergencia', 'emergencia'],
     respuesta: 'El ahorro es la base de tu salud financiera: aparta primero una parte de tus ingresos y gasta después. Empieza con un fondo de emergencia de 3 a 6 meses de tus gastos fijos.',
-    enlaces: [{ texto: 'Ver cursos de ahorro', href: 'cursos.html' }]
+    enlaces: [{ texto: 'Ver cursos de ahorro', href: 'index.php?page=cursos' }]
   },
   {
     claves: ['interes compuesto', 'interes', 'inversion', 'invertir', 'rendimiento', 'capital'],
     respuesta: 'El interés compuesto es ganar intereses sobre tus intereses. Con el tiempo, ese efecto hace crecer tu dinero de forma exponencial. Puedes probarlo en la calculadora de Recursos.',
-    enlaces: [{ texto: 'Abrir calculadora', href: 'recursos.html' }]
+    enlaces: [{ texto: 'Abrir calculadora', href: 'index.php?page=recursos' }]
   },
   {
     claves: ['presupuesto', '50/30/20', 'gastos', 'ingresos', 'planificar'],
     respuesta: 'La regla 50/30/20 sugiere destinar 50% de tus ingresos a necesidades, 30% a gustos y 20% a ahorro o deudas. Es una guía simple para ordenar tus finanzas cada mes.',
-    enlaces: [{ texto: 'Ver curso de presupuesto', href: 'cursos.html' }]
+    enlaces: [{ texto: 'Ver curso de presupuesto', href: 'index.php?page=cursos' }]
   },
   {
     claves: ['deuda', 'deudas', 'tarjeta', 'tarjeta de credito', 'credito', 'prestamo'],
     respuesta: 'Para salir de deudas, prioriza las de mayor interés (método avalancha) o las más pequeñas para ganar impulso (método bola de nieve). Evita financiar gustos con tarjeta de crédito.',
-    enlaces: [{ texto: 'Ver recursos', href: 'recursos.html' }]
+    enlaces: [{ texto: 'Ver recursos', href: 'index.php?page=recursos' }]
   },
   {
     claves: ['reticula', 'inscribir', 'inscripcion', 'semestre', 'materia', 'materias', 'curso'],
     respuesta: 'En tu Retícula Académica puedes inscribir hasta 3 materias por semestre. Entra y haz clic en cada materia para ver su temario e inscribirte.',
-    enlaces: [{ texto: 'Ir a Retícula', href: 'reticula.html' }]
+    enlaces: [{ texto: 'Ir a Retícula', href: 'index.php?page=reticula' }]
   },
   {
     claves: ['contrasena', 'contraseña', 'configuracion', 'configuraciones', 'perfil', 'cuenta', 'correo'],
     respuesta: 'Puedes actualizar tu perfil, cambiar tu contraseña y ajustar tus preferencias desde la página de Configuraciones.',
-    enlaces: [{ texto: 'Ir a Configuraciones', href: 'configuraciones.html' }]
+    enlaces: [{ texto: 'Ir a Configuraciones', href: 'index.php?page=configuraciones' }]
   },
   {
     claves: ['contacto', 'soporte', 'ayuda', 'duda', 'problema', 'correo de contacto'],
     respuesta: 'Estoy aquí para orientarte sobre finanzas y sobre cómo usar la plataforma. Si necesitas soporte, revisa la sección de Recursos.',
-    enlaces: [{ texto: 'Ver Recursos', href: 'recursos.html' }]
+    enlaces: [{ texto: 'Ver Recursos', href: 'index.php?page=recursos' }]
   },
   {
     claves: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'hey', 'saludos', 'que tal'],

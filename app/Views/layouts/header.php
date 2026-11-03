@@ -12,5 +12,9 @@
 
   <!-- Estilos Globales -->
   <link rel="stylesheet" href="estilos.css?v=20261102_recursos">
+
+  <!-- Estilos específicos de la página -->
+  <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=20261102_recursos">
+  <?php endforeach; ?>
 </head>
-<body>

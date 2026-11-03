@@ -19,6 +19,8 @@ class EnrollmentController extends Controller {
             $this->index();
         } elseif ($method === 'POST') {
             $this->store();
+        } elseif ($method === 'DELETE') {
+            $this->destroy();
         } else {
             $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
         }
@@ -63,6 +65,24 @@ class EnrollmentController extends Controller {
         } catch (\Exception $e) {
             Logger::error('Error al inscribir materia', ['error' => $e->getMessage()]);
             $this->jsonResponse(['success' => false, 'message' => 'Error al inscribir'], 500);
+        }
+    }
+
+    public function destroy(): void {
+        $userId = $this->requireAuth();
+        $data = $this->getRequestData();
+
+        $materiaId = trim($data['materia_id'] ?? '');
+        if (empty($materiaId)) {
+            $this->jsonResponse(['success' => false, 'message' => 'Materia no especificada'], 400);
+        }
+
+        try {
+            $this->enrollmentModel->unenroll($userId, $materiaId);
+            $this->jsonResponse(['success' => true, 'message' => 'Inscripción eliminada']);
+        } catch (\Exception $e) {
+            Logger::error('Error al eliminar inscripción', ['error' => $e->getMessage()]);
+            $this->jsonResponse(['success' => false, 'message' => 'Error al eliminar inscripción'], 500);
         }
     }
 }
