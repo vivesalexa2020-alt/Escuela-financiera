@@ -335,7 +335,7 @@
       top: 20px;
       width: 58px;
       height: 380px;
-      background: url('img/wave-hero.png') no-repeat left top;
+      background: url('../img/wave-hero.png') no-repeat left top;
       background-size: contain;
       pointer-events: none;
       opacity: 0.95;
@@ -1080,7 +1080,7 @@
       bottom: 0;
       width: 55px;
       height: 95px;
-      background: url('img/wave-footer.png') no-repeat left bottom;
+      background: url('../img/wave-footer.png') no-repeat left bottom;
       background-size: contain;
       pointer-events: none;
       opacity: 0.95;
@@ -3891,7 +3891,7 @@ body.user-logged-in .logged-topbar {
    ============================================================ */
 .success-hero-section {
   background: linear-gradient(180deg, rgba(3, 45, 31, 0.88) 0%, rgba(6, 64, 45, 0.82) 50%, rgba(3, 45, 31, 0.94) 100%),
-              url('img/fondo-experiencias.png') center center / cover no-repeat;
+              url('../img/fondo-experiencias.png') center center / cover no-repeat;
   color: #fff;
   padding: 70px 0 90px;
   position: relative;

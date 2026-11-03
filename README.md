@@ -31,68 +31,36 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 ```
 EDUCACION_FINANCIERA/
 ├── autoload.php                 # Autoloader PSR-4 (namespace App\)
-├── index.php                    # Front Controller Web
+├── index.php                    # Acceso compatible a public/index.php
 │
-├── app/                         # ========= Arquitectura MVC =========
-│   ├── Config/
-│   │   ├── AppConfig.php        # CORS, constantes globales
-│   │   └── Database.php         # Conexión PDO (Singleton)
-│   │
-│   ├── Core/                    # Framework base reutilizable
-│   │   ├── Controller.php       # Controlador base (JSON, auth, CSRF)
-│   │   ├── Model.php            # Modelo base (transacciones PDO)
-│   │   ├── View.php             # Motor de vistas con layouts
-│   │   ├── Router.php           # Enrutador (soporta ?page= y rutas)
-│   │   ├── Session.php          # Gestión segura de sesiones
-│   │   ├── Csrf.php             # Tokens CSRF
-│   │   ├── RateLimiter.php      # Protección de fuerza bruta
-│   │   └── Logger.php           # Sistema de logs en disco
-│   │
-│   ├── Models/                  # Capa de datos (consultas SQL)
-│   │   ├── UserModel.php        # Usuarios, login, perfil, auditoría
-│   │   ├── CourseModel.php      # Cursos, lecciones, ejercicios
-│   │   ├── EnrollmentModel.php  # Inscripciones a materias
-│   │   ├── ProgressModel.php    # Progreso y porcentaje por curso
-│   │   ├── AchievementModel.php # Puntos, niveles, logros
-│   │   └── MembershipModel.php  # Membresías y suscripciones
-│   │
-│   ├── Controllers/             # Lógica de negocio
-│   │   ├── AuthController.php   # Login, registro, logout, sesión
-│   │   ├── UserController.php   # Perfil, contraseña, eliminar cuenta
-│   │   ├── CourseController.php  # Listado y detalle de cursos
-│   │   ├── EnrollmentController.php # Inscripciones (GET/POST/DELETE)
-│   │   ├── ProgressController.php   # Progreso de usuario
-│   │   ├── AchievementController.php # Logros y puntos
-│   │   ├── MembershipController.php  # Membresías
-│   │   └── PageController.php        # Renderiza las páginas
-│   │
-│   └── Views/                   # Capa de presentación
-│       ├── layouts/
-│       │   ├── header.php       # <head> HTML (title + CSS por página)
-│       │   └── main.php         # Envoltura <body> + contenido
-│       └── pages/               # Una vista por página (contenido completo)
-│           ├── home.php         # Página principal
-│           ├── cursos.php       # Catálogo de cursos
-│           ├── aula.php         # Aula virtual con reproductor
-│           ├── recursos.php     # Herramientas y descargas
-│           ├── reticula.php     # Retícula académica semestral
-│           ├── metas.php        # Seguimiento de metas financieras
-│           ├── configuraciones.php # Configuración de cuenta
-│           └── suscripcion.php  # Planes y membresías
+├── app/                         # Arquitectura MVC
+│   ├── core/                    # Router, modelos base, vistas, sesión y seguridad
+│   ├── controllers/             # Auth, Course, User, Progress, Membership, etc.
+│   ├── models/                  # User, Course, Enrollment, Progress, Achievement y Membership
+│   └── views/                   # Vistas organizadas por sección
+│       ├── inicio/index.php
+│       ├── aprendizaje/         # cursos.php, detalle-curso.php, reticula.php
+│       ├── herramientas/        # metas.php, recursos.php
+│       ├── cuenta/              # configuraciones.php, suscripcion.php
+│       └── layouts/             # header.php, main.php
 │
-├── routes/                      # Definición de rutas
-│   ├── web.php                  # Rutas de páginas
-│   └── api.php                  # Rutas de la API REST
+├── config/                      # Configuración y conexión PDO
+│   ├── AppConfig.php
+│   └── database.php
+├── routes/                      # Definición de rutas web y API
+│   ├── web.php
+│   └── api.php
+├── public/                      # Entrada web y recursos estáticos
+│   ├── index.php                # Front controller web
+│   ├── css/                     # estilos.css y hojas por página
+│   ├── js/script.js
+│   └── img/
+│
 ├── api/                         # Front Controller API
 │   └── index.php                # Entrada API (?endpoint=)
 ├── database/                    # Esquema SQL de la base de datos
 │   └── educacion_financiera.sql # Definición de tablas y relaciones
 │
-├── public/                      # Archivos estáticos públicos
-│   ├── css/                      # Estilos, incluido CSS por página
-│   ├── img/                      # Imágenes
-│   ├── estilos.css               # Hoja de estilos principal
-│   └── script.js                 # JavaScript global (API + CSRF)
 ├── legacy/                      # Código y datos archivados (no se sirve)
 │   ├── api/                     # Endpoints PHP antiguos
 │   ├── html/                    # Páginas HTML originales
@@ -141,7 +109,7 @@ EDUCACION_FINANCIERA/
    ```
 
 5. **Acceder a la plataforma**
-   - **Vistas MVC**: `http://localhost/EDUCACION_FINANCIERA/index.php`
+   - **Vistas MVC**: `http://localhost/EDUCACION_FINANCIERA/public/index.php` o `index.php`
    - **Páginas**: `index.php?page=home|cursos|aula|recursos|reticula|metas|configuraciones|suscripcion`
    - **API REST MVC**: `http://localhost/EDUCACION_FINANCIERA/api/index.php?endpoint=session`
 

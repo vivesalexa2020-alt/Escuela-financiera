@@ -5,7 +5,7 @@ class View {
     private static string $viewsDir;
 
     private static function init(): void {
-        self::$viewsDir = dirname(__DIR__) . '/Views';
+        self::$viewsDir = dirname(__DIR__) . '/views';
     }
 
     /**

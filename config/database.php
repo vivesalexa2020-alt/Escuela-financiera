@@ -17,7 +17,7 @@ class Database {
             $username = 'root';
             $password = '';
 
-            $envFile = dirname(__DIR__, 2) . '/.env';
+            $envFile = dirname(__DIR__) . '/.env';
             if (file_exists($envFile)) {
                 $env = parse_ini_file($envFile);
                 if ($env) {

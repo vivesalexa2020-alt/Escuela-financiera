@@ -1,12 +1,12 @@
 <?php
 /**
- * Vista: Recursos y Herramientas
- * Contenido migrado desde recursos.html (legacy/html).
+ * Vista: RetÃ­cula AcadÃ©mica
+ * Contenido migrado desde reticula.html (legacy/html).
  * Variables: $pageTitle, $pageCss, $bodyClass, $user
  */
 ?>
 <!-- ============================================================
-       SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
+       SIDEBAR LATERAL IZQUIERDA
        ============================================================ -->
   <aside class="sidebar-left" id="sidebarLeft">
     <div>
@@ -51,7 +51,7 @@
           <span class="sidebar-icon">🏠</span>
           <span>Inicio</span>
         </a>
-        <a href="index.php?page=reticula" class="sidebar-link">
+        <a href="index.php?page=reticula" class="sidebar-link active">
           <span class="sidebar-icon">🗺️</span>
           <span>Retícula Académica</span>
         </a>
@@ -63,7 +63,7 @@
           <span class="sidebar-icon">🎯</span>
           <span>Metas</span>
         </a>
-        <a href="index.php?page=recursos" class="sidebar-link active">
+        <a href="index.php?page=recursos" class="sidebar-link ">
           <span class="sidebar-icon">🧮</span>
           <span>Recursos</span>
         </a>
@@ -141,9 +141,6 @@
         </a>
 
         <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
-          <a href="index.php?page=reticula" style="background: var(--verde-claro); color: #fff; padding: 9px 20px; border-radius: 30px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 12px rgba(40,199,111,0.35); transition: all 0.2s;">
-            Probar Demo Gratis
-          </a>
         </div>
       </nav>
     </div>
@@ -179,7 +176,7 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <div class="page-current-title">Herramientas y Recursos</div>
+        <div class="page-current-title">Retícula Académica</div>
       </div>
     </div>
     <div class="logged-topbar-right">
@@ -222,10 +219,10 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <span class="subpage-badge" style="margin: 0;">🛠️ Simuladores y Herramientas</span>
+        <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
       </div>
-      <h1>Recursos y <span>Calculadoras Financieras</span></h1>
-      <p>Utiliza nuestra calculadora en vivo de interés compuesto y descarga las plantillas de presupuesto mensual.</p>
+      <h1>Tu <span>Retícula Académica</span></h1>
+      <p>Programa formativo de <strong>2 años</strong> dividido en 3 niveles: <strong>Básico, Intermedio y Avanzado</strong>. Tu <strong>Primer Semestre es de prueba y 100% GRATIS</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
     </div>
   </section>
 
@@ -260,7 +257,7 @@
       </div>
       <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
       <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
-        Para acceder a la interfaz de <strong>Recursos</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
+        Para acceder a la interfaz de <strong>Retícula Académica</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <button class="btn-cta-yellow" onclick="openLoginModal()" style="padding: 10px 22px;">Iniciar sesión</button>
@@ -270,120 +267,32 @@
   
 
   <div id="protectedContent">
-    
-  <section style="padding: 50px 0 20px;">
-    <div class="container">
-      <div class="calc-card">
-        <h2 style="font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px;">
-          🧮 Simulador Interactivo de Interés Compuesto
-        </h2>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 26px;">
-          Calcula cómo crece tu patrimonio a lo largo del tiempo sumando tus ahorros mensuales con rendimiento compuesto.
-        </p>
-
-        <div class="calc-grid">
-          <div class="calc-inputs">
-            <div class="calc-group">
-              <label for="calcInitial">Capital inicial ($ MXN)</label>
-              <input type="number" id="calcInitial" value="5000" min="0" step="500" oninput="calculateCompoundInterest()">
-            </div>
-            <div class="calc-group">
-              <label for="calcMonthly">Aporte mensual ($ MXN)</label>
-              <input type="number" id="calcMonthly" value="1500" min="0" step="100" oninput="calculateCompoundInterest()">
-            </div>
-            <div class="calc-group">
-              <label for="calcRate">Tasa de rendimiento anual estimada (%)</label>
-              <input type="number" id="calcRate" value="11" min="1" max="100" step="0.5" oninput="calculateCompoundInterest()">
-            </div>
-            <div class="calc-group">
-              <label for="calcYears">Plazo de inversión (años)</label>
-              <input type="number" id="calcYears" value="5" min="1" max="50" step="1" oninput="calculateCompoundInterest()">
-            </div>
+    <div class="container" style="padding: 48px 20px 20px;">
+      <section class="reticula-section" id="reticula">
+        <div class="reticula-head">
+          <div>
+            <span class="reticula-badge">🗺️ Mapa de Aprendizaje</span>
+            <h3>Tu Retícula Académica (2 Años · 4 Semestres)</h3>
+            <p>Carrera completa de <strong>2 años</strong> en 3 niveles (<strong>Básico, Intermedio y Avanzado</strong>). Cursa tu <strong>Primer Semestre de prueba 100% GRATIS</strong> y avanza a tu ritmo hacia tu libertad financiera.</p>
           </div>
-
-          <div class="calc-result-box">
-            <div style="font-size: 13px; font-weight: 600; color: var(--text-light-mint); text-transform: uppercase; letter-spacing: 0.05em;">Patrimonio Proyectado</div>
-            <div class="calc-result-val" id="calcTotalResult">$134,800</div>
-            <div style="font-size: 13px; color: #d2ebe0; margin-top: 14px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 14px; display: flex; justify-content: space-around;">
-              <div>
-                <span style="opacity: 0.8; font-size: 11.5px; display: block;">Total aportado:</span>
-                <strong id="calcContributed" style="color: #ffffff; font-size: 14px;">$95,000</strong>
-              </div>
-              <div>
-                <span style="opacity: 0.8; font-size: 11.5px; display: block;">Intereses ganados:</span>
-                <strong id="calcInterest" style="color: var(--accent-lime); font-size: 14px;">$39,800</strong>
-              </div>
-            </div>
+          <div class="reticula-resumen" id="reticulaResumen">
+            <!-- Se llena con JavaScript -->
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-    <section class="resources-section" id="recursos">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Recursos gratuitos y de pago</h2>
-          <p>Herramientas y materiales para acompañar tu aprendizaje dentro y fuera del aula.</p>
+        <div style="display: flex; justify-content: flex-end; margin: 0 0 16px;">
+          <button type="button" class="btn-cta-outline" onclick="resetInscripciones()" style="padding: 8px 16px; font-size: 13px; color: var(--text-dark); border-color: var(--btn-green);">
+            🗑️ Quitar inscripciones
+          </button>
         </div>
-        <a href="#cursos" class="link-view-all">
-          Ver todos los recursos <span>→</span>
-        </a>
-      </div>
 
-      <div class="resources-grid">
-        <!-- Recurso gratis 1 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
-          <h3>Guía de ahorro para principiantes</h3>
-          <p>PDF descargable con pasos simples para empezar a ahorrar desde el primer mes.</p>
-          <div class="resource-price">$0</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Guía de ahorro para principiantes', 'Descarga gratuita en PDF con ejercicios prácticos para empezar a ahorrar, crear un fondo de emergencia y fijar tus primeras metas.')">
-            Descargar gratis
-          </a>
-        </article>
-
-        <!-- Recurso gratis 2 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
-          <h3>Plantilla de presupuesto mensual</h3>
-          <p>Formato editable para registrar tus ingresos y gastos y controlar tu dinero.</p>
-          <div class="resource-price">$0</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Plantilla de presupuesto mensual', 'Plantilla editable (Excel / Google Sheets) con la regla 50/30/20 lista para usar y adaptar a tu estilo de vida.')">
-            Descargar gratis
-          </a>
-        </article>
-
-        <!-- Recurso de pago 1 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
-          <h3>Calculadoras interactivas PRO</h3>
-          <p>Simula ahorro, inversión, interés compuesto y amortización de deudas.</p>
-          <div class="resource-price">Incluido en tu curso</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Calculadoras interactivas PRO', 'Herramientas avanzadas para simular planes de ahorro e inversión, calcular interés compuesto y planificar el pago de deudas.')">
-            Ver recurso
-          </a>
-        </article>
-
-        <!-- Recurso de pago 2 -->
-        <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
-          <h3>Certificación y mentorías</h3>
-          <p>Certificado al finalizar tus cursos y sesiones personalizadas con un tutor.</p>
-          <div class="resource-price">Según el plan</div>
-          <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Certificación y mentorías', 'Obtén tu certificado al completar los cursos y agenda mentorías personalizadas para resolver tus dudas financieras.')">
-            Ver detalle
-          </a>
-        </article>
-      </div>
+        <div class="reticula-grid" id="reticulaGrid">
+          <!-- Los semestres y materias se generan con JavaScript -->
+        </div>
+      </section>
     </div>
-  </section>
   </div>
+
 
   <section class="cta-band" style="display:none;">
     <div class="container">
@@ -544,6 +453,71 @@
       <p id="modalDescription">Información del curso y temario disponible.</p>
       <button class="btn-cta-yellow" style="width: 100%; justify-content: center;" onclick="closeModal()">
         ¡Entendido!
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Retícula Académica -->
+  <div class="modal-overlay" id="reticulaModal" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
+        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+      </div>
+      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
+      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
+
+      <!-- Tabs de recursos -->
+      <div class="reticula-tabs">
+        <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
+          📋 Temario
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
+          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
+          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
+          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
+          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
+        </button>
+      </div>
+
+      <!-- Tab Contenido: Temario -->
+      <div id="tabContent-temario" class="reticula-tab-pane" style="display: block;">
+        <div class="reticula-modal-temario" style="margin: 0 0 16px;">
+          <h4>¿Qué incluye este curso?</h4>
+          <ul id="reticulaModalTemario"></ul>
+        </div>
+      </div>
+
+      <!-- Tab Contenido: Videos -->
+      <div id="tabContent-videos" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalVideos" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Ejercicios -->
+      <div id="tabContent-ejercicios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalEjercicios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Audios -->
+      <div id="tabContent-audios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalAudios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Libros -->
+      <div id="tabContent-libros" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalLibros" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <div class="reticula-modal-estado" id="reticulaModalEstado"></div>
+
+      <button class="btn-cta-yellow reticula-modal-action" id="reticulaModalAction" onclick="inscribirMateriaActual()">
+        Inscribirme
       </button>
     </div>
   </div>
@@ -807,7 +781,32 @@
   </div>
 
 
-  <script src="public/script.js?v=20261102_recursos"></script>
+  <script src="public/js/script.js?v=20261102_recursos"></script>
+
+  <!-- ============================================================
+       MODAL REPRODUCTOR DE VIDEO
+       ============================================================ -->
+  <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
+    <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 20px;">🎬</span>
+          <h3 id="videoPlayerTitle" style="font-size: 17px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
+      </div>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+        <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <span style="font-size: 12.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
+        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13px;">Terminar de ver</button>
+      </div>
+    </div>
+  </div>
+
+  
+
 
   <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">

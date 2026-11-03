@@ -1,12 +1,12 @@
 <?php
 /**
- * Vista: RetÃ­cula AcadÃ©mica
- * Contenido migrado desde reticula.html (legacy/html).
+ * Vista: ConfiguraciÃ³n de Perfil
+ * Contenido migrado desde configuraciones.html (legacy/html).
  * Variables: $pageTitle, $pageCss, $bodyClass, $user
  */
 ?>
 <!-- ============================================================
-       SIDEBAR LATERAL IZQUIERDA
+       SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
        ============================================================ -->
   <aside class="sidebar-left" id="sidebarLeft">
     <div>
@@ -51,7 +51,7 @@
           <span class="sidebar-icon">🏠</span>
           <span>Inicio</span>
         </a>
-        <a href="index.php?page=reticula" class="sidebar-link active">
+        <a href="index.php?page=reticula" class="sidebar-link ">
           <span class="sidebar-icon">🗺️</span>
           <span>Retícula Académica</span>
         </a>
@@ -71,7 +71,7 @@
           <span class="sidebar-icon">💳</span>
           <span>Membresía</span>
         </a>
-        <a href="index.php?page=configuraciones" class="sidebar-link ">
+        <a href="index.php?page=configuraciones" class="sidebar-link active">
           <span class="sidebar-icon">⚙️</span>
           <span>Configuraciones</span>
         </a>
@@ -140,7 +140,14 @@
           </div>
         </a>
 
-        <div class="nav-actions" style="display: flex; align-items: center; gap: 12px;">
+        <!-- Aviso en la parte superior: Menú bloqueado -->
+        <div id="navGuestNotice" onclick="openLoginModal()" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--accent-lime); background: rgba(203, 246, 62, 0.12); padding: 7px 18px; border-radius: 999px; border: 1px solid rgba(203, 246, 62, 0.35); cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Haz clic para iniciar sesión">
+          <span>🔒</span> Inicia sesión para acceder al menú
+        </div>
+
+        <div class="nav-actions">
+          <button class="btn-login" onclick="openLoginModal()">Iniciar sesión</button>
+          <button class="btn-signup" onclick="openSignupModal()">Crear cuenta</button>
         </div>
       </nav>
     </div>
@@ -176,7 +183,7 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <div class="page-current-title">Retícula Académica</div>
+        <div class="page-current-title">Configuraciones</div>
       </div>
     </div>
     <div class="logged-topbar-right">
@@ -219,10 +226,10 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
+        <span class="subpage-badge" style="margin: 0;">⚙️ Cuenta y Preferencias</span>
       </div>
-      <h1>Tu <span>Retícula Académica</span></h1>
-      <p>Programa formativo de <strong>2 años</strong> dividido en 3 niveles: <strong>Básico, Intermedio y Avanzado</strong>. Tu <strong>Primer Semestre es de prueba y 100% GRATIS</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
+      <h1>Configuraciones de tu <span>Cuenta</span></h1>
+      <p>Administra tu perfil, tu seguridad y tus preferencias de aprendizaje en un solo lugar.</p>
     </div>
   </section>
 
@@ -257,7 +264,7 @@
       </div>
       <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
       <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
-        Para acceder a la interfaz de <strong>Retícula Académica</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
+        Para acceder a la interfaz de <strong>Configuraciones</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <button class="btn-cta-yellow" onclick="openLoginModal()" style="padding: 10px 22px;">Iniciar sesión</button>
@@ -267,30 +274,116 @@
   
 
   <div id="protectedContent">
-    <div class="container" style="padding: 48px 20px 20px;">
-      <section class="reticula-section" id="reticula">
-        <div class="reticula-head">
-          <div>
-            <span class="reticula-badge">🗺️ Mapa de Aprendizaje</span>
-            <h3>Tu Retícula Académica (2 Años · 4 Semestres)</h3>
-            <p>Carrera completa de <strong>2 años</strong> en 3 niveles (<strong>Básico, Intermedio y Avanzado</strong>). Cursa tu <strong>Primer Semestre de prueba 100% GRATIS</strong> y avanza a tu ritmo hacia tu libertad financiera.</p>
-          </div>
-          <div class="reticula-resumen" id="reticulaResumen">
-            <!-- Se llena con JavaScript -->
-          </div>
-        </div>
+    <section class="settings-wrap">
+      <div class="container">
+        <div class="settings-grid">
 
-        <div style="display: flex; justify-content: flex-end; margin: 0 0 16px;">
-          <button type="button" class="btn-cta-outline" onclick="resetInscripciones()" style="padding: 8px 16px; font-size: 13px; color: var(--text-dark); border-color: var(--btn-green);">
-            🗑️ Quitar inscripciones
-          </button>
-        </div>
+          <!-- Perfil -->
+          <article class="settings-card">
+            <div class="settings-card-head">
+              <div class="settings-card-icon">👤</div>
+              <div>
+                <h3>Perfil</h3>
+                <p>Actualiza tu nombre y correo electrónico.</p>
+              </div>
+            </div>
+            <div class="settings-avatar">
+              <div class="settings-avatar-circle" id="configAvatar">E</div>
+            </div>
+            <div id="configProfileMsg" class="form-message"></div>
+            <form id="configProfileForm" onsubmit="handleProfileSubmit(event)" class="settings-form">
+              <div class="settings-field">
+                <label for="configName">Nombre completo</label>
+                <input type="text" id="configName" required placeholder="Tu nombre completo">
+              </div>
+              <div class="settings-field">
+                <label for="configEmail">Correo electrónico</label>
+                <input type="email" id="configEmail" required placeholder="tu@correo.com">
+              </div>
+              <button type="submit" class="btn-cta-yellow settings-btn">Guardar cambios</button>
+            </form>
+          </article>
 
-        <div class="reticula-grid" id="reticulaGrid">
-          <!-- Los semestres y materias se generan con JavaScript -->
+          <!-- Seguridad -->
+          <article class="settings-card">
+            <div class="settings-card-head">
+              <div class="settings-card-icon">🔒</div>
+              <div>
+                <h3>Seguridad</h3>
+                <p>Cambia tu contraseña de acceso.</p>
+              </div>
+            </div>
+            <div id="configPasswordMsg" class="form-message"></div>
+            <form id="configPasswordForm" onsubmit="handlePasswordSubmit(event)" class="settings-form">
+              <div class="settings-field">
+                <label for="configCurrentPassword">Contraseña actual</label>
+                <input type="password" id="configCurrentPassword" required placeholder="••••••••">
+              </div>
+              <div class="settings-field">
+                <label for="configNewPassword">Nueva contraseña</label>
+                <input type="password" id="configNewPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+              </div>
+              <div class="settings-field">
+                <label for="configConfirmPassword">Confirmar nueva contraseña</label>
+                <input type="password" id="configConfirmPassword" required minlength="6" placeholder="Repite tu nueva contraseña">
+              </div>
+              <button type="submit" class="btn-cta-yellow settings-btn">Actualizar contraseña</button>
+            </form>
+          </article>
+
+          <!-- Preferencias -->
+          <article class="settings-card settings-card-full">
+            <div class="settings-card-head">
+              <div class="settings-card-icon">🎛️</div>
+              <div>
+                <h3>Preferencias</h3>
+                <p>Personaliza tu experiencia de aprendizaje.</p>
+              </div>
+            </div>
+            <div class="settings-prefs">
+              <label class="settings-toggle">
+                <span>
+                  <strong>Recordatorios de estudio</strong>
+                  <em>Recibe avisos para continuar tus cursos.</em>
+                </span>
+                <input type="checkbox" id="prefRecordatorios" onchange="togglePref('recordatorios', this.checked)">
+              </label>
+              <label class="settings-toggle">
+                <span>
+                  <strong>Novedades y nuevos cursos</strong>
+                  <em>Entérate cuando publiquemos contenido nuevo.</em>
+                </span>
+                <input type="checkbox" id="prefNovedades" onchange="togglePref('novedades', this.checked)">
+              </label>
+              <div class="settings-field settings-field-theme">
+                <label for="prefTema">Tema de la interfaz</label>
+                <select id="prefTema" onchange="togglePref('tema', this.value)">
+                  <option value="claro">Claro</option>
+                  <option value="oscuro">Oscuro</option>
+                </select>
+              </div>
+            </div>
+          </article>
+
+           <!-- Sesión -->
+          <article class="settings-card settings-card-full settings-danger">
+            <div class="settings-card-head">
+              <div class="settings-card-icon">🚪</div>
+              <div>
+                <h3>Sesión y cuenta</h3>
+                <p>Cierra tu sesión o elimina tu cuenta de forma permanente.</p>
+              </div>
+            </div>
+            <div class="settings-card-body" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+              <button class="btn-outline" onclick="logout()">Cerrar sesión</button>
+              <button class="btn-danger" id="btnDeleteAccount">Eliminar cuenta</button>
+              <small style="color: var(--text-muted);">Esta acción es irreversible.</small>
+            </div>
+          </article>
+
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 
 
@@ -453,71 +546,6 @@
       <p id="modalDescription">Información del curso y temario disponible.</p>
       <button class="btn-cta-yellow" style="width: 100%; justify-content: center;" onclick="closeModal()">
         ¡Entendido!
-      </button>
-    </div>
-  </div>
-
-  <!-- Modal de Retícula Académica -->
-  <div class="modal-overlay" id="reticulaModal" role="dialog" aria-modal="true">
-    <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
-      <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
-        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
-      </div>
-      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
-      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
-
-      <!-- Tabs de recursos -->
-      <div class="reticula-tabs">
-        <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
-          📋 Temario
-        </button>
-        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
-          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
-        </button>
-        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
-          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
-        </button>
-        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
-          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
-        </button>
-        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
-          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
-        </button>
-      </div>
-
-      <!-- Tab Contenido: Temario -->
-      <div id="tabContent-temario" class="reticula-tab-pane" style="display: block;">
-        <div class="reticula-modal-temario" style="margin: 0 0 16px;">
-          <h4>¿Qué incluye este curso?</h4>
-          <ul id="reticulaModalTemario"></ul>
-        </div>
-      </div>
-
-      <!-- Tab Contenido: Videos -->
-      <div id="tabContent-videos" class="reticula-tab-pane" style="display: none;">
-        <div id="reticulaModalVideos" style="margin: 0 0 16px;"></div>
-      </div>
-
-      <!-- Tab Contenido: Ejercicios -->
-      <div id="tabContent-ejercicios" class="reticula-tab-pane" style="display: none;">
-        <div id="reticulaModalEjercicios" style="margin: 0 0 16px;"></div>
-      </div>
-
-      <!-- Tab Contenido: Audios -->
-      <div id="tabContent-audios" class="reticula-tab-pane" style="display: none;">
-        <div id="reticulaModalAudios" style="margin: 0 0 16px;"></div>
-      </div>
-
-      <!-- Tab Contenido: Libros -->
-      <div id="tabContent-libros" class="reticula-tab-pane" style="display: none;">
-        <div id="reticulaModalLibros" style="margin: 0 0 16px;"></div>
-      </div>
-
-      <div class="reticula-modal-estado" id="reticulaModalEstado"></div>
-
-      <button class="btn-cta-yellow reticula-modal-action" id="reticulaModalAction" onclick="inscribirMateriaActual()">
-        Inscribirme
       </button>
     </div>
   </div>
@@ -781,32 +809,7 @@
   </div>
 
 
-  <script src="public/script.js?v=20261102_recursos"></script>
-
-  <!-- ============================================================
-       MODAL REPRODUCTOR DE VIDEO
-       ============================================================ -->
-  <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
-    <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 20px;">🎬</span>
-          <h3 id="videoPlayerTitle" style="font-size: 17px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
-        </div>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
-      </div>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-        <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <span style="font-size: 12.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
-        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13px;">Terminar de ver</button>
-      </div>
-    </div>
-  </div>
-
-  
-
+  <script src="public/js/script.js?v=20261102_recursos"></script>
 
   <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
