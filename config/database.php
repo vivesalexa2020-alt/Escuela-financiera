@@ -12,20 +12,25 @@ class Database {
 
     public static function getConnection(): PDO {
         if (self::$instance === null) {
-            $host = 'localhost';
-            $dbname = 'educacion_financiera';
-            $username = 'root';
-            $password = '';
-
             $envFile = dirname(__DIR__) . '/.env';
-            if (file_exists($envFile)) {
-                $env = parse_ini_file($envFile);
-                if ($env) {
-                    $host = $env['DB_HOST'] ?? $host;
-                    $dbname = $env['DB_NAME'] ?? $dbname;
-                    $username = $env['DB_USER'] ?? $username;
-                    $password = $env['DB_PASSWORD'] ?? $password;
-                }
+            if (!file_exists($envFile)) {
+                throw new \RuntimeException(
+                    'Archivo .env no encontrado. Copia .env.example a .env y configura tus credenciales.'
+                );
+            }
+
+            $env = parse_ini_file($envFile);
+            if (!$env) {
+                throw new \RuntimeException('No se pudo leer el archivo .env');
+            }
+
+            $host     = $env['DB_HOST']     ?? 'localhost';
+            $dbname   = $env['DB_NAME']     ?? '';
+            $username = $env['DB_USER']     ?? '';
+            $password = $env['DB_PASSWORD'] ?? '';
+
+            if (empty($dbname)) {
+                throw new \RuntimeException('DB_NAME no está definido en el archivo .env');
             }
 
             try {

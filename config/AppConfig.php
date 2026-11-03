@@ -27,4 +27,14 @@ class AppConfig {
             exit();
         }
     }
+
+    /**
+     * Devuelve CORS como un middleware compatible con el Router
+     */
+    public static function corsMiddleware(): callable {
+        return function (callable $next): void {
+            self::initCors();
+            $next();
+        };
+    }
 }

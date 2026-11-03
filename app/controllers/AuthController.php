@@ -25,14 +25,8 @@ class AuthController extends Controller {
 
         $data = $this->getRequestData();
 
-        // Validar CSRF token si se envió
-        $csrfToken = $data['csrf_token'] ?? '';
-        if (!empty($csrfToken) && !Csrf::validateToken($csrfToken)) {
-            $this->jsonResponse([
-                'success' => false, 
-                'message' => 'Error de validación CSRF. Recarga la página e intenta de nuevo.'
-            ], 403);
-        }
+        // Validar CSRF token (obligatorio en toda petición POST)
+        $this->validateCsrf();
 
         $email = strtolower(trim($data['email'] ?? ''));
         $password = $data['password'] ?? '';
@@ -102,6 +96,9 @@ class AuthController extends Controller {
         }
 
         $data = $this->getRequestData();
+
+        // Validar CSRF token (obligatorio en toda petición POST)
+        $this->validateCsrf();
 
         $nombre   = trim($data['nombre'] ?? '');
         $email    = strtolower(trim($data['email'] ?? ''));

@@ -1,32 +1,45 @@
 <?php
+/**
+ * Rutas API — endpoints JSON unificados a través del Router.
+ * Recibe una instancia de Router y registra las rutas sobre ella.
+ */
 
-use App\Controllers\AchievementController;
-use App\Controllers\AuthController;
-use App\Controllers\CourseController;
-use App\Controllers\EnrollmentController;
-use App\Controllers\MembershipController;
-use App\Controllers\ProgressController;
-use App\Controllers\UserController;
+use App\Core\Router;
+use App\Config\AppConfig;
 
-return static function (string $endpoint): void {
-    match ($endpoint) {
-        'login'             => (new AuthController())->login(),
-        'registro'          => (new AuthController())->register(),
-        'logout'            => (new AuthController())->logout(),
-        'session'           => (new AuthController())->session(),
-        'verificar-email'   => (new AuthController())->verifyEmail(),
-        'actualizar-perfil' => (new UserController())->updateProfile(),
-        'cambiar-password'  => (new UserController())->changePassword(),
-        'eliminar-cuenta'   => (new UserController())->deleteAccount(),
-        'cursos'            => (isset($_GET['id']) ? (new CourseController())->show($_GET['id']) : (new CourseController())->index()),
-        'inscripciones'     => (new EnrollmentController())->handle(),
-        'progreso'           => (new ProgressController())->handle(),
-        'logros'             => (new AchievementController())->index(),
-        'membresia'           => (new MembershipController())->index(),
-        default              => (function() {
-            http_response_code(404);
-            header('Content-Type: application/json; charset=utf-8');
-            echo json_encode(['success' => false, 'message' => 'Endpoint API no encontrado']);
-        })()
-    };
+return static function (Router $router): void {
+    $cors = AppConfig::corsMiddleware();
+
+    $router->group(['prefix' => 'api', 'middleware' => [$cors]], function (Router $r) {
+        // ── Autenticación ─────────────────────────────────────
+        $r->post('/login',            'AuthController@login');
+        $r->post('/registro',         'AuthController@register');
+        $r->post('/logout',           'AuthController@logout');
+        $r->get('/session',           'AuthController@session');
+        $r->post('/verificar-email',  'AuthController@verifyEmail');
+
+        // ── Perfil de usuario ─────────────────────────────────
+        $r->post('/actualizar-perfil', 'UserController@updateProfile');
+        $r->post('/cambiar-password',  'UserController@changePassword');
+        $r->post('/eliminar-cuenta',   'UserController@deleteAccount');
+
+        // ── Cursos ────────────────────────────────────────────
+        $r->get('/cursos',        'CourseController@index');
+        $r->get('/cursos/{id}',   'CourseController@show');
+
+        // ── Inscripciones ─────────────────────────────────────
+        $r->get('/inscripciones',    'EnrollmentController@index');
+        $r->post('/inscripciones',   'EnrollmentController@store');
+        $r->delete('/inscripciones', 'EnrollmentController@destroy');
+
+        // ── Progreso ──────────────────────────────────────────
+        $r->get('/progreso',  'ProgressController@index');
+        $r->post('/progreso', 'ProgressController@store');
+
+        // ── Logros y puntos ───────────────────────────────────
+        $r->get('/logros', 'AchievementController@index');
+
+        // ── Membresía ─────────────────────────────────────────
+        $r->get('/membresia', 'MembershipController@index');
+    });
 };

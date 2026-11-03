@@ -13,17 +13,6 @@ class ProgressController extends Controller {
         $this->progressModel = new ProgressModel();
     }
 
-    public function handle(): void {
-        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        if ($method === 'GET') {
-            $this->index();
-        } elseif ($method === 'POST') {
-            $this->store();
-        } else {
-            $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-        }
-    }
-
     public function index(): void {
         $userId = $this->requireAuth();
         $cursoId = isset($_GET['curso_id']) ? (int)$_GET['curso_id'] : null;

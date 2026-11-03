@@ -14,8 +14,8 @@ class View {
     public static function render(string $viewPath, array $data = [], ?string $layout = 'main'): void {
         self::init();
 
-        // Extraer variables para la vista
-        extract($data);
+        // Extraer variables para la vista (EXTR_SKIP evita sobreescribir variables internas)
+        extract($data, EXTR_SKIP);
 
         $viewFile = self::$viewsDir . '/' . ltrim($viewPath, '/') . '.php';
 

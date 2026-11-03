@@ -1,11 +1,8 @@
 <?php
 namespace App\Core;
 
-use App\Config\AppConfig;
-
 abstract class Controller {
     public function __construct() {
-        AppConfig::initCors();
         Session::start();
     }
 

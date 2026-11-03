@@ -1,26 +1,19 @@
 <?php
 /**
- * ============================================================
- * EDUCACIÓN FINANCIERA - FRONT CONTROLLER API (MVC REST)
- * ============================================================
+ * Punto de entrada API de Educación Financiera.
+ * Usa el mismo Router unificado; solo registra las rutas API.
  */
 
 require_once __DIR__ . '/../autoload.php';
 
-// Obtener el endpoint solicitado (por parámetro ?endpoint= o por URI)
-$endpoint = $_GET['endpoint'] ?? null;
+use App\Core\Router;
+use App\Core\ErrorHandler;
 
-if (!$endpoint) {
-    $uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
-    $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
-    if ($scriptDir !== '/' && strpos($uri, $scriptDir) === 0) {
-        $uri = substr($uri, strlen($scriptDir));
-    }
-    $parts = explode('/', trim($uri, '/'));
-    // Si la URI es /api/login o similar, tomar el último segmento
-    $endpoint = end($parts);
-    $endpoint = str_replace('.php', '', $endpoint);
-}
+ErrorHandler::register();
 
-$dispatchApiRoute = require __DIR__ . '/../routes/api.php';
-$dispatchApiRoute($endpoint);
+$router = new Router();
+
+// Solo cargar rutas API
+(require __DIR__ . '/../routes/api.php')($router);
+
+$router->dispatch();

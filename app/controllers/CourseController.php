@@ -30,12 +30,8 @@ class CourseController extends Controller {
         }
     }
 
-    public function show($id = null): void {
-        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-        }
-
-        $courseId = (int)($id ?? ($_GET['id'] ?? 0));
+    public function show(string $id = ''): void {
+        $courseId = (int)($id ?: ($_GET['id'] ?? 0));
         if ($courseId <= 0) {
             $this->jsonResponse(['success' => false, 'message' => 'ID de curso no válido'], 400);
         }

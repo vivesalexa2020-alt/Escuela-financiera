@@ -6,7 +6,7 @@ class Logger {
 
     private static function init(): void {
         if (self::$logDir === null) {
-            self::$logDir = dirname(__DIR__, 2) . '/api/logs';
+            self::$logDir = dirname(__DIR__, 2) . '/storage/logs';
             if (!is_dir(self::$logDir)) {
                 mkdir(self::$logDir, 0755, true);
             }

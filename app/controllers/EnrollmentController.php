@@ -13,19 +13,6 @@ class EnrollmentController extends Controller {
         $this->enrollmentModel = new EnrollmentModel();
     }
 
-    public function handle(): void {
-        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        if ($method === 'GET') {
-            $this->index();
-        } elseif ($method === 'POST') {
-            $this->store();
-        } elseif ($method === 'DELETE') {
-            $this->destroy();
-        } else {
-            $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
-        }
-    }
-
     public function index(): void {
         $userId = $this->requireAuth();
 
