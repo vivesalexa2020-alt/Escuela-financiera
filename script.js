@@ -1378,20 +1378,124 @@ function switchReticulaTab(tabName) {
   });
 }
 
+let currentExerciseCorrectIdx = 1;
+let selectedModalOptionIdx = null;
+
 function reproducirVideoMateria(titulo, url) {
-  alert('🎥 Reproduciendo lección en video:\n\n"' + titulo + '"\n\nVideo interactivo optimizado para tu progreso en la plataforma.');
+  const modal = document.getElementById('videoPlayerModal');
+  const titleEl = document.getElementById('videoPlayerTitle');
+  const iframe = document.getElementById('videoPlayerIframe');
+  if (modal && iframe) {
+    if (titleEl) titleEl.textContent = titulo;
+    iframe.src = url || 'https://www.youtube.com/embed/dQw4w9WgXcQ';
+    modal.classList.add('open');
+  } else {
+    window.open(url, '_blank');
+  }
+}
+
+function closeVideoPlayerModal() {
+  const modal = document.getElementById('videoPlayerModal');
+  const iframe = document.getElementById('videoPlayerIframe');
+  if (iframe) iframe.src = '';
+  if (modal) modal.classList.remove('open');
 }
 
 function abrirEjercicioMateria(titulo, descripcion) {
-  alert('📝 Ejercicio Práctico:\n\n' + titulo + '\n\n' + descripcion + '\n\n¡Completa la actividad para sumar puntos a tu perfil!');
+  const modal = document.getElementById('exercisePlayerModal');
+  const titleEl = document.getElementById('exerciseModalTitle');
+  const descEl = document.getElementById('exerciseModalDesc');
+  const optionsEl = document.getElementById('exerciseModalOptions');
+  const feedbackEl = document.getElementById('exerciseModalFeedback');
+
+  if (!modal) {
+    alert('📝 ' + titulo + '\n\n' + descripcion);
+    return;
+  }
+
+  if (titleEl) titleEl.textContent = titulo;
+  if (descEl) descEl.textContent = descripcion;
+  if (feedbackEl) feedbackEl.style.display = 'none';
+
+  selectedModalOptionIdx = null;
+  currentExerciseCorrectIdx = 1;
+
+  const mockOptions = [
+    'Anotar mentalmente los gastos y no llevar registro estricto',
+    'Aplicar el principio analizado en clase auditando tus números reales por escrito',
+    'Posponer el ahorro hasta ganar el doble de ingresos',
+    'Ignorar los estados de cuenta bancarios'
+  ];
+
+  if (optionsEl) {
+    optionsEl.innerHTML = mockOptions.map(function(opt, idx) {
+      return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:13.5px; display:flex; align-items:center; gap:10px;">' +
+        '<span style="font-size:16px;">🔘</span> <span>' + opt + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  modal.classList.add('open');
+}
+
+function seleccionarOpcionModal(idx) {
+  selectedModalOptionIdx = idx;
+  for (let i = 0; i < 4; i++) {
+    const el = document.getElementById('modalOpt' + i);
+    if (el) {
+      if (i === idx) {
+        el.style.borderColor = 'var(--btn-green)';
+        el.style.background = '#e6f7ef';
+        el.style.fontWeight = '700';
+      } else {
+        el.style.borderColor = '#d4e7de';
+        el.style.background = '#ffffff';
+        el.style.fontWeight = 'normal';
+      }
+    }
+  }
+  const feedbackEl = document.getElementById('exerciseModalFeedback');
+  if (feedbackEl) feedbackEl.style.display = 'none';
+}
+
+function comprobarEjercicioModal() {
+  const feedbackEl = document.getElementById('exerciseModalFeedback');
+  if (!feedbackEl) return;
+
+  if (selectedModalOptionIdx === null) {
+    feedbackEl.style.display = 'block';
+    feedbackEl.style.background = '#fef2f2';
+    feedbackEl.style.color = '#b91c1c';
+    feedbackEl.style.border = '1px solid #fecaca';
+    feedbackEl.textContent = '⚠️ Por favor selecciona una opción antes de comprobar tu respuesta.';
+    return;
+  }
+
+  feedbackEl.style.display = 'block';
+  if (selectedModalOptionIdx === currentExerciseCorrectIdx) {
+    feedbackEl.style.background = '#ecfdf5';
+    feedbackEl.style.color = '#047857';
+    feedbackEl.style.border = '1px solid #a7f3d0';
+    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> Has aplicado el criterio financiero adecuado.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+  } else {
+    feedbackEl.style.background = '#fffbeb';
+    feedbackEl.style.color = '#b45309';
+    feedbackEl.style.border = '1px solid #fde68a';
+    feedbackEl.textContent = '❌ Esa no es la mejor opción financiera. Analiza la situación con el método visto en la video-clase e inténtalo de nuevo.';
+  }
+}
+
+function closeExercisePlayerModal() {
+  const modal = document.getElementById('exercisePlayerModal');
+  if (modal) modal.classList.remove('open');
 }
 
 function reproducirAudioMateria(titulo, duracion) {
-  alert('🎧 Reproduciendo podcast / audioguía (' + duracion + '):\n\n"' + titulo + '"\n\nEscucha y aprende a tu propio ritmo.');
+  alert('🎧 Reproduciendo podcast educativo (' + duracion + '):\n\n"' + titulo + '"\n\n¡Audio en alta definición disponible!');
 }
 
 function abrirLibroMateria(titulo, autor) {
-  alert('📚 Lectura y Guía Descargable:\n\n"' + titulo + '"\nAutor: ' + autor + '\n\nMaterial de estudio y consulta oficial.');
+  alert('📚 Abriendo guía y libro oficial:\n\n"' + titulo + '"\nAutor: ' + autor + '\n\nDescargando archivo digital para lectura...');
 }
 
 function openReticulaModal(id) {
