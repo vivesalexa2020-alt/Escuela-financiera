@@ -1,34 +1,19 @@
 <?php
 /**
- * CSRF Protection
- * Genera y valida tokens CSRF para proteger contra ataques CSRF
+ * Adaptador de compatibilidad para CSRF hacia App\Core\Csrf
  */
+require_once __DIR__ . '/../autoload.php';
 
-function generateCSRFToken() {
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-    
-    if (!isset($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
-    
-    return $_SESSION['csrf_token'];
+use App\Core\Csrf;
+
+function generateCSRFToken(): string {
+    return Csrf::generateToken();
 }
 
-function validateCSRFToken($token) {
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-    
-    if (!isset($_SESSION['csrf_token'])) {
-        return false;
-    }
-    
-    return hash_equals($_SESSION['csrf_token'], $token);
+function validateCSRFToken($token): bool {
+    return Csrf::validateToken($token);
 }
 
-function getCSRFTokenForResponse() {
-    $token = generateCSRFToken();
-    return ['csrf_token' => $token];
+function getCSRFTokenForResponse(): array {
+    return ['csrf_token' => Csrf::getToken()];
 }

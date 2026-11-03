@@ -8,6 +8,7 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 - **Cursos dinámicos**: Gestión de cursos y lecciones desde base de datos
 - **Sistema de membresías**: Gratis, Pro, Premium
 - **Gamificación**: Puntos, niveles, logros y badges
+- **Arquitectura MVC**: Modelo-Vista-Controlador organizado profesionalmente
 - **Seguridad avanzada**:
   - Rate limiting contra ataques de fuerza bruta
   - Protección CSRF en formularios
@@ -21,18 +22,101 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 ## 🛠️ Tecnologías
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: PHP 7.4+
+- **Backend**: PHP 8.2+ (Arquitectura MVC)
 - **Base de datos**: MySQL 5.7+ / MariaDB 10.3+
-- **Servidor web**: Apache o Nginx
+- **Servidor web**: Apache (XAMPP) o Nginx
+
+## 🏗️ Arquitectura MVC
+
+```
+EDUCACION_FINANCIERA/
+├── autoload.php                 # Autoloader PSR-4 (namespace App\)
+├── index.php                    # Front Controller Web (rutas de vistas)
+│
+├── app/                         # ========= Arquitectura MVC =========
+│   ├── Config/
+│   │   ├── AppConfig.php        # CORS, constantes globales
+│   │   └── Database.php         # Conexión PDO (Singleton)
+│   │
+│   ├── Core/                    # Framework base reutilizable
+│   │   ├── Controller.php       # Controlador base (JSON, auth, CSRF)
+│   │   ├── Model.php            # Modelo base (transacciones PDO)
+│   │   ├── View.php             # Motor de vistas con layouts
+│   │   ├── Router.php           # Enrutador HTTP simple
+│   │   ├── Session.php          # Gestión segura de sesiones
+│   │   ├── Csrf.php             # Tokens CSRF
+│   │   ├── RateLimiter.php      # Protección de fuerza bruta
+│   │   └── Logger.php           # Sistema de logs en disco
+│   │
+│   ├── Models/                  # Capa de datos (consultas SQL)
+│   │   ├── UserModel.php        # Usuarios, login, perfil, auditoría
+│   │   ├── CourseModel.php      # Cursos, lecciones, ejercicios
+│   │   ├── EnrollmentModel.php  # Inscripciones a materias
+│   │   ├── ProgressModel.php    # Progreso y porcentaje por curso
+│   │   ├── AchievementModel.php # Puntos, niveles, logros
+│   │   └── MembershipModel.php  # Membresías y suscripciones
+│   │
+│   ├── Controllers/             # Lógica de negocio
+│   │   ├── AuthController.php   # Login, registro, logout, sesión
+│   │   ├── UserController.php   # Perfil, contraseña, eliminar cuenta
+│   │   ├── CourseController.php  # Listado y detalle de cursos
+│   │   ├── EnrollmentController.php # Inscripciones
+│   │   ├── ProgressController.php   # Progreso de usuario
+│   │   ├── AchievementController.php # Logros y puntos
+│   │   ├── MembershipController.php  # Membresías
+│   │   └── PageController.php        # Renderiza vistas HTML
+│   │
+│   └── Views/                   # Capa de presentación
+│       ├── layouts/
+│       │   ├── main.php         # Layout principal (header+navbar+footer)
+│       │   ├── header.php       # <head> HTML global
+│       │   ├── navbar.php       # Barra de navegación
+│       │   └── footer.php       # Pie de página
+│       ├── components/
+│       │   └── auth_modal.php   # Modal de login/registro
+│       └── pages/
+│           ├── home.php         # Página principal
+│           ├── cursos.php       # Catálogo de cursos
+│           ├── aula.php         # Aula virtual con reproductor
+│           ├── recursos.php     # Herramientas y descargas
+│           ├── reticula.php     # Retícula académica semestral
+│           ├── metas.php        # Seguimiento de metas financieras
+│           ├── configuraciones.php # Configuración de cuenta
+│           └── suscripcion.php  # Planes y membresías
+│
+├── api/                         # ========= API REST =========
+│   ├── index.php                # Front Controller API (MVC)
+│   ├── conexion.php             # Adaptador de compatibilidad → Database
+│   ├── csrf.php                 # Adaptador de compatibilidad → Csrf
+│   ├── rate_limiter.php         # Adaptador de compatibilidad → RateLimiter
+│   ├── logger.php               # Adaptador de compatibilidad → Logger
+│   ├── login.php                # (legacy, sigue funcionando)
+│   ├── registro.php             # (legacy, sigue funcionando)
+│   └── ...                      # Demás endpoints legacy intactos
+│
+├── css/                         # Estilos modulares
+│   ├── base/
+│   ├── components/
+│   └── main.css
+├── js/                          # JavaScript modular
+│   ├── modules/
+│   └── main.js
+├── img/                         # Imágenes y assets
+├── estilos.css                  # Hoja de estilos principal
+├── script.js                    # JavaScript global legacy
+├── educacion_financiera.sql     # Schema de BD
+├── .env                         # Variables de entorno
+├── .env.example                 # Plantilla de .env
+└── .gitignore
+```
 
 ## 📦 Instalación
 
 ### Requisitos previos
 
-- PHP 7.4 o superior
+- PHP 8.0 o superior (XAMPP 8.2 recomendado)
 - MySQL 5.7+ o MariaDB 10.3+
 - Servidor web (Apache/Nginx)
-- Composer (opcional, para dependencias futuras)
 
 ### Pasos de instalación
 
@@ -44,7 +128,6 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 
 2. **Configurar base de datos**
    ```bash
-   # Crear base de datos
    mysql -u root -p
    CREATE DATABASE educacion_financiera;
    ```
@@ -60,99 +143,37 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
    # Editar .env con tus credenciales
    ```
 
-5. **Configurar permisos**
-   ```bash
-   # Asegurar que la carpeta api tenga permisos de escritura para logs
-   chmod 755 api
-   ```
+5. **Acceder a la plataforma**
+   - **Vistas MVC**: `http://localhost/EDUCACION_FINANCIERA/index.php`
+   - **API REST MVC**: `http://localhost/EDUCACION_FINANCIERA/api/index.php?endpoint=session`
+   - **API Legacy** (compatibilidad): `http://localhost/EDUCACION_FINANCIERA/api/login.php`
 
-6. **Configurar servidor web**
-   
-   **Apache**:
-   - Asegurar que mod_rewrite esté habilitado
-   - Configurar DocumentRoot apuntando a la carpeta del proyecto
-   
-   **Nginx**:
-   ```nginx
-   server {
-       listen 80;
-       server_name localhost;
-       root /ruta/a/EDUCACION_FINANCIERA;
-       index index.html;
-       
-       location / {
-           try_files $uri $uri/ /index.html;
-       }
-       
-       location ~ \.php$ {
-           fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-           fastcgi_index index.php;
-           include fastcgi_params;
-           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-       }
-   }
-   ```
+## 📱 API Endpoints
 
-## 🔧 Configuración
+### Vía Front Controller MVC (`api/index.php`)
 
-### Variables de entorno (.env)
+| Endpoint | Método | Descripción |
+|----------|--------|-------------|
+| `?endpoint=login` | POST | Iniciar sesión |
+| `?endpoint=registro` | POST | Registrar usuario |
+| `?endpoint=logout` | POST | Cerrar sesión |
+| `?endpoint=session` | GET | Verificar sesión activa |
+| `?endpoint=verificar-email` | POST | Verificar email |
+| `?endpoint=actualizar-perfil` | POST | Actualizar perfil |
+| `?endpoint=cambiar-password` | POST | Cambiar contraseña |
+| `?endpoint=eliminar-cuenta` | POST | Eliminar cuenta (soft delete) |
+| `?endpoint=cursos` | GET | Listar cursos |
+| `?endpoint=cursos&id=1` | GET | Detalle de curso |
+| `?endpoint=inscripciones` | GET/POST | Inscripciones a materias |
+| `?endpoint=progreso` | GET/POST | Progreso de usuario |
+| `?endpoint=logros` | GET | Logros y puntos |
+| `?endpoint=membresia` | GET | Membresía activa |
 
-```env
-DB_HOST=localhost
-DB_NAME=educacion_financiera
-DB_USER=root
-DB_PASSWORD=tu_contraseña
-```
+### Vía archivos individuales (compatibilidad legacy)
 
-### Estructura de carpetas
-
-```
-EDUCACION_FINANCIERA/
-├── api/                  # Endpoints PHP
-│   ├── conexion.php      # Conexión a BD
-│   ├── login.php         # Autenticación
-│   ├── registro.php      # Registro
-│   ├── csrf.php          # Protección CSRF
-│   ├── rate_limiter.php  # Rate limiting
-│   └── ...
-├── css/                  # Estilos modulares
-│   ├── base/            # Variables, reset, layout
-│   ├── components/      # Botones, modales, etc.
-│   └── main.css         # Archivo principal
-├── js/                   # JavaScript modular
-│   ├── modules/         # Módulos ES6
-│   │   ├── auth.js      # Autenticación
-│   │   └── ui.js        # Componentes UI
-│   └── main.js          # Punto de entrada
-├── img/                  # Imágenes y assets
-├── *.html               # Páginas del sitio
-├── .env                 # Variables de entorno (no versionar)
-├── .env.example         # Plantilla de .env
-└── README.md            # Este archivo
-```
-
-## 🗄️ Base de datos
-
-### Tablas principales
-
-- `usuarios`: Información de usuarios
-- `membresias`: Tipos de suscripción
-- `inscripciones`: Inscripciones a cursos
-- `cursos`: Cursos disponibles
-- `lecciones`: Lecciones de cursos
-- `progreso_usuario`: Progreso de cada usuario
-- `logros`: Badges y recompensas
-- `logros_usuario`: Logros desbloqueados
-- `puntos_usuario`: Sistema de puntos y niveles
-- `login_logs`: Auditoría de ingresos
-- `cambios_perfil`: Auditoría de cambios
-- `rate_limits`: Control de intentos
-- `password_resets`: Tokens de recuperación
-- `email_verifications`: Verificación de email
+Los archivos `api/login.php`, `api/registro.php`, etc. siguen funcionando exactamente igual gracias a los **adaptadores de compatibilidad** en `conexion.php`, `csrf.php`, `rate_limiter.php` y `logger.php`.
 
 ## 🔒 Seguridad
-
-### Implementaciones de seguridad
 
 1. **Rate Limiting**: Limita intentos de login/registro por IP
 2. **CSRF Protection**: Tokens en formularios POST
@@ -161,14 +182,6 @@ EDUCACION_FINANCIERA/
 5. **Auditoría**: Registro de todos los cambios importantes
 6. **Secure Cookies**: Configuración httponly, samesite
 7. **SQL Injection Protection**: Usando prepared statements
-
-### Buenas prácticas
-
-- Nunca commitar `.env` (incluido en .gitignore)
-- Usar HTTPS en producción
-- Mantener PHP y MySQL actualizados
-- Revisar logs regularmente
-- Implementar backups automáticos
 
 ## 🚀 Despliegue
 
@@ -181,67 +194,3 @@ EDUCACION_FINANCIERA/
 5. Configurar CORS apropiadamente
 6. Deshabilitar display_errors en PHP
 7. Configurar cache-control apropiado
-
-## 📱 API Endpoints
-
-### Autenticación
-
-- `POST /api/login.php` - Iniciar sesión
-- `POST /api/registro.php` - Registrar usuario
-- `POST /api/logout.php` - Cerrar sesión
-- `GET /api/session.php` - Verificar sesión
-- `POST /api/verificar-email.php` - Verificar email
-
-### Perfil
-
-- `POST /api/actualizar-perfil.php` - Actualizar perfil
-- `POST /api/cambiar-password.php` - Cambiar contraseña
-- `POST /api/eliminar-cuenta.php` - Eliminar cuenta
-
-### Cursos
-
-- `GET /api/cursos.php` - Listar cursos
-- `GET /api/cursos.php?id=X` - Obtener curso específico
-- `POST /api/inscripciones.php` - Inscribirse a curso
-- `DELETE /api/inscripciones.php` - Cancelar inscripción
-
-### Progreso
-
-- `GET /api/progreso.php` - Obtener progreso
-- `POST /api/progreso.php` - Actualizar progreso
-
-## 🧪 Testing
-
-```bash
-# Pruebas de conexión a BD
-php -r "require 'api/conexion.php'; echo 'Conexión exitosa';"
-
-# Verificar logs
-tail -f api/logs/error.log
-```
-
-## 📝 Contribución
-
-1. Fork el proyecto
-2. Crear rama feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abrir Pull Request
-
-## 📄 Licencia
-
-Este proyecto es de uso educativo. Todos los derechos reservados.
-
-## 🆘 Soporte
-
-Para reportar bugs o solicitar features, abrir un issue en el repositorio.
-
-## 🔄 Roadmap
-
-- [ ] Sistema de pagos integrado
-- [ ] Chat en tiempo real
-- [ ] API REST completa
-- [ ] App móvil
-- [ ] Sistema de referidos
-- [ ] Certificados de completación
-- [ ] Analytics avanzado
