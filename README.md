@@ -82,13 +82,14 @@ EDUCACION_FINANCIERA/
 │
 ├── api/                         # ========= API REST =========
 │   └── index.php                # Front Controller API (?endpoint=)
+├── database/                    # Esquema SQL de la base de datos
+│   └── educacion_financiera.sql # Definición de tablas y relaciones
 │
 ├── css/                         # Estilos
 │   └── pages/                   # CSS específico por página
 ├── img/                         # Imágenes y assets
 ├── estilos.css                  # Hoja de estilos principal
 ├── script.js                    # JavaScript global (API + CSRF)
-├── educacion_financiera.sql     # Schema de BD
 ├── legacy/                      # Código y datos archivados (no se sirve)
 │   ├── api/                     # Endpoints PHP antiguos
 │   ├── html/                    # Páginas HTML originales
@@ -127,7 +128,7 @@ EDUCACION_FINANCIERA/
 
 3. **Importar estructura de la base de datos**
    ```bash
-   mysql -u root -p educacion_financiera < educacion_financiera.sql
+   mysql -u root -p educacion_financiera < database/educacion_financiera.sql
    ```
 
 4. **Configurar variables de entorno**
