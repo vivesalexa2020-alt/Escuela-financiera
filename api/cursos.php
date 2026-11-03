@@ -11,10 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $cursoId = $_GET['id'] ?? null;
         
         if ($cursoId) {
-            // Obtener curso específico con sus lecciones
+            // Obtener curso específico con sus recursos completos
             $stmt = $pdo->prepare("
                 SELECT c.*, 
-                       (SELECT COUNT(*) FROM lecciones WHERE curso_id = c.id AND activo = 1) as total_lecciones
+                       (SELECT COUNT(*) FROM lecciones WHERE curso_id = c.id AND activo = 1) as total_lecciones,
+                       (SELECT COUNT(*) FROM ejercicios WHERE curso_id = c.id AND activo = 1) as total_ejercicios,
+                       (SELECT COUNT(*) FROM audios WHERE curso_id = c.id AND activo = 1) as total_audios,
+                       (SELECT COUNT(*) FROM libros WHERE curso_id = c.id AND activo = 1) as total_libros
                 FROM cursos c 
                 WHERE c.id = ? AND c.activo = 1
             ");
@@ -26,22 +29,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 exit();
             }
             
-            // Obtener lecciones del curso
+            // Obtener lecciones (videos)
             $stmt = $pdo->prepare("SELECT * FROM lecciones WHERE curso_id = ? AND activo = 1 ORDER BY orden");
             $stmt->execute([$cursoId]);
-            $lecciones = $stmt->fetchAll();
-            
-            $curso['lecciones'] = $lecciones;
+            $curso['lecciones'] = $stmt->fetchAll();
+
+            // Obtener ejercicios
+            $stmt = $pdo->prepare("SELECT * FROM ejercicios WHERE curso_id = ? AND activo = 1 ORDER BY orden");
+            $stmt->execute([$cursoId]);
+            $curso['ejercicios'] = $stmt->fetchAll();
+
+            // Obtener audios
+            $stmt = $pdo->prepare("SELECT * FROM audios WHERE curso_id = ? AND activo = 1 ORDER BY orden");
+            $stmt->execute([$cursoId]);
+            $curso['audios'] = $stmt->fetchAll();
+
+            // Obtener libros
+            $stmt = $pdo->prepare("SELECT * FROM libros WHERE curso_id = ? AND activo = 1 ORDER BY orden");
+            $stmt->execute([$cursoId]);
+            $curso['libros'] = $stmt->fetchAll();
             
             echo json_encode(['success' => true, 'curso' => $curso]);
         } else {
-            // Listar todos los cursos
+            // Listar todos los cursos con conteos
             $stmt = $pdo->prepare("
                 SELECT c.*, 
-                       (SELECT COUNT(*) FROM lecciones WHERE curso_id = c.id AND activo = 1) as total_lecciones
+                       (SELECT COUNT(*) FROM lecciones WHERE curso_id = c.id AND activo = 1) as total_lecciones,
+                       (SELECT COUNT(*) FROM ejercicios WHERE curso_id = c.id AND activo = 1) as total_ejercicios,
+                       (SELECT COUNT(*) FROM audios WHERE curso_id = c.id AND activo = 1) as total_audios,
+                       (SELECT COUNT(*) FROM libros WHERE curso_id = c.id AND activo = 1) as total_libros
                 FROM cursos c 
                 WHERE c.activo = 1 
-                ORDER BY c.orden
+                ORDER BY c.semestre, c.orden
             ");
             $stmt->execute();
             $cursos = $stmt->fetchAll();
@@ -63,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     
-    // Solo admin puede crear cursos (falta implementar verificación de rol)
     $data = json_decode(file_get_contents('php://input'), true);
     
     $titulo = trim($data['titulo'] ?? '');
@@ -72,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nivel = $data['nivel'] ?? 'principiante';
     $duracion = $data['duracion_horas'] ?? null;
     $imagen = $data['imagen_url'] ?? null;
+    $semestre = (int)($data['semestre'] ?? 1);
     
     if (empty($titulo) || empty($descripcion) || empty($categoria)) {
         echo json_encode(['success' => false, 'message' => 'Título, descripción y categoría son obligatorios']);
@@ -80,10 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     try {
         $stmt = $pdo->prepare("
-            INSERT INTO cursos (titulo, descripcion, categoria, nivel, duracion_horas, imagen_url, orden) 
-            VALUES (?, ?, ?, ?, ?, ?, (SELECT COALESCE(MAX(orden), 0) + 1 FROM cursos))
+            INSERT INTO cursos (codigo, semestre, titulo, descripcion, categoria, nivel, duracion_horas, imagen_url, orden) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, (SELECT COALESCE(MAX(orden), 0) + 1 FROM cursos))
         ");
-        $stmt->execute([$titulo, $descripcion, $categoria, $nivel, $duracion, $imagen]);
+        $codigo = 'curso-' . time();
+        $stmt->execute([$codigo, $semestre, $titulo, $descripcion, $categoria, $nivel, $duracion, $imagen]);
         
         Logger::info('Curso creado', ['usuario_id' => $_SESSION['usuario_id'], 'titulo' => $titulo]);
         

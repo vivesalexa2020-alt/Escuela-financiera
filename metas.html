@@ -2461,15 +2461,59 @@ body.user-logged-in .logged-topbar {
 
   <!-- Modal de Retícula Académica -->
   <div class="modal-overlay" id="reticulaModal" role="dialog" aria-modal="true">
-    <div class="modal-card modal-card-wide" style="text-align: left; max-width: 560px;">
+    <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
       <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
-      <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
-      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px;">Materia</h3>
-      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Descripción de la materia.</p>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
+        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+      </div>
+      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
+      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
 
-      <div class="reticula-modal-temario">
-        <h4>¿Qué incluye?</h4>
-        <ul id="reticulaModalTemario"></ul>
+      <!-- Tabs de recursos -->
+      <div class="reticula-tabs">
+        <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
+          📋 Temario
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
+          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
+          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
+          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
+          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
+        </button>
+      </div>
+
+      <!-- Tab Contenido: Temario -->
+      <div id="tabContent-temario" class="reticula-tab-pane" style="display: block;">
+        <div class="reticula-modal-temario" style="margin: 0 0 16px;">
+          <h4>¿Qué incluye este curso?</h4>
+          <ul id="reticulaModalTemario"></ul>
+        </div>
+      </div>
+
+      <!-- Tab Contenido: Videos -->
+      <div id="tabContent-videos" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalVideos" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Ejercicios -->
+      <div id="tabContent-ejercicios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalEjercicios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Audios -->
+      <div id="tabContent-audios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalAudios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Libros -->
+      <div id="tabContent-libros" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalLibros" style="margin: 0 0 16px;"></div>
       </div>
 
       <div class="reticula-modal-estado" id="reticulaModalEstado"></div>
