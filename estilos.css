@@ -1589,9 +1589,7 @@ body.user-logged-in .main-wrapper {
   flex-direction: column;
 }
 
-body.not-logged-in .sidebar-left {
-  display: none !important;
-}
+/* body.not-logged-in .sidebar-left permitido */
 
 body.not-logged-in .main-wrapper {
   margin-left: 0 !important;
@@ -4318,4 +4316,46 @@ body.user-logged-in .logged-topbar {
 .btn-resource-action:hover {
   background: var(--btn-green-hover);
   transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   ESTILOS PARA REPRODUCTOR DE AUDIO Y MODALES
+   ============================================================ */
+.audio-wave-visual.playing .wave-bar {
+  animation: audioWaveAnim 1.2s ease-in-out infinite alternate;
+}
+.wave-bar {
+  display: inline-block;
+  width: 4px;
+  background: var(--amarillo-dorado);
+  border-radius: 3px;
+  transition: height 0.2s ease;
+}
+.audio-wave-visual .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.audio-wave-visual .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.audio-wave-visual .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+.audio-wave-visual .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+.audio-wave-visual .wave-bar:nth-child(6) { animation-delay: 0.35s; }
+.audio-wave-visual .wave-bar:nth-child(7) { animation-delay: 0.1s; }
+.audio-wave-visual .wave-bar:nth-child(8) { animation-delay: 0.25s; }
+.audio-wave-visual .wave-bar:nth-child(9) { animation-delay: 0.4s; }
+
+@keyframes audioWaveAnim {
+  0% { height: 6px; }
+  50% { height: 34px; }
+  100% { height: 14px; }
+}
+
+/* Sidebar forzada para páginas interiores (excepto index.html) */
+body.user-logged-in .sidebar-left {
+  display: flex !important;
+}
+body.user-logged-in .main-wrapper {
+  margin-left: 260px !important;
+}
+@media (max-width: 992px) {
+  body.user-logged-in .main-wrapper {
+    margin-left: 0 !important;
+  }
 }

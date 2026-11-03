@@ -351,9 +351,9 @@ CREATE TABLE `puntos_usuario` (
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (1, 'finanzas-personales', 1, 'Unidad 1: Rompe el ciclo', 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.', 'Semestre 1', 'principiante', 12.0, 'img/nivel1.jpg', 1);
 
 -- Videos / Lecciones de Unidad 1: Rompe el ciclo
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'Video lección práctica y conceptual: Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'https://www.youtube.com/embed/dQw4w9WgXcQ', '14:32', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Gastos hormiga: cómo detectar las fugas invisibles', 'Video lección práctica y conceptual: Gastos hormiga: cómo detectar las fugas invisibles', 'https://www.youtube.com/embed/3JZ_D3ELwOQ', '11:18', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'La regla 50/30/20 explicada con ejemplos reales en México', 'Video lección práctica y conceptual: La regla 50/30/20 explicada con ejemplos reales en México', 'https://www.youtube.com/embed/L_jWHffIx5E', '16:05', 3);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'Video lección práctica y conceptual: Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'https://www.youtube.com/embed/WF6qLnuh4EA', '14:32', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Gastos hormiga: cómo detectar las fugas invisibles', 'Video lección práctica y conceptual: Gastos hormiga: cómo detectar las fugas invisibles', 'https://www.youtube.com/embed/Of1490doP8c', '11:18', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'La regla 50/30/20 explicada con ejemplos reales en México', 'Video lección práctica y conceptual: La regla 50/30/20 explicada con ejemplos reales en México', 'https://www.youtube.com/embed/_7a55m4opPw', '16:05', 3);
 
 -- Ejercicios prácticos de Unidad 1: Rompe el ciclo
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (1, 'Quiz: ¿Qué tan saludables son tus finanzas?', 'quiz', 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.', 1);
@@ -374,8 +374,8 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (2, 'presupuesto', 1, 'Unidad 2: Construye tu fortaleza', 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.', 'Semestre 1', 'principiante', 12.0, 'img/nivel1.jpg', 2);
 
 -- Videos / Lecciones de Unidad 2: Construye tu fortaleza
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Cómo crear tu fondo de emergencia desde cero', 'Video lección práctica y conceptual: Cómo crear tu fondo de emergencia desde cero', 'https://www.youtube.com/embed/ZbZSe6N_BXs', '13:22', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Negociación de créditos: guía paso a paso', 'Video lección práctica y conceptual: Negociación de créditos: guía paso a paso', 'https://www.youtube.com/embed/Ke90Tje7VS0', '17:45', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Cómo crear tu fondo de emergencia desde cero', 'Video lección práctica y conceptual: Cómo crear tu fondo de emergencia desde cero', 'https://www.youtube.com/embed/zA67rkRiGXI', '13:22', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Negociación de créditos: guía paso a paso', 'Video lección práctica y conceptual: Negociación de créditos: guía paso a paso', 'https://www.youtube.com/embed/xnDpXyRsKlU', '17:45', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, '5 errores fatales al manejar tarjetas de crédito', 'Video lección práctica y conceptual: 5 errores fatales al manejar tarjetas de crédito', 'https://www.youtube.com/embed/pTFZrS_8jRk', '10:58', 3);
 
 -- Ejercicios prácticos de Unidad 2: Construye tu fortaleza
@@ -417,8 +417,8 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (4, 'fondo-emergencia', 2, 'Ahorro formal y fondo de emergencia', 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.', 'Semestre 2', 'intermedio', 12.0, 'img/nivel2.jpg', 4);
 
 -- Videos / Lecciones de Ahorro formal y fondo de emergencia
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cuentas de ahorro en México: ¿cuál te conviene?', 'Video lección práctica y conceptual: Cuentas de ahorro en México: ¿cuál te conviene?', 'https://www.youtube.com/embed/9bZkp7q19f0', '14:50', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'Video lección práctica y conceptual: Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'https://www.youtube.com/embed/kJQP7kiw5Fk', '11:35', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cuentas de ahorro en México: ¿cuál te conviene?', 'Video lección práctica y conceptual: Cuentas de ahorro en México: ¿cuál te conviene?', 'https://www.youtube.com/embed/9xHOEs6WtaM', '14:50', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'Video lección práctica y conceptual: Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'https://www.youtube.com/embed/H48qw1QRGSA', '11:35', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cómo automatizar tu ahorro sin sentirlo', 'Video lección práctica y conceptual: Cómo automatizar tu ahorro sin sentirlo', 'https://www.youtube.com/embed/RgKAFK5djSk', '13:20', 3);
 
 -- Ejercicios prácticos de Ahorro formal y fondo de emergencia
@@ -441,8 +441,8 @@ INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `cate
 
 -- Videos / Lecciones de Control de deudas y crédito bancario
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Método bola de nieve vs avalancha: ¿cuál elegir?', 'Video lección práctica y conceptual: Método bola de nieve vs avalancha: ¿cuál elegir?', 'https://www.youtube.com/embed/JGwWNGJdvx8', '16:28', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Cómo entender tu estado de cuenta y el CAT', 'Video lección práctica y conceptual: Cómo entender tu estado de cuenta y el CAT', 'https://www.youtube.com/embed/OPf0YbXqDm0', '12:15', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Renegociación de deudas bancarias sin destruir tu historial', 'Video lección práctica y conceptual: Renegociación de deudas bancarias sin destruir tu historial', 'https://www.youtube.com/embed/fJ9rUzIMcZQ', '18:40', 3);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Cómo entender tu estado de cuenta y el CAT', 'Video lección práctica y conceptual: Cómo entender tu estado de cuenta y el CAT', 'https://www.youtube.com/embed/LK7qEnwi_R0', '12:15', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Renegociación de deudas bancarias sin destruir tu historial', 'Video lección práctica y conceptual: Renegociación de deudas bancarias sin destruir tu historial', 'https://www.youtube.com/embed/Hjv473hOiB0', '18:40', 3);
 
 -- Ejercicios prácticos de Control de deudas y crédito bancario
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (5, 'Simulador de pago de deudas', 'simulacion', 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.', 1);
@@ -505,7 +505,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (8, 'fondos-bolsa', 3, 'Fondos indexados y renta variable', 'Aprende a invertir a largo plazo en índices globales como el S&P 500.', 'Semestre 3', 'intermedio', 12.0, 'img/nivel3.jpg', 8);
 
 -- Videos / Lecciones de Fondos indexados y renta variable
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (8, 'ETFs explicados: invierte en el S&P 500 desde México', 'Video lección práctica y conceptual: ETFs explicados: invierte en el S&P 500 desde México', 'https://www.youtube.com/embed/2Vv-BfVoq4g', '17:40', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (8, 'ETFs explicados: invierte en el S&P 500 desde México', 'Video lección práctica y conceptual: ETFs explicados: invierte en el S&P 500 desde México', 'https://www.youtube.com/embed/fUr4GVauePo', '17:40', 1);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (8, 'Dollar Cost Averaging: la estrategia que siempre gana', 'Video lección práctica y conceptual: Dollar Cost Averaging: la estrategia que siempre gana', 'https://www.youtube.com/embed/byA-aYNNkJk', '13:55', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (8, 'Gestión del riesgo: cómo no perder tu dinero en la bolsa', 'Video lección práctica y conceptual: Gestión del riesgo: cómo no perder tu dinero en la bolsa', 'https://www.youtube.com/embed/OwMf6gEMfg8', '20:15', 3);
 
@@ -573,7 +573,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (11, 'bienes-raices', 4, 'Inversión inmobiliaria y FIBRAs', 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.', 'Semestre 4', 'avanzado', 12.0, 'img/nivel4.jpg', 11);
 
 -- Videos / Lecciones de Inversión inmobiliaria y FIBRAs
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (11, 'FIBRAs en México: invierte en bienes raíces desde $1,000', 'Video lección práctica y conceptual: FIBRAs en México: invierte en bienes raíces desde $1,000', 'https://www.youtube.com/embed/rfscVS0vtbw', '17:35', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (11, 'FIBRAs en México: invierte en bienes raíces desde $1,000', 'Video lección práctica y conceptual: FIBRAs en México: invierte en bienes raíces desde $1,000', 'https://www.youtube.com/embed/WI5NKIe0DBk', '17:35', 1);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (11, 'Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', 'Video lección práctica y conceptual: Rentas en Airbnb vs renta tradicional: ¿qué conviene más?', 'https://www.youtube.com/embed/pB-5XG-DbAA', '21:10', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (11, 'Cómo analizar plusvalía y rendimiento de una propiedad', 'Video lección práctica y conceptual: Cómo analizar plusvalía y rendimiento de una propiedad', 'https://www.youtube.com/embed/dP15zlyra3c', '15:48', 3);
 
@@ -595,7 +595,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (12, 'libertad-financiera', 4, 'Independencia y legado financiero', 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.', 'Semestre 4', 'avanzado', 12.0, 'img/nivel4.jpg', 12);
 
 -- Videos / Lecciones de Independencia y legado financiero
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (12, 'La regla del 4%: cuánto necesitas para retirarte', 'Video lección práctica y conceptual: La regla del 4%: cuánto necesitas para retirarte', 'https://www.youtube.com/embed/z7rH7xKQsjc', '16:40', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (12, 'La regla del 4%: cuánto necesitas para retirarte', 'Video lección práctica y conceptual: La regla del 4%: cuánto necesitas para retirarte', 'https://www.youtube.com/embed/15RJzvoS2nc', '16:40', 1);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (12, 'Portafolio All-Weather de Ray Dalio explicado', 'Video lección práctica y conceptual: Portafolio All-Weather de Ray Dalio explicado', 'https://www.youtube.com/embed/Nu4lHaSh7D4', '20:25', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (12, 'Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', 'Video lección práctica y conceptual: Tu plan financiero a 10 y 20 años: hoja de ruta definitiva', 'https://www.youtube.com/embed/wD2cVhC-63I', '23:15', 3);
 
