@@ -266,7 +266,7 @@
         <div class="m-card">
           <div class="m-card-top">
             <div class="m-avatar m-av-green">
-              <img src="img/avatar-carlos.jpg" alt="Carlos Ramírez"
+              <img src="public/img/avatar-carlos.jpg" alt="Carlos Ramírez"
                    loading="lazy"
                    onerror="this.style.display='none'; this.parentNode.innerText='CR'">
             </div>
@@ -297,7 +297,7 @@
         <div class="m-card">
           <div class="m-card-top">
             <div class="m-avatar m-av-teal">
-              <img src="img/avatar-mariana.jpg" alt="Mariana González"
+              <img src="public/img/avatar-mariana.jpg" alt="Mariana González"
                    loading="lazy"
                    onerror="this.style.display='none'; this.parentNode.innerText='MG'">
             </div>
@@ -328,7 +328,7 @@
         <div class="m-card">
           <div class="m-card-top">
             <div class="m-avatar m-av-blue">
-              <img src="img/avatar-roberto.jpg" alt="Roberto y Silvia"
+              <img src="public/img/avatar-roberto.jpg" alt="Roberto y Silvia"
                    loading="lazy"
                    onerror="this.style.display='none'; this.parentNode.innerText='RS'">
             </div>
@@ -359,7 +359,7 @@
         <div class="m-card">
           <div class="m-card-top">
             <div class="m-avatar m-av-purple">
-              <img src="img/avatar-jorge.jpg" alt="Jorge Martínez"
+              <img src="public/img/avatar-jorge.jpg" alt="Jorge Martínez"
                    loading="lazy"
                    onerror="this.style.display='none'; this.parentNode.innerText='JM'">
             </div>
@@ -390,7 +390,7 @@
         <div class="m-card">
           <div class="m-card-top">
             <div class="m-avatar m-av-red">
-              <img src="img/avatar-ana.jpg" alt="Ana López"
+              <img src="public/img/avatar-ana.jpg" alt="Ana López"
                    loading="lazy"
                    onerror="this.style.display='none'; this.parentNode.innerText='AL'">
             </div>

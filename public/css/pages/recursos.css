@@ -1,4 +1,4 @@
-/* Estilos de la pÃ¡gina Cursos y Programas - extraÃ­dos del HTML original */
+/* Estilos de la pÃ¡gina Recursos y Herramientas - extraÃ­dos del HTML original */
 :root {
       /* Paleta Oficial */
       --verde-principal: #00703C;     /* Confianza, crecimiento */
@@ -336,7 +336,7 @@
       top: 20px;
       width: 58px;
       height: 380px;
-      background: url('img/wave-hero.png') no-repeat left top;
+      background: url('../../img/wave-hero.png') no-repeat left top;
       background-size: contain;
       pointer-events: none;
       opacity: 0.95;
@@ -1081,7 +1081,7 @@
       bottom: 0;
       width: 55px;
       height: 95px;
-      background: url('img/wave-footer.png') no-repeat left bottom;
+      background: url('../../img/wave-footer.png') no-repeat left bottom;
       background-size: contain;
       pointer-events: none;
       opacity: 0.95;

@@ -1085,7 +1085,7 @@
   </div>
 
 
-  <script src="script.js?v=20261102_recursos"></script>
+  <script src="public/script.js?v=20261102_recursos"></script>
 
   <!-- ============================================================
        MODAL REPRODUCTOR DE VIDEO

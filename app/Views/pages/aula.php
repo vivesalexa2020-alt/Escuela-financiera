@@ -843,4 +843,4 @@
     document.addEventListener("DOMContentLoaded", function() { selectLesson(1); });
   </script>
 
-<script src="script.js?v=20261102_recursos"></script>
+<script src="public/script.js?v=20261102_recursos"></script>

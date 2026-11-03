@@ -31,7 +31,7 @@ Plataforma web de educación financiera con sistema de autenticación, cursos in
 ```
 EDUCACION_FINANCIERA/
 ├── autoload.php                 # Autoloader PSR-4 (namespace App\)
-├── index.php                    # Front Controller Web (rutas ?page=)
+├── index.php                    # Front Controller Web
 │
 ├── app/                         # ========= Arquitectura MVC =========
 │   ├── Config/
@@ -80,16 +80,19 @@ EDUCACION_FINANCIERA/
 │           ├── configuraciones.php # Configuración de cuenta
 │           └── suscripcion.php  # Planes y membresías
 │
-├── api/                         # ========= API REST =========
-│   └── index.php                # Front Controller API (?endpoint=)
+├── routes/                      # Definición de rutas
+│   ├── web.php                  # Rutas de páginas
+│   └── api.php                  # Rutas de la API REST
+├── api/                         # Front Controller API
+│   └── index.php                # Entrada API (?endpoint=)
 ├── database/                    # Esquema SQL de la base de datos
 │   └── educacion_financiera.sql # Definición de tablas y relaciones
 │
-├── css/                         # Estilos
-│   └── pages/                   # CSS específico por página
-├── img/                         # Imágenes y assets
-├── estilos.css                  # Hoja de estilos principal
-├── script.js                    # JavaScript global (API + CSRF)
+├── public/                      # Archivos estáticos públicos
+│   ├── css/                      # Estilos, incluido CSS por página
+│   ├── img/                      # Imágenes
+│   ├── estilos.css               # Hoja de estilos principal
+│   └── script.js                 # JavaScript global (API + CSRF)
 ├── legacy/                      # Código y datos archivados (no se sirve)
 │   ├── api/                     # Endpoints PHP antiguos
 │   ├── html/                    # Páginas HTML originales

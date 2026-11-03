@@ -809,7 +809,7 @@
   </div>
 
 
-  <script src="script.js?v=20261102_recursos"></script>
+  <script src="public/script.js?v=20261102_recursos"></script>
 
   <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Estilos Globales -->
-  <link rel="stylesheet" href="estilos.css?v=20261102_recursos">
+  <link rel="stylesheet" href="public/estilos.css?v=20261102_recursos">
 
   <!-- Estilos específicos de la página -->
   <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
