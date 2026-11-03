@@ -1,5 +1,6 @@
 <?php
 require_once 'conexion.php';
+require_once 'csrf.php';
 
 session_start();
 
@@ -14,6 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 if (!isset($_SESSION['usuario_id'])) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'No autenticado']);
+    exit();
+}
+
+// Validar CSRF token
+$csrfToken = $data['csrf_token'] ?? '';
+if (!validateCSRFToken($csrfToken)) {
+    echo json_encode(['success' => false, 'message' => 'Error de validación CSRF. Recarga la página e intenta de nuevo.']);
     exit();
 }
 
@@ -40,7 +48,7 @@ try {
     $usuarioId = $_SESSION['usuario_id'];
 
     // Obtener el hash actual del usuario
-    $stmt = $pdo->prepare("SELECT password_hash FROM usuarios WHERE id = ? AND activo = 1");
+    $stmt = $pdo->prepare("SELECT password_hash FROM usuarios WHERE id = ? AND activo = 1 AND eliminado_en IS NULL");
     $stmt->execute([$usuarioId]);
     $usuario = $stmt->fetch();
 
@@ -53,6 +61,11 @@ try {
     $nuevoHash = password_hash($passwordNueva, PASSWORD_DEFAULT);
     $stmt = $pdo->prepare("UPDATE usuarios SET password_hash = ? WHERE id = ?");
     $stmt->execute([$nuevoHash, $usuarioId]);
+
+    // Registrar cambio en auditoría
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+    $stmt = $pdo->prepare("INSERT INTO cambios_perfil (usuario_id, campo_cambiado, valor_anterior, valor_nuevo, ip_address) VALUES (?, 'password', '***', '***', ?)");
+    $stmt->execute([$usuarioId, $ip]);
 
     echo json_encode(['success' => true, 'message' => 'Contraseña actualizada correctamente']);
 } catch (PDOException $e) {

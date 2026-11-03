@@ -1,0 +1,15 @@
+/* ============================================================
+   EDUCACIÓN FINANCIERA - CSS PRINCIPAL
+   Estructura modular para mejor mantenimiento
+   ============================================================ */
+
+/* Importar módulos base */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/layout.css');
+
+/* Importar componentes */
+@import url('components/buttons.css');
+
+/* Estilos específicos del proyecto (se mantienen en estilos.css) */
+/* Los estilos existentes se migrarán gradualmente a los módulos */

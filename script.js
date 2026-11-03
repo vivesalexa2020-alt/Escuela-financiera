@@ -583,16 +583,8 @@ async function syncMembresiaDesdeAPI() {
 // 9. ACTUALIZACIÓN DE UI: CONTROL DEL MENÚ LATERAL Y PRIVACIDAD
 // ------------------------------------------------------------
 function ensureGuestAuthUI() {
-  const topbarRight = document.querySelector('.logged-topbar-right');
-  if (topbarRight && !document.getElementById('guestLoginBtn')) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.id = 'guestLoginBtn';
-    btn.className = 'btn-guest-login';
-    btn.textContent = 'Iniciar sesión';
-    btn.addEventListener('click', function () { openLoginModal(); });
-    topbarRight.appendChild(btn);
-  }
+  const existingBtn = document.getElementById('guestLoginBtn');
+  if (existingBtn) existingBtn.remove();
 
   const userPanel = document.querySelector('.sidebar-user-panel');
   if (userPanel && !document.getElementById('sidebarGuestLoginBtn')) {
@@ -663,7 +655,7 @@ function updateAuthUI() {
     if (topbarUserName) topbarUserName.textContent = 'Invitado';
     if (sidebarUserRole) sidebarUserRole.textContent = 'Invitado';
     if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'none';
-    if (guestLoginBtn) guestLoginBtn.style.display = 'inline-flex';
+    if (guestLoginBtn) guestLoginBtn.remove();
     if (sidebarGuestLoginBtn) sidebarGuestLoginBtn.style.display = 'inline-flex';
 
     if (protectedSection) protectedSection.style.display = 'block';
@@ -1136,8 +1128,11 @@ function renderReticula() {
       let etiqueta = 'Disponible';
       if (st === 'inscrita') etiqueta = '✓ Inscrita';
       else if (st === 'bloqueada') etiqueta = '🔒 Bloqueada';
+      const accionClick = (st === 'inscrita')
+        ? "window.location.href='aula-demo.html'"
+        : "openReticulaModal('" + m.id + "')";
       return '' +
-        '<div class="reticula-materia is-' + st + '" onclick="openReticulaModal(\'' + m.id + '\')">' +
+        '<div class="reticula-materia is-' + st + '" onclick="' + accionClick + '">' +
           '<div class="reticula-materia-ico">' + m.icon + '</div>' +
           '<div class="reticula-materia-info">' +
             '<h5>' + m.nombre + '</h5>' +
@@ -1165,8 +1160,14 @@ function openReticulaModal(id) {
   const m = getMateriaPorId(id);
   if (!m) return;
 
-  reticulaActualId = id;
   const state = getReticulaState();
+  // Si ya está inscrita en esta materia/unidad, redirigir directo al Aula Demo sin abrir ventana modal
+  if (state.inscritas.indexOf(id) !== -1) {
+    window.location.href = 'aula-demo.html';
+    return;
+  }
+
+  reticulaActualId = id;
   const cfg = getSemestreConfig(m.semestre);
 
   const levelEl = document.getElementById('reticulaModalLevel');
@@ -1191,8 +1192,8 @@ function openReticulaModal(id) {
   if (state.inscritas.indexOf(id) !== -1) {
     tipo = 'ok';
     texto = '✅ Ya estás inscrito en esta materia. ¡Continúa con tu formación!';
-    label = '✓ Inscrito';
-    deshabilitado = true;
+    label = '▶ Ir al Aula Demo';
+    deshabilitado = false;
   } else {
     const chk = puedeInscribir(id);
     if (chk.ok) {
@@ -1246,6 +1247,14 @@ function closeReticulaModal() {
 function inscribirMateriaActual() {
   if (!reticulaActualId) return;
   const id = reticulaActualId;
+  const state = getReticulaState();
+
+  // Si ya está inscrita, ir directo al Aula Demo
+  if (state.inscritas.indexOf(id) !== -1) {
+    window.location.href = 'aula-demo.html';
+    return;
+  }
+
   const chk = puedeInscribir(id);
   if (!chk.ok) {
     if (chk.motivo === 'pago') {
@@ -1256,7 +1265,6 @@ function inscribirMateriaActual() {
     return;
   }
 
-  const state = getReticulaState();
   state.inscritas.push(id);
   saveReticulaState(state);
 

@@ -1,4 +1,6 @@
 <?php
+require_once 'logger.php';
+
 header('Content-Type: application/json; charset=utf-8');
 
 // Configuración de cookies de sesión seguras antes de iniciar cualquier sesión
@@ -56,7 +58,9 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    Logger::info('Conexión a BD exitosa');
 } catch (PDOException $e) {
+    Logger::error('Error de conexión a BD', ['error' => $e->getMessage()]);
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Error de conexión a la base de datos']);
     exit();

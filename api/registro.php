@@ -1,5 +1,7 @@
 <?php
 require_once 'conexion.php';
+require_once 'rate_limiter.php';
+require_once 'csrf.php';
 
 session_start();
 
@@ -35,6 +37,13 @@ if (!preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password) || !p
     exit();
 }
 
+// Verificar rate limiting
+$rateLimit = checkRateLimit($pdo, 'registro', 3, 60);
+if (!$rateLimit['permitido']) {
+    echo json_encode(['success' => false, 'message' => $rateLimit['mensaje']]);
+    exit();
+}
+
 try {
     $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = ?");
     $stmt->execute([$email]);
@@ -44,14 +53,18 @@ try {
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $tokenVerificacion = bin2hex(random_bytes(32));
     
     $pdo->beginTransaction();
     
-    $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email, password_hash) VALUES (?, ?, ?)");
-    $stmt->execute([$nombre, $email, $passwordHash]);
+    $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email, password_hash, token_verificacion) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$nombre, $email, $passwordHash, $tokenVerificacion]);
     $usuarioId = $pdo->lastInsertId();
     
     $stmt = $pdo->prepare("INSERT INTO membresias (usuario_id, activa, tipo_membresia) VALUES (?, 1, 'gratis')");
+    $stmt->execute([$usuarioId]);
+    
+    $stmt = $pdo->prepare("INSERT INTO puntos_usuario (usuario_id, puntos_totales, nivel) VALUES (?, 0, 1)");
     $stmt->execute([$usuarioId]);
     
     $pdo->commit();
@@ -61,13 +74,17 @@ try {
     $_SESSION['nombre'] = $nombre;
     $_SESSION['email'] = $email;
     
+    $csrfToken = generateCSRFToken();
+    
     echo json_encode([
         'success' => true,
         'message' => 'Cuenta creada exitosamente',
         'user' => [
             'name' => $nombre,
             'email' => $email
-        ]
+        ],
+        'email_verificado' => false,
+        'csrf_token' => $csrfToken
     ]);
 } catch (PDOException $e) {
     $pdo->rollBack();
