@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css?v=20261102_recursos">
 
   <style>
 :root {
@@ -1990,7 +1990,72 @@ body.user-logged-in .logged-topbar {
 </head>
 <body class="not-logged-in">
 
-    <!-- ============================================================
+      <!-- Modal de Retícula Académica y Recursos -->
+  <div class="modal-overlay" id="reticulaModal" role="dialog" aria-modal="true">
+    <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
+        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+      </div>
+      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
+      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
+
+      <!-- Tabs de recursos -->
+      <div class="reticula-tabs">
+        <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
+          📋 Temario
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
+          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
+          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
+          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
+        </button>
+        <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
+          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
+        </button>
+      </div>
+
+      <!-- Tab Contenido: Temario -->
+      <div id="tabContent-temario" class="reticula-tab-pane" style="display: block;">
+        <div class="reticula-modal-temario" style="margin: 0 0 16px;">
+          <h4>¿Qué incluye este curso?</h4>
+          <ul id="reticulaModalTemario"></ul>
+        </div>
+      </div>
+
+      <!-- Tab Contenido: Videos -->
+      <div id="tabContent-videos" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalVideos" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Ejercicios -->
+      <div id="tabContent-ejercicios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalEjercicios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Audios -->
+      <div id="tabContent-audios" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalAudios" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <!-- Tab Contenido: Libros -->
+      <div id="tabContent-libros" class="reticula-tab-pane" style="display: none;">
+        <div id="reticulaModalLibros" style="margin: 0 0 16px;"></div>
+      </div>
+
+      <div class="reticula-modal-estado" id="reticulaModalEstado"></div>
+
+      <button class="btn-cta-yellow reticula-modal-action" id="reticulaModalAction" onclick="inscribirMateriaActual()">
+        Inscribirme
+      </button>
+    </div>
+  </div>
+
+<!-- ============================================================
        SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
        ============================================================ -->
   <aside class="sidebar-left" id="sidebarLeft" style="display: none;">
@@ -2264,103 +2329,283 @@ body.user-logged-in .logged-topbar {
         </a>
       </div>
 
-      <div class="courses-grid">
-        <!-- CURSO 1: Finanzas personales -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-green">
-            <!-- Piggy Bank Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"></path>
-              <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
-              <path d="M16 11h.01"></path>
-            </svg>
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 1: Nivel Básico (Prueba 100% Gratis)</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero y diseña tu primer presupuesto.</p>
+    </div>
+    <div class="courses-grid">
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-basico">Semestre 1 · Básico</span>
+          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">📗</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Rompe el ciclo</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <span class="course-level level-basico">Nivel básico</span>
-          <h3>Finanzas personales</h3>
-          <p class="course-desc">
-            Aprende a administrar tu dinero, controlar tus gastos y crear hábitos financieros saludables.
-          </p>
-          <div class="course-progress-meta">50% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 50%;"></div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('finanzas-personales')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-basico">Semestre 1 · Básico</span>
+          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">📘</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Construye tu fortaleza</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <button class="btn-course-action" onclick="openCourseModal('Finanzas personales', 'Aprende a administrar tu presupuesto diario, controlar los gastos hormiga y fijar metas de ahorro efectivas.')">
-            Continuar curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 2: Ahorro e inversión -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-yellow">
-            <!-- Trending Growth Bar Chart Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 3v18h18"></path>
-              <path d="m19 9-5 5-4-4-3 3"></path>
-              <path d="M14 9h5v5"></path>
-            </svg>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('presupuesto')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-basico">Semestre 1 · Básico</span>
+          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">📙</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: Multiplica e invierte</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <span class="course-level level-intermedio">Nivel intermedio</span>
-          <h3>Ahorro e inversión</h3>
-          <p class="course-desc">
-            Descubre cómo hacer crecer tu dinero y lograr tus metas a largo plazo.
-          </p>
-          <div class="course-progress-meta">20% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 20%;"></div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('gasto-hormiga')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 2: Nivel Intermedio I (Consolidación y Ahorro)</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted);">Construye tu fondo de paz mental, elimina deudas bancarias y domina herramientas digitales.</p>
+    </div>
+    <div class="courses-grid">
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">🛡️</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Ahorro formal y fondo de emergencia</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <button class="btn-course-action" onclick="openCourseModal('Ahorro e inversión', 'Aprende instrumentos de bajo riesgo, interés compuesto y estrategias para diversificar tus ahorros.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 3: Presupuesto -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-green">
-            <!-- Wallet Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-              <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-              <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-            </svg>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('fondo-emergencia')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">💳</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Control de deudas y crédito bancario</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <span class="course-level level-basico">Nivel básico</span>
-          <h3>Presupuesto</h3>
-          <p class="course-desc">
-            Planifica tus ingresos y gastos para tener mayor estabilidad financiera.
-          </p>
-          <div class="course-progress-meta">0% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 0%;"></div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('control-deudas')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">🧰</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Materiales y herramientas digitales</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <button class="btn-course-action" onclick="openCourseModal('Presupuesto', 'Domina la regla 50/30/20 y diseña presupuestos mensuales adaptados a tu estilo de vida.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-
-        <!-- CURSO 4: Emprendimiento -->
-        <article class="course-card">
-          <div class="course-icon-badge badge-yellow">
-            <!-- Lightbulb Icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6"></path>
-              <path d="M10 22h4"></path>
-              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
-            </svg>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('materiales-herramientas')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 3: Nivel Intermedio II (Inversiones y Patrimonio)</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted);">Pon a trabajar tu dinero en CETES, Bonos, ETFs (S&P 500) y optimiza tus deducciones fiscales.</p>
+    </div>
+    <div class="courses-grid">
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">📈</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Estrategias de inversión y renta fija</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <span class="course-level level-avanzado">Nivel avanzado</span>
-          <h3>Emprendimiento</h3>
-          <p class="course-desc">
-            Conoce las bases para iniciar tu propio negocio y generar ingresos.
-          </p>
-          <div class="course-progress-meta">0% completado</div>
-          <div class="course-progress-bar">
-            <div class="course-progress-fill" style="width: 0%;"></div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('ahorro-inversion')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">📊</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Fondos indexados y renta variable</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Aprende a invertir a largo plazo en índices globales como el S&P 500.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
           </div>
-          <button class="btn-course-action" onclick="openCourseModal('Emprendimiento', 'Valida ideas de negocio, crea tu plan financiero inicial y conoce aspectos legales básicos.')">
-            Ver curso <span>→</span>
-          </button>
-        </article>
-      </div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('fondos-bolsa')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">🏛️</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Protección patrimonial e impuestos</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Seguros indispensables y optimización fiscal para proteger tu capital.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
+          </div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('proteccion-impuestos')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 4: Nivel Avanzado (Libertad Financiera)</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted);">Crea negocios rentables, invierte en bienes raíces y FIBRAs, y consolida tu retiro anticipado.</p>
+    </div>
+    <div class="courses-grid">
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">💡</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Emprendimiento y modelos de negocio</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
+          </div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('emprendimiento')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">🏢</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Inversión inmobiliaria y FIBRAs</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
+          </div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('bienes-raices')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+      <article class="course-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+        </div>
+        <div style="font-size: 28px; margin-bottom: 8px;">🏆</div>
+        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Independencia y legado financiero</h3>
+        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.</p>
+        <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
+          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+            <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
+            <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
+            <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
+            <span style="color: #a16207; font-weight: 600;">📚 2 Libros</span>
+          </div>
+        </div>
+        <button class="btn-course-action" onclick="openReticulaModal('libertad-financiera')">
+          Ver recursos y lecciones <span>→</span>
+        </button>
+      </article>
+    </div>
+  </div>
+</div>
     </div>
   </section>
     <section class="progress-banner-wrap" id="progreso">
@@ -2825,7 +3070,7 @@ body.user-logged-in .logged-topbar {
   </div>
 
 
-  <script src="script.js?v=20261030_02"></script>
+  <script src="script.js?v=20261102_recursos"></script>
 </body>
 </html>
 

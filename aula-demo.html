@@ -663,7 +663,94 @@
       font-size: 13px;
       margin-top: auto;
     }
-  </style>
+  
+    /* TABS DENTRO DEL REPRODUCTOR DE LECCIÓN */
+    .lesson-content-tabs {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0;
+      border-bottom: 2px solid #e2ece7;
+      padding-bottom: 4px;
+      overflow-x: auto;
+    }
+    .lesson-tab-btn {
+      background: none;
+      border: none;
+      padding: 8px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gris-medio);
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lesson-tab-btn.active {
+      color: var(--verde-principal);
+      font-weight: 700;
+      border-bottom: 3px solid var(--verde-claro);
+      background: #f0fbf5;
+    }
+    .lesson-tab-pane {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+    .lesson-tab-pane.active {
+      display: block;
+    }
+    .exercise-box {
+      background: #f8faf9;
+      border: 1px solid #d4e7de;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .exercise-option {
+      background: #ffffff;
+      border: 1.5px solid #d4e7de;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+    .exercise-option:hover {
+      border-color: var(--verde-claro);
+      background: #f0fbf5;
+    }
+    .exercise-option.selected {
+      border-color: var(--verde-principal);
+      background: #e6f7ef;
+      font-weight: 600;
+    }
+    .audio-player-box {
+      background: linear-gradient(135deg, #06402d 0%, #032b1d 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    .book-download-card {
+      background: #fffdf5;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+</style>
 </head>
 <body>
 
@@ -912,18 +999,48 @@
       1: {
         title: "1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
         tag: "Lección 1 de 3 (Demo Gratuita)",
-        duration: "12 min",
+        duration: "14 min",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        audio: { title: "Mitos del dinero que te mantienen pobre", desc: "Desmontamos las creencias más comunes que frenan tu crecimiento financiero.", duration: "22 min" },
+        book: { title: "Pequeño Cerdo Capitalista", author: "Sofía Macías", desc: "La guía práctica más leída sobre finanzas personales e inteligencia financiera en México." },
+        exercise: {
+          title: "¿Cuál es el primer paso para organizar tus finanzas?",
+          desc: "Selecciona la opción correcta basada en la metodología de diagnóstico:",
+          options: [
+            "Anotar mentalmente lo que gastas cada semana",
+            "Registrar y auditar todos tus ingresos fijos y variables antes de gastar",
+            "Dejar de gastar en alimentos y entretenimiento completamente",
+            "Pedir un préstamo para pagar tarjetas"
+          ],
+          correct: 1,
+          explanation: "¡Exacto! El diagnóstico parte de conocer tu número real auditando tus ingresos y egresos por escrito."
+        },
         body: `<p>Bienvenido al primer paso de tu educación financiera. En esta lección aprenderás a identificar con exactitud tu flujo neto mensual antes de gastar un solo peso.</p>
                <ul>
-                 <li><strong>Cálculo de ingreso real disponible:</strong> Diferencia entre ingresos brutos, fijos y variables.</li>
-                 <li><strong>Los 3 errores comunes:</strong> Por qué presupuestar solo 'de cabeza' siempre falla.</li>
-                 <li><strong>Herramienta práctica:</strong> Hoja de auditoría personal en 5 minutos para conocer tu número real.</li>
+                 <li><strong>Cálculo de ingreso real disponible:</strong> Ingresos fijos vs variables.</li>
+                 <li><strong>Los 3 errores comunes:</strong> Por qué presupuestar en la cabeza nunca funciona.</li>
+                 <li><strong>Herramienta descargable:</strong> Hoja de auditoría personal en 5 minutos.</li>
                </ul>`
       },
       2: {
         title: "2. Fugas silenciosas y micro-gastos hormiga",
         tag: "Lección 2 de 3 (Demo Gratuita)",
         duration: "15 min",
+        videoUrl: "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+        audio: { title: "¿Por qué no me alcanza la quincena?", desc: "Análisis de los patrones de consumo impulsivo y cómo romper el ciclo.", duration: "18 min" },
+        book: { title: "Padre Rico, Padre Pobre", author: "Robert T. Kiyosaki", desc: "Aprende la diferencia fundamental entre activos que ponen dinero en tu bolsillo y pasivos que lo sacan." },
+        exercise: {
+          title: "¿Qué porcentaje de tus ingresos pueden consumir los gastos hormiga si no los controlas?",
+          desc: "Evalúa el impacto de los micro-gastos invisibles:",
+          options: [
+            "Menos del 2%",
+            "Entre un 15% y un 25% de tu ingreso neto",
+            "Solamente el 5%",
+            "No tienen ningún impacto relevante"
+          ],
+          correct: 1,
+          explanation: "¡Correcto! Pequeños gastos diarios de café, propinas, suscripciones y antojos pueden drenar hasta la cuarta parte de tu sueldo."
+        },
         body: `<p>Un agujero diminuto puede hundir un gran barco. Hoy aprenderás a cazar los micro-gastos diarios que drenan hasta el 25% de tus ingresos sin que te des cuenta.</p>
                <ul>
                  <li><strong>Suscripciones fantasma:</strong> Cómo auditar y cancelar servicios que ya no usas.</li>
@@ -935,6 +1052,21 @@
         title: "3. La regla 50/30/20 adaptada a tu realidad",
         tag: "Lección 3 de 3 (Demo Gratuita)",
         duration: "18 min",
+        videoUrl: "https://www.youtube.com/embed/L_jWHffIx5E",
+        audio: { title: "Diseñando tu presupuesto de paz", desc: "Cómo separar tus ingresos sin sentir culpa por darte gustos.", duration: "25 min" },
+        book: { title: "Los Secretos de la Mente Millonaria", author: "T. Harv Eker", desc: "Cómo reprogramar tu mentalidad financiera para construir riqueza constante." },
+        exercise: {
+          title: "Según la regla 50/30/20, ¿qué destino tiene el 20% de tus ingresos?",
+          desc: "Elige la distribución correcta de la regla 50/30/20:",
+          options: [
+            "Gastos hormiga y diversiones de fin de semana",
+            "Pago de servicios de streaming",
+            "Ahorro, amortización de deudas e inversiones para tu tranquilidad",
+            "Renta y despensa mensual"
+          ],
+          correct: 2,
+          explanation: "¡Correcto! El 20% es tu escudo: se destina a fondo de emergencia, liquidar deudas e inversión para el futuro."
+        },
         body: `<p>Olvídate de presupuestos aburridos y restrictivos. Aprende a distribuir tu dinero en 3 cubos claros para vivir tranquilo hoy mientras construyes tu futuro.</p>
                <ul>
                  <li><strong>50% Necesidades esenciales:</strong> Renta, servicios y despensa básica.</li>
@@ -946,6 +1078,21 @@
         title: "4. Método anti-deuda acelerado (Bola de nieve vs Avalancha)",
         tag: "Lección 4 (Unidad 1 Completa)",
         duration: "22 min",
+        videoUrl: "https://www.youtube.com/embed/Ke90Tje7VS0",
+        audio: { title: "Historias reales de deudas a libertad", desc: "Casos de éxito de personas que liquidaron todas sus deudas con el método avalancha.", duration: "30 min" },
+        book: { title: "La Total Transformación de su Dinero", author: "Dave Ramsey", desc: "El plan paso a paso más probado para salir de deudas y alcanzar estabilidad económica." },
+        exercise: {
+          title: "¿En qué consiste el método Bola de Nieve para liquidar deudas?",
+          desc: "Selecciona el principio fundamental del método Bola de Nieve:",
+          options: [
+            "Pagar primero la deuda con la tasa de interés más alta",
+            "Pagar primero la deuda con el saldo más pequeño para ganar victorias psicológicas",
+            "Pedir otro préstamo para consolidar sin pagar nada",
+            "Dejar de pagar todas las deudas"
+          ],
+          correct: 1,
+          explanation: "¡Exacto! Bola de nieve ataca la deuda menor primero para darte motivación y ritmo imparable."
+        },
         body: `<p>El método probado para liquidar deudas de tarjetas y préstamos en tiempo récord pagando el mínimo interés posible.</p>
                <ul>
                  <li><strong>Estrategia Bola de Nieve:</strong> Victorias psicológicas rápidas.</li>
@@ -954,6 +1101,70 @@
                </ul>`
       }
     };
+
+    function switchLessonTab(tab) {
+      const tabs = ['video', 'ejercicio', 'audio', 'libro', 'texto'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('btnTab' + t.charAt(0).toUpperCase() + t.slice(1));
+        const pane = document.getElementById('pane' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (btn) {
+          if (t === tab) btn.classList.add('active');
+          else btn.classList.remove('active');
+        }
+        if (pane) {
+          if (t === tab) pane.classList.add('active');
+          else pane.classList.remove('active');
+        }
+      });
+    }
+
+    let selectedOptionIndex = null;
+    function selectExerciseOption(index) {
+      selectedOptionIndex = index;
+      const opts = document.querySelectorAll('.exercise-option');
+      opts.forEach((el, idx) => {
+        if (idx === index) el.classList.add('selected');
+        else el.classList.remove('selected');
+      });
+      document.getElementById('exerciseFeedback').style.display = 'none';
+    }
+
+    function checkExercise() {
+      const data = lessonsData[currentLesson];
+      if (!data || !data.exercise) return;
+      const feedback = document.getElementById('exerciseFeedback');
+      if (selectedOptionIndex === null) {
+        feedback.style.display = 'block';
+        feedback.style.background = '#fef2f2';
+        feedback.style.color = '#b91c1c';
+        feedback.textContent = '⚠️ Por favor selecciona una opción antes de comprobar.';
+        return;
+      }
+      feedback.style.display = 'block';
+      if (selectedOptionIndex === data.exercise.correct) {
+        feedback.style.background = '#ecfdf5';
+        feedback.style.color = '#047857';
+        feedback.innerHTML = '🎉 ' + data.exercise.explanation + '<br><strong>+50 Puntos ganados en tu progreso.</strong>';
+      } else {
+        feedback.style.background = '#fffbeb';
+        feedback.style.color = '#b45309';
+        feedback.textContent = '❌ Esa no es la respuesta correcta. Revisa el video o el resumen teórico e inténtalo de nuevo.';
+      }
+    }
+
+    function togglePlayAudioDemo(btn) {
+      if (btn.textContent.includes('Reproducir')) {
+        btn.innerHTML = '⏸️ Pausar episodio';
+        btn.style.background = '#e11d48';
+      } else {
+        btn.innerHTML = '▶ Reproducir episodio';
+        btn.style.background = 'var(--verde-claro)';
+      }
+    }
+
+    function downloadBookDemo() {
+      alert('📥 Descargando guía y libro en formato digital para consulta offline.');
+    }
 
     let currentLesson = 1;
     let isUserRegistered = false;
@@ -972,9 +1183,41 @@
       document.getElementById('lessonTagText').textContent = data.tag;
       document.getElementById('lessonDuration').textContent = "Duración: " + data.duration;
       document.getElementById('playerBody').innerHTML = data.body;
-      document.getElementById('videoMockupTitle').textContent = "Video: " + data.title;
 
-      document.getElementById('videoBox').style.display = 'flex';
+      // Actualizar video
+      const iframe = document.getElementById('lessonVideoIframe');
+      if (iframe && data.videoUrl) {
+        iframe.src = data.videoUrl;
+      }
+
+      // Actualizar ejercicio
+      selectedOptionIndex = null;
+      document.getElementById('exerciseFeedback').style.display = 'none';
+      if (data.exercise) {
+        document.getElementById('exerciseTitle').textContent = data.exercise.title;
+        document.getElementById('exerciseDesc').textContent = data.exercise.desc;
+        const optHtml = data.exercise.options.map((opt, idx) => {
+          return '<div class="exercise-option" onclick="selectExerciseOption(' + idx + ')"><span>🔘</span> <span>' + opt + '</span></div>';
+        }).join('');
+        document.getElementById('exerciseOptionsContainer').innerHTML = optHtml;
+      }
+
+      // Actualizar audio
+      if (data.audio) {
+        document.getElementById('audioTitle').textContent = data.audio.title;
+        document.getElementById('audioDuration').textContent = "Duración: " + data.audio.duration;
+        document.getElementById('audioDesc').textContent = data.audio.desc;
+      }
+
+      // Actualizar libro
+      if (data.book) {
+        document.getElementById('bookTitle').textContent = data.book.title;
+        document.getElementById('bookAuthor').textContent = "Autor: " + data.book.author;
+        document.getElementById('bookDesc').textContent = data.book.desc;
+      }
+
+      // Volver a la pestaña de video por defecto
+      switchLessonTab('video');
       document.getElementById('playerBody').style.display = 'block';
       document.getElementById('registrationGate').style.display = 'none';
 
