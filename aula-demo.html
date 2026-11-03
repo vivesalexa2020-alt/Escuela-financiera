@@ -901,23 +901,98 @@
 
           <h3 class="lesson-title" id="playerTitle">1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?</h3>
 
-          <!-- REPRODUCTOR SIMULADO -->
-          <div class="video-mockup" id="videoBox">
-            <div class="play-circle" onclick="simulatePlayVideo()">▶</div>
-            <h4 id="videoMockupTitle">Video Clase Interactiva</h4>
-            <p id="videoMockupSub">Haz clic para reproducir el contenido práctico</p>
+          <!-- TABS DE RECURSOS DE LA LECCIÓN -->
+          <div class="lesson-content-tabs">
+            <button type="button" class="lesson-tab-btn active" id="btnTabVideo" onclick="switchLessonTab('video')">
+              🎥 Video Clase
+            </button>
+            <button type="button" class="lesson-tab-btn" id="btnTabEjercicio" onclick="switchLessonTab('ejercicio')">
+              📝 Ejercicio Práctico
+            </button>
+            <button type="button" class="lesson-tab-btn" id="btnTabAudio" onclick="switchLessonTab('audio')">
+              🎧 Audio / Podcast
+            </button>
+            <button type="button" class="lesson-tab-btn" id="btnTabLibro" onclick="switchLessonTab('libro')">
+              📚 Lectura / Libro
+            </button>
+            <button type="button" class="lesson-tab-btn" id="btnTabTexto" onclick="switchLessonTab('texto')">
+              📄 Resumen Teórico
+            </button>
           </div>
 
-          <!-- TEXTO DE LA LECCIÓN -->
-          <div class="lesson-body" id="playerBody">
-            <p>
-              Bienvenido al primer paso de tu educación financiera. En esta lección aprenderás a identificar con exactitud tu flujo neto mensual antes de gastar un solo peso.
-            </p>
-            <ul>
-              <li><strong>Cálculo de ingreso real disponible:</strong> Ingresos fijos vs variables.</li>
-              <li><strong>Los 3 errores comunes:</strong> Por qué presupuestar en la cabeza nunca funciona.</li>
-              <li><strong>Herramienta descargable:</strong> Hoja de auditoría personal en 5 minutos.</li>
-            </ul>
+          <!-- PANE: VIDEO REAL -->
+          <div class="lesson-tab-pane active" id="paneVideo" style="display: block;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; box-shadow: 0 10px 24px rgba(0,0,0,0.12); margin-bottom: 16px;">
+              <iframe id="lessonVideoIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video de la Lección" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f7fbf9; border: 1px solid #dff0e8; border-radius: 10px; padding: 10px 14px; font-size: 13px;">
+              <span>✅ <strong>Video activo:</strong> Reproduce la clase o avanza a resolver el <em>Ejercicio Práctico</em>.</span>
+              <button type="button" onclick="switchLessonTab('ejercicio')" style="background: var(--verde-claro); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Resolver ejercicio →</button>
+            </div>
+          </div>
+
+          <!-- PANE: EJERCICIO PRÁCTICO -->
+          <div class="lesson-tab-pane" id="paneEjercicio" style="display: none;">
+            <div class="exercise-box">
+              <span style="display: inline-block; background: #e0e7ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;" id="exerciseTag">ACTIVIDAD PRÁCTICA INTERACTIVA</span>
+              <h4 style="font-size: 16px; font-weight: 700; color: var(--gris-oscuro); margin-bottom: 8px;" id="exerciseTitle">Ejercicio interactivo</h4>
+              <p style="font-size: 13.5px; color: var(--gris-medio); line-height: 1.5; margin-bottom: 16px;" id="exerciseDesc">Responde la siguiente pregunta para validar tu comprensión y ganar puntos de progreso:</p>
+              
+              <div id="exerciseOptionsContainer"></div>
+
+              <div id="exerciseFeedback" style="display: none; padding: 12px 14px; border-radius: 8px; margin-top: 14px; font-size: 13px;"></div>
+
+              <button type="button" id="btnSubmitExercise" onclick="checkExercise()" style="margin-top: 14px; background: var(--verde-principal); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                Comprobar mi respuesta
+              </button>
+            </div>
+          </div>
+
+          <!-- PANE: AUDIO PODCAST -->
+          <div class="lesson-tab-pane" id="paneAudio" style="display: none;">
+            <div class="audio-player-box">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 20px; color: #06402d;">🎧</div>
+                <div>
+                  <h4 style="font-size: 16px; margin: 0; font-weight: 700;" id="audioTitle">Episodio de Audio</h4>
+                  <span style="font-size: 12px; opacity: 0.8;" id="audioDuration">Duración: 18 min</span>
+                </div>
+              </div>
+              <p style="font-size: 13px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;" id="audioDesc">
+                Escucha este episodio especial mientras manejas, haces ejercicio o descansas.
+              </p>
+              <div style="background: rgba(255,255,255,0.12); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+                <button type="button" onclick="togglePlayAudioDemo(this)" style="background: var(--verde-claro); color: white; border: none; padding: 8px 18px; border-radius: 999px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  ▶ Reproducir episodio
+                </button>
+                <span style="font-size: 12px; opacity: 0.85;">🔊 Audio HD Disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANE: LECTURA Y LIBRO -->
+          <div class="lesson-tab-pane" id="paneLibro" style="display: none;">
+            <div class="book-download-card">
+              <div style="display: flex; align-items: flex-start; gap: 14px;">
+                <div style="font-size: 38px;">📖</div>
+                <div>
+                  <span style="font-size: 10px; font-weight: 700; background: #fef08a; color: #854d0e; padding: 2px 8px; border-radius: 999px;">GUÍA OFICIAL RECOMENDADA</span>
+                  <h4 style="font-size: 16px; font-weight: 700; color: var(--gris-oscuro); margin: 6px 0 4px;" id="bookTitle">Libro Recomendado</h4>
+                  <p style="font-size: 12.5px; color: var(--gris-medio); margin: 0 0 6px;" id="bookAuthor">Autor</p>
+                  <p style="font-size: 13px; color: var(--gris-oscuro); margin: 0;" id="bookDesc">Descripción del material</p>
+                </div>
+              </div>
+              <button type="button" onclick="downloadBookDemo()" style="background: var(--verde-principal); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">
+                📥 Descargar PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- PANE: TEXTO DE LA LECCIÓN -->
+          <div class="lesson-tab-pane" id="paneTexto" style="display: none;">
+            <div class="lesson-body" id="playerBody">
+              <!-- Se llena dinámicamente -->
+            </div>
           </div>
 
           <!-- GATE DE REGISTRO EN LECCIÓN 4 -->
@@ -1331,8 +1406,10 @@
     }
 
     function simulatePlayVideo() {
-      alert("🎬 Reproduciendo clase: ¡Aprende a tu propio ritmo sin interrupciones!");
+      switchLessonTab('video');
     }
+  
+    document.addEventListener("DOMContentLoaded", function() { selectLesson(1); });
   </script>
 </body>
 </html>
