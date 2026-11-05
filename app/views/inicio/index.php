@@ -986,6 +986,34 @@
 
         </div>
 
+        <!-- TARJETA DEMO CONCLUIDA (REEMPLAZA LAS 3 TABLAS AL TERMINAR) -->
+        <div class="demo-fin-card" id="demoFinCard" style="display: none;">
+          <div class="demo-fin-card-inner">
+            <div class="demo-fin-badge">🏁 DEMO GRATUITA CONCLUIDA</div>
+            <div style="font-size: 46px; margin-bottom: 6px;">🎓</div>
+            <h3 class="demo-fin-title">¡Has completado la revisión de las 3 tablas de prueba!</h3>
+            <div class="demo-fin-pills">
+              <span class="df-pill">✅ 1. Administración de Finanzas</span>
+              <span class="df-pill">✅ 2. Ahorro e Inversión</span>
+              <span class="df-pill">✅ 3. Uso Responsable del Crédito</span>
+            </div>
+            <p class="demo-fin-desc">
+              Tu periodo de demostración gratuita ha terminado y <strong>las 3 tablas de prueba han sido retiradas</strong>. Ahora que conoces las bases, da el paso definitivo e <strong>inscríbete sin costo</strong> para desbloquear tu Semestre 1 completo de la carrera de 2 años sin ingresar tarjetas de crédito.
+            </p>
+            <div class="demo-fin-cta-box">
+              <a href="index.php?page=reticula" class="btn-demo-fin-enroll" id="btnDemoFinEnroll">
+                <span>👉 Ir a Inscribirme Ahora (100% Gratis)</span>
+              </a>
+              <div class="demo-fin-redirect-note" id="demoRedirectNotice">
+                ⏳ Redirigiendo a tu inscripción en <strong id="demoCountdownSecs">3</strong> segundos...
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <button type="button" class="btn-demo-fin-reset" onclick="reiniciarDemoTest()">↺ Volver a abrir tablas (modo prueba)</button>
+            </div>
+          </div>
+        </div>
+
         <!-- MÁS BAJITO: SECCIÓN PARA INSCRIBIRSE CON EL BOTÓN FINAL PARA INICIAR DEMO GRATIS -->
         <div class="enroll-cta-wrapper">
           <div class="enroll-badge">
@@ -2006,6 +2034,9 @@
             ? 'Buen esfuerzo. Repasa los conceptos y vuelve a intentarlo. 💪'
             : 'Sigue practicando, cada intento te acerca al dominio del tema. 📚';
         document.getElementById(cfg.id + 'Msg').textContent = msg;
+        if (typeof cfg.onComplete === 'function') {
+          setTimeout(cfg.onComplete, 900);
+        }
       }
 
       function hideFeedback() {
@@ -2025,6 +2056,7 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizMetas', suffix: 'Metas',
+      onComplete: function() { window.marcarTablaDemoCompletada('admin'); },
       questions: [
         {
           q: '¿Cuál es la principal característica de una meta financiera SMART?',
@@ -2082,6 +2114,7 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizInteres', suffix: 'Interes',
+      onComplete: function() { window.marcarTablaDemoCompletada('ahorro'); },
       questions: [
         {
           q: '¿Qué es el interés compuesto?',
@@ -2139,6 +2172,7 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizDeuda', suffix: 'Deuda',
+      onComplete: function() { window.marcarTablaDemoCompletada('credito'); },
       questions: [
         {
           q: '¿Qué se considera sobreendeudamiento?',
@@ -2275,5 +2309,122 @@
       } else {
         init();
       }
+    })();
+  </script>
+
+  <!-- GESTIÓN DE FINALIZACIÓN DE LA DEMO GRATUITA (3 TABLAS) -->
+  <script>
+    (function() {
+      var DEMO_FINAL_KEY = 'demo_pilares_finalizada';
+      var DEMO_REVIEW_KEY = 'demo_pilares_revisadas';
+      var reviewed = {};
+      try {
+        reviewed = JSON.parse(localStorage.getItem(DEMO_REVIEW_KEY) || '{}') || {};
+      } catch(e) {
+        reviewed = {};
+      }
+
+      function saveReviewed() {
+        try { localStorage.setItem(DEMO_REVIEW_KEY, JSON.stringify(reviewed)); } catch(e) {}
+      }
+
+      window.marcarTablaDemoCompletada = function(id) {
+        if (!id) return;
+        reviewed[id] = true;
+        saveReviewed();
+
+        if (reviewed.admin && reviewed.ahorro && reviewed.credito) {
+          setTimeout(function() {
+            if (typeof window.finalizarDemoGratis === 'function') {
+              window.finalizarDemoGratis();
+            }
+          }, 500);
+        }
+      };
+
+      window.finalizarDemoGratis = function() {
+        try { localStorage.setItem(DEMO_FINAL_KEY, 'true'); } catch(e) {}
+
+        var grid = document.getElementById('tabla-pilares');
+        var card = document.getElementById('demoFinCard');
+        var btnTop = document.querySelector('.btn-demo-cta');
+
+        if (grid) {
+          grid.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          grid.style.opacity = '0';
+          grid.style.transform = 'scale(0.98)';
+          setTimeout(function() { grid.style.display = 'none'; }, 420);
+        }
+        if (btnTop) {
+          btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
+          btnTop.href = 'index.php?page=reticula';
+        }
+        if (card) {
+          card.style.display = 'block';
+          card.style.opacity = '0';
+          card.style.transition = 'opacity 0.5s ease';
+          setTimeout(function() {
+            card.style.opacity = '1';
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 200);
+        }
+
+        var count = 3;
+        var counterEl = document.getElementById('demoCountdownSecs');
+        if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
+        window._demoRedirectTimer = setInterval(function() {
+          count--;
+          if (counterEl) counterEl.textContent = count;
+          if (count <= 0) {
+            clearInterval(window._demoRedirectTimer);
+            window.location.href = 'index.php?page=reticula';
+          }
+        }, 1000);
+      };
+
+      window.reiniciarDemoTest = function() {
+        try {
+          localStorage.removeItem(DEMO_FINAL_KEY);
+          localStorage.removeItem(DEMO_REVIEW_KEY);
+        } catch(e) {}
+        reviewed = {};
+        if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
+
+        var grid = document.getElementById('tabla-pilares');
+        var card = document.getElementById('demoFinCard');
+        var btnTop = document.querySelector('.btn-demo-cta');
+
+        if (grid) {
+          grid.style.display = '';
+          grid.style.opacity = '1';
+          grid.style.transform = 'none';
+        }
+        if (card) card.style.display = 'none';
+        if (btnTop) {
+          btnTop.innerHTML = '<span>👉 Probar Demo Gratis</span>';
+          btnTop.href = '#tabla-pilares';
+        }
+      };
+
+      (function checkDemoPrevia() {
+        try {
+          if (localStorage.getItem(DEMO_FINAL_KEY) === 'true') {
+            var grid = document.getElementById('tabla-pilares');
+            var card = document.getElementById('demoFinCard');
+            var notice = document.getElementById('demoRedirectNotice');
+            var btnTop = document.querySelector('.btn-demo-cta');
+
+            if (grid) grid.style.display = 'none';
+            if (btnTop) {
+              btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
+              btnTop.href = 'index.php?page=reticula';
+            }
+            if (card) card.style.display = 'block';
+            if (notice) {
+              notice.innerHTML = '<span>Tu demo gratuita ya ha finalizado. Haz clic en el botón verde para inscribirte.</span>';
+            }
+          }
+        } catch(e) {}
+      })();
     })();
   </script>

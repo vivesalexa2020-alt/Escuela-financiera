@@ -2778,3 +2778,126 @@
       font-size: 12px;
       border-left: none !important;
     }
+
+    /* ============================================================
+       TARJETA DE DEMO GRATUITA FINALIZADA (REEMPLAZA LAS 3 TABLAS)
+       ============================================================ */
+    .demo-fin-card {
+      background: linear-gradient(135deg, #06402d 0%, #032d1f 100%);
+      border: 2px solid #28C76F;
+      border-radius: 24px;
+      padding: 38px 24px;
+      margin: 16px auto 26px;
+      max-width: 860px;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(6, 64, 45, 0.35);
+      animation: demoFinPop 0.35s ease-out;
+    }
+    .demo-fin-card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .demo-fin-badge {
+      display: inline-block;
+      background: rgba(245, 184, 0, 0.2);
+      border: 1.5px solid #F5B800;
+      color: #F5B800;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+    .demo-fin-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 8px 0 12px;
+      line-height: 1.3;
+    }
+    .demo-fin-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .df-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #d1fae5;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .demo-fin-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #d7f4e6;
+      margin-bottom: 22px;
+    }
+    .demo-fin-desc strong {
+      color: #F5B800;
+    }
+    .demo-fin-cta-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 20px 24px;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-demo-fin-enroll {
+      background: #28C76F;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 13px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(40, 199, 111, 0.45);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .btn-demo-fin-enroll:hover {
+      background: #22ad60;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40, 199, 111, 0.6);
+      color: #ffffff;
+    }
+    .demo-fin-redirect-note {
+      font-size: 13px;
+      color: #F5B800;
+      font-weight: 600;
+    }
+    .btn-demo-fin-reset {
+      background: transparent;
+      border: none;
+      color: #a7dfc6;
+      font-size: 11.5px;
+      text-decoration: underline;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .btn-demo-fin-reset:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+    @keyframes demoFinPop {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
