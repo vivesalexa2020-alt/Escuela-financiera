@@ -2911,8 +2911,98 @@
     .pillars-grid.demo-accordion-enabled .pillar-card:not(.is-open) .pillar-body {
       display: none;
     }
-    .pillar-card.is-open {
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+    .pillar-card.is-open,
+    .pillar-card.is-open:hover {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      width: 100vw;
+      max-width: none;
+      height: 100vh;
+      height: 100dvh;
+      max-height: none;
+      margin: 0;
+      border-radius: 0;
+      overflow: hidden;
+      transform: none;
+      box-shadow: none;
+      animation: demoModalIn 0.22s ease-out;
+    }
+
+    @keyframes demoModalIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    html.demo-modal-open,
+    body.demo-modal-open {
+      overflow: hidden;
+    }
+
+    .pillar-card.is-open .pillar-header {
+      flex-shrink: 0;
+      align-items: center;
+      text-align: center;
+      padding: 22px 76px 20px clamp(18px, 4vw, 48px);
+    }
+
+    .pillar-card.is-open .pillar-number {
+      width: 38px;
+      height: 38px;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .pillar-card.is-open .pillar-header h3 {
+      font-size: clamp(20px, 2.2vw, 30px);
+    }
+
+    .pillar-card.is-open .pillar-header p {
+      font-size: clamp(13px, 1.2vw, 17px);
+    }
+
+    .pillar-card.is-open .pillar-toggle {
+      max-width: 320px;
+    }
+
+    .pillar-card.is-open .pillar-body {
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 24px clamp(16px, 4vw, 48px) 42px;
+    }
+
+    .pillar-card.is-open .pillar-body > * {
+      width: 100%;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pillar-modal-close {
+      display: none;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(0, 0, 0, 0.28);
+      color: #ffffff;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .pillar-modal-close:hover {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .pillar-card.is-open .pillar-modal-close {
+      display: flex;
     }
     .pillar-toggle {
       margin-top: 12px;

@@ -18,6 +18,6 @@
 
   <!-- Estilos específicos de la página -->
   <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
-    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=20261105_demo_acordeon">
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=20261105_demo_modal">
   <?php endforeach; ?>
 </head>

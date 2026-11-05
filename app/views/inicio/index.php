@@ -480,6 +480,7 @@
                 <span class="pillar-toggle-text">Ver contenido</span>
                 <span class="pillar-toggle-chevron">▾</span>
               </button>
+              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
             </div>
             <div class="pillar-body">
               <div>
@@ -654,6 +655,7 @@
                 <span class="pillar-toggle-text">Ver contenido</span>
                 <span class="pillar-toggle-chevron">▾</span>
               </button>
+              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
             </div>
             <div class="pillar-body">
               <div>
@@ -832,6 +834,7 @@
                 <span class="pillar-toggle-text">Ver contenido</span>
                 <span class="pillar-toggle-chevron">▾</span>
               </button>
+              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
             </div>
             <div class="pillar-body">
               <div>
@@ -2340,13 +2343,27 @@
         try { localStorage.setItem(DEMO_REVIEW_KEY, JSON.stringify(reviewed)); } catch(e) {}
       }
 
+      function syncDemoModalState() {
+        var anyOpen = document.querySelector('#tabla-pilares .pillar-card.is-open');
+        document.documentElement.classList.toggle('demo-modal-open', !!anyOpen);
+        document.body.classList.toggle('demo-modal-open', !!anyOpen);
+      }
+
       function setPillarToggleState(card, open) {
         if (!card) return;
         card.classList.toggle('is-open', open);
         var btn = card.querySelector('.pillar-toggle');
         if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         var txt = card.querySelector('.pillar-toggle-text');
-        if (txt) txt.textContent = open ? 'Ocultar contenido' : 'Ver contenido';
+        if (txt) txt.textContent = open ? 'Cerrar' : 'Ver contenido';
+        if (open) {
+          card.setAttribute('role', 'dialog');
+          card.setAttribute('aria-modal', 'true');
+        } else {
+          card.removeAttribute('role');
+          card.removeAttribute('aria-modal');
+        }
+        syncDemoModalState();
       }
 
       function closeAllPillars(except) {
@@ -2362,9 +2379,13 @@
         closeAllPillars(card);
         setPillarToggleState(card, willOpen);
         if (willOpen) {
-          setTimeout(function() {
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 80);
+          var body = card.querySelector('.pillar-body');
+          if (body) body.scrollTop = 0;
+          var closeBtn = card.querySelector('.pillar-modal-close');
+          if (closeBtn) closeBtn.focus();
+        } else {
+          var toggleBtn = card.querySelector('.pillar-toggle');
+          if (toggleBtn) toggleBtn.focus();
         }
       };
 
@@ -2377,9 +2398,7 @@
         if (!first.classList.contains('is-open')) {
           var btn = first.querySelector('.pillar-toggle');
           if (btn) window.toggleDemoBlock(btn);
-          return;
         }
-        first.scrollIntoView({ behavior: 'smooth', block: 'start' });
       };
 
       (function initDemoAccordion() {
@@ -2388,6 +2407,13 @@
         grid.classList.add('demo-accordion-enabled');
         grid.querySelectorAll('.pillar-card').forEach(function(card) {
           setPillarToggleState(card, false);
+        });
+        document.addEventListener('keydown', function(event) {
+          if (event.key !== 'Escape' && event.key !== 'Esc') return;
+          var open = document.querySelector('#tabla-pilares .pillar-card.is-open');
+          if (!open) return;
+          var btn = open.querySelector('.pillar-toggle');
+          if (btn) window.toggleDemoBlock(btn);
         });
       })();
 
@@ -2407,6 +2433,9 @@
 
       window.finalizarDemoGratis = function() {
         try { localStorage.setItem(DEMO_FINAL_KEY, 'true'); } catch(e) {}
+        closeAllPillars();
+        document.documentElement.classList.remove('demo-modal-open');
+        document.body.classList.remove('demo-modal-open');
 
         var grid = document.getElementById('tabla-pilares');
         var card = document.getElementById('demoFinCard');
@@ -2484,6 +2513,8 @@
             var btnTop = document.querySelector('.btn-demo-cta');
 
             if (grid) grid.style.display = 'none';
+            document.documentElement.classList.remove('demo-modal-open');
+            document.body.classList.remove('demo-modal-open');
             if (btnTop) {
               btnTop.removeAttribute('onclick');
               btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
