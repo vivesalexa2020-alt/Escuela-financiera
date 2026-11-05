@@ -462,7 +462,7 @@
           <p class="pillars-sub">3 Bloques fundamentales para transformar tu economía personal</p>
           <p class="pillars-slogan">"Tu futuro también se construye con buenas decisiones"</p>
           <div style="margin-top: 14px;">
-            <a href="#tabla-pilares" class="btn-demo-cta" style="display: inline-flex; align-items: center; gap: 7px; padding: 9px 22px; font-size: 13.5px; font-weight: 700; border-radius: 30px; box-shadow: 0 3px 12px rgba(40,199,111,0.32); text-decoration: none;">
+            <a href="#tabla-pilares" class="btn-demo-cta" onclick="openFirstDemoBlock(event)" style="display: inline-flex; align-items: center; gap: 7px; padding: 9px 22px; font-size: 13.5px; font-weight: 700; border-radius: 30px; box-shadow: 0 3px 12px rgba(40,199,111,0.32); text-decoration: none;">
               <span>👉 Probar Demo Gratis</span>
             </a>
           </div>
@@ -476,6 +476,10 @@
               <div class="pillar-number">1</div>
               <h3>ADMINISTRACIÓN DE TUS FINANZAS</h3>
               <p>Aprende a manejar tu dinero de forma inteligente.</p>
+              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
+                <span class="pillar-toggle-text">Ver contenido</span>
+                <span class="pillar-toggle-chevron">▾</span>
+              </button>
             </div>
             <div class="pillar-body">
               <div>
@@ -646,6 +650,10 @@
               <div class="pillar-number">2</div>
               <h3>AHORRO E INVERSIÓN</h3>
               <p>Haz que tu dinero trabaje para ti.</p>
+              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
+                <span class="pillar-toggle-text">Ver contenido</span>
+                <span class="pillar-toggle-chevron">▾</span>
+              </button>
             </div>
             <div class="pillar-body">
               <div>
@@ -820,6 +828,10 @@
               <div class="pillar-number">3</div>
               <h3>USO RESPONSABLE DEL CRÉDITO</h3>
               <p>El crédito puede ser una herramienta, si lo usas con inteligencia.</p>
+              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
+                <span class="pillar-toggle-text">Ver contenido</span>
+                <span class="pillar-toggle-chevron">▾</span>
+              </button>
             </div>
             <div class="pillar-body">
               <div>
@@ -2328,6 +2340,57 @@
         try { localStorage.setItem(DEMO_REVIEW_KEY, JSON.stringify(reviewed)); } catch(e) {}
       }
 
+      function setPillarToggleState(card, open) {
+        if (!card) return;
+        card.classList.toggle('is-open', open);
+        var btn = card.querySelector('.pillar-toggle');
+        if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var txt = card.querySelector('.pillar-toggle-text');
+        if (txt) txt.textContent = open ? 'Ocultar contenido' : 'Ver contenido';
+      }
+
+      function closeAllPillars(except) {
+        document.querySelectorAll('#tabla-pilares .pillar-card.is-open').forEach(function(card) {
+          if (card !== except) setPillarToggleState(card, false);
+        });
+      }
+
+      window.toggleDemoBlock = function(btn) {
+        var card = btn && btn.closest ? btn.closest('.pillar-card') : null;
+        if (!card) return;
+        var willOpen = !card.classList.contains('is-open');
+        closeAllPillars(card);
+        setPillarToggleState(card, willOpen);
+        if (willOpen) {
+          setTimeout(function() {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 80);
+        }
+      };
+
+      window.openFirstDemoBlock = function(event) {
+        if (event) event.preventDefault();
+        var grid = document.getElementById('tabla-pilares');
+        if (!grid) return;
+        var first = grid.querySelector('.pillar-card');
+        if (!first) return;
+        if (!first.classList.contains('is-open')) {
+          var btn = first.querySelector('.pillar-toggle');
+          if (btn) window.toggleDemoBlock(btn);
+          return;
+        }
+        first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      (function initDemoAccordion() {
+        var grid = document.getElementById('tabla-pilares');
+        if (!grid) return;
+        grid.classList.add('demo-accordion-enabled');
+        grid.querySelectorAll('.pillar-card').forEach(function(card) {
+          setPillarToggleState(card, false);
+        });
+      })();
+
       window.marcarTablaDemoCompletada = function(id) {
         if (!id) return;
         reviewed[id] = true;
@@ -2356,6 +2419,7 @@
           setTimeout(function() { grid.style.display = 'none'; }, 420);
         }
         if (btnTop) {
+          btnTop.removeAttribute('onclick');
           btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
           btnTop.href = 'index.php?page=reticula';
         }
@@ -2401,9 +2465,14 @@
         }
         if (card) card.style.display = 'none';
         if (btnTop) {
+          btnTop.setAttribute('onclick', 'openFirstDemoBlock(event)');
           btnTop.innerHTML = '<span>👉 Probar Demo Gratis</span>';
           btnTop.href = '#tabla-pilares';
         }
+        document.querySelectorAll('#tabla-pilares .pillar-card').forEach(function(pillar) {
+          setPillarToggleState(pillar, false);
+        });
+        if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
       };
 
       (function checkDemoPrevia() {
@@ -2416,6 +2485,7 @@
 
             if (grid) grid.style.display = 'none';
             if (btnTop) {
+              btnTop.removeAttribute('onclick');
               btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
               btnTop.href = 'index.php?page=reticula';
             }

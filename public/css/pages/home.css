@@ -2901,3 +2901,43 @@
       from { opacity: 0; transform: scale(0.96); }
       to   { opacity: 1; transform: scale(1); }
     }
+
+    /* ============================================================
+       ACORDEÓN DE LA DEMO GRATUITA (3 BLOQUES)
+       ============================================================ */
+    .pillars-grid.demo-accordion-enabled {
+      align-items: start;
+    }
+    .pillars-grid.demo-accordion-enabled .pillar-card:not(.is-open) .pillar-body {
+      display: none;
+    }
+    .pillar-card.is-open {
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+    }
+    .pillar-toggle {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .pillar-toggle:hover {
+      background: rgba(255, 255, 255, 0.26);
+    }
+    .pillar-toggle-chevron {
+      font-size: 12px;
+      transition: transform 0.25s ease;
+    }
+    .pillar-card.is-open .pillar-toggle-chevron {
+      transform: rotate(180deg);
+    }
