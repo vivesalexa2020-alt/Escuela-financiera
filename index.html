@@ -995,18 +995,254 @@
       font-style: italic;
     }
 
+    /* ── PILLARS SLIDER ── */
+    .pillars-slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border-radius: 18px;
+    }
+
     .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 30px;
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      margin-bottom: 0;
       align-items: stretch;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .pillar-card {
+      min-width: 100%;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .pillar-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 24px;
+    }
+    .pillar-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+      padding: 0;
+    }
+    .pillar-dot.active {
+      background: #2563eb;
+      transform: scale(1.35);
+    }
+    .pillar-dot:nth-child(2).active { background: #16a34a; }
+    .pillar-dot:nth-child(3).active { background: #4f46e5; }
+
+    .pillar-completed-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 12px 14px 0;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      animation: slideUpBanner 0.45s ease both;
+    }
+    @keyframes slideUpBanner {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .pillar-card.pillar-blue  .pillar-completed-banner { background: #dbeafe; color: #1e40af; }
+    .pillar-card.pillar-green .pillar-completed-banner { background: #dcfce7; color: #15803d; }
+    .pillar-completed-banner .completed-text { display: flex; align-items: center; gap: 8px; }
+    .btn-next-pillar {
+      white-space: nowrap;
+      padding: 7px 16px;
+      border-radius: 30px;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-next-pillar:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .pillar-card.pillar-blue  .btn-next-pillar { background: #2563eb; color: #fff; }
+    .pillar-card.pillar-green .btn-next-pillar { background: #16a34a; color: #fff; }
+
+    .pillar-final-msg {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      margin: 12px 14px 0;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-size: 13px;
+      font-weight: 600;
+      animation: slideUpBanner 0.45s ease both;
+    }
+    .pillar-final-msg .final-big { font-size: 22px; }
+
+    /* ============================================================
+       TARJETA DE DEMO GRATUITA FINALIZADA (REEMPLAZA LAS 3 TABLAS)
+       ============================================================ */
+    .demo-fin-card {
+      background: linear-gradient(135deg, #06402d 0%, #032d1f 100%);
+      border: 2px solid #28C76F;
+      border-radius: 24px;
+      padding: 38px 24px;
+      margin: 16px auto 26px;
+      max-width: 860px;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(6, 64, 45, 0.35);
+      animation: popIn 0.35s ease-out;
+    }
+    .demo-fin-card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .demo-fin-badge {
+      display: inline-block;
+      background: rgba(245, 184, 0, 0.2);
+      border: 1.5px solid #F5B800;
+      color: #F5B800;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 14px;
+    }
+    .demo-fin-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 8px 0 12px;
+      line-height: 1.3;
+    }
+    .demo-fin-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .df-pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #d1fae5;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .demo-fin-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #d7f4e6;
+      margin-bottom: 22px;
+    }
+    .demo-fin-desc strong {
+      color: #F5B800;
+    }
+    .demo-fin-cta-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 20px 24px;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-demo-fin-enroll {
+      background: #28C76F;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 13px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(40, 199, 111, 0.45);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .btn-demo-fin-enroll:hover {
+      background: #22ad60;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(40, 199, 111, 0.6);
+      color: #ffffff;
+    }
+    .demo-fin-redirect-note {
+      font-size: 13px;
+      color: #F5B800;
+      font-weight: 600;
+    }
+    .btn-demo-fin-reset {
+      background: transparent;
+      border: none;
+      color: #a7dfc6;
+      font-size: 11.5px;
+      text-decoration: underline;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .btn-demo-fin-reset:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+    .btn-finish-demo-trigger {
+      background: linear-gradient(135deg, #F5B800 0%, #e09800 100%);
+      color: #06402d;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(245, 184, 0, 0.35);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-finish-demo-trigger:hover {
+      background: #dba400;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(245, 184, 0, 0.5);
+    }
+
+    .pillar-progress-label {
+      text-align: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #6b7280;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
     }
 
     @media (max-width: 960px) {
-      .pillars-grid {
-        grid-template-columns: 1fr;
-      }
+      .pillars-grid { flex-direction: row; }
     }
 
     .pillar-card {
@@ -1015,13 +1251,10 @@
       display: flex;
       flex-direction: column;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      min-width: 100%;
+      width: 100%;
+      flex-shrink: 0;
       background: #ffffff;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.11);
     }
 
     /* HEADER DE CADA TARJETA */
@@ -3257,6 +3490,8 @@
           </div>
         </div>
 
+        <p class="pillar-progress-label" id="pillarProgressLabel">Bloque 1 de 3</p>
+        <div class="pillars-slider-wrapper" id="pillarsSliderWrapper">
         <div class="pillars-grid" id="tabla-pilares" style="scroll-margin-top: 90px;">
 
           <!-- BLOQUE 1: ADMINISTRACIÓN DE TUS FINANZAS (AZUL) -->
@@ -3423,6 +3658,11 @@
                 </div>
               </div>
 
+              <!-- Banner completado tabla 1 -->
+              <div class="pillar-completed-banner" id="completedBanner0">
+                <span class="completed-text">✅ <span>¡Bloque completado! Pasa al siguiente.</span></span>
+                <button class="btn-next-pillar" onclick="goToPillar(1)">Siguiente ▶</button>
+              </div>
               <div class="pillar-bottom-banner">
                 ¡Organiza hoy, asegura mañana!
               </div>
@@ -3597,6 +3837,11 @@
                 </div>
               </div>
 
+              <!-- Banner completado tabla 2 -->
+              <div class="pillar-completed-banner" id="completedBanner1">
+                <span class="completed-text">✅ <span>¡Bloque completado! Pasa al siguiente.</span></span>
+                <button class="btn-next-pillar" onclick="goToPillar(2)">Siguiente ▶</button>
+              </div>
               <div class="pillar-bottom-banner">
                 Ahorra, invierte, crece.
               </div>
@@ -3767,12 +4012,58 @@
                 </div>
               </div>
 
+              <!-- Mensaje final tabla 3 -->
+              <div class="pillar-final-msg" id="pillarFinalMsg">
+                <span class="final-big">🎉</span>
+                <strong>¡Completaste las 3 secciones!</strong>
+                <span>Ya conoces los pilares de la educación financiera. ¡Inscríbete para continuar!</span>
+              </div>
+              <div style="margin: 12px 14px 6px; text-align: center;">
+                <button type="button" class="btn-finish-demo-trigger" onclick="finalizarDemoGratis()">
+                  🏁 Terminar Demo Gratis e Inscribirme →
+                </button>
+              </div>
               <div class="pillar-bottom-banner">
                 El buen crédito también es libertad.
               </div>
             </div>
           </div>
 
+        </div>
+        </div><!-- /pillars-slider-wrapper -->
+
+        <!-- TARJETA DEMO CONCLUIDA (SE MUESTRA AL TERMINAR LAS 3 TABLAS Y OCULTARLAS) -->
+        <div class="demo-fin-card" id="demoFinCard" style="display: none;">
+          <div class="demo-fin-card-inner">
+            <div class="demo-fin-badge">🏁 DEMO GRATUITA CONCLUIDA</div>
+            <div style="font-size: 46px; margin-bottom: 6px;">🎓</div>
+            <h3 class="demo-fin-title">¡Has completado la revisión de las 3 tablas de prueba!</h3>
+            <div class="demo-fin-pills">
+              <span class="df-pill">✅ 1. Administración de Finanzas</span>
+              <span class="df-pill">✅ 2. Ahorro e Inversión</span>
+              <span class="df-pill">✅ 3. Uso Responsable del Crédito</span>
+            </div>
+            <p class="demo-fin-desc">
+              Tu periodo de demostración gratuita ha terminado y <strong>las 3 tablas de prueba han sido retiradas</strong>. Ahora que conoces las bases, da el paso definitivo e <strong>inscríbete sin costo</strong> para desbloquear tu Semestre 1 completo de la carrera de 2 años sin ingresar tarjetas de crédito.
+            </p>
+            <div class="demo-fin-cta-box">
+              <a href="reticula.html" class="btn-demo-fin-enroll" id="btnDemoFinEnroll">
+                <span>👉 Ir a Inscribirme Ahora (100% Gratis)</span>
+              </a>
+              <div class="demo-fin-redirect-note" id="demoRedirectNotice">
+                ⏳ Redirigiendo a tu inscripción en <strong id="demoCountdownSecs">3</strong> segundos...
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <button type="button" class="btn-demo-fin-reset" onclick="reiniciarDemoTest()">↺ Volver a abrir tablas (modo prueba)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pillar-dots" id="pillarDots">
+          <button class="pillar-dot active" onclick="goToPillar(0)" title="Administración de Finanzas"></button>
+          <button class="pillar-dot" onclick="goToPillar(1)" title="Ahorro e Inversión"></button>
+          <button class="pillar-dot" onclick="goToPillar(2)" title="Uso Responsable del Crédito"></button>
         </div>
 
         <!-- MÁS BAJITO: SECCIÓN PARA INSCRIBIRSE CON EL BOTÓN FINAL PARA INICIAR DEMO GRATIS -->
@@ -4696,6 +4987,44 @@
     })();
 
     // ══════════════════════════════════════════════════════════
+    // SLIDER DE PILARES (Probar Demo Gratis)
+    // ══════════════════════════════════════════════════════════
+    (function() {
+      var currentPillar = 0;
+      var totalPillars  = 3;
+      var grid  = document.getElementById('tabla-pilares');
+      var dots  = document.querySelectorAll('#pillarDots .pillar-dot');
+      var label = document.getElementById('pillarProgressLabel');
+      var labels = ['Bloque 1 de 3', 'Bloque 2 de 3', 'Bloque 3 de 3'];
+
+      function updateSlider(idx) {
+        currentPillar = idx;
+        grid.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === idx);
+        });
+        if (label) label.textContent = labels[idx] || '';
+      }
+
+      // Exponer globalmente
+      window.goToPillar = function(idx) {
+        if (idx < 0 || idx >= totalPillars) return;
+        updateSlider(idx);
+        // Scroll suave al slider
+        var wrapper = document.getElementById('pillarsSliderWrapper');
+        if (wrapper) {
+          wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      };
+
+      // Guardar referencia al índice para cada quiz
+      window._pillarQuizMap = {
+        'quizMetas':   0,   // quiz de tabla 1 -> completar -> ir a tabla 2
+        'quizInteres': 1,   // quiz de tabla 2 -> completar -> ir a tabla 3
+        'quizDeuda':   2    // quiz de tabla 3 -> completar -> mostrar mensaje final
+      };
+    })();
+    // ══════════════════════════════════════════════════════════
     // MOTOR DE QUIZ — función genérica reutilizable
     // ══════════════════════════════════════════════════════════
     function buildQuiz(cfg) {
@@ -4795,6 +5124,10 @@
             ? 'Buen esfuerzo. Repasa los conceptos y vuelve a intentarlo. 💪'
             : 'Sigue practicando, cada intento te acerca al dominio del tema. 📚';
         document.getElementById(cfg.id + 'Msg').textContent = msg;
+        // Disparar callback del slider al completar quiz
+        if (typeof cfg.onComplete === 'function') {
+          setTimeout(cfg.onComplete, 1800);
+        }
       }
 
       function hideFeedback() {
@@ -4814,6 +5147,11 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizMetas', suffix: 'Metas',
+      onComplete: function() {
+        var banner = document.getElementById('completedBanner0');
+        if (banner) { banner.style.display = 'flex'; }
+        setTimeout(function() { window.goToPillar(1); }, 2500);
+      },
       questions: [
         {
           q: '¿Cuál es la principal característica de una meta financiera SMART?',
@@ -4871,6 +5209,11 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizInteres', suffix: 'Interes',
+      onComplete: function() {
+        var banner = document.getElementById('completedBanner1');
+        if (banner) { banner.style.display = 'flex'; }
+        setTimeout(function() { window.goToPillar(2); }, 2500);
+      },
       questions: [
         {
           q: '¿Qué es el interés compuesto?',
@@ -4928,6 +5271,15 @@
     // ══════════════════════════════════════════════════════════
     buildQuiz({
       id: 'quizDeuda', suffix: 'Deuda',
+      onComplete: function() {
+        var finalMsg = document.getElementById('pillarFinalMsg');
+        if (finalMsg) { finalMsg.style.display = 'flex'; }
+        setTimeout(function() {
+          if (typeof window.finalizarDemoGratis === 'function') {
+            window.finalizarDemoGratis();
+          }
+        }, 1200);
+      },
       questions: [
         {
           q: '¿Qué se considera sobreendeudamiento?',
@@ -5064,6 +5416,112 @@
       } else {
         init();
       }
+    })();
+  </script>
+
+  <!-- SCRIPT PARA GESTIÓN DE FINALIZACIÓN DE DEMO DE LAS 3 TABLAS -->
+  <script>
+    window.finalizarDemoGratis = function() {
+      try {
+        localStorage.setItem('demo_pilares_finalizada', 'true');
+      } catch(e) {}
+
+      var wrapper = document.getElementById('pillarsSliderWrapper');
+      var dots    = document.getElementById('pillarDots');
+      var label   = document.getElementById('pillarProgressLabel');
+      var card    = document.getElementById('demoFinCard');
+      var btnTop  = document.querySelector('.btn-demo-cta');
+
+      // Se quitan de inmediato de la página las 3 tablas de demostración
+      if (wrapper) {
+        wrapper.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        wrapper.style.opacity = '0';
+        wrapper.style.transform = 'scale(0.98)';
+        setTimeout(function() { wrapper.style.display = 'none'; }, 420);
+      }
+      if (dots)  { dots.style.display  = 'none'; }
+      if (label) { label.style.display = 'none'; }
+
+      if (btnTop) {
+        btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
+        btnTop.href = 'reticula.html';
+      }
+
+      if (card) {
+        card.style.display = 'block';
+        card.style.opacity = '0';
+        card.style.transition = 'opacity 0.5s ease';
+        setTimeout(function() {
+          card.style.opacity = '1';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      }
+
+      // Cuenta regresiva visible de 3 segundos para redirigir automáticamente a la inscripción
+      var count = 3;
+      var counterEl = document.getElementById('demoCountdownSecs');
+      if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
+      window._demoRedirectTimer = setInterval(function() {
+        count--;
+        if (counterEl) { counterEl.textContent = count; }
+        if (count <= 0) {
+          clearInterval(window._demoRedirectTimer);
+          window.location.href = 'reticula.html';
+        }
+      }, 1000);
+    };
+
+    window.reiniciarDemoTest = function() {
+      try {
+        localStorage.removeItem('demo_pilares_finalizada');
+      } catch(e) {}
+      if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
+      var wrapper = document.getElementById('pillarsSliderWrapper');
+      var dots    = document.getElementById('pillarDots');
+      var label   = document.getElementById('pillarProgressLabel');
+      var card    = document.getElementById('demoFinCard');
+      var btnTop  = document.querySelector('.btn-demo-cta');
+      if (wrapper) {
+        wrapper.style.display = '';
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'none';
+      }
+      if (dots)  { dots.style.display  = ''; }
+      if (label) { label.style.display = ''; }
+      if (card)  { card.style.display  = 'none'; }
+      if (btnTop) {
+        btnTop.innerHTML = '<span>👉 Probar Demo Gratis</span>';
+        btnTop.href = '#tabla-pilares';
+      }
+      if (window.goToPillar) { window.goToPillar(0); }
+    };
+
+    // Al cargar la página: si ya completó la demo previamente, mantener las 3 tablas quitadas
+    (function checkDemoPrevia() {
+      try {
+        if (localStorage.getItem('demo_pilares_finalizada') === 'true') {
+          var wrapper = document.getElementById('pillarsSliderWrapper');
+          var dots    = document.getElementById('pillarDots');
+          var label   = document.getElementById('pillarProgressLabel');
+          var card    = document.getElementById('demoFinCard');
+          var redirectNotice = document.getElementById('demoRedirectNotice');
+          var btnTop  = document.querySelector('.btn-demo-cta');
+
+          if (wrapper) wrapper.style.display = 'none';
+          if (dots)  dots.style.display  = 'none';
+          if (label) label.style.display = 'none';
+          if (btnTop) {
+            btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
+            btnTop.href = 'reticula.html';
+          }
+          if (card) {
+            card.style.display = 'block';
+            if (redirectNotice) {
+              redirectNotice.innerHTML = '<span>Tu demo gratuita ya ha finalizado. Haz clic en el botón verde para inscribirte.</span>';
+            }
+          }
+        }
+      } catch(e) {}
     })();
   </script>
 </body>
