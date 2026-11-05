@@ -292,14 +292,72 @@
             </button>
           </div>
 
-          <!-- PANE: VIDEO REAL -->
+          <!-- PANE: VIDEO REAL CON CUESTIONARIO INTERACTIVO EN TIEMPO REAL -->
           <div class="lesson-tab-pane active" id="paneVideo" style="display: block;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; box-shadow: 0 10px 24px rgba(0,0,0,0.12); margin-bottom: 16px;">
-              <iframe id="lessonVideoIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube.com/embed/WF6qLnuh4EA" title="Video de la Lección" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-player-wrapper" id="videoWrapper">
+              <iframe id="lessonVideoIframe" src="https://www.youtube.com/embed/WF6qLnuh4EA?enablejsapi=1&rel=0&modestbranding=1" title="Video de la Lección" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              
+              <!-- OVERLAY DEL CUESTIONARIO SOBRE EL VIDEO -->
+              <div class="vquiz-overlay" id="videoQuizOverlay" aria-modal="true" role="dialog">
+                <div class="vquiz-card">
+                  <div class="vquiz-header">
+                    <span class="vquiz-badge-time" id="vquizTimeBadge">⏱️ Minuto 0:30</span>
+                    <span class="vquiz-badge-step" id="vquizStepBadge">Pregunta 1 de 3</span>
+                  </div>
+                  <h4 class="vquiz-question-title" id="vquizTitle">Pregunta de comprensión</h4>
+                  <p class="vquiz-question-desc" id="vquizDesc">El video se ha pausado para validar tu comprensión antes de continuar.</p>
+                  
+                  <div class="vquiz-options-list" id="vquizOptionsContainer"></div>
+
+                  <div class="vquiz-feedback" id="vquizFeedback"></div>
+
+                  <div class="vquiz-actions">
+                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                      <button type="button" class="vquiz-btn-submit" id="vquizBtnSubmit" onclick="checkVideoQuestion()">
+                        ✓ Comprobar respuesta
+                      </button>
+                      <button type="button" class="vquiz-btn-continue" id="vquizBtnContinue" onclick="resumeVideoAfterQuiz()">
+                        ▶ Continuar clase
+                      </button>
+                      <button type="button" class="vquiz-btn-rewind" id="vquizBtnRewind" onclick="rewindVideoSegment()">
+                        ⏪ Repasar (-15s)
+                      </button>
+                    </div>
+                    <button type="button" class="vquiz-btn-skip" onclick="skipVideoQuestion()" title="Continuar el video sin responder">
+                      Saltar por ahora →
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- BARRA DE PUNTOS DE CONTROL DEL VIDEO -->
+            <div class="vquiz-bar-card">
+              <div class="vquiz-bar-header">
+                <div class="vquiz-bar-title">
+                  <span>🎯 Cuestionario en video:</span>
+                  <span style="font-weight: 500; font-size: 12px; color: #64748b;">Preguntas de comprensión durante la transmisión</span>
+                </div>
+                <div class="vquiz-bar-controls">
+                  <label class="vquiz-toggle-label" title="Pausar automáticamente el video al llegar a cada punto de control">
+                    <input type="checkbox" id="vquizAutoPauseToggle" checked onchange="toggleAutoPause(this.checked)" style="accent-color: var(--verde-principal, #00703c);">
+                    <span>Pausa automática</span>
+                  </label>
+                  <span class="vquiz-score-pill" id="vquizScorePill">
+                    ⭐ <span id="vquizScoreText">0/3 superadas</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Puntos de control (Chips clickeables) -->
+              <div class="vquiz-chips-container" id="vquizChipsContainer">
+                <!-- Inyectado dinámicamente con JavaScript -->
+              </div>
+            </div>
+
             <div style="display: flex; justify-content: space-between; align-items: center; background: #f7fbf9; border: 1px solid #dff0e8; border-radius: 10px; padding: 10px 14px; font-size: 13px;">
-              <span>✅ <strong>Video activo:</strong> Reproduce la clase o avanza a resolver el <em>Ejercicio Práctico</em>.</span>
-              <button type="button" onclick="switchLessonTab('ejercicio')" style="background: var(--verde-claro); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Resolver ejercicio →</button>
+              <span>💡 <strong>Evaluación en tiempo real:</strong> Cada pregunta responde a la sección recién explicada para maximizar tu retención.</span>
+              <button type="button" onclick="switchLessonTab('ejercicio')" style="background: var(--verde-claro); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Resolver ejercicio práctico →</button>
             </div>
           </div>
 
@@ -441,6 +499,9 @@
     </div>
   </footer>
 
+  <!-- YouTube IFrame Player API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script>
     const lessonsData = {
       1: {
@@ -448,6 +509,53 @@
         tag: "Lección 1 de 8 (Carrera Financiera)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/WF6qLnuh4EA",
+        videoCheckpoints: [
+          {
+            time: 25,
+            timeLabel: "0:25",
+            title: "¿Cuál es el error más frecuente al presupuestar?",
+            desc: "Pregunta sobre el diagnóstico inicial del dinero:",
+            options: [
+              "Confiar en la memoria sin registrar ingresos y gastos por escrito",
+              "Gastar más en alimentos que en ropa",
+              "Ahorrar únicamente monedas en una alcancía",
+              "Tener más de una cuenta bancaria"
+            ],
+            correct: 0,
+            explanation: "¡Exacto! Presupuestar 'de memoria' falla siempre porque se omiten los gastos invisibles. Registrar por escrito es la base de todo diagnóstico financiero.",
+            rewindTo: 10
+          },
+          {
+            time: 70,
+            timeLabel: "1:10",
+            title: "¿Qué define realmente tu 'Ingreso Neto Disponible'?",
+            desc: "Valida tu comprensión sobre el flujo de dinero:",
+            options: [
+              "La suma total de tu sueldo bruto prometido",
+              "El saldo real disponible tras restar impuestos y deducciones obligatorias",
+              "El límite de crédito autorizado en tus tarjetas",
+              "Los préstamos que puedes solicitar"
+            ],
+            correct: 1,
+            explanation: "¡Muy bien! Tus decisiones deben basarse siempre en el ingreso neto real libre de deducciones, nunca en el bruto.",
+            rewindTo: 45
+          },
+          {
+            time: 130,
+            timeLabel: "2:10",
+            title: "¿Para qué sirve auditar tus gastos durante 30 días?",
+            desc: "Sobre la herramienta práctica presentada:",
+            options: [
+              "Para cancelar todas tus tarjetas de débito",
+              "Para obtener una radiografía real y detectar fugas silenciosas de capital",
+              "Para pedir un aumento al día siguiente",
+              "Para dejar de comer fuera de por vida"
+            ],
+            correct: 1,
+            explanation: "¡Correcto! Una auditoría de 30 días expone los hábitos automáticos que drenan tu capacidad de ahorro.",
+            rewindTo: 95
+          }
+        ],
         audio: { title: "Mitos del dinero que te mantienen pobre", desc: "Desmontamos las creencias más comunes que frenan tu crecimiento financiero.", duration: "22 min" },
         book: { title: "Pequeño Cerdo Capitalista", author: "Sofía Macías", desc: "La guía práctica más leída sobre finanzas personales e inteligencia financiera en México." },
         exercise: {
@@ -474,6 +582,53 @@
         tag: "Lección 2 de 8 (Carrera Financiera)",
         duration: "11 min",
         videoUrl: "https://www.youtube.com/embed/qg_z9-kE44I",
+        videoCheckpoints: [
+          {
+            time: 25,
+            timeLabel: "0:25",
+            title: "¿Qué es exactamente un 'Gasto Hormiga'?",
+            desc: "Pregunta sobre el concepto fundamental de la clase:",
+            options: [
+              "Una inversión en un fondo a plazo fijo",
+              "Pequeños desembolsos diarios casi imperceptibles que acumulados destruyen tu ahorro",
+              "El pago de la renta o hipoteca",
+              "El costo de una reparación mayor de emergencia"
+            ],
+            correct: 1,
+            explanation: "¡Correcto! Cafés diarios, golosinas, comisiones no revisadas o suscripciones olvidadas parecen insignificantes pero suman decenas de miles de pesos al año.",
+            rewindTo: 10
+          },
+          {
+            time: 65,
+            timeLabel: "1:05",
+            title: "Si gastas $65 MXN diarios en compras impulsivas, ¿cuánto representa al año?",
+            desc: "Calcula el costo de oportunidad de este hábito:",
+            options: [
+              "Alrededor de $3,500 MXN",
+              "Más de $23,700 MXN al año",
+              "Menos de $1,000 MXN",
+              "Aproximadamente $7,500 MXN"
+            ],
+            correct: 1,
+            explanation: "¡Exacto! $65 x 365 días son $23,725 MXN anuales, suficiente para crear tu fondo de emergencia o dar el enganche de una inversión rentable.",
+            rewindTo: 40
+          },
+          {
+            time: 110,
+            timeLabel: "1:50",
+            title: "¿En qué consiste la 'Regla de las 72 horas' para compras no esenciales?",
+            desc: "Sobre la técnica psicológica de control:",
+            options: [
+              "Devolver el producto a los 3 días obligatoriamente",
+              "Esperar 72 horas antes de comprar un impulso para enfriar la emoción y evaluar su necesidad",
+              "Pagar en 3 cuotas con tarjeta",
+              "Pedir la opinión a 3 familiares"
+            ],
+            correct: 1,
+            explanation: "¡Excelente! La pausa de 72 horas neutraliza el pico de dopamina del marketing y te permite tomar decisiones conscientes.",
+            rewindTo: 80
+          }
+        ],
         audio: { title: "Psicología del consumo impulsivo", desc: "Cómo los algoritmos y el marketing explotan tus sesgos para hacerte gastar de más.", duration: "19 min" },
         book: { title: "Hábitos Atómicos (Finanzas)", author: "James Clear", desc: "Cómo pequeños ajustes diarios construyen una muralla contra el desperdicio económico." },
         exercise: {
@@ -500,6 +655,53 @@
         tag: "Lección 3 de 8 (Carrera Financiera)",
         duration: "15 min",
         videoUrl: "https://www.youtube.com/embed/NnL7zHjX0bU",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "En la regla 50/30/20, ¿qué categoría cubre el 50%?",
+            desc: "Distribución del ingreso neto mensual:",
+            options: [
+              "Necesidades indispensables (vivienda, alimentos, transporte y servicios básicos)",
+              "Salidas, entretenimiento y restaurantes",
+              "Inversiones especulativas en cripto",
+              "Compras de ropa de marca"
+            ],
+            correct: 0,
+            explanation: "¡Correcto! El 50% garantiza tu subsistencia y compromisos fijos indispensables.",
+            rewindTo: 10
+          },
+          {
+            time: 75,
+            timeLabel: "1:15",
+            title: "¿A qué rubro se destina el 30% del presupuesto?",
+            desc: "Valida tu conocimiento de la fórmula:",
+            options: [
+              "Pago de multas e intereses atrasados",
+              "Deseos, estilo de vida, pasatiempos y entretenimiento consciente",
+              "Guardarlo en efectivo en una caja",
+              "Comisiones bancarias"
+            ],
+            correct: 1,
+            explanation: "¡Exacto! El 30% te permite disfrutar del fruto de tu esfuerzo hoy, sin culpa y con límite claro.",
+            rewindTo: 45
+          },
+          {
+            time: 125,
+            timeLabel: "2:05",
+            title: "¿Por qué el 20% debe apartarse al inicio del mes ('Pagarte a ti primero')?",
+            desc: "Sobre el principio de ahorro automático:",
+            options: [
+              "Porque si esperas al fin de mes, casi nunca sobra dinero para ahorrar",
+              "Porque el banco cobra penalización si no lo retiras",
+              "Para gastarlo en el fin de semana de quincena",
+              "Porque es una ley fiscal obligatoria"
+            ],
+            correct: 0,
+            explanation: "¡Muy bien! Si ahorras 'lo que sobre', nunca ahorrarás. Quien se paga a sí mismo primero asegura su patrimonio.",
+            rewindTo: 90
+          }
+        ],
         audio: { title: "Automatiza tu presupuesto en 3 cuentas", desc: "El sistema de 3 cuentas bancarias para nunca volver a quedarte sin dinero antes de quincena.", duration: "25 min" },
         book: { title: "El Hombre más Rico de Babilonia", author: "George S. Clason", desc: "El principio clásico de pagarse a uno mismo primero al menos el 10% al 20% de lo ganado." },
         exercise: {
@@ -526,6 +728,53 @@
         tag: "Lección 4 de 8 (Carrera Financiera)",
         duration: "18 min",
         videoUrl: "https://www.youtube.com/embed/5U9o_vL_WfQ",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "¿Por qué es una trampa financiera pagar sólo el 'pago mínimo' de tu tarjeta?",
+            desc: "Pausa sobre el costo del crédito bancario:",
+            options: [
+              "Porque el banco te cancela la tarjeta al día siguiente",
+              "Porque casi todo el monto se va a intereses y la deuda puede tardar décadas en liquidarse",
+              "Porque disminuye tu sueldo laboral automáticamente",
+              "Porque el banco no reporta nada a Buró"
+            ],
+            correct: 1,
+            explanation: "¡Exacto! El pago mínimo amortiza sólo una fracción ínfima del capital, generando intereses sobre intereses a favor del banco.",
+            rewindTo: 10
+          },
+          {
+            time: 75,
+            timeLabel: "1:15",
+            title: "¿Cómo funciona la estrategia de deudas 'Bola de Nieve'?",
+            desc: "Lógica psicológica del método:",
+            options: [
+              "Pagar primero la deuda con el saldo total más pequeño para lograr una victoria rápida",
+              "Pagar primero la deuda más grande",
+              "Pagar todas las tarjetas por partes iguales",
+              "Ignorar las deudas pequeñas"
+            ],
+            correct: 0,
+            explanation: "¡Excelente! La victoria temprana de eliminar una deuda pequeña libera flujo de efectivo y motivación para demoler la siguiente.",
+            rewindTo: 45
+          },
+          {
+            time: 130,
+            timeLabel: "2:10",
+            title: "¿Cuál es la principal ventaja matemática del método 'Avalancha'?",
+            desc: "Comparación técnica entre métodos:",
+            options: [
+              "Ahorra el máximo posible de dinero en intereses atacando primero la deuda con mayor CAT",
+              "Elimina la obligación de pagar impuestos",
+              "Te premia con puntos bancarios adicionales",
+              "Borra el Buró de Crédito inmediatamente"
+            ],
+            correct: 0,
+            explanation: "¡Correcto! El método Avalancha es matemáticamente el más eficiente porque ataca la tasa de interés más costosa en primer lugar.",
+            rewindTo: 90
+          }
+        ],
         audio: { title: "Saliendo de la trampa del pago mínimo", desc: "Por qué los bancos adoran que pagues el mínimo y cómo cortar esa cadena para siempre.", duration: "24 min" },
         book: { title: "La Transformación Total de su Dinero", author: "Dave Ramsey", desc: "Paso a paso para demoler deudas de tarjetas y créditos personales con la Bola de Nieve." },
         exercise: {
@@ -552,6 +801,53 @@
         tag: "Lección 5 de 8 (Carrera Financiera)",
         duration: "16 min",
         videoUrl: "https://www.youtube.com/embed/5U9o_vL_WfQ",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "¿De cuántos meses de gastos básicos debe componerse un fondo de emergencia ideal?",
+            desc: "Blindaje ante imprevistos de vida:",
+            options: [
+              "De 1 semana de salario",
+              "De 3 a 6 meses de gastos indispensables y fijos",
+              "De 5 años de estilo de vida",
+              "De 1 quincena de gastos corrientes"
+            ],
+            correct: 1,
+            explanation: "¡Correcto! Entre 3 y 6 meses te dan tiempo suficiente para recuperarte de pérdida de empleo o contingencia de salud sin endeudarte.",
+            rewindTo: 10
+          },
+          {
+            time: 75,
+            timeLabel: "1:15",
+            title: "¿Dónde es idóneo resguardar tu fondo de emergencias?",
+            desc: "Criterio de disponibilidad y riesgo:",
+            options: [
+              "En efectivo debajo del colchón",
+              "En una cuenta segura, regulada y con liquidez diaria que pague rendimientos (ej. Bonddia/CETES)",
+              "En acciones de alta volatilidad",
+              "Prestado a un familiar"
+            ],
+            correct: 1,
+            explanation: "¡Excelente! Necesitas disponibilidad inmediata sin riesgo de fluctuación negativa en su valor.",
+            rewindTo: 45
+          },
+          {
+            time: 125,
+            timeLabel: "2:05",
+            title: "¿Cuándo es legítimo utilizar los recursos del fondo de emergencias?",
+            desc: "Regla de oro de preservación:",
+            options: [
+              "Únicamente ante imprevistos graves (urgencia médica, desempleo o avería indispensable)",
+              "Para aprovechar una oferta de tecnología en el Buen Fin",
+              "Para irse de vacaciones si no sobró dinero",
+              "Para comprar boletos de un concierto"
+            ],
+            correct: 0,
+            explanation: "¡Exacto! El fondo es tu salvavidas de supervivencia; usarlo para gustos destruye tu paz financiera.",
+            rewindTo: 90
+          }
+        ],
         audio: { title: "Dormir en paz: La psicología del colchón financiero", desc: "Cómo tener 3 meses de gastos líquidos elimina el 90% del estrés diario.", duration: "20 min" },
         book: { title: "Tu Dinero Cuenta", author: "Howard Dayton", desc: "Estrategias de blindaje y preservación ante imprevistos de salud y empleo." },
         exercise: {
@@ -578,6 +874,53 @@
         tag: "Lección 6 de 8 (Carrera Financiera)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/5k3f3p4P7-I",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "¿Qué es una 'Reestructura de Crédito' bancaria?",
+            desc: "Opciones de negociación ante dificultades:",
+            options: [
+              "Un acuerdo con el banco para ajustar plazo y tasa fija a un pago mensual pagable",
+              "Dejar de pagar y apagar el teléfono celular",
+              "Pedir otro préstamo más caro para pagar el anterior",
+              "Cancelar la cuenta bancaria sin avisar"
+            ],
+            correct: 0,
+            explanation: "¡Muy bien! Reestructurar permite conservar tu reputación financiera pactando cuotas alcanzables.",
+            rewindTo: 10
+          },
+          {
+            time: 70,
+            timeLabel: "1:10",
+            title: "¿Qué consecuencia negativa tiene aceptar una 'Quita' agresiva?",
+            desc: "Impacto en Buró de Crédito:",
+            options: [
+              "Deja una marca de quebranto en Buró de Crédito que dificulta nuevos créditos por años",
+              "El banco te otorga un premio por liquidar antes",
+              "No tiene ningún impacto negativo en tu historial",
+              "Te exenta de pagar impuestos federales"
+            ],
+            correct: 0,
+            explanation: "¡Correcto! La quita perdona una parte de la deuda, pero queda asentado que no cumpliste el 100% de tu compromiso.",
+            rewindTo: 40
+          },
+          {
+            time: 120,
+            timeLabel: "2:00",
+            title: "¿Cuál es el mejor momento para acercarse al banco a renegociar?",
+            desc: "Momento óptimo de negociación:",
+            options: [
+              "Antes de caer en impago o en cuanto anticipes que no podrás cubrir la mensualidad",
+              "Después de 2 años de no pagar nada",
+              "Cuando el caso pase a un despacho judicial de cobranza",
+              "Nunca, el banco nunca negocia"
+            ],
+            correct: 0,
+            explanation: "¡Exacto! Los bancos ofrecen mejores planes y tasas a clientes preventivos antes de entrar en cartera vencida.",
+            rewindTo: 85
+          }
+        ],
         audio: { title: "Cómo negociar quitas y reestructuras sin arruinar tu historial", desc: "Estrategias de negociación directa con instituciones bancarias y despachos de cobranza.", duration: "21 min" },
         book: { title: "Rompe la Barrera del No", author: "Chris Voss", desc: "Tácticas de negociación para conseguir mejores tasas, cancelaciones de anualidades y acuerdos." },
         exercise: {
@@ -604,6 +947,53 @@
         tag: "Lección 7 de 8 (Carrera Financiera)",
         duration: "19 min",
         videoUrl: "https://www.youtube.com/embed/d3UaX-s7eXU",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "¿Por qué el interés compuesto es la fuerza más potente del inversionista?",
+            desc: "Concepto clave de acumulación de riqueza:",
+            options: [
+              "Porque reinvierte las ganancias periódicamente, generando intereses sobre intereses exponencialmente",
+              "Porque duplica tu dinero de un día para otro",
+              "Porque evita tener que pagar seguros",
+              "Porque sólo funciona con millones de pesos"
+            ],
+            correct: 0,
+            explanation: "¡Excelente! Cada rendimiento reinvertido se convierte en nuevo capital de trabajo, acelerando la curva de crecimiento patrimonial.",
+            rewindTo: 10
+          },
+          {
+            time: 75,
+            timeLabel: "1:15",
+            title: "¿Qué respaldo oficial tienen los CETES en México?",
+            desc: "Seguridad y regulación de la inversión:",
+            options: [
+              "Garantía directa del Gobierno de México respaldada por SHCP y Banxico",
+              "El respaldo de una cadena de tiendas departamentales",
+              "Ningún respaldo formal",
+              "Una plataforma extranjera no regulada"
+            ],
+            correct: 0,
+            explanation: "¡Exacto! CETES es el instrumento con menor riesgo en México porque el deudor es el propio Gobierno Federal.",
+            rewindTo: 45
+          },
+          {
+            time: 130,
+            timeLabel: "2:10",
+            title: "¿En qué consiste la técnica DCA (Dollar Cost Averaging)?",
+            desc: "Estrategia para invertir sin estrés:",
+            options: [
+              "Aportar periódicamente una cantidad fija sin preocuparte por los vaivenes temporales del mercado",
+              "Comprar sólo divisas en billetes físicos",
+              "Vender todo cada vez que las noticias sean malas",
+              "Invertir únicamente una vez cada 5 años"
+            ],
+            correct: 0,
+            explanation: "¡Muy bien! El DCA promedia tu precio de adquisición y elimina el sesgo emocional de intentar anticipar el mercado.",
+            rewindTo: 90
+          }
+        ],
         audio: { title: "La magia del interés compuesto explicada para todos", desc: "Cómo Albert Einstein llamó al interés compuesto la octava maravilla del mundo y cómo activarlo.", duration: "27 min" },
         book: { title: "Inversionista de a Pie", author: "Omar Educación Financiera", desc: "Guía paso a paso para abrir cuenta en CETESdirecto, SOFIPOs y Casas de Bolsa reguladas en México." },
         exercise: {
@@ -630,6 +1020,53 @@
         tag: "Lección 8 de 8 (Carrera Financiera)",
         duration: "22 min",
         videoUrl: "https://www.youtube.com/embed/yQeT95m2r8o",
+        videoCheckpoints: [
+          {
+            time: 30,
+            timeLabel: "0:30",
+            title: "¿Qué define el estado de 'Libertad Financiera'?",
+            desc: "Objetivo final del programa educativo:",
+            options: [
+              "Tus ingresos pasivos o rendimientos cubren el 100% de tus gastos sin depender de un empleo tradicional",
+              "Tener una gran cantidad de dinero en billetes en tu domicilio",
+              "Dejar de consumir cualquier bien o servicio",
+              "Ganar un salario alto sin tener ahorros"
+            ],
+            correct: 0,
+            explanation: "¡Exacto! Libertad financiera es soberanía sobre tu tiempo: tu capital trabaja para ti y no tú para pagar cuentas.",
+            rewindTo: 10
+          },
+          {
+            time: 75,
+            timeLabel: "1:15",
+            title: "¿Qué postula la 'Regla del 4%' del Estudio Trinity para el retiro?",
+            desc: "Tasa de retiro seguro:",
+            options: [
+              "Retirar un 4% anual de tu portafolio diversificado ajustado por inflación preserva el capital por décadas",
+              "Aportar 4% de propina en todas las comidas",
+              "Pagar un 4% de impuesto especial",
+              "Que las inversiones rinden siempre exactamente 4%"
+            ],
+            correct: 0,
+            explanation: "¡Correcto! La regla del 4% es el referente global para calcular cuándo puedes retirarte con tranquilidad.",
+            rewindTo: 45
+          },
+          {
+            time: 125,
+            timeLabel: "2:05",
+            title: "¿Cómo calculas tu 'Número de Libertad Financiera' (Regla de 25x)?",
+            desc: "Fórmula de capital de retiro:",
+            options: [
+              "Multiplicando tu gasto anual por 25 (ej. si gastas $240,000/año, tu meta es $6,000,000 MXN)",
+              "Multiplicando tu sueldo mensual por 12",
+              "Dividiendo tus deudas entre 25",
+              "Sumando tus últimos 3 aguinaldos"
+            ],
+            correct: 0,
+            explanation: "¡Excelente! Gasto anual x 25 = Patrimonio necesario para vivir del 4% anual sin tocar el capital central.",
+            rewindTo: 85
+          }
+        ],
         audio: { title: "La Regla del 4% y la Filosofía FIRE", desc: "Cómo calcular el monto exacto para vivir de tus rentas e inversiones sin depender de un jefe.", duration: "30 min" },
         book: { title: "El Pequeño Libro para Invertir con Sentido Común", author: "John C. Bogle", desc: "La obra maestra del fundador de Vanguard sobre invertir en el índice S&P 500 a bajo costo.", duration: "300 pág." },
         exercise: {
@@ -653,6 +1090,310 @@
       }
     };
 
+    // ============================================================
+    // GESTIÓN DEL CUESTIONARIO INTERACTIVO EN TIEMPO REAL DEL VIDEO
+    // ============================================================
+    let ytPlayer = null;
+    let ytPollInterval = null;
+    let vquizActiveCheckpoint = null;
+    let vquizSelectedOption = null;
+    let vquizAutoPause = true;
+
+    function getYouTubeVideoId(url) {
+      if (!url) return '';
+      const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+      return match ? match[1] : '';
+    }
+
+    function formatYTUrlWithAPI(url) {
+      if (!url) return '';
+      let cleanUrl = url;
+      if (!cleanUrl.includes('enablejsapi=1')) {
+        cleanUrl += (cleanUrl.includes('?') ? '&' : '?') + 'enablejsapi=1&rel=0&modestbranding=1';
+      }
+      return cleanUrl;
+    }
+
+    // Persistencia de respuestas completadas en LocalStorage
+    function getVquizState() {
+      try {
+        return JSON.parse(localStorage.getItem('vquiz_completed_answers') || '{}');
+      } catch(e) {
+        return {};
+      }
+    }
+
+    function isVquizAnswered(lessonId, cpIndex) {
+      const state = getVquizState();
+      return !!state[`${lessonId}_${cpIndex}`];
+    }
+
+    function markVquizAnswered(lessonId, cpIndex) {
+      const state = getVquizState();
+      state[`${lessonId}_${cpIndex}`] = true;
+      try {
+        localStorage.setItem('vquiz_completed_answers', JSON.stringify(state));
+      } catch(e) {}
+      renderVquizBar(lessonId);
+    }
+
+    // Callback oficial de la API de YouTube
+    window.onYouTubeIframeAPIReady = function() {
+      initYouTubePlayer();
+    };
+
+    function initYouTubePlayer() {
+      const iframe = document.getElementById('lessonVideoIframe');
+      if (!iframe || !window.YT || !window.YT.Player) return;
+
+      try {
+        ytPlayer = new YT.Player('lessonVideoIframe', {
+          events: {
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      } catch(e) {
+        console.warn('Modo asistido sin control directo de API YouTube:', e);
+      }
+    }
+
+    function onPlayerStateChange(event) {
+      // 1 = YT.PlayerState.PLAYING
+      if (window.YT && event.data === window.YT.PlayerState.PLAYING) {
+        startTrackingVideoTime();
+      } else {
+        stopTrackingVideoTime();
+      }
+    }
+
+    function startTrackingVideoTime() {
+      stopTrackingVideoTime();
+      ytPollInterval = setInterval(checkVideoPlaybackTime, 350);
+    }
+
+    function stopTrackingVideoTime() {
+      if (ytPollInterval) {
+        clearInterval(ytPollInterval);
+        ytPollInterval = null;
+      }
+    }
+
+    function checkVideoPlaybackTime() {
+      if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
+      const currentSec = ytPlayer.getCurrentTime();
+      const lesson = lessonsData[currentLesson];
+      if (!lesson || !lesson.videoCheckpoints) return;
+
+      // Actualizar estilo visual del chip más cercano
+      highlightActiveChip(currentSec);
+
+      if (!vquizAutoPause) return;
+      if (vquizActiveCheckpoint !== null) return; // ya hay una pregunta abierta
+
+      lesson.videoCheckpoints.forEach((cp, idx) => {
+        if (isVquizAnswered(currentLesson, idx)) return;
+        // Si el reproductor pasa por el segundo objetivo dentro de una ventana de 2 segundos:
+        if (currentSec >= cp.time && currentSec <= cp.time + 2.2) {
+          triggerVideoCheckpoint(idx);
+        }
+      });
+    }
+
+    function highlightActiveChip(currentSec) {
+      const lesson = lessonsData[currentLesson];
+      if (!lesson || !lesson.videoCheckpoints) return;
+      lesson.videoCheckpoints.forEach((cp, idx) => {
+        const chip = document.getElementById(`vquizChip_${idx}`);
+        if (!chip) return;
+        if (!isVquizAnswered(currentLesson, idx) && Math.abs(currentSec - cp.time) <= 8) {
+          chip.classList.add('current');
+        } else {
+          chip.classList.remove('current');
+        }
+      });
+    }
+
+    function triggerVideoCheckpoint(index) {
+      const lesson = lessonsData[currentLesson];
+      if (!lesson || !lesson.videoCheckpoints || !lesson.videoCheckpoints[index]) return;
+      const cp = lesson.videoCheckpoints[index];
+      
+      vquizActiveCheckpoint = index;
+      vquizSelectedOption = null;
+
+      // Pausar video automáticamente
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        ytPlayer.pauseVideo();
+      }
+
+      // Llenar contenido del modal en video
+      document.getElementById('vquizTimeBadge').textContent = '⏱️ Pausa en ' + cp.timeLabel;
+      document.getElementById('vquizStepBadge').textContent = 'Pregunta ' + (index + 1) + ' de ' + lesson.videoCheckpoints.length;
+      document.getElementById('vquizTitle').textContent = cp.title;
+      document.getElementById('vquizDesc').textContent = cp.desc;
+
+      const letters = ['A', 'B', 'C', 'D'];
+      const optHtml = cp.options.map((opt, i) => {
+        return `<button type="button" class="vquiz-option-btn" id="vquizOpt_${i}" onclick="selectVquizOption(${i})">
+          <span class="vquiz-option-letter">${letters[i]}</span>
+          <span>${opt}</span>
+        </button>`;
+      }).join('');
+      document.getElementById('vquizOptionsContainer').innerHTML = optHtml;
+
+      const feedback = document.getElementById('vquizFeedback');
+      feedback.className = 'vquiz-feedback';
+      feedback.style.display = 'none';
+
+      document.getElementById('vquizBtnSubmit').style.display = 'inline-flex';
+      document.getElementById('vquizBtnContinue').style.display = 'none';
+      document.getElementById('vquizBtnRewind').style.display = 'none';
+
+      const overlay = document.getElementById('videoQuizOverlay');
+      if (overlay) overlay.classList.add('active');
+    }
+
+    function selectVquizOption(index) {
+      vquizSelectedOption = index;
+      const buttons = document.querySelectorAll('#vquizOptionsContainer .vquiz-option-btn');
+      buttons.forEach((btn, i) => {
+        if (i === index) btn.classList.add('selected');
+        else btn.classList.remove('selected');
+      });
+      const feedback = document.getElementById('vquizFeedback');
+      if (feedback) feedback.style.display = 'none';
+    }
+
+    function checkVideoQuestion() {
+      if (vquizActiveCheckpoint === null) return;
+      const lesson = lessonsData[currentLesson];
+      if (!lesson || !lesson.videoCheckpoints) return;
+      const cp = lesson.videoCheckpoints[vquizActiveCheckpoint];
+      const feedback = document.getElementById('vquizFeedback');
+
+      if (vquizSelectedOption === null) {
+        feedback.className = 'vquiz-feedback error';
+        feedback.style.display = 'block';
+        feedback.textContent = '⚠️ Por favor selecciona una de las opciones antes de comprobar.';
+        return;
+      }
+
+      if (vquizSelectedOption === cp.correct) {
+        markVquizAnswered(currentLesson, vquizActiveCheckpoint);
+        feedback.className = 'vquiz-feedback success';
+        feedback.style.display = 'block';
+        feedback.innerHTML = `🎉 <strong>¡Excelente comprensión!</strong> ${cp.explanation}<br><span style="font-size:12px; font-weight:700;">+25 Puntos ganados en tu progreso ⭐</span>`;
+        
+        document.getElementById('vquizBtnSubmit').style.display = 'none';
+        document.getElementById('vquizBtnContinue').style.display = 'inline-flex';
+        document.getElementById('vquizBtnRewind').style.display = 'none';
+
+        checkAllVideoCheckpointsCompleted(lesson);
+      } else {
+        feedback.className = 'vquiz-feedback error';
+        feedback.style.display = 'block';
+        feedback.innerHTML = `❌ <strong>Esa no es la respuesta correcta.</strong> Puedes repasar el fragmento reciente del video o intentarlo de nuevo.`;
+
+        document.getElementById('vquizBtnRewind').style.display = 'inline-flex';
+      }
+    }
+
+    function resumeVideoAfterQuiz() {
+      const overlay = document.getElementById('videoQuizOverlay');
+      if (overlay) overlay.classList.remove('active');
+      vquizActiveCheckpoint = null;
+
+      if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        ytPlayer.playVideo();
+      }
+    }
+
+    function rewindVideoSegment() {
+      const overlay = document.getElementById('videoQuizOverlay');
+      if (overlay) overlay.classList.remove('active');
+      
+      const lesson = lessonsData[currentLesson];
+      const cp = lesson && lesson.videoCheckpoints && lesson.videoCheckpoints[vquizActiveCheckpoint];
+      vquizActiveCheckpoint = null;
+
+      if (ytPlayer) {
+        const targetSec = (cp && cp.rewindTo !== undefined) ? cp.rewindTo : Math.max(0, (cp ? cp.time : 15) - 15);
+        if (typeof ytPlayer.seekTo === 'function') {
+          ytPlayer.seekTo(targetSec, true);
+        }
+        if (typeof ytPlayer.playVideo === 'function') {
+          ytPlayer.playVideo();
+        }
+      }
+    }
+
+    function skipVideoQuestion() {
+      resumeVideoAfterQuiz();
+    }
+
+    function jumpToVideoCheckpoint(index) {
+      const lesson = lessonsData[currentLesson];
+      if (!lesson || !lesson.videoCheckpoints || !lesson.videoCheckpoints[index]) return;
+      const cp = lesson.videoCheckpoints[index];
+
+      if (ytPlayer && typeof ytPlayer.seekTo === 'function') {
+        ytPlayer.seekTo(cp.time, true);
+        ytPlayer.pauseVideo();
+      }
+      triggerVideoCheckpoint(index);
+    }
+
+    function toggleAutoPause(checked) {
+      vquizAutoPause = checked;
+    }
+
+    function renderVquizBar(lessonId) {
+      const container = document.getElementById('vquizChipsContainer');
+      const scoreText = document.getElementById('vquizScoreText');
+      if (!container) return;
+
+      const lesson = lessonsData[lessonId];
+      if (!lesson || !lesson.videoCheckpoints || lesson.videoCheckpoints.length === 0) {
+        container.innerHTML = '<span style="font-size:12px; color:#64748b;">No hay puntos de control en esta lección.</span>';
+        if (scoreText) scoreText.textContent = 'Sin cuestionario';
+        return;
+      }
+
+      let completedCount = 0;
+      const chipsHtml = lesson.videoCheckpoints.map((cp, idx) => {
+        const answered = isVquizAnswered(lessonId, idx);
+        if (answered) completedCount++;
+        return `<button type="button" class="vquiz-chip-btn ${answered ? 'completed' : ''}" id="vquizChip_${idx}" onclick="jumpToVideoCheckpoint(${idx})" title="Clic para ir a este punto y responder">
+          <span>${answered ? '✅' : '⏱️ ' + cp.timeLabel}</span>
+          <span>Pregunta ${idx + 1}: ${cp.title.length > 34 ? cp.title.substring(0, 32) + '...' : cp.title}</span>
+        </button>`;
+      }).join('');
+
+      container.innerHTML = chipsHtml;
+      if (scoreText) {
+        scoreText.textContent = `${completedCount}/${lesson.videoCheckpoints.length} superadas (+${completedCount * 25} XP)`;
+      }
+    }
+
+    function checkAllVideoCheckpointsCompleted(lesson) {
+      let allDone = true;
+      lesson.videoCheckpoints.forEach((cp, idx) => {
+        if (!isVquizAnswered(currentLesson, idx)) allDone = false;
+      });
+
+      if (allDone) {
+        setTimeout(() => {
+          const feedback = document.getElementById('vquizFeedback');
+          if (feedback) {
+            feedback.innerHTML += `<div style="margin-top:8px; padding-top:8px; border-top:1px dashed #6ee7b7; font-weight:700; color:#06402d;">🏆 ¡Felicitaciones! Has completado todas las preguntas de comprensión de este video.</div>`;
+          }
+        }, 300);
+      }
+    }
+
+    // ============================================================
+    // TABS Y NAVEGACIÓN GENERAL DE LECCIONES
+    // ============================================================
     function switchLessonTab(tab) {
       const tabs = ['video', 'ejercicio', 'audio', 'libro', 'texto'];
       tabs.forEach(t => {
@@ -770,11 +1511,31 @@
       document.getElementById('lessonDuration').textContent = "Duración: " + data.duration;
       document.getElementById('playerBody').innerHTML = data.body;
 
-      // Actualizar video
-      const iframe = document.getElementById('lessonVideoIframe');
-      if (iframe && data.videoUrl) {
-        iframe.src = data.videoUrl;
+      // Cerrar cualquier overlay de video activo
+      const overlay = document.getElementById('videoQuizOverlay');
+      if (overlay) overlay.classList.remove('active');
+      vquizActiveCheckpoint = null;
+
+      // Actualizar reproductor de video
+      const targetUrl = formatYTUrlWithAPI(data.videoUrl);
+      const videoId = getYouTubeVideoId(data.videoUrl);
+
+      if (ytPlayer && typeof ytPlayer.loadVideoById === 'function' && videoId) {
+        try {
+          ytPlayer.loadVideoById(videoId);
+        } catch(e) {
+          const iframe = document.getElementById('lessonVideoIframe');
+          if (iframe) iframe.src = targetUrl;
+        }
+      } else {
+        const iframe = document.getElementById('lessonVideoIframe');
+        if (iframe && data.videoUrl) {
+          iframe.src = targetUrl;
+        }
       }
+
+      // Renderizar barra de checkpoints del video
+      renderVquizBar(id);
 
       // Actualizar ejercicio
       selectedOptionIndex = null;
@@ -840,7 +1601,13 @@
       return true; // Siempre activa para libre aprendizaje
     }
 
-    document.addEventListener("DOMContentLoaded", function() { selectLesson(1); });
+    document.addEventListener("DOMContentLoaded", function() {
+      selectLesson(1);
+      // Inicializar YouTube si la API ya estuviese disponible
+      if (window.YT && window.YT.Player) {
+        initYouTubePlayer();
+      }
+    });
   </script>
 
 <script src="public/js/script.js?v=20261102_recursos"></script>

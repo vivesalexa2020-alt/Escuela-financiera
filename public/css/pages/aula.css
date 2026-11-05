@@ -737,3 +737,389 @@
       gap: 16px;
       margin-bottom: 20px;
     }
+
+    /* ============================================================
+       CUESTIONARIO INTERACTIVO EN VIDEO (VIDEO QUIZ CHECKPOINTS)
+       ============================================================ */
+    .video-player-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #000;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
+    }
+
+    .video-player-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Overlay interactivo del cuestionario sobre el video */
+    .vquiz-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(3, 35, 24, 0.93);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      box-sizing: border-box;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      transform: scale(0.98);
+    }
+
+    .vquiz-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .vquiz-card {
+      background: #ffffff;
+      color: #1e293b;
+      border-radius: 16px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 94%;
+      overflow-y: auto;
+      padding: 20px 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-sizing: border-box;
+      animation: vquizPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes vquizPop {
+      from { transform: translateY(12px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .vquiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .vquiz-badge-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .vquiz-badge-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .vquiz-question-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--verde-principal, #00703c);
+      margin: 0 0 6px 0;
+      line-height: 1.35;
+    }
+
+    .vquiz-question-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 0 0 12px 0;
+      line-height: 1.45;
+    }
+
+    .vquiz-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .vquiz-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      background: #f8fafc;
+      color: #1e293b;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      line-height: 1.35;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .vquiz-option-btn:hover {
+      border-color: var(--verde-claro, #00a859);
+      background: #f0fdf4;
+      transform: translateY(-1px);
+    }
+
+    .vquiz-option-btn.selected {
+      border-color: var(--verde-principal, #00703c);
+      background: #e6f7ef;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 112, 60, 0.15);
+    }
+
+    .vquiz-option-letter {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .vquiz-option-btn.selected .vquiz-option-letter {
+      background: var(--verde-principal, #00703c);
+      color: #ffffff;
+    }
+
+    .vquiz-feedback {
+      display: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .vquiz-feedback.success {
+      display: block;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+    }
+
+    .vquiz-feedback.error {
+      display: block;
+      background: #fffbeb;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .vquiz-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .vquiz-btn-submit {
+      background: var(--verde-principal, #00703c);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vquiz-btn-submit:hover {
+      background: var(--verde-oscuro, #06402d);
+    }
+
+    .vquiz-btn-continue {
+      background: var(--verde-claro, #00a859);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      animation: vquizPulse 1.4s infinite;
+    }
+
+    @keyframes vquizPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 89, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(0, 168, 89, 0); }
+    }
+
+    .vquiz-btn-rewind {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 12.5px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .vquiz-btn-rewind:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .vquiz-btn-skip {
+      background: transparent;
+      color: #94a3b8;
+      border: none;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 4px 8px;
+    }
+
+    .vquiz-btn-skip:hover {
+      color: #64748b;
+    }
+
+    /* ============================================================
+       BARRA DE PUNTOS DE CONTROL DEL VIDEO (TIMELINE TRACK)
+       ============================================================ */
+    .vquiz-bar-card {
+      background: #ffffff;
+      border: 1px solid #d4e7de;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .vquiz-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .vquiz-bar-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gris-oscuro, #1e293b);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vquiz-bar-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .vquiz-toggle-label {
+      font-size: 12px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .vquiz-score-pill {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .vquiz-chips-container {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+
+    .vquiz-chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #334155;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .vquiz-chip-btn:hover {
+      background: #e6f7ef;
+      border-color: var(--verde-claro, #00a859);
+      color: var(--verde-principal, #00703c);
+    }
+
+    .vquiz-chip-btn.completed {
+      background: #ecfdf5;
+      border-color: #6ee7b7;
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .vquiz-chip-btn.current {
+      border-color: #f59e0b;
+      background: #fef3c7;
+      color: #92400e;
+      font-weight: 700;
+    }
