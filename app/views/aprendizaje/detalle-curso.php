@@ -216,7 +216,13 @@
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>4. Método anti-deuda acelerado</span></div>
+                <div class="lesson-info">
+                  <span class="lesson-icon">▶</span>
+                  <span>4. Método anti-deuda acelerado</span>
+                  <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
+                    <span>Video</span> ↗
+                  </a>
+                </div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Liberada</span>
               </li>
             </ul>
@@ -329,6 +335,19 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            
+            <!-- ENLACE EXTERNO PARA VER EN YOUTUBE EN OTRA PESTAÑA -->
+            <div class="video-ext-bar" id="videoExtBar" style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0 14px; padding: 10px 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #fee2e2; border-radius: 50%; color: #dc2626; font-size: 13px;">▶</span>
+                <span style="font-size: 13px; color: #475569; font-weight: 500;" id="videoExtBarText">¿Prefieres ver el video explicativo directamente en YouTube?</span>
+              </div>
+              <a id="btnExternalVideo" href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; transition: all 0.2s ease;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <span>Ver en YouTube (otra pestaña) ↗</span>
+              </a>
             </div>
 
             <!-- BARRA DE PUNTOS DE CONTROL DEL VIDEO -->
@@ -727,7 +746,8 @@
         title: "4. Método anti-deuda acelerado: Bola de Nieve vs Avalancha",
         tag: "Lección 4 de 8 (Carrera Financiera)",
         duration: "18 min",
-        videoUrl: "https://www.youtube.com/embed/5U9o_vL_WfQ",
+        videoUrl: "https://www.youtube.com/embed/SkHPWkxzE7o",
+        externalUrl: "https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY",
         videoCheckpoints: [
           {
             time: 30,
@@ -794,7 +814,16 @@
                  <li><strong>Estrategia Bola de Nieve:</strong> Victorias psicológicas rápidas liquidando de menor a mayor saldo.</li>
                  <li><strong>Estrategia Avalancha:</strong> Ahorro matemático máximo atacando la tasa de interés más alta.</li>
                  <li><strong>Plan de ataque:</strong> Congelar tarjetas activas y redirigir cada excedente a capital.</li>
-               </ul>`
+               </ul>
+               <div style="margin-top: 18px; padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                 <div>
+                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;">📺 Video explicativo del Método Anti-Deuda</div>
+                   <div style="font-size: 12.5px; color: #b91c1c; margin-top: 2px;">Bola de Nieve vs Avalancha: ¿cuál es mejor para pagar tus deudas?</div>
+                 </div>
+                 <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 4px rgba(220,38,38,0.2);">
+                   Abrir video en YouTube ↗
+                 </a>
+               </div>`
       },
       5: {
         title: "5. Creación del Fondo de Paz y Emergencias",
@@ -1101,7 +1130,7 @@
 
     function getYouTubeVideoId(url) {
       if (!url) return '';
-      const match = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+      const match = url.match(/(?:embed\/|v\/|watch\?v=|youtu\.be\/|\/v=)([a-zA-Z0-9_-]+)/);
       return match ? match[1] : '';
     }
 
@@ -1535,6 +1564,18 @@
       }
 
       // Renderizar barra de checkpoints del video
+      
+      // Actualizar enlace externo de YouTube para abrir en otra pestaña
+      const extBtn = document.getElementById('btnExternalVideo');
+      if (extBtn) {
+        if (data.externalUrl) {
+          extBtn.href = data.externalUrl;
+        } else if (videoId) {
+          extBtn.href = 'https://www.youtube.com/watch?v=' + videoId;
+        } else if (data.videoUrl) {
+          extBtn.href = data.videoUrl;
+        }
+      }
       renderVquizBar(id);
 
       // Actualizar ejercicio
