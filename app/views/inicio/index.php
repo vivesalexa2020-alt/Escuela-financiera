@@ -100,10 +100,10 @@
   </div>
   <!-- FIN SPLASH -->
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.php" class="brand-logo">
+      <!-- HEADER -->
+  <header class="site-header hero-header-bar">
+    <div class="container nav-wrap hero-nav-wrap">
+      <a href="index.php" class="brand-logo hero-brand">
         <svg viewBox="0 0 240 210" width="34" height="30" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
             <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
@@ -119,34 +119,406 @@
         </svg>
         <span>Educación <strong>Financiera</strong></span>
       </a>
-      <div class="nav-actions">
+
+      <!-- Badge central superior (escritorio y tablets) -->
+      <div class="header-center-pill">
+        <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
       </div>
 
+      <!-- Botón hamburguesa móvil -->
+      <button class="hero-mobile-toggle" id="heroMobileMenuBtn" aria-label="Abrir menú de navegación" onclick="toggleHeroMobileNav()">
+        <span class="h-bar"></span>
+        <span class="h-bar"></span>
+        <span class="h-bar"></span>
+      </button>
+
+      <!-- Links de navegación derecha (escritorio y menú desplegable en móvil) -->
+      <nav class="hero-nav-menu" id="heroNavMenu">
+        <div class="mobile-only-badge">
+          <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
+        </div>
+        <a href="index.php" class="hero-nav-item active" onclick="closeHeroMobileNav()">Inicio</a>
+        <span class="hero-nav-sep">|</span>
+        <a href="#metodologia" class="hero-nav-item" onclick="closeHeroMobileNav()">Metodología</a>
+        <span class="hero-nav-sep">|</span>
+        <a href="#estudiantes" class="hero-nav-item" onclick="closeHeroMobileNav()">Testimonios</a>
+        <span class="hero-nav-sep">|</span>
+        <a href="reticula.html" class="hero-nav-item" onclick="closeHeroMobileNav()">Registro</a>
+        <span class="hero-nav-sep">|</span>
+        <a href="#ayuda" class="hero-nav-item" onclick="closeHeroMobileNav()">Ayuda</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <!-- ============================================================
-         1. HERO SUPERIOR: HISTORIAS DE ÉXITO REALES (CERO FASTIDIO)
+         1. HERO SUPERIOR: HISTORIAS DE ÉXITO REALES (DISEÑO ADAPTADO CON ANIMACIÓN)
          ============================================================ -->
     <section class="success-hero-section" id="testimonios">
-      <div class="container">
+      <!-- Fondo decorativo con ondas y destellos -->
+      <div class="hero-ambient-glow"></div>
+      
+      <!-- Cinta / onda de luz animada que recorre el fondo -->
+      <svg class="hero-light-wave" viewBox="0 0 1440 380" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="waveLightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#28c76f" stop-opacity="0.15"/>
+            <stop offset="35%" stop-color="#f5b800" stop-opacity="0.45"/>
+            <stop offset="65%" stop-color="#28c76f" stop-opacity="0.55"/>
+            <stop offset="85%" stop-color="#f5b800" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#28c76f" stop-opacity="0.2"/>
+          </linearGradient>
+          <filter id="waveBlur" x="-10%" y="-40%" width="120%" height="200%">
+            <feGaussianBlur stdDeviation="16"/>
+          </filter>
+        </defs>
+        <!-- Resplandor difuso animado -->
+        <path class="wave-glow-path" d="M-60,190 C180,90 280,290 520,230 C760,170 920,280 1140,210 C1300,160 1380,80 1500,110"
+              fill="none" stroke="url(#waveLightGrad)" stroke-width="48" filter="url(#waveBlur)" opacity="0.65"/>
+        <!-- Cinta visible nítida -->
+        <path class="wave-core-path" d="M-60,190 C180,90 280,290 520,230 C760,170 920,280 1140,210 C1300,160 1380,80 1500,110"
+              fill="none" stroke="url(#waveLightGrad)" stroke-width="4" stroke-linecap="round" opacity="0.95"/>
+      </svg>
 
-        <div class="success-header">
-          <div class="section-eyebrow">
-            <span>✨ RESULTADOS REALES, CERO HUMO</span>
-          </div>
-          <h1>
-            Personas reales que recuperaron su paz y <span class="highlight">transformaron sus finanzas</span>
+      <!-- Elemento Flotante IZQUIERDO: Globo 3D, monedas y lingote de oro -->
+      <div class="hero-floating-left" aria-hidden="true">
+        <!-- Globo terráqueo 3D metálico con flotación suave -->
+        <div class="floating-globe-wrap">
+          <svg class="globe-3d-svg" viewBox="0 0 160 160" width="130" height="130">
+            <defs>
+              <radialGradient id="globeSpherical" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#2ee88a"/>
+                <stop offset="30%" stop-color="#148354"/>
+                <stop offset="70%" stop-color="#07442a"/>
+                <stop offset="100%" stop-color="#021c11"/>
+              </radialGradient>
+              <radialGradient id="globeHighlight" cx="30%" cy="25%" r="40%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.45)"/>
+                <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+              </radialGradient>
+              <filter id="globeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="rgba(40,199,111,0.3)"/>
+              </filter>
+            </defs>
+            <circle cx="80" cy="80" r="66" fill="url(#globeSpherical)" filter="url(#globeGlow)"/>
+            <ellipse cx="80" cy="80" rx="66" ry="24" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+            <ellipse cx="80" cy="80" rx="26" ry="66" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+            <line x1="14" y1="80" x2="146" y2="80" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+            <path d="M50 40 Q62 30 76 38 Q88 44 94 36 Q100 48 90 62 Q74 68 62 60 Q52 52 50 40 Z" fill="#bcf5d6" opacity="0.6"/>
+            <path d="M44 82 Q56 74 68 84 Q76 96 66 114 Q52 110 44 98 Z" fill="#bcf5d6" opacity="0.55"/>
+            <path d="M102 65 Q118 70 126 86 Q118 104 106 98 Q96 85 102 65 Z" fill="#bcf5d6" opacity="0.55"/>
+            <circle cx="80" cy="80" r="66" fill="url(#globeHighlight)"/>
+            <circle class="globe-rim-pulse" cx="80" cy="80" r="66" fill="none" stroke="rgba(40,199,111,0.6)" stroke-width="1.5"/>
+          </svg>
+        </div>
+
+        <!-- Monedas de oro flotantes izquierda -->
+        <div class="floating-coin-1">
+          <svg viewBox="0 0 54 54" width="44" height="44">
+            <defs>
+              <linearGradient id="coinGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff2a8"/>
+                <stop offset="40%" stop-color="#f5b800"/>
+                <stop offset="85%" stop-color="#b87a00"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="27" cy="27" rx="24" ry="18" fill="url(#coinGrad1)" stroke="#ffe47a" stroke-width="2"/>
+            <ellipse cx="27" cy="27" rx="19" ry="14" fill="none" stroke="#8c5800" stroke-width="1.2" stroke-dasharray="3 1.5"/>
+            <text x="27" y="31" font-size="13" font-weight="900" fill="#6e4200" text-anchor="middle" font-family="'Poppins', sans-serif">$</text>
+          </svg>
+        </div>
+        <div class="floating-coin-2">
+          <svg viewBox="0 0 42 42" width="32" height="32">
+            <ellipse cx="21" cy="21" rx="18" ry="13" fill="url(#coinGrad1)" stroke="#ffe47a" stroke-width="1.5"/>
+            <ellipse cx="21" cy="21" rx="14" ry="10" fill="none" stroke="#8c5800" stroke-width="1"/>
+            <text x="21" y="24" font-size="10" font-weight="900" fill="#6e4200" text-anchor="middle" font-family="'Poppins', sans-serif">$</text>
+          </svg>
+        </div>
+
+        <!-- Lingote de oro 3D -->
+        <div class="floating-gold-bar">
+          <svg viewBox="0 0 90 46" width="76" height="40">
+            <defs>
+              <linearGradient id="ingotTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff5b8"/>
+                <stop offset="40%" stop-color="#fbd042"/>
+                <stop offset="100%" stop-color="#d49200"/>
+              </linearGradient>
+              <linearGradient id="ingotFront" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#d49200"/>
+                <stop offset="100%" stop-color="#7a4e00"/>
+              </linearGradient>
+              <linearGradient id="ingotSide" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f0b818"/>
+                <stop offset="100%" stop-color="#a66a00"/>
+              </linearGradient>
+            </defs>
+            <polygon points="20,6 74,6 64,22 10,22" fill="url(#ingotTop)" stroke="#fff8cf" stroke-width="0.8"/>
+            <polygon points="10,22 64,22 56,40 2,40" fill="url(#ingotFront)"/>
+            <polygon points="64,22 74,6 84,24 74,40 56,40" fill="url(#ingotSide)"/>
+            <text x="42" y="16" font-size="6.5" font-weight="800" fill="#7d5000" text-anchor="middle" letter-spacing="1">999.9 GOLD</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Elemento Flotante DERECHO: Flecha ascendente, estrellas y Medalla de oro 3D -->
+      <div class="hero-floating-right" aria-hidden="true">
+        <!-- Flecha ascendente con destellos -->
+        <div class="floating-growth-arrow">
+          <svg viewBox="0 0 90 90" width="70" height="70">
+            <defs>
+              <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#28c76f" stop-opacity="0.2"/>
+                <stop offset="50%" stop-color="#f5b800"/>
+                <stop offset="100%" stop-color="#fff3a8"/>
+              </linearGradient>
+            </defs>
+            <path class="arrow-path-anim" d="M10,80 C30,70 50,45 72,18" fill="none" stroke="url(#arrowGrad)" stroke-width="4.5" stroke-linecap="round"/>
+            <polyline class="arrow-head-anim" points="52,16 74,16 74,38" fill="none" stroke="#fff3a8" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Estrellas doradas destellantes -->
+        <span class="hero-star star-s1">✦</span>
+        <span class="hero-star star-s2">✦</span>
+        <span class="hero-star star-s3">✦</span>
+
+        <!-- Moneda flotante derecha -->
+        <div class="floating-coin-3">
+          <svg viewBox="0 0 44 44" width="36" height="36">
+            <ellipse cx="22" cy="22" rx="19" ry="14" fill="url(#coinGrad1)" stroke="#ffe47a" stroke-width="1.8"/>
+            <ellipse cx="22" cy="22" rx="14" ry="10" fill="none" stroke="#8c5800" stroke-width="1.2"/>
+            <text x="22" y="26" font-size="11" font-weight="900" fill="#6e4200" text-anchor="middle">$</text>
+          </svg>
+        </div>
+
+        <!-- Medalla de oro 3D con listón oficial -->
+        <div class="floating-medal-wrap">
+          <svg class="gold-medal-svg" viewBox="0 0 150 180" width="130" height="156">
+            <defs>
+              <radialGradient id="medalRadial" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#fff8c4"/>
+                <stop offset="25%" stop-color="#ffd54f"/>
+                <stop offset="60%" stop-color="#f5b800"/>
+                <stop offset="90%" stop-color="#b87800"/>
+                <stop offset="100%" stop-color="#734700"/>
+              </radialGradient>
+              <linearGradient id="ribbonLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d49200"/>
+                <stop offset="50%" stop-color="#f5b800"/>
+                <stop offset="100%" stop-color="#8a5300"/>
+              </linearGradient>
+              <linearGradient id="ribbonRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#b87800"/>
+                <stop offset="50%" stop-color="#e5a700"/>
+                <stop offset="100%" stop-color="#6e3e00"/>
+              </linearGradient>
+              <filter id="medalShadow" x="-20%" y="-10%" width="140%" height="130%">
+                <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="rgba(0,0,0,0.45)"/>
+                <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="rgba(245,184,0,0.4)"/>
+              </filter>
+            </defs>
+
+            <!-- Listones colgantes -->
+            <polygon class="medal-ribbon-l" points="56,92 40,165 58,152 74,165 68,92" fill="url(#ribbonLeftGrad)" stroke="#ffd766" stroke-width="1"/>
+            <polygon class="medal-ribbon-r" points="82,92 76,165 92,152 110,165 94,92" fill="url(#ribbonRightGrad)" stroke="#ffd766" stroke-width="1"/>
+
+            <!-- Medallón dentado -->
+            <g class="medal-rosette-group" filter="url(#medalShadow)">
+              <circle cx="75" cy="72" r="54" fill="url(#medalRadial)"/>
+              <path d="
+                M 75 14 L 79 21 L 87 16 L 89 25 L 98 22 L 98 31 L 107 31 L 104 40 L 113 42 L 108 50 L 115 53 L 108 61 L 114 66 L 105 72 L 110 79 L 100 83 L 102 92 L 92 93 L 92 102 L 83 100 L 80 109 L 72 104 L 67 112 L 61 105 L 54 111 L 51 102 L 42 106 L 41 97 L 32 98 L 34 89 L 25 87 L 29 79 L 21 74 L 27 68 L 21 61 L 28 57 L 24 49 L 32 47 L 30 38 L 39 38 L 39 29 L 48 31 L 51 22 L 59 26 L 64 18 L 71 23 Z"
+                fill="url(#medalRadial)" stroke="#fff2a8" stroke-width="1.5"/>
+
+              <circle cx="75" cy="72" r="42" fill="none" stroke="#fff8cf" stroke-width="2.5" stroke-dasharray="3 1.5"/>
+              <circle cx="75" cy="72" r="38" fill="url(#medalRadial)"/>
+
+              <!-- Estrella central 3D -->
+              <polygon points="75,44 83,62 102,62 87,74 93,92 75,81 57,92 63,74 48,62 67,62" fill="#fff5b8"/>
+              <polygon points="75,44 83,62 75,70" fill="#ffffff"/>
+              <polygon points="83,62 102,62 87,74 75,70" fill="#f5b800"/>
+              <polygon points="87,74 93,92 75,81 75,70" fill="#c48000"/>
+              <polygon points="75,81 57,92 63,74 75,70" fill="#e09c00"/>
+              <polygon points="63,74 48,62 67,62 75,70" fill="#ffd966"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="container hero-content-container">
+
+        <!-- ENCABEZADO Y TÍTULOS CON ANIMACIÓN DE ENTRADA -->
+        <div class="success-header hero-fade-in-entry">
+          <h1 class="hero-title">
+            Personas reales que recuperaron su<br>
+            paz y transformaron sus finanzas
           </h1>
-          <p>
-            Aquí no hay fórmulas mágicas ni promesas vacías. Descubre cómo personas con ingresos comunes lograron liquidar deudas, crear ahorros de emergencia y empezar a invertir con nuestro método práctico paso a paso.
+          <p class="hero-paragraph">
+            Aquí no hay fórmulas mágicas ni promesas vacías. Descubre cómo personas con ingresos comunes <span class="hero-highlight">lograron liquidar deudas</span> y crear <span class="hero-highlight">ahorros de emergencia</span> con nuestro método práctico, y <span class="hero-highlight">empezar a invertir. <svg class="inline-arrow-icon" viewBox="0 0 14 14" width="13" height="13"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </p>
-          <div class="success-header-badges">
-            <span class="success-mini-tag">⏳ Carrera de 2 Años</span>
-            <span class="success-mini-tag">🏆 3 Niveles: Básico, Intermedio y Avanzado</span>
-            <span class="success-mini-tag">🎁 1er Semestre de prueba 100% GRATIS</span>
+        </div>
+
+        <!-- FILA DE 3 TARJETAS PRINCIPALES CON ANIMACIÓN INTERACTIVA -->
+        <div class="hero-cards-grid">
+
+          <!-- TARJETA 1: Carrera de 2 Años -->
+          <div class="hero-card hero-card-timeline">
+            <div class="hcard-header">
+              <span class="hcard-icon">⏳</span>
+              <span class="hcard-title">Carrera de 2 Años</span>
+            </div>
+            <div class="hcard-body timeline-body">
+              <!-- Línea de tiempo -->
+              <div class="timeline-visual">
+                <div class="timeline-bar">
+                  <div class="timeline-fill"></div>
+                  <!-- Punto 1 -->
+                  <div class="tl-point tl-p1">
+                    <span class="tl-dot"></span>
+                    <span class="tl-tag">Año 1:<br><small>Fundamentos</small></span>
+                  </div>
+                  <!-- Punto 2: Con resplandor especial pulsante -->
+                  <div class="tl-point tl-p2 tl-active-node">
+                    <span class="tl-flare-halo"></span>
+                    <span class="tl-flare-ring-pulse"></span>
+                    <span class="tl-dot tl-dot-flare"></span>
+                    <span class="tl-tag">Año 1.5:<br><small>Plan de Acción</small></span>
+                  </div>
+                  <!-- Punto 3 -->
+                  <div class="tl-point tl-p3">
+                    <span class="tl-dot"></span>
+                    <span class="tl-tag">Año 2:<br><small>Inversión</small></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reloj de arena 3D con animación de arena fluyendo -->
+              <div class="hourglass-visual">
+                <svg viewBox="0 0 76 112" width="62" height="92" class="hg-svg">
+                  <defs>
+                    <linearGradient id="hgGold" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#9C6B00"/>
+                      <stop offset="35%" stop-color="#FFDF66"/>
+                      <stop offset="70%" stop-color="#F5B800"/>
+                      <stop offset="100%" stop-color="#734700"/>
+                    </linearGradient>
+                    <radialGradient id="hgSand" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#FFF5B8"/>
+                      <stop offset="50%" stop-color="#F5B800"/>
+                      <stop offset="100%" stop-color="#C27A00"/>
+                    </radialGradient>
+                  </defs>
+                  <!-- Platos dorados superior e inferior -->
+                  <rect x="6" y="4" width="64" height="7" rx="3.5" fill="url(#hgGold)" stroke="#FFF2A8" stroke-width="0.8"/>
+                  <rect x="6" y="101" width="64" height="7" rx="3.5" fill="url(#hgGold)" stroke="#FFF2A8" stroke-width="0.8"/>
+                  <!-- Columnas laterales -->
+                  <rect x="10" y="8" width="4" height="96" rx="2" fill="url(#hgGold)"/>
+                  <rect x="62" y="8" width="4" height="96" rx="2" fill="url(#hgGold)"/>
+                  <!-- Vidrio del reloj -->
+                  <path d="M 16 11 Q 16 46 36 55 Q 38 56 40 56 Q 42 56 44 55 Q 60 46 60 11 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                  <path d="M 16 101 Q 16 66 36 57 Q 38 56 40 56 Q 42 56 44 57 Q 60 66 60 101 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                  <!-- Arena superior -->
+                  <path d="M 22 24 Q 38 28 54 24 Q 48 42 40 54 Q 32 42 22 24 Z" fill="url(#hgSand)" opacity="0.85"/>
+                  <!-- Hilo de arena animado en caída continua -->
+                  <line class="hg-sand-stream" x1="38" y1="55" x2="38" y2="84" stroke="#FFF2A8" stroke-width="2"/>
+                  <!-- Montículo de arena inferior con suave resplandor -->
+                  <path class="hg-sand-bottom" d="M 20 100 Q 38 78 56 100 Z" fill="url(#hgSand)"/>
+                  <!-- Brillo del cristal -->
+                  <path d="M 20 14 Q 18 34 26 46" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M 20 98 Q 18 78 26 66" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <div class="hg-badge">
+                  <span>Año 2: Libertad</span>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- TARJETA 2: 3 Niveles -->
+          <div class="hero-card hero-card-levels">
+            <div class="hcard-header">
+              <span class="hcard-icon">🎓</span>
+              <span class="hcard-title">3 Niveles</span>
+            </div>
+            <div class="hcard-body levels-body">
+              <!-- Viñetas izquierda -->
+              <ul class="levels-bullets">
+                <li class="bullet-item"><span class="bullet-gold">•</span> Temas detalles</li>
+                <li class="bullet-item"><span class="bullet-gold">•</span> Testeos cortos</li>
+                <li class="bullet-item"><span class="bullet-gold">•</span> Temas de caminos</li>
+              </ul>
+
+              <!-- Pirámide 3D escalonada con cursor animado e interactividad -->
+              <div class="pyramid-visual">
+                <svg viewBox="0 0 116 100" width="105" height="90" class="pyr-svg">
+                  <defs>
+                    <linearGradient id="pyrTop" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#C28700"/>
+                      <stop offset="50%" stop-color="#FFECA0"/>
+                      <stop offset="100%" stop-color="#E5A400"/>
+                    </linearGradient>
+                    <linearGradient id="pyrMid" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#0E583B"/>
+                      <stop offset="45%" stop-color="#2FD57B"/>
+                      <stop offset="70%" stop-color="#F5B800"/>
+                      <stop offset="100%" stop-color="#0B4B31"/>
+                    </linearGradient>
+                    <linearGradient id="pyrBot" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#083824"/>
+                      <stop offset="50%" stop-color="#146643"/>
+                      <stop offset="100%" stop-color="#062B1C"/>
+                    </linearGradient>
+                    <filter id="pyrShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.45)"/>
+                    </filter>
+                  </defs>
+
+                  <!-- Nivel 3: Avanzado -->
+                  <g class="pyr-tier tier-top" filter="url(#pyrShadow)" title="Nivel Avanzado">
+                    <polygon points="58,6 40,32 76,32" fill="url(#pyrTop)" stroke="#FFECA0" stroke-width="0.8"/>
+                    <text x="58" y="24" text-anchor="middle" font-size="8.5" font-weight="700" fill="#261700" font-family="'Poppins', sans-serif">Avanzado</text>
+                  </g>
+
+                  <!-- Nivel 2: Intermedio con cursor encima -->
+                  <g class="pyr-tier pyr-active tier-mid" filter="url(#pyrShadow)" title="Nivel Intermedio">
+                    <polygon points="38,36 22,63 94,63 78,36" fill="url(#pyrMid)" stroke="#81F7BE" stroke-width="0.9"/>
+                    <text x="58" y="53" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff" font-family="'Poppins', sans-serif">Intermedio</text>
+                  </g>
+
+                  <!-- Nivel 1: Básico -->
+                  <g class="pyr-tier tier-bot" filter="url(#pyrShadow)" title="Nivel Básico">
+                    <polygon points="20,67 4,94 112,94 96,67" fill="url(#pyrBot)" stroke="#28C76F" stroke-width="0.9"/>
+                    <text x="58" y="84" text-anchor="middle" font-size="9.5" font-weight="700" fill="#C4F5DA" font-family="'Poppins', sans-serif">Básico</text>
+                  </g>
+
+                  <!-- Cursor puntero descansando en Intermedio con animación suave de pulsación -->
+                  <g class="pyr-hand-cursor">
+                    <path d="M0,0 L3,10 L6,7 L9,13 L11.5,12 L8.5,6 L12.5,5.5 Z" fill="#ffffff" stroke="#111111" stroke-width="1.2" stroke-linejoin="round"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- TARJETA 3: 1er Semestre Gratis -->
+          <div class="hero-card hero-card-cta">
+            <div class="hcard-header">
+              <span class="hcard-icon hcard-trophy-pulse">🏆</span>
+              <div class="hcard-title-group">
+                <span class="hcard-title">1er Semestre Gratis</span>
+                <span class="hcard-subtitle">prueba 100% GRATIS</span>
+              </div>
+            </div>
+            <div class="hcard-body cta-body">
+              <a href="reticula.html" class="btn-hero-camino">
+                <span>EMPEZAR MI CAMINO</span>
+                <svg class="btn-arrow-diag" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 13L13 3M13 3H5M13 3V11"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>
