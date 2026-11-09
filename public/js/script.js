@@ -180,7 +180,7 @@ if (searchInput && searchResults) {
       searchResults.innerHTML = matches.map(m => `
         <div style="padding: 10px 0; border-bottom: 1px solid #f0f6f3; display: flex; justify-content: space-between; align-items: center;">
           <a href="${m.link}" onclick="closeSearchModal()" style="font-weight: 600; color: var(--text-dark); text-decoration: none;">${m.name}</a>
-          <span style="color: #00ba6d; font-size: 11px; font-weight: 600;">${m.type}</span>
+          <span style="color: #00ba6d; font-size: 13px; font-weight: 600;">${m.type}</span>
         </div>
       `).join('');
     } else {
@@ -1445,34 +1445,34 @@ function abrirEjercicioMateria(titulo, descripcion) {
     currentExerciseType = 'calc_presupuesto';
     optionsEl.innerHTML = 
       '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
-        '<label style="display:block; font-size:13px; font-weight:700; color:#1e293b; margin-bottom:6px;">' +
+        '<label style="display:block; font-size:15px; font-weight:700; color:#1e293b; margin-bottom:6px;">' +
           '💵 Ingresa tu Ingreso Mensual Neto ($ MXN):' +
         '</label>' +
         '<div style="display:flex; gap:10px; margin-bottom:14px;">' +
-          '<input type="number" id="inputPresupuestoUser" value="16000" min="1000" step="500" style="flex:1; padding:10px 14px; border:1.5px solid #94a3b8; border-radius:8px; font-size:15px; font-weight:700;" oninput="recalcularPresupuestoModal()">' +
-          '<button type="button" class="btn-cta-yellow" onclick="recalcularPresupuestoModal()" style="padding:10px 18px; font-size:13px;">Calcular</button>' +
+          '<input type="number" id="inputPresupuestoUser" value="16000" min="1000" step="500" style="flex:1; padding:10px 14px; border:1.5px solid #94a3b8; border-radius:8px; font-size:17px; font-weight:700;" oninput="recalcularPresupuestoModal()">' +
+          '<button type="button" class="btn-cta-yellow" onclick="recalcularPresupuestoModal()" style="padding:10px 18px; font-size:15px;">Calcular</button>' +
         '</div>' +
         '<div style="display:flex; flex-direction:column; gap:8px;">' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #00703C; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
-            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#00703C;">' +
+            '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#00703C;">' +
               '<span>🏠 50% Necesidades Básicas:</span>' +
               '<span id="resPresupuesto50">$8,000 MXN</span>' +
             '</div>' +
-            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">Renta, despensa, transporte y servicios fijos indispensables.</div>' +
+            '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">Renta, despensa, transporte y servicios fijos indispensables.</div>' +
           '</div>' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #f59e0b; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
-            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#d97706;">' +
+            '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#d97706;">' +
               '<span>🎉 30% Deseos y Estilo de Vida:</span>' +
               '<span id="resPresupuesto30">$4,800 MXN</span>' +
             '</div>' +
-            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">Salidas, entretenimiento y gustos personales sin culpa.</div>' +
+            '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">Salidas, entretenimiento y gustos personales sin culpa.</div>' +
           '</div>' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #28C76F; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
-            '<div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; color:#047857;">' +
+            '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#047857;">' +
               '<span>🛡️ 20% Ahorro e Inversión:</span>' +
               '<span id="resPresupuesto20">$3,200 MXN</span>' +
             '</div>' +
-            '<div style="font-size:11.5px; color:#64748b; margin-top:2px;">En 1 año acumulas <strong>$38,400 MXN</strong> directo a tu patrimonio personal.</div>' +
+            '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">En 1 año acumulas <strong>$38,400 MXN</strong> directo a tu patrimonio personal.</div>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -1488,11 +1488,11 @@ function abrirEjercicioMateria(titulo, descripcion) {
       '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
         '<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">' +
           '<div>' +
-            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Gastos básicos mensuales ($):</label>' +
+            '<label style="display:block; font-size:14px; font-weight:700; color:#1e293b; margin-bottom:4px;">Gastos básicos mensuales ($):</label>' +
             '<input type="number" id="inputGastoFondoUser" value="9500" min="1000" step="500" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularFondoModal()">' +
           '</div>' +
           '<div>' +
-            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Meses de respaldo:</label>' +
+            '<label style="display:block; font-size:14px; font-weight:700; color:#1e293b; margin-bottom:4px;">Meses de respaldo:</label>' +
             '<select id="selectMesesFondoUser" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" onchange="recalcularFondoModal()">' +
               '<option value="3">3 Meses (Ingreso fijo)</option>' +
               '<option value="6" selected>6 Meses (Recomendado estándar)</option>' +
@@ -1501,9 +1501,9 @@ function abrirEjercicioMateria(titulo, descripcion) {
           '</div>' +
         '</div>' +
         '<div style="background:#ecfdf5; border:1.5px solid #a7f3d0; padding:12px 14px; border-radius:8px; color:#06402d;">' +
-          '<div style="font-size:12.5px; font-weight:600;">Meta de tu Fondo de Paz Mental:</div>' +
-          '<div style="font-size:24px; font-weight:800; color:#047857; margin:2px 0;" id="resFondoTotal">$57,000 MXN</div>' +
-          '<div style="font-size:12px; color:#065f46; line-height:1.4;">' +
+          '<div style="font-size:14.5px; font-weight:600;">Meta de tu Fondo de Paz Mental:</div>' +
+          '<div style="font-size:26.5px; font-weight:800; color:#047857; margin:2px 0;" id="resFondoTotal">$57,000 MXN</div>' +
+          '<div style="font-size:14px; color:#065f46; line-height:1.4;">' +
             '💡 <strong>Regla de oro:</strong> Guardar en cuentas a la vista con rendimiento (CETES Directo Bonddia o cuenta con rendimiento diario). Nunca arriesgar en renta variable.' +
           '</div>' +
         '</div>' +
@@ -1520,16 +1520,16 @@ function abrirEjercicioMateria(titulo, descripcion) {
       '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
         '<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">' +
           '<div>' +
-            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Inversión inicial ($):</label>' +
+            '<label style="display:block; font-size:14px; font-weight:700; color:#1e293b; margin-bottom:4px;">Inversión inicial ($):</label>' +
             '<input type="number" id="inputCetesInicial" value="3000" min="100" step="500" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularCetesModal()">' +
           '</div>' +
           '<div>' +
-            '<label style="display:block; font-size:12px; font-weight:700; color:#1e293b; margin-bottom:4px;">Aporte mensual ($):</label>' +
+            '<label style="display:block; font-size:14px; font-weight:700; color:#1e293b; margin-bottom:4px;">Aporte mensual ($):</label>' +
             '<input type="number" id="inputCetesMensual" value="1200" min="100" step="100" style="width:100%; padding:8px 12px; border:1.5px solid #94a3b8; border-radius:8px; font-weight:700;" oninput="recalcularCetesModal()">' +
           '</div>' +
         '</div>' +
         '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">' +
-          '<span style="font-size:12px; color:#64748b; font-weight:600;">Tasa estimada CETES: <strong>11% Anual</strong></span>' +
+          '<span style="font-size:14px; color:#64748b; font-weight:600;">Tasa estimada CETES: <strong>11% Anual</strong></span>' +
           '<div style="width:120px;">' +
             '<select id="selectCetesAnios" style="width:100%; padding:6px 8px; border:1px solid #94a3b8; border-radius:6px; font-weight:700;" onchange="recalcularCetesModal()">' +
               '<option value="3">3 Años</option>' +
@@ -1540,10 +1540,10 @@ function abrirEjercicioMateria(titulo, descripcion) {
         '</div>' +
         '<div style="background:#ecfdf5; border:1.5px solid #a7f3d0; padding:12px 14px; border-radius:8px; color:#06402d;">' +
           '<div style="display:flex; justify-content:space-between; align-items:center;">' +
-            '<span style="font-size:12.5px; font-weight:600;">Capital estimado final:</span>' +
-            '<span style="font-size:22px; font-weight:800; color:#047857;" id="resCetesTotal">$98,400 MXN</span>' +
+            '<span style="font-size:14.5px; font-weight:600;">Capital estimado final:</span>' +
+            '<span style="font-size:24.5px; font-weight:800; color:#047857;" id="resCetesTotal">$98,400 MXN</span>' +
           '</div>' +
-          '<div style="font-size:12px; color:#047857; margin-top:3px;" id="resCetesInteres">' +
+          '<div style="font-size:14px; color:#047857; margin-top:3px;" id="resCetesInteres">' +
             '📈 Ganancia pura por interés compuesto: <strong>$23,400 MXN</strong> sobre tu ahorro.' +
           '</div>' +
         '</div>' +
@@ -1601,13 +1601,13 @@ function abrirEjercicioMateria(titulo, descripcion) {
   currentExerciseExplanation = explicacion;
 
   optionsEl.innerHTML = 
-    '<div style="font-size:14px; font-weight:600; color:#1e293b; margin-bottom:12px; line-height:1.5;">' +
+    '<div style="font-size:16px; font-weight:600; color:#1e293b; margin-bottom:12px; line-height:1.5;">' +
       '❓ ' + pregunta +
     '</div>' +
     '<div style="display:flex; flex-direction:column; gap:8px;">' +
       opciones.map(function(opt, idx) {
-        return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:13.5px; display:flex; align-items:center; gap:10px; transition:all 0.2s ease;">' +
-          '<span style="font-size:16px;">🔘</span> <span>' + opt + '</span>' +
+        return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:15.5px; display:flex; align-items:center; gap:10px; transition:all 0.2s ease;">' +
+          '<span style="font-size:18px;">🔘</span> <span>' + opt + '</span>' +
         '</div>';
       }).join('') +
     '</div>';
@@ -1697,7 +1697,7 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Actividad práctica resuelta y guardada!</strong><br>Has configurado tus números financieros con éxito.<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '🎉 <strong>¡Actividad práctica resuelta y guardada!</strong><br>Has configurado tus números financieros con éxito.<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
     return;
   }
 
@@ -1713,7 +1713,7 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> ' + (currentExerciseExplanation || 'Has demostrado aplicar el criterio financiero adecuado.') + '<br><span style="font-size:12px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> ' + (currentExerciseExplanation || 'Has demostrado aplicar el criterio financiero adecuado.') + '<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
   } else {
     feedbackEl.style.background = '#fffbeb';
     feedbackEl.style.color = '#b45309';
@@ -1863,7 +1863,7 @@ function descargarGuiaPdfActual() {
     '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.</li>' +
     '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.</li>' +
     '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.</li></ul>' +
-    '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.</footer></body></html>';
+    '<footer style="margin-top:40px;font-size:14px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.</footer></body></html>';
 
   const blob = new Blob([content], { type: 'text/html' });
   const a = document.createElement('a');
@@ -1927,7 +1927,7 @@ function openReticulaModal(id) {
         '</div>';
       }).join('');
     } else {
-      videosEl.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Próximamente más videos disponibles.</p>';
+      videosEl.innerHTML = '<p style="color:var(--text-muted); font-size:15px;">Próximamente más videos disponibles.</p>';
     }
   }
 
@@ -1953,7 +1953,7 @@ function openReticulaModal(id) {
         '</div>';
       }).join('');
     } else {
-      ejerciciosEl.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Próximamente más ejercicios disponibles.</p>';
+      ejerciciosEl.innerHTML = '<p style="color:var(--text-muted); font-size:15px;">Próximamente más ejercicios disponibles.</p>';
     }
   }
 
@@ -1978,7 +1978,7 @@ function openReticulaModal(id) {
         '</div>';
       }).join('');
     } else {
-      audiosEl.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Próximamente más audios disponibles.</p>';
+      audiosEl.innerHTML = '<p style="color:var(--text-muted); font-size:15px;">Próximamente más audios disponibles.</p>';
     }
   }
 
@@ -2003,7 +2003,7 @@ function openReticulaModal(id) {
         '</div>';
       }).join('');
     } else {
-      librosEl.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">Próximamente más libros disponibles.</p>';
+      librosEl.innerHTML = '<p style="color:var(--text-muted); font-size:15px;">Próximamente más libros disponibles.</p>';
     }
   }
 

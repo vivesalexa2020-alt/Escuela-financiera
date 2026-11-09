@@ -141,7 +141,7 @@
         </a>
 
         <!-- Aviso en la parte superior: Menú bloqueado -->
-        <div id="navGuestNotice" onclick="openLoginModal()" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--accent-lime); background: rgba(203, 246, 62, 0.12); padding: 7px 18px; border-radius: 999px; border: 1px solid rgba(203, 246, 62, 0.35); cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Haz clic para iniciar sesión">
+        <div id="navGuestNotice" onclick="openLoginModal()" style="display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--accent-lime); background: rgba(203, 246, 62, 0.12); padding: 7px 18px; border-radius: 999px; border: 1px solid rgba(203, 246, 62, 0.35); cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Haz clic para iniciar sesión">
           <span>🔒</span> Inicia sesión para acceder al menú
         </div>
 
@@ -238,23 +238,23 @@
       <!-- BANNER SUPERIOR PRINCIPIANTES -->
       <div style="background: linear-gradient(135deg, #053724 0%, #0d5f3e 100%); color: #ffffff; border-radius: 18px; padding: 24px 28px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(5,55,36,0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
         <div style="max-width: 680px;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(203,246,62,0.2); color: #cbf63e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(203,246,62,0.2); color: #cbf63e; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
             <span>&#x2728;</span> Dise&ntilde;ado para Principiantes &bull; 100% Pr&aacute;ctico
           </div>
-          <h2 style="font-size: 24px; font-weight: 900; color: #ffffff; margin: 0 0 6px;">Tu Centro de Metas y Transformaci&oacute;n Financiera</h2>
-          <p style="font-size: 14.5px; color: #d7f4e6; margin: 0; line-height: 1.5;">
+          <h2 style="font-size: 26.5px; font-weight: 900; color: #ffffff; margin: 0 0 6px;">Tu Centro de Metas y Transformaci&oacute;n Financiera</h2>
+          <p style="font-size: 16.5px; color: #d7f4e6; margin: 0; line-height: 1.5;">
             Sin f&oacute;rmulas complicadas. Elige una de las 3 herramientas interactivas de abajo para ahorrar, cumplir h&aacute;bitos y eliminar deudas paso a paso.
           </p>
         </div>
         <div style="display: flex; gap: 8px; background: rgba(255,255,255,0.12); padding: 8px 14px; border-radius: 14px; backdrop-filter: blur(4px);">
           <div style="text-align: center; padding: 0 8px;">
-            <div style="font-size: 20px; font-weight: 900; color: #cbf63e;">3</div>
-            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">Herramientas</div>
+            <div style="font-size: 22.5px; font-weight: 900; color: #cbf63e;">3</div>
+            <div style="font-size: 13px; color: #e2e8f0; font-weight: 600;">Herramientas</div>
           </div>
           <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
           <div style="text-align: center; padding: 0 8px;">
-            <div style="font-size: 20px; font-weight: 900; color: #fabb15;">$0</div>
-            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">Acceso Libre</div>
+            <div style="font-size: 22.5px; font-weight: 900; color: #fabb15;">$0</div>
+            <div style="font-size: 13px; color: #e2e8f0; font-weight: 600;">Acceso Libre</div>
           </div>
         </div>
       </div>
@@ -265,29 +265,29 @@
         <div class="metas-tabs-nav" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 26px;">
           
           <button type="button" class="metas-tab-btn active" id="tabBtnMetas" onclick="switchMetasTab('metas')" 
-                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #00703C; cursor: pointer; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #00703C 0%, #064e2e 100%); color: #ffffff; box-shadow: 0 6px 18px rgba(0,112,60,0.25); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 28px; background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">&#x1F3AF;</span>
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #00703C; cursor: pointer; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #00703C 0%, #064e2e 100%); color: #ffffff; box-shadow: 0 6px 18px rgba(0,112,60,0.25); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 30.5px; background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">&#x1F3AF;</span>
             <div>
-              <div style="font-size: 15px; font-weight: 800;">1. Metas de Ahorro</div>
-              <div style="font-size: 12px; opacity: 0.9; font-weight: 500;">Calcula y visualiza tu progreso</div>
+              <div style="font-size: 17px; font-weight: 800;">1. Metas de Ahorro</div>
+              <div style="font-size: 14px; opacity: 0.9; font-weight: 500;">Calcula y visualiza tu progreso</div>
             </div>
           </button>
 
           <button type="button" class="metas-tab-btn" id="tabBtnRetos" onclick="switchMetasTab('retos')" 
-                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 28px; background: #fef3c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #d97706;">&#x1F3C6;</span>
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 30.5px; background: #fef3c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #d97706;">&#x1F3C6;</span>
             <div>
-              <div style="font-size: 15px; font-weight: 800;">2. Retos Semanales</div>
-              <div style="font-size: 12px; color: #64748b; font-weight: 500;">Desaf&iacute;os r&aacute;pidos con medallas</div>
+              <div style="font-size: 17px; font-weight: 800;">2. Retos Semanales</div>
+              <div style="font-size: 14px; color: #64748b; font-weight: 500;">Desaf&iacute;os r&aacute;pidos con medallas</div>
             </div>
           </button>
 
           <button type="button" class="metas-tab-btn" id="tabBtnDeudas" onclick="switchMetasTab('deudas')" 
-                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 28px; background: #fee2e2; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #dc2626;">&#x1F6E1;&#xFE0F;</span>
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 30.5px; background: #fee2e2; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #dc2626;">&#x1F6E1;&#xFE0F;</span>
             <div>
-              <div style="font-size: 15px; font-weight: 800;">3. M&eacute;todo Anti-Deuda</div>
-              <div style="font-size: 12px; color: #64748b; font-weight: 500;">Estrategia Bola de Nieve</div>
+              <div style="font-size: 17px; font-weight: 800;">3. M&eacute;todo Anti-Deuda</div>
+              <div style="font-size: 14px; color: #64748b; font-weight: 500;">Estrategia Bola de Nieve</div>
             </div>
           </button>
 
@@ -302,41 +302,41 @@
           <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border-radius: 18px; border: 1.5px solid #86efac; padding: 26px; box-shadow: 0 6px 20px rgba(0,112,60,0.06); margin-bottom: 30px;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
               <div>
-                <span style="background: #dcfce7; color: #15803d; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px;">
+                <span style="background: #dcfce7; color: #15803d; font-size: 14px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px;">
                   &#x1F4B0; Simulador de Ahorro Paso a Paso
                 </span>
-                <h3 style="font-size: 21px; font-weight: 900; color: #064e3b; margin: 0 0 4px;">&iquest;Qu&eacute; sue&ntilde;o o meta quieres alcanzar?</h3>
-                <p style="font-size: 13.5px; color: #475569; margin: 0;">Escribe tu meta e ingresa un aporte mensual c&oacute;modo (Â¡incluso desde $500 o $1,500 MXN!).</p>
+                <h3 style="font-size: 23.5px; font-weight: 900; color: #064e3b; margin: 0 0 4px;">&iquest;Qu&eacute; sue&ntilde;o o meta quieres alcanzar?</h3>
+                <p style="font-size: 15.5px; color: #475569; margin: 0;">Escribe tu meta e ingresa un aporte mensual c&oacute;modo (Â¡incluso desde $500 o $1,500 MXN!).</p>
               </div>
             </div>
 
             <form id="formNuevaMeta" onsubmit="agregarNuevaMeta(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; align-items: flex-end;">
               <div>
-                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
                   &#x1F3AF; Nombre de la Meta
                 </label>
-                <input type="text" id="metaNombre" placeholder="Ej. Fondo de emergencia o Viaje" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+                <input type="text" id="metaNombre" placeholder="Ej. Fondo de emergencia o Viaje" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
-                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
                   &#x1F4B5; Monto Objetivo ($ MXN)
                 </label>
-                <input type="number" id="metaObjetivo" placeholder="Ej. 15000" min="500" step="500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+                <input type="number" id="metaObjetivo" placeholder="Ej. 15000" min="500" step="500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
-                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
                   &#x1F9FE; &iquest;Cu&aacute;nto tienes hoy? ($)
                 </label>
-                <input type="number" id="metaActual" placeholder="Ej. 2000" min="0" step="100" value="0" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+                <input type="number" id="metaActual" placeholder="Ej. 2000" min="0" step="100" value="0" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
-                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
                   &#x1F4C5; Aporte mensual ($ MXN)
                 </label>
-                <input type="number" id="metaAporte" placeholder="Ej. 1500" min="100" step="100" value="1500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+                <input type="number" id="metaAporte" placeholder="Ej. 1500" min="100" step="100" value="1500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
-                <button type="submit" style="width: 100%; padding: 12px 18px; background: linear-gradient(135deg, #00703C 0%, #15803d 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 800; font-size: 14.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,112,60,0.3); transition: transform 0.15s ease;">
+                <button type="submit" style="width: 100%; padding: 12px 18px; background: linear-gradient(135deg, #00703C 0%, #15803d 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 800; font-size: 16.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,112,60,0.3); transition: transform 0.15s ease;">
                   <span>&#x2728;</span> Agregar Meta
                 </button>
               </div>
@@ -346,10 +346,10 @@
           <!-- ENCABEZADO DE TARJETAS -->
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
             <div>
-              <h3 style="font-size: 20px; font-weight: 900; color: #0f172a; margin: 0 0 4px;">Tus Metas Activas</h3>
-              <p style="font-size: 13.5px; color: #64748b; margin: 0;">Presiona los botones verdes <strong>+Abonar</strong> para simular tus aportes y ver crecer tu barra.</p>
+              <h3 style="font-size: 22.5px; font-weight: 900; color: #0f172a; margin: 0 0 4px;">Tus Metas Activas</h3>
+              <p style="font-size: 15.5px; color: #64748b; margin: 0;">Presiona los botones verdes <strong>+Abonar</strong> para simular tus aportes y ver crecer tu barra.</p>
             </div>
-            <button type="button" onclick="restablecerMetasEjemplo()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer;">
+            <button type="button" onclick="restablecerMetasEjemplo()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 8px; font-size: 14.5px; font-weight: 700; cursor: pointer;">
               &#x21BA; Cargar Metas Recomendadas
             </button>
           </div>
@@ -370,17 +370,17 @@
           <div style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: #ffffff; border-radius: 18px; padding: 26px 28px; margin-bottom: 26px; box-shadow: 0 8px 26px rgba(49,46,129,0.25);">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
               <div>
-                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(250,187,21,0.25); color: #fabb15; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px;">
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(250,187,21,0.25); color: #fabb15; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px;">
                   <span>&#x1F3C6;</span> Nivel 1: Constructor de Disciplina
                 </div>
-                <h3 style="font-size: 23px; font-weight: 900; margin: 0 0 6px; color: #ffffff;">5 Retos F&aacute;ciles de Transformaci&oacute;n</h3>
-                <p style="font-size: 14px; color: #c7d2fe; margin: 0; max-width: 650px;">
+                <h3 style="font-size: 25.5px; font-weight: 900; margin: 0 0 6px; color: #ffffff;">5 Retos F&aacute;ciles de Transformaci&oacute;n</h3>
+                <p style="font-size: 16px; color: #c7d2fe; margin: 0; max-width: 650px;">
                   Gana peque&ntilde;as victorias cada semana. Al marcar cada reto ver&aacute;s c&oacute;mo aumenta tu barra de progreso y liberas dinero real.
                 </p>
               </div>
               <div style="background: rgba(255,255,255,0.12); padding: 14px 22px; border-radius: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
-                <div style="font-size: 32px; font-weight: 900; color: #cbf63e; line-height: 1;" id="contadorRetosTxt">0 / 5</div>
-                <div style="font-size: 12px; color: #e0e7ff; font-weight: 700; margin-top: 4px;">Retos Completados</div>
+                <div style="font-size: 34.5px; font-weight: 900; color: #cbf63e; line-height: 1;" id="contadorRetosTxt">0 / 5</div>
+                <div style="font-size: 14px; color: #e0e7ff; font-weight: 700; margin-top: 4px;">Retos Completados</div>
               </div>
             </div>
 
@@ -406,30 +406,30 @@
           <div style="background: linear-gradient(135deg, #fff1f2 0%, #ffffff 100%); border-radius: 18px; border: 1.5px solid #fecdd3; padding: 26px; box-shadow: 0 6px 20px rgba(225,29,72,0.06); margin-bottom: 26px;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
               <div>
-                <span style="background: #ffe4e6; color: #e11d48; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">
+                <span style="background: #ffe4e6; color: #e11d48; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">
                   &#x1F9CA; M&eacute;todo Psicol&oacute;gico Comprobado
                 </span>
-                <h3 style="font-size: 22px; font-weight: 900; color: #881337; margin: 0 0 6px;">&iquest;C&oacute;mo funciona la Bola de Nieve?</h3>
-                <p style="font-size: 14px; color: #4c0519; margin: 0; max-width: 680px; line-height: 1.5;">
+                <h3 style="font-size: 24.5px; font-weight: 900; color: #881337; margin: 0 0 6px;">&iquest;C&oacute;mo funciona la Bola de Nieve?</h3>
+                <p style="font-size: 16px; color: #4c0519; margin: 0; max-width: 680px; line-height: 1.5;">
                   Pagas el m&iacute;nimo en las grandes y concentras todo tu dinero extra en <strong>liquidar la m&aacute;s chiquita primero</strong>. Al vencer la primera, sientes alivio inmediato y sumas ese dinero a la siguiente.
                 </p>
               </div>
 
               <!-- APORTE EXTRA MENSUAL VIBRANTE -->
               <div style="background: #ffffff; padding: 12px 18px; border-radius: 12px; border: 2px solid #fb7185; box-shadow: 0 4px 12px rgba(225,29,72,0.1);">
-                <label style="font-size: 12px; font-weight: 800; color: #9f1239; display: block; margin-bottom: 4px;">&#x26A1; Aporte extra mensual:</label>
+                <label style="font-size: 14px; font-weight: 800; color: #9f1239; display: block; margin-bottom: 4px;">&#x26A1; Aporte extra mensual:</label>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="font-size: 16px; font-weight: 900; color: #e11d48;">$</span>
+                  <span style="font-size: 18px; font-weight: 900; color: #e11d48;">$</span>
                   <input type="number" id="inputAporteExtraBola" value="1000" min="0" step="200" oninput="calcularBolaDeNieve()" 
-                         style="width: 120px; padding: 6px 10px; border: 1.5px solid #fda4af; border-radius: 8px; font-weight: 900; font-size: 16px; color: #881337; background: #fff1f2;">
-                  <span style="font-size: 12px; color: #9f1239; font-weight: 700;">MXN</span>
+                         style="width: 120px; padding: 6px 10px; border: 1.5px solid #fda4af; border-radius: 8px; font-weight: 900; font-size: 18px; color: #881337; background: #fff1f2;">
+                  <span style="font-size: 14px; color: #9f1239; font-weight: 700;">MXN</span>
                 </div>
               </div>
             </div>
 
             <!-- TABLA ESTILIZADA DE COMPROMISOS -->
             <div style="overflow-x: auto; margin-bottom: 20px; border-radius: 12px; border: 1px solid #fed7aa; background: #ffffff;">
-              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 15.5px;">
                 <thead>
                   <tr style="background: linear-gradient(90deg, #ffedd5 0%, #fed7aa 100%); color: #7c2d12; font-weight: 800;">
                     <th style="padding: 12px 16px;">Prioridad de Pago</th>
@@ -449,23 +449,23 @@
             <!-- FORMULARIO AGREGAR DEUDA AMIGABLE -->
             <form id="formAgregarDeuda" onsubmit="agregarDeudaBola(event)" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: flex-end; background: #fff7ed; padding: 16px; border-radius: 12px; border: 1.5px dashed #fdba74;">
               <div>
-                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Nombre</label>
-                <input type="text" id="nuevaDeudaNombre" placeholder="Ej. Tarjeta Bancomer" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+                <label style="display:block; font-size:13.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Nombre</label>
+                <input type="text" id="nuevaDeudaNombre" placeholder="Ej. Tarjeta Bancomer" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 15px; background:#fff;">
               </div>
               <div>
-                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Saldo Total ($)</label>
-                <input type="number" id="nuevaDeudaSaldo" placeholder="3500" min="100" step="100" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+                <label style="display:block; font-size:13.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Saldo Total ($)</label>
+                <input type="number" id="nuevaDeudaSaldo" placeholder="3500" min="100" step="100" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 15px; background:#fff;">
               </div>
               <div>
-                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">M&iacute;nimo Mes ($)</label>
-                <input type="number" id="nuevaDeudaMinimo" placeholder="400" min="50" step="50" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+                <label style="display:block; font-size:13.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">M&iacute;nimo Mes ($)</label>
+                <input type="number" id="nuevaDeudaMinimo" placeholder="400" min="50" step="50" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 15px; background:#fff;">
               </div>
               <div>
-                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Tasa %</label>
-                <input type="number" id="nuevaDeudaTasa" placeholder="35" min="0" max="150" step="1" value="35" style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+                <label style="display:block; font-size:13.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Tasa %</label>
+                <input type="number" id="nuevaDeudaTasa" placeholder="35" min="0" max="150" step="1" value="35" style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 15px; background:#fff;">
               </div>
               <div>
-                <button type="submit" style="padding: 9px 18px; background: #ea580c; color: #ffffff; border: none; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; box-shadow: 0 3px 10px rgba(234,88,12,0.3);">
+                <button type="submit" style="padding: 9px 18px; background: #ea580c; color: #ffffff; border: none; border-radius: 8px; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 3px 10px rgba(234,88,12,0.3);">
                   + Registrar
                 </button>
               </div>
@@ -622,24 +622,24 @@
               '<div>' +
                 '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">' +
                   '<div style="display: flex; align-items: center; gap: 10px;">' +
-                    '<span style="font-size: 28px; background: #ffffff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">' + (m.icono || '&#x1F3AF;') + '</span>' +
+                    '<span style="font-size: 30.5px; background: #ffffff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">' + (m.icono || '&#x1F3AF;') + '</span>' +
                     '<div>' +
-                      '<span style="background:' + th.badgeBg + '; color:' + th.badgeColor + '; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;">' + (m.categoria || 'Ahorro') + '</span>' +
-                      '<h4 style="font-size: 16.5px; font-weight: 900; color:#0f172a; margin: 4px 0 0;">' + m.nombre + '</h4>' +
+                      '<span style="background:' + th.badgeBg + '; color:' + th.badgeColor + '; font-size: 13px; font-weight: 800; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;">' + (m.categoria || 'Ahorro') + '</span>' +
+                      '<h4 style="font-size: 18.5px; font-weight: 900; color:#0f172a; margin: 4px 0 0;">' + m.nombre + '</h4>' +
                     '</div>' +
                   '</div>' +
-                  '<button type="button" onclick="eliminarMeta(' + m.id + ')" title="Eliminar meta" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer; padding:4px;">&times;</button>' +
+                  '<button type="button" onclick="eliminarMeta(' + m.id + ')" title="Eliminar meta" style="background:none; border:none; color:#94a3b8; font-size:20px; cursor:pointer; padding:4px;">&times;</button>' +
                 '</div>' +
 
                 '<div style="background:#ffffff; border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(0,0,0,0.05);">' +
                   '<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">' +
                     '<div>' +
-                      '<span style="font-size: 11px; color:#64748b; font-weight: 700; text-transform: uppercase;">Llevas ahorrado</span>' +
-                      '<div style="font-size: 20px; font-weight: 900; color:#0f172a;">$' + m.actual.toLocaleString('es-MX') + ' <span style="font-size: 12px; color:#64748b;">MXN</span></div>' +
+                      '<span style="font-size: 13px; color:#64748b; font-weight: 700; text-transform: uppercase;">Llevas ahorrado</span>' +
+                      '<div style="font-size: 22.5px; font-weight: 900; color:#0f172a;">$' + m.actual.toLocaleString('es-MX') + ' <span style="font-size: 14px; color:#64748b;">MXN</span></div>' +
                     '</div>' +
                     '<div style="text-align: right;">' +
-                      '<span style="font-size: 11px; color:#64748b; font-weight: 700; text-transform: uppercase;">Meta final</span>' +
-                      '<div style="font-size: 15px; font-weight: 800; color:#475569;">$' + m.objetivo.toLocaleString('es-MX') + '</div>' +
+                      '<span style="font-size: 13px; color:#64748b; font-weight: 700; text-transform: uppercase;">Meta final</span>' +
+                      '<div style="font-size: 17px; font-weight: 800; color:#475569;">$' + m.objetivo.toLocaleString('es-MX') + '</div>' +
                     '</div>' +
                   '</div>' +
 
@@ -647,7 +647,7 @@
                     '<div style="background: ' + th.bar + '; height: 100%; width: ' + pct + '%; border-radius: 8px; transition: width 0.4s ease;"></div>' +
                   '</div>' +
 
-                  '<div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700;">' +
+                  '<div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700;">' +
                     '<span style="color:' + th.badgeColor + ';">' + pct + '% Completado</span>' +
                     '<span style="color:#64748b;">Faltan: $' + restante.toLocaleString('es-MX') + '</span>' +
                   '</div>' +
@@ -655,12 +655,12 @@
               '</div>' +
 
               '<div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">' +
-                '<span style="font-size: 12.5px; color:#334155; font-weight: 700;">' +
+                '<span style="font-size: 14.5px; color:#334155; font-weight: 700;">' +
                   (restante === 0 ? '&#x1F389; &iexcl;META LOGRADA!' : '&#x23F3; Llegar&aacute;s en <strong>' + meses + ' mes(es)</strong>') +
                 '</span>' +
                 '<div style="display: flex; gap: 6px;">' +
-                  '<button type="button" onclick="abonarMeta(' + m.id + ', 500)" style="padding: 7px 12px; font-size: 12px; font-weight: 800; background:#ffffff; color:' + th.badgeColor + '; border:1.5px solid ' + th.border + '; border-radius:8px; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">+$500</button>' +
-                  '<button type="button" onclick="abonarMeta(' + m.id + ', ' + m.aporte + ')" style="padding: 7px 12px; font-size: 12px; font-weight: 800; background:' + th.btnBg + '; color:#ffffff; border:none; border-radius:8px; cursor:pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.12);">+$' + m.aporte + '</button>' +
+                  '<button type="button" onclick="abonarMeta(' + m.id + ', 500)" style="padding: 7px 12px; font-size: 14px; font-weight: 800; background:#ffffff; color:' + th.badgeColor + '; border:1.5px solid ' + th.border + '; border-radius:8px; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">+$500</button>' +
+                  '<button type="button" onclick="abonarMeta(' + m.id + ', ' + m.aporte + ')" style="padding: 7px 12px; font-size: 14px; font-weight: 800; background:' + th.btnBg + '; color:#ffffff; border:none; border-radius:8px; cursor:pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.12);">+$' + m.aporte + '</button>' +
                 '</div>' +
               '</div>';
 
@@ -798,20 +798,20 @@
 
             card.innerHTML = 
               '<div style="display: flex; align-items: flex-start; gap: 16px; flex: 1;">' +
-                '<div style="font-size: 26px; width: 48px; height: 48px; border-radius: 12px; background:' + (completado ? '#d1fae5' : th.iconBg) + '; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">' +
+                '<div style="font-size: 28.5px; width: 48px; height: 48px; border-radius: 12px; background:' + (completado ? '#d1fae5' : th.iconBg) + '; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">' +
                   (completado ? '&#x2705;' : r.icono) +
                 '</div>' +
                 '<div style="flex: 1;">' +
                   '<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">' +
-                    '<h4 style="font-size: 16px; font-weight: 900; color:' + (completado ? '#065f46' : '#0f172a') + '; margin: 0;">' + r.titulo + '</h4>' +
-                    '<span style="font-size: 11px; font-weight: 800; background:' + (completado ? '#a7f3d0' : th.badgeBg) + '; color:' + (completado ? '#064e3b' : th.badgeColor) + '; padding: 3px 8px; border-radius: 6px;">' + r.duracion + '</span>' +
+                    '<h4 style="font-size: 18px; font-weight: 900; color:' + (completado ? '#065f46' : '#0f172a') + '; margin: 0;">' + r.titulo + '</h4>' +
+                    '<span style="font-size: 13px; font-weight: 800; background:' + (completado ? '#a7f3d0' : th.badgeBg) + '; color:' + (completado ? '#064e3b' : th.badgeColor) + '; padding: 3px 8px; border-radius: 6px;">' + r.duracion + '</span>' +
                   '</div>' +
-                  '<p style="font-size: 13.5px; color:' + (completado ? '#047857' : '#475569') + '; margin: 0 0 6px; line-height: 1.45;">' + r.desc + '</p>' +
-                  '<div style="font-size: 12.5px; font-weight: 800; color:' + (completado ? '#059669' : '#00703C') + ';">&#x1F4A1; Recompensa estimada: ' + r.ahorro + '</div>' +
+                  '<p style="font-size: 15.5px; color:' + (completado ? '#047857' : '#475569') + '; margin: 0 0 6px; line-height: 1.45;">' + r.desc + '</p>' +
+                  '<div style="font-size: 14.5px; font-weight: 800; color:' + (completado ? '#059669' : '#00703C') + ';">&#x1F4A1; Recompensa estimada: ' + r.ahorro + '</div>' +
                 '</div>' +
               '</div>' +
               '<div>' +
-                '<button type="button" onclick="toggleReto(\'' + r.id + '\')" style="padding: 10px 20px; border-radius: 24px; font-weight: 800; font-size: 13.5px; cursor: pointer; border: none; background:' + (completado ? '#10b981' : '#00703C') + '; color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: transform 0.15s ease;">' +
+                '<button type="button" onclick="toggleReto(\'' + r.id + '\')" style="padding: 10px 20px; border-radius: 24px; font-weight: 800; font-size: 15.5px; cursor: pointer; border: none; background:' + (completado ? '#10b981' : '#00703C') + '; color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: transform 0.15s ease;">' +
                   (completado ? '&#x2714; &iexcl;Logrado!' : 'Marcar Hecho') +
                 '</button>' +
               '</div>';
@@ -860,14 +860,14 @@
 
             tr.innerHTML = 
               '<td style="padding: 14px 16px;">' +
-                '<span style="background:' + b.bg + '; color:' + b.color + '; border:1px solid ' + b.border + '; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:20px;">' + b.label + '</span>' +
+                '<span style="background:' + b.bg + '; color:' + b.color + '; border:1px solid ' + b.border + '; font-size:13.5px; font-weight:800; padding:4px 10px; border-radius:20px;">' + b.label + '</span>' +
               '</td>' +
-              '<td style="padding: 14px 16px; font-weight: 800; color:#0f172a; font-size: 14px;">' + d.nombre + '</td>' +
-              '<td style="padding: 14px 16px; font-weight: 900; color:#b91c1c; font-size: 15px;">$' + d.saldo.toLocaleString('es-MX') + ' MXN</td>' +
+              '<td style="padding: 14px 16px; font-weight: 800; color:#0f172a; font-size: 16px;">' + d.nombre + '</td>' +
+              '<td style="padding: 14px 16px; font-weight: 900; color:#b91c1c; font-size: 17px;">$' + d.saldo.toLocaleString('es-MX') + ' MXN</td>' +
               '<td style="padding: 14px 16px; color:#475569; font-weight: 700;">$' + d.minimo.toLocaleString('es-MX') + ' / mes</td>' +
               '<td style="padding: 14px 16px; color:#64748b; font-weight: 600;">' + d.tasa + '% anual</td>' +
               '<td style="padding: 14px 16px; text-align:center;">' +
-                '<button type="button" onclick="eliminarDeudaBola(' + d.id + ')" style="background:#fee2e2; border:none; color:#dc2626; width:28px; height:28px; border-radius:50%; font-size:16px; cursor:pointer; font-weight:800;" title="Eliminar">&times;</button>' +
+                '<button type="button" onclick="eliminarDeudaBola(' + d.id + ')" style="background:#fee2e2; border:none; color:#dc2626; width:28px; height:28px; border-radius:50%; font-size:18px; cursor:pointer; font-weight:800;" title="Eliminar">&times;</button>' +
               '</td>';
             tbody.appendChild(tr);
           });
@@ -908,9 +908,9 @@
           if (misDeudas.length === 0) {
             resContainer.innerHTML = 
               '<div style="text-align:center; padding:30px; background:#f0fdf4; border-radius:16px; border:2px dashed #86efac;">' +
-                '<div style="font-size:36px; margin-bottom:8px;">&#x1F389;</div>' +
-                '<div style="font-size:18px; font-weight:900; color:#15803d;">&iexcl;Felicidades! No tienes compromisos pendientes.</div>' +
-                '<p style="font-size:13.5px; color:#166534; margin:4px 0 0;">Todo tu dinero extra puede ir directo a tus metas de inversi&oacute;n y patrimonio.</p>' +
+                '<div style="font-size:38.5px; margin-bottom:8px;">&#x1F389;</div>' +
+                '<div style="font-size:20px; font-weight:900; color:#15803d;">&iexcl;Felicidades! No tienes compromisos pendientes.</div>' +
+                '<p style="font-size:15.5px; color:#166534; margin:4px 0 0;">Todo tu dinero extra puede ir directo a tus metas de inversi&oacute;n y patrimonio.</p>' +
               '</div>';
             return;
           }
@@ -926,27 +926,27 @@
           resContainer.innerHTML = 
             '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 20px;">' +
               '<div style="background:#fff1f2; padding:18px; border-radius:14px; border:1.5px solid #fecdd3;">' +
-                '<div style="font-size:11.5px; color:#9f1239; font-weight:800; text-transform:uppercase;">Deuda Consolidada</div>' +
-                '<div style="font-size:24px; font-weight:900; color:#be123c; margin-top:4px;">$' + totalDeuda.toLocaleString('es-MX') + ' MXN</div>' +
+                '<div style="font-size:13.5px; color:#9f1239; font-weight:800; text-transform:uppercase;">Deuda Consolidada</div>' +
+                '<div style="font-size:26.5px; font-weight:900; color:#be123c; margin-top:4px;">$' + totalDeuda.toLocaleString('es-MX') + ' MXN</div>' +
               '</div>' +
               '<div style="background:#f0fdf4; padding:18px; border-radius:14px; border:1.5px solid #bbf7d0;">' +
-                '<div style="font-size:11.5px; color:#166534; font-weight:800; text-transform:uppercase;">Flujo Mensual Anti-Deuda</div>' +
-                '<div style="font-size:24px; font-weight:900; color:#15803d; margin-top:4px;">$' + flujoTotal.toLocaleString('es-MX') + ' MXN</div>' +
+                '<div style="font-size:13.5px; color:#166534; font-weight:800; text-transform:uppercase;">Flujo Mensual Anti-Deuda</div>' +
+                '<div style="font-size:26.5px; font-weight:900; color:#15803d; margin-top:4px;">$' + flujoTotal.toLocaleString('es-MX') + ' MXN</div>' +
               '</div>' +
               '<div style="background:#f0f9ff; padding:18px; border-radius:14px; border:1.5px solid #bae6fd;">' +
-                '<div style="font-size:11.5px; color:#0369a1; font-weight:800; text-transform:uppercase;">Meses para Ser Libre</div>' +
-                '<div style="font-size:24px; font-weight:900; color:#0284c7; margin-top:4px;">' + mesesEst + ' mes(es)</div>' +
+                '<div style="font-size:13.5px; color:#0369a1; font-weight:800; text-transform:uppercase;">Meses para Ser Libre</div>' +
+                '<div style="font-size:26.5px; font-weight:900; color:#0284c7; margin-top:4px;">' + mesesEst + ' mes(es)</div>' +
               '</div>' +
               '<div style="background:#fefce8; padding:18px; border-radius:14px; border:1.5px solid #fef08a;">' +
-                '<div style="font-size:11.5px; color:#854d0e; font-weight:800; text-transform:uppercase;">Intereses que te Ahorras</div>' +
-                '<div style="font-size:24px; font-weight:900; color:#ca8a04; margin-top:4px;">+$' + interesesAhorradosEst.toLocaleString('es-MX') + ' MXN</div>' +
+                '<div style="font-size:13.5px; color:#854d0e; font-weight:800; text-transform:uppercase;">Intereses que te Ahorras</div>' +
+                '<div style="font-size:26.5px; font-weight:900; color:#ca8a04; margin-top:4px;">+$' + interesesAhorradosEst.toLocaleString('es-MX') + ' MXN</div>' +
               '</div>' +
             '</div>' +
             '<div style="background: linear-gradient(135deg, #053724 0%, #032518 100%); color:#ffffff; padding: 18px 22px; border-radius: 14px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(5,55,36,0.15);">' +
-              '<div style="font-size: 32px; flex-shrink: 0;">&#x1F3AF;</div>' +
+              '<div style="font-size: 34.5px; flex-shrink: 0;">&#x1F3AF;</div>' +
               '<div>' +
-                '<div style="font-size: 15px; font-weight: 900; color: #cbf63e; margin-bottom: 2px;">Plan de Ataque Inmediato:</div>' +
-                '<p style="font-size: 13.5px; color: #d7f4e6; margin: 0; line-height: 1.45;">' +
+                '<div style="font-size: 17px; font-weight: 900; color: #cbf63e; margin-bottom: 2px;">Plan de Ataque Inmediato:</div>' +
+                '<p style="font-size: 15.5px; color: #d7f4e6; margin: 0; line-height: 1.45;">' +
                   'Destina <strong>$' + (misDeudas[0].minimo + extra).toLocaleString('es-MX') + ' MXN</strong> cada mes a liquidar <strong>' + misDeudas[0].nombre + '</strong> mientras pagas el m&iacute;nimo en las dem&aacute;s. Al terminarla, ese flujo completo pasa a la siguiente. &iexcl;Ver&aacute;s resultados antes de lo que crees!' +
                 '</p>' +
               '</div>' +
@@ -1134,8 +1134,8 @@
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
         <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
       </div>
-      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
-      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
+      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 22.5px;">Materia</h3>
+      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
 
       <!-- Tabs de recursos -->
       <div class="reticula-tabs">
@@ -1222,11 +1222,11 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <h3 style="margin: 0; font-size: 18px;">Buscar en la plataforma</h3>
+        <h3 style="margin: 0; font-size: 20px;">Buscar en la plataforma</h3>
       </div>
       <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones o herramientas..." 
-             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 14px; margin-bottom: 16px; outline: none; box-sizing: border-box;">
-      <div id="searchResults" style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 16px; margin-bottom: 16px; outline: none; box-sizing: border-box;">
+      <div id="searchResults" style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">
         Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.
       </div>
     </div>
@@ -1267,14 +1267,14 @@
       <div id="loginMsg" class="form-message"></div>
       <form id="loginForm" onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
-            <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 11.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
+            <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+            <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 13.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
           </div>
           <div class="password-field">
             <input type="password" id="loginPassword" required placeholder="••••••••">
@@ -1285,7 +1285,7 @@
               </svg>
             </button>
           </div>
-          <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu contraseña.</span>
+          <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu contraseña.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Ingresar al aula virtual
@@ -1331,12 +1331,12 @@
       <div id="forgotMsg" class="form-message"></div>
       <form id="forgotForm" onsubmit="handleForgotSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
-          <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
+          <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
           <div class="password-field">
             <input type="password" id="forgotPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1346,10 +1346,10 @@
               </svg>
             </button>
           </div>
-          <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+          <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
           <div class="password-field">
             <input type="password" id="forgotConfirm" required minlength="6" placeholder="Repite tu nueva contraseña">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1359,7 +1359,7 @@
               </svg>
             </button>
           </div>
-          <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+          <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Restablecer mi contraseña
@@ -1405,17 +1405,17 @@
       <div id="signupMsg" class="form-message"></div>
       <form id="signupForm" onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
-          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu nombre completo.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
+          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu nombre completo.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
           <div class="password-field">
             <input type="password" id="signupPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1425,10 +1425,10 @@
               </svg>
             </button>
           </div>
-          <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+          <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
           <div class="password-field">
             <input type="password" id="signupConfirm" required minlength="6" placeholder="Repite tu contraseña">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1438,7 +1438,7 @@
               </svg>
             </button>
           </div>
-          <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+          <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Registrarme y acceder
@@ -1460,8 +1460,8 @@
     <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 20px;">🎬</span>
-          <h3 id="videoPlayerTitle" style="font-size: 17px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
+          <span style="font-size: 22.5px;">🎬</span>
+          <h3 id="videoPlayerTitle" style="font-size: 19px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
         </div>
         <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
       </div>
@@ -1469,8 +1469,8 @@
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <span style="font-size: 12.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
-        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13px;">Terminar de ver</button>
+        <span style="font-size: 14.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
+        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15px;">Terminar de ver</button>
       </div>
     </div>
   </div>
@@ -1481,21 +1481,21 @@
   <div class="modal-overlay" id="exercisePlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span style="font-size: 11px; font-weight: 800; background: #e0e7ff; color: #4338ca; padding: 3px 10px; border-radius: 999px;" id="exerciseModalType">ACTIVIDAD PRÁCTICA</span>
+        <span style="font-size: 13px; font-weight: 800; background: #e0e7ff; color: #4338ca; padding: 3px 10px; border-radius: 999px;" id="exerciseModalType">ACTIVIDAD PRÁCTICA</span>
         <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">×</button>
       </div>
-      <h3 id="exerciseModalTitle" style="font-size: 18px; margin: 0 0 8px; color: var(--text-dark); font-weight: 800;">Título del ejercicio</h3>
-      <p id="exerciseModalDesc" style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Descripción del ejercicio.</p>
+      <h3 id="exerciseModalTitle" style="font-size: 20px; margin: 0 0 8px; color: var(--text-dark); font-weight: 800;">Título del ejercicio</h3>
+      <p id="exerciseModalDesc" style="font-size: 15.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Descripción del ejercicio.</p>
       
       <div id="exerciseModalOptions" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
         <!-- Se llena dinámicamente con JS -->
       </div>
 
-      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 13px; line-height: 1.4;"></div>
+      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 15px; line-height: 1.4;"></div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 22px; font-size: 13px;">Comprobar mi respuesta</button>
-        <button type="button" class="btn-cta-outline" onclick="closeExercisePlayerModal()" style="padding: 9px 18px; font-size: 13px; color: var(--text-dark); border-color: #d4e7de;">Cerrar</button>
+        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 22px; font-size: 15px;">Comprobar mi respuesta</button>
+        <button type="button" class="btn-cta-outline" onclick="closeExercisePlayerModal()" style="padding: 9px 18px; font-size: 15px; color: var(--text-dark); border-color: #d4e7de;">Cerrar</button>
       </div>
     </div>
   </div>
@@ -1505,7 +1505,7 @@
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
-        <h4 id="videoPlayerTitle" style="margin: 0; font-size: 17px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
+        <h4 id="videoPlayerTitle" style="margin: 0; font-size: 19px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
           <span>🎥</span> <span>Clase en Video</span>
         </h4>
         <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
@@ -1514,7 +1514,7 @@
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
-        <button type="button" class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13.5px;">Cerrar Video</button>
+        <button type="button" class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15.5px;">Cerrar Video</button>
       </div>
     </div>
   </div>
@@ -1523,7 +1523,7 @@
   <div class="modal-overlay" id="audioPlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
           🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
         </span>
         <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
@@ -1531,16 +1531,16 @@
 
       <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
-          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 26px; color: #06402d; flex-shrink: 0;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 28.5px; color: #06402d; flex-shrink: 0;">
             🎙️
           </div>
           <div>
-            <h4 id="audioModalTitle" style="font-size: 17px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
-            <div id="audioModalDuration" style="font-size: 12.5px; opacity: 0.85;">Duración: 18 min</div>
+            <h4 id="audioModalTitle" style="font-size: 19px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
+            <div id="audioModalDuration" style="font-size: 14.5px; opacity: 0.85;">Duración: 18 min</div>
           </div>
         </div>
 
-        <p id="audioModalDesc" style="font-size: 13px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;">
+        <p id="audioModalDesc" style="font-size: 15px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;">
           Escucha esta síntesis comentada por el profesor mientras realizas tus actividades cotidianas.
         </p>
 
@@ -1561,14 +1561,14 @@
         <div style="background: rgba(255,255,255,0.2); height: 6px; border-radius: 999px; overflow: hidden; margin-bottom: 8px;">
           <div id="audioModalProgressBar" style="background: var(--amarillo-dorado); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
         </div>
-        <div style="display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8;">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; opacity: 0.8;">
           <span id="audioModalCurrentTime">00:00</span>
           <span>Reproducción continua en HD</span>
         </div>
       </div>
 
       <div style="display: flex; gap: 12px; justify-content: space-between; align-items: center;">
-        <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
           ▶️ Iniciar reproducción
         </button>
         <button type="button" onclick="closeAudioPlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 12px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
@@ -1582,28 +1582,28 @@
   <div class="modal-overlay" id="bookReaderModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
           📚 LECTURA & GUÍA OFICIAL
         </span>
         <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
-        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
+        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 34.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
           📖
         </div>
         <div>
-          <h3 id="bookModalTitle" style="font-size: 18px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
-          <div id="bookModalAuthor" style="font-size: 13.5px; color: var(--verde-bosque); font-weight: 600; margin-bottom: 6px;">Por Autor</div>
-          <p id="bookModalDesc" style="font-size: 13px; color: var(--gris-medio); line-height: 1.45; margin: 0;">Descripción oficial del material formativo.</p>
+          <h3 id="bookModalTitle" style="font-size: 20px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
+          <div id="bookModalAuthor" style="font-size: 15.5px; color: var(--verde-bosque); font-weight: 600; margin-bottom: 6px;">Por Autor</div>
+          <p id="bookModalDesc" style="font-size: 15px; color: var(--gris-medio); line-height: 1.45; margin: 0;">Descripción oficial del material formativo.</p>
         </div>
       </div>
 
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
-        <h5 style="font-size: 14px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
+        <h5 style="font-size: 16px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
           <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
         </h5>
-        <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 13px; color: #334155; line-height: 1.6;">
+        <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
           <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
           <li><strong>Principio 2:</strong> Auditar y proteger el 20% de cada peso que ganas.</li>
           <li><strong>Principio 3:</strong> El costo oculto de la deuda y cómo eliminar intereses abusivos.</li>
@@ -1613,7 +1613,7 @@
       </div>
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
-        <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 13.5px; display: flex; align-items: center; gap: 8px;">
+        <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
           <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
         </button>
         <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
@@ -1627,20 +1627,20 @@
   <div class="modal-overlay" id="exercisePlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
           📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
         </span>
         <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
       </div>
-      <h3 id="exerciseModalTitle" style="font-size: 17px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
-      <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 13.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>
+      <h3 id="exerciseModalTitle" style="font-size: 19px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
+      <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 15.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>
 
       <div id="exerciseModalOptions" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;"></div>
 
-      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; font-size: 13.5px; margin-bottom: 16px; line-height: 1.5;"></div>
+      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; font-size: 15.5px; margin-bottom: 16px; line-height: 1.5;"></div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 20px; font-size: 14px; font-weight: 700;">
+        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 20px; font-size: 16px; font-weight: 700;">
           Comprobar respuesta
         </button>
         <button type="button" onclick="closeExercisePlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">

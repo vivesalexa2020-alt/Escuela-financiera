@@ -71,7 +71,7 @@
       align-items: center;
       gap: 12px;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
       color: #ffffff;
     }
 
@@ -90,7 +90,7 @@
 
     .nav-links a {
       color: #ffffff;
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -106,7 +106,7 @@
       color: #fff;
       padding: 7px 16px;
       border-radius: 30px;
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 600;
       transition: all 0.2s;
     }
@@ -132,21 +132,21 @@
       color: var(--amarillo-dorado);
       padding: 5px 14px;
       border-radius: 30px;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 16px;
     }
 
     .pricing-hero h1 {
-      font-size: 34px;
+      font-size: 36.5px;
       font-weight: 800;
       margin-bottom: 12px;
       color: #ffffff;
     }
 
     .pricing-hero p {
-      font-size: 15.5px;
+      font-size: 17.5px;
       color: #d1fae5;
       max-width: 680px;
       margin: 0 auto;
@@ -181,7 +181,7 @@
     .plan-tag {
       background: #eafaf1;
       color: var(--verde-principal);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 800;
       padding: 4px 12px;
       border-radius: 20px;
@@ -197,19 +197,19 @@
     }
 
     .plan-price-wrap .amount {
-      font-size: 42px;
+      font-size: 44.5px;
       font-weight: 800;
       color: var(--verde-principal);
     }
 
     .plan-price-wrap .period {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--gris-medio);
       font-weight: 600;
     }
 
     .plan-desc {
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--gris-medio);
       margin-bottom: 24px;
       padding-bottom: 20px;
@@ -221,7 +221,7 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      font-size: 13.5px;
+      font-size: 15.5px;
       color: var(--gris-oscuro);
     }
 
@@ -233,7 +233,7 @@
 
     .benefit-icon {
       color: var(--verde-claro);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1;
       margin-top: 2px;
@@ -249,14 +249,14 @@
     }
 
     .checkout-card h3 {
-      font-size: 20px;
+      font-size: 22.5px;
       font-weight: 800;
       color: var(--gris-oscuro);
       margin-bottom: 6px;
     }
 
     .checkout-card p.subtitle {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--gris-medio);
       margin-bottom: 22px;
     }
@@ -301,14 +301,14 @@
     }
 
     .method-details h5 {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--gris-oscuro);
       margin-bottom: 2px;
     }
 
     .method-details p {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--gris-medio);
     }
 
@@ -323,7 +323,7 @@
 
     .bank-box h4 {
       color: var(--verde-principal);
-      font-size: 14.5px;
+      font-size: 16.5px;
       font-weight: 700;
       margin-bottom: 14px;
       display: flex;
@@ -337,7 +337,7 @@
       align-items: center;
       padding: 8px 0;
       border-bottom: 1px dashed var(--borde-suave);
-      font-size: 13px;
+      font-size: 15px;
     }
 
     .bank-data-row:last-child {
@@ -352,7 +352,7 @@
       font-weight: 700;
       color: var(--gris-oscuro);
       font-family: monospace;
-      font-size: 13.5px;
+      font-size: 15.5px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -364,7 +364,7 @@
       color: var(--verde-principal);
       padding: 2px 8px;
       border-radius: 6px;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -388,7 +388,7 @@
 
     .form-group label {
       display: block;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--gris-oscuro);
       margin-bottom: 6px;
@@ -399,7 +399,7 @@
       padding: 11px 14px;
       border: 1px solid var(--borde-suave);
       border-radius: 10px;
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-family: inherit;
       color: var(--gris-oscuro);
       background: var(--blanco);
@@ -417,7 +417,7 @@
       padding: 14px;
       border-radius: 12px;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 17px;
       box-shadow: 0 4px 16px rgba(40, 199, 111, 0.4);
       transition: all 0.2s;
     }
@@ -429,7 +429,7 @@
 
     .secure-note {
       text-align: center;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--gris-medio);
       margin-top: 14px;
       display: flex;
@@ -444,6 +444,6 @@
       color: #a7dfc6;
       padding: 24px 0;
       text-align: center;
-      font-size: 13px;
+      font-size: 15px;
       margin-top: auto;
     }

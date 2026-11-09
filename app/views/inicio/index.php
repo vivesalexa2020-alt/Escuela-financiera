@@ -275,7 +275,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>14</span>
             </button>
-            <span title="Logro Verificado" style="font-size:16px;">🌱</span>
+            <span title="Logro Verificado" style="font-size:18px;">🌱</span>
           </div>
         </div>
       </div>
@@ -317,7 +317,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>9</span>
             </button>
-            <span title="Control Financiero Logrado" style="font-size:16px;">📊</span>
+            <span title="Control Financiero Logrado" style="font-size:18px;">📊</span>
           </div>
         </div>
       </div>
@@ -359,7 +359,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>18</span>
             </button>
-            <span title="Deuda Cero" style="font-size:16px;">💵</span>
+            <span title="Deuda Cero" style="font-size:18px;">💵</span>
           </div>
         </div>
       </div>
@@ -401,7 +401,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>7</span>
             </button>
-            <span title="Familia Asegurada" style="font-size:16px;">🏠</span>
+            <span title="Familia Asegurada" style="font-size:18px;">🏠</span>
           </div>
         </div>
       </div>
@@ -450,7 +450,7 @@
       <h2>VÉNDELE A LA MENTE, NO A LA GENTE</h2>
       <p class="pillars-sub">Jürgen Klarić — Los 3 Capítulos Fundamentales para Dominar las Ventas Modernas</p>
       <p class="pillars-slogan">"El 85% de la decisión de compra es subconsciente e inconsciente; solo el 15% es consciente."</p>
-      <p style="font-size: 13px; color: #4a5568; margin-top: 6px;">
+      <p style="font-size: 15px; color: #4a5568; margin-top: 6px;">
         Haz clic en cualquiera de los 3 cuadros para abrir la lectura completa a pantalla completa del capítulo que elijas.
       </p>
     </div>
@@ -575,10 +575,10 @@
   
   <div class="nfm-topbar nfm-topbar-blue">
     <div class="nfm-title-group">
-      <span style="font-size: 22px;">📘</span>
+      <span style="font-size: 24.5px;">📘</span>
       <div>
         <h3 id="nfmModalTitle1">CAPÍTULO 1: LAS NEUROVENTAS FRENTE A LAS VENTAS TRADICIONALES</h3>
-        <span style="font-size: 11.5px; color: #bae6fd;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+        <span style="font-size: 13.5px; color: #bae6fd;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
       </div>
     </div>
 
@@ -680,7 +680,7 @@
                   <span class="stat-num">85%</span>
                   <span class="stat-sub">Inconsciente o Subconsciente</span>
                 </div>
-                <div style="font-size: 22px; opacity: 0.3;">|</div>
+                <div style="font-size: 24.5px; opacity: 0.3;">|</div>
                 <div>
                   <span class="stat-num" style="color: #cbd5e1;">15%</span>
                   <span class="stat-sub">Consciente</span>
@@ -726,10 +726,10 @@
   
   <div class="nfm-topbar nfm-topbar-green">
     <div class="nfm-title-group">
-      <span style="font-size: 22px;">📗</span>
+      <span style="font-size: 24.5px;">📗</span>
       <div>
         <h3 id="nfmModalTitle2">CAPÍTULO 2: NEUROCIENCIAS PARA LAS VENTAS</h3>
-        <span style="font-size: 11.5px; color: #a7f3d0;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+        <span style="font-size: 13.5px; color: #a7f3d0;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
       </div>
     </div>
 
@@ -839,7 +839,7 @@
                 <span class="reptil-chip">🧭 Exploración</span>
                 <span class="reptil-chip">🏃 Movimiento</span>
               </div>
-              <p style="font-size: 11px; color: #64748b; margin-top: 6px;">
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">
                 *La reproducción puede ser regulada por la cultura, pero sigue siendo un código primario en el cerebro instintivo.
               </p>
             </div>
@@ -863,10 +863,10 @@
   
   <div class="nfm-topbar nfm-topbar-indigo">
     <div class="nfm-title-group">
-      <span style="font-size: 22px;">📙</span>
+      <span style="font-size: 24.5px;">📙</span>
       <div>
         <h3 id="nfmModalTitle3">CAPÍTULO 3: EL PROCESO DE DECISIÓN</h3>
-        <span style="font-size: 11.5px; color: #c7d2fe;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+        <span style="font-size: 13.5px; color: #c7d2fe;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
       </div>
     </div>
 
@@ -1168,13 +1168,13 @@
   border: 2px solid #00703c !important;
 }
 .svm-meta h4 {
-  font-size: 15px !important;
+  font-size: 17px !important;
   font-weight: 800 !important;
   color: #0f172a !important;
   margin: 0 !important;
 }
 .svm-meta span {
-  font-size: 11.5px !important;
+  font-size: 13.5px !important;
   color: #64748b !important;
   display: block !important;
 }
@@ -1184,7 +1184,7 @@
   width: 32px !important;
   height: 32px !important;
   border-radius: 50% !important;
-  font-size: 18px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
   cursor: pointer !important;
   display: flex !important;
@@ -1228,7 +1228,7 @@
   color: #ffffff !important;
   padding: 4px 10px !important;
   border-radius: 20px !important;
-  font-size: 10.5px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
   display: flex !important;
   align-items: center !important;
@@ -1249,7 +1249,7 @@
   color: #34d399 !important;
   padding: 4px 10px !important;
   border-radius: 20px !important;
-  font-size: 11px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   z-index: 2 !important;
 }
@@ -1303,7 +1303,7 @@
   align-items: center !important;
   justify-content: space-between !important;
   margin-top: 6px !important;
-  font-size: 11px !important;
+  font-size: 13px !important;
   color: #cbd5e1 !important;
 }
 .svm-soundwave {
@@ -1322,7 +1322,7 @@
   padding: 16px 20px 20px !important;
 }
 .svm-video-title {
-  font-size: 13.5px !important;
+  font-size: 15.5px !important;
   font-weight: 800 !important;
   color: #0f172a !important;
   margin-bottom: 8px !important;
@@ -1335,7 +1335,7 @@
   border-left: 3.5px solid #00703c !important;
   padding: 11px 14px !important;
   border-radius: 10px !important;
-  font-size: 12.5px !important;
+  font-size: 14.5px !important;
   color: #334155 !important;
   line-height: 1.55 !important;
   font-style: italic !important;
@@ -1349,7 +1349,7 @@
   color: #00703c !important;
   padding: 4px 11px !important;
   border-radius: 20px !important;
-  font-size: 11px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   margin-bottom: 12px !important;
 }
@@ -1358,7 +1358,7 @@
   padding-top: 10px !important;
 }
 .svm-comments-label {
-  font-size: 11px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   color: #64748b !important;
   margin-bottom: 8px !important;
@@ -1367,7 +1367,7 @@
   justify-content: space-between !important;
 }
 .svm-comment-sample {
-  font-size: 11.5px !important;
+  font-size: 13.5px !important;
   color: #475569 !important;
   background: #f1f5f9 !important;
   padding: 8px 12px !important;
@@ -1382,7 +1382,7 @@
 .svm-comment-input {
   flex: 1 !important;
   padding: 7px 11px !important;
-  font-size: 11.5px !important;
+  font-size: 13.5px !important;
   border: 1px solid #cbd5e1 !important;
   border-radius: 8px !important;
   font-family: inherit !important;
@@ -1393,7 +1393,7 @@
   color: #ffffff !important;
   border: none !important;
   padding: 7px 13px !important;
-  font-size: 11.5px !important;
+  font-size: 13.5px !important;
   font-weight: 700 !important;
   border-radius: 8px !important;
   cursor: pointer !important;
@@ -1459,7 +1459,7 @@
       <div class="svm-comments-section">
         <div class="svm-comments-label">
           <span>Comentarios de la comunidad:</span>
-          <span style="color:#00703c; font-size:11px;">🟢 En línea</span>
+          <span style="color:#00703c; font-size:13px;">🟢 En línea</span>
         </div>
         <div class="svm-comment-sample" id="svmCommentsList">
           <strong>Comunidad Oficial:</strong> "¡Gran testimonio! Tu disciplina financiera inspira a toda la plataforma."

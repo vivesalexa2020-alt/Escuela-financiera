@@ -12,8 +12,8 @@
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
         <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
       </div>
-      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 20px;">Materia</h3>
-      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
+      <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 22.5px;">Materia</h3>
+      <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
 
       <!-- Tabs de recursos -->
       <div class="reticula-tabs">
@@ -320,8 +320,8 @@
     </g>
   </svg>
       </div>
-      <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
-      <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
+      <h2 style="font-size: 26.5px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
+      <p style="color: var(--text-muted); font-size: 16.5px; line-height: 1.6; margin-bottom: 24px;">
         Para acceder a la interfaz de <strong>Cursos</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
@@ -347,21 +347,21 @@
       <div style="display: flex; flex-direction: column; gap: 40px;">
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 1: Nivel Básico (Prueba 100% Gratis)</h3>
-      <p style="font-size: 13.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero y diseña tu primer presupuesto.</p>
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 1: Nivel Básico (Prueba 100% Gratis)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero y diseña tu primer presupuesto.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">📗</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Rompe el ciclo</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">📗</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Rompe el ciclo</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -375,14 +375,14 @@
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">📘</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Construye tu fortaleza</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">📘</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Construye tu fortaleza</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -396,14 +396,14 @@
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 10px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">📙</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: Multiplica e invierte</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">📙</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: Multiplica e invierte</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -418,20 +418,20 @@
   </div>
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 2: Nivel Intermedio I (Consolidación y Ahorro)</h3>
-      <p style="font-size: 13.5px; color: var(--text-muted);">Construye tu fondo de paz mental, elimina deudas bancarias y domina herramientas digitales.</p>
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 2: Nivel Intermedio I (Consolidación y Ahorro)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tu fondo de paz mental, elimina deudas bancarias y domina herramientas digitales.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">🛡️</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Ahorro formal y fondo de emergencia</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🛡️</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Ahorro formal y fondo de emergencia</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -446,12 +446,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">💳</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Control de deudas y crédito bancario</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">💳</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Control de deudas y crédito bancario</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -466,12 +466,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">🧰</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Materiales y herramientas digitales</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🧰</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Materiales y herramientas digitales</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 2 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -486,20 +486,20 @@
   </div>
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 3: Nivel Intermedio II (Inversiones y Patrimonio)</h3>
-      <p style="font-size: 13.5px; color: var(--text-muted);">Pon a trabajar tu dinero en CETES, Bonos, ETFs (S&P 500) y optimiza tus deducciones fiscales.</p>
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 3: Nivel Intermedio II (Inversiones y Patrimonio)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Pon a trabajar tu dinero en CETES, Bonos, ETFs (S&P 500) y optimiza tus deducciones fiscales.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">📈</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Estrategias de inversión y renta fija</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">📈</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Estrategias de inversión y renta fija</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -514,12 +514,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">📊</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Fondos indexados y renta variable</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Aprende a invertir a largo plazo en índices globales como el S&P 500.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">📊</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Fondos indexados y renta variable</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Aprende a invertir a largo plazo en índices globales como el S&P 500.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -534,12 +534,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">🏛️</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Protección patrimonial e impuestos</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Seguros indispensables y optimización fiscal para proteger tu capital.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🏛️</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Protección patrimonial e impuestos</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Seguros indispensables y optimización fiscal para proteger tu capital.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -554,20 +554,20 @@
   </div>
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 20px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 4: Nivel Avanzado (Libertad Financiera)</h3>
-      <p style="font-size: 13.5px; color: var(--text-muted);">Crea negocios rentables, invierte en bienes raíces y FIBRAs, y consolida tu retiro anticipado.</p>
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 4: Nivel Avanzado (Libertad Financiera)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Crea negocios rentables, invierte en bienes raíces y FIBRAs, y consolida tu retiro anticipado.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">💡</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Emprendimiento y modelos de negocio</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">💡</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Emprendimiento y modelos de negocio</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -582,12 +582,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">🏢</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Inversión inmobiliaria y FIBRAs</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🏢</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Inversión inmobiliaria y FIBRAs</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 1 Audios</span>
@@ -602,12 +602,12 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
         </div>
-        <div style="font-size: 28px; margin-bottom: 8px;">🏆</div>
-        <h3 style="font-size: 16.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Independencia y legado financiero</h3>
-        <p class="course-desc" style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🏆</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Independencia y legado financiero</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
-          <div style="font-size: 10.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;">
+          <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
             <span style="color: #dc2626; font-weight: 600;">🎬 3 Videos</span>
             <span style="color: #4338ca; font-weight: 600;">📝 3 Ejercicios</span>
             <span style="color: #0284c7; font-weight: 600;">🎧 2 Audios</span>
@@ -856,11 +856,11 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <h3 style="margin: 0; font-size: 18px;">Buscar en la plataforma</h3>
+        <h3 style="margin: 0; font-size: 20px;">Buscar en la plataforma</h3>
       </div>
       <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones o herramientas..." 
-             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 14px; margin-bottom: 16px; outline: none; box-sizing: border-box;">
-      <div id="searchResults" style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+             style="width: 100%; padding: 12px 16px; border: 1px solid #d4e7de; border-radius: 12px; font-family: inherit; font-size: 16px; margin-bottom: 16px; outline: none; box-sizing: border-box;">
+      <div id="searchResults" style="font-size: 15px; color: var(--text-muted); line-height: 1.6;">
         Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.
       </div>
     </div>
@@ -901,14 +901,14 @@
       <div id="loginMsg" class="form-message"></div>
       <form id="loginForm" onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
-            <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 11.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
+            <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+            <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 13.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
           </div>
           <div class="password-field">
             <input type="password" id="loginPassword" required placeholder="••••••••">
@@ -919,7 +919,7 @@
               </svg>
             </button>
           </div>
-          <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu contraseña.</span>
+          <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu contraseña.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Ingresar al aula virtual
@@ -965,12 +965,12 @@
       <div id="forgotMsg" class="form-message"></div>
       <form id="forgotForm" onsubmit="handleForgotSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
-          <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
+          <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
           <div class="password-field">
             <input type="password" id="forgotPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -980,10 +980,10 @@
               </svg>
             </button>
           </div>
-          <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+          <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
           <div class="password-field">
             <input type="password" id="forgotConfirm" required minlength="6" placeholder="Repite tu nueva contraseña">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -993,7 +993,7 @@
               </svg>
             </button>
           </div>
-          <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+          <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Restablecer mi contraseña
@@ -1039,17 +1039,17 @@
       <div id="signupMsg" class="form-message"></div>
       <form id="signupForm" onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
-          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa tu nombre completo.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
+          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu nombre completo.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
-          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 13px; margin-top: 4px; box-sizing: border-box;">
-          <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+          <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
           <div class="password-field">
             <input type="password" id="signupPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1059,10 +1059,10 @@
               </svg>
             </button>
           </div>
-          <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+          <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
         </div>
         <div>
-          <label style="font-size: 12px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
           <div class="password-field">
             <input type="password" id="signupConfirm" required minlength="6" placeholder="Repite tu contraseña">
             <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
@@ -1072,7 +1072,7 @@
               </svg>
             </button>
           </div>
-          <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 11px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+          <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
           Registrarme y acceder
@@ -1094,8 +1094,8 @@
     <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 20px;">🎬</span>
-          <h3 id="videoPlayerTitle" style="font-size: 17px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
+          <span style="font-size: 22.5px;">🎬</span>
+          <h3 id="videoPlayerTitle" style="font-size: 19px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
         </div>
         <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
       </div>
@@ -1103,8 +1103,8 @@
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <span style="font-size: 12.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
-        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13px;">Terminar de ver</button>
+        <span style="font-size: 14.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
+        <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15px;">Terminar de ver</button>
       </div>
     </div>
   </div>
@@ -1115,21 +1115,21 @@
   <div class="modal-overlay" id="exercisePlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span style="font-size: 11px; font-weight: 800; background: #e0e7ff; color: #4338ca; padding: 3px 10px; border-radius: 999px;" id="exerciseModalType">ACTIVIDAD PRÁCTICA</span>
+        <span style="font-size: 13px; font-weight: 800; background: #e0e7ff; color: #4338ca; padding: 3px 10px; border-radius: 999px;" id="exerciseModalType">ACTIVIDAD PRÁCTICA</span>
         <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">×</button>
       </div>
-      <h3 id="exerciseModalTitle" style="font-size: 18px; margin: 0 0 8px; color: var(--text-dark); font-weight: 800;">Título del ejercicio</h3>
-      <p id="exerciseModalDesc" style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Descripción del ejercicio.</p>
+      <h3 id="exerciseModalTitle" style="font-size: 20px; margin: 0 0 8px; color: var(--text-dark); font-weight: 800;">Título del ejercicio</h3>
+      <p id="exerciseModalDesc" style="font-size: 15.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Descripción del ejercicio.</p>
       
       <div id="exerciseModalOptions" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
         <!-- Se llena dinámicamente con JS -->
       </div>
 
-      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 13px; line-height: 1.4;"></div>
+      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 15px; line-height: 1.4;"></div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 22px; font-size: 13px;">Comprobar mi respuesta</button>
-        <button type="button" class="btn-cta-outline" onclick="closeExercisePlayerModal()" style="padding: 9px 18px; font-size: 13px; color: var(--text-dark); border-color: #d4e7de;">Cerrar</button>
+        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 22px; font-size: 15px;">Comprobar mi respuesta</button>
+        <button type="button" class="btn-cta-outline" onclick="closeExercisePlayerModal()" style="padding: 9px 18px; font-size: 15px; color: var(--text-dark); border-color: #d4e7de;">Cerrar</button>
       </div>
     </div>
   </div>
@@ -1139,7 +1139,7 @@
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
-        <h4 id="videoPlayerTitle" style="margin: 0; font-size: 17px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
+        <h4 id="videoPlayerTitle" style="margin: 0; font-size: 19px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
           <span>🎥</span> <span>Clase en Video</span>
         </h4>
         <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
@@ -1148,7 +1148,7 @@
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
-        <button type="button" class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 13.5px;">Cerrar Video</button>
+        <button type="button" class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15.5px;">Cerrar Video</button>
       </div>
     </div>
   </div>
@@ -1157,7 +1157,7 @@
   <div class="modal-overlay" id="audioPlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
           🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
         </span>
         <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
@@ -1165,16 +1165,16 @@
 
       <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
-          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 26px; color: #06402d; flex-shrink: 0;">
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 28.5px; color: #06402d; flex-shrink: 0;">
             🎙️
           </div>
           <div>
-            <h4 id="audioModalTitle" style="font-size: 17px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
-            <div id="audioModalDuration" style="font-size: 12.5px; opacity: 0.85;">Duración: 18 min</div>
+            <h4 id="audioModalTitle" style="font-size: 19px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
+            <div id="audioModalDuration" style="font-size: 14.5px; opacity: 0.85;">Duración: 18 min</div>
           </div>
         </div>
 
-        <p id="audioModalDesc" style="font-size: 13px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;">
+        <p id="audioModalDesc" style="font-size: 15px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;">
           Escucha esta síntesis comentada por el profesor mientras realizas tus actividades cotidianas.
         </p>
 
@@ -1195,14 +1195,14 @@
         <div style="background: rgba(255,255,255,0.2); height: 6px; border-radius: 999px; overflow: hidden; margin-bottom: 8px;">
           <div id="audioModalProgressBar" style="background: var(--amarillo-dorado); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
         </div>
-        <div style="display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8;">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; opacity: 0.8;">
           <span id="audioModalCurrentTime">00:00</span>
           <span>Reproducción continua en HD</span>
         </div>
       </div>
 
       <div style="display: flex; gap: 12px; justify-content: space-between; align-items: center;">
-        <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
           ▶️ Iniciar reproducción
         </button>
         <button type="button" onclick="closeAudioPlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 12px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
@@ -1216,28 +1216,28 @@
   <div class="modal-overlay" id="bookReaderModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
           📚 LECTURA & GUÍA OFICIAL
         </span>
         <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
-        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
+        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 34.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
           📖
         </div>
         <div>
-          <h3 id="bookModalTitle" style="font-size: 18px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
-          <div id="bookModalAuthor" style="font-size: 13.5px; color: var(--verde-bosque); font-weight: 600; margin-bottom: 6px;">Por Autor</div>
-          <p id="bookModalDesc" style="font-size: 13px; color: var(--gris-medio); line-height: 1.45; margin: 0;">Descripción oficial del material formativo.</p>
+          <h3 id="bookModalTitle" style="font-size: 20px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
+          <div id="bookModalAuthor" style="font-size: 15.5px; color: var(--verde-bosque); font-weight: 600; margin-bottom: 6px;">Por Autor</div>
+          <p id="bookModalDesc" style="font-size: 15px; color: var(--gris-medio); line-height: 1.45; margin: 0;">Descripción oficial del material formativo.</p>
         </div>
       </div>
 
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
-        <h5 style="font-size: 14px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
+        <h5 style="font-size: 16px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
           <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
         </h5>
-        <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 13px; color: #334155; line-height: 1.6;">
+        <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
           <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
           <li><strong>Principio 2:</strong> Auditar y proteger el 20% de cada peso que ganas.</li>
           <li><strong>Principio 3:</strong> El costo oculto de la deuda y cómo eliminar intereses abusivos.</li>
@@ -1247,7 +1247,7 @@
       </div>
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
-        <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 13.5px; display: flex; align-items: center; gap: 8px;">
+        <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
           <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
         </button>
         <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
@@ -1261,20 +1261,20 @@
   <div class="modal-overlay" id="exercisePlayerModal" role="dialog" aria-modal="true">
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
+        <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
           📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
         </span>
         <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
       </div>
-      <h3 id="exerciseModalTitle" style="font-size: 17px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
-      <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 13.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>
+      <h3 id="exerciseModalTitle" style="font-size: 19px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
+      <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 15.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>
 
       <div id="exerciseModalOptions" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;"></div>
 
-      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; font-size: 13.5px; margin-bottom: 16px; line-height: 1.5;"></div>
+      <div id="exerciseModalFeedback" style="display: none; padding: 12px 14px; border-radius: 10px; font-size: 15.5px; margin-bottom: 16px; line-height: 1.5;"></div>
 
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
-        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 20px; font-size: 14px; font-weight: 700;">
+        <button type="button" class="btn-cta-yellow" onclick="comprobarEjercicioModal()" style="padding: 10px 20px; font-size: 16px; font-weight: 700;">
           Comprobar respuesta
         </button>
         <button type="button" onclick="closeExercisePlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">

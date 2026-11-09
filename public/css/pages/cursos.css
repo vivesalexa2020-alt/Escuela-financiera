@@ -95,7 +95,7 @@
       align-items: center;
       gap: 12px;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.15;
       color: #ffffff;
     }
@@ -116,7 +116,7 @@
 
     .nav-menu a {
       color: #ffffff;
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-weight: 500;
       transition: color 0.2s ease;
       position: relative;
@@ -170,7 +170,7 @@
       color: #ffffff;
       padding: 8px 22px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
@@ -187,7 +187,7 @@
       color: var(--primary-deep);
       padding: 8px 22px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       transition: all 0.2s ease;
     }
@@ -200,7 +200,7 @@
 
     .modal-switch-text {
       margin-top: 14px;
-      font-size: 13px;
+      font-size: 15px;
       color: var(--text-muted);
     }
 
@@ -209,7 +209,7 @@
       border: none;
       padding: 0;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--btn-green);
       text-decoration: underline;
@@ -217,7 +217,7 @@
 
     .field-error {
       margin-top: 6px;
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: #e11d48;
       display: none;
     }
@@ -228,7 +228,7 @@
     }
 
     .form-message {
-      font-size: 12.5px;
+      font-size: 14.5px;
       margin-bottom: 6px;
       display: none;
     }
@@ -248,7 +248,7 @@
       color: #ffffff;
       padding: 8px 18px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.35);
       transition: all 0.2s ease;
@@ -276,7 +276,7 @@
     }
 
     .dashboard-card h4 {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 8px;
@@ -284,7 +284,7 @@
 
     .dashboard-card p,
     .dashboard-card li {
-      font-size: 12.5px;
+      font-size: 14.5px;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -314,7 +314,7 @@
       display: none;
       background: transparent;
       color: white;
-      font-size: 26px;
+      font-size: 28.5px;
     }
 
     /* ============================================================
@@ -355,7 +355,7 @@
     .hero-badge {
       display: inline-block;
       color: var(--accent-yellow);
-      font-size: 11.5px;
+      font-size: 13.5px;
       font-weight: 800;
       letter-spacing: 1.2px;
       text-transform: uppercase;
@@ -363,7 +363,7 @@
     }
 
     .hero-title {
-      font-size: clamp(34px, 4vw, 50px);
+      font-size: clamp(36.5px, 4vw, 52.5px);
       font-weight: 800;
       line-height: 1.12;
       letter-spacing: -0.5px;
@@ -376,7 +376,7 @@
     }
 
     .hero-description {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.65;
       color: #e1f5eb;
       max-width: 460px;
@@ -396,7 +396,7 @@
       color: #1a2f1c;
       padding: 12px 26px;
       border-radius: 999px;
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-weight: 700;
       display: inline-flex;
       align-items: center;
@@ -417,7 +417,7 @@
       color: #ffffff;
       padding: 12px 24px;
       border-radius: 999px;
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
@@ -494,14 +494,14 @@
     }
 
     .feature-text h4 {
-      font-size: 13.5px;
+      font-size: 15.5px;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.25;
     }
 
     .feature-text p {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--text-light-mint);
       margin-top: 2px;
       line-height: 1.2;
@@ -535,20 +535,20 @@
     }
 
     .section-header h2 {
-      font-size: 24px;
+      font-size: 26.5px;
       font-weight: 800;
       color: var(--text-dark);
       letter-spacing: -0.3px;
     }
 
     .section-header p {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--text-muted);
       margin-top: 4px;
     }
 
     .link-view-all {
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 700;
       color: #009355;
       display: inline-flex;
@@ -611,7 +611,7 @@
     }
 
     .course-card h3 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 8px;
@@ -619,7 +619,7 @@
     }
 
     .course-card .course-desc {
-      font-size: 11.5px;
+      font-size: 13.5px;
       line-height: 1.55;
       color: var(--text-muted);
       margin-bottom: 18px;
@@ -627,7 +627,7 @@
     }
 
     .course-progress-meta {
-      font-size: 10.5px;
+      font-size: 12px;
       font-weight: 600;
       color: #556c64;
       margin-bottom: 6px;
@@ -654,7 +654,7 @@
       color: #ffffff;
       padding: 9px 14px;
       border-radius: 999px;
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -701,14 +701,14 @@
     }
 
     .progress-banner-text h3 {
-      font-size: 17px;
+      font-size: 19px;
       font-weight: 800;
       color: var(--text-dark);
       line-height: 1.25;
     }
 
     .progress-banner-text p {
-      font-size: 12px;
+      font-size: 14px;
       color: #386352;
       margin-top: 3px;
     }
@@ -729,7 +729,7 @@
     }
 
     .stat-col h4 {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       color: #1e293b;
       margin-bottom: 6px;
@@ -751,7 +751,7 @@
     }
 
     .stat-col .stat-sub {
-      font-size: 9.5px;
+      font-size: 11px;
       color: #64748b;
       font-weight: 500;
     }
@@ -819,14 +819,14 @@
     }
 
     .learn-card h3 {
-      font-size: 17px;
+      font-size: 19px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 8px;
     }
 
     .learn-card p {
-      font-size: 12.5px;
+      font-size: 14.5px;
       line-height: 1.6;
       color: var(--text-muted);
     }
@@ -835,7 +835,7 @@
     .course-level {
       display: inline-block;
       align-self: flex-start;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
@@ -893,7 +893,7 @@
     .resource-tag {
       display: inline-block;
       align-self: flex-start;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 0.4px;
       text-transform: uppercase;
@@ -913,14 +913,14 @@
     }
 
     .resource-card h3 {
-      font-size: 15.5px;
+      font-size: 17.5px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 8px;
     }
 
     .resource-card p {
-      font-size: 11.5px;
+      font-size: 13.5px;
       line-height: 1.55;
       color: var(--text-muted);
       margin-bottom: 16px;
@@ -928,7 +928,7 @@
     }
 
     .resource-price {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 800;
       color: var(--text-dark);
       margin-bottom: 10px;
@@ -940,7 +940,7 @@
       color: #00804b;
       padding: 9px 14px;
       border-radius: 999px;
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 700;
       text-align: center;
       transition: background 0.2s, color 0.2s;
@@ -973,14 +973,14 @@
     }
 
     .about-card h2 {
-      font-size: 26px;
+      font-size: 28.5px;
       font-weight: 800;
       letter-spacing: -0.3px;
       margin-bottom: 14px;
     }
 
     .about-card p {
-      font-size: 13.5px;
+      font-size: 15.5px;
       line-height: 1.7;
       color: var(--text-light-mint);
       margin-bottom: 12px;
@@ -1001,13 +1001,13 @@
 
     .about-stat strong {
       display: block;
-      font-size: 24px;
+      font-size: 26.5px;
       font-weight: 800;
       color: var(--accent-lime);
     }
 
     .about-stat span {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--text-light-mint);
     }
 
@@ -1030,13 +1030,13 @@
     }
 
     .cta-band-inner h3 {
-      font-size: 21px;
+      font-size: 23.5px;
       font-weight: 800;
       color: var(--text-dark);
     }
 
     .cta-band-inner p {
-      font-size: 13px;
+      font-size: 15px;
       color: #386352;
       margin-top: 4px;
     }
@@ -1100,14 +1100,14 @@
     }
 
     .footer-brand p {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: #bfe3d3;
       max-width: 260px;
       line-height: 1.5;
     }
 
     .footer-col h4 {
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 14px;
@@ -1122,7 +1122,7 @@
     }
 
     .footer-col ul a {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--footer-link);
       transition: color 0.2s;
     }
@@ -1168,7 +1168,7 @@
     }
 
     .copyright {
-      font-size: 10px;
+      font-size: 11.5px;
       color: #a1cebb;
     }
 
@@ -1216,7 +1216,7 @@
       border-radius: 50%;
       width: 32px;
       height: 32px;
-      font-size: 18px;
+      font-size: 20px;
       display: grid;
       place-items: center;
       transition: background 0.2s;
@@ -1227,14 +1227,14 @@
     }
 
     .modal-card h3 {
-      font-size: 20px;
+      font-size: 22.5px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 12px;
     }
 
     .modal-card p {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 20px;
@@ -1348,7 +1348,7 @@
       }
       .btn-login, .btn-signup {
         padding: 8px 14px;
-        font-size: 12px;
+        font-size: 14px;
       }
       .btn-signup {
         display: none;
@@ -1404,7 +1404,7 @@
     .splash h1 {
       margin-top: 26px;
       color: #ffffff;
-      font-size: clamp(32px, 7vw, 58px);
+      font-size: clamp(34.5px, 7vw, 60.5px);
       font-weight: 800;
       letter-spacing: .5px;
       line-height: 1.1;
@@ -1418,7 +1418,7 @@
       background: var(--accent-yellow);
       color: var(--primary-dark);
       font-weight: 700;
-      font-size: clamp(15px, 2.6vw, 20px);
+      font-size: clamp(17px, 2.6vw, 22.5px);
       padding: 10px 26px;
       border-radius: 999px;
       box-shadow: 0 8px 22px rgba(250,187,21,.35);
@@ -1450,7 +1450,7 @@
       border: none;
       color: rgba(255,255,255,.7);
       font-family: inherit;
-      font-size: 13px;
+      font-size: 15px;
       text-decoration: underline;
       cursor: pointer;
       animation: splashFadeUp .7s ease 1.4s both;
@@ -1485,7 +1485,7 @@
   border: 1px solid #d4e7de;
   border-radius: 10px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 15px;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -1538,7 +1538,7 @@
   border: 1px solid rgba(203, 246, 62, 0.3);
   padding: 5px 14px;
   border-radius: 999px;
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1546,7 +1546,7 @@
 }
 
 .subpage-hero h1 {
-  font-size: clamp(30px, 4.5vw, 46px);
+  font-size: clamp(32.5px, 4.5vw, 48.5px);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 14px;
@@ -1560,7 +1560,7 @@
   color: var(--text-light-mint);
   max-width: 640px;
   margin: 0 auto;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
@@ -1641,7 +1641,7 @@ body.user-logged-in .logged-topbar {
   background: transparent;
   color: #ffffff;
   border: none;
-  font-size: 22px;
+  font-size: 24.5px;
   cursor: pointer;
   padding: 4px 8px;
   line-height: 1;
@@ -1649,7 +1649,7 @@ body.user-logged-in .logged-topbar {
 
 .sidebar-nav-title {
   padding: 20px 22px 8px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--text-light-mint);
@@ -1672,7 +1672,7 @@ body.user-logged-in .logged-topbar {
   padding: 12px 16px;
   border-radius: 12px;
   color: #d2ebe0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1692,7 +1692,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .sidebar-icon {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1;
   display: inline-block;
   width: 22px;
@@ -1724,7 +1724,7 @@ body.user-logged-in .logged-topbar {
   background: var(--btn-green);
   color: #ffffff;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 17px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -1737,7 +1737,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .sidebar-user-name {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: #ffffff;
   white-space: nowrap;
@@ -1746,7 +1746,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .sidebar-user-role {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--accent-lime);
   opacity: 0.9;
   white-space: nowrap;
@@ -1762,7 +1762,7 @@ body.user-logged-in .logged-topbar {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   padding: 6px 10px;
   border-radius: 8px;
@@ -1802,12 +1802,12 @@ body.user-logged-in .logged-topbar {
   border-radius: 8px;
   padding: 6px 12px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--text-dark);
 }
 
 .page-current-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-dark);
 }
@@ -1819,7 +1819,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .topbar-greeting {
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--text-muted);
 }
 
@@ -1852,7 +1852,7 @@ body.user-logged-in .logged-topbar {
 
 .calc-group label {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 6px;
@@ -1864,7 +1864,7 @@ body.user-logged-in .logged-topbar {
   border: 1px solid #d4e7de;
   border-radius: 10px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -1877,7 +1877,7 @@ body.user-logged-in .logged-topbar {
 }
 
 .calc-result-val {
-  font-size: 38px;
+  font-size: 40.5px;
   font-weight: 800;
   color: var(--accent-lime);
   margin: 10px 0 6px;
@@ -1899,7 +1899,7 @@ body.user-logged-in .logged-topbar {
   text-align: left;
   background: transparent;
   border: none;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text-dark);
   display: flex;
@@ -1910,7 +1910,7 @@ body.user-logged-in .logged-topbar {
 
 .faq-answer {
   padding: 0 22px 18px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-muted);
   line-height: 1.6;
   display: none;
@@ -1926,7 +1926,7 @@ body.user-logged-in .logged-topbar {
 
 .faq-arrow {
   transition: transform 0.2s;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--btn-green);
 }
 
@@ -1967,7 +1967,7 @@ body.user-logged-in .logged-topbar {
 
 @media (max-width: 768px) {
   #navGuestNotice {
-    font-size: 11px !important;
+    font-size: 13px !important;
     padding: 5px 10px !important;
   }
 }

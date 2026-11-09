@@ -35,8 +35,8 @@
             </g>
           </svg>
           <div>
-            <div style="font-weight: 800; font-size: 16px; line-height: 1.1; color: #ffffff;">Educación</div>
-            <div style="font-weight: 500; font-size: 12px; color: var(--accent-lime, #cbf63e);">Financiera</div>
+            <div style="font-weight: 800; font-size: 18px; line-height: 1.1; color: #ffffff;">Educación</div>
+            <div style="font-weight: 500; font-size: 14px; color: var(--accent-lime, #cbf63e);">Financiera</div>
           </div>
         </a>
         <button class="sidebar-close-mobile" onclick="toggleSidebar(false)" aria-label="Cerrar menú">✕</button>
@@ -132,7 +132,7 @@
     </div>
     <div class="logged-topbar-right">
       <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
-      <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 13px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
+      <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
     </div>
   </div>
 
@@ -175,7 +175,7 @@
         <span id="stripStatus">3 lecciones libres para ver ahora</span>
       </div>
       <div>
-        <a href="index.php#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 12.5px;">
+        <a href="index.php#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
           Ver historias de éxito y testimonios →
         </a>
       </div>
@@ -274,7 +274,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
               <span id="lessonTagText">Lección 1 de 3 (Demo Gratuita)</span>
             </span>
-            <span style="font-size: 13px; color: var(--gris-medio);" id="lessonDuration">Duración: 12 min</span>
+            <span style="font-size: 15px; color: var(--gris-medio);" id="lessonDuration">Duración: 12 min</span>
           </div>
 
           <h3 class="lesson-title" id="playerTitle">1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?</h3>
@@ -355,7 +355,7 @@
               <div class="vquiz-bar-header">
                 <div class="vquiz-bar-title">
                   <span>🎯 Cuestionario en video:</span>
-                  <span style="font-weight: 500; font-size: 12px; color: #64748b;">Preguntas de comprensión durante la transmisión</span>
+                  <span style="font-weight: 500; font-size: 14px; color: #64748b;">Preguntas de comprensión durante la transmisión</span>
                 </div>
                 <div class="vquiz-bar-controls">
                   <label class="vquiz-toggle-label" title="Pausar automáticamente el video al llegar a cada punto de control">
@@ -374,7 +374,7 @@
               </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; background: #f7fbf9; border: 1px solid #dff0e8; border-radius: 10px; padding: 10px 14px; font-size: 13px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f7fbf9; border: 1px solid #dff0e8; border-radius: 10px; padding: 10px 14px; font-size: 15px;">
               <span>💡 <strong>Evaluación en tiempo real:</strong> Cada pregunta responde a la sección recién explicada para maximizar tu retención.</span>
               <button type="button" onclick="switchLessonTab('ejercicio')" style="background: var(--verde-claro); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Resolver ejercicio práctico →</button>
             </div>
@@ -383,13 +383,13 @@
           <!-- PANE: EJERCICIO PRÁCTICO -->
           <div class="lesson-tab-pane" id="paneEjercicio" style="display: none;">
             <div class="exercise-box">
-              <span style="display: inline-block; background: #e0e7ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;" id="exerciseTag">ACTIVIDAD PRÁCTICA INTERACTIVA</span>
-              <h4 style="font-size: 16px; font-weight: 700; color: var(--gris-oscuro); margin-bottom: 8px;" id="exerciseTitle">Ejercicio interactivo</h4>
-              <p style="font-size: 13.5px; color: var(--gris-medio); line-height: 1.5; margin-bottom: 16px;" id="exerciseDesc">Responde la siguiente pregunta para validar tu comprensión y ganar puntos de progreso:</p>
+              <span style="display: inline-block; background: #e0e7ff; color: #4338ca; font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;" id="exerciseTag">ACTIVIDAD PRÁCTICA INTERACTIVA</span>
+              <h4 style="font-size: 18px; font-weight: 700; color: var(--gris-oscuro); margin-bottom: 8px;" id="exerciseTitle">Ejercicio interactivo</h4>
+              <p style="font-size: 15.5px; color: var(--gris-medio); line-height: 1.5; margin-bottom: 16px;" id="exerciseDesc">Responde la siguiente pregunta para validar tu comprensión y ganar puntos de progreso:</p>
               
               <div id="exerciseOptionsContainer"></div>
 
-              <div id="exerciseFeedback" style="display: none; padding: 12px 14px; border-radius: 8px; margin-top: 14px; font-size: 13px;"></div>
+              <div id="exerciseFeedback" style="display: none; padding: 12px 14px; border-radius: 8px; margin-top: 14px; font-size: 15px;"></div>
 
               <button type="button" id="btnSubmitExercise" onclick="checkExercise()" style="margin-top: 14px; background: var(--verde-principal); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer;">
                 Comprobar mi respuesta
@@ -401,20 +401,20 @@
           <div class="lesson-tab-pane" id="paneAudio" style="display: none;">
             <div class="audio-player-box">
               <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 20px; color: #06402d;">🎧</div>
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 22.5px; color: #06402d;">🎧</div>
                 <div>
-                  <h4 style="font-size: 16px; margin: 0; font-weight: 700;" id="audioTitle">Episodio de Audio</h4>
-                  <span style="font-size: 12px; opacity: 0.8;" id="audioDuration">Duración: 18 min</span>
+                  <h4 style="font-size: 18px; margin: 0; font-weight: 700;" id="audioTitle">Episodio de Audio</h4>
+                  <span style="font-size: 14px; opacity: 0.8;" id="audioDuration">Duración: 18 min</span>
                 </div>
               </div>
-              <p style="font-size: 13px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;" id="audioDesc">
+              <p style="font-size: 15px; opacity: 0.9; line-height: 1.5; margin-bottom: 16px;" id="audioDesc">
                 Escucha este episodio especial mientras manejas, haces ejercicio o descansas.
               </p>
               <div style="background: rgba(255,255,255,0.12); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
                 <button type="button" onclick="togglePlayAudioDemo(this)" style="background: var(--verde-claro); color: white; border: none; padding: 8px 18px; border-radius: 999px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                   ▶ Reproducir episodio
                 </button>
-                <span style="font-size: 12px; opacity: 0.85;">🔊 Audio HD Disponible</span>
+                <span style="font-size: 14px; opacity: 0.85;">🔊 Audio HD Disponible</span>
               </div>
             </div>
           </div>
@@ -423,12 +423,12 @@
           <div class="lesson-tab-pane" id="paneLibro" style="display: none;">
             <div class="book-download-card">
               <div style="display: flex; align-items: flex-start; gap: 14px;">
-                <div style="font-size: 38px;">📖</div>
+                <div style="font-size: 40.5px;">📖</div>
                 <div>
-                  <span style="font-size: 10px; font-weight: 700; background: #fef08a; color: #854d0e; padding: 2px 8px; border-radius: 999px;">GUÍA OFICIAL RECOMENDADA</span>
-                  <h4 style="font-size: 16px; font-weight: 700; color: var(--gris-oscuro); margin: 6px 0 4px;" id="bookTitle">Libro Recomendado</h4>
-                  <p style="font-size: 12.5px; color: var(--gris-medio); margin: 0 0 6px;" id="bookAuthor">Autor</p>
-                  <p style="font-size: 13px; color: var(--gris-oscuro); margin: 0;" id="bookDesc">Descripción del material</p>
+                  <span style="font-size: 11.5px; font-weight: 700; background: #fef08a; color: #854d0e; padding: 2px 8px; border-radius: 999px;">GUÍA OFICIAL RECOMENDADA</span>
+                  <h4 style="font-size: 18px; font-weight: 700; color: var(--gris-oscuro); margin: 6px 0 4px;" id="bookTitle">Libro Recomendado</h4>
+                  <p style="font-size: 14.5px; color: var(--gris-medio); margin: 0 0 6px;" id="bookAuthor">Autor</p>
+                  <p style="font-size: 15px; color: var(--gris-oscuro); margin: 0;" id="bookDesc">Descripción del material</p>
                 </div>
               </div>
               <button type="button" onclick="downloadBookDemo()" style="background: var(--verde-principal); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">
@@ -446,7 +446,7 @@
 
           <!-- GATE DE REGISTRO EN LECCIÓN 4 -->
           <div class="gate-callout" id="registrationGate" style="display: none;">
-            <div style="font-size: 32px; margin-bottom: 8px;">🎁</div>
+            <div style="font-size: 34.5px; margin-bottom: 8px;">🎁</div>
             <h4>¿Te gustó lo que aprendiste en estos 3 temas?</h4>
             <p>
               <strong>¡Inscríbete gratis!</strong> Crea tu cuenta en 10 segundos y desbloquea de inmediato <strong>todo tu Semestre 1 completo (Nivel Básico)</strong> de la carrera de 2 años, sin ningún costo ni tarjeta de crédito.
@@ -488,7 +488,7 @@
   <div class="modal-backdrop" id="freeRegisterModal" role="dialog" aria-modal="true">
     <div class="modal-panel">
       <button class="modal-close" onclick="closeFreeRegisterModal()">✕</button>
-      <div style="font-size: 32px; margin-bottom: 8px;">🎓</div>
+      <div style="font-size: 34.5px; margin-bottom: 8px;">🎓</div>
       <h3>Libera la Unidad 1 Completa</h3>
       <p>Crea tu acceso gratuito para desbloquear las 4 lecciones y guardar tu avance.</p>
 
@@ -1311,7 +1311,7 @@
         markVquizAnswered(currentLesson, vquizActiveCheckpoint);
         feedback.className = 'vquiz-feedback success';
         feedback.style.display = 'block';
-        feedback.innerHTML = `🎉 <strong>¡Excelente comprensión!</strong> ${cp.explanation}<br><span style="font-size:12px; font-weight:700;">+25 Puntos ganados en tu progreso ⭐</span>`;
+        feedback.innerHTML = `🎉 <strong>¡Excelente comprensión!</strong> ${cp.explanation}<br><span style="font-size:14px; font-weight:700;">+25 Puntos ganados en tu progreso ⭐</span>`;
         
         document.getElementById('vquizBtnSubmit').style.display = 'none';
         document.getElementById('vquizBtnContinue').style.display = 'inline-flex';
@@ -1383,7 +1383,7 @@
 
       const lesson = lessonsData[lessonId];
       if (!lesson || !lesson.videoCheckpoints || lesson.videoCheckpoints.length === 0) {
-        container.innerHTML = '<span style="font-size:12px; color:#64748b;">No hay puntos de control en esta lección.</span>';
+        container.innerHTML = '<span style="font-size:14px; color:#64748b;">No hay puntos de control en esta lección.</span>';
         if (scoreText) scoreText.textContent = 'Sin cuestionario';
         return;
       }
@@ -1515,7 +1515,7 @@
         '<li><strong>3. Control de deudas:</strong> Aplica el método Bola de Nieve o Avalancha.<' + '/li>' +
         '<li><strong>4. Inversión regulada:</strong> Empieza con CETES directo y ETFs como el S&P 500.<' + '/li>' +
         '<li><strong>5. Libertad financiera:</strong> Aplica la regla del 4% para retiro temprano.<' + '/li><' + '/ul>' +
-        '<footer style="margin-top:40px;font-size:12px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.<' + '/footer>' +
+        '<footer style="margin-top:40px;font-size:14px;color:#64748b;">© Educación Financiera. Todos los derechos reservados.<' + '/footer>' +
         '<' + '/body>' + '<' + '/html>';
 
       const blob = new Blob([content], { type: 'text/html' });

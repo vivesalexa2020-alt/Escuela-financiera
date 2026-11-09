@@ -20,4 +20,7 @@
   <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
     <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=<?= time() ?>">
   <?php endforeach; ?>
+
+  <!-- Capa tipográfica global (debe cargar al final) -->
+  <link rel="stylesheet" href="public/css/typography.css?v=<?= time() ?>">
 </head>
