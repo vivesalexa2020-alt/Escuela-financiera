@@ -1698,6 +1698,7 @@
 
     var modal = document.getElementById(modalId);
     if (!modal) return;
+    modal.style.display = 'flex';
     modal.classList.add('is-active');
     document.documentElement.classList.add('demo-modal-open');
     document.body.classList.add('demo-modal-open');
