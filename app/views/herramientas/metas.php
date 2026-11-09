@@ -226,101 +226,740 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
+        <span class="subpage-badge" style="margin: 0;">&#x1F3AF; Metas y H&aacute;bitos Financieros</span>
       </div>
-      <h1>Tu <span>Retícula Académica</span></h1>
-      <p>Inscríbete a las 3 materias de tu primer semestre y avanza semestre a semestre. Haz clic en cada materia para ver su temario e inscribirte.</p>
+      <h1>Mis <span>Metas Financieras</span></h1>
+      <p>Organiza tu crecimiento con herramientas para crear h&aacute;bitos, simulador de decisiones y plan de recuperaci&oacute;n.</p>
     </div>
   </section>
 
-  
-    <div id="lockedBanner" class="auth-lock-card" style="display: none;">
-      <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-        <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 64px; height: 56px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
-    <g>
-      <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
-      <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
-      <rect x="26" y="162" width="26" height="30" rx="8" fill="#e09800"/>
-
-      <rect x="42" y="128" width="156" height="30" rx="8" fill="#cbf63e" transform="rotate(-2 120 143)"/>
-      <rect x="50" y="134" width="140" height="18" rx="4" fill="#f2ffcd" transform="rotate(-2 120 143)"/>
-      <rect x="42" y="128" width="26" height="30" rx="8" fill="#a9cf1e" transform="rotate(-2 120 143)"/>
-
-      <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
-      <rect x="66" y="100" width="108" height="18" rx="4" fill="#d7f4e6" transform="rotate(2 120 109)"/>
-      <rect x="58" y="94" width="26" height="30" rx="8" fill="#bce9d2" transform="rotate(2 120 109)"/>
-    </g>
-
-    <g>
-      <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
-      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
-      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="none" stroke="#d7f4e6" stroke-width="3"/>
-      <circle cx="120" cy="58" r="7" fill="#fabb15"/>
-      <path d="M120,58 C160,58 196,60 204,62 L204,104" fill="none" stroke="#fabb15" stroke-width="5" stroke-linecap="round"/>
-      <path d="M197,104 h14 l4,26 h-22 z" fill="#fabb15"/>
-      <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
-    </g>
-  </svg>
-      </div>
-      <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Metas Financieras</h2>
-      <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
-        Para acceder a tu sección de <strong>Metas</strong> con retos semanales, recordatorios, simulador de decisiones, diario financiero y plan de recuperación, inicia sesión o crea tu cuenta.
-      </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn-cta-yellow" onclick="openLoginModal()" style="padding: 10px 22px;">Iniciar sesión</button>
-        <button class="btn-cta-outline" onclick="openSignupModal()" style="padding: 10px 22px; color: var(--text-dark); border-color: var(--btn-green);">Crear cuenta gratis</button>
-      </div>
-    </div>
-  
-
-  <div id="protectedContent">
+  <div id="protectedContent" style="display: block !important;">
     <div class="container" style="padding: 48px 20px 20px;">
-      <section class="metas-section">
-        <div class="metas-head">
-          <div>
-            <span class="metas-badge">🎯 Metas y Hábitos Financieros</span>
-            <h3>Metas Financieras</h3>
-            <p>Organiza tu crecimiento con herramientas para crear hábitos y tomar mejores decisiones.</p>
+      <!-- BANNER SUPERIOR PRINCIPIANTES -->
+      <div style="background: linear-gradient(135deg, #053724 0%, #0d5f3e 100%); color: #ffffff; border-radius: 18px; padding: 24px 28px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(5,55,36,0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div style="max-width: 680px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(203,246,62,0.2); color: #cbf63e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+            <span>&#x2728;</span> Dise&ntilde;ado para Principiantes &bull; 100% Pr&aacute;ctico
+          </div>
+          <h2 style="font-size: 24px; font-weight: 900; color: #ffffff; margin: 0 0 6px;">Tu Centro de Metas y Transformaci&oacute;n Financiera</h2>
+          <p style="font-size: 14.5px; color: #d7f4e6; margin: 0; line-height: 1.5;">
+            Sin f&oacute;rmulas complicadas. Elige una de las 3 herramientas interactivas de abajo para ahorrar, cumplir h&aacute;bitos y eliminar deudas paso a paso.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px; background: rgba(255,255,255,0.12); padding: 8px 14px; border-radius: 14px; backdrop-filter: blur(4px);">
+          <div style="text-align: center; padding: 0 8px;">
+            <div style="font-size: 20px; font-weight: 900; color: #cbf63e;">3</div>
+            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">Herramientas</div>
+          </div>
+          <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+          <div style="text-align: center; padding: 0 8px;">
+            <div style="font-size: 20px; font-weight: 900; color: #fabb15;">$0</div>
+            <div style="font-size: 11px; color: #e2e8f0; font-weight: 600;">Acceso Libre</div>
           </div>
         </div>
+      </div>
 
-        <div class="metas-grid">
-          <a href="#" class="meta-card" onclick="event.preventDefault(); alert('Próximamente');">
-            <div class="meta-icon meta-icon-1">🏆</div>
-            <h4>Retos semanales</h4>
-            <p>Desafíos pequeños para mejorar tus finanzas poco a poco.</p>
-            <span class="meta-tag">Próximamente</span>
-          </a>
+      <section class="metas-interactive-suite">
 
-          <a href="#" class="meta-card" onclick="event.preventDefault(); alert('Próximamente');">
-            <div class="meta-icon meta-icon-2">⏰</div>
-            <h4>Recordatorio</h4>
-            <p>Programar avisos para pagos, ahorros y revisiones.</p>
-            <span class="meta-tag">Próximamente</span>
-          </a>
+        <!-- TABS MODERNOS CON DEGRADADOS Y COLORES -->
+        <div class="metas-tabs-nav" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 26px;">
+          
+          <button type="button" class="metas-tab-btn active" id="tabBtnMetas" onclick="switchMetasTab('metas')" 
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #00703C; cursor: pointer; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #00703C 0%, #064e2e 100%); color: #ffffff; box-shadow: 0 6px 18px rgba(0,112,60,0.25); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 28px; background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">&#x1F3AF;</span>
+            <div>
+              <div style="font-size: 15px; font-weight: 800;">1. Metas de Ahorro</div>
+              <div style="font-size: 12px; opacity: 0.9; font-weight: 500;">Calcula y visualiza tu progreso</div>
+            </div>
+          </button>
 
-          <a href="#" class="meta-card" onclick="event.preventDefault(); alert('Próximamente');">
-            <div class="meta-icon meta-icon-3">🧠</div>
-            <h4>Simulador de decisiones</h4>
-            <p>Juega con escenarios y aprende el impacto de cada decisión.</p>
-            <span class="meta-tag">Próximamente</span>
-          </a>
+          <button type="button" class="metas-tab-btn" id="tabBtnRetos" onclick="switchMetasTab('retos')" 
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 28px; background: #fef3c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #d97706;">&#x1F3C6;</span>
+            <div>
+              <div style="font-size: 15px; font-weight: 800;">2. Retos Semanales</div>
+              <div style="font-size: 12px; color: #64748b; font-weight: 500;">Desaf&iacute;os r&aacute;pidos con medallas</div>
+            </div>
+          </button>
 
-          <a href="#" class="meta-card" onclick="event.preventDefault(); alert('Próximamente');">
-            <div class="meta-icon meta-icon-4">📒</div>
-            <h4>Diario financiero</h4>
-            <p>Registra ingresos, gastos y emociones sobre tu dinero.</p>
-            <span class="meta-tag">Próximamente</span>
-          </a>
+          <button type="button" class="metas-tab-btn" id="tabBtnDeudas" onclick="switchMetasTab('deudas')" 
+                  style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 15px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
+            <span style="font-size: 28px; background: #fee2e2; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #dc2626;">&#x1F6E1;&#xFE0F;</span>
+            <div>
+              <div style="font-size: 15px; font-weight: 800;">3. M&eacute;todo Anti-Deuda</div>
+              <div style="font-size: 12px; color: #64748b; font-weight: 500;">Estrategia Bola de Nieve</div>
+            </div>
+          </button>
 
-          <a href="#" class="meta-card" onclick="event.preventDefault(); alert('Próximamente');">
-            <div class="meta-icon meta-icon-5">🛠️</div>
-            <h4>Plan de recuperación</h4>
-            <p>Acciones paso a paso para salir de deudas o imprevistos.</p>
-            <span class="meta-tag">Próximamente</span>
-          </a>
         </div>
+
+        <!-- ========================================================
+             TAB 1: RASTREADOR DE METAS DE AHORRO
+             ======================================================== -->
+        <div class="metas-tab-content" id="tabContentMetas" style="display: block;">
+          
+          <!-- FORMULARIO CREAR META VIBRANTE -->
+          <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border-radius: 18px; border: 1.5px solid #86efac; padding: 26px; box-shadow: 0 6px 20px rgba(0,112,60,0.06); margin-bottom: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+              <div>
+                <span style="background: #dcfce7; color: #15803d; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px;">
+                  &#x1F4B0; Simulador de Ahorro Paso a Paso
+                </span>
+                <h3 style="font-size: 21px; font-weight: 900; color: #064e3b; margin: 0 0 4px;">&iquest;Qu&eacute; sue&ntilde;o o meta quieres alcanzar?</h3>
+                <p style="font-size: 13.5px; color: #475569; margin: 0;">Escribe tu meta e ingresa un aporte mensual c&oacute;modo (Â¡incluso desde $500 o $1,500 MXN!).</p>
+              </div>
+            </div>
+
+            <form id="formNuevaMeta" onsubmit="agregarNuevaMeta(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; align-items: flex-end;">
+              <div>
+                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                  &#x1F3AF; Nombre de la Meta
+                </label>
+                <input type="text" id="metaNombre" placeholder="Ej. Fondo de emergencia o Viaje" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+              </div>
+              <div>
+                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                  &#x1F4B5; Monto Objetivo ($ MXN)
+                </label>
+                <input type="number" id="metaObjetivo" placeholder="Ej. 15000" min="500" step="500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+              </div>
+              <div>
+                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                  &#x1F9FE; &iquest;Cu&aacute;nto tienes hoy? ($)
+                </label>
+                <input type="number" id="metaActual" placeholder="Ej. 2000" min="0" step="100" value="0" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+              </div>
+              <div>
+                <label style="display: block; font-size: 12.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                  &#x1F4C5; Aporte mensual ($ MXN)
+                </label>
+                <input type="number" id="metaAporte" placeholder="Ej. 1500" min="100" step="100" value="1500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 14px; font-weight: 700; background: #ffffff;">
+              </div>
+              <div>
+                <button type="submit" style="width: 100%; padding: 12px 18px; background: linear-gradient(135deg, #00703C 0%, #15803d 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 800; font-size: 14.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,112,60,0.3); transition: transform 0.15s ease;">
+                  <span>&#x2728;</span> Agregar Meta
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- ENCABEZADO DE TARJETAS -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 900; color: #0f172a; margin: 0 0 4px;">Tus Metas Activas</h3>
+              <p style="font-size: 13.5px; color: #64748b; margin: 0;">Presiona los botones verdes <strong>+Abonar</strong> para simular tus aportes y ver crecer tu barra.</p>
+            </div>
+            <button type="button" onclick="restablecerMetasEjemplo()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; cursor: pointer;">
+              &#x21BA; Cargar Metas Recomendadas
+            </button>
+          </div>
+
+          <!-- GRID DE TARJETAS DE METAS COLORIDAS -->
+          <div id="gridMetasCards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+            <!-- Renderizado dinamicamente por JS -->
+          </div>
+
+        </div>
+
+        <!-- ========================================================
+             TAB 2: RETOS FINANCIEROS SEMANALES (GAMIFICACION)
+             ======================================================== -->
+        <div class="metas-tab-content" id="tabContentRetos" style="display: none;">
+          
+          <!-- BANNER HERO RETOS CON TROFEO -->
+          <div style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); color: #ffffff; border-radius: 18px; padding: 26px 28px; margin-bottom: 26px; box-shadow: 0 8px 26px rgba(49,46,129,0.25);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+              <div>
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(250,187,21,0.25); color: #fabb15; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px;">
+                  <span>&#x1F3C6;</span> Nivel 1: Constructor de Disciplina
+                </div>
+                <h3 style="font-size: 23px; font-weight: 900; margin: 0 0 6px; color: #ffffff;">5 Retos F&aacute;ciles de Transformaci&oacute;n</h3>
+                <p style="font-size: 14px; color: #c7d2fe; margin: 0; max-width: 650px;">
+                  Gana peque&ntilde;as victorias cada semana. Al marcar cada reto ver&aacute;s c&oacute;mo aumenta tu barra de progreso y liberas dinero real.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.12); padding: 14px 22px; border-radius: 14px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                <div style="font-size: 32px; font-weight: 900; color: #cbf63e; line-height: 1;" id="contadorRetosTxt">0 / 5</div>
+                <div style="font-size: 12px; color: #e0e7ff; font-weight: 700; margin-top: 4px;">Retos Completados</div>
+              </div>
+            </div>
+
+            <!-- BARRA DE NIVEL GAMIFICADA -->
+            <div style="background: rgba(255,255,255,0.2); height: 12px; border-radius: 10px; margin-top: 22px; overflow: hidden;">
+              <div id="barraProgresoRetos" style="background: linear-gradient(90deg, #fabb15 0%, #cbf63e 100%); height: 100%; width: 0%; border-radius: 10px; transition: width 0.4s ease;"></div>
+            </div>
+          </div>
+
+          <!-- LISTA DE LOS 5 RETOS EN COLORES PASTEL -->
+          <div id="listaRetosContainer" style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Renderizado por JS -->
+          </div>
+
+        </div>
+
+        <!-- ========================================================
+             TAB 3: METODO BOLA DE NIEVE (ANTI-DEUDA)
+             ======================================================== -->
+        <div class="metas-tab-content" id="tabContentDeudas" style="display: none;">
+          
+          <!-- TARJETA EXPLICATIVA AMIGABLE -->
+          <div style="background: linear-gradient(135deg, #fff1f2 0%, #ffffff 100%); border-radius: 18px; border: 1.5px solid #fecdd3; padding: 26px; box-shadow: 0 6px 20px rgba(225,29,72,0.06); margin-bottom: 26px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
+              <div>
+                <span style="background: #ffe4e6; color: #e11d48; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">
+                  &#x1F9CA; M&eacute;todo Psicol&oacute;gico Comprobado
+                </span>
+                <h3 style="font-size: 22px; font-weight: 900; color: #881337; margin: 0 0 6px;">&iquest;C&oacute;mo funciona la Bola de Nieve?</h3>
+                <p style="font-size: 14px; color: #4c0519; margin: 0; max-width: 680px; line-height: 1.5;">
+                  Pagas el m&iacute;nimo en las grandes y concentras todo tu dinero extra en <strong>liquidar la m&aacute;s chiquita primero</strong>. Al vencer la primera, sientes alivio inmediato y sumas ese dinero a la siguiente.
+                </p>
+              </div>
+
+              <!-- APORTE EXTRA MENSUAL VIBRANTE -->
+              <div style="background: #ffffff; padding: 12px 18px; border-radius: 12px; border: 2px solid #fb7185; box-shadow: 0 4px 12px rgba(225,29,72,0.1);">
+                <label style="font-size: 12px; font-weight: 800; color: #9f1239; display: block; margin-bottom: 4px;">&#x26A1; Aporte extra mensual:</label>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="font-size: 16px; font-weight: 900; color: #e11d48;">$</span>
+                  <input type="number" id="inputAporteExtraBola" value="1000" min="0" step="200" oninput="calcularBolaDeNieve()" 
+                         style="width: 120px; padding: 6px 10px; border: 1.5px solid #fda4af; border-radius: 8px; font-weight: 900; font-size: 16px; color: #881337; background: #fff1f2;">
+                  <span style="font-size: 12px; color: #9f1239; font-weight: 700;">MXN</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TABLA ESTILIZADA DE COMPROMISOS -->
+            <div style="overflow-x: auto; margin-bottom: 20px; border-radius: 12px; border: 1px solid #fed7aa; background: #ffffff;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px;">
+                <thead>
+                  <tr style="background: linear-gradient(90deg, #ffedd5 0%, #fed7aa 100%); color: #7c2d12; font-weight: 800;">
+                    <th style="padding: 12px 16px;">Prioridad de Pago</th>
+                    <th style="padding: 12px 16px;">Compromiso</th>
+                    <th style="padding: 12px 16px;">Saldo Restante</th>
+                    <th style="padding: 12px 16px;">Pago M&iacute;nimo</th>
+                    <th style="padding: 12px 16px;">Tasa Anual</th>
+                    <th style="padding: 12px 16px; text-align: center;">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaDeudasBody">
+                  <!-- Renderizado por JS con colores semaforo -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- FORMULARIO AGREGAR DEUDA AMIGABLE -->
+            <form id="formAgregarDeuda" onsubmit="agregarDeudaBola(event)" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 10px; align-items: flex-end; background: #fff7ed; padding: 16px; border-radius: 12px; border: 1.5px dashed #fdba74;">
+              <div>
+                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Nombre</label>
+                <input type="text" id="nuevaDeudaNombre" placeholder="Ej. Tarjeta Bancomer" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+              </div>
+              <div>
+                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Saldo Total ($)</label>
+                <input type="number" id="nuevaDeudaSaldo" placeholder="3500" min="100" step="100" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+              </div>
+              <div>
+                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">M&iacute;nimo Mes ($)</label>
+                <input type="number" id="nuevaDeudaMinimo" placeholder="400" min="50" step="50" required style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+              </div>
+              <div>
+                <label style="display:block; font-size:11.5px; font-weight:700; color:#9a3412; margin-bottom:4px;">Tasa %</label>
+                <input type="number" id="nuevaDeudaTasa" placeholder="35" min="0" max="150" step="1" value="35" style="width: 100%; padding: 8px 12px; border: 1px solid #fdba74; border-radius: 8px; font-size: 13px; background:#fff;">
+              </div>
+              <div>
+                <button type="submit" style="padding: 9px 18px; background: #ea580c; color: #ffffff; border: none; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; box-shadow: 0 3px 10px rgba(234,88,12,0.3);">
+                  + Registrar
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+          <!-- RESULTADOS COLORIDOS DE BOLA DE NIEVE -->
+          <div id="resultadoBolaContainer">
+            <!-- Renderizado dinamicamente por JS -->
+          </div>
+
+        </div>
+
       </section>
+
+      <!-- JAVASCRIPT INTEGRADO DE LAS 3 HERRAMIENTAS -->
+      <script>
+        // --- 1. GESTION DE TABS COLORIDOS ---
+        function switchMetasTab(tabId) {
+          const tabs = ['metas', 'retos', 'deudas'];
+          tabs.forEach(t => {
+            const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+            const content = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
+            if (t === tabId) {
+              if (btn) {
+                if (t === 'metas') {
+                  btn.style.background = 'linear-gradient(135deg, #00703C 0%, #064e2e 100%)';
+                  btn.style.borderColor = '#00703C';
+                  btn.style.boxShadow = '0 6px 18px rgba(0,112,60,0.25)';
+                } else if (t === 'retos') {
+                  btn.style.background = 'linear-gradient(135deg, #d97706 0%, #b45309 100%)';
+                  btn.style.borderColor = '#d97706';
+                  btn.style.boxShadow = '0 6px 18px rgba(217,119,6,0.25)';
+                } else {
+                  btn.style.background = 'linear-gradient(135deg, #e11d48 0%, #be123c 100%)';
+                  btn.style.borderColor = '#e11d48';
+                  btn.style.boxShadow = '0 6px 18px rgba(225,29,72,0.25)';
+                }
+                btn.style.color = '#ffffff';
+                const iconBox = btn.querySelector('span');
+                if (iconBox) {
+                  iconBox.style.background = 'rgba(255,255,255,0.25)';
+                  iconBox.style.color = '#ffffff';
+                }
+              }
+              if (content) content.style.display = 'block';
+            } else {
+              if (btn) {
+                btn.style.background = '#ffffff';
+                btn.style.color = '#1e293b';
+                btn.style.borderColor = '#e2e8f0';
+                btn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
+                const iconBox = btn.querySelector('span');
+                if (iconBox) {
+                  if (t === 'metas') { iconBox.style.background = '#dcfce7'; iconBox.style.color = '#15803d'; }
+                  else if (t === 'retos') { iconBox.style.background = '#fef3c7'; iconBox.style.color = '#d97706'; }
+                  else { iconBox.style.background = '#fee2e2'; iconBox.style.color = '#dc2626'; }
+                }
+              }
+              if (content) content.style.display = 'none';
+            }
+          });
+        }
+
+        // --- 2. LOGICA METAS DE AHORRO ---
+        const METAS_STORAGE_KEY = 'edu_fin_metas_list_v2';
+        let misMetas = [];
+
+        function cargarMetasIniciales() {
+          const guardadas = localStorage.getItem(METAS_STORAGE_KEY);
+          if (guardadas) {
+            try { misMetas = JSON.parse(guardadas); } catch(e) { misMetas = []; }
+          }
+          if (!misMetas || misMetas.length === 0) {
+            restablecerMetasEjemplo();
+            return;
+          }
+          renderMetasCards();
+        }
+
+        function restablecerMetasEjemplo() {
+          misMetas = [
+            { 
+              id: 1, 
+              nombre: 'Colch&oacute;n de Emergencia (3 Meses)', 
+              categoria: 'Seguridad', 
+              objetivo: 18000, 
+              actual: 7500, 
+              aporte: 1500, 
+              colorTheme: 'green',
+              icono: '&#x1F6E1;&#xFE0F;' 
+            },
+            { 
+              id: 2, 
+              nombre: 'Mi Primera Inversi&oacute;n en CETES', 
+              categoria: 'Inversi&oacute;n', 
+              objetivo: 10000, 
+              actual: 4000, 
+              aporte: 1500, 
+              colorTheme: 'blue',
+              icono: '&#x1F4C8;' 
+            },
+            { 
+              id: 3, 
+              nombre: 'Nueva Laptop para Estudiar y Trabajar', 
+              categoria: 'Herramienta', 
+              objetivo: 12000, 
+              actual: 6000, 
+              aporte: 1500, 
+              colorTheme: 'amber',
+              icono: '&#x1F4BB;' 
+            }
+          ];
+          guardarMetas();
+          renderMetasCards();
+        }
+
+        function guardarMetas() {
+          localStorage.setItem(METAS_STORAGE_KEY, JSON.stringify(misMetas));
+        }
+
+        function renderMetasCards() {
+          const container = document.getElementById('gridMetasCards');
+          if (!container) return;
+          container.innerHTML = '';
+
+          const themes = {
+            green: { bg: '#f0fdf4', border: '#86efac', bar: 'linear-gradient(90deg, #10b981 0%, #00703C 100%)', badgeBg: '#dcfce7', badgeColor: '#166534', btnBg: '#00703C' },
+            blue:  { bg: '#f0f9ff', border: '#7dd3fc', bar: 'linear-gradient(90deg, #38bdf8 0%, #0284c7 100%)', badgeBg: '#e0f2fe', badgeColor: '#075985', btnBg: '#0284c7' },
+            amber: { bg: '#fffbeb', border: '#fcd34d', bar: 'linear-gradient(90deg, #fbbf24 0%, #d97706 100%)', badgeBg: '#fef3c7', badgeColor: '#92400e', btnBg: '#d97706' }
+          };
+
+          misMetas.forEach((m, idx) => {
+            const themeKey = m.colorTheme || (idx % 3 === 0 ? 'green' : (idx % 3 === 1 ? 'blue' : 'amber'));
+            const th = themes[themeKey] || themes.green;
+
+            const pct = Math.min(100, Math.round((m.actual / m.objetivo) * 100));
+            const restante = Math.max(0, m.objetivo - m.actual);
+            const meses = m.aporte > 0 ? Math.ceil(restante / m.aporte) : 0;
+
+            const card = document.createElement('div');
+            card.style.background = th.bg;
+            card.style.borderRadius = '18px';
+            card.style.border = '2px solid ' + th.border;
+            card.style.padding = '22px';
+            card.style.boxShadow = '0 6px 20px rgba(0,0,0,0.04)';
+            card.style.display = 'flex';
+            card.style.flexDirection = 'column';
+            card.style.justifyContent = 'space-between';
+            card.style.transition = 'transform 0.2s ease';
+
+            card.innerHTML = 
+              '<div>' +
+                '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">' +
+                  '<div style="display: flex; align-items: center; gap: 10px;">' +
+                    '<span style="font-size: 28px; background: #ffffff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">' + (m.icono || '&#x1F3AF;') + '</span>' +
+                    '<div>' +
+                      '<span style="background:' + th.badgeBg + '; color:' + th.badgeColor + '; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;">' + (m.categoria || 'Ahorro') + '</span>' +
+                      '<h4 style="font-size: 16.5px; font-weight: 900; color:#0f172a; margin: 4px 0 0;">' + m.nombre + '</h4>' +
+                    '</div>' +
+                  '</div>' +
+                  '<button type="button" onclick="eliminarMeta(' + m.id + ')" title="Eliminar meta" style="background:none; border:none; color:#94a3b8; font-size:18px; cursor:pointer; padding:4px;">&times;</button>' +
+                '</div>' +
+
+                '<div style="background:#ffffff; border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(0,0,0,0.05);">' +
+                  '<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">' +
+                    '<div>' +
+                      '<span style="font-size: 11px; color:#64748b; font-weight: 700; text-transform: uppercase;">Llevas ahorrado</span>' +
+                      '<div style="font-size: 20px; font-weight: 900; color:#0f172a;">$' + m.actual.toLocaleString('es-MX') + ' <span style="font-size: 12px; color:#64748b;">MXN</span></div>' +
+                    '</div>' +
+                    '<div style="text-align: right;">' +
+                      '<span style="font-size: 11px; color:#64748b; font-weight: 700; text-transform: uppercase;">Meta final</span>' +
+                      '<div style="font-size: 15px; font-weight: 800; color:#475569;">$' + m.objetivo.toLocaleString('es-MX') + '</div>' +
+                    '</div>' +
+                  '</div>' +
+
+                  '<div style="background: #e2e8f0; height: 12px; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">' +
+                    '<div style="background: ' + th.bar + '; height: 100%; width: ' + pct + '%; border-radius: 8px; transition: width 0.4s ease;"></div>' +
+                  '</div>' +
+
+                  '<div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700;">' +
+                    '<span style="color:' + th.badgeColor + ';">' + pct + '% Completado</span>' +
+                    '<span style="color:#64748b;">Faltan: $' + restante.toLocaleString('es-MX') + '</span>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+
+              '<div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">' +
+                '<span style="font-size: 12.5px; color:#334155; font-weight: 700;">' +
+                  (restante === 0 ? '&#x1F389; &iexcl;META LOGRADA!' : '&#x23F3; Llegar&aacute;s en <strong>' + meses + ' mes(es)</strong>') +
+                '</span>' +
+                '<div style="display: flex; gap: 6px;">' +
+                  '<button type="button" onclick="abonarMeta(' + m.id + ', 500)" style="padding: 7px 12px; font-size: 12px; font-weight: 800; background:#ffffff; color:' + th.badgeColor + '; border:1.5px solid ' + th.border + '; border-radius:8px; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">+$500</button>' +
+                  '<button type="button" onclick="abonarMeta(' + m.id + ', ' + m.aporte + ')" style="padding: 7px 12px; font-size: 12px; font-weight: 800; background:' + th.btnBg + '; color:#ffffff; border:none; border-radius:8px; cursor:pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.12);">+$' + m.aporte + '</button>' +
+                '</div>' +
+              '</div>';
+
+            container.appendChild(card);
+          });
+        }
+
+        function agregarNuevaMeta(e) {
+          e.preventDefault();
+          const nombre = document.getElementById('metaNombre').value.trim();
+          const objetivo = parseFloat(document.getElementById('metaObjetivo').value) || 0;
+          const actual = parseFloat(document.getElementById('metaActual').value) || 0;
+          const aporte = parseFloat(document.getElementById('metaAporte').value) || 1500;
+
+          if (!nombre || objetivo <= 0) return;
+
+          misMetas.unshift({
+            id: Date.now(),
+            nombre: nombre,
+            categoria: 'Personal',
+            objetivo: objetivo,
+            actual: actual,
+            aporte: aporte,
+            colorTheme: misMetas.length % 3 === 0 ? 'green' : (misMetas.length % 3 === 1 ? 'blue' : 'amber'),
+            icono: '&#x1F3AF;'
+          });
+
+          guardarMetas();
+          renderMetasCards();
+          document.getElementById('formNuevaMeta').reset();
+          document.getElementById('metaActual').value = '0';
+          document.getElementById('metaAporte').value = '1500';
+        }
+
+        function abonarMeta(id, monto) {
+          const meta = misMetas.find(m => m.id === id);
+          if (meta) {
+            meta.actual = Math.min(meta.objetivo, meta.actual + monto);
+            guardarMetas();
+            renderMetasCards();
+          }
+        }
+
+        function eliminarMeta(id) {
+          if (confirm('&iquest;Deseas eliminar esta meta?')) {
+            misMetas = misMetas.filter(m => m.id !== id);
+            guardarMetas();
+            renderMetasCards();
+          }
+        }
+
+        // --- 3. LOGICA RETOS SEMANALES COLORIDOS ---
+        const RETOS_STORAGE_KEY = 'edu_fin_retos_status_v2';
+        const LISTA_RETOS = [
+          {
+            id: 'r1',
+            titulo: 'Reto 1: Detecta y Elimina tus Fugas Hormiga',
+            desc: 'Apunta cada gasto peque&ntilde;o de tu d&iacute;a (caf&eacute; comercial, botanas, comisiones de apps). Elige 2 que puedas evitar y guarda $50 MXN diarios en un sobre.',
+            ahorro: '$350 MXN en 7 d&iacute;as',
+            duracion: '1 Semana',
+            icono: '&#x2615;',
+            theme: { bg: '#fffbeb', border: '#fcd34d', badgeBg: '#fef3c7', badgeColor: '#92400e', iconBg: '#fde68a' }
+          },
+          {
+            id: 'r2',
+            titulo: 'Reto 2: Construye tu Colch&oacute;n de Paz Mental',
+            desc: 'Aparta tus primeros $1,000 MXN en una alcanc&iacute;a o cuenta bancaria sin tarjeta f&iacute;sica. Solo se toca si ocurre una aut&eacute;ntica emergencia m&eacute;dica o dom&eacute;stica.',
+            ahorro: '$1,000 MXN ahorrados',
+            duracion: '15 d&iacute;as',
+            icono: '&#x1F331;',
+            theme: { bg: '#f0fdf4', border: '#86efac', badgeBg: '#dcfce7', badgeColor: '#166534', iconBg: '#bbf7d0' }
+          },
+          {
+            id: 'r3',
+            titulo: 'Reto 3: Fin de Semana Cero Gastos Innecesarios',
+            desc: 'Pasa s&aacute;bado y domingo cocinando rico en casa y organizando paseos al aire libre o pel&iacute;culas con amigos. Demu&eacute;strale a tu cerebro que relajarse no cuesta dinero.',
+            ahorro: '$400 a $800 MXN libres',
+            duracion: 'Fin de semana',
+            icono: '&#x1F3AE;',
+            theme: { bg: '#faf5ff', border: '#d8b4fe', badgeBg: '#f3e8ff', badgeColor: '#6b21a8', iconBg: '#e9d5ff' }
+          },
+          {
+            id: 'r4',
+            titulo: 'Reto 4: Auditor&iacute;a de Suscripciones Fantasma',
+            desc: 'Abre tu banca m&oacute;vil, revisa tus cobros autom&aacute;ticos del &uacute;ltimo mes y cancela de inmediato al menos 1 membres&iacute;a o aplicaci&oacute;n que no uses todos los d&iacute;as.',
+            ahorro: '$150 a $350 MXN al mes',
+            duracion: '15 minutos',
+            icono: '&#x1F4F1;',
+            theme: { bg: '#f0f9ff', border: '#7dd3fc', badgeBg: '#e0f2fe', badgeColor: '#075985', iconBg: '#bae6fd' }
+          },
+          {
+            id: 'r5',
+            titulo: 'Reto 5: Tu Primer Paso en CETES / Renta Fija',
+            desc: 'Abre tu cuenta en CETES Directo o usa el simulador para apartar tus primeros $100 MXN en deuda gubernamental respaldada. Vence el miedo a invertir.',
+            ahorro: 'H&aacute;bito de inversi&oacute;n',
+            duracion: '1 d&iacute;a',
+            icono: '&#x1F48E;',
+            theme: { bg: '#fff1f2', border: '#fda4af', badgeBg: '#ffe4e6', badgeColor: '#9f1239', iconBg: '#fecdd3' }
+          }
+        ];
+
+        let estadosRetos = {};
+
+        function cargarRetos() {
+          const guardados = localStorage.getItem(RETOS_STORAGE_KEY);
+          if (guardados) {
+            try { estadosRetos = JSON.parse(guardados); } catch(e) { estadosRetos = {}; }
+          }
+          renderRetos();
+        }
+
+        function renderRetos() {
+          const container = document.getElementById('listaRetosContainer');
+          if (!container) return;
+          container.innerHTML = '';
+
+          let cumplidos = 0;
+
+          LISTA_RETOS.forEach(r => {
+            const completado = !!estadosRetos[r.id];
+            if (completado) cumplidos++;
+            const th = r.theme;
+
+            const card = document.createElement('div');
+            card.style.background = completado ? '#ecfdf5' : th.bg;
+            card.style.border = '2px solid ' + (completado ? '#10b981' : th.border);
+            card.style.borderRadius = '16px';
+            card.style.padding = '20px 22px';
+            card.style.display = 'flex';
+            card.style.justifyContent = 'space-between';
+            card.style.alignItems = 'center';
+            card.style.gap = '16px';
+            card.style.boxShadow = '0 4px 14px rgba(0,0,0,0.03)';
+            card.style.transition = 'all 0.25s ease';
+
+            card.innerHTML = 
+              '<div style="display: flex; align-items: flex-start; gap: 16px; flex: 1;">' +
+                '<div style="font-size: 26px; width: 48px; height: 48px; border-radius: 12px; background:' + (completado ? '#d1fae5' : th.iconBg) + '; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">' +
+                  (completado ? '&#x2705;' : r.icono) +
+                '</div>' +
+                '<div style="flex: 1;">' +
+                  '<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">' +
+                    '<h4 style="font-size: 16px; font-weight: 900; color:' + (completado ? '#065f46' : '#0f172a') + '; margin: 0;">' + r.titulo + '</h4>' +
+                    '<span style="font-size: 11px; font-weight: 800; background:' + (completado ? '#a7f3d0' : th.badgeBg) + '; color:' + (completado ? '#064e3b' : th.badgeColor) + '; padding: 3px 8px; border-radius: 6px;">' + r.duracion + '</span>' +
+                  '</div>' +
+                  '<p style="font-size: 13.5px; color:' + (completado ? '#047857' : '#475569') + '; margin: 0 0 6px; line-height: 1.45;">' + r.desc + '</p>' +
+                  '<div style="font-size: 12.5px; font-weight: 800; color:' + (completado ? '#059669' : '#00703C') + ';">&#x1F4A1; Recompensa estimada: ' + r.ahorro + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div>' +
+                '<button type="button" onclick="toggleReto(\'' + r.id + '\')" style="padding: 10px 20px; border-radius: 24px; font-weight: 800; font-size: 13.5px; cursor: pointer; border: none; background:' + (completado ? '#10b981' : '#00703C') + '; color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: transform 0.15s ease;">' +
+                  (completado ? '&#x2714; &iexcl;Logrado!' : 'Marcar Hecho') +
+                '</button>' +
+              '</div>';
+
+            container.appendChild(card);
+          });
+
+          const pct = Math.round((cumplidos / LISTA_RETOS.length) * 100);
+          const contadorEl = document.getElementById('contadorRetosTxt');
+          const barraEl = document.getElementById('barraProgresoRetos');
+          if (contadorEl) contadorEl.textContent = cumplidos + ' / ' + LISTA_RETOS.length;
+          if (barraEl) barraEl.style.width = pct + '%';
+        }
+
+        function toggleReto(id) {
+          estadosRetos[id] = !estadosRetos[id];
+          localStorage.setItem(RETOS_STORAGE_KEY, JSON.stringify(estadosRetos));
+          renderRetos();
+        }
+
+        // --- 4. LOGICA METODO BOLA DE NIEVE VIBRANTE ---
+        let misDeudas = [
+          { id: 1, nombre: 'Tienda Departamental (Ropa/Muebles)', saldo: 3500, minimo: 400, tasa: 42 },
+          { id: 2, nombre: 'Tarjeta de Cr&eacute;dito Cl&aacute;sica', saldo: 12000, minimo: 900, tasa: 48 },
+          { id: 3, nombre: 'Pr&eacute;stamo de N&oacute;mina', saldo: 28000, minimo: 1600, tasa: 28 }
+        ];
+
+        function renderTablaDeudas() {
+          const tbody = document.getElementById('tablaDeudasBody');
+          if (!tbody) return;
+          tbody.innerHTML = '';
+
+          misDeudas.sort((a, b) => a.saldo - b.saldo);
+
+          const badgeStyles = [
+            { bg: '#fee2e2', color: '#b91c1c', border: '#fca5a5', label: '&#x1F525; Paso 1: Pagar Primero' },
+            { bg: '#fef3c7', color: '#b45309', border: '#fcd34d', label: '&#x23F3; Paso 2: Pagar M&iacute;nimo' },
+            { bg: '#e0f2fe', color: '#0369a1', border: '#7dd3fc', label: '&#x1F6E1;&#xFE0F; Paso 3: Al Final' }
+          ];
+
+          misDeudas.forEach((d, idx) => {
+            const b = badgeStyles[idx] || badgeStyles[2];
+            const tr = document.createElement('tr');
+            tr.style.borderBottom = '1px solid #f1f5f9';
+            tr.style.background = idx === 0 ? '#fff1f2' : (idx === 1 ? '#fffbeb' : '#ffffff');
+
+            tr.innerHTML = 
+              '<td style="padding: 14px 16px;">' +
+                '<span style="background:' + b.bg + '; color:' + b.color + '; border:1px solid ' + b.border + '; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:20px;">' + b.label + '</span>' +
+              '</td>' +
+              '<td style="padding: 14px 16px; font-weight: 800; color:#0f172a; font-size: 14px;">' + d.nombre + '</td>' +
+              '<td style="padding: 14px 16px; font-weight: 900; color:#b91c1c; font-size: 15px;">$' + d.saldo.toLocaleString('es-MX') + ' MXN</td>' +
+              '<td style="padding: 14px 16px; color:#475569; font-weight: 700;">$' + d.minimo.toLocaleString('es-MX') + ' / mes</td>' +
+              '<td style="padding: 14px 16px; color:#64748b; font-weight: 600;">' + d.tasa + '% anual</td>' +
+              '<td style="padding: 14px 16px; text-align:center;">' +
+                '<button type="button" onclick="eliminarDeudaBola(' + d.id + ')" style="background:#fee2e2; border:none; color:#dc2626; width:28px; height:28px; border-radius:50%; font-size:16px; cursor:pointer; font-weight:800;" title="Eliminar">&times;</button>' +
+              '</td>';
+            tbody.appendChild(tr);
+          });
+
+          calcularBolaDeNieve();
+        }
+
+        function agregarDeudaBola(e) {
+          e.preventDefault();
+          const nombre = document.getElementById('nuevaDeudaNombre').value.trim();
+          const saldo = parseFloat(document.getElementById('nuevaDeudaSaldo').value) || 0;
+          const minimo = parseFloat(document.getElementById('nuevaDeudaMinimo').value) || 0;
+          const tasa = parseFloat(document.getElementById('nuevaDeudaTasa').value) || 30;
+
+          if (!nombre || saldo <= 0 || minimo <= 0) return;
+
+          misDeudas.push({
+            id: Date.now(),
+            nombre: nombre,
+            saldo: saldo,
+            minimo: minimo,
+            tasa: tasa
+          });
+
+          document.getElementById('formAgregarDeuda').reset();
+          renderTablaDeudas();
+        }
+
+        function eliminarDeudaBola(id) {
+          misDeudas = misDeudas.filter(d => d.id !== id);
+          renderTablaDeudas();
+        }
+
+        function calcularBolaDeNieve() {
+          const resContainer = document.getElementById('resultadoBolaContainer');
+          if (!resContainer) return;
+
+          if (misDeudas.length === 0) {
+            resContainer.innerHTML = 
+              '<div style="text-align:center; padding:30px; background:#f0fdf4; border-radius:16px; border:2px dashed #86efac;">' +
+                '<div style="font-size:36px; margin-bottom:8px;">&#x1F389;</div>' +
+                '<div style="font-size:18px; font-weight:900; color:#15803d;">&iexcl;Felicidades! No tienes compromisos pendientes.</div>' +
+                '<p style="font-size:13.5px; color:#166534; margin:4px 0 0;">Todo tu dinero extra puede ir directo a tus metas de inversi&oacute;n y patrimonio.</p>' +
+              '</div>';
+            return;
+          }
+
+          const extra = parseFloat(document.getElementById('inputAporteExtraBola').value) || 0;
+          const totalDeuda = misDeudas.reduce((acc, d) => acc + d.saldo, 0);
+          const totalMinimos = misDeudas.reduce((acc, d) => acc + d.minimo, 0);
+          const flujoTotal = totalMinimos + extra;
+
+          const mesesEst = flujoTotal > 0 ? Math.ceil(totalDeuda / flujoTotal) : 1;
+          const interesesAhorradosEst = Math.round(totalDeuda * 0.24);
+
+          resContainer.innerHTML = 
+            '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 20px;">' +
+              '<div style="background:#fff1f2; padding:18px; border-radius:14px; border:1.5px solid #fecdd3;">' +
+                '<div style="font-size:11.5px; color:#9f1239; font-weight:800; text-transform:uppercase;">Deuda Consolidada</div>' +
+                '<div style="font-size:24px; font-weight:900; color:#be123c; margin-top:4px;">$' + totalDeuda.toLocaleString('es-MX') + ' MXN</div>' +
+              '</div>' +
+              '<div style="background:#f0fdf4; padding:18px; border-radius:14px; border:1.5px solid #bbf7d0;">' +
+                '<div style="font-size:11.5px; color:#166534; font-weight:800; text-transform:uppercase;">Flujo Mensual Anti-Deuda</div>' +
+                '<div style="font-size:24px; font-weight:900; color:#15803d; margin-top:4px;">$' + flujoTotal.toLocaleString('es-MX') + ' MXN</div>' +
+              '</div>' +
+              '<div style="background:#f0f9ff; padding:18px; border-radius:14px; border:1.5px solid #bae6fd;">' +
+                '<div style="font-size:11.5px; color:#0369a1; font-weight:800; text-transform:uppercase;">Meses para Ser Libre</div>' +
+                '<div style="font-size:24px; font-weight:900; color:#0284c7; margin-top:4px;">' + mesesEst + ' mes(es)</div>' +
+              '</div>' +
+              '<div style="background:#fefce8; padding:18px; border-radius:14px; border:1.5px solid #fef08a;">' +
+                '<div style="font-size:11.5px; color:#854d0e; font-weight:800; text-transform:uppercase;">Intereses que te Ahorras</div>' +
+                '<div style="font-size:24px; font-weight:900; color:#ca8a04; margin-top:4px;">+$' + interesesAhorradosEst.toLocaleString('es-MX') + ' MXN</div>' +
+              '</div>' +
+            '</div>' +
+            '<div style="background: linear-gradient(135deg, #053724 0%, #032518 100%); color:#ffffff; padding: 18px 22px; border-radius: 14px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(5,55,36,0.15);">' +
+              '<div style="font-size: 32px; flex-shrink: 0;">&#x1F3AF;</div>' +
+              '<div>' +
+                '<div style="font-size: 15px; font-weight: 900; color: #cbf63e; margin-bottom: 2px;">Plan de Ataque Inmediato:</div>' +
+                '<p style="font-size: 13.5px; color: #d7f4e6; margin: 0; line-height: 1.45;">' +
+                  'Destina <strong>$' + (misDeudas[0].minimo + extra).toLocaleString('es-MX') + ' MXN</strong> cada mes a liquidar <strong>' + misDeudas[0].nombre + '</strong> mientras pagas el m&iacute;nimo en las dem&aacute;s. Al terminarla, ese flujo completo pasa a la siguiente. &iexcl;Ver&aacute;s resultados antes de lo que crees!' +
+                '</p>' +
+              '</div>' +
+            '</div>';
+        }
+
+        // --- INICIALIZAR TODO AL CARGAR EL DOM ---
+        document.addEventListener('DOMContentLoaded', function() {
+          cargarMetasIniciales();
+          cargarRetos();
+          renderTablaDeudas();
+        });
+      </script>
     </div>
   </div>
 
@@ -812,7 +1451,7 @@
   </div>
 
 
-  <script src="public/js/script.js?v=20261102_recursos"></script>
+  <script src="public/js/script.js?v=<?= time() ?>"></script>
 
   <!-- ============================================================
        MODAL REPRODUCTOR DE VIDEO

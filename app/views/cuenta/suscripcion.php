@@ -178,7 +178,7 @@
       </div>
       <h1>Inscripción a la Carrera de Educación Financiera</h1>
       <p>
-        Carrera formativa de 2 años estructurada en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba 100% GRATIS</strong>; para acceder del <strong>Segundo Semestre en adelante</strong> necesitas pagar tu inscripción de $299 MXN/mes con cancelación libre.
+        Carrera formativa de 2 años estructurada en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba 100% GRATIS</strong>; para acceder del <strong>Segundo Semestre en adelante</strong> necesitas pagar tu inscripción de $1,500 MXN/mes con cancelación libre.
       </p>
     </div>
   </section>
@@ -191,7 +191,7 @@
       <div class="plan-summary-card">
         <span class="plan-tag">INSCRIPCIÓN A LA CARRERA</span>
         <div class="plan-price-wrap">
-          <span class="amount">$299</span>
+          <span class="amount">$1,500</span>
           <span class="period">MXN / mes</span>
         </div>
         <p class="plan-desc">
@@ -270,7 +270,7 @@
           </div>
           <div class="bank-data-row">
             <span class="bank-label">Monto exacto:</span>
-            <span class="bank-val" style="color: var(--verde-principal); font-size: 15px;">$299.00 MXN</span>
+            <span class="bank-val" style="color: var(--verde-principal); font-size: 15px;">$1,500.00 MXN</span>
           </div>
           <div class="bank-data-row">
             <span class="bank-label">Concepto / Referencia:</span>
@@ -305,7 +305,7 @@
         </div>
 
         <button class="btn-complete-pay" onclick="handlePayAction()">
-          Confirmar y Activar Inscripción ($299 MXN)
+          Confirmar y Activar Inscripción ($1,500 MXN)
         </button>
 
         <div class="secure-note">
@@ -379,7 +379,7 @@
       window.location.href = "index.php?page=reticula";
     }
   </script>
-  <script src="public/js/script.js?v=20261102_recursos"></script>
+  <script src="public/js/script.js?v=<?= time() ?>"></script>
 
   <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">

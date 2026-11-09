@@ -83,8 +83,8 @@
       <div class="sidebar-user-info">
         <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
         <div class="sidebar-user-details">
-          <div class="sidebar-user-name" id="sidebarUserName">Estudiante</div>
-          <div class="sidebar-user-role">Estudiante Activo</div>
+          <div class="sidebar-user-name" id="sidebarUserName">Invitado (Sin cuenta)</div>
+          <div class="sidebar-user-role">Acceso Libre Total</div>
         </div>
       </div>
       <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">
@@ -183,7 +183,7 @@
       </div>
     </div>
     <div class="logged-topbar-right">
-      <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
+      <span class="topbar-greeting">Hola, <strong id="topbarUserName">Invitado</strong></span>
       <button class="btn-search" onclick="openSearchModal()" aria-label="Buscar" style="color: var(--text-dark);">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -225,60 +225,23 @@
         <span class="subpage-badge" style="margin: 0;">🛠️ Simuladores y Herramientas</span>
       </div>
       <h1>Recursos y <span>Calculadoras Financieras</span></h1>
-      <p>Utiliza nuestra calculadora en vivo de interés compuesto y descarga las plantillas de presupuesto mensual.</p>
+      <p>Acceso 100% libre y sin restricciones a simuladores en vivo, calculadoras interactivas y plantillas descargables.</p>
+      <div style="margin-top: 14px; display: inline-flex; align-items: center; gap: 8px; background: #e8f7ee; color: #047857; padding: 8px 18px; border-radius: 20px; font-weight: 700; font-size: 13.5px; border: 1px solid #a7f3d0; box-shadow: 0 2px 8px rgba(4,120,87,0.08);">
+        <span>&#x1F7E2; Disponible para todo publico - No necesitas registrarte ni iniciar sesion.</span>
+      </div>
     </div>
   </section>
 
-  
-    <div id="lockedBanner" class="auth-lock-card" style="display: none;">
-      <div style="display: flex; justify-content: center; margin-bottom: 16px;">
-        <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 64px; height: 56px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
-    <g>
-      <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
-      <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
-      <rect x="26" y="162" width="26" height="30" rx="8" fill="#e09800"/>
-
-      <rect x="42" y="128" width="156" height="30" rx="8" fill="#cbf63e" transform="rotate(-2 120 143)"/>
-      <rect x="50" y="134" width="140" height="18" rx="4" fill="#f2ffcd" transform="rotate(-2 120 143)"/>
-      <rect x="42" y="128" width="26" height="30" rx="8" fill="#a9cf1e" transform="rotate(-2 120 143)"/>
-
-      <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
-      <rect x="66" y="100" width="108" height="18" rx="4" fill="#d7f4e6" transform="rotate(2 120 109)"/>
-      <rect x="58" y="94" width="26" height="30" rx="8" fill="#bce9d2" transform="rotate(2 120 109)"/>
-    </g>
-
-    <g>
-      <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
-      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
-      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="none" stroke="#d7f4e6" stroke-width="3"/>
-      <circle cx="120" cy="58" r="7" fill="#fabb15"/>
-      <path d="M120,58 C160,58 196,60 204,62 L204,104" fill="none" stroke="#fabb15" stroke-width="5" stroke-linecap="round"/>
-      <path d="M197,104 h14 l4,26 h-22 z" fill="#fabb15"/>
-      <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
-    </g>
-  </svg>
-      </div>
-      <h2 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">Contenido exclusivo para estudiantes</h2>
-      <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;">
-        Para acceder a la interfaz de <strong>Recursos</strong> y activar el menú lateral, por favor inicia sesión con tu cuenta o regístrate gratis.
-      </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn-cta-yellow" onclick="openLoginModal()" style="padding: 10px 22px;">Iniciar sesión</button>
-        <button class="btn-cta-outline" onclick="openSignupModal()" style="padding: 10px 22px; color: var(--text-dark); border-color: var(--btn-green);">Crear cuenta gratis</button>
-      </div>
-    </div>
-  
-
-  <div id="protectedContent">
+  <div id="protectedContent" style="display: block !important;">
     
   <section style="padding: 50px 0 20px;">
     <div class="container">
       <div class="calc-card">
         <h2 style="font-size: 24px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px;">
-          🧮 Simulador Interactivo de Interés Compuesto
+          &#x1F4C8; Simulador Interactivo de Inter&eacute;s Compuesto
         </h2>
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 26px;">
-          Calcula cómo crece tu patrimonio a lo largo del tiempo sumando tus ahorros mensuales con rendimiento compuesto.
+          Calcula c&oacute;mo crece tu patrimonio a lo largo del tiempo sumando tus ahorros mensuales con rendimiento compuesto.
         </p>
 
         <div class="calc-grid">
@@ -296,7 +259,7 @@
               <input type="number" id="calcRate" value="11" min="1" max="100" step="0.5" oninput="calculateCompoundInterest()">
             </div>
             <div class="calc-group">
-              <label for="calcYears">Plazo de inversión (años)</label>
+              <label for="calcYears">Plazo de inversi&oacute;n (a&ntilde;os)</label>
               <input type="number" id="calcYears" value="5" min="1" max="50" step="1" oninput="calculateCompoundInterest()">
             </div>
           </div>
@@ -324,59 +287,59 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <h2>Recursos gratuitos y de pago</h2>
-          <p>Herramientas y materiales para acompañar tu aprendizaje dentro y fuera del aula.</p>
+          <h2>Recursos y herramientas sin restricci&oacute;n</h2>
+          <p>Herramientas, simuladores, plantillas y materiales 100% abiertos y sin restricciones para acompa&ntilde;ar tu aprendizaje.</p>
         </div>
         <a href="#cursos" class="link-view-all">
-          Ver todos los recursos <span>→</span>
+          Ver todos los recursos <span>&rarr;</span>
         </a>
       </div>
 
       <div class="resources-grid">
-        <!-- Recurso gratis 1 -->
+        <!-- Recurso 1 -->
         <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
-          <h3>Guía de ahorro para principiantes</h3>
+          <span class="resource-tag tag-free">Acceso Libre</span>
+          <h3>Gu&iacute;a de ahorro para principiantes</h3>
           <p>PDF descargable con pasos simples para empezar a ahorrar desde el primer mes.</p>
-          <div class="resource-price">$0</div>
+          <div class="resource-price">Gratis &bull; Sin Restricci&oacute;n</div>
           <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Guía de ahorro para principiantes', 'Descarga gratuita en PDF con ejercicios prácticos para empezar a ahorrar, crear un fondo de emergencia y fijar tus primeras metas.')">
+             onclick="openResourceModal('Gu&iacute;a de ahorro para principiantes', 'Descarga gratuita en PDF con ejercicios pr&aacute;cticos para empezar a ahorrar, crear un fondo de emergencia y fijar tus primeras metas.')">
             Descargar gratis
           </a>
         </article>
 
-        <!-- Recurso gratis 2 -->
+        <!-- Recurso 2 -->
         <article class="resource-card">
-          <span class="resource-tag tag-free">Gratis</span>
+          <span class="resource-tag tag-free">Acceso Libre</span>
           <h3>Plantilla de presupuesto mensual</h3>
           <p>Formato editable para registrar tus ingresos y gastos y controlar tu dinero.</p>
-          <div class="resource-price">$0</div>
+          <div class="resource-price">Gratis &bull; Sin Restricci&oacute;n</div>
           <a href="javascript:void(0)" class="btn-resource"
              onclick="openResourceModal('Plantilla de presupuesto mensual', 'Plantilla editable (Excel / Google Sheets) con la regla 50/30/20 lista para usar y adaptar a tu estilo de vida.')">
             Descargar gratis
           </a>
         </article>
 
-        <!-- Recurso de pago 1 -->
+        <!-- Recurso 3 -->
         <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
+          <span class="resource-tag tag-free" style="background:#e8f7ee; color:#0e6245;">Sin Restricci&oacute;n</span>
           <h3>Calculadoras interactivas PRO</h3>
-          <p>Simula ahorro, inversión, interés compuesto y amortización de deudas.</p>
-          <div class="resource-price">Incluido en tu curso</div>
+          <p>Simula ahorro, inversi&oacute;n, inter&eacute;s compuesto y amortizaci&oacute;n de deudas sin l&iacute;mite.</p>
+          <div class="resource-price">100% Acceso Libre</div>
           <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Calculadoras interactivas PRO', 'Herramientas avanzadas para simular planes de ahorro e inversión, calcular interés compuesto y planificar el pago de deudas.')">
-            Ver recurso
+             onclick="openResourceModal('Calculadoras interactivas PRO', 'Herramientas avanzadas para simular planes de ahorro e inversi&oacute;n, calcular inter&eacute;s compuesto y planificar el pago de deudas.')">
+            Abrir herramienta
           </a>
         </article>
 
-        <!-- Recurso de pago 2 -->
+        <!-- Recurso 4 -->
         <article class="resource-card">
-          <span class="resource-tag tag-paid">De pago</span>
-          <h3>Certificación y mentorías</h3>
-          <p>Certificado al finalizar tus cursos y sesiones personalizadas con un tutor.</p>
-          <div class="resource-price">Según el plan</div>
+          <span class="resource-tag tag-free" style="background:#e8f7ee; color:#0e6245;">Sin Restricci&oacute;n</span>
+          <h3>Certificaci&oacute;n y mentor&iacute;as</h3>
+          <p>Evaluaciones interactivas de conocimientos y orientaci&oacute;n pr&aacute;ctica sin costo ni barreras.</p>
+          <div class="resource-price">100% Acceso Libre</div>
           <a href="javascript:void(0)" class="btn-resource"
-             onclick="openResourceModal('Certificación y mentorías', 'Obtén tu certificado al completar los cursos y agenda mentorías personalizadas para resolver tus dudas financieras.')">
+             onclick="openResourceModal('Certificaci&oacute;n y mentor&iacute;as', 'Obt&eacute;n tu certificado al completar los cursos y agenda mentor&iacute;as personalizadas para resolver tus dudas financieras.')">
             Ver detalle
           </a>
         </article>
@@ -807,7 +770,7 @@
   </div>
 
 
-  <script src="public/js/script.js?v=20261102_recursos"></script>
+  <script src="public/js/script.js?v=<?= time() ?>"></script>
 
   <!-- MODAL: REPRODUCTOR DE VIDEO REAL -->
   <div class="modal-overlay" id="videoPlayerModal" role="dialog" aria-modal="true">

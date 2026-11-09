@@ -1577,7 +1577,7 @@
 
 
 /* ============================================================
-   ESTILOS PARA SIDEBAR LATERAL IZQUIERDA (POST-LOGIN)
+   ESTILOS PARA SIDEBAR LATERAL IZQUIERDA (ACCESO LIBRE SIN CUENTA)
    ============================================================ */
 body.user-logged-in .sidebar-left {
   display: flex !important;
@@ -1590,25 +1590,31 @@ body.user-logged-in .main-wrapper {
   flex-direction: column;
 }
 
-body.not-logged-in .sidebar-left {
-  display: none !important;
+.sidebar-left {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
 }
 
-body.not-logged-in .main-wrapper {
-  margin-left: 0 !important;
+.main-wrapper {
+  margin-left: 260px !important;
   min-height: 100vh;
 }
 
-body.user-logged-in .site-header.guest-header {
+.site-header.guest-header {
   display: none !important;
 }
 
-body.not-logged-in .logged-topbar {
-  display: none !important;
-}
-
-body.user-logged-in .logged-topbar {
+.logged-topbar {
   display: flex !important;
+}
+
+#lockedBanner {
+  display: none !important;
+}
+
+#protectedContent {
+  display: block !important;
 }
 
 /* Sidebar lateral izquierda fija */
@@ -1969,5 +1975,52 @@ body.user-logged-in .logged-topbar {
   #navGuestNotice {
     font-size: 11px !important;
     padding: 5px 10px !important;
+  }
+}
+
+
+/* ============================================================
+   FORZAR MARGEN DE 260px PARA NO SOLAPAR CON LA SIDEBAR FIJA
+   ============================================================ */
+body.not-logged-in .main-wrapper,
+body.user-logged-in .main-wrapper,
+.main-wrapper {
+  margin-left: 260px !important;
+  min-height: 100vh;
+}
+
+body.not-logged-in .sidebar-left,
+body.user-logged-in .sidebar-left,
+.sidebar-left {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+body.not-logged-in .logged-topbar,
+body.user-logged-in .logged-topbar,
+.logged-topbar {
+  display: flex !important;
+}
+
+body.not-logged-in .site-header.guest-header,
+body.user-logged-in .site-header.guest-header,
+.site-header.guest-header {
+  display: none !important;
+}
+
+@media (max-width: 992px) {
+  body.not-logged-in .main-wrapper,
+  body.user-logged-in .main-wrapper,
+  .main-wrapper {
+    margin-left: 0 !important;
+  }
+  body.not-logged-in .sidebar-left,
+  body.user-logged-in .sidebar-left,
+  .sidebar-left {
+    display: none !important;
+  }
+  .sidebar-left.open {
+    display: flex !important;
   }
 }

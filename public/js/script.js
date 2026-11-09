@@ -563,7 +563,7 @@ async function logout() {
 
   // Si estamos en una página protegida, redirigir a inicio
   const path = (window.location.pathname + window.location.search).toLowerCase();
-  if (path.includes('page=cursos') || path.includes('page=recursos') || path.includes('page=reticula') || path.includes('page=configuraciones')) {
+  if (path.includes('page=cursos') || path.includes('page=configuraciones')) {
     window.location.href = 'index.php';
   }
 }
@@ -765,19 +765,9 @@ function toggleFaq(btn) {
 }
 
 // ------------------------------------------------------------
-// 12. PROTECCIÓN DE ENLACES PARA VISITANTES
+// 12. ENLACES Y HERRAMIENTAS DE LIBRE NAVEGACION
 // ------------------------------------------------------------
-document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href="index.php?page=cursos"], a[href="index.php?page=recursos"], a[href="index.php?page=configuraciones"]');
-  if (link && !getCurrentUser()) {
-    e.preventDefault();
-    openLoginModal();
-    if (loginMsg) {
-      loginMsg.className = 'form-message error';
-      loginMsg.textContent = '🔒 Para acceder a esta interfaz, primero inicia sesión o crea tu cuenta gratis.';
-    }
-  }
-});
+// Navegacion libre sin barreras ni modales de inicio de sesion forzados.
 
 // ------------------------------------------------------------
 // 13. TECLA ESCAPE CIERRA MODALES
@@ -2038,7 +2028,7 @@ function openReticulaModal(id) {
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'pago') {
       tipo = 'info';
-      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) es de prueba 100% GRATIS. Para acceder del Semestre 2 en adelante necesitas pagar tu inscripción de $299 MXN (SPEI o Tarjeta).';
+      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) es de prueba 100% GRATIS. Para acceder del Semestre 2 en adelante necesitas pagar tu inscripción de $1,500 MXN (SPEI o Tarjeta).';
       label = 'Pagar inscripción y desbloquear acceso →';
       deshabilitado = false;
     } else if (chk.motivo === 'bloqueado') {

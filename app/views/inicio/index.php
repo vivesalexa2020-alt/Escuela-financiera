@@ -18,80 +18,6 @@
     <div class="splash-cloud c2"></div>
     <div class="splash-cloud c3"></div>
 
-    <!-- ═══════════════════════════════════════════════════
-         ESCENA ILUSTRADA: acantilados + plantas + suelo
-         (SVG de ancho completo, pegado al fondo)
-    ════════════════════════════════════════════════════ -->
-    <svg style="position:absolute;bottom:0;left:0;width:100%;height:58%;z-index:1;overflow:visible;"
-         viewBox="0 0 400 200" preserveAspectRatio="xMidYMax meet"
-         xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Degradado acantilado izquierdo -->
-        <linearGradient id="cliffL" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#8b6340"/>
-          <stop offset="100%" stop-color="#c49a6c"/>
-        </linearGradient>
-        <!-- Degradado acantilado derecho -->
-        <linearGradient id="cliffR" x1="1" y1="0" x2="0" y2="0">
-          <stop offset="0%" stop-color="#8b6340"/>
-          <stop offset="100%" stop-color="#c49a6c"/>
-        </linearGradient>
-        <!-- Suelo verde -->
-        <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#5aa84a"/>
-          <stop offset="100%" stop-color="#3d7a30"/>
-        </linearGradient>
-      </defs>
-
-      <!-- MONTAÑA LEJANA centro (azul-gris) -->
-      <polygon points="100,120 200,40 300,120" fill="#7a9fbf" opacity="0.45"/>
-      <polygon points="140,120 220,60 310,120" fill="#8aafc8" opacity="0.35"/>
-
-      <!-- ACANTILADO IZQUIERDO (marrón-naranja, rocoso) -->
-      <!-- Masa principal -->
-      <path d="M0,200 L0,60 C10,55 20,48 28,52 C36,56 38,44 50,40 C60,36 62,50 72,46
-               C80,43 82,55 90,52 C100,48 102,60 110,65 L110,200 Z"
-            fill="url(#cliffL)"/>
-      <!-- Sombras/detalles roca -->
-      <path d="M0,100 C10,96 20,90 28,94 C36,98 40,88 50,86 C58,84 60,92 70,90 L70,200 L0,200Z"
-            fill="rgba(0,0,0,.12)"/>
-      <!-- Vegetación encima del acantilado izquierdo -->
-      <ellipse cx="30"  cy="40" rx="22" ry="14" fill="#3d8c3a"/>
-      <ellipse cx="52"  cy="34" rx="18" ry="12" fill="#4dab45"/>
-      <ellipse cx="74"  cy="44" rx="16" ry="11" fill="#3d8c3a"/>
-      <ellipse cx="18"  cy="44" rx="14" ry="10" fill="#2d7030"/>
-      <!-- Palmas/helechos izquierda -->
-      <path d="M20,60 Q4,38 -4,22" stroke="#2d7030" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <ellipse cx="-4" cy="20" rx="14" ry="8" fill="#3d9c38" transform="rotate(-30 -4 20)"/>
-      <path d="M20,60 Q8,42 16,28" stroke="#2d7030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="16" cy="26" rx="12" ry="7" fill="#4dab45" transform="rotate(15 16 26)"/>
-
-      <!-- ACANTILADO DERECHO (espejado) -->
-      <path d="M400,200 L400,60 C390,55 380,48 372,52 C364,56 362,44 350,40 C340,36 338,50 328,46
-               C320,43 318,55 310,52 C300,48 298,60 290,65 L290,200 Z"
-            fill="url(#cliffR)"/>
-      <path d="M400,100 C390,96 380,90 372,94 C364,98 360,88 350,86 C342,84 340,92 330,90 L330,200 L400,200Z"
-            fill="rgba(0,0,0,.12)"/>
-      <!-- Vegetación encima del acantilado derecho -->
-      <ellipse cx="370" cy="40" rx="22" ry="14" fill="#3d8c3a"/>
-      <ellipse cx="348" cy="34" rx="18" ry="12" fill="#4dab45"/>
-      <ellipse cx="326" cy="44" rx="16" ry="11" fill="#3d8c3a"/>
-      <ellipse cx="382" cy="44" rx="14" ry="10" fill="#2d7030"/>
-      <!-- Palmas/helechos derecha -->
-      <path d="M380,60 Q396,38 404,22" stroke="#2d7030" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <ellipse cx="404" cy="20" rx="14" ry="8" fill="#3d9c38" transform="rotate(30 404 20)"/>
-      <path d="M380,60 Q392,42 384,28" stroke="#2d7030" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <ellipse cx="384" cy="26" rx="12" ry="7" fill="#4dab45" transform="rotate(-15 384 26)"/>
-
-      <!-- SUELO VERDE inferior -->
-      <path d="M0,200 L0,155 C40,148 80,142 110,148 C150,156 200,150 250,148
-               C280,146 320,142 360,148 L400,155 L400,200 Z"
-            fill="url(#ground)"/>
-      <!-- Detalles hierba -->
-      <ellipse cx="60"  cy="152" rx="40" ry="12" fill="#4dab45" opacity=".7"/>
-      <ellipse cx="200" cy="148" rx="50" ry="10" fill="#4dab45" opacity=".5"/>
-      <ellipse cx="340" cy="152" rx="40" ry="12" fill="#4dab45" opacity=".7"/>
-    </svg>
 
     <!-- Texto lateral IZQUIERDO -->
     <span class="splash-side left">Grandes<br>metas</span>
@@ -193,9 +119,9 @@
         </svg>
         <span>Educación <strong>Financiera</strong></span>
       </a>
-
       <div class="nav-actions">
       </div>
+
     </div>
   </header>
 
@@ -227,7 +153,8 @@
     </section>
 
 <!-- ══════════════════════════════════════════════════════
-     SECCIÓN NUESTROS ESTUDIANTES (carrusel fiel al mockup)
+<!-- ══════════════════════════════════════════════════════
+     SECCIÓN NUESTROS ESTUDIANTES (TODO EN ESPAÑOL + FOTOS)
      ══════════════════════════════════════════════════════ -->
 <section class="m-estudiantes" id="estudiantes">
   <div class="container">
@@ -239,8 +166,8 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div>
-          <h2 class="m-est-title">Nuestros <span class="m-accent">estudiantes</span></h2>
-          <p class="m-est-sub">Historias reales de personas que decidieron cambiar su futuro.</p>
+          <h2 class="m-est-title">Comunidad y <span class="m-accent">opiniones de estudiantes</span></h2>
+          <p class="m-est-sub">Historias de éxito reales, avance en el programa y opiniones verificadas de nuestra comunidad.</p>
         </div>
       </div>
       <div class="m-est-header-right">
@@ -251,182 +178,240 @@
             <path d="M48 3 L55 5 L50 12" stroke="#28C76F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <div class="m-nav-btns">
-          <button class="m-nav-btn" id="mPrev" onclick="mCarousel(-1)">&#8249;</button>
-          <button class="m-nav-btn" id="mNext" onclick="mCarousel(1)">&#8250;</button>
+      </div>
+    </div>
+
+    <!-- ── BARRA SUPERIOR DE MÉTRICAS (100% EN ESPAÑOL) ── -->
+    <div class="students-kpi-bar">
+      <!-- KPI 1: Curso activo -->
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap" style="color:#059669; background:#ecfdf5;">
+          📖
+        </div>
+        <div class="kpi-content">
+          <div class="kpi-header-row">
+            <span class="kpi-label">Curso activo</span>
+            <span class="kpi-value-tag">65% completado</span>
+          </div>
+          <div class="kpi-sub">Sistemas cognitivos & Neuroventas</div>
+          <div class="kpi-progress-bar">
+            <div class="kpi-progress-fill" style="width: 65%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 2: Nivel de logros -->
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap" style="color:#d97706; background:#fef3c7;">
+          🏆
+        </div>
+        <div class="kpi-content">
+          <div class="kpi-header-row">
+            <span class="kpi-label">Nivel de logros</span>
+            <span class="kpi-value-tag">3 de 5 metas</span>
+          </div>
+          <div class="kpi-sub">Metas alcanzadas y certificaciones</div>
+          <div class="kpi-progress-bar">
+            <div class="kpi-progress-fill" style="width: 60%; background: linear-gradient(90deg,#f59e0b,#d97706);"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 3: Puntos y Reconocimientos -->
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap" style="color:#2563eb; background:#eff6ff;">
+          🎖️
+        </div>
+        <div class="kpi-content">
+          <div class="kpi-header-row">
+            <span class="kpi-label">Puntos y reconocimientos</span>
+            <span class="kpi-value-tag" style="color:#1d4ed8;">1,520 pts</span>
+          </div>
+          <div class="kpi-sub">Nivel 4 • Rango Avanzado</div>
+          <div class="kpi-progress-bar">
+            <div class="kpi-progress-fill" style="width: 78%; background: linear-gradient(90deg,#3b82f6,#1d4ed8);"></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Track del carrusel -->
-    <div class="m-carousel-wrap">
-      <div class="m-carousel-track" id="mTrack">
+    <!-- ── GRID DE ESTUDIANTES A ANCHO COMPLETO (SIN COLUMNA DERECHA) ── -->
+    <div class="students-cards-full-grid">
 
-        <!-- Tarjeta 1 -->
-        <div class="m-card">
-          <div class="m-card-top">
-            <div class="m-avatar m-av-green">
-              <img src="public/img/avatar-carlos.jpg" alt="Carlos Ramírez"
-                   loading="lazy"
-                   onerror="this.style.display='none'; this.parentNode.innerText='CR'">
-            </div>
-            <div class="m-card-info">
-              <strong>Carlos Ramírez</strong>
-              <span>34 años • Empleado administrativo</span>
-            </div>
-            <div class="m-play-btn">▶</div>
-          </div>
-          <p class="m-card-quote">
-            "Vivía estresado, pagando mínimos en 3 tarjetas y llegando a fin de quincena en ceros.
-            En la Unidad 1 entendí cómo renegociar con el banco sin trucos. Hoy ya no debo un solo
-            peso y tengo 4 meses de gastos ahorrados."
-          </p>
-          <div class="m-card-metrics">
-            <div class="m-metric">
-              <span class="m-metric-ico">💵</span>
-              <div><span>Deuda liquidada:</span><strong>$42,000 MXN</strong></div>
-            </div>
-            <div class="m-metric">
-              <span class="m-metric-ico">⏱️</span>
-              <div><span>Tiempo de cambio:</span><strong>4 meses</strong></div>
+      <!-- Tarjeta 1: Mariana González -->
+      <div class="mock-student-card" onclick="openStudentTestimonial('mariana')" style="cursor: pointer;" title="Clic para ver testimonio en video">
+        <div class="msc-header">
+          <span class="msc-medal" title="Medalla de Oro">🥇</span>
+          <div class="msc-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&auto=format&fit=crop&q=80" alt="Mariana González" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #00b4b4, #008080);">
+              MG
             </div>
           </div>
         </div>
-
-        <!-- Tarjeta 2 -->
-        <div class="m-card">
-          <div class="m-card-top">
-            <div class="m-avatar m-av-teal">
-              <img src="public/img/avatar-mariana.jpg" alt="Mariana González"
-                   loading="lazy"
-                   onerror="this.style.display='none'; this.parentNode.innerText='MG'">
-            </div>
-            <div class="m-card-info">
-              <strong>Mariana González</strong>
-              <span>29 años • Independiente</span>
-            </div>
-            <div class="m-play-btn">▶</div>
-          </div>
-          <p class="m-card-quote">
-            "Siempre creí que la educación financiera era para ricos o cursos de vendehumos en redes.
-            Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a
-            dónde se iba mi dinero a invertir mensualmente."
+        <div class="msc-body">
+          <h4 class="msc-name">Mariana González</h4>
+          <div class="msc-role">29 años • Independiente</div>
+          <p class="msc-quote">
+            "Siempre creí que la educación financiera era para ricos o cursos de vendehumos. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
           </p>
-          <div class="m-card-metrics">
-            <div class="m-metric">
-              <span class="m-metric-ico">📈</span>
-              <div><span>Ahorro mensual:</span><strong>+35% de ingresos</strong></div>
+          <div class="msc-chart-row">
+            <div class="msc-metrics-texts">
+              <span>Ahorro mensual:</span>
+              <strong>+35% ingresos</strong>
             </div>
-            <div class="m-metric">
-              <span class="m-metric-ico">🌱</span>
-              <div><span>Inversión:</span><strong>Con solo $500</strong></div>
+            <!-- Mini Sparkline SVG -->
+            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
+              <path d="M2 24 C15 22, 25 14, 38 16 C50 18, 58 6, 68 4" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M2 24 C15 22, 25 14, 38 16 C50 18, 58 6, 68 4 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
+            </svg>
+          </div>
+          <div class="msc-actions-row">
+            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Me gusta</span> <span class="like-count">48</span>
+            </button>
+            <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('mariana'); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Comentarios</span> <span>14</span>
+            </button>
+            <span title="Logro Verificado" style="font-size:16px;">🌱</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Jorge Martínez -->
+      <div class="mock-student-card" onclick="openStudentTestimonial('jorge')" style="cursor: pointer;" title="Clic para ver testimonio en video">
+        <div class="msc-header">
+          <span class="msc-medal" title="Medalla de Plata">🥈</span>
+          <div class="msc-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&auto=format&fit=crop&q=80" alt="Jorge Martínez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #9b59b6, #6c3483);">
+              JM
             </div>
           </div>
         </div>
-
-        <!-- Tarjeta 3 -->
-        <div class="m-card">
-          <div class="m-card-top">
-            <div class="m-avatar m-av-blue">
-              <img src="public/img/avatar-roberto.jpg" alt="Roberto y Silvia"
-                   loading="lazy"
-                   onerror="this.style.display='none'; this.parentNode.innerText='RS'">
-            </div>
-            <div class="m-card-info">
-              <strong>Roberto y Silvia</strong>
-              <span>Pareja y padres de familia • 41 años</span>
-            </div>
-            <div class="m-play-btn">▶</div>
-          </div>
-          <p class="m-card-quote">
-            "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos
-            metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control
-            total de nuestra economía familiar."
+        <div class="msc-body">
+          <h4 class="msc-name">Jorge Martínez</h4>
+          <div class="msc-role">Vendedor • 28 años</div>
+          <p class="msc-quote">
+            "Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear, ser constante y entender lo que el cliente realmente necesita."
           </p>
-          <div class="m-card-metrics">
-            <div class="m-metric">
-              <span class="m-metric-ico">🏠</span>
-              <div><span>Meta familiar:</span><strong>Fondo universitario</strong></div>
+          <div class="msc-chart-row">
+            <div class="msc-metrics-texts">
+              <span>Fondo de emergencia:</span>
+              <strong>6 meses listos</strong>
             </div>
-            <div class="m-metric">
-              <span class="m-metric-ico">✅</span>
-              <div><span>Control de gastos:</span><strong>100% organizado</strong></div>
+            <!-- Mini Sparkline SVG -->
+            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
+              <path d="M2 22 C18 20, 30 10, 45 12 C54 14, 60 4, 68 2" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M2 22 C18 20, 30 10, 45 12 C54 14, 60 4, 68 2 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
+            </svg>
+          </div>
+          <div class="msc-actions-row">
+            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Me gusta</span> <span class="like-count">35</span>
+            </button>
+            <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('jorge'); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Comentarios</span> <span>9</span>
+            </button>
+            <span title="Control Financiero Logrado" style="font-size:16px;">📊</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3: Ana López -->
+      <div class="mock-student-card" onclick="openStudentTestimonial('ana')" style="cursor: pointer;" title="Clic para ver testimonio en video">
+        <div class="msc-header">
+          <span class="msc-medal" title="Insignia de Excelencia">🎖️</span>
+          <div class="msc-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=240&auto=format&fit=crop&q=80" alt="Ana López" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=240&auto=format&fit=crop&q=80';} else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }">
+            <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #e74c3c, #a93226);">
+              AL
             </div>
           </div>
         </div>
-
-        <!-- Tarjeta 4 -->
-        <div class="m-card">
-          <div class="m-card-top">
-            <div class="m-avatar m-av-purple">
-              <img src="public/img/avatar-jorge.jpg" alt="Jorge Martínez"
-                   loading="lazy"
-                   onerror="this.style.display='none'; this.parentNode.innerText='JM'">
-            </div>
-            <div class="m-card-info">
-              <strong>Jorge Martínez</strong>
-              <span>Vendedor • 28 años</span>
-            </div>
-            <div class="m-play-btn">▶</div>
-          </div>
-          <p class="m-card-quote">
-            "Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia.
-            El curso me enseñó a planear y a ser constante. Hoy tengo más tranquilidad y estoy
-            construyendo mis metas."
+        <div class="msc-body">
+          <h4 class="msc-name">Ana López</h4>
+          <div class="msc-role">25 años • Enfermera</div>
+          <p class="msc-quote">
+            "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses saldé todo y ahora ahorro el 20% de mi sueldo."
           </p>
-          <div class="m-card-metrics">
-            <div class="m-metric">
-              <span class="m-metric-ico">💰</span>
-              <div><span>Fondo de emergencia:</span><strong>6 meses cubiertos</strong></div>
+          <div class="msc-chart-row">
+            <div class="msc-metrics-texts">
+              <span>Deudas liquidadas:</span>
+              <strong>$28,500 MXN</strong>
             </div>
-            <div class="m-metric">
-              <span class="m-metric-ico">📊</span>
-              <div><span>Control financiero:</span><strong>✔ Logrado</strong></div>
+            <!-- Mini velocímetro / arco SVG -->
+            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
+              <path d="M10 24 A 20 20 0 0 1 60 24" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+              <path d="M10 24 A 20 20 0 0 1 52 10" stroke="#00703c" stroke-width="4.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="msc-actions-row">
+            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Me gusta</span> <span class="like-count">62</span>
+            </button>
+            <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('ana'); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Comentarios</span> <span>18</span>
+            </button>
+            <span title="Deuda Cero" style="font-size:16px;">💵</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4: Roberto y Silvia -->
+      <div class="mock-student-card" onclick="openStudentTestimonial('roberto')" style="cursor: pointer;" title="Clic para ver testimonio en video">
+        <div class="msc-header">
+          <span class="msc-medal" title="Escudo de Protección">🛡️</span>
+          <div class="msc-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=160&auto=format&fit=crop&q=80" alt="Roberto y Silvia" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #4a90d9, #1a5fa0);">
+              RS
             </div>
           </div>
         </div>
-
-        <!-- Tarjeta 5 -->
-        <div class="m-card">
-          <div class="m-card-top">
-            <div class="m-avatar m-av-red">
-              <img src="public/img/avatar-ana.jpg" alt="Ana López"
-                   loading="lazy"
-                   onerror="this.style.display='none'; this.parentNode.innerText='AL'">
-            </div>
-            <div class="m-card-info">
-              <strong>Ana López</strong>
-              <span>31 años • Enfermera</span>
-            </div>
-            <div class="m-play-btn">▶</div>
-          </div>
-          <p class="m-card-quote">
-            "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un
-            presupuesto base cero y a negociar. En 8 meses logré saldar todo y ahora ahorro el 20%
-            de mi sueldo sin esfuerzo."
+        <div class="msc-body">
+          <h4 class="msc-name">Roberto y Silvia</h4>
+          <div class="msc-role">41 años • Pareja y padres</div>
+          <p class="msc-quote">
+            "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
           </p>
-          <div class="m-card-metrics">
-            <div class="m-metric">
-              <span class="m-metric-ico">💵</span>
-              <div><span>Deudas liquidadas:</span><strong>$28,500 MXN</strong></div>
+          <div class="msc-chart-row">
+            <div class="msc-metrics-texts">
+              <span>Meta familiar:</span>
+              <strong>Fondo universitario</strong>
             </div>
-            <div class="m-metric">
-              <span class="m-metric-ico">📈</span>
-              <div><span>Ahorro mensual:</span><strong>20% de sueldo</strong></div>
-            </div>
+            <!-- Mini Sparkline SVG -->
+            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
+              <path d="M2 24 C16 22, 28 16, 40 12 C52 8, 60 4, 68 2" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M2 24 C16 22, 28 16, 40 12 C52 8, 60 4, 68 2 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
+            </svg>
+          </div>
+          <div class="msc-actions-row">
+            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Me gusta</span> <span class="like-count">29</span>
+            </button>
+            <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('roberto'); event.stopPropagation();">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Comentarios</span> <span>7</span>
+            </button>
+            <span title="Familia Asegurada" style="font-size:16px;">🏠</span>
           </div>
         </div>
+      </div>
 
-      </div><!-- /track -->
-    </div><!-- /carousel-wrap -->
-
-    <!-- Dots -->
-    <div class="m-dots" id="mDots"></div>
+    </div><!-- /students-cards-full-grid -->
 
   </div>
 
   <!-- ── Barra inferior de features ── -->
-  <div class="m-features-bar">
+  <div class="m-features-bar" style="margin-top: 36px;">
     <div class="container m-features-inner">
       <div class="m-feat">
         <span class="m-feat-ico">🔥</span>
@@ -451,2081 +436,1308 @@
   </div>
 
 </section>
-<section class="pillars-overview-section" id="pilares">
-      <div class="container">
-        
-        <div class="pillars-overview-header">
-          <div class="pillars-tagline">
-            <span>🌱 Pequeñas decisiones, grandes resultados</span>
-          </div>
-          <h2>EDUCACIÓN FINANCIERA</h2>
-          <p class="pillars-sub">3 Bloques fundamentales para transformar tu economía personal</p>
-          <p class="pillars-slogan">"Tu futuro también se construye con buenas decisiones"</p>
-          <div style="margin-top: 14px;">
-            <a href="#tabla-pilares" class="btn-demo-cta" onclick="openFirstDemoBlock(event)" style="display: inline-flex; align-items: center; gap: 7px; padding: 9px 22px; font-size: 13.5px; font-weight: 700; border-radius: 30px; box-shadow: 0 3px 12px rgba(40,199,111,0.32); text-decoration: none;">
-              <span>👉 Probar Demo Gratis</span>
-            </a>
-          </div>
-        </div>
 
-        <div class="pillars-grid" id="tabla-pilares" style="scroll-margin-top: 90px;">
-
-          <!-- BLOQUE 1: ADMINISTRACIÓN DE TUS FINANZAS (AZUL) -->
-          <div class="pillar-card pillar-blue">
-            <div class="pillar-header">
-              <div class="pillar-number">1</div>
-              <h3>ADMINISTRACIÓN DE TUS FINANZAS</h3>
-              <p>Aprende a manejar tu dinero de forma inteligente.</p>
-              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
-                <span class="pillar-toggle-text">Ver contenido</span>
-                <span class="pillar-toggle-chevron">▾</span>
-              </button>
-              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
-            </div>
-            <div class="pillar-body">
-              <div>
-                <span class="pillar-temas-pill">Temas:</span>
-                <div class="pillar-topic-list">
-                  <!-- TEMA 1: INGRESOS Y GASTOS CON TARJETAS FLASH -->
-                  <div class="pillar-topic-item topic-with-flashcards">
-                    <div class="topic-main-row">
-                      <div class="topic-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-                          <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-                          <path d="M18 12a2 2 0 0 0 0 4h4v-4z"/>
-                        </svg>
-                      </div>
-                      <div class="topic-texts">
-                        <h4>Ingresos y gastos</h4>
-                        <p>Conoce cuánto entra y cómo se usa tu dinero.</p>
-                      </div>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE FLASHCARDS -->
-                    <div class="flashcards-box">
-                      <div class="flashcards-header-bar">
-                        <span>🃏 TARJETAS FLASH (TOCA PARA GIRAR)</span>
-                        <span class="flashcards-counter-badge" id="fcCounter">1 / 10</span>
-                      </div>
-
-                      <!-- ESCENARIO DE LA TARJETA (CLIC PARA GIRAR) -->
-                      <div class="flashcard-stage" id="fcStage" onclick="toggleFlashcardFlip()" title="Haz clic o toca para voltear la tarjeta">
-                        <div class="flashcard-flipper" id="fcFlipper">
-                          
-                          <!-- CARA FRONTAL: PREGUNTA -->
-                          <div class="flashcard-side flashcard-front">
-                            <div class="flashcard-top-tag" id="fcFrontBadge">📘 Ingresos</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-question-text" id="fcQuestion">¿Qué son los ingresos?</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>❓ Pregunta</span>
-                              <span>Toca para ver respuesta ↻</span>
-                            </div>
-                          </div>
-
-                          <!-- CARA TRASERA: RESPUESTA -->
-                          <div class="flashcard-side flashcard-back">
-                            <div class="flashcard-top-tag" id="fcBackBadge">💡 Respuesta</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-answer-text" id="fcAnswer">Es todo el dinero o recurso que recibes de forma periódica o puntual por tu trabajo, negocio, inversiones o ventas.</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>✅ Explicación</span>
-                              <span>Toca para ver pregunta ↺</span>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / GIRAR / SIGUIENTE -->
-                      <div class="flashcards-controls-row">
-                        <button type="button" class="fc-btn" onclick="prevFlashcard()">◀ Anterior</button>
-                        <button type="button" class="fc-btn" onclick="toggleFlashcardFlip()">Girar 🔄</button>
-                        <button type="button" class="fc-btn" onclick="nextFlashcard()">Siguiente ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA PREGUNTA -->
-                      <div class="fc-chips-scroll" id="fcChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <!-- TEMA 2: PRESUPUESTO CON SLIDER DESLIZABLE (CLICK PARA VER) -->
-                  <div class="pillar-topic-item topic-with-slider">
-                    <div class="topic-clickable-row" onclick="toggleTopicSlider('budgetSliderBox', 'budgetToggleBadge', 'budget')" title="Haz clic para ver las preguntas y descripciones">
-                      <div class="topic-clickable-left">
-                        <div class="topic-icon-wrap">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                          </svg>
-                        </div>
-                        <div class="topic-texts">
-                          <h4>Presupuesto</h4>
-                          <p>Planifica y controla tus gastos diarios y fijos.</p>
-                        </div>
-                      </div>
-                      <span class="topic-toggle-badge" id="budgetToggleBadge">Ver guía ▾</span>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE SLIDER (PRESUPUESTO - OCULTO HASTA DAR CLIC) -->
-                    <div class="budget-slider-box" id="budgetSliderBox" style="display: none; margin-top: 6px;">
-                      <div class="budget-slider-header-bar">
-                        <span>📋 GUÍA DE PREGUNTAS (DESLIZA PARA VER APARTADOS)</span>
-                        <span class="budget-slider-counter-badge" id="budgetCounter">1 / 8</span>
-                      </div>
-
-                      <!-- ESCENARIO DEL SLIDER (DESLIZABLE) -->
-                      <div class="budget-slider-stage" id="budgetStage">
-                        <div class="budget-slider-track" id="budgetTrack"></div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / SIGUIENTE -->
-                      <div class="budget-slider-controls">
-                        <button type="button" class="bs-btn" onclick="prevBudgetSlide()">◀ Deslizar</button>
-                        <span style="font-size: 8.5px; color: #03528e; font-weight: 600; opacity: 0.85;">Desliza o toca un apartado</span>
-                        <button type="button" class="bs-btn" onclick="nextBudgetSlide()">Deslizar ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA APARTADO -->
-                      <div class="bs-chips-scroll" id="budgetChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <div class="pillar-topic-item">
-                    <div class="topic-icon-wrap">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <circle cx="12" cy="12" r="6"/>
-                        <circle cx="12" cy="12" r="2"/>
-                      </svg>
-                    </div>
-                    <div class="topic-texts">
-                      <h4>Metas financieras</h4>
-                      <p>Define lo que quieres y traza un plan alcanzable.</p>
-                    </div>
-                  </div>
-
-                  <!-- ── QUIZ: METAS FINANCIERAS ── -->
-                  <div class="quiz-box" id="quizMetas">
-                    <div class="quiz-header-bar">
-                      <span>🎯 QUIZ — METAS FINANCIERAS</span>
-                      <span class="quiz-progress-badge" id="quizMetasBadge">1 / 8</span>
-                    </div>
-                    <div class="quiz-body" id="quizMetasBody">
-                      <div class="quiz-question" id="quizMetasQ"></div>
-                      <div class="quiz-options" id="quizMetasOpts"></div>
-                      <div class="quiz-feedback" id="quizMetasFb">
-                        <span class="quiz-feedback-icon" id="quizMetasFbIcon"></span>
-                        <span id="quizMetasFbText"></span>
-                      </div>
-                      <div class="quiz-controls">
-                        <button class="quiz-btn-check" id="quizMetasBtnCheck" onclick="checkQuizMetas()" disabled>✔ Comprobar</button>
-                        <button class="quiz-btn-next show" id="quizMetasBtnNext" onclick="nextQuizMetas()" style="display:none">Siguiente ▶</button>
-                        <button class="quiz-btn-reset" id="quizMetasBtnReset" onclick="resetQuizMetas()">↺ Reiniciar</button>
-                      </div>
-                    </div>
-                    <div class="quiz-result" id="quizMetasResult">
-                      <div class="quiz-result-score" id="quizMetasScore"></div>
-                      <div class="quiz-result-label">¡Quiz completado!</div>
-                      <div class="quiz-result-bar-wrap"><div class="quiz-result-bar" id="quizMetasBar"></div></div>
-                      <div class="quiz-result-msg" id="quizMetasMsg"></div>
-                      <button class="quiz-btn-check" onclick="resetQuizMetas()" style="max-width:180px">↺ Intentar de nuevo</button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="pillar-bottom-banner">
-                ¡Organiza hoy, asegura mañana!
-              </div>
-            </div>
-          </div>
-
-          <!-- BLOQUE 2: AHORRO E INVERSIÓN (VERDE) -->
-          <div class="pillar-card pillar-green">
-            <div class="pillar-header">
-              <div class="pillar-number">2</div>
-              <h3>AHORRO E INVERSIÓN</h3>
-              <p>Haz que tu dinero trabaje para ti.</p>
-              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
-                <span class="pillar-toggle-text">Ver contenido</span>
-                <span class="pillar-toggle-chevron">▾</span>
-              </button>
-              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
-            </div>
-            <div class="pillar-body">
-              <div>
-                <span class="pillar-temas-pill">Temas:</span>
-                <div class="pillar-topic-list">
-                  <!-- TEMA 1: EL HÁBITO DEL AHORRO CON TARJETAS FLASH -->
-                  <div class="pillar-topic-item topic-with-flashcards">
-                    <div class="topic-main-row">
-                      <div class="topic-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M19 12a7 7 0 1 0-14 0c0 2.5 1.3 4.7 3.2 6H19a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-1z"/>
-                          <circle cx="16" cy="8" r="1" fill="currentColor"/>
-                          <path d="M11 6a4 4 0 0 1 4 4"/>
-                          <path d="M9 18v3"/>
-                          <path d="M15 18v3"/>
-                        </svg>
-                      </div>
-                      <div class="topic-texts">
-                        <h4>El hábito del ahorro</h4>
-                        <p>Pequeños aportes constantes, grandes logros.</p>
-                      </div>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE FLASHCARDS (AHORRO) -->
-                    <div class="flashcards-box">
-                      <div class="flashcards-header-bar">
-                        <span>🃏 TARJETAS FLASH (TOCA PARA GIRAR)</span>
-                        <span class="flashcards-counter-badge" id="fcAhorroCounter">1 / 10</span>
-                      </div>
-
-                      <!-- ESCENARIO DE LA TARJETA (CLIC PARA GIRAR) -->
-                      <div class="flashcard-stage" id="fcAhorroStage" onclick="toggleFlashcardFlipAhorro()" title="Haz clic o toca para voltear la tarjeta">
-                        <div class="flashcard-flipper" id="fcAhorroFlipper">
-                          
-                          <!-- CARA FRONTAL: PREGUNTA -->
-                          <div class="flashcard-side flashcard-front">
-                            <div class="flashcard-top-tag" id="fcAhorroFrontBadge">📗 Hábito del ahorro</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-question-text" id="fcAhorroQuestion">¿Qué es realmente el hábito del ahorro?</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>❓ Pregunta</span>
-                              <span>Toca para ver respuesta ↻</span>
-                            </div>
-                          </div>
-
-                          <!-- CARA TRASERA: RESPUESTA -->
-                          <div class="flashcard-side flashcard-back">
-                            <div class="flashcard-top-tag" id="fcAhorroBackBadge">💡 Respuesta</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-answer-text" id="fcAhorroAnswer">Separar y reservar una porción fija de tus ingresos de manera constante antes de gastar, no solo lo que sobra al final del mes.</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>✅ Explicación</span>
-                              <span>Toca para ver pregunta ↺</span>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / GIRAR / SIGUIENTE -->
-                      <div class="flashcards-controls-row">
-                        <button type="button" class="fc-btn" onclick="prevFlashcardAhorro()">◀ Anterior</button>
-                        <button type="button" class="fc-btn" onclick="toggleFlashcardFlipAhorro()">Girar 🔄</button>
-                        <button type="button" class="fc-btn" onclick="nextFlashcardAhorro()">Siguiente ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA PREGUNTA -->
-                      <div class="fc-chips-scroll" id="fcAhorroChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <!-- TEMA 2: TIPOS DE INVERSIÓN CON SLIDER DESLIZABLE (CLICK PARA VER) -->
-                  <div class="pillar-topic-item topic-with-slider">
-                    <div class="topic-clickable-row" onclick="toggleTopicSlider('inversionSliderBox', 'inversionToggleBadge', 'inversion')" title="Haz clic para ver las preguntas y descripciones">
-                      <div class="topic-clickable-left">
-                        <div class="topic-icon-wrap">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="20" x2="18" y2="10"/>
-                            <line x1="12" y1="20" x2="12" y2="4"/>
-                            <line x1="6" y1="20" x2="6" y2="14"/>
-                            <path d="M4 14l8-8 6 6 4-4"/>
-                          </svg>
-                        </div>
-                        <div class="topic-texts">
-                          <h4>Tipos de inversión</h4>
-                          <p>Conoce las opciones que se ajustan a tus objetivos.</p>
-                        </div>
-                      </div>
-                      <span class="topic-toggle-badge" id="inversionToggleBadge">Ver guía ▾</span>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE SLIDER (INVERSIÓN - OCULTO HASTA DAR CLIC) -->
-                    <div class="budget-slider-box" id="inversionSliderBox" style="display: none; margin-top: 6px;">
-                      <div class="budget-slider-header-bar">
-                        <span>📈 GUÍA DE INVERSIÓN (DESLIZA PARA VER APARTADOS)</span>
-                        <span class="budget-slider-counter-badge" id="inversionCounter">1 / 8</span>
-                      </div>
-
-                      <!-- ESCENARIO DEL SLIDER (DESLIZABLE) -->
-                      <div class="budget-slider-stage" id="inversionStage">
-                        <div class="budget-slider-track" id="inversionTrack"></div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / SIGUIENTE -->
-                      <div class="budget-slider-controls">
-                        <button type="button" class="bs-btn" onclick="prevInversionSlide()">◀ Deslizar</button>
-                        <span style="font-size: 8.5px; color: #007640; font-weight: 600; opacity: 0.85;">Desliza o toca un apartado</span>
-                        <button type="button" class="bs-btn" onclick="nextInversionSlide()">Deslizar ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA APARTADO -->
-                      <div class="bs-chips-scroll" id="inversionChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <div class="pillar-topic-item">
-                    <div class="topic-icon-wrap">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <ellipse cx="12" cy="6" rx="8" ry="3"/>
-                        <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/>
-                        <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
-                      </svg>
-                    </div>
-                    <div class="topic-texts">
-                      <h4>Interés compuesto</h4>
-                      <p>Tu dinero puede multiplicarse y crecer con el tiempo.</p>
-                    </div>
-                  </div>
-
-                  <!-- ── QUIZ: INTERÉS COMPUESTO ── -->
-                  <div class="quiz-box" id="quizInteres">
-                    <div class="quiz-header-bar green-bar">
-                      <span>📈 QUIZ — INTERÉS COMPUESTO</span>
-                      <span class="quiz-progress-badge" id="quizInteresBadge">1 / 8</span>
-                    </div>
-                    <div class="quiz-body" id="quizInteresBody">
-                      <div class="quiz-question" id="quizInteresQ"></div>
-                      <div class="quiz-options" id="quizInteresOpts"></div>
-                      <div class="quiz-feedback" id="quizInteresFb">
-                        <span class="quiz-feedback-icon" id="quizInteresFbIcon"></span>
-                        <span id="quizInteresFbText"></span>
-                      </div>
-                      <div class="quiz-controls">
-                        <button class="quiz-btn-check" id="quizInteresBtnCheck" onclick="checkQuizInteres()" disabled style="background:linear-gradient(135deg,#1a7a45,#15603a)">✔ Comprobar</button>
-                        <button class="quiz-btn-next" id="quizInteresBtnNext" onclick="nextQuizInteres()" style="display:none;background:linear-gradient(135deg,#22c55e,#16a34a)">Siguiente ▶</button>
-                        <button class="quiz-btn-reset" id="quizInteresBtnReset" onclick="resetQuizInteres()">↺ Reiniciar</button>
-                      </div>
-                    </div>
-                    <div class="quiz-result" id="quizInteresResult">
-                      <div class="quiz-result-score" id="quizInteresScore"></div>
-                      <div class="quiz-result-label">¡Quiz completado!</div>
-                      <div class="quiz-result-bar-wrap"><div class="quiz-result-bar" id="quizInteresBar" style="background:linear-gradient(90deg,#16a34a,#22c55e)"></div></div>
-                      <div class="quiz-result-msg" id="quizInteresMsg"></div>
-                      <button class="quiz-btn-check" onclick="resetQuizInteres()" style="max-width:180px;background:linear-gradient(135deg,#1a7a45,#15603a)">↺ Intentar de nuevo</button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="pillar-bottom-banner">
-                Ahorra, invierte, crece.
-              </div>
-            </div>
-          </div>
-
-          <!-- BLOQUE 3: USO RESPONSABLE DEL CRÉDITO (ÍNDIGO) -->
-          <div class="pillar-card pillar-indigo">
-            <div class="pillar-header">
-              <div class="pillar-number">3</div>
-              <h3>USO RESPONSABLE DEL CRÉDITO</h3>
-              <p>El crédito puede ser una herramienta, si lo usas con inteligencia.</p>
-              <button type="button" class="pillar-toggle" onclick="toggleDemoBlock(this)" aria-expanded="false">
-                <span class="pillar-toggle-text">Ver contenido</span>
-                <span class="pillar-toggle-chevron">▾</span>
-              </button>
-              <button type="button" class="pillar-modal-close" onclick="toggleDemoBlock(this)" aria-label="Cerrar contenido">&times;</button>
-            </div>
-            <div class="pillar-body">
-              <div>
-                <span class="pillar-temas-pill">Temas:</span>
-                <div class="pillar-topic-list">
-                  <!-- TEMA 1: TIPOS DE CRÉDITO CON TARJETAS FLASH -->
-                  <div class="pillar-topic-item topic-with-flashcards">
-                    <div class="topic-main-row">
-                      <div class="topic-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="2" y="5" width="20" height="14" rx="2"/>
-                          <line x1="2" y1="10" x2="22" y2="10"/>
-                        </svg>
-                      </div>
-                      <div class="topic-texts">
-                        <h4>Tipos de crédito</h4>
-                        <p>Conoce sus características, plazos y diferencias.</p>
-                      </div>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE FLASHCARDS (CRÉDITO) -->
-                    <div class="flashcards-box">
-                      <div class="flashcards-header-bar">
-                        <span>🃏 TARJETAS FLASH (TOCA PARA GIRAR)</span>
-                        <span class="flashcards-counter-badge" id="fcCreditoCounter">1 / 10</span>
-                      </div>
-
-                      <!-- ESCENARIO DE LA TARJETA (CLIC PARA GIRAR) -->
-                      <div class="flashcard-stage" id="fcCreditoStage" onclick="toggleFlashcardFlipCredito()" title="Haz clic o toca para voltear la tarjeta">
-                        <div class="flashcard-flipper" id="fcCreditoFlipper">
-                          
-                          <!-- CARA FRONTAL: PREGUNTA -->
-                          <div class="flashcard-side flashcard-front">
-                            <div class="flashcard-top-tag" id="fcCreditoFrontBadge">💳 Crédito</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-question-text" id="fcCreditoQuestion">¿Qué es realmente un crédito?</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>❓ Pregunta</span>
-                              <span>Toca para ver respuesta ↻</span>
-                            </div>
-                          </div>
-
-                          <!-- CARA TRASERA: RESPUESTA -->
-                          <div class="flashcard-side flashcard-back">
-                            <div class="flashcard-top-tag" id="fcCreditoBackBadge">💡 Respuesta</div>
-                            <div class="flashcard-content-wrap">
-                              <div class="flashcard-answer-text" id="fcCreditoAnswer">Es un préstamo de dinero que una entidad te otorga bajo el compromiso de devolverlo en un plazo pactado junto con los intereses y comisiones.</div>
-                            </div>
-                            <div class="flashcard-hint-bottom">
-                              <span>✅ Explicación</span>
-                              <span>Toca para ver pregunta ↺</span>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / GIRAR / SIGUIENTE -->
-                      <div class="flashcards-controls-row">
-                        <button type="button" class="fc-btn" onclick="prevFlashcardCredito()">◀ Anterior</button>
-                        <button type="button" class="fc-btn" onclick="toggleFlashcardFlipCredito()">Girar 🔄</button>
-                        <button type="button" class="fc-btn" onclick="nextFlashcardCredito()">Siguiente ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA PREGUNTA -->
-                      <div class="fc-chips-scroll" id="fcCreditoChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <!-- TEMA 2: BUENAS PRÁCTICAS CON SLIDER DESLIZABLE (CLICK PARA VER) -->
-                  <div class="pillar-topic-item topic-with-slider">
-                    <div class="topic-clickable-row" onclick="toggleTopicSlider('practicasSliderBox', 'practicasToggleBadge', 'practicas')" title="Haz clic para ver las preguntas y descripciones">
-                      <div class="topic-clickable-left">
-                        <div class="topic-icon-wrap">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <polyline points="9 15 11 17 15 13"/>
-                          </svg>
-                        </div>
-                        <div class="topic-texts">
-                          <h4>Buenas prácticas</h4>
-                          <p>Evita deudas innecesarias y cumple tus pagos a tiempo.</p>
-                        </div>
-                      </div>
-                      <span class="topic-toggle-badge" id="practicasToggleBadge">Ver guía ▾</span>
-                    </div>
-
-                    <!-- MÓDULO INTERACTIVO DE SLIDER (BUENAS PRÁCTICAS - OCULTO HASTA DAR CLIC) -->
-                    <div class="budget-slider-box" id="practicasSliderBox" style="display: none; margin-top: 6px;">
-                      <div class="budget-slider-header-bar">
-                        <span>💳 REGLAS DE ORO (DESLIZA PARA VER APARTADOS)</span>
-                        <span class="budget-slider-counter-badge" id="practicasCounter">1 / 8</span>
-                      </div>
-
-                      <!-- ESCENARIO DEL SLIDER (DESLIZABLE) -->
-                      <div class="budget-slider-stage" id="practicasStage">
-                        <div class="budget-slider-track" id="practicasTrack"></div>
-                      </div>
-
-                      <!-- CONTROLES: ANTERIOR / SIGUIENTE -->
-                      <div class="budget-slider-controls">
-                        <button type="button" class="bs-btn" onclick="prevPracticasSlide()">◀ Deslizar</button>
-                        <span style="font-size: 8.5px; color: #24307a; font-weight: 600; opacity: 0.85;">Desliza o toca un apartado</span>
-                        <button type="button" class="bs-btn" onclick="nextPracticasSlide()">Deslizar ▶</button>
-                      </div>
-
-                      <!-- CHIPS DE ACCESO DIRECTO A CADA APARTADO -->
-                      <div class="bs-chips-scroll" id="practicasChipsContainer"></div>
-                    </div>
-                  </div>
-
-                  <div class="pillar-topic-item">
-                    <div class="topic-icon-wrap">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                    </div>
-                    <div class="topic-texts">
-                      <h4>Riesgos del sobreendeudamiento</h4>
-                      <p>Cuida tu historial crediticio y tu estabilidad familiar.</p>
-                    </div>
-                  </div>
-
-                  <!-- ── QUIZ: SOBREENDEUDAMIENTO ── -->
-                  <div class="quiz-box" id="quizDeuda">
-                    <div class="quiz-header-bar indigo-bar">
-                      <span>⚠️ QUIZ — SOBREENDEUDAMIENTO</span>
-                      <span class="quiz-progress-badge" id="quizDeudaBadge">1 / 8</span>
-                    </div>
-                    <div class="quiz-body" id="quizDeudaBody">
-                      <div class="quiz-question" id="quizDeudaQ"></div>
-                      <div class="quiz-options" id="quizDeudaOpts"></div>
-                      <div class="quiz-feedback" id="quizDeudaFb">
-                        <span class="quiz-feedback-icon" id="quizDeudaFbIcon"></span>
-                        <span id="quizDeudaFbText"></span>
-                      </div>
-                      <div class="quiz-controls">
-                        <button class="quiz-btn-check" id="quizDeudaBtnCheck" onclick="checkQuizDeuda()" disabled style="background:linear-gradient(135deg,#24307a,#1c2560)">✔ Comprobar</button>
-                        <button class="quiz-btn-next" id="quizDeudaBtnNext" onclick="nextQuizDeuda()" style="display:none;background:linear-gradient(135deg,#6366f1,#4f46e5)">Siguiente ▶</button>
-                        <button class="quiz-btn-reset" id="quizDeudaBtnReset" onclick="resetQuizDeuda()">↺ Reiniciar</button>
-                      </div>
-                    </div>
-                    <div class="quiz-result" id="quizDeudaResult">
-                      <div class="quiz-result-score" id="quizDeudaScore"></div>
-                      <div class="quiz-result-label">¡Quiz completado!</div>
-                      <div class="quiz-result-bar-wrap"><div class="quiz-result-bar" id="quizDeudaBar" style="background:linear-gradient(90deg,#4f46e5,#818cf8)"></div></div>
-                      <div class="quiz-result-msg" id="quizDeudaMsg"></div>
-                      <button class="quiz-btn-check" onclick="resetQuizDeuda()" style="max-width:180px;background:linear-gradient(135deg,#24307a,#1c2560)">↺ Intentar de nuevo</button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <div class="pillar-bottom-banner">
-                El buen crédito también es libertad.
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- TARJETA DEMO CONCLUIDA (REEMPLAZA LAS 3 TABLAS AL TERMINAR) -->
-        <div class="demo-fin-card" id="demoFinCard" style="display: none;">
-          <div class="demo-fin-card-inner">
-            <div class="demo-fin-badge">🏁 DEMO GRATUITA CONCLUIDA</div>
-            <div style="font-size: 46px; margin-bottom: 6px;">🎓</div>
-            <h3 class="demo-fin-title">¡Has completado la revisión de las 3 tablas de prueba!</h3>
-            <div class="demo-fin-pills">
-              <span class="df-pill">✅ 1. Administración de Finanzas</span>
-              <span class="df-pill">✅ 2. Ahorro e Inversión</span>
-              <span class="df-pill">✅ 3. Uso Responsable del Crédito</span>
-            </div>
-            <p class="demo-fin-desc">
-              Tu periodo de demostración gratuita ha terminado y <strong>las 3 tablas de prueba han sido retiradas</strong>. Ahora que conoces las bases, da el paso definitivo e <strong>inscríbete sin costo</strong> para desbloquear tu Semestre 1 completo de la carrera de 2 años sin ingresar tarjetas de crédito.
-            </p>
-            <div class="demo-fin-cta-box">
-              <a href="index.php?page=reticula" class="btn-demo-fin-enroll" id="btnDemoFinEnroll">
-                <span>👉 Ir a Inscribirme Ahora (100% Gratis)</span>
-              </a>
-              <div class="demo-fin-redirect-note" id="demoRedirectNotice">
-                ⏳ Redirigiendo a tu inscripción en <strong id="demoCountdownSecs">3</strong> segundos...
-              </div>
-            </div>
-            <div style="margin-top: 14px;">
-              <button type="button" class="btn-demo-fin-reset" onclick="reiniciarDemoTest()">↺ Volver a abrir tablas (modo prueba)</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- MÁS BAJITO: SECCIÓN PARA INSCRIBIRSE CON EL BOTÓN FINAL PARA INICIAR DEMO GRATIS -->
-        <div class="enroll-cta-wrapper">
-          <div class="enroll-badge">
-            <span>🎁 1ER SEMESTRE DE PRUEBA 100% GRATIS</span>
-          </div>
-          <h2>Inscríbete y da el primer paso hacia tu libertad financiera</h2>
-          <p>
-            No te pedimos ingresar tarjetas de crédito ni datos bancarios. Comienza a estudiar hoy mismo nuestro programa de 2 años con acceso libre a las materias del Nivel Básico.
-          </p>
-          <div class="cta-button-group">
-            <a href="index.php?page=reticula" class="btn-main-pulse">
-              <span>👉 Inscríbete Ahora</span>
-            </a>
-          </div>
-          <div class="no-register-note">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Acceso libre • Sin tarjeta de crédito • Comienza en menos de 1 minuto</span>
-          </div>
-        </div>
-
+<!-- ══════════════════════════════════════════════════════
+     SECCIÓN NEUROVENTAS: 3 CUADROS CON COLOR INDIVIDUAL
+     ══════════════════════════════════════════════════════ -->
+<section class="pillars-overview-section" id="neuroventas">
+  <div class="container">
+    
+    <div class="pillars-overview-header">
+      <div class="pillars-tagline">
+        <span>🧠 Neuroventas y Neurociencias</span>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p><strong>Educación Financiera</strong> — Plataforma Educativa de Aprendizaje y Transformación.</p>
+      <h2>VÉNDELE A LA MENTE, NO A LA GENTE</h2>
+      <p class="pillars-sub">Jürgen Klarić — Los 3 Capítulos Fundamentales para Dominar las Ventas Modernas</p>
+      <p class="pillars-slogan">"El 85% de la decisión de compra es subconsciente e inconsciente; solo el 15% es consciente."</p>
+      <p style="font-size: 13px; color: #4a5568; margin-top: 6px;">
+        Haz clic en cualquiera de los 3 cuadros para abrir la lectura completa a pantalla completa del capítulo que elijas.
+      </p>
     </div>
-  </footer>
 
-  <script>
-    /* ============================================================
-       LÓGICA DE TARJETAS FLASH INTERACTIVAS (INGRESOS Y GASTOS)
-       ============================================================ */
-    const flashcardsData = [
-      {
-        badge: "📘 Ingresos",
-        pregunta: "¿Qué son los ingresos?",
-        respuesta: "Es todo el dinero o recurso que recibes de forma periódica o puntual por tu trabajo, negocio, inversiones o ventas.",
-        chip: "1. ¿Qué son?"
-      },
-      {
-        badge: "📘 Tipos de ingresos",
-        pregunta: "¿Cuáles son los tipos de ingresos?",
-        respuesta: "<strong>• Fijos:</strong> Sueldo o pensión constante.<br><strong>• Variables:</strong> Comisiones, propinas o ventas.<br><strong>• Pasivos:</strong> Rentas o rendimientos sin esfuerzo diario.",
-        chip: "2. Tipos ingresos"
-      },
-      {
-        badge: "📘 Ejemplos",
-        pregunta: "¿Cuáles son ejemplos comunes de ingresos?",
-        respuesta: "Salario mensual/quincenal, pago de horas extras, ganancias de un negocio propio, dividendos de inversión y rentas cobradas.",
-        chip: "3. Ejemplos"
-      },
-      {
-        badge: "📘 Importancia",
-        pregunta: "¿Por qué son importantes los ingresos?",
-        respuesta: "Son el motor de tu estabilidad: cubren tus necesidades vitales, te permiten crear un fondo de emergencia e invertir en tu futuro.",
-        chip: "4. Importancia"
-      },
-      {
-        badge: "📙 Gastos",
-        pregunta: "¿Qué son los gastos?",
-        respuesta: "Es cualquier salida o desembolso de dinero destinado a adquirir bienes, pagar servicios o liquidar compromisos financieros.",
-        chip: "5. Gastos"
-      },
-      {
-        badge: "📙 Tipos de gastos",
-        pregunta: "¿Cuáles son los tipos de gastos?",
-        respuesta: "<strong>• Fijos:</strong> Renta, hipoteca, servicios.<br><strong>• Variables:</strong> Alimentación diaria, transporte.<br><strong>• Discrecionales:</strong> Salidas, ropa por gusto y ocio.",
-        chip: "6. Tipos gastos"
-      },
-      {
-        badge: "⚠️ Gastos hormiga",
-        pregunta: "¿Qué son los 'gastos hormiga'?",
-        respuesta: "Pequeños consumos cotidianos casi imperceptibles (cafés diarios, botanas, suscripciones sin uso) que al mes representan una fuerte fuga de dinero.",
-        chip: "7. Gastos hormiga"
-      },
-      {
-        badge: "⚖️ Criterio",
-        pregunta: "¿Cómo diferenciar una necesidad de un deseo?",
-        respuesta: "<strong>• Necesidad:</strong> Esencial para vivir o trabajar (alimentación básica, salud, techo).<br><strong>• Deseo:</strong> Prescindible que satisface un antojo momentáneo o estatus.",
-        chip: "8. Necesidad o deseo"
-      },
-      {
-        badge: "💡 Regla 50/30/20",
-        pregunta: "¿Qué es la regla 50/30/20 en ingresos y gastos?",
-        respuesta: "Es un método práctico: destinar el <strong>50%</strong> a necesidades básicas, el <strong>30%</strong> a deseos o estilo de vida, y el <strong>20%</strong> a ahorro o pagar deudas.",
-        chip: "9. Regla 50/30/20"
-      },
-      {
-        badge: "📈 Control",
-        pregunta: "¿Cómo lograr un flujo de dinero positivo?",
-        respuesta: "Gasta siempre menos de lo que ingresas. La regla de oro: <em>Ingresos - Ahorro primero = Gastos</em>. Ahorra al recibir, no lo que sobre.",
-        chip: "10. Flujo positivo"
-      }
-    ];
+    <!-- ── 3 CUADROS CON COLOR INDIVIDUAL (AZUL, VERDE, ÍNDIGO) ── -->
+    <div class="chapters-colored-grid" id="cuadros-capitulos">
 
-    let currentCardIndex = 0;
-
-    function renderFlashcard() {
-      const card = flashcardsData[currentCardIndex];
-      const flipper = document.getElementById('fcFlipper');
-      if (flipper) {
-        flipper.classList.remove('is-flipped');
-      }
-      
-      const fcFrontBadge = document.getElementById('fcFrontBadge');
-      const fcQuestion = document.getElementById('fcQuestion');
-      const fcAnswer = document.getElementById('fcAnswer');
-      const fcCounter = document.getElementById('fcCounter');
-      
-      if (fcFrontBadge) fcFrontBadge.textContent = card.badge;
-      if (fcQuestion) fcQuestion.textContent = card.pregunta;
-      if (fcAnswer) fcAnswer.innerHTML = card.respuesta;
-      if (fcCounter) fcCounter.textContent = `${currentCardIndex + 1} / ${flashcardsData.length}`;
-
-      const chips = document.querySelectorAll('#fcChipsContainer .fc-chip');
-      chips.forEach((c, idx) => {
-        if (idx === currentCardIndex) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
-
-    function toggleFlashcardFlip() {
-      const flipper = document.getElementById('fcFlipper');
-      if (flipper) {
-        flipper.classList.toggle('is-flipped');
-      }
-    }
-
-    function nextFlashcard() {
-      currentCardIndex = (currentCardIndex + 1) % flashcardsData.length;
-      renderFlashcard();
-    }
-
-    function prevFlashcard() {
-      currentCardIndex = (currentCardIndex - 1 + flashcardsData.length) % flashcardsData.length;
-      renderFlashcard();
-    }
-
-    function selectFlashcard(idx) {
-      currentCardIndex = idx;
-      renderFlashcard();
-    }
-
-    function initFlashcards() {
-      const container = document.getElementById('fcChipsContainer');
-      if (!container) return;
-      container.innerHTML = '';
-      flashcardsData.forEach((item, index) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = `fc-chip ${index === 0 ? 'active' : ''}`;
-        btn.textContent = item.chip;
-        btn.onclick = () => selectFlashcard(index);
-        container.appendChild(btn);
-      });
-      renderFlashcard();
-    }
-
-    /* ============================================================
-       LÓGICA DE TARJETAS FLASH INTERACTIVAS (EL HÁBITO DEL AHORRO)
-       ============================================================ */
-    const flashcardsDataAhorro = [
-      {
-        badge: "📗 Hábito del ahorro",
-        pregunta: "¿Qué es realmente el hábito del ahorro?",
-        respuesta: "Separar y reservar una porción fija de tus ingresos de manera constante antes de gastar, no solo lo que sobra al final del mes.",
-        chip: "1. ¿Qué es?"
-      },
-      {
-        badge: "📗 Importancia",
-        pregunta: "¿Por qué es tan importante ahorrar con constancia?",
-        respuesta: "Te da paz mental ante emergencias, evita endeudarte con intereses altos y construye el capital base para invertir.",
-        chip: "2. Importancia"
-      },
-      {
-        badge: "💡 Regla de oro",
-        pregunta: "¿Qué significa 'Págate a ti mismo primero'?",
-        respuesta: "Apenas recibes tus ingresos, apartas tu ahorro automáticamente. Si esperas a gastar primero, rara vez queda dinero.",
-        chip: "3. Págate primero"
-      },
-      {
-        badge: "🛡️ Fondo de paz",
-        pregunta: "¿Qué es un fondo de emergencia y cuánto debe ser?",
-        respuesta: "Un colchón seguro para imprevistos (salud, desempleo, reparaciones). Lo ideal es reunir entre <strong>3 y 6 meses</strong> de tus gastos básicos.",
-        chip: "4. Fondo emergencia"
-      },
-      {
-        badge: "⚖️ Criterio",
-        pregunta: "¿Cuál es la diferencia entre ahorrar e invertir?",
-        respuesta: "<strong>• Ahorro:</strong> Dinero seguro y disponible a corto plazo.<br><strong>• Inversión:</strong> Dinero que trabaja para ganarle a la inflación y multiplicarse.",
-        chip: "5. Ahorro vs Invertir"
-      },
-      {
-        badge: "📊 Porcentaje ideal",
-        pregunta: "¿Cuánto dinero debería ahorrar cada mes?",
-        respuesta: "La meta sugerida es del <strong>10% al 20%</strong> de tus ingresos. Si hoy te cuesta, empieza con el <strong>1% o 5%</strong> y aumenta paso a paso.",
-        chip: "6. ¿Cuánto ahorrar?"
-      },
-      {
-        badge: "⚠️ Inflación",
-        pregunta: "¿Por qué guardar el dinero estancado es un error?",
-        respuesta: "Por la inflación: con el tiempo las cosas suben de precio y el efectivo guardado pierde poder adquisitivo día con día.",
-        chip: "7. Inflación"
-      },
-      {
-        badge: "🤖 Automatización",
-        pregunta: "¿Cómo lograr el hábito del ahorro sin esfuerzo?",
-        respuesta: "Programa una transferencia automática a otra cuenta el día que cobras. Si no ves el dinero disponible en tu cuenta diaria, no lo gastas.",
-        chip: "8. Automatizar"
-      },
-      {
-        badge: "🧠 Psicología",
-        pregunta: "¿Cómo frenar los gastos impulsivos que dañan el ahorro?",
-        respuesta: "Aplica la regla de las <strong>48 horas</strong>: espera 2 días antes de comprar un antojo. En el 80% de los casos el deseo desaparece.",
-        chip: "9. Regla 48 horas"
-      },
-      {
-        badge: "🎯 Propósito",
-        pregunta: "¿Por qué el ahorro debe tener un objetivo claro?",
-        respuesta: "Ahorrar 'por si acaso' es fácil de romper. Al ponerle nombre ('Fondo de paz', 'Enganche', 'Cursos'), tu mente lo respeta y defiende.",
-        chip: "10. Propósito claro"
-      }
-    ];
-
-    let currentCardIndexAhorro = 0;
-
-    function renderFlashcardAhorro() {
-      const card = flashcardsDataAhorro[currentCardIndexAhorro];
-      const flipper = document.getElementById('fcAhorroFlipper');
-      if (flipper) {
-        flipper.classList.remove('is-flipped');
-      }
-      
-      const fcFrontBadge = document.getElementById('fcAhorroFrontBadge');
-      const fcQuestion = document.getElementById('fcAhorroQuestion');
-      const fcAnswer = document.getElementById('fcAhorroAnswer');
-      const fcCounter = document.getElementById('fcAhorroCounter');
-      
-      if (fcFrontBadge) fcFrontBadge.textContent = card.badge;
-      if (fcQuestion) fcQuestion.textContent = card.pregunta;
-      if (fcAnswer) fcAnswer.innerHTML = card.respuesta;
-      if (fcCounter) fcCounter.textContent = `${currentCardIndexAhorro + 1} / ${flashcardsDataAhorro.length}`;
-
-      const chips = document.querySelectorAll('#fcAhorroChipsContainer .fc-chip');
-      chips.forEach((c, idx) => {
-        if (idx === currentCardIndexAhorro) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
-
-    function toggleFlashcardFlipAhorro() {
-      const flipper = document.getElementById('fcAhorroFlipper');
-      if (flipper) {
-        flipper.classList.toggle('is-flipped');
-      }
-    }
-
-    function nextFlashcardAhorro() {
-      currentCardIndexAhorro = (currentCardIndexAhorro + 1) % flashcardsDataAhorro.length;
-      renderFlashcardAhorro();
-    }
-
-    function prevFlashcardAhorro() {
-      currentCardIndexAhorro = (currentCardIndexAhorro - 1 + flashcardsDataAhorro.length) % flashcardsDataAhorro.length;
-      renderFlashcardAhorro();
-    }
-
-    function selectFlashcardAhorro(idx) {
-      currentCardIndexAhorro = idx;
-      renderFlashcardAhorro();
-    }
-
-    function initFlashcardsAhorro() {
-      const container = document.getElementById('fcAhorroChipsContainer');
-      if (!container) return;
-      container.innerHTML = '';
-      flashcardsDataAhorro.forEach((item, index) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = `fc-chip ${index === 0 ? 'active' : ''}`;
-        btn.textContent = item.chip;
-        btn.onclick = () => selectFlashcardAhorro(index);
-        container.appendChild(btn);
-      });
-      renderFlashcardAhorro();
-    }
-
-    /* ============================================================
-       LÓGICA DE TARJETAS FLASH INTERACTIVAS (TIPOS DE CRÉDITO)
-       ============================================================ */
-    const flashcardsDataCredito = [
-      {
-        badge: "💳 ¿Qué es?",
-        pregunta: "¿Qué es realmente un crédito financiero?",
-        respuesta: "Es dinero que una entidad te presta bajo el compromiso de devolverlo en un plazo pactado con intereses y comisiones.",
-        chip: "1. ¿Qué es?"
-      },
-      {
-        badge: "💳 Revolvente",
-        pregunta: "¿Cómo funciona una tarjeta de crédito?",
-        respuesta: "Línea de crédito que reutilizas al pagar. Si cubres el 100% de tu saldo antes de la fecha límite, <strong>¡pagas 0% de interés!</strong>",
-        chip: "2. Tarjeta crédito"
-      },
-      {
-        badge: "👤 Personal",
-        pregunta: "¿Para qué sirve un préstamo personal?",
-        respuesta: "Monto fijo a mensualidades predecibles. Ideal para emergencias o consolidar deudas con intereses muy altos en un solo pago.",
-        chip: "3. Personal"
-      },
-      {
-        badge: "🚗 Automotriz",
-        pregunta: "¿Qué caracteriza al crédito automotriz?",
-        respuesta: "Es un crédito con garantía: el propio vehículo respalda el préstamo hasta que terminas de pagar la última mensualidad.",
-        chip: "4. Automotriz"
-      },
-      {
-        badge: "🏠 Hipotecario",
-        pregunta: "¿Qué es un crédito hipotecario?",
-        respuesta: "Préstamo de largo plazo (10 a 20 años) para adquirir o remodelar vivienda. Es el tipo de crédito con la tasa más baja.",
-        chip: "5. Hipotecario"
-      },
-      {
-        badge: "💼 De nómina",
-        pregunta: "¿Qué ventaja y riesgo tiene el crédito de nómina?",
-        respuesta: "Se descuenta en automático de tu sueldo. Es de aprobación rápida, pero reduce directo tu flujo quincenal disponible.",
-        chip: "6. De nómina"
-      },
-      {
-        badge: "📊 ¿Qué es el CAT?",
-        pregunta: "¿Qué es el Costo Anual Total (CAT)?",
-        respuesta: "Es la medida real de lo que pagarás: incluye intereses, comisiones, anualidad y seguros obligatorios. <strong>Compara siempre el CAT</strong>.",
-        chip: "7. Medida CAT"
-      },
-      {
-        badge: "⚖️ Criterio",
-        pregunta: "¿Cómo diferenciar deuda buena de deuda mala?",
-        respuesta: "<strong>• Buena:</strong> Financia activos que generan valor o ingresos (educación, negocio).<br><strong>• Mala:</strong> Financia caprichos y gastos efímeros.",
-        chip: "8. Buena vs Mala"
-      },
-      {
-        badge: "🛡️ Límite sano",
-        pregunta: "¿Cuál es tu límite máximo de endeudamiento?",
-        respuesta: "Tus pagos de deuda mensuales nunca deben rebasar entre el <strong>30% y 35%</strong> de tus ingresos netos para vivir tranquilo.",
-        chip: "9. Límite deuda"
-      },
-      {
-        badge: "⭐ Historial",
-        pregunta: "¿Por qué cuidar tu Buró o historial crediticio?",
-        respuesta: "Es tu reputación financiera: un puntaje positivo te garantiza tasas más bajas, mayores montos y acceso a mejores oportunidades.",
-        chip: "10. Buró crédito"
-      }
-    ];
-
-    let currentCardIndexCredito = 0;
-
-    function renderFlashcardCredito() {
-      const card = flashcardsDataCredito[currentCardIndexCredito];
-      const flipper = document.getElementById('fcCreditoFlipper');
-      if (flipper) {
-        flipper.classList.remove('is-flipped');
-      }
-      
-      const fcFrontBadge = document.getElementById('fcCreditoFrontBadge');
-      const fcQuestion = document.getElementById('fcCreditoQuestion');
-      const fcAnswer = document.getElementById('fcCreditoAnswer');
-      const fcCounter = document.getElementById('fcCreditoCounter');
-      
-      if (fcFrontBadge) fcFrontBadge.textContent = card.badge;
-      if (fcQuestion) fcQuestion.textContent = card.pregunta;
-      if (fcAnswer) fcAnswer.innerHTML = card.respuesta;
-      if (fcCounter) fcCounter.textContent = `${currentCardIndexCredito + 1} / ${flashcardsDataCredito.length}`;
-
-      const chips = document.querySelectorAll('#fcCreditoChipsContainer .fc-chip');
-      chips.forEach((c, idx) => {
-        if (idx === currentCardIndexCredito) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
-
-    function toggleFlashcardFlipCredito() {
-      const flipper = document.getElementById('fcCreditoFlipper');
-      if (flipper) {
-        flipper.classList.toggle('is-flipped');
-      }
-    }
-
-    function nextFlashcardCredito() {
-      currentCardIndexCredito = (currentCardIndexCredito + 1) % flashcardsDataCredito.length;
-      renderFlashcardCredito();
-    }
-
-    function prevFlashcardCredito() {
-      currentCardIndexCredito = (currentCardIndexCredito - 1 + flashcardsDataCredito.length) % flashcardsDataCredito.length;
-      renderFlashcardCredito();
-    }
-
-    function selectFlashcardCredito(idx) {
-      currentCardIndexCredito = idx;
-      renderFlashcardCredito();
-    }
-
-    function initFlashcardsCredito() {
-      const container = document.getElementById('fcCreditoChipsContainer');
-      if (!container) return;
-      container.innerHTML = '';
-      flashcardsDataCredito.forEach((item, index) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = `fc-chip ${index === 0 ? 'active' : ''}`;
-        btn.textContent = item.chip;
-        btn.onclick = () => selectFlashcardCredito(index);
-        container.appendChild(btn);
-      });
-      renderFlashcardCredito();
-    }
-
-    function initAllFlashcards() {
-      initFlashcards();
-      initFlashcardsAhorro();
-      initFlashcardsCredito();
-      initBudgetSlider();
-      initInversionSlider();
-      initPracticasSlider();
-    }
-
-    /* ============================================================
-       FUNCIÓN PARA MOSTRAR / OCULTAR SLIDERS AL DAR CLIC EN EL TEMA
-       ============================================================ */
-    function toggleTopicSlider(sliderId, badgeId, type) {
-      const sliderBox = document.getElementById(sliderId);
-      const badge = document.getElementById(badgeId);
-      if (!sliderBox) return;
-
-      const isHidden = (sliderBox.style.display === 'none' || getComputedStyle(sliderBox).display === 'none');
-
-      if (isHidden) {
-        sliderBox.style.display = 'flex';
-        if (badge) {
-          badge.innerHTML = 'Ocultar ▴';
-        }
-        if (type === 'budget') {
-          goToBudgetSlide(currentBudgetIndex);
-        } else if (type === 'inversion') {
-          goToInversionSlide(currentInversionIndex);
-        } else if (type === 'practicas') {
-          goToPracticasSlide(currentPracticasIndex);
-        }
-      } else {
-        sliderBox.style.display = 'none';
-        if (badge) {
-          badge.innerHTML = 'Ver guía ▾';
-        }
-      }
-    }
-
-    /* ============================================================
-       LÓGICA DE SLIDER DESLIZABLE (PRESUPUESTO: PREGUNTA + DESCRIPCIÓN)
-       ============================================================ */
-    const budgetData = [
-      {
-        badge: "📘 1. Concepto",
-        pregunta: "¿Qué es realmente un presupuesto?",
-        descripcion: "Es un plan financiero escrito donde proyectas tus ingresos y decides anticipadamente a dónde irá cada peso, evitando sorpresas a fin de mes.",
-        chip: "1. ¿Qué es?"
-      },
-      {
-        badge: "💡 2. Beneficio",
-        pregunta: "¿Por qué es indispensable presupuestar?",
-        descripcion: "Te da control absoluto de tu dinero: frena compras compulsivas, detecta fugas y te da paz mental al saber que todos tus compromisos están cubiertos.",
-        chip: "2. Utilidad"
-      },
-      {
-        badge: "📝 3. Pasos clave",
-        pregunta: "¿Cuáles son los pasos para armar tu presupuesto?",
-        descripcion: "1) Suma tus ingresos netos reales, 2) Anota tus gastos fijos obligatorios, 3) Fija topes a gastos variables y 4) Asigna ahorro desde el día uno.",
-        chip: "3. Pasos clave"
-      },
-      {
-        badge: "📊 4. Distribución",
-        pregunta: "¿Cómo distribuir tu dinero en el presupuesto?",
-        descripcion: "Aplica la regla básica: <strong>50%</strong> a necesidades esenciales (renta, servicios, comida), <strong>30%</strong> a estilo de vida y <strong>20%</strong> a ahorro o deudas.",
-        chip: "4. Regla 50/30/20"
-      },
-      {
-        badge: "🎯 5. Base Cero",
-        pregunta: "¿Qué es el presupuesto 'Base Cero'?",
-        descripcion: "Consiste en asignarle una tarea específica a cada peso hasta que <em>Ingresos - Gastos = 0</em>. El excedente no gastado se destina directo a tus metas.",
-        chip: "5. Base Cero"
-      },
-      {
-        badge: "⏱️ 6. Frecuencia",
-        pregunta: "¿Con qué frecuencia debes revisarlo?",
-        descripcion: "Se planifica una vez al mes, pero se monitorea una vez por semana o al hacer compras grandes. Si te pasas en un rubro, compensa recortando en otro.",
-        chip: "6. Seguimiento"
-      },
-      {
-        badge: "⚠️ 7. Desbalance",
-        pregunta: "¿Qué hacer si tus gastos superan tus ingresos?",
-        descripcion: "Pausa consumos discrecionales, cancela suscripciones sin uso y busca ingresos extra temporales para evitar financiar tu vida con préstamos caros.",
-        chip: "7. Si no alcanza"
-      },
-      {
-        badge: "🛠️ 8. Herramientas",
-        pregunta: "¿Qué herramientas facilitan llevar tu presupuesto?",
-        descripcion: "Desde una libreta o plantilla en Excel/Google Sheets hasta apps móviles dedicadas. Lo importante no es la herramienta, sino el hábito de registrar.",
-        chip: "8. Herramientas"
-      }
-    ];
-
-    let currentBudgetIndex = 0;
-
-    function goToBudgetSlide(idx) {
-      currentBudgetIndex = idx;
-      const track = document.getElementById('budgetTrack');
-      const counter = document.getElementById('budgetCounter');
-      
-      if (track) {
-        track.style.transform = `translateX(-${currentBudgetIndex * 100}%)`;
-      }
-      if (counter) {
-        counter.textContent = `${currentBudgetIndex + 1} / ${budgetData.length}`;
-      }
-
-      const chips = document.querySelectorAll('#budgetChipsContainer .bs-chip');
-      chips.forEach((c, i) => {
-        if (i === currentBudgetIndex) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
-
-    function nextBudgetSlide() {
-      const nextIdx = (currentBudgetIndex + 1) % budgetData.length;
-      goToBudgetSlide(nextIdx);
-    }
-
-    function prevBudgetSlide() {
-      const prevIdx = (currentBudgetIndex - 1 + budgetData.length) % budgetData.length;
-      goToBudgetSlide(prevIdx);
-    }
-
-    function initBudgetSlider() {
-      const track = document.getElementById('budgetTrack');
-      const chipsContainer = document.getElementById('budgetChipsContainer');
-      const stage = document.getElementById('budgetStage');
-      if (!track || !chipsContainer) return;
-
-      track.innerHTML = '';
-      chipsContainer.innerHTML = '';
-
-      budgetData.forEach((item, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'budget-slide';
-        slide.innerHTML = `
-          <div class="budget-slide-top-tag">${item.badge}</div>
-          <div class="budget-slide-content">
-            <div class="budget-slide-question">${item.pregunta}</div>
-            <div class="budget-slide-desc">${item.descripcion}</div>
+      <!-- ==========================================
+           CUADRO 1: AZUL (CAPÍTULO 1)
+           ========================================== -->
+      <div class="colored-chapter-card card-blue" onclick="openChapterModal('modalCapitulo1')" title="Clic para abrir el Capítulo 1 a pantalla completa">
+        <div class="ccc-header">
+          <div class="ccc-badge-row">
+            <div class="ccc-num">1</div>
+            <span class="ccc-tag">📘 CAPÍTULO 1</span>
           </div>
-          <div class="budget-slide-hint">
-            <span>Apartado ${index + 1} de ${budgetData.length}</span>
-            <span>Desliza para siguiente →</span>
+          <h3>Las Neuroventas frente a las Ventas Tradicionales</h3>
+          <p>Supera la capacitación mecánica y descubre la ciencia real de la mente humana.</p>
+        </div>
+        <div class="ccc-body">
+          <ul class="ccc-points">
+            <li><strong>Capacitadores desactualizados:</strong> Deja de ser un robot y crea tu propia comunicación efectiva.</li>
+            <li><strong>Ciencia y tecnología:</strong> Validado con el aparato electroencefalográfico <strong>Quasar (EEG)</strong>.</li>
+            <li><strong>Descubrimiento clave:</strong> El <strong>85%</strong> de la decisión de compra es inconsciente y solo el 15% consciente.</li>
+            <li><strong>Vender sin vender:</strong> Escuchar antes de hablar, conectar y empatizar con el cliente.</li>
+          </ul>
+          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo1'); event.stopPropagation();">
+            <span>📖 Abrir Capítulo 1 a Pantalla Completa</span>
+            <span>⛶</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           CUADRO 2: VERDE (CAPÍTULO 2)
+           ========================================== -->
+      <div class="colored-chapter-card card-green" onclick="openChapterModal('modalCapitulo2')" title="Clic para abrir el Capítulo 2 a pantalla completa">
+        <div class="ccc-header">
+          <div class="ccc-badge-row">
+            <div class="ccc-num">2</div>
+            <span class="ccc-tag">📗 CAPÍTULO 2</span>
           </div>
-        `;
-        track.appendChild(slide);
+          <h3>Neurociencias para las Ventas</h3>
+          <p>Conoce la arquitectura cerebral: los tres cerebros y el código reptil que gobierna el instinto.</p>
+        </div>
+        <div class="ccc-body">
+          <ul class="ccc-points">
+            <li><strong>Los Tres Cerebros:</strong> Reptiliano (el que DECIDE), Límbico (el que SIENTE) y Córtex (el que JUSTIFICA).</li>
+            <li><strong>El Código Reptil:</strong> <em>"El instinto mata a la razón y a la emoción"</em>. El instinto biológico manda.</li>
+            <li><strong>Ejemplo clave:</strong> Fumar tiene un código reptil de rebeldía y anarquía.</li>
+            <li><strong>12 Códigos biológicos:</strong> Felicidad, control, placer, seguridad, protección, pertenencia a la tribu y más.</li>
+          </ul>
+          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo2'); event.stopPropagation();">
+            <span>📖 Abrir Capítulo 2 a Pantalla Completa</span>
+            <span>⛶</span>
+          </button>
+        </div>
+      </div>
 
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = `bs-chip ${index === 0 ? 'active' : ''}`;
-        chip.textContent = item.chip;
-        chip.onclick = () => goToBudgetSlide(index);
-        chipsContainer.appendChild(chip);
-      });
+      <!-- ==========================================
+           CUADRO 3: ÍNDIGO (CAPÍTULO 3)
+           ========================================== -->
+      <div class="colored-chapter-card card-indigo" onclick="openChapterModal('modalCapitulo3')" title="Clic para abrir el Capítulo 3 a pantalla completa">
+        <div class="ccc-header">
+          <div class="ccc-badge-row">
+            <div class="ccc-num">3</div>
+            <span class="ccc-tag">📙 CAPÍTULO 3</span>
+          </div>
+          <h3>El Proceso de Decisión</h3>
+          <p>Los 3 escenarios, la fórmula A→E→R, los 5 neurotransmisores y las acciones concretas.</p>
+        </div>
+        <div class="ccc-body">
+          <ul class="ccc-points">
+            <li><strong>Los 3 Escenarios:</strong> 1) Quedarse como está, 2) Alternativa económica, 3) Opción ideal y completa.</li>
+            <li><strong>La Fórmula A → E → R:</strong> Atención (romper rutina), Emoción (deseo) y Recordación (memoria).</li>
+            <li><strong>5 Neurotransmisores:</strong> Noradrenalina, Dopamina, Acetilcolina, Endorfina y Serotonina.</li>
+            <li><strong>Acciones concretas:</strong> Pasos prácticos para activar la atención, generar emoción y consolidar la compra.</li>
+          </ul>
+          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo3'); event.stopPropagation();">
+            <span>📖 Abrir Capítulo 3 a Pantalla Completa</span>
+            <span>⛶</span>
+          </button>
+        </div>
+      </div>
 
-      goToBudgetSlide(0);
+    </div>
 
-      if (stage) {
-        let touchStartX = 0;
-        let touchEndX = 0;
+    <!-- SECCIÓN PARA INSCRIBIRSE -->
+    <div class="enroll-cta-wrapper">
+      <div class="enroll-badge">
+        <span>🧠 FORMACIÓN INTEGRAL • NEUROVENTAS Y FINANZAS</span>
+      </div>
+      <h2>Aprende a venderle a la mente y transforma tus resultados</h2>
+      <p>
+        Domina la psicología del consumidor, los principios científicos de las neurociencias y las herramientas financieras para llevar tus ingresos y tu vida al siguiente nivel.
+      </p>
+      <div class="cta-button-group">
+        <a href="index.php?page=reticula" class="btn-main-pulse">
+          <span>👉 Inscríbete Ahora Gratis</span>
+        </a>
+      </div>
+      <div class="no-register-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Acceso libre • Sin tarjeta de crédito • Comienza en menos de 1 minuto</span>
+      </div>
+    </div>
 
-        stage.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+  </div>
+</section>
+</main>
 
-        stage.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchEndX - touchStartX;
-          if (diff < -35) {
-            nextBudgetSlide();
-          } else if (diff > 35) {
-            prevBudgetSlide();
-          }
-        }, { passive: true });
-      }
-    }
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>Educación Financiera</strong> — Plataforma Educativa de Aprendizaje y Transformación.</p>
+  </div>
+</footer>
 
-    /* ============================================================
-       LÓGICA DE SLIDER DESLIZABLE (TIPOS DE INVERSIÓN)
-       ============================================================ */
-    const inversionData = [
-      {
-        badge: "📈 1. Concepto",
-        pregunta: "¿Qué significa realmente invertir?",
-        descripcion: "Es poner tu dinero a trabajar en activos o instrumentos financieros para que genere rendimientos y crezca por encima de la inflación.",
-        chip: "1. ¿Qué es?"
-      },
-      {
-        badge: "⚖️ 2. Categorías",
-        pregunta: "¿Cuál es la diferencia entre Renta Fija y Renta Variable?",
-        descripcion: "<strong>• Renta Fija:</strong> Conoces el rendimiento y plazo desde el inicio.<br><strong>• Renta Variable:</strong> El valor fluctúa en el mercado con mayor potencial.",
-        chip: "2. Fija vs Variable"
-      },
-      {
-        badge: "🏛️ 3. Renta Fija",
-        pregunta: "¿Qué son los CETES o bonos gubernamentales?",
-        descripcion: "Préstamos respaldados por el gobierno con una tasa garantizada. Es la inversión con menor riesgo del país y la base para proteger tu dinero.",
-        chip: "3. Bonos y Cetes"
-      },
-      {
-        badge: "🌐 4. Diversificación",
-        pregunta: "¿Qué son los fondos indexados y los ETFs?",
-        descripcion: "Canastas que compran cientos de empresas a la vez (como el S&P 500). Te permiten invertir en la economía global con bajas comisiones.",
-        chip: "4. Indexados / ETFs"
-      },
-      {
-        badge: "🏢 5. Renta Variable",
-        pregunta: "¿Cómo funciona invertir en acciones de empresas?",
-        descripcion: "Compras una fracción de una compañía pública. Ganas si la empresa aumenta su valor en el tiempo o si reparte dividendos periódicos.",
-        chip: "5. Acciones"
-      },
-      {
-        badge: "🏠 6. Inmobiliario",
-        pregunta: "¿Cómo invertir en bienes raíces desde poco dinero?",
-        descripcion: "A través de FIBRAs o REITs: fideicomisos que cotizan en bolsa y reparten rentas de centros comerciales, naves y oficinas desde montos accesibles.",
-        chip: "6. Bienes Raíces"
-      },
-      {
-        badge: "🧠 7. Tolerancia",
-        pregunta: "¿Qué es el perfil de inversionista?",
-        descripcion: "Define cuánto riesgo puedes asumir: <strong>Conservador</strong> (prioriza seguridad), <strong>Moderado</strong> (equilibrio) o <strong>Agresivo</strong> (máximo crecimiento).",
-        chip: "7. Tu Perfil"
-      },
-      {
-        badge: "🛡️ 8. Regla de oro",
-        pregunta: "¿Por qué nunca debes invertir todo en un solo lugar?",
-        descripcion: "La diversificación protege tu patrimonio: si a un activo le va mal, los demás compensan el resultado manteniendo tu capital seguro.",
-        chip: "8. Diversificar"
-      }
-    ];
+<!-- ══════════════════════════════════════════════════════
+     MODAL INDEPENDIENTE: CAPÍTULO 1
+     ══════════════════════════════════════════════════════ -->
+<div class="neuro-fullscreen-modal" id="modalCapitulo1" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 1">
+  
+  <div class="nfm-topbar nfm-topbar-blue">
+    <div class="nfm-title-group">
+      <span style="font-size: 22px;">📘</span>
+      <div>
+        <h3 id="nfmModalTitle1">CAPÍTULO 1: LAS NEUROVENTAS FRENTE A LAS VENTAS TRADICIONALES</h3>
+        <span style="font-size: 11.5px; color: #bae6fd;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+      </div>
+    </div>
 
-    let currentInversionIndex = 0;
+    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo1')" title="Cerrar capítulo (Esc)">
+      ✕
+    </button>
+  </div>
 
-    function goToInversionSlide(idx) {
-      currentInversionIndex = idx;
-      const track = document.getElementById('inversionTrack');
-      const counter = document.getElementById('inversionCounter');
+  <div class="nfm-body">
+    <div class="nfm-chapters-container">
+
+      <!-- ==========================================
+           CAPÍTULO 1 (MODAL COMPLETO)
+           ========================================== -->
+      <section class="pillar-card pillar-blue" id="modalCap1" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
+        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
+          <div class="pillar-number">1</div>
+          <span class="chapter-badge">Capítulo 1</span>
+          <h3>LAS NEUROVENTAS FRENTE A LAS VENTAS TRADICIONALES</h3>
+          <p>Supera la capacitación mecánica y descubre la ciencia real detrás de la mente humana.</p>
+        </div>
+
+        <div class="pillar-body" style="padding: 22px;">
+          <div class="neuro-card-content">
+
+            <!-- Subtema 1: Los capacitadores desactualizados -->
+            <div class="neuro-block">
+              <span class="neuro-badge">Subcapítulo 1 • Subtema 1</span>
+              <h4 class="neuro-block-title">
+                <span>🤖</span> Los Capacitadores Desactualizados
+              </h4>
+              <p>
+                La capacitación tradicional de los vendedores en casi todo el mundo es mecánica y lo que hace es <strong>volverte un robot</strong>.
+              </p>
+              <div class="neuro-highlight-box">
+                Entre los pilares de las técnicas tradicionales encontramos que incluso enseñan qué y cómo decir a través de unas <em>oraciones típicas</em>.
+              </div>
+              <p>
+                <strong>Lo que voy a enseñarte:</strong> Son los criterios, las estructuras y los elementos para que tú construyas tu propia comunicación y sea efectiva en tu contexto.
+              </p>
+            </div>
+
+            <!-- ¿Por qué las neuroventas son una ciencia? -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🔬</span> ¿Por qué las neuroventas son una ciencia?
+              </h4>
+              <p>
+                Las neuroventas se consideran una ciencia porque todos sus conocimientos están fundamentados a partir de <strong>hallazgos obtenidos a través de estudios objetivos</strong>, siguiendo principios metodológicos sistemáticos.
+              </p>
+            </div>
+
+            <!-- Tecnología que se utiliza para validar las neuroventas -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>⚡</span> Tecnología que se utiliza para validar las neuroventas
+              </h4>
+              <p>
+                La pieza clave de la tecnología para validar los principios de neuroventas ha sido el caso de <strong>Quasar</strong>, que es un aparato de registro electroencefalográfico (EEG), creado originalmente para el ejército de los Estados Unidos.
+              </p>
+              <div class="neuro-highlight-box">
+                Posee una serie de sensores para estudiar cómo afectan los estímulos al cerebro de la persona que lo lleva puesto, a partir de la medición de los impulsos eléctricos provocados por la actividad neuronal en determinadas áreas de la corteza cerebral.
+              </div>
+            </div>
+
+            <!-- ¿Qué enseñan las neuroventas? -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>💡</span> ¿Qué enseñan las neuroventas?
+              </h4>
+              <p>
+                Ante todo, <strong>cómo funciona la mente humana</strong> y cómo es el proceso de toma de decisiones de compra.
+              </p>
+              <p style="font-weight: 700; margin-top: 6px; margin-bottom: 4px;">Pero además enseña:</p>
+              <ul class="neuro-list">
+                <li>¿Qué le gusta escuchar a la mente?</li>
+                <li>¿Cómo venderle de forma diferenciada a una mujer y a un hombre?</li>
+                <li>¿Cómo cambiar las percepciones creadas?</li>
+                <li>¿Qué compra instintivamente el ser humano?</li>
+                <li>¿Cómo desarticular el precio del juego o hacerlo jugar a favor?</li>
+                <li>¿Cómo involucrar a la mayoría de los sentidos en las ventas?</li>
+                <li>¿Con cuáles palabras se activa la mente para comprar?</li>
+              </ul>
+            </div>
+
+            <!-- ¿Por qué compra la gente? -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🎯</span> ¿Por qué compra la gente?
+              </h4>
+              <div class="neuro-quote">
+                "El cliente no sabe por qué está comprando un producto o servicio, esa es la pura verdad."
+              </div>
+              <p>
+                El primer descubrimiento científico en el sector de las neuroventas es contundente:
+              </p>
+              <div class="neuro-stat-pill">
+                <div>
+                  <span class="stat-num">85%</span>
+                  <span class="stat-sub">Inconsciente o Subconsciente</span>
+                </div>
+                <div style="font-size: 22px; opacity: 0.3;">|</div>
+                <div>
+                  <span class="stat-num" style="color: #cbd5e1;">15%</span>
+                  <span class="stat-sub">Consciente</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vender sin vender -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🤝</span> Vender sin vender
+              </h4>
+              <p>
+                Lo que tenemos que hacer hoy es <strong>VENDER SIN VENDER</strong>: ese es el espíritu y la esencia de las neuroventas.
+              </p>
+              <div class="neuro-highlight-box">
+                <strong>¿Qué significa eso?</strong> Que tú tienes que hacer todo, menos estar pensando en la urgencia de vender, y cuando lo haces, <em>¡Oh sorpresa!, la gente te compra</em>. Empieza por hacer lo que muy pocos vendedores acostumbran: <strong>escuchar</strong>.
+              </div>
+              <p>
+                Hoy se vende más escuchando que hablando, comiendo agradablemente con la gente que sentados en un espacio frío e impersonal, porque cuando uno come y se siente a gusto las emociones se solidarizan.
+              </p>
+              <p style="margin-top: 6px;">
+                Compartir, desestresarnos, conversar sin pedir nada a cambio, emocionar, hablar de deportes, contar chistes: ese tipo de cosas vende más que el discurso bruto de ventas. <strong>Eso está probado por las neuroventas.</strong>
+              </p>
+            </div>
+
+          </div>
+
+          <div class="pillar-bottom-banner" style="margin-top: 14px;">
+            ¡Vender sin vender: el espíritu de las neuroventas!
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     MODAL INDEPENDIENTE: CAPÍTULO 2
+     ══════════════════════════════════════════════════════ -->
+<div class="neuro-fullscreen-modal" id="modalCapitulo2" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 2">
+  
+  <div class="nfm-topbar nfm-topbar-green">
+    <div class="nfm-title-group">
+      <span style="font-size: 22px;">📗</span>
+      <div>
+        <h3 id="nfmModalTitle2">CAPÍTULO 2: NEUROCIENCIAS PARA LAS VENTAS</h3>
+        <span style="font-size: 11.5px; color: #a7f3d0;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+      </div>
+    </div>
+
+    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo2')" title="Cerrar capítulo (Esc)">
+      ✕
+    </button>
+  </div>
+
+  <div class="nfm-body">
+    <div class="nfm-chapters-container">
+
+      <!-- ==========================================
+           CAPÍTULO 2 (MODAL COMPLETO)
+           ========================================== -->
+      <section class="pillar-card pillar-green" id="modalCap2" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
+        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
+          <div class="pillar-number">2</div>
+          <span class="chapter-badge">Capítulo 2</span>
+          <h3>NEUROCIENCIAS PARA LAS VENTAS</h3>
+          <p>Conoce la arquitectura cerebral: los tres cerebros y el código reptil que gobierna el instinto.</p>
+        </div>
+
+        <div class="pillar-body" style="padding: 22px;">
+          <div class="neuro-card-content">
+
+            <!-- ¿Cómo funciona la mente humana? Los tres cerebros -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🧠</span> ¿Cómo funciona la mente humana?
+              </h4>
+              <p style="font-weight: 700; margin-bottom: 8px;">El modelo de los "Tres Cerebros":</p>
+
+              <!-- 1. Cerebro Reptiliano -->
+              <div class="brain-subcard reptil">
+                <div class="brain-subcard-title">
+                  <span>1. Cerebro Reptiliano</span>
+                  <span class="neuro-badge" style="background:#fee2e2;color:#991b1b;">El que DECIDE</span>
+                </div>
+                <ul class="neuro-list">
+                  <li>Es el más primitivo y poderoso.</li>
+                  <li>No razona, reacciona por instinto: supervivencia, protección, pertenencia a un grupo, ahorro de energía.</li>
+                  <li><strong>Es quien realmente aprieta el botón de comprar.</strong></li>
+                  <li>Busca siempre: <em>seguridad, comodidad, ahorro, estatus, libertad, familia</em>.</li>
+                </ul>
+              </div>
+
+              <!-- 2. Cerebro Límbico -->
+              <div class="brain-subcard limbico">
+                <div class="brain-subcard-title">
+                  <span>2. Cerebro Límbico</span>
+                  <span class="neuro-badge" style="background:#fef3c7;color:#92400e;">El que SIENTE</span>
+                </div>
+                <ul class="neuro-list">
+                  <li>Es el centro de las emociones.</li>
+                  <li>Asocia productos con sentimientos: <em>felicidad, confianza, miedo, tranquilidad</em>.</li>
+                </ul>
+              </div>
+
+              <!-- 3. Cerebro Córtex -->
+              <div class="brain-subcard cortex">
+                <div class="brain-subcard-title">
+                  <span>3. Cerebro Córtex</span>
+                  <span class="neuro-badge" style="background:#dbeafe;color:#1e40af;">El que JUSTIFICA</span>
+                </div>
+                <ul class="neuro-list">
+                  <li>Es la parte racional: números, datos, características.</li>
+                  <li><strong>No decide</strong>, solo explica después por qué decidiste.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- El Código Reptil -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🦎</span> El Código Reptil
+              </h4>
+              <div class="neuro-quote">
+                "En México dicen que emoción mata a razón, pues yo digo ahora que el instinto mata a los dos."
+              </div>
+              <p>
+                Siempre pregúntate dónde está el reptil de tu producto o servicio. Todos tienen una necesidad reptil (a veces varias), pero siempre hay una que es el instinto más básico; el más biológico entre todos los demás, que será el que hay que señalar, y es conocido como el <strong>código reptil</strong>.
+              </p>
+              <div class="neuro-highlight-box">
+                <strong>Por ejemplo:</strong> Fumar tiene un reptil de <em>rebeldía</em>. Cuando empiezas a hacerlo estás construyendo tu propio perfil de anarquía, aunque quizás después ya lo haces por otras razones.
+              </div>
+            </div>
+
+            <!-- ¿Cuáles son los códigos reptiles en un ser humano? -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🔑</span> ¿Cuáles son los códigos reptiles en un ser humano?
+              </h4>
+              <p style="margin-bottom: 8px;">
+                Los principales motivadores biológicos e instintivos son:
+              </p>
+              <div class="reptil-chips-grid">
+                <span class="reptil-chip">⚡ Anarquía</span>
+                <span class="reptil-chip">😊 Felicidad</span>
+                <span class="reptil-chip">🎮 Control</span>
+                <span class="reptil-chip">👑 Dominación</span>
+                <span class="reptil-chip">🧬 Reproducción</span>
+                <span class="reptil-chip">✨ Placer</span>
+                <span class="reptil-chip">🛡️ Seguridad</span>
+                <span class="reptil-chip">🏡 Protección</span>
+                <span class="reptil-chip">🌟 Trascendencia</span>
+                <span class="reptil-chip">🤝 Unión de la tribu</span>
+                <span class="reptil-chip">🧭 Exploración</span>
+                <span class="reptil-chip">🏃 Movimiento</span>
+              </div>
+              <p style="font-size: 11px; color: #64748b; margin-top: 6px;">
+                *La reproducción puede ser regulada por la cultura, pero sigue siendo un código primario en el cerebro instintivo.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="pillar-bottom-banner" style="margin-top: 14px;">
+            ¡El instinto mata a la razón y a la emoción!
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     MODAL INDEPENDIENTE: CAPÍTULO 3
+     ══════════════════════════════════════════════════════ -->
+<div class="neuro-fullscreen-modal" id="modalCapitulo3" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 3">
+  
+  <div class="nfm-topbar nfm-topbar-indigo">
+    <div class="nfm-title-group">
+      <span style="font-size: 22px;">📙</span>
+      <div>
+        <h3 id="nfmModalTitle3">CAPÍTULO 3: EL PROCESO DE DECISIÓN</h3>
+        <span style="font-size: 11.5px; color: #c7d2fe;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
+      </div>
+    </div>
+
+    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo3')" title="Cerrar capítulo (Esc)">
+      ✕
+    </button>
+  </div>
+
+  <div class="nfm-body">
+    <div class="nfm-chapters-container">
+
+      <!-- ==========================================
+           CAPÍTULO 3 (MODAL COMPLETO)
+           ========================================== -->
+      <section class="pillar-card pillar-indigo" id="modalCap3" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
+        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
+          <div class="pillar-number">3</div>
+          <span class="chapter-badge">Capítulo 3</span>
+          <h3>EL PROCESO DE DECISIÓN</h3>
+          <p>Domina los 3 escenarios, la fórmula A-E-R, los neurotransmisores y las acciones concretas.</p>
+        </div>
+
+        <div class="pillar-body" style="padding: 22px;">
+          <div class="neuro-card-content">
+
+            <!-- Los Tres Escenarios Emocionales -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🎭</span> Los Tres Escenarios Emocionales
+              </h4>
+              <p>
+                Cuando la necesidad reptil o instintiva es cubierta, debemos continuar con la siguiente etapa y es comprender cómo las personas toman decisiones.
+              </p>
+              <div class="neuro-highlight-box">
+                La mente normalmente necesita <strong>tres escenarios antes de optar</strong>, ni cuatro porque se confunde. Siempre debe tener tres alternativas porque si no se las das va a renunciar a tu ofrecimiento y saldrá a ver dónde las consigue.
+              </div>
+
+              <!-- Escenario 1 -->
+              <div class="scenario-card">
+                <div class="scenario-title">Escenario 1 — Quedarse como está (no comprar nada)</div>
+                <span class="scenario-quote">"Seguiré haciendo lo que siempre he hecho"</span>
+                <ul class="neuro-list">
+                  <li>Es la opción de no cambio, la zona de confort.</li>
+                  <li>El cerebro la usa como referencia para comparar las otras dos.</li>
+                </ul>
+              </div>
+
+              <!-- Escenario 2 -->
+              <div class="scenario-card">
+                <div class="scenario-title">Escenario 2 — Elegir tu alternativa económica / básica</div>
+                <span class="scenario-quote">"Puedo empezar con algo sencillo"</span>
+                <ul class="neuro-list">
+                  <li>Es la opción de entrada, accesible.</li>
+                  <li>Le muestra al cerebro que sí es posible dar el paso sin mucho riesgo.</li>
+                </ul>
+              </div>
+
+              <!-- Escenario 3 -->
+              <div class="scenario-card">
+                <div class="scenario-title">Escenario 3 — Elegir tu opción ideal / completa</div>
+                <span class="scenario-quote">"Obtener todo lo que realmente quiero"</span>
+                <ul class="neuro-list">
+                  <li>Es la opción de valor completo, la más atractiva.</li>
+                  <li>Al compararla con las otras dos, el cerebro siente que "gana" al elegirla.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- La Fórmula que Decide la Compra: Atención, Emoción y Recordación -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>📈</span> La Fórmula que Decide la Compra: A → E → R
+              </h4>
+              <div class="aer-badge-flow">
+                <span class="aer-step">A: Atención</span>
+                <span>→</span>
+                <span class="aer-step">E: Emoción</span>
+                <span>→</span>
+                <span class="aer-step">R: Recordación</span>
+              </div>
+
+              <div style="margin-top: 8px;">
+                <p><strong>1. Atención:</strong> Lograr que la persona se enfoque en ti. Si no captas su atención primero, el proceso nunca empieza.</p>
+                <ul class="neuro-list">
+                  <li>Rompe su rutina con algo nuevo, inesperado o relevante.</li>
+                  <li>Solo cuando te presta atención, su cerebro está abierto a recibir tu mensaje.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 8px;">
+                <p><strong>2. Emoción:</strong> Crear una asociación emocional positiva entre tu producto y lo que la persona desea.</p>
+                <ul class="neuro-list">
+                  <li>No basta con que te escuche; debe sentir que esto es para él/ella.</li>
+                  <li>Aquí es donde nace el deseo de tenerlo.</li>
+                  <li>Sin emoción, la persona se queda indiferente: <em>"es interesante, pero no lo necesito"</em>.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 8px;">
+                <p><strong>3. Recordación:</strong> Conectar ese sentimiento con su propia historia de vida y sus instintos, de modo que recuerde por qué le importa.</p>
+                <ul class="neuro-list">
+                  <li>Le muestras cómo su vida mejora con esto.</li>
+                  <li>Es el mensaje que se queda grabado y lo impulsa a actuar.</li>
+                  <li>Aquí es donde la decisión se consolida.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- ¿Cómo usar los Neurotransmisores a tu favor? -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>🧪</span> ¿Cómo usar los Neurotransmisores a tu favor?
+              </h4>
+
+              <!-- Noradrenalina -->
+              <div class="neurotrans-card">
+                <div class="neurotrans-title">
+                  <span>⚡ Noradrenalina</span>
+                  <span class="neurotrans-badge">Captar la atención</span>
+                </div>
+                <p><strong>Qué hace:</strong> Se activa ante lo nuevo, lo sorpresivo y lo inesperado. Rompe la monotonía.</p>
+                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
+                <ul class="neuro-list">
+                  <li>Presenta tu mensaje con un enfoque diferente, no como todo el mundo.</li>
+                  <li>Muestra algo que la persona no esperaba ver.</li>
+                  <li>Cambia la perspectiva: <em>"¿Sabías que hay otra forma de ver tus finanzas?"</em></li>
+                  <li>No hables igual que todos; sé único para que el cerebro diga: <em>"¡Espera, esto me interesa!"</em></li>
+                </ul>
+              </div>
+
+              <!-- Dopamina -->
+              <div class="neurotrans-card">
+                <div class="neurotrans-title">
+                  <span>✨ Dopamina</span>
+                  <span class="neurotrans-badge">Placer y deseo</span>
+                </div>
+                <p><strong>Qué hace:</strong> Es el químico del cerebro que nos hace sentir bien. Se libera cuando anticipamos una recompensa y nos impulsa a repetir la conducta.</p>
+                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
+                <ul class="neuro-list">
+                  <li>Muestra el beneficio que obtendrá, no solo la información.</li>
+                  <li>Crea sensación de progreso: <em>"Cada paso que das te acerca a tu libertad financiera"</em>.</li>
+                  <li>Celebra los logros, aunque sean pequeños.</li>
+                  <li>Dale metas claras y alcanzables: el cerebro ama sentir que avanza.</li>
+                  <li>Haz que imagine cómo será su vida cuando aplique lo que aprenda contigo.</li>
+                </ul>
+              </div>
+
+              <!-- Acetilcolina -->
+              <div class="neurotrans-card">
+                <div class="neurotrans-title">
+                  <span>🔗 Acetilcolina</span>
+                  <span class="neurotrans-badge">Enseñar y conectar</span>
+                </div>
+                <p><strong>Qué hace:</strong> Ayuda al cerebro a aprender y a relacionar lo nuevo con lo que ya conoce.</p>
+                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
+                <ul class="neuro-list">
+                  <li>Usa ejemplos de su vida cotidiana.</li>
+                  <li>Conecta conceptos nuevos con lo que ya sabe.</li>
+                  <li>Explica paso a paso, sin abrumar: <em>"Ya sabes cómo funciona… pues con el dinero funciona igual"</em>.</li>
+                </ul>
+              </div>
+
+              <!-- Endorfina -->
+              <div class="neurotrans-card">
+                <div class="neurotrans-title">
+                  <span>🛡️ Endorfina</span>
+                  <span class="neurotrans-badge">Aliviar miedo y preocupación</span>
+                </div>
+                <p><strong>Qué hace:</strong> Reduce el dolor y la tensión. Da sensación de alivio y calma.</p>
+                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
+                <ul class="neuro-list">
+                  <li>Valida sus preocupaciones: <em>"Es normal sentirse abrumado con el dinero"</em>.</li>
+                  <li>Quita el miedo: <em>"No necesitas ser experto para empezar, solo dar el primer paso"</em>.</li>
+                  <li>Transmite seguridad y tranquilidad, no presión.</li>
+                  <li>Hazle sentir comprendido y acompañado.</li>
+                </ul>
+              </div>
+
+              <!-- Serotonina -->
+              <div class="neurotrans-card">
+                <div class="neurotrans-title">
+                  <span>🌟 Serotonina</span>
+                  <span class="neurotrans-badge">Confianza y pertenencia</span>
+                </div>
+                <p><strong>Qué hace:</strong> Relacionada con el bienestar, el estatus y sentir que pertenecemos a algo.</p>
+                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
+                <ul class="neuro-list">
+                  <li>Hazle sentir que no está solo: <em>"Miles de personas ya están transformando su relación con el dinero"</em>.</li>
+                  <li>Reconoce su esfuerzo y progreso.</li>
+                  <li>Comparte historias de personas como él/ella que ya lograron cambios.</li>
+                  <li>Crea identidad: <em>"Tú también puedes tomar el control de tu futuro"</em>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Acciones Concretas en el Proceso de Venta -->
+            <div class="neuro-block">
+              <h4 class="neuro-block-title">
+                <span>📋</span> Acciones Concretas en el Proceso de Venta
+              </h4>
+
+              <div class="action-group">
+                <div class="action-group-title">1. Para lograr la Atención:</div>
+                <ul class="neuro-list">
+                  <li>Busca elementos conocidos.</li>
+                  <li>Busca elementos novedosos.</li>
+                  <li>Haz que comprenda.</li>
+                  <li>Genera expectativa.</li>
+                  <li>Asocia elementos.</li>
+                  <li>Dale la forma correcta de atención.</li>
+                </ul>
+              </div>
+
+              <div class="action-group" style="border-left-color: #10b981;">
+                <div class="action-group-title" style="color: #047857;">2. Para lograr la Emoción:</div>
+                <ul class="neuro-list">
+                  <li>Involúcrate emocionalmente.</li>
+                  <li>Permite que exprese sus emociones.</li>
+                  <li>Comprende y acalla sus miedos.</li>
+                  <li>Háblale de experiencias emocionales positivas.</li>
+                  <li>Facilita la evasión y el escape.</li>
+                </ul>
+              </div>
+
+              <div class="action-group" style="border-left-color: #8b5cf6;">
+                <div class="action-group-title" style="color: #6d28d9;">3. Para lograr Recordación:</div>
+                <ul class="neuro-list">
+                  <li>Favorece la asociación con elementos conocidos.</li>
+                  <li>Ayúdale a clasificar y categorizar.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pillar-bottom-banner" style="margin-top: 14px;">
+            ¡Atención → Emoción → Recordación: la fórmula definitiva!
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     MODAL DE TESTIMONIO EN VIDEO DE ESTUDIANTE (POPUPS DE COMENTARIOS)
+     ══════════════════════════════════════════════════════ -->
+<style>
+/* Estilos embebidos directos garantizados para el modal de video */
+.student-video-modal {
+  display: none;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(8, 18, 28, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 999999 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+.student-video-modal.is-active {
+  display: flex !important;
+}
+.svm-panel {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  max-width: 500px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  margin: auto !important;
+}
+.svm-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 18px !important;
+  background: #f8fafc !important;
+  border-bottom: 1px solid #edf2f7 !important;
+}
+.svm-student-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+.svm-avatar-thumb {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid #00703c !important;
+}
+.svm-meta h4 {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin: 0 !important;
+}
+.svm-meta span {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  display: block !important;
+}
+.svm-close-btn {
+  background: #e2e8f0 !important;
+  border: none !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #475569 !important;
+}
+.svm-close-btn:hover {
+  background: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+.svm-video-box {
+  position: relative !important;
+  width: 100% !important;
+  height: 230px !important;
+  background: #0f172a !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+.svm-video-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: brightness(0.62) contrast(1.05) !important;
+}
+.svm-video-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 40%, rgba(0,0,0,0.85) 100%) !important;
+  pointer-events: none !important;
+}
+.svm-live-pill {
+  position: absolute !important;
+  top: 12px !important;
+  left: 14px !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+  color: #ffffff !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  z-index: 2 !important;
+}
+.svm-live-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #ef4444 !important;
+}
+.svm-duration-pill {
+  position: absolute !important;
+  top: 12px !important;
+  right: 14px !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+  color: #34d399 !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  z-index: 2 !important;
+}
+.svm-play-btn {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 62px !important;
+  height: 62px !important;
+  border-radius: 50% !important;
+  background: #10b981 !important;
+  border: 3px solid #ffffff !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.55) !important;
+}
+.svm-play-btn:hover {
+  transform: scale(1.08) !important;
+  background: #059669 !important;
+}
+.svm-play-btn svg {
+  margin-left: 3px !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+.svm-player-controls {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 8px 14px 10px !important;
+  z-index: 2 !important;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%) !important;
+}
+.svm-progress-bar-bg {
+  width: 100% !important;
+  height: 4px !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+}
+.svm-progress-bar-fill {
+  height: 100% !important;
+  background: #10b981 !important;
+  transition: width 0.3s linear !important;
+}
+.svm-controls-meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-top: 6px !important;
+  font-size: 11px !important;
+  color: #cbd5e1 !important;
+}
+.svm-soundwave {
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  height: 14px !important;
+}
+.svm-soundwave span {
+  display: block !important;
+  width: 3px !important;
+  background: #34d399 !important;
+  border-radius: 2px !important;
+}
+.svm-body {
+  padding: 16px 20px 20px !important;
+}
+.svm-video-title {
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.svm-quote-box {
+  background: #f8fafc !important;
+  border-left: 3.5px solid #00703c !important;
+  padding: 11px 14px !important;
+  border-radius: 10px !important;
+  font-size: 12.5px !important;
+  color: #334155 !important;
+  line-height: 1.55 !important;
+  font-style: italic !important;
+  margin-bottom: 12px !important;
+}
+.svm-achievement-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #e8f5e9 !important;
+  color: #00703c !important;
+  padding: 4px 11px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+.svm-comments-section {
+  border-top: 1px solid #f1f5f9 !important;
+  padding-top: 10px !important;
+}
+.svm-comments-label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: #64748b !important;
+  margin-bottom: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.svm-comment-sample {
+  font-size: 11.5px !important;
+  color: #475569 !important;
+  background: #f1f5f9 !important;
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+  margin-bottom: 10px !important;
+  line-height: 1.4 !important;
+}
+.svm-comment-input-row {
+  display: flex !important;
+  gap: 8px !important;
+}
+.svm-comment-input {
+  flex: 1 !important;
+  padding: 7px 11px !important;
+  font-size: 11.5px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  outline: none !important;
+}
+.svm-send-btn {
+  background: #00703c !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 7px 13px !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+}
+</style>
+<div class="student-video-modal" id="studentVideoModal" style="display:none;" role="dialog" aria-modal="true" aria-label="Testimonio de estudiante en video" onclick="if(event.target === this) closeStudentTestimonial();">
+  <div class="svm-panel">
+    <div class="svm-header">
+      <div class="svm-student-info">
+        <img id="svmAvatar" src="" alt="Estudiante" class="svm-avatar-thumb">
+        <div class="svm-meta">
+          <h4 id="svmName">Estudiante</h4>
+          <span id="svmRole">Rol</span>
+        </div>
+      </div>
+      <button type="button" class="svm-close-btn" onclick="closeStudentTestimonial()" title="Cerrar">&times;</button>
+    </div>
+
+    <!-- Reproductor de Video Simulado -->
+    <div class="svm-video-box">
+      <img id="svmVideoPoster" src="" alt="Portada de Video" class="svm-video-bg">
+      <div class="svm-video-overlay"></div>
       
-      if (track) {
-        track.style.transform = `translateX(-${currentInversionIndex * 100}%)`;
-      }
-      if (counter) {
-        counter.textContent = `${currentInversionIndex + 1} / ${inversionData.length}`;
-      }
+      <div class="svm-live-pill">
+        <span class="svm-live-dot"></span>
+        <span>TESTIMONIO EN VIDEO</span>
+      </div>
 
-      const chips = document.querySelectorAll('#inversionChipsContainer .bs-chip');
-      chips.forEach((c, i) => {
-        if (i === currentInversionIndex) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
+      <div class="svm-duration-pill" id="svmDuration">⏱️ 2:30 min</div>
 
-    function nextInversionSlide() {
-      const nextIdx = (currentInversionIndex + 1) % inversionData.length;
-      goToInversionSlide(nextIdx);
-    }
+      <!-- Botón de Play animado -->
+      <button type="button" class="svm-play-btn" id="svmPlayBtn" onclick="toggleTestimonialVideo()" title="Reproducir testimonio">
+        <svg id="svmPlayIcon" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      </button>
 
-    function prevInversionSlide() {
-      const prevIdx = (currentInversionIndex - 1 + inversionData.length) % inversionData.length;
-      goToInversionSlide(prevIdx);
-    }
-
-    function initInversionSlider() {
-      const track = document.getElementById('inversionTrack');
-      const chipsContainer = document.getElementById('inversionChipsContainer');
-      const stage = document.getElementById('inversionStage');
-      if (!track || !chipsContainer) return;
-
-      track.innerHTML = '';
-      chipsContainer.innerHTML = '';
-
-      inversionData.forEach((item, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'budget-slide';
-        slide.innerHTML = `
-          <div class="budget-slide-top-tag">${item.badge}</div>
-          <div class="budget-slide-content">
-            <div class="budget-slide-question">${item.pregunta}</div>
-            <div class="budget-slide-desc">${item.descripcion}</div>
+      <!-- Barra de progreso y controles inferiores -->
+      <div class="svm-player-controls">
+        <div class="svm-progress-bar-bg" onclick="scrubTestimonialVideo(event)">
+          <div class="svm-progress-bar-fill" id="svmProgressFill" style="width: 25%;"></div>
+        </div>
+        <div class="svm-controls-meta">
+          <span id="svmTimeCurrent">0:38 / 2:30 min</span>
+          <div class="svm-soundwave" id="svmSoundwave">
+            <span></span><span></span><span></span><span></span>
           </div>
-          <div class="budget-slide-hint">
-            <span>Apartado ${index + 1} de ${inversionData.length}</span>
-            <span>Desliza para siguiente →</span>
-          </div>
-        `;
-        track.appendChild(slide);
+        </div>
+      </div>
+    </div>
 
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = `bs-chip ${index === 0 ? 'active' : ''}`;
-        chip.textContent = item.chip;
-        chip.onclick = () => goToInversionSlide(index);
-        chipsContainer.appendChild(chip);
-      });
+    <div class="svm-body">
+      <div class="svm-video-title" id="svmTitle">
+        <span>🎬</span> Testimonio en video de estudiante
+      </div>
 
-      goToInversionSlide(0);
+      <div class="svm-achievement-badge" id="svmBadge">
+        <span>🏆</span> Logro verificado
+      </div>
 
-      if (stage) {
-        let touchStartX = 0;
-        let touchEndX = 0;
+      <div class="svm-quote-box">
+        "<span id="svmQuote">Testimonio</span>"
+      </div>
 
-        stage.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+      <div class="svm-comments-section">
+        <div class="svm-comments-label">
+          <span>Comentarios de la comunidad:</span>
+          <span style="color:#00703c; font-size:11px;">🟢 En línea</span>
+        </div>
+        <div class="svm-comment-sample" id="svmCommentsList">
+          <strong>Comunidad Oficial:</strong> "¡Gran testimonio! Tu disciplina financiera inspira a toda la plataforma."
+        </div>
+        <div class="svm-comment-input-row">
+          <input type="text" id="svmNewComment" class="svm-comment-input" placeholder="Escribe un mensaje de apoyo o felicitación...">
+          <button type="button" class="svm-send-btn" onclick="postTestimonialComment()">Comentar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        stage.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchEndX - touchStartX;
-          if (diff < -35) {
-            nextInversionSlide();
-          } else if (diff > 35) {
-            prevInversionSlide();
-          }
-        }, { passive: true });
-      }
+<script>
+  // ── Splash screen ──────────────────────────────────────────
+  (function() {
+    var sp = document.getElementById('splashScreen');
+    if (!sp) return;
+    function hideSplash() {
+      sp.classList.add('hide');
     }
+    window.hideSplash = hideSplash;
+    setTimeout(hideSplash, 5200);
+  })();
 
-    /* ============================================================
-       LÓGICA DE SLIDER DESLIZABLE (BUENAS PRÁCTICAS DEL CRÉDITO)
-       ============================================================ */
-    const practicasData = [
-      {
-        badge: "⭐ 1. Regla de oro",
-        pregunta: "¿Qué significa ser un usuario 'totalero'?",
-        descripcion: "Pagar el 100% de tu saldo antes de la fecha límite. Al hacerlo, el banco te financia hasta por 50 días <strong>con 0% de interés</strong>.",
-        chip: "1. Ser totalero"
-      },
-      {
-        badge: "📅 2. El calendario",
-        pregunta: "¿Cuál es la diferencia entre fecha de corte y de pago?",
-        descripcion: "<strong>• Corte:</strong> El día que el banco cierra tu cuenta mensual.<br><strong>• Límite de pago:</strong> Tienes unos 20 días tras el corte para pagar sin recargos.",
-        chip: "2. Fechas clave"
-      },
-      {
-        badge: "⚠️ 3. Trampa común",
-        pregunta: "¿Por qué nunca debes pagar solo el mínimo?",
-        descripcion: "El pago mínimo solo abona a comisiones e IVA. La deuda principal se extiende por años generando intereses desproporcionados.",
-        chip: "3. Pago mínimo"
-      },
-      {
-        badge: "🛍️ 4. Promociones",
-        pregunta: "¿Cómo aprovechar los Meses Sin Intereses (MSI)?",
-        descripcion: "Úsalos solo para bienes duraderos (herramientas, electrodomésticos) cuya vida útil sea mayor al plazo, nunca para despensa o salidas.",
-        chip: "4. MSI responsable"
-      },
-      {
-        badge: "🛑 5. Mentalidad",
-        pregunta: "¿Por qué el límite de tu tarjeta no es dinero extra?",
-        descripcion: "Es un préstamo que saldrá de tus ingresos futuros. Gastar por encima de lo que cobras crea una bola de nieve peligrosa.",
-        chip: "5. No es ingreso"
-      },
-      {
-        badge: "🔔 6. Seguridad",
-        pregunta: "¿Cómo evitar olvidos y cargos sospechosos?",
-        descripcion: "Activa notificaciones al celular para cada compra y domicilia o programa el pago automático en tu banca digital.",
-        chip: "6. Automatizar"
-      },
-      {
-        badge: "📋 7. Diagnóstico",
-        pregunta: "¿Cada cuánto debes revisar tu Buró de Crédito?",
-        descripcion: "Tienes una consulta gratis al año por ley en Buró de Crédito. Revísala para detectar homonimias, fraudes o créditos no reconocidos.",
-        chip: "7. Reporte Buró"
-      },
-      {
-        badge: "🤝 8. Negociación",
-        pregunta: "¿Qué hacer si no puedes cubrir tu pago del mes?",
-        descripcion: "Comunícate de inmediato con la entidad antes de caer en mora: solicita una reestructuración a tasa fija o consolidación de pasivos.",
-        chip: "8. Si te atrasas"
-      }
-    ];
-
-    let currentPracticasIndex = 0;
-
-    function goToPracticasSlide(idx) {
-      currentPracticasIndex = idx;
-      const track = document.getElementById('practicasTrack');
-      const counter = document.getElementById('practicasCounter');
-      
-      if (track) {
-        track.style.transform = `translateX(-${currentPracticasIndex * 100}%)`;
-      }
-      if (counter) {
-        counter.textContent = `${currentPracticasIndex + 1} / ${practicasData.length}`;
-      }
-
-      const chips = document.querySelectorAll('#practicasChipsContainer .bs-chip');
-      chips.forEach((c, i) => {
-        if (i === currentPracticasIndex) {
-          c.classList.add('active');
-          c.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-        } else {
-          c.classList.remove('active');
-        }
-      });
-    }
-
-    function nextPracticasSlide() {
-      const nextIdx = (currentPracticasIndex + 1) % practicasData.length;
-      goToPracticasSlide(nextIdx);
-    }
-
-    function prevPracticasSlide() {
-      const prevIdx = (currentPracticasIndex - 1 + practicasData.length) % practicasData.length;
-      goToPracticasSlide(prevIdx);
-    }
-
-    function initPracticasSlider() {
-      const track = document.getElementById('practicasTrack');
-      const chipsContainer = document.getElementById('practicasChipsContainer');
-      const stage = document.getElementById('practicasStage');
-      if (!track || !chipsContainer) return;
-
-      track.innerHTML = '';
-      chipsContainer.innerHTML = '';
-
-      practicasData.forEach((item, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'budget-slide';
-        slide.innerHTML = `
-          <div class="budget-slide-top-tag">${item.badge}</div>
-          <div class="budget-slide-content">
-            <div class="budget-slide-question">${item.pregunta}</div>
-            <div class="budget-slide-desc">${item.descripcion}</div>
-          </div>
-          <div class="budget-slide-hint">
-            <span>Apartado ${index + 1} de ${practicasData.length}</span>
-            <span>Desliza para siguiente →</span>
-          </div>
-        `;
-        track.appendChild(slide);
-
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = `bs-chip ${index === 0 ? 'active' : ''}`;
-        chip.textContent = item.chip;
-        chip.onclick = () => goToPracticasSlide(index);
-        chipsContainer.appendChild(chip);
-      });
-
-      goToPracticasSlide(0);
-
-      if (stage) {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        stage.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        stage.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchEndX - touchStartX;
-          if (diff < -35) {
-            nextPracticasSlide();
-          } else if (diff > 35) {
-            prevPracticasSlide();
-          }
-        }, { passive: true });
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAllFlashcards);
+  // ── Likes interactivos (Me gusta) ──────────────────────────
+  function toggleLike(btn) {
+    if (!btn) return;
+    var countEl = btn.querySelector('.like-count');
+    var isLiked = btn.classList.contains('liked');
+    var count = parseInt(countEl ? countEl.textContent : '0', 10);
+    if (isLiked) {
+      btn.classList.remove('liked');
+      if (countEl) countEl.textContent = Math.max(0, count - 1);
     } else {
-      initAllFlashcards();
+      btn.classList.add('liked');
+      if (countEl) countEl.textContent = count + 1;
     }
-  </script>
+  }
 
-  <script>
-    // ── Splash screen ──────────────────────────────────────────
-    (function() {
-      var sp = document.getElementById('splashScreen');
-      if (!sp) return;
-      function hideSplash() {
-        sp.classList.add('hide');
-      }
-      window.hideSplash = hideSplash;
-      setTimeout(hideSplash, 5200);
-    })();
-
-    // ══════════════════════════════════════════════════════════
-    // MOTOR DE QUIZ — función genérica reutilizable
-    // ══════════════════════════════════════════════════════════
-    function buildQuiz(cfg) {
-      // cfg: { id, questions, color }
-      var state = { idx: 0, score: 0, answered: false, selected: null };
-
-      function render() {
-        var q = cfg.questions[state.idx];
-        document.getElementById(cfg.id + 'Badge').textContent =
-          (state.idx + 1) + ' / ' + cfg.questions.length;
-        document.getElementById(cfg.id + 'Q').textContent = q.q;
-        var optsEl = document.getElementById(cfg.id + 'Opts');
-        optsEl.innerHTML = '';
-        var letters = ['A','B','C'];
-        q.opts.forEach(function(opt, i) {
-          var div = document.createElement('div');
-          div.className = 'quiz-option';
-          div.innerHTML =
-            '<span class="quiz-opt-letter">' + letters[i] + '</span>' +
-            '<span>' + opt + '</span>';
-          div.onclick = function() { selectOpt(i, div); };
-          optsEl.appendChild(div);
-        });
-        hideFeedback();
-        document.getElementById(cfg.id + 'BtnCheck').disabled = true;
-        document.getElementById(cfg.id + 'BtnNext').style.display = 'none';
-        document.getElementById(cfg.id + 'BtnReset').style.display = 'none';
-        state.answered = false;
-        state.selected = null;
-      }
-
-      function selectOpt(i, el) {
-        if (state.answered) return;
-        state.selected = i;
-        document.querySelectorAll('#' + cfg.id + 'Opts .quiz-option').forEach(function(o) {
-          o.classList.remove('selected');
-        });
-        el.classList.add('selected');
-        document.getElementById(cfg.id + 'BtnCheck').disabled = false;
-      }
-
-      function check() {
-        if (state.selected === null || state.answered) return;
-        state.answered = true;
-        var q = cfg.questions[state.idx];
-        var opts = document.querySelectorAll('#' + cfg.id + 'Opts .quiz-option');
-        opts.forEach(function(o) { o.classList.add('disabled'); });
-        var fbEl   = document.getElementById(cfg.id + 'Fb');
-        var iconEl = document.getElementById(cfg.id + 'FbIcon');
-        var txtEl  = document.getElementById(cfg.id + 'FbText');
-        if (state.selected === q.correct) {
-          state.score++;
-          opts[state.selected].classList.replace('selected','correct');
-          fbEl.className = 'quiz-feedback show fb-ok';
-          iconEl.textContent = '✅';
-          txtEl.textContent  = '¡Correcto! ' + q.explain;
-        } else {
-          opts[state.selected].classList.replace('selected','wrong');
-          opts[q.correct].classList.add('correct');
-          fbEl.className = 'quiz-feedback show fb-err';
-          iconEl.textContent = '❌';
-          txtEl.textContent  = 'Incorrecto. ' + q.explain;
-        }
-        document.getElementById(cfg.id + 'BtnCheck').disabled = true;
-        var isLast = state.idx >= cfg.questions.length - 1;
-        if (isLast) {
-          document.getElementById(cfg.id + 'BtnReset').style.display = 'block';
-          setTimeout(function() { showResult(); }, 1400);
-        } else {
-          document.getElementById(cfg.id + 'BtnNext').style.display = 'block';
-        }
-      }
-
-      function next() {
-        state.idx++;
-        render();
-      }
-
-      function reset() {
-        state.idx = 0; state.score = 0; state.answered = false; state.selected = null;
-        document.getElementById(cfg.id + 'Body').style.display = '';
-        document.getElementById(cfg.id + 'Result').classList.remove('show');
-        render();
-      }
-
-      function showResult() {
-        document.getElementById(cfg.id + 'Body').style.display = 'none';
-        var pct   = Math.round((state.score / cfg.questions.length) * 100);
-        var resEl = document.getElementById(cfg.id + 'Result');
-        resEl.classList.add('show');
-        document.getElementById(cfg.id + 'Score').textContent =
-          state.score + '/' + cfg.questions.length;
-        document.getElementById(cfg.id + 'Bar').style.width = pct + '%';
-        var msg = pct >= 80
-          ? '¡Excelente! Dominas este tema. 🏆'
-          : pct >= 50
-            ? 'Buen esfuerzo. Repasa los conceptos y vuelve a intentarlo. 💪'
-            : 'Sigue practicando, cada intento te acerca al dominio del tema. 📚';
-        document.getElementById(cfg.id + 'Msg').textContent = msg;
-        if (typeof cfg.onComplete === 'function') {
-          setTimeout(cfg.onComplete, 900);
-        }
-      }
-
-      function hideFeedback() {
-        document.getElementById(cfg.id + 'Fb').className = 'quiz-feedback';
-      }
-
-      // Exponer funciones globales
-      window['checkQuiz'  + cfg.suffix] = check;
-      window['nextQuiz'   + cfg.suffix] = next;
-      window['resetQuiz'  + cfg.suffix] = reset;
-
-      render();
+  // ── Datos de los Estudiantes para el Video Testimonial ──────
+  var studentDirectory = {
+    mariana: {
+      name: 'Mariana González',
+      role: '29 años • Emprendedora Independiente',
+      medal: '🥇',
+      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80',
+      duration: '⏱️ 2:45 min',
+      totalSec: 165,
+      title: 'Cómo logré ahorrar e invertir el 35% de mis ingresos',
+      badge: '📈 +35% de ahorro mensual e inversión activa',
+      quote: 'Siempre creí que la educación financiera era para ricos o cursos de vendehumos. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente.',
+      defaultComment: '<strong>Carlos R.:</strong> "Mariana, qué gran cambio. Yo también empecé con las plantillas y son oro puro."'
+    },
+    jorge: {
+      name: 'Jorge Martínez',
+      role: 'Vendedor Profesional • 28 años',
+      medal: '🥈',
+      photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80',
+      duration: '⏱️ 3:12 min',
+      totalSec: 192,
+      title: 'De vivir al día con comisiones a tener 6 meses de fondo de emergencia',
+      badge: '🛡️ Fondo de emergencia completo garantizado',
+      quote: 'Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear, ser constante y entender lo que el cliente realmente necesita.',
+      defaultComment: '<strong>Laura T.:</strong> "¡Felicidades Jorge! Entender las neuroventas cambia por completo los ingresos."'
+    },
+    ana: {
+      name: 'Ana López',
+      role: '25 años • Enfermera',
+      medal: '🎖️',
+      photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=80',
+      duration: '⏱️ 2:18 min',
+      totalSec: 138,
+      title: 'Liquidando $28,500 MXN en deudas con presupuesto base cero',
+      badge: '💵 $28,500 MXN en deudas totalmente liquidadas',
+      quote: 'Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses saldé todo y ahora ahorro el 20% de mi sueldo.',
+      defaultComment: '<strong>Dr. Mendoza:</strong> "Admirable Ana, en el sector salud los horarios son duros pero organizarte hace toda la diferencia."'
+    },
+    roberto: {
+      name: 'Roberto y Silvia',
+      role: '41 años • Pareja y padres de familia',
+      medal: '🛡️',
+      photo: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=500&auto=format&fit=crop&q=80',
+      duration: '⏱️ 3:30 min',
+      totalSec: 210,
+      title: 'Paz financiera en familia: construyendo el fondo universitario',
+      badge: '🏠 Plan patrimonial y fondo educativo consolidado',
+      quote: 'El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar.',
+      defaultComment: '<strong>Familia Ramos:</strong> "Qué inspiración ver a una pareja crecer financieramente de la mano."'
     }
+  };
 
-    // ══════════════════════════════════════════════════════════
-    // PREGUNTAS — METAS FINANCIERAS
-    // ══════════════════════════════════════════════════════════
-    buildQuiz({
-      id: 'quizMetas', suffix: 'Metas',
-      onComplete: function() { window.marcarTablaDemoCompletada('admin'); },
-      questions: [
-        {
-          q: '¿Cuál es la principal característica de una meta financiera SMART?',
-          opts: ['Es vaga y flexible para adaptarse a cualquier situación', 'Es específica, medible, alcanzable, relevante y con tiempo definido', 'Solo depende de los ingresos actuales sin considerar el plazo'],
-          correct: 1,
-          explain: 'SMART: Específica, Medible, Alcanzable, Relevante y con Tiempo definido.'
-        },
-        {
-          q: '¿Cuál de estos ejemplos es una meta financiera correctamente definida?',
-          opts: ['Quiero ahorrar dinero algún día', 'Ahorraré $3,000 en 12 meses depositando $250 cada mes', 'Gastaré menos y tendré más dinero'],
-          correct: 1,
-          explain: 'Una meta bien definida tiene monto, plazo y acciones concretas.'
-        },
-        {
-          q: '¿Cuántos tipos de metas financieras existen según el plazo?',
-          opts: ['Dos: corto y largo plazo', 'Tres: corto, mediano y largo plazo', 'Cuatro: inmediato, corto, mediano y largo plazo'],
-          correct: 1,
-          explain: 'Se clasifican en corto (hasta 1 año), mediano (1–5 años) y largo plazo (más de 5 años).'
-        },
-        {
-          q: '¿Qué debes hacer primero antes de establecer una meta financiera?',
-          opts: ['Pedir un préstamo para tener capital inicial', 'Analizar tus ingresos, gastos y situación financiera actual', 'Escoger la meta más grande posible para motivarte'],
-          correct: 1,
-          explain: 'Conocer tu punto de partida (ingresos, gastos, deudas) es el primer paso para fijar metas realistas.'
-        },
-        {
-          q: '¿Cuál es un ejemplo de meta financiera de LARGO PLAZO?',
-          opts: ['Pagar la factura del teléfono este mes', 'Comprar un automóvil en 2 años', 'Acumular el fondo para el retiro en 30 años'],
-          correct: 2,
-          explain: 'Las metas de largo plazo superan los 5 años; el retiro es el ejemplo clásico.'
-        },
-        {
-          q: '¿Qué herramienta ayuda a priorizar metas cuando los recursos son limitados?',
-          opts: ['Una lista ordenada por urgencia e importancia', 'Solicitar créditos para todas las metas a la vez', 'Posponer todas las metas hasta tener más ingresos'],
-          correct: 0,
-          explain: 'Priorizar según urgencia e importancia permite avanzar con recursos limitados sin perder el rumbo.'
-        },
-        {
-          q: '¿Qué sucede si no revisas periódicamente tus metas financieras?',
-          opts: ['Las metas se cumplen solas con el tiempo', 'Pueden volverse irreales o desalineadas con tu situación', 'El dinero ahorrado crece igual sin revisión'],
-          correct: 1,
-          explain: 'Revisar y ajustar las metas regularmente garantiza que sigan siendo relevantes y alcanzables.'
-        },
-        {
-          q: '¿Cuál es la función del fondo de emergencia dentro de las metas financieras?',
-          opts: ['Invertir en activos de alto riesgo', 'Proteger las demás metas ante imprevistos económicos', 'Usarse mensualmente para gastos fijos'],
-          correct: 1,
-          explain: 'Un fondo de 3 a 6 meses de gastos evita que un imprevisto destruya el avance de otras metas.'
-        }
-      ]
-    });
+  var videoTimer = null;
+  var videoIsPlaying = false;
+  var videoCurrentSec = 45;
+  var videoTotalDuration = 150;
 
-    // ══════════════════════════════════════════════════════════
-    // PREGUNTAS — INTERÉS COMPUESTO
-    // ══════════════════════════════════════════════════════════
-    buildQuiz({
-      id: 'quizInteres', suffix: 'Interes',
-      onComplete: function() { window.marcarTablaDemoCompletada('ahorro'); },
-      questions: [
-        {
-          q: '¿Qué es el interés compuesto?',
-          opts: ['El interés que se calcula solo sobre el capital inicial', 'El interés que se calcula sobre el capital más los intereses acumulados', 'Un tipo de comisión bancaria fija mensual'],
-          correct: 1,
-          explain: 'El interés compuesto genera "interés sobre interés", produciendo crecimiento exponencial.'
-        },
-        {
-          q: '¿A quién se atribuye la frase "el interés compuesto es la octava maravilla del mundo"?',
-          opts: ['Warren Buffett', 'Albert Einstein', 'Benjamin Franklin'],
-          correct: 1,
-          explain: 'Se atribuye a Albert Einstein, destacando el poder del crecimiento exponencial del dinero.'
-        },
-        {
-          q: 'Si inviertes $1,000 al 10% anual compuesto, ¿cuánto tendrás después de 3 años?',
-          opts: ['$1,300 (interés simple)', '$1,331 (interés compuesto)', '$1,100 (solo el primer año)'],
-          correct: 1,
-          explain: '$1,000 × 1.1³ = $1,331. El interés del año anterior genera nuevo interés.'
-        },
-        {
-          q: '¿Cuál de estos factores NO afecta el crecimiento del interés compuesto?',
-          opts: ['La tasa de interés anual', 'El color de la cuenta bancaria', 'El tiempo que el dinero permanece invertido'],
-          correct: 1,
-          explain: 'El interés compuesto depende de: capital, tasa, frecuencia de capitalización y tiempo.'
-        },
-        {
-          q: '¿Qué significa la "frecuencia de capitalización"?',
-          opts: ['Cuántas veces al año se agregan los intereses al capital', 'La cantidad mínima que debes invertir', 'La penalización por retirar dinero anticipadamente'],
-          correct: 0,
-          explain: 'Mayor frecuencia (mensual, diaria) = más veces se calculan intereses sobre intereses = mayor rendimiento.'
-        },
-        {
-          q: '¿Qué es la "Regla del 72" en el contexto del interés compuesto?',
-          opts: ['El límite máximo de inversión sin pagar impuestos', 'Una fórmula para estimar en cuántos años se duplica tu dinero dividiendo 72 entre la tasa', 'El porcentaje mínimo de ahorro recomendado mensualmente'],
-          correct: 1,
-          explain: 'Divide 72 entre la tasa de interés anual y obtendrás los años aproximados para duplicar tu capital.'
-        },
-        {
-          q: '¿Por qué es importante empezar a invertir lo más joven posible?',
-          opts: ['Porque los bancos dan mejores tasas a personas jóvenes', 'Porque el tiempo es el factor más poderoso del interés compuesto', 'Porque los jóvenes no pagan impuestos sobre inversiones'],
-          correct: 1,
-          explain: 'Cuanto más tiempo tiene el dinero para crecer, más pronunciado es el efecto del interés compuesto.'
-        },
-        {
-          q: '¿En qué situación el interés compuesto PERJUDICA al consumidor?',
-          opts: ['Cuando ahorra en una cuenta de alto rendimiento', 'Cuando tiene deudas con tarjeta de crédito sin pagar el saldo completo', 'Cuando invierte en un fondo de retiro a largo plazo'],
-          correct: 1,
-          explain: 'Las deudas con interés compuesto crecen exponencialmente; una deuda pequeña se vuelve enorme si no se paga.'
-        }
-      ]
-    });
-
-    // ══════════════════════════════════════════════════════════
-    // PREGUNTAS — RIESGOS DEL SOBREENDEUDAMIENTO
-    // ══════════════════════════════════════════════════════════
-    buildQuiz({
-      id: 'quizDeuda', suffix: 'Deuda',
-      onComplete: function() { window.marcarTablaDemoCompletada('credito'); },
-      questions: [
-        {
-          q: '¿Qué se considera sobreendeudamiento?',
-          opts: ['Tener un solo préstamo hipotecario vigente', 'Cuando las deudas superan la capacidad real de pago de una persona', 'Usar la tarjeta de crédito para compras menores de $100'],
-          correct: 1,
-          explain: 'El sobreendeudamiento ocurre cuando los compromisos financieros exceden la capacidad de pago, generando una espiral de deuda.'
-        },
-        {
-          q: '¿Cuál de estas señales de alerta indica posible sobreendeudamiento?',
-          opts: ['Pagar todas las deudas antes de la fecha límite', 'Usar un crédito para pagar otro crédito (ciclo de deuda)', 'Tener un fondo de emergencia equivalente a 3 meses de gastos'],
-          correct: 1,
-          explain: 'Pagar deudas con más deudas es una señal crítica: el saldo total crece y la situación empeora.'
-        },
-        {
-          q: '¿Qué porcentaje máximo de los ingresos se recomienda destinar al pago de deudas?',
-          opts: ['Hasta el 20–30% de los ingresos netos mensuales', 'Hasta el 60–70% de los ingresos netos mensuales', 'No importa el porcentaje si los pagos son puntuales'],
-          correct: 0,
-          explain: 'Destinar más del 30% de tus ingresos a deudas limita tu capacidad de ahorro y genera estrés financiero.'
-        },
-        {
-          q: '¿Qué consecuencia tiene el sobreendeudamiento en el historial crediticio?',
-          opts: ['Mejora la calificación crediticia al demostrar uso activo del crédito', 'Daña el historial, reduciendo el acceso a créditos futuros con buenas condiciones', 'No tiene ningún efecto si se paga eventualmente'],
-          correct: 1,
-          explain: 'Un mal historial crediticio cierra puertas: empleos, vivienda y créditos futuros pueden verse afectados.'
-        },
-        {
-          q: '¿Cuál es el impacto del sobreendeudamiento en la salud mental?',
-          opts: ['No tiene ningún efecto emocional', 'Genera estrés, ansiedad, conflictos familiares y deterioro de la calidad de vida', 'Motiva a trabajar más y mejorar los ingresos'],
-          correct: 1,
-          explain: 'El estrés financiero es una de las principales causas de ansiedad, depresión y problemas en las relaciones personales.'
-        },
-        {
-          q: '¿Qué estrategia ayuda a salir del sobreendeudamiento más rápido?',
-          opts: ['Ignorar las deudas y esperar que prescriban', 'Método "bola de nieve": pagar primero la deuda más pequeña para ganar impulso', 'Solicitar más créditos para aumentar el flujo de efectivo disponible'],
-          correct: 1,
-          explain: 'El método "bola de nieve" libera recursos progresivamente: cada deuda eliminada aumenta la motivación y los fondos para la siguiente.'
-        },
-        {
-          q: '¿Qué es una reestructuración de deuda?',
-          opts: ['Borrar la deuda del registro sin pagarla', 'Negociar nuevas condiciones (plazo, tasa o monto) con el acreedor para hacerla manejable', 'Transferir la deuda al nombre de un familiar'],
-          correct: 1,
-          explain: 'Reestructurar una deuda es una solución legal que facilita el pago sin dañar más el historial crediticio.'
-        },
-        {
-          q: '¿Cuál es la mejor defensa contra el sobreendeudamiento?',
-          opts: ['Evitar por completo el uso de cualquier tipo de crédito', 'Elaborar un presupuesto, mantener un fondo de emergencia y usar el crédito con responsabilidad', 'Ganar más dinero sin importar cómo se administra'],
-          correct: 1,
-          explain: 'Un presupuesto sólido + fondo de emergencia + uso responsable del crédito = blindaje financiero real.'
-        }
-      ]
-    });
-  </script>
-  <!-- CARRUSEL ESTUDIANTES JS -->
-  <script>
-    (function() {
-      const track = document.getElementById('mTrack');
-      const dotsContainer = document.getElementById('mDots');
-      if (!track) return;
-
-      const cards = track.querySelectorAll('.m-card');
-      const cardCount = cards.length;
-      let currentIndex = 0;
-      let cardWidth = 0;
-      let visibleCount = 4;
-      const gap = 20;
-
-      function getVisibleCount() {
-        const w = window.innerWidth;
-        if (w < 600) return 1;
-        if (w < 900) return 2;
-        if (w < 1200) return 3;
-        return 4;
+  // ── Abrir Ventana con Testimonio en Video (Pocos Minutos) ──
+  function openStudentTestimonial(studentKey) {
+    var data = studentDirectory[studentKey];
+    if (!data) {
+      if (typeof studentKey === 'string' && studentKey.indexOf(' ') > -1) {
+        var lower = studentKey.toLowerCase();
+        if (lower.indexOf('mariana') > -1) data = studentDirectory.mariana;
+        else if (lower.indexOf('jorge') > -1) data = studentDirectory.jorge;
+        else if (lower.indexOf('ana') > -1) data = studentDirectory.ana;
+        else if (lower.indexOf('roberto') > -1 || lower.indexOf('silvia') > -1) data = studentDirectory.roberto;
       }
+    }
+    if (!data) data = studentDirectory.mariana;
 
-      function buildDots() {
-        dotsContainer.innerHTML = '';
-        const groups = Math.ceil(cardCount / visibleCount);
-        for (let i = 0; i < groups; i++) {
-          const dot = document.createElement('button');
-          dot.className = 'm-dot' + (i === 0 ? ' active' : '');
-          dot.addEventListener('click', function() { goTo(i * visibleCount); });
-          dotsContainer.appendChild(dot);
-        }
-      }
+    document.getElementById('svmName').textContent = data.name;
+    document.getElementById('svmRole').textContent = data.role;
+    document.getElementById('svmAvatar').src = data.photo;
+    document.getElementById('svmVideoPoster').src = data.photo;
+    document.getElementById('svmDuration').textContent = data.duration;
+    document.getElementById('svmTitle').innerHTML = '<span>🎬</span> ' + data.title;
+    document.getElementById('svmBadge').innerHTML = '<span>🏆</span> ' + data.badge;
+    document.getElementById('svmQuote').textContent = data.quote;
+    document.getElementById('svmCommentsList').innerHTML = data.defaultComment;
 
-      function updateDots() {
-        const dots = dotsContainer.querySelectorAll('.m-dot');
-        const activeGroup = Math.floor(currentIndex / visibleCount);
-        dots.forEach((d, i) => d.classList.toggle('active', i === activeGroup));
-      }
+    // Reiniciar video simulado
+    videoTotalDuration = data.totalSec || 150;
+    videoCurrentSec = Math.floor(videoTotalDuration * 0.28);
+    updateVideoTimeDisplay();
 
-      function getCardWidth() {
-        if (cards.length === 0) return 300;
-        return cards[0].getBoundingClientRect().width;
-      }
+    var modal = document.getElementById('studentVideoModal');
+    if (modal) { modal.style.display = 'flex'; modal.classList.add('is-active'); }
+    document.documentElement.classList.add('demo-modal-open');
+    document.body.classList.add('demo-modal-open');
+  }
 
-      function goTo(idx) {
-        const maxIdx = Math.max(0, cardCount - visibleCount);
-        currentIndex = Math.max(0, Math.min(idx, maxIdx));
-        cardWidth = getCardWidth();
-        const offset = currentIndex * (cardWidth + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        updateDots();
-      }
+  // Compatibilidad con llamada previa
+  function openStudentComment(name, role, quote, medal) {
+    openStudentTestimonial(name);
+  }
 
-      window.mCarousel = function(dir) {
-        goTo(currentIndex + dir * visibleCount);
-      };
+  function closeStudentTestimonial() {
+    var modal = document.getElementById('studentVideoModal');
+    if (modal) { modal.style.display = 'none'; modal.classList.remove('is-active'); }
+    document.documentElement.classList.remove('demo-modal-open');
+    document.body.classList.remove('demo-modal-open');
+    pauseTestimonialVideo();
+  }
 
-      function init() {
-        visibleCount = getVisibleCount();
-        buildDots();
-        goTo(0);
-      }
+  function closeStudentComment() {
+    closeStudentTestimonial();
+  }
 
-      window.addEventListener('resize', function() {
-        visibleCount = getVisibleCount();
-        buildDots();
-        goTo(currentIndex);
-      });
+  // ── Controles de Reproducción del Video Testimonial ─────────
+  function toggleTestimonialVideo() {
+    if (videoIsPlaying) {
+      pauseTestimonialVideo();
+    } else {
+      playTestimonialVideo();
+    }
+  }
 
-      // Auto-slide cada 6 segundos
-      setInterval(function() {
-        const maxIdx = Math.max(0, cardCount - visibleCount);
-        if (currentIndex >= maxIdx) {
-          goTo(0);
-        } else {
-          goTo(currentIndex + 1);
-        }
-      }, 6000);
+  function playTestimonialVideo() {
+    videoIsPlaying = true;
+    var playIcon = document.getElementById('svmPlayIcon');
+    if (playIcon) {
+      playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+    }
+    var soundwave = document.getElementById('svmSoundwave');
+    if (soundwave) soundwave.style.opacity = '1';
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+    clearInterval(videoTimer);
+    videoTimer = setInterval(function() {
+      if (videoCurrentSec < videoTotalDuration) {
+        videoCurrentSec++;
+        updateVideoTimeDisplay();
       } else {
-        init();
+        pauseTestimonialVideo();
+        videoCurrentSec = 0;
+        updateVideoTimeDisplay();
       }
-    })();
-  </script>
+    }, 1000);
+  }
 
-  <!-- GESTIÓN DE FINALIZACIÓN DE LA DEMO GRATUITA (3 TABLAS) -->
-  <script>
-    (function() {
-      var DEMO_FINAL_KEY = 'demo_pilares_finalizada';
-      var DEMO_REVIEW_KEY = 'demo_pilares_revisadas';
-      var reviewed = {};
-      try {
-        reviewed = JSON.parse(localStorage.getItem(DEMO_REVIEW_KEY) || '{}') || {};
-      } catch(e) {
-        reviewed = {};
-      }
+  function pauseTestimonialVideo() {
+    videoIsPlaying = false;
+    clearInterval(videoTimer);
+    var playIcon = document.getElementById('svmPlayIcon');
+    if (playIcon) {
+      playIcon.innerHTML = '<polygon points="6 3 20 12 6 21 6 3"/>';
+    }
+    var soundwave = document.getElementById('svmSoundwave');
+    if (soundwave) soundwave.style.opacity = '0.5';
+  }
 
-      function saveReviewed() {
-        try { localStorage.setItem(DEMO_REVIEW_KEY, JSON.stringify(reviewed)); } catch(e) {}
-      }
+  function updateVideoTimeDisplay() {
+    var currentMin = Math.floor(videoCurrentSec / 60);
+    var currentSecRemaining = videoCurrentSec % 60;
+    var totalMin = Math.floor(videoTotalDuration / 60);
+    var totalSecRemaining = videoTotalDuration % 60;
 
-      function syncDemoModalState() {
-        var anyOpen = document.querySelector('#tabla-pilares .pillar-card.is-open');
-        document.documentElement.classList.toggle('demo-modal-open', !!anyOpen);
-        document.body.classList.toggle('demo-modal-open', !!anyOpen);
-      }
+    var formattedCurrent = currentMin + ':' + (currentSecRemaining < 10 ? '0' : '') + currentSecRemaining;
+    var formattedTotal = totalMin + ':' + (totalSecRemaining < 10 ? '0' : '') + totalSecRemaining;
 
-      function setPillarToggleState(card, open) {
-        if (!card) return;
-        card.classList.toggle('is-open', open);
-        var btn = card.querySelector('.pillar-toggle');
-        if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        var txt = card.querySelector('.pillar-toggle-text');
-        if (txt) txt.textContent = open ? 'Cerrar' : 'Ver contenido';
-        if (open) {
-          card.setAttribute('role', 'dialog');
-          card.setAttribute('aria-modal', 'true');
-        } else {
-          card.removeAttribute('role');
-          card.removeAttribute('aria-modal');
-        }
-        syncDemoModalState();
-      }
+    var timeEl = document.getElementById('svmTimeCurrent');
+    if (timeEl) timeEl.textContent = formattedCurrent + ' / ' + formattedTotal + ' min';
 
-      function closeAllPillars(except) {
-        document.querySelectorAll('#tabla-pilares .pillar-card.is-open').forEach(function(card) {
-          if (card !== except) setPillarToggleState(card, false);
-        });
-      }
+    var pct = Math.min(100, (videoCurrentSec / videoTotalDuration) * 100);
+    var fillEl = document.getElementById('svmProgressFill');
+    if (fillEl) fillEl.style.width = pct + '%';
+  }
 
-      window.toggleDemoBlock = function(btn) {
-        var card = btn && btn.closest ? btn.closest('.pillar-card') : null;
-        if (!card) return;
-        var willOpen = !card.classList.contains('is-open');
-        closeAllPillars(card);
-        setPillarToggleState(card, willOpen);
-        if (willOpen) {
-          var body = card.querySelector('.pillar-body');
-          if (body) body.scrollTop = 0;
-          var closeBtn = card.querySelector('.pillar-modal-close');
-          if (closeBtn) closeBtn.focus();
-        } else {
-          var toggleBtn = card.querySelector('.pillar-toggle');
-          if (toggleBtn) toggleBtn.focus();
-        }
-      };
+  function scrubTestimonialVideo(event) {
+    var rect = event.currentTarget.getBoundingClientRect();
+    var clickX = event.clientX - rect.left;
+    var pct = Math.max(0, Math.min(1, clickX / rect.width));
+    videoCurrentSec = Math.floor(pct * videoTotalDuration);
+    updateVideoTimeDisplay();
+  }
 
-      window.openFirstDemoBlock = function(event) {
-        if (event) event.preventDefault();
-        var grid = document.getElementById('tabla-pilares');
-        if (!grid) return;
-        var first = grid.querySelector('.pillar-card');
-        if (!first) return;
-        if (!first.classList.contains('is-open')) {
-          var btn = first.querySelector('.pillar-toggle');
-          if (btn) window.toggleDemoBlock(btn);
-        }
-      };
+  function postTestimonialComment() {
+    var input = document.getElementById('svmNewComment');
+    if (!input || !input.value.trim()) return;
+    var list = document.getElementById('svmCommentsList');
+    var newMsg = document.createElement('div');
+    newMsg.className = 'svm-comment-sample';
+    newMsg.style.marginTop = '6px';
+    newMsg.style.borderLeft = '3px solid #10b981';
+    newMsg.innerHTML = '<strong>Tú:</strong> "' + input.value.trim() + '"';
+    list.appendChild(newMsg);
+    input.value = '';
+  }
 
-      (function initDemoAccordion() {
-        var grid = document.getElementById('tabla-pilares');
-        if (!grid) return;
-        grid.classList.add('demo-accordion-enabled');
-        grid.querySelectorAll('.pillar-card').forEach(function(card) {
-          setPillarToggleState(card, false);
-        });
-        document.addEventListener('keydown', function(event) {
-          if (event.key !== 'Escape' && event.key !== 'Esc') return;
-          var open = document.querySelector('#tabla-pilares .pillar-card.is-open');
-          if (!open) return;
-          var btn = open.querySelector('.pillar-toggle');
-          if (btn) window.toggleDemoBlock(btn);
-        });
-      })();
+  // ── Modales de Capítulos Independientes (Sin menú ni dependencias) ──
+  function openChapterModal(modalId) {
+    // Cerrar cualquier otro modal que pudiera estar abierto
+    closeChapterModal('modalCapitulo1');
+    closeChapterModal('modalCapitulo2');
+    closeChapterModal('modalCapitulo3');
 
-      window.marcarTablaDemoCompletada = function(id) {
-        if (!id) return;
-        reviewed[id] = true;
-        saveReviewed();
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.add('is-active');
+    document.documentElement.classList.add('demo-modal-open');
+    document.body.classList.add('demo-modal-open');
 
-        if (reviewed.admin && reviewed.ahorro && reviewed.credito) {
-          setTimeout(function() {
-            if (typeof window.finalizarDemoGratis === 'function') {
-              window.finalizarDemoGratis();
-            }
-          }, 500);
-        }
-      };
+    var body = modal.querySelector('.nfm-body');
+    if (body) body.scrollTop = 0;
+  }
 
-      window.finalizarDemoGratis = function() {
-        try { localStorage.setItem(DEMO_FINAL_KEY, 'true'); } catch(e) {}
-        closeAllPillars();
-        document.documentElement.classList.remove('demo-modal-open');
-        document.body.classList.remove('demo-modal-open');
+  function closeChapterModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal) { modal.style.display = 'none'; modal.classList.remove('is-active'); }
 
-        var grid = document.getElementById('tabla-pilares');
-        var card = document.getElementById('demoFinCard');
-        var btnTop = document.querySelector('.btn-demo-cta');
+    // Verificar si queda algún modal abierto antes de quitar clase de bloqueo de scroll
+    var hasActive = document.querySelector('.neuro-fullscreen-modal.is-active, .student-video-modal.is-active');
+    if (!hasActive) {
+      document.documentElement.classList.remove('demo-modal-open');
+      document.body.classList.remove('demo-modal-open');
+    }
+  }
 
-        if (grid) {
-          grid.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-          grid.style.opacity = '0';
-          grid.style.transform = 'scale(0.98)';
-          setTimeout(function() { grid.style.display = 'none'; }, 420);
-        }
-        if (btnTop) {
-          btnTop.removeAttribute('onclick');
-          btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
-          btnTop.href = 'index.php?page=reticula';
-        }
-        if (card) {
-          card.style.display = 'block';
-          card.style.opacity = '0';
-          card.style.transition = 'opacity 0.5s ease';
-          setTimeout(function() {
-            card.style.opacity = '1';
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 200);
-        }
+  // Compatibilidad hacia atrás
+  function openChapterOnly(capId) {
+    if (capId === 'cap1') openChapterModal('modalCapitulo1');
+    else if (capId === 'cap2') openChapterModal('modalCapitulo2');
+    else if (capId === 'cap3') openChapterModal('modalCapitulo3');
+  }
 
-        var count = 3;
-        var counterEl = document.getElementById('demoCountdownSecs');
-        if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
-        window._demoRedirectTimer = setInterval(function() {
-          count--;
-          if (counterEl) counterEl.textContent = count;
-          if (count <= 0) {
-            clearInterval(window._demoRedirectTimer);
-            window.location.href = 'index.php?page=reticula';
-          }
-        }, 1000);
-      };
+  function closeNeuroFullscreenModal() {
+    closeChapterModal('modalCapitulo1');
+    closeChapterModal('modalCapitulo2');
+    closeChapterModal('modalCapitulo3');
+  }
 
-      window.reiniciarDemoTest = function() {
-        try {
-          localStorage.removeItem(DEMO_FINAL_KEY);
-          localStorage.removeItem(DEMO_REVIEW_KEY);
-        } catch(e) {}
-        reviewed = {};
-        if (window._demoRedirectTimer) clearInterval(window._demoRedirectTimer);
-
-        var grid = document.getElementById('tabla-pilares');
-        var card = document.getElementById('demoFinCard');
-        var btnTop = document.querySelector('.btn-demo-cta');
-
-        if (grid) {
-          grid.style.display = '';
-          grid.style.opacity = '1';
-          grid.style.transform = 'none';
-        }
-        if (card) card.style.display = 'none';
-        if (btnTop) {
-          btnTop.setAttribute('onclick', 'openFirstDemoBlock(event)');
-          btnTop.innerHTML = '<span>👉 Probar Demo Gratis</span>';
-          btnTop.href = '#tabla-pilares';
-        }
-        document.querySelectorAll('#tabla-pilares .pillar-card').forEach(function(pillar) {
-          setPillarToggleState(pillar, false);
-        });
-        if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      };
-
-      (function checkDemoPrevia() {
-        try {
-          if (localStorage.getItem(DEMO_FINAL_KEY) === 'true') {
-            var grid = document.getElementById('tabla-pilares');
-            var card = document.getElementById('demoFinCard');
-            var notice = document.getElementById('demoRedirectNotice');
-            var btnTop = document.querySelector('.btn-demo-cta');
-
-            if (grid) grid.style.display = 'none';
-            document.documentElement.classList.remove('demo-modal-open');
-            document.body.classList.remove('demo-modal-open');
-            if (btnTop) {
-              btnTop.removeAttribute('onclick');
-              btnTop.innerHTML = '<span>✅ Demo Concluida • Inscríbete</span>';
-              btnTop.href = 'index.php?page=reticula';
-            }
-            if (card) card.style.display = 'block';
-            if (notice) {
-              notice.innerHTML = '<span>Tu demo gratuita ya ha finalizado. Haz clic en el botón verde para inscribirte.</span>';
-            }
-          }
-        } catch(e) {}
-      })();
-    })();
-  </script>
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      closeChapterModal('modalCapitulo1');
+      closeChapterModal('modalCapitulo2');
+      closeChapterModal('modalCapitulo3');
+      closeStudentTestimonial();
+    }
+  });
+</script>

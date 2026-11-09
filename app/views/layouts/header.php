@@ -14,10 +14,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Estilos Globales -->
-  <link rel="stylesheet" href="public/css/estilos.css?v=20261102_recursos">
+  <link rel="stylesheet" href="public/css/estilos.css?v=<?= time() ?>">
 
   <!-- Estilos específicos de la página -->
   <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
-    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=20261105_demo_modal">
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=<?= time() ?>">
   <?php endforeach; ?>
 </head>

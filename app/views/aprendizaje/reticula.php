@@ -781,7 +781,7 @@
   </div>
 
 
-  <script src="public/js/script.js?v=20261102_recursos"></script>
+  <script src="public/js/script.js?v=<?= time() ?>"></script>
 
   <!-- ============================================================
        MODAL REPRODUCTOR DE VIDEO
