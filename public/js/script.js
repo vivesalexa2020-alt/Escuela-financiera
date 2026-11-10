@@ -850,13 +850,13 @@ const RETICULA_MATERIAS = [
     desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
     temario: [
       'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga',
+      'Fugas y micro-gastos hormiga <a href="https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;" title="Ver video en YouTube">▶ Video ↗</a>',
       'Regla 50/30/20 simplificada',
       'Método anti-deuda acelerado'
     ],
     videos: [
       { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/WF6qLnuh4EA', duracion: '14:32' },
-      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/Of1490doP8c', duracion: '11:18' },
+      { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/DT6Nh3aV5Vc', externalUrl: 'https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP', duracion: '11:18' },
       { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/_7a55m4opPw', duracion: '16:05' }
     ],
     ejercicios: [
@@ -1923,7 +1923,10 @@ function openReticulaModal(id) {
               '</div>' +
             '</div>' +
           '</div>' +
-          '<button type="button" class="btn-resource-action" onclick="reproducirVideoMateria(\'' + v.titulo.replace(/'/g, "\\'") + '\', \'' + v.url + '\')">▶ Ver video</button>' +
+          '<div style="display:flex; gap:6px; align-items:center;">' +
+            '<button type="button" class="btn-resource-action" onclick="reproducirVideoMateria(\'' + v.titulo.replace(/'/g, "\\'") + '\', \'' + v.url + '\')">▶ Ver video</button>' +
+            (v.externalUrl ? '<a href="' + v.externalUrl + '" target="_blank" rel="noopener noreferrer" class="btn-resource-action" style="background:#fee2e2; color:#dc2626; text-decoration:none; display:inline-flex; align-items:center;" title="Abrir en YouTube">YouTube ↗</a>' : '') +
+          '</div>' +
         '</div>';
       }).join('');
     } else {

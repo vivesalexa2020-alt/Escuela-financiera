@@ -352,7 +352,7 @@ INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `cate
 
 -- Videos / Lecciones de Unidad 1: Rompe el ciclo
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'Video lección práctica y conceptual: Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'https://www.youtube.com/embed/WF6qLnuh4EA', '14:32', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Gastos hormiga: cómo detectar las fugas invisibles', 'Video lección práctica y conceptual: Gastos hormiga: cómo detectar las fugas invisibles', 'https://www.youtube.com/embed/Of1490doP8c', '11:18', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Gastos hormiga: cómo detectar las fugas invisibles', 'Video lección práctica y conceptual: Gastos hormiga: cómo detectar las fugas invisibles. Enlace oficial: https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP', 'https://www.youtube.com/embed/DT6Nh3aV5Vc', '11:18', 2);
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'La regla 50/30/20 explicada con ejemplos reales en México', 'Video lección práctica y conceptual: La regla 50/30/20 explicada con ejemplos reales en México', 'https://www.youtube.com/embed/_7a55m4opPw', '16:05', 3);
 
 -- Ejercicios prácticos de Unidad 1: Rompe el ciclo
