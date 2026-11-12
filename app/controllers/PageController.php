@@ -39,10 +39,11 @@ class PageController extends Controller {
 
     private function renderPage(string $slug, string $view, string $title, string $bodyClass): void {
         $this->view($view, [
-            'pageTitle' => $title,
-            'pageCss'   => ["public/css/pages/{$slug}.css"],
-            'bodyClass' => $bodyClass,
-            'user'      => Session::user(),
+            'pageTitle'   => $title,
+            'pageCss'     => ["public/css/pages/{$slug}.css"],
+            'bodyClass'   => $bodyClass,
+            'user'        => Session::user(),
+            'currentPage' => $slug,
         ], 'main');
     }
 }

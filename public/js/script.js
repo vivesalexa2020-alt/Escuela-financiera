@@ -1618,10 +1618,20 @@ function renderReticula() {
         '</div>';
     }).join('');
 
+    var nivelPill = '';
+    if (sem.id === 1) {
+      nivelPill = '<span class="reticula-semester-pill">🌱 BÁSICO · MES 1 GRATIS</span>';
+    } else if (sem.id === 2) {
+      nivelPill = '<span class="reticula-semester-pill">🚀 INTERMEDIO · ESTRATEGIA</span>';
+    } else {
+      nivelPill = '<span class="reticula-semester-pill">👑 AVANZADO · MAESTRÍA</span>';
+    }
+
     return '' +
-      '<div class="reticula-semester">' +
+      '<div class="reticula-semester nivel-' + sem.id + (bloqueado ? ' is-locked' : '') + '">' +
+        nivelPill +
         '<div class="reticula-semester-head">' +
-          '<h4>🎓 ' + sem.titulo + '</h4>' +
+          '<h4>' + sem.titulo + '</h4>' +
           chip +
         '</div>' +
         '<div class="reticula-semester-bar"><i style="width:' + pct + '%"></i></div>' +
