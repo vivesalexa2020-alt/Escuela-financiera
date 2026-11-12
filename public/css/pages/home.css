@@ -658,9 +658,9 @@
     /* ============================================================
        FILA DE 3 TARJETAS VIDRIO (GLASSMORPHISM CON ANIMACIONES)
        ============================================================ */
-    .hero-cards-grid {
+.hero-cards-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1.15fr 1.05fr;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
       max-width: 1040px;
       margin: 0 auto;

@@ -229,28 +229,6 @@
         <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
       </div>
 
-      <!-- Botón hamburguesa móvil -->
-      <button class="hero-mobile-toggle" id="heroMobileMenuBtn" aria-label="Abrir menú de navegación" onclick="toggleHeroMobileNav()">
-        <span class="h-bar"></span>
-        <span class="h-bar"></span>
-        <span class="h-bar"></span>
-      </button>
-
-      <!-- Links de navegación derecha (escritorio y menú desplegable en móvil) -->
-      <nav class="hero-nav-menu" id="heroNavMenu">
-        <div class="mobile-only-badge">
-          <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
-        </div>
-        <a href="index.php" class="hero-nav-item active" onclick="closeHeroMobileNav()">Inicio</a>
-        <span class="hero-nav-sep">|</span>
-        <a href="#metodologia" class="hero-nav-item" onclick="closeHeroMobileNav()">Metodología</a>
-        <span class="hero-nav-sep">|</span>
-        <a href="#estudiantes" class="hero-nav-item" onclick="closeHeroMobileNav()">Testimonios</a>
-        <span class="hero-nav-sep">|</span>
-        <a href="reticula.html" class="hero-nav-item" onclick="closeHeroMobileNav()">Registro</a>
-        <span class="hero-nav-sep">|</span>
-        <a href="#ayuda" class="hero-nav-item" onclick="closeHeroMobileNav()">Ayuda</a>
-      </nav>
     </div>
   </header>
 
@@ -604,26 +582,7 @@
             </div>
           </div>
 
-          <!-- TARJETA 3: 1er Mes Gratis -->
-          <div class="hero-card hero-card-cta">
-            <div class="hcard-header">
-              <span class="hcard-icon hcard-trophy-pulse">🏆</span>
-              <div class="hcard-title-group">
-                <span class="hcard-title">1er Mes Gratis</span>
-                <span class="hcard-subtitle">prueba 100% GRATIS</span>
-              </div>
-            </div>
-            <div class="hcard-body cta-body">
-              <a href="reticula.html" class="btn-hero-camino">
-                <span>EMPEZAR MI CAMINO</span>
-                <svg class="btn-arrow-diag" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 13L13 3M13 3H5M13 3V11"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-        </div>
+</div>
 
       </div>
     </section>
