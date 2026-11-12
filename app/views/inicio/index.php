@@ -540,7 +540,7 @@
             <span class="kpi-label">Curso activo</span>
             <span class="kpi-value-tag">65% completado</span>
           </div>
-          <div class="kpi-sub">Sistemas cognitivos & Neuroventas</div>
+          <div class="kpi-sub">Hábitos Atómicos & Finanzas</div>
           <div class="kpi-progress-bar">
             <div class="kpi-progress-fill" style="width: 65%;"></div>
           </div>
@@ -785,105 +785,462 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     SECCIÓN NEUROVENTAS: 3 CUADROS CON COLOR INDIVIDUAL
+     SECCIÓN: HÁBITOS ATÓMICOS EN TUS FINANZAS (DIAGNÓSTICO INTERACTIVO)
      ══════════════════════════════════════════════════════ -->
-<section class="pillars-overview-section" id="neuroventas">
+<section class="atomic-habits-section" id="habitos-atomicos">
   <div class="container">
     
-    <div class="pillars-overview-header">
-      <div class="pillars-tagline">
-        <span>🧠 Neuroventas y Neurociencias</span>
+    <!-- Encabezado de la sección -->
+    <div class="atomic-overview-header">
+      <div class="atomic-tagline">
+        <span>⚛️ Hábitos Atómicos & Finanzas</span>
       </div>
-      <h2>VÉNDELE A LA MENTE, NO A LA GENTE</h2>
-      <p class="pillars-sub">Jürgen Klarić — Los 3 Capítulos Fundamentales para Dominar las Ventas Modernas</p>
-      <p class="pillars-slogan">"El 85% de la decisión de compra es subconsciente e inconsciente; solo el 15% es consciente."</p>
-      <p style="font-size: 15px; color: #4a5568; margin-top: 6px;">
-        Haz clic en cualquiera de los 3 cuadros para abrir la lectura completa a pantalla completa del capítulo que elijas.
+      <h2>FORMULARIO: DESCUBRE TUS HÁBITOS FINANCIEROS</h2>
+      <p class="atomic-sub">Inspirado en los fundamentos de <strong>James Clear</strong> aplicados a tus decisiones de dinero</p>
+      <p class="atomic-intro-desc">
+        Descubre qué hábitos tienes actualmente, cuáles afectan tus finanzas y qué pequeños cambios del 1% diario puedes comenzar a realizar. Un diagnóstico interactivo para conocer tus comportamientos y transformarlos paso a paso.
       </p>
     </div>
 
-    <!-- ── 3 CUADROS CON COLOR INDIVIDUAL (AZUL, VERDE, ÍNDIGO) ── -->
-    <div class="chapters-colored-grid" id="cuadros-capitulos">
+    <!-- TARJETA OSCURA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
+    <div class="atomic-card-container">
 
-      <!-- ==========================================
-           CUADRO 1: AZUL (CAPÍTULO 1)
-           ========================================== -->
-      <div class="colored-chapter-card card-blue" onclick="openChapterModal('modalCapitulo1')" title="Clic para abrir el Capítulo 1 a pantalla completa">
-        <div class="ccc-header">
-          <div class="ccc-badge-row">
-            <div class="ccc-num">1</div>
-            <span class="ccc-tag">📘 CAPÍTULO 1</span>
+      <!-- Encabezado de la tarjeta interactiva -->
+      <div class="atomic-card-head">
+        <div class="atomic-head-flex">
+          <div>
+            <span class="atomic-pill-badge">Actividad interactiva</span>
+            <h3 class="atomic-card-title">¿Qué hábitos están controlando tu dinero?</h3>
+            <p class="atomic-card-subtitle">Antes de cambiar tus finanzas, necesitas conocer tus comportamientos. Responde con sinceridad.</p>
           </div>
-          <h3>Las Neuroventas frente a las Ventas Tradicionales</h3>
-          <p>Supera la capacitación mecánica y descubre la ciencia real de la mente humana.</p>
-        </div>
-        <div class="ccc-body">
-          <ul class="ccc-points">
-            <li><strong>Capacitadores desactualizados:</strong> Deja de ser un robot y crea tu propia comunicación efectiva.</li>
-            <li><strong>Ciencia y tecnología:</strong> Validado con el aparato electroencefalográfico <strong>Quasar (EEG)</strong>.</li>
-            <li><strong>Descubrimiento clave:</strong> El <strong>85%</strong> de la decisión de compra es inconsciente y solo el 15% consciente.</li>
-            <li><strong>Vender sin vender:</strong> Escuchar antes de hablar, conectar y empatizar con el cliente.</li>
-          </ul>
-          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo1'); event.stopPropagation();">
-            <span>📖 Abrir Capítulo 1 a Pantalla Completa</span>
-            <span>⛶</span>
-          </button>
+          <div class="atomic-score-live-pill" id="liveScorePill">
+            <span class="live-score-label">Diagnóstico en vivo</span>
+            <span class="live-score-number" id="liveScoreNum">0%</span>
+          </div>
         </div>
       </div>
 
-      <!-- ==========================================
-           CUADRO 2: VERDE (CAPÍTULO 2)
-           ========================================== -->
-      <div class="colored-chapter-card card-green" onclick="openChapterModal('modalCapitulo2')" title="Clic para abrir el Capítulo 2 a pantalla completa">
-        <div class="ccc-header">
-          <div class="ccc-badge-row">
-            <div class="ccc-num">2</div>
-            <span class="ccc-tag">📗 CAPÍTULO 2</span>
+      <!-- BANNER ILUSTRATIVO INTERACTIVO (Reemplaza la imagen estática con interactividad viva) -->
+      <div class="atomic-interactive-banner">
+        <div class="banner-graphic-side">
+          <div class="banner-avatar-wrap" id="bannerAvatarWrap" title="Toca para interactuar">
+            🧑‍💼
           </div>
-          <h3>Neurociencias para las Ventas</h3>
-          <p>Conoce la arquitectura cerebral: los tres cerebros y el código reptil que gobierna el instinto.</p>
+          <div class="banner-graphic-text">
+            <h4>Controla tus comportamientos diarios</h4>
+            <p>Tus hábitos de hoy construyen tu libertad financiera de mañana. Interactúa con las herramientas abajo:</p>
+          </div>
         </div>
-        <div class="ccc-body">
-          <ul class="ccc-points">
-            <li><strong>Los Tres Cerebros:</strong> Reptiliano (el que DECIDE), Límbico (el que SIENTE) y Córtex (el que JUSTIFICA).</li>
-            <li><strong>El Código Reptil:</strong> <em>"El instinto mata a la razón y a la emoción"</em>. El instinto biológico manda.</li>
-            <li><strong>Ejemplo clave:</strong> Fumar tiene un código reptil de rebeldía y anarquía.</li>
-            <li><strong>12 Códigos biológicos:</strong> Felicidad, control, placer, seguridad, protección, pertenencia a la tribu y más.</li>
-          </ul>
-          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo2'); event.stopPropagation();">
-            <span>📖 Abrir Capítulo 2 a Pantalla Completa</span>
-            <span>⛶</span>
+        <div class="banner-interactive-badges">
+          <button type="button" class="banner-badge-btn" onclick="interactivePiggyBank()" title="Toca para simular un micro-ahorro diario">
+            <span>🐷 Micro-ahorro:</span>
+            <span class="badge-pill-val" id="simPiggyAmount">$0 MXN</span>
           </button>
+          <div class="banner-badge-btn" style="cursor: default;">
+            <span>📅 Racha del 1%:</span>
+            <span class="badge-pill-val" style="background: #0ea5e9;">21 Días Activos 🔥</span>
+          </div>
         </div>
       </div>
 
-      <!-- ==========================================
-           CUADRO 3: ÍNDIGO (CAPÍTULO 3)
-           ========================================== -->
-      <div class="colored-chapter-card card-indigo" onclick="openChapterModal('modalCapitulo3')" title="Clic para abrir el Capítulo 3 a pantalla completa">
-        <div class="ccc-header">
-          <div class="ccc-badge-row">
-            <div class="ccc-num">3</div>
-            <span class="ccc-tag">📙 CAPÍTULO 3</span>
-          </div>
-          <h3>El Proceso de Decisión</h3>
-          <p>Los 3 escenarios, la fórmula A→E→R, los 5 neurotransmisores y las acciones concretas.</p>
-        </div>
-        <div class="ccc-body">
-          <ul class="ccc-points">
-            <li><strong>Los 3 Escenarios:</strong> 1) Quedarse como está, 2) Alternativa económica, 3) Opción ideal y completa.</li>
-            <li><strong>La Fórmula A → E → R:</strong> Atención (romper rutina), Emoción (deseo) y Recordación (memoria).</li>
-            <li><strong>5 Neurotransmisores:</strong> Noradrenalina, Dopamina, Acetilcolina, Endorfina y Serotonina.</li>
-            <li><strong>Acciones concretas:</strong> Pasos prácticos para activar la atención, generar emoción y consolidar la compra.</li>
-          </ul>
-          <button type="button" class="ccc-btn" onclick="openChapterModal('modalCapitulo3'); event.stopPropagation();">
-            <span>📖 Abrir Capítulo 3 a Pantalla Completa</span>
-            <span>⛶</span>
+      <!-- ══════════════════════════════════════════════════════
+           HUB VISUAL INTERACTIVO (Herramientas Dinámicas)
+           ══════════════════════════════════════════════════════ -->
+      <div class="atomic-visual-hub" id="atomicVisualHub">
+
+        <!-- Selector de pestañas interactivas del Hub -->
+        <div class="atomic-hub-tabs">
+          <button type="button" class="atomic-hub-tab active" id="tabBtnSimulador" onclick="switchAtomicTab('simulador')">
+            <span>📈 Simulador del 1% Diario</span>
           </button>
+          <button type="button" class="atomic-hub-tab" id="tabBtnBucle" onclick="switchAtomicTab('bucle')">
+            <span>🧬 El Bucle del Hábito (4 Leyes)</span>
+          </button>
+          <button type="button" class="atomic-hub-tab" id="tabBtnReactor" onclick="switchAtomicTab('reactor')">
+            <span>⚛️ Reactor de Energía Atómica</span>
+          </button>
+        </div>
+
+        <!-- PANEL 1: SIMULADOR INTERACTIVO DEL 1% DIARIO -->
+        <div class="atomic-hub-panel active" id="tabPanelSimulador">
+          <div class="atomic-sim-header">
+            <div>
+              <span class="atomic-sim-tag">Fórmula Central de James Clear</span>
+              <h4 class="atomic-sim-title">El Interés Compuesto de tus Hábitos</h4>
+              <p class="atomic-sim-sub">Mueve el control deslizante para simular cómo tus micro-decisiones financieras diarias componen con el tiempo.</p>
+            </div>
+            <div class="atomic-metric-pill">
+              <span class="atomic-metric-label">Factor multiplicador:</span>
+              <span class="atomic-metric-val" id="simMultiplierVal">1.01x</span>
+            </div>
+          </div>
+
+          <!-- Slider Interactivo (Inicia y se mantiene en Día 1) -->
+          <div class="atomic-slider-box">
+            <div class="atomic-slider-labels">
+              <span>Día 1</span>
+              <span class="atomic-slider-curr" id="simDaysDisplay">Día 1 (Punto de partida)</span>
+              <span>Día 365</span>
+            </div>
+            <input type="range" min="1" max="365" value="1" class="atomic-range-slider" id="atomicDaysSlider" oninput="updateAtomicSimulator(this.value)">
+            <div class="atomic-slider-presets">
+              <button type="button" class="preset-btn active" onclick="setSimDays(1)">🌱 Día 1 (Inicio)</button>
+              <button type="button" class="preset-btn" onclick="setSimDays(30)">📅 1 Mes (30d)</button>
+              <button type="button" class="preset-btn" onclick="setSimDays(90)">📊 3 Meses (90d)</button>
+              <button type="button" class="preset-btn" onclick="setSimDays(180)">⚡ 6 Meses (180d)</button>
+              <button type="button" class="preset-btn" onclick="setSimDays(365)">🏆 1 Año (365d: 37x)</button>
+            </div>
+          </div>
+
+          <!-- Comparativa Visual Interactiva -->
+          <div class="atomic-comparison-grid">
+            <div class="atomic-comp-card comp-positive">
+              <div class="comp-badge">🌱 1% MEJOR CADA DÍA (1.01<sup>n</sup>)</div>
+              <div class="comp-val" id="compPosValue">+1% (1.01x)</div>
+              <div class="comp-prog-bar"><div class="comp-fill comp-fill-pos" id="compFillPos" style="width: 3%;"></div></div>
+              <p class="comp-desc" id="compPosDesc">Día 1: Tu primer micro-ahorro de $50 MXN. El cambio parece pequeño hoy, pero es la semilla que multiplicará tu dinero con el tiempo.</p>
+            </div>
+            <div class="atomic-comp-card comp-negative">
+              <div class="comp-badge">⚠️ 1% PEOR CADA DÍA (0.99<sup>n</sup>)</div>
+              <div class="comp-val" id="compNegValue">0.99x (-1%)</div>
+              <div class="comp-prog-bar"><div class="comp-fill comp-fill-neg" id="compFillNeg" style="width: 99%;"></div></div>
+              <p class="comp-desc" id="compNegDesc">Día 1: Un gasto impulsivo de $50 MXN. Parece inofensivo en un solo día, pero repetirlo continuamente es lo que drena tu patrimonio.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 2: EL BUCLE DEL HÁBITO EN 4 LEYES (CLICABLE) -->
+        <div class="atomic-hub-panel" id="tabPanelBucle" style="display: none;">
+          <div class="atomic-bucle-intro">
+            <span class="atomic-sim-tag">Interactivo: Haz clic en cada cuadrante para explorar su táctica</span>
+            <h4 class="atomic-sim-title">Las 4 Fases de un Hábito Financiero</h4>
+          </div>
+          <div class="atomic-quadrants-grid">
+            <div class="atomic-quadrant-card active" id="quad1" onclick="selectQuadrant(1)">
+              <div class="quad-num">1. SEÑAL</div>
+              <div class="quad-name">Hazlo Obvio 🔍</div>
+              <div class="quad-hint">Toca para ver táctica</div>
+            </div>
+            <div class="atomic-quadrant-card" id="quad2" onclick="selectQuadrant(2)">
+              <div class="quad-num">2. ANHELO</div>
+              <div class="quad-name">Hazlo Atractivo 💡</div>
+              <div class="quad-hint">Toca para ver táctica</div>
+            </div>
+            <div class="atomic-quadrant-card" id="quad3" onclick="selectQuadrant(3)">
+              <div class="quad-num">3. RESPUESTA</div>
+              <div class="quad-name">Hazlo Sencillo ⚡</div>
+              <div class="quad-hint">Toca para ver táctica</div>
+            </div>
+            <div class="atomic-quadrant-card" id="quad4" onclick="selectQuadrant(4)">
+              <div class="quad-num">4. RECOMPENSA</div>
+              <div class="quad-name">Hazlo Satisfactorio 🎁</div>
+              <div class="quad-hint">Toca para ver táctica</div>
+            </div>
+          </div>
+          <div class="atomic-quad-detail-box" id="quadrantDetailBox"></div>
+        </div>
+
+        <!-- PANEL 3: REACTOR DE ENERGÍA ATÓMICA EN VIVO -->
+        <div class="atomic-hub-panel" id="tabPanelReactor" style="display: none;">
+          <div class="atomic-reactor-wrap">
+            <div class="atomic-reactor-stage">
+              <div class="atomic-svg-atom">
+                <svg viewBox="0 0 200 200" class="reactor-core-svg" id="reactorSvgCore">
+                  <defs>
+                    <radialGradient id="atomicGlowGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#34d399" stop-opacity="0.95"/>
+                      <stop offset="60%" stop-color="#10b981" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <!-- Órbita 1 -->
+                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-1" />
+                  <circle cx="180" cy="100" r="5" class="atom-electron electron-1" />
+                  <!-- Órbita 2 -->
+                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-2" />
+                  <circle cx="180" cy="100" r="5" class="atom-electron electron-2" />
+                  <!-- Órbita 3 -->
+                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-3" />
+                  <circle cx="180" cy="100" r="5" class="atom-electron electron-3" />
+                  <!-- Núcleo con pulso -->
+                  <circle cx="100" cy="100" r="28" fill="url(#atomicGlowGrad)" class="atom-glow-pulse" />
+                  <circle cx="100" cy="100" r="16" fill="#10b981" class="atom-nucleus" />
+                  <text x="100" y="105" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold" id="reactorAtomText">1%</text>
+                </svg>
+              </div>
+              <div class="atomic-reactor-info">
+                <span class="atomic-sim-tag">Energía en Tiempo Real</span>
+                <h4 class="atomic-sim-title" id="reactorPowerTitle">Diagnóstico de Hábitos: 0 de 6</h4>
+                <p class="atomic-reactor-text" id="reactorPowerDesc">A medida que respondes las 6 preguntas abajo, el reactor evalúa la madurez de tus hábitos financieros diarios.</p>
+                <div class="atomic-reactor-chips">
+                  <span class="atom-chip" id="chipQ1" onclick="jumpToQuestion(1)">1. Administrar Ingresos</span>
+                  <span class="atom-chip" id="chipQ2" onclick="jumpToQuestion(2)">2. Compras Innecesarias</span>
+                  <span class="atom-chip" id="chipQ3" onclick="jumpToQuestion(3)">3. Registrar Gastos</span>
+                  <span class="atom-chip" id="chipQ4" onclick="jumpToQuestion(4)">4. Hábito de Ahorrar</span>
+                  <span class="atom-chip" id="chipQ5" onclick="jumpToQuestion(5)">5. Decisión de Compra</span>
+                  <span class="atom-chip" id="chipQ6" onclick="jumpToQuestion(6)">6. Hábito a Transformar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /atomic-visual-hub -->
+
+      <!-- Barra de progreso interactiva y Navegador Stepper -->
+      <div class="atomic-progress-box">
+        <div class="atomic-progress-labels">
+          <span class="atomic-prog-title">Tu diagnóstico</span>
+          <span class="atomic-prog-count" id="atomicCounter">0 de 6 respondidas</span>
+        </div>
+        <div class="atomic-progress-bar-track">
+          <div class="atomic-progress-bar-fill" id="atomicProgressBar" style="width: 0%;"></div>
+        </div>
+        <!-- Stepper interactivo para saltar de pregunta -->
+        <div class="atomic-stepper-row">
+          <button type="button" class="stepper-step" id="stepBtn1" onclick="jumpToQuestion(1)">1</button>
+          <button type="button" class="stepper-step" id="stepBtn2" onclick="jumpToQuestion(2)">2</button>
+          <button type="button" class="stepper-step" id="stepBtn3" onclick="jumpToQuestion(3)">3</button>
+          <button type="button" class="stepper-step" id="stepBtn4" onclick="jumpToQuestion(4)">4</button>
+          <button type="button" class="stepper-step" id="stepBtn5" onclick="jumpToQuestion(5)">5</button>
+          <button type="button" class="stepper-step" id="stepBtn6" onclick="jumpToQuestion(6)">6</button>
         </div>
       </div>
 
-    </div>
+      <!-- Formulario de Preguntas con textos interactivos -->
+      <form id="atomicHabitsForm" class="atomic-questions-form" onsubmit="submitAtomicDiagnostic(event)">
+
+        <!-- PREGUNTA 1: ADMINISTRACIÓN DE INGRESOS -->
+        <div class="atomic-q-block" id="qBlock1">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">1. ¿Cómo administras tu dinero cuando recibes tus ingresos?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario1')">
+              💡 Ver Principio: Págate a ti primero
+            </button>
+          </div>
+          <!-- Texto interactivo expandible -->
+          <div class="atomic-glossary-card" id="glosario1" style="display: none;">
+            <strong>Principio Fundamental (1ª Ley):</strong> Si esperas a ver "qué sobra" a fin de mes, nunca quedará nada. La clave de James Clear es hacer el ahorro automático e invisible al recibir tus ingresos antes de que entre el impulso de gastar.
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt1')">
+              <input type="radio" name="p1" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Guardo una parte para ahorrar.</span>
+              <span class="atomic-opt-badge badge-pro">🌱 Págate a ti primero</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt2')">
+              <input type="radio" name="p1" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Gasto primero y ahorro si sobra.</span>
+              <span class="atomic-opt-badge badge-neutral">⚖️ Ahorro reactivo</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt3')">
+              <input type="radio" name="p1" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Lo gasto sin llevar un control.</span>
+              <span class="atomic-opt-badge badge-danger">⚠️ Sin sistema</span>
+            </label>
+          </div>
+          <!-- Micro-feedback interactivo en vivo -->
+          <div class="atomic-live-insight" id="insightBox1" style="display: none;"></div>
+        </div>
+
+        <!-- PREGUNTA 2: COMPRAS INNECESARIAS -->
+        <div class="atomic-q-block" id="qBlock2">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">2. ¿Con qué frecuencia compras cosas que realmente no necesitas?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario2')">
+              💡 Ver Principio: Fricción contra el impulso
+            </button>
+          </div>
+          <div class="atomic-glossary-card" id="glosario2" style="display: none;">
+            <strong>3ª Ley Invertida (Hazlo Difícil):</strong> Las compras impulsivas son un anhelo de dopamina rápida. Desinstala apps de compras impulsivas o borra tus tarjetas guardadas: 20 segundos de fricción son suficientes para enfriar el impulso.
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt1')">
+              <input type="radio" name="p2" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Casi nunca.</span>
+              <span class="atomic-opt-badge badge-pro">🌱 Control consciente</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt2')">
+              <input type="radio" name="p2" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Algunas veces por semana.</span>
+              <span class="atomic-opt-badge badge-neutral">⚖️ Gastos hormiga</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt3')">
+              <input type="radio" name="p2" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Frecuentemente, por impulso.</span>
+              <span class="atomic-opt-badge badge-danger">⚠️ Gratificación inmediata</span>
+            </label>
+          </div>
+          <div class="atomic-live-insight" id="insightBox2" style="display: none;"></div>
+        </div>
+
+        <!-- PREGUNTA 3: REGISTRO DE GASTOS DIARIOS -->
+        <div class="atomic-q-block" id="qBlock3">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">3. ¿Registras tus gastos diarios?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario3')">
+              💡 Ver Principio: Medir para mejorar (Hazlo Obvio)
+            </button>
+          </div>
+          <div class="atomic-glossary-card" id="glosario3" style="display: none;">
+            <strong>Visibilidad y Conciencia:</strong> Lo que no se mide, no se puede mejorar. Llevar un registro no significa pasar horas; basta con abrir una app o bloc de notas durante 30 segundos cada noche (Regla de los 2 Minutos).
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt1')">
+              <input type="radio" name="p3" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Sí, llevo un registro.</span>
+              <span class="atomic-opt-badge badge-pro">🌱 Claridad total</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt2')">
+              <input type="radio" name="p3" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">A veces lo hago.</span>
+              <span class="atomic-opt-badge badge-neutral">⚖️ Inconstante</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt3')">
+              <input type="radio" name="p3" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">No, nunca los registro.</span>
+              <span class="atomic-opt-badge badge-danger">⚠️ Ceguera financiera</span>
+            </label>
+          </div>
+          <div class="atomic-live-insight" id="insightBox3" style="display: none;"></div>
+        </div>
+
+        <!-- PREGUNTA 4: HÁBITO DE AHORRAR -->
+        <div class="atomic-q-block" id="qBlock4">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">4. ¿Tienes el hábito de ahorrar?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario4')">
+              💡 Ver Principio: La identidad sobre el resultado
+            </button>
+          </div>
+          <div class="atomic-glossary-card" id="glosario4" style="display: none;">
+            <strong>Cambio de Identidad:</strong> En <em>Hábitos Atómicos</em>, no ahorras para tener una cantidad; ahorras porque te consideras "una persona que cuida de su futuro". Cada peso apartado es un voto a favor de tu nueva identidad financiera.
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt1')">
+              <input type="radio" name="p4" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Sí, ahorro constantemente.</span>
+              <span class="atomic-opt-badge badge-pro">🌱 Hábito consolidado</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt2')">
+              <input type="radio" name="p4" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Ahorro cuando puedo.</span>
+              <span class="atomic-opt-badge badge-neutral">⚖️ Sin sistema fijo</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt3')">
+              <input type="radio" name="p4" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">No tengo el hábito de ahorrar.</span>
+              <span class="atomic-opt-badge badge-danger">⚠️ Oportunidad de oro</span>
+            </label>
+          </div>
+          <div class="atomic-live-insight" id="insightBox4" style="display: none;"></div>
+        </div>
+
+        <!-- PREGUNTA 5: REACCIÓN AL DESEAR COMPRAR ALGO -->
+        <div class="atomic-q-block" id="qBlock5">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">5. ¿Qué haces cuando quieres comprar algo que te gusta?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario5')">
+              💡 Ver Principio: La regla de las 72 horas
+            </button>
+          </div>
+          <div class="atomic-glossary-card" id="glosario5" style="display: none;">
+            <strong>Pausa Emocional:</strong> Esperar 72 horas antes de adquirir cualquier capricho no esencial reduce el pico de dopamina en el cerebro. Si después de 3 días aún lo deseas y cabe en tu presupuesto, cómpralo con tranquilidad.
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt1')">
+              <input type="radio" name="p5" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Analizo si realmente lo necesito.</span>
+              <span class="atomic-opt-badge badge-pro">🌱 Pausa analítica</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt2')">
+              <input type="radio" name="p5" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Espero un poco y después decido.</span>
+              <span class="atomic-opt-badge badge-neutral">⚖️ Enfriamiento previo</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt3')">
+              <input type="radio" name="p5" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Lo compro inmediatamente.</span>
+              <span class="atomic-opt-badge badge-danger">⚠️ Impulso directo</span>
+            </label>
+          </div>
+          <div class="atomic-live-insight" id="insightBox5" style="display: none;"></div>
+        </div>
+
+        <!-- PREGUNTA 6: HÁBITO QUE TE GUSTARÍA CAMBIAR -->
+        <div class="atomic-q-block" id="qBlock6">
+          <div class="atomic-q-header">
+            <h4 class="atomic-q-title">6. ¿Qué hábito financiero te gustaría cambiar?</h4>
+            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario6')">
+              💡 Ver Principio: Intención de Implementación
+            </button>
+          </div>
+          <div class="atomic-glossary-card" id="glosario6" style="display: none;">
+            <strong>Tu Foco de Transformación:</strong> Según James Clear, las personas que formulan una <em>Intención de Implementación</em> concreta («Cuando ocurra X, haré Y») tienen 3 veces más probabilidades de éxito que quienes solo tienen buenos deseos.
+          </div>
+          <div class="atomic-options-group">
+            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt1')">
+              <input type="radio" name="p6" value="opt1" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Dejar de comprar por impulso.</span>
+              <span class="atomic-opt-badge badge-target">🎯 Fricción de compra</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt2')">
+              <input type="radio" name="p6" value="opt2" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Evitar los gastos hormiga.</span>
+              <span class="atomic-opt-badge badge-target">🎯 Micro-ahorros</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt3')">
+              <input type="radio" name="p6" value="opt3" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Aprender a ahorrar constantemente.</span>
+              <span class="atomic-opt-badge badge-target">🎯 Automatización</span>
+            </label>
+            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt4')">
+              <input type="radio" name="p6" value="opt4" onchange="updateAtomicProgress()">
+              <span class="atomic-radio-circle"></span>
+              <span class="atomic-option-text">Organizar mejor mi dinero.</span>
+              <span class="atomic-opt-badge badge-target">🎯 Sistema de 2 minutos</span>
+            </label>
+          </div>
+          <div class="atomic-live-insight" id="insightBox6" style="display: none;"></div>
+        </div>
+
+        <!-- Alerta si faltan preguntas -->
+        <div id="atomicValidationAlert" class="atomic-validation-alert" style="display: none;">
+          <span>⚠️ Por favor responde todas las preguntas (<span id="atomicMissingCount">0</span> pendientes) para generar tu diagnóstico interactivo completo.</span>
+        </div>
+
+        <!-- Botón para finalizar -->
+        <div class="atomic-submit-wrap">
+          <button type="submit" class="atomic-btn-submit" id="btnFinalizarDiag">
+            <span>Finalizar diagnóstico</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- RESULTADO DEL DIAGNÓSTICO (Generado con JS) -->
+      <div id="atomicResultSection" class="atomic-result-box" style="display: none;"></div>
+
+    </div><!-- /atomic-card-container -->
 
   </div>
 </section>
@@ -897,549 +1254,7 @@
 
   </div><!-- /main-wrapper -->
 
-<!-- ══════════════════════════════════════════════════════
-     MODAL INDEPENDIENTE: CAPÍTULO 1
-     ══════════════════════════════════════════════════════ -->
-<div class="neuro-fullscreen-modal" id="modalCapitulo1" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 1">
-  
-  <div class="nfm-topbar nfm-topbar-blue">
-    <div class="nfm-title-group">
-      <span style="font-size: 24.5px;">📘</span>
-      <div>
-        <h3 id="nfmModalTitle1">CAPÍTULO 1: LAS NEUROVENTAS FRENTE A LAS VENTAS TRADICIONALES</h3>
-        <span style="font-size: 13.5px; color: #bae6fd;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
-      </div>
-    </div>
 
-    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo1')" title="Cerrar capítulo (Esc)">
-      ✕
-    </button>
-  </div>
-
-  <div class="nfm-body">
-    <div class="nfm-chapters-container">
-
-      <!-- ==========================================
-           CAPÍTULO 1 (MODAL COMPLETO)
-           ========================================== -->
-      <section class="pillar-card pillar-blue" id="modalCap1" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
-        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
-          <div class="pillar-number">1</div>
-          <span class="chapter-badge">Capítulo 1</span>
-          <h3>LAS NEUROVENTAS FRENTE A LAS VENTAS TRADICIONALES</h3>
-          <p>Supera la capacitación mecánica y descubre la ciencia real detrás de la mente humana.</p>
-        </div>
-
-        <div class="pillar-body" style="padding: 22px;">
-          <div class="neuro-card-content">
-
-            <!-- Subtema 1: Los capacitadores desactualizados -->
-            <div class="neuro-block">
-              <span class="neuro-badge">Subcapítulo 1 • Subtema 1</span>
-              <h4 class="neuro-block-title">
-                <span>🤖</span> Los Capacitadores Desactualizados
-              </h4>
-              <p>
-                La capacitación tradicional de los vendedores en casi todo el mundo es mecánica y lo que hace es <strong>volverte un robot</strong>.
-              </p>
-              <div class="neuro-highlight-box">
-                Entre los pilares de las técnicas tradicionales encontramos que incluso enseñan qué y cómo decir a través de unas <em>oraciones típicas</em>.
-              </div>
-              <p>
-                <strong>Lo que voy a enseñarte:</strong> Son los criterios, las estructuras y los elementos para que tú construyas tu propia comunicación y sea efectiva en tu contexto.
-              </p>
-            </div>
-
-            <!-- ¿Por qué las neuroventas son una ciencia? -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🔬</span> ¿Por qué las neuroventas son una ciencia?
-              </h4>
-              <p>
-                Las neuroventas se consideran una ciencia porque todos sus conocimientos están fundamentados a partir de <strong>hallazgos obtenidos a través de estudios objetivos</strong>, siguiendo principios metodológicos sistemáticos.
-              </p>
-            </div>
-
-            <!-- Tecnología que se utiliza para validar las neuroventas -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>⚡</span> Tecnología que se utiliza para validar las neuroventas
-              </h4>
-              <p>
-                La pieza clave de la tecnología para validar los principios de neuroventas ha sido el caso de <strong>Quasar</strong>, que es un aparato de registro electroencefalográfico (EEG), creado originalmente para el ejército de los Estados Unidos.
-              </p>
-              <div class="neuro-highlight-box">
-                Posee una serie de sensores para estudiar cómo afectan los estímulos al cerebro de la persona que lo lleva puesto, a partir de la medición de los impulsos eléctricos provocados por la actividad neuronal en determinadas áreas de la corteza cerebral.
-              </div>
-            </div>
-
-            <!-- ¿Qué enseñan las neuroventas? -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>💡</span> ¿Qué enseñan las neuroventas?
-              </h4>
-              <p>
-                Ante todo, <strong>cómo funciona la mente humana</strong> y cómo es el proceso de toma de decisiones de compra.
-              </p>
-              <p style="font-weight: 700; margin-top: 6px; margin-bottom: 4px;">Pero además enseña:</p>
-              <ul class="neuro-list">
-                <li>¿Qué le gusta escuchar a la mente?</li>
-                <li>¿Cómo venderle de forma diferenciada a una mujer y a un hombre?</li>
-                <li>¿Cómo cambiar las percepciones creadas?</li>
-                <li>¿Qué compra instintivamente el ser humano?</li>
-                <li>¿Cómo desarticular el precio del juego o hacerlo jugar a favor?</li>
-                <li>¿Cómo involucrar a la mayoría de los sentidos en las ventas?</li>
-                <li>¿Con cuáles palabras se activa la mente para comprar?</li>
-              </ul>
-            </div>
-
-            <!-- ¿Por qué compra la gente? -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🎯</span> ¿Por qué compra la gente?
-              </h4>
-              <div class="neuro-quote">
-                "El cliente no sabe por qué está comprando un producto o servicio, esa es la pura verdad."
-              </div>
-              <p>
-                El primer descubrimiento científico en el sector de las neuroventas es contundente:
-              </p>
-              <div class="neuro-stat-pill">
-                <div>
-                  <span class="stat-num">85%</span>
-                  <span class="stat-sub">Inconsciente o Subconsciente</span>
-                </div>
-                <div style="font-size: 24.5px; opacity: 0.3;">|</div>
-                <div>
-                  <span class="stat-num" style="color: #cbd5e1;">15%</span>
-                  <span class="stat-sub">Consciente</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vender sin vender -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🤝</span> Vender sin vender
-              </h4>
-              <p>
-                Lo que tenemos que hacer hoy es <strong>VENDER SIN VENDER</strong>: ese es el espíritu y la esencia de las neuroventas.
-              </p>
-              <div class="neuro-highlight-box">
-                <strong>¿Qué significa eso?</strong> Que tú tienes que hacer todo, menos estar pensando en la urgencia de vender, y cuando lo haces, <em>¡Oh sorpresa!, la gente te compra</em>. Empieza por hacer lo que muy pocos vendedores acostumbran: <strong>escuchar</strong>.
-              </div>
-              <p>
-                Hoy se vende más escuchando que hablando, comiendo agradablemente con la gente que sentados en un espacio frío e impersonal, porque cuando uno come y se siente a gusto las emociones se solidarizan.
-              </p>
-              <p style="margin-top: 6px;">
-                Compartir, desestresarnos, conversar sin pedir nada a cambio, emocionar, hablar de deportes, contar chistes: ese tipo de cosas vende más que el discurso bruto de ventas. <strong>Eso está probado por las neuroventas.</strong>
-              </p>
-            </div>
-
-          </div>
-
-          <div class="pillar-bottom-banner" style="margin-top: 14px;">
-            ¡Vender sin vender: el espíritu de las neuroventas!
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════
-     MODAL INDEPENDIENTE: CAPÍTULO 2
-     ══════════════════════════════════════════════════════ -->
-<div class="neuro-fullscreen-modal" id="modalCapitulo2" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 2">
-  
-  <div class="nfm-topbar nfm-topbar-green">
-    <div class="nfm-title-group">
-      <span style="font-size: 24.5px;">📗</span>
-      <div>
-        <h3 id="nfmModalTitle2">CAPÍTULO 2: NEUROCIENCIAS PARA LAS VENTAS</h3>
-        <span style="font-size: 13.5px; color: #a7f3d0;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
-      </div>
-    </div>
-
-    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo2')" title="Cerrar capítulo (Esc)">
-      ✕
-    </button>
-  </div>
-
-  <div class="nfm-body">
-    <div class="nfm-chapters-container">
-
-      <!-- ==========================================
-           CAPÍTULO 2 (MODAL COMPLETO)
-           ========================================== -->
-      <section class="pillar-card pillar-green" id="modalCap2" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
-        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
-          <div class="pillar-number">2</div>
-          <span class="chapter-badge">Capítulo 2</span>
-          <h3>NEUROCIENCIAS PARA LAS VENTAS</h3>
-          <p>Conoce la arquitectura cerebral: los tres cerebros y el código reptil que gobierna el instinto.</p>
-        </div>
-
-        <div class="pillar-body" style="padding: 22px;">
-          <div class="neuro-card-content">
-
-            <!-- ¿Cómo funciona la mente humana? Los tres cerebros -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🧠</span> ¿Cómo funciona la mente humana?
-              </h4>
-              <p style="font-weight: 700; margin-bottom: 8px;">El modelo de los "Tres Cerebros":</p>
-
-              <!-- 1. Cerebro Reptiliano -->
-              <div class="brain-subcard reptil">
-                <div class="brain-subcard-title">
-                  <span>1. Cerebro Reptiliano</span>
-                  <span class="neuro-badge" style="background:#fee2e2;color:#991b1b;">El que DECIDE</span>
-                </div>
-                <ul class="neuro-list">
-                  <li>Es el más primitivo y poderoso.</li>
-                  <li>No razona, reacciona por instinto: supervivencia, protección, pertenencia a un grupo, ahorro de energía.</li>
-                  <li><strong>Es quien realmente aprieta el botón de comprar.</strong></li>
-                  <li>Busca siempre: <em>seguridad, comodidad, ahorro, estatus, libertad, familia</em>.</li>
-                </ul>
-              </div>
-
-              <!-- 2. Cerebro Límbico -->
-              <div class="brain-subcard limbico">
-                <div class="brain-subcard-title">
-                  <span>2. Cerebro Límbico</span>
-                  <span class="neuro-badge" style="background:#fef3c7;color:#92400e;">El que SIENTE</span>
-                </div>
-                <ul class="neuro-list">
-                  <li>Es el centro de las emociones.</li>
-                  <li>Asocia productos con sentimientos: <em>felicidad, confianza, miedo, tranquilidad</em>.</li>
-                </ul>
-              </div>
-
-              <!-- 3. Cerebro Córtex -->
-              <div class="brain-subcard cortex">
-                <div class="brain-subcard-title">
-                  <span>3. Cerebro Córtex</span>
-                  <span class="neuro-badge" style="background:#dbeafe;color:#1e40af;">El que JUSTIFICA</span>
-                </div>
-                <ul class="neuro-list">
-                  <li>Es la parte racional: números, datos, características.</li>
-                  <li><strong>No decide</strong>, solo explica después por qué decidiste.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- El Código Reptil -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🦎</span> El Código Reptil
-              </h4>
-              <div class="neuro-quote">
-                "En México dicen que emoción mata a razón, pues yo digo ahora que el instinto mata a los dos."
-              </div>
-              <p>
-                Siempre pregúntate dónde está el reptil de tu producto o servicio. Todos tienen una necesidad reptil (a veces varias), pero siempre hay una que es el instinto más básico; el más biológico entre todos los demás, que será el que hay que señalar, y es conocido como el <strong>código reptil</strong>.
-              </p>
-              <div class="neuro-highlight-box">
-                <strong>Por ejemplo:</strong> Fumar tiene un reptil de <em>rebeldía</em>. Cuando empiezas a hacerlo estás construyendo tu propio perfil de anarquía, aunque quizás después ya lo haces por otras razones.
-              </div>
-            </div>
-
-            <!-- ¿Cuáles son los códigos reptiles en un ser humano? -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🔑</span> ¿Cuáles son los códigos reptiles en un ser humano?
-              </h4>
-              <p style="margin-bottom: 8px;">
-                Los principales motivadores biológicos e instintivos son:
-              </p>
-              <div class="reptil-chips-grid">
-                <span class="reptil-chip">⚡ Anarquía</span>
-                <span class="reptil-chip">😊 Felicidad</span>
-                <span class="reptil-chip">🎮 Control</span>
-                <span class="reptil-chip">👑 Dominación</span>
-                <span class="reptil-chip">🧬 Reproducción</span>
-                <span class="reptil-chip">✨ Placer</span>
-                <span class="reptil-chip">🛡️ Seguridad</span>
-                <span class="reptil-chip">🏡 Protección</span>
-                <span class="reptil-chip">🌟 Trascendencia</span>
-                <span class="reptil-chip">🤝 Unión de la tribu</span>
-                <span class="reptil-chip">🧭 Exploración</span>
-                <span class="reptil-chip">🏃 Movimiento</span>
-              </div>
-              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">
-                *La reproducción puede ser regulada por la cultura, pero sigue siendo un código primario en el cerebro instintivo.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="pillar-bottom-banner" style="margin-top: 14px;">
-            ¡El instinto mata a la razón y a la emoción!
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════════════
-     MODAL INDEPENDIENTE: CAPÍTULO 3
-     ══════════════════════════════════════════════════════ -->
-<div class="neuro-fullscreen-modal" id="modalCapitulo3" role="dialog" aria-modal="true" aria-label="Lectura de Capítulo 3">
-  
-  <div class="nfm-topbar nfm-topbar-indigo">
-    <div class="nfm-title-group">
-      <span style="font-size: 24.5px;">📙</span>
-      <div>
-        <h3 id="nfmModalTitle3">CAPÍTULO 3: EL PROCESO DE DECISIÓN</h3>
-        <span style="font-size: 13.5px; color: #c7d2fe;">Jürgen Klarić • Véndele a la Mente, no a la Gente</span>
-      </div>
-    </div>
-
-    <button type="button" class="nfm-close-btn" onclick="closeChapterModal('modalCapitulo3')" title="Cerrar capítulo (Esc)">
-      ✕
-    </button>
-  </div>
-
-  <div class="nfm-body">
-    <div class="nfm-chapters-container">
-
-      <!-- ==========================================
-           CAPÍTULO 3 (MODAL COMPLETO)
-           ========================================== -->
-      <section class="pillar-card pillar-indigo" id="modalCap3" style="box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-radius: 16px;">
-        <div class="pillar-header" style="border-radius: 16px 16px 0 0;">
-          <div class="pillar-number">3</div>
-          <span class="chapter-badge">Capítulo 3</span>
-          <h3>EL PROCESO DE DECISIÓN</h3>
-          <p>Domina los 3 escenarios, la fórmula A-E-R, los neurotransmisores y las acciones concretas.</p>
-        </div>
-
-        <div class="pillar-body" style="padding: 22px;">
-          <div class="neuro-card-content">
-
-            <!-- Los Tres Escenarios Emocionales -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🎭</span> Los Tres Escenarios Emocionales
-              </h4>
-              <p>
-                Cuando la necesidad reptil o instintiva es cubierta, debemos continuar con la siguiente etapa y es comprender cómo las personas toman decisiones.
-              </p>
-              <div class="neuro-highlight-box">
-                La mente normalmente necesita <strong>tres escenarios antes de optar</strong>, ni cuatro porque se confunde. Siempre debe tener tres alternativas porque si no se las das va a renunciar a tu ofrecimiento y saldrá a ver dónde las consigue.
-              </div>
-
-              <!-- Escenario 1 -->
-              <div class="scenario-card">
-                <div class="scenario-title">Escenario 1 — Quedarse como está (no comprar nada)</div>
-                <span class="scenario-quote">"Seguiré haciendo lo que siempre he hecho"</span>
-                <ul class="neuro-list">
-                  <li>Es la opción de no cambio, la zona de confort.</li>
-                  <li>El cerebro la usa como referencia para comparar las otras dos.</li>
-                </ul>
-              </div>
-
-              <!-- Escenario 2 -->
-              <div class="scenario-card">
-                <div class="scenario-title">Escenario 2 — Elegir tu alternativa económica / básica</div>
-                <span class="scenario-quote">"Puedo empezar con algo sencillo"</span>
-                <ul class="neuro-list">
-                  <li>Es la opción de entrada, accesible.</li>
-                  <li>Le muestra al cerebro que sí es posible dar el paso sin mucho riesgo.</li>
-                </ul>
-              </div>
-
-              <!-- Escenario 3 -->
-              <div class="scenario-card">
-                <div class="scenario-title">Escenario 3 — Elegir tu opción ideal / completa</div>
-                <span class="scenario-quote">"Obtener todo lo que realmente quiero"</span>
-                <ul class="neuro-list">
-                  <li>Es la opción de valor completo, la más atractiva.</li>
-                  <li>Al compararla con las otras dos, el cerebro siente que "gana" al elegirla.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- La Fórmula que Decide la Compra: Atención, Emoción y Recordación -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>📈</span> La Fórmula que Decide la Compra: A → E → R
-              </h4>
-              <div class="aer-badge-flow">
-                <span class="aer-step">A: Atención</span>
-                <span>→</span>
-                <span class="aer-step">E: Emoción</span>
-                <span>→</span>
-                <span class="aer-step">R: Recordación</span>
-              </div>
-
-              <div style="margin-top: 8px;">
-                <p><strong>1. Atención:</strong> Lograr que la persona se enfoque en ti. Si no captas su atención primero, el proceso nunca empieza.</p>
-                <ul class="neuro-list">
-                  <li>Rompe su rutina con algo nuevo, inesperado o relevante.</li>
-                  <li>Solo cuando te presta atención, su cerebro está abierto a recibir tu mensaje.</li>
-                </ul>
-              </div>
-
-              <div style="margin-top: 8px;">
-                <p><strong>2. Emoción:</strong> Crear una asociación emocional positiva entre tu producto y lo que la persona desea.</p>
-                <ul class="neuro-list">
-                  <li>No basta con que te escuche; debe sentir que esto es para él/ella.</li>
-                  <li>Aquí es donde nace el deseo de tenerlo.</li>
-                  <li>Sin emoción, la persona se queda indiferente: <em>"es interesante, pero no lo necesito"</em>.</li>
-                </ul>
-              </div>
-
-              <div style="margin-top: 8px;">
-                <p><strong>3. Recordación:</strong> Conectar ese sentimiento con su propia historia de vida y sus instintos, de modo que recuerde por qué le importa.</p>
-                <ul class="neuro-list">
-                  <li>Le muestras cómo su vida mejora con esto.</li>
-                  <li>Es el mensaje que se queda grabado y lo impulsa a actuar.</li>
-                  <li>Aquí es donde la decisión se consolida.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- ¿Cómo usar los Neurotransmisores a tu favor? -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>🧪</span> ¿Cómo usar los Neurotransmisores a tu favor?
-              </h4>
-
-              <!-- Noradrenalina -->
-              <div class="neurotrans-card">
-                <div class="neurotrans-title">
-                  <span>⚡ Noradrenalina</span>
-                  <span class="neurotrans-badge">Captar la atención</span>
-                </div>
-                <p><strong>Qué hace:</strong> Se activa ante lo nuevo, lo sorpresivo y lo inesperado. Rompe la monotonía.</p>
-                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
-                <ul class="neuro-list">
-                  <li>Presenta tu mensaje con un enfoque diferente, no como todo el mundo.</li>
-                  <li>Muestra algo que la persona no esperaba ver.</li>
-                  <li>Cambia la perspectiva: <em>"¿Sabías que hay otra forma de ver tus finanzas?"</em></li>
-                  <li>No hables igual que todos; sé único para que el cerebro diga: <em>"¡Espera, esto me interesa!"</em></li>
-                </ul>
-              </div>
-
-              <!-- Dopamina -->
-              <div class="neurotrans-card">
-                <div class="neurotrans-title">
-                  <span>✨ Dopamina</span>
-                  <span class="neurotrans-badge">Placer y deseo</span>
-                </div>
-                <p><strong>Qué hace:</strong> Es el químico del cerebro que nos hace sentir bien. Se libera cuando anticipamos una recompensa y nos impulsa a repetir la conducta.</p>
-                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
-                <ul class="neuro-list">
-                  <li>Muestra el beneficio que obtendrá, no solo la información.</li>
-                  <li>Crea sensación de progreso: <em>"Cada paso que das te acerca a tu libertad financiera"</em>.</li>
-                  <li>Celebra los logros, aunque sean pequeños.</li>
-                  <li>Dale metas claras y alcanzables: el cerebro ama sentir que avanza.</li>
-                  <li>Haz que imagine cómo será su vida cuando aplique lo que aprenda contigo.</li>
-                </ul>
-              </div>
-
-              <!-- Acetilcolina -->
-              <div class="neurotrans-card">
-                <div class="neurotrans-title">
-                  <span>🔗 Acetilcolina</span>
-                  <span class="neurotrans-badge">Enseñar y conectar</span>
-                </div>
-                <p><strong>Qué hace:</strong> Ayuda al cerebro a aprender y a relacionar lo nuevo con lo que ya conoce.</p>
-                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
-                <ul class="neuro-list">
-                  <li>Usa ejemplos de su vida cotidiana.</li>
-                  <li>Conecta conceptos nuevos con lo que ya sabe.</li>
-                  <li>Explica paso a paso, sin abrumar: <em>"Ya sabes cómo funciona… pues con el dinero funciona igual"</em>.</li>
-                </ul>
-              </div>
-
-              <!-- Endorfina -->
-              <div class="neurotrans-card">
-                <div class="neurotrans-title">
-                  <span>🛡️ Endorfina</span>
-                  <span class="neurotrans-badge">Aliviar miedo y preocupación</span>
-                </div>
-                <p><strong>Qué hace:</strong> Reduce el dolor y la tensión. Da sensación de alivio y calma.</p>
-                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
-                <ul class="neuro-list">
-                  <li>Valida sus preocupaciones: <em>"Es normal sentirse abrumado con el dinero"</em>.</li>
-                  <li>Quita el miedo: <em>"No necesitas ser experto para empezar, solo dar el primer paso"</em>.</li>
-                  <li>Transmite seguridad y tranquilidad, no presión.</li>
-                  <li>Hazle sentir comprendido y acompañado.</li>
-                </ul>
-              </div>
-
-              <!-- Serotonina -->
-              <div class="neurotrans-card">
-                <div class="neurotrans-title">
-                  <span>🌟 Serotonina</span>
-                  <span class="neurotrans-badge">Confianza y pertenencia</span>
-                </div>
-                <p><strong>Qué hace:</strong> Relacionada con el bienestar, el estatus y sentir que pertenecemos a algo.</p>
-                <p style="margin-top: 4px;"><strong>Cómo usarlo:</strong></p>
-                <ul class="neuro-list">
-                  <li>Hazle sentir que no está solo: <em>"Miles de personas ya están transformando su relación con el dinero"</em>.</li>
-                  <li>Reconoce su esfuerzo y progreso.</li>
-                  <li>Comparte historias de personas como él/ella que ya lograron cambios.</li>
-                  <li>Crea identidad: <em>"Tú también puedes tomar el control de tu futuro"</em>.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Acciones Concretas en el Proceso de Venta -->
-            <div class="neuro-block">
-              <h4 class="neuro-block-title">
-                <span>📋</span> Acciones Concretas en el Proceso de Venta
-              </h4>
-
-              <div class="action-group">
-                <div class="action-group-title">1. Para lograr la Atención:</div>
-                <ul class="neuro-list">
-                  <li>Busca elementos conocidos.</li>
-                  <li>Busca elementos novedosos.</li>
-                  <li>Haz que comprenda.</li>
-                  <li>Genera expectativa.</li>
-                  <li>Asocia elementos.</li>
-                  <li>Dale la forma correcta de atención.</li>
-                </ul>
-              </div>
-
-              <div class="action-group" style="border-left-color: #10b981;">
-                <div class="action-group-title" style="color: #047857;">2. Para lograr la Emoción:</div>
-                <ul class="neuro-list">
-                  <li>Involúcrate emocionalmente.</li>
-                  <li>Permite que exprese sus emociones.</li>
-                  <li>Comprende y acalla sus miedos.</li>
-                  <li>Háblale de experiencias emocionales positivas.</li>
-                  <li>Facilita la evasión y el escape.</li>
-                </ul>
-              </div>
-
-              <div class="action-group" style="border-left-color: #8b5cf6;">
-                <div class="action-group-title" style="color: #6d28d9;">3. Para lograr Recordación:</div>
-                <ul class="neuro-list">
-                  <li>Favorece la asociación con elementos conocidos.</li>
-                  <li>Ayúdale a clasificar y categorizar.</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="pillar-bottom-banner" style="margin-top: 14px;">
-            ¡Atención → Emoción → Recordación: la fórmula definitiva!
-          </div>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</div>
 
 <!-- ══════════════════════════════════════════════════════
      MODAL DE TESTIMONIO EN VIDEO DE ESTUDIANTE (POPUPS DE COMENTARIOS)
@@ -1871,7 +1686,7 @@
       title: 'De vivir al día con comisiones a tener 6 meses de fondo de emergencia',
       badge: '🛡️ Fondo de emergencia completo garantizado',
       quote: 'Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear, ser constante y entender lo que el cliente realmente necesita.',
-      defaultComment: '<strong>Laura T.:</strong> "¡Felicidades Jorge! Entender las neuroventas cambia por completo los ingresos."'
+      defaultComment: '<strong>Laura T.:</strong> "¡Felicidades Jorge! Aplicar hábitos atómicos en el ahorro cambia por completo las finanzas."'
     },
     ana: {
       name: 'Ana López',
@@ -2081,55 +1896,559 @@
     discardTestimonialCommentShare();
   }
 
-  // ── Modales de Capítulos Independientes (Sin menú ni dependencias) ──
-  function openChapterModal(modalId) {
-    // Cerrar cualquier otro modal que pudiera estar abierto
-    closeChapterModal('modalCapitulo1');
-    closeChapterModal('modalCapitulo2');
-    closeChapterModal('modalCapitulo3');
+  // ── Módulos y Lógica Interactiva de Hábitos Atómicos ──
 
-    var modal = document.getElementById(modalId);
-    if (!modal) return;
-    modal.style.display = 'flex';
-    modal.classList.add('is-active');
-    document.documentElement.classList.add('demo-modal-open');
-    document.body.classList.add('demo-modal-open');
+  // 1. Selector de Pestañas del Hub Visual Interactivo
+  function switchAtomicTab(tabName) {
+    var tabs = ['simulador', 'bucle', 'reactor'];
+    tabs.forEach(function(t) {
+      var btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+      var panel = document.getElementById('tabPanel' + t.charAt(0).toUpperCase() + t.slice(1));
+      if (btn) btn.classList.toggle('active', t === tabName);
+      if (panel) {
+        if (t === tabName) {
+          panel.style.display = 'block';
+          panel.classList.add('active');
+        } else {
+          panel.style.display = 'none';
+          panel.classList.remove('active');
+        }
+      }
+    });
 
-    var body = modal.querySelector('.nfm-body');
-    if (body) body.scrollTop = 0;
-  }
-
-  function closeChapterModal(modalId) {
-    var modal = document.getElementById(modalId);
-    if (modal) { modal.style.display = 'none'; modal.classList.remove('is-active'); }
-
-    // Verificar si queda algún modal abierto antes de quitar clase de bloqueo de scroll
-    var hasActive = document.querySelector('.neuro-fullscreen-modal.is-active, .student-video-modal.is-active');
-    if (!hasActive) {
-      document.documentElement.classList.remove('demo-modal-open');
-      document.body.classList.remove('demo-modal-open');
+    if (tabName === 'bucle') {
+      selectQuadrant(1);
     }
   }
 
-  // Compatibilidad hacia atrás
-  function openChapterOnly(capId) {
-    if (capId === 'cap1') openChapterModal('modalCapitulo1');
-    else if (capId === 'cap2') openChapterModal('modalCapitulo2');
-    else if (capId === 'cap3') openChapterModal('modalCapitulo3');
+  // 2. Simulador Interactivo de la Regla del 1% Diario (James Clear)
+  function updateAtomicSimulator(days) {
+    days = parseInt(days, 10) || 1;
+    var display = document.getElementById('simDaysDisplay');
+    if (display) {
+      display.textContent = 'Día ' + days + (days === 1 ? ' (Punto de partida)' : (days === 365 ? ' (1 Año: 37x)' : (days === 180 ? ' (Medio año)' : (days === 30 ? ' (1 Mes)' : ''))));
+    }
+
+    var posMult = Math.pow(1.01, days);
+    var negMult = Math.pow(0.99, days);
+
+    var multVal = document.getElementById('simMultiplierVal');
+    if (multVal) {
+      multVal.textContent = posMult.toFixed(2) + 'x';
+    }
+
+    var posValElem = document.getElementById('compPosValue');
+    var negValElem = document.getElementById('compNegValue');
+    var fillPos = document.getElementById('compFillPos');
+    var fillNeg = document.getElementById('compFillNeg');
+    var posDesc = document.getElementById('compPosDesc');
+    var negDesc = document.getElementById('compNegDesc');
+
+    if (posValElem) {
+      var pct = Math.round((posMult - 1) * 100);
+      posValElem.textContent = (posMult >= 1 ? '+' : '') + pct.toLocaleString() + '% (' + posMult.toFixed(2) + 'x)';
+    }
+    if (negValElem) {
+      var negPct = Math.round((1 - negMult) * 100);
+      negValElem.textContent = negMult.toFixed(2) + 'x (-' + negPct + '%)';
+    }
+
+    if (fillPos) {
+      var wPos = Math.min(100, Math.max(8, (posMult / 37.78) * 100));
+      fillPos.style.width = wPos + '%';
+    }
+    if (fillNeg) {
+      var wNeg = Math.min(100, Math.max(3, negMult * 100));
+      fillNeg.style.width = wNeg + '%';
+    }
+
+    if (posDesc) {
+      var savings = Math.round(50 * days * posMult);
+      posDesc.innerHTML = 'Con $50 MXN diarios de micro-ahorro constante, en ' + days + ' días acumulas una potencia de valor proyectada de <strong>$' + savings.toLocaleString() + ' MXN</strong> gracias al interés compuesto.';
+    }
+    if (negDesc) {
+      var lost = Math.round(50 * days);
+      negDesc.innerHTML = 'Un gasto hormiga impulsivo de $50 MXN diarios en ' + days + ' días te costó <strong>$' + lost.toLocaleString() + ' MXN</strong> perdidos y redujo tu patrimonio a solo ' + negMult.toFixed(2) + 'x de tu potencial.';
+    }
   }
 
-  function closeNeuroFullscreenModal() {
-    closeChapterModal('modalCapitulo1');
-    closeChapterModal('modalCapitulo2');
-    closeChapterModal('modalCapitulo3');
+  function setSimDays(days) {
+    days = parseInt(days, 10) || 1;
+    var slider = document.getElementById('atomicDaysSlider');
+    if (slider) {
+      slider.value = days;
+      updateAtomicSimulator(days);
+    }
+    var btns = document.querySelectorAll('.atomic-slider-presets .preset-btn');
+    btns.forEach(function(b) {
+      b.classList.remove('active');
+      if (
+        (days === 1 && (b.textContent.indexOf('Día 1') !== -1 || b.textContent.indexOf('Inicio') !== -1)) ||
+        (days === 30 && b.textContent.indexOf('30d') !== -1) ||
+        (days === 90 && b.textContent.indexOf('90d') !== -1) ||
+        (days === 180 && b.textContent.indexOf('180d') !== -1) ||
+        (days === 365 && (b.textContent.indexOf('365d') !== -1 || b.textContent.indexOf('1 Año') !== -1))
+      ) {
+        b.classList.add('active');
+      }
+    });
   }
+
+  // Micro-ahorro interactivo en el banner
+  var currentPiggySavings = 0;
+  function interactivePiggyBank() {
+    currentPiggySavings += 50;
+    var amountEl = document.getElementById('simPiggyAmount');
+    if (amountEl) {
+      amountEl.textContent = '+$' + currentPiggySavings.toLocaleString() + ' MXN';
+      amountEl.style.transform = 'scale(1.25)';
+      amountEl.style.transition = 'transform 0.2s ease';
+      setTimeout(function() { amountEl.style.transform = 'scale(1)'; }, 200);
+    }
+    var avatar = document.getElementById('bannerAvatarWrap');
+    if (avatar) {
+      avatar.style.transform = 'rotate(-10deg) scale(1.1)';
+      avatar.style.transition = 'transform 0.25s ease';
+      setTimeout(function() { avatar.style.transform = 'none'; }, 250);
+    }
+  }
+
+  // 3. Cuadrantes Interactivos del Bucle del Hábito
+  var quadrantData = {
+    1: {
+      name: '1ª Ley: Hazlo Obvio (La Señal)',
+      desc: 'No dejes que tu dinero dependa de acordarte a fin de mes. Diseña tu entorno para que el estímulo del ahorro sea inevitable.',
+      action: '🎯 Táctica: Regla de la Nómina Inmediata',
+      example: 'El mismo día que recibes tu salario o ingresos por ventas, programa una transferencia automatizada a una cuenta apartada (ej. CETES Directo). Si no ves el dinero disponible en tu cuenta corriente, no lo gastarás.'
+    },
+    2: {
+      name: '2ª Ley: Hazlo Atractivo (El Anhelo)',
+      desc: 'El cerebro humano busca dopamina. Si ves el ahorro como "privación" o "aburrimiento", tu mente lo saboteará.',
+      action: '🎯 Táctica: Vinculación con Tu Identidad',
+      example: 'Renombra tu cuenta de banco de "Ahorro" a "Fondo de Libertad y Tranquilidad". Asocia cada peso guardado no con lo que te estás perdiendo hoy, sino con la libertad y paz mental que estás comprando para tu futuro.'
+    },
+    3: {
+      name: '3ª Ley: Hazlo Sencillo (La Respuesta)',
+      desc: 'Reduce la fricción para los buenos hábitos financieros y auméntala drásticamente para los malos hábitos.',
+      action: '🎯 Táctica: Regla de los 20 Segundos de Fricción',
+      example: 'Elimina las tarjetas de crédito guardadas en MercadoLibre o Amazon. Obligarte a buscar la cartera, sacar la tarjeta y escribir los 16 dígitos toma 20 segundos: tiempo suficiente para enfriar el impulso de compra.'
+    },
+    4: {
+      name: '4ª Ley: Hazlo Satisfactorio (La Recompensa)',
+      desc: 'Lo que se recompensa de inmediato se repite; lo que se castiga se evita. Necesitas sentir satisfacción instantánea al ahorrar.',
+      action: '🎯 Táctica: Rastreador Visual de Hábitos',
+      example: 'Lleva una cadena visual de días sin compras innecesarias. Marcar una palomita verde cada día activa un golpe de dopamina sano. La regla de James Clear: "Nunca rompas la cadena dos veces seguidas".'
+    }
+  };
+
+  function selectQuadrant(num) {
+    for (var i = 1; i <= 4; i++) {
+      var c = document.getElementById('quad' + i);
+      if (c) c.classList.toggle('active', i === num);
+    }
+    var box = document.getElementById('quadrantDetailBox');
+    var data = quadrantData[num];
+    if (box && data) {
+      box.innerHTML = 
+        '<div class="quad-detail-card">' +
+          '<div class="quad-detail-title">' + data.name + '</div>' +
+          '<p class="quad-detail-desc">' + data.desc + '</p>' +
+          '<div class="quad-detail-tactic">' +
+            '<strong>' + data.action + ':</strong> ' + data.example +
+          '</div>' +
+        '</div>';
+    }
+  }
+
+  // 4. Glosarios y Textos Interactivos Expandibles
+  function toggleGlossary(id) {
+    var card = document.getElementById(id);
+    if (!card) return;
+    var isHidden = card.style.display === 'none' || card.style.display === '';
+    card.style.display = isHidden ? 'block' : 'none';
+  }
+
+  // 5. Micro-Feedback Inmediato al Seleccionar Opciones (Hábitos Financieros)
+  var optionInsights = {
+    // 1. ¿Cómo administras tu dinero cuando recibes tus ingresos?
+    '1_opt1': '🌟 <strong>¡Excelente hábito!</strong> Aplicas el principio fundamental: "Págate a ti mismo primero". Priorizar el ahorro antes del gasto asegura que tus fondos de libertad crezcan sin depender de lo que sobre.',
+    '1_opt2': '💡 <strong>Hábito reactivo:</strong> Si esperas a ver qué sobra a fin de mes, casi nunca sobrará. James Clear recomienda programar un traspaso automático el día exacto de pago.',
+    '1_opt3': '⚠️ <strong>Punto ciego crítico:</strong> Gastar sin control genera estrés y desorden. Para romper este ciclo, basta aplicar la Regla de los 2 Minutos y registrar tus compras diarias.',
+    
+    // 2. ¿Con qué frecuencia compras cosas que realmente no necesitas?
+    '2_opt1': '🌟 <strong>¡Gran autocontrol!</strong> Sabes diferenciar entre un deseo momentáneo y una necesidad real, protegiendo tu dinero de compras impulsivas.',
+    '2_opt2': '💡 <strong>Cuidado con los gastos hormiga:</strong> Varias compras pequeñas a la semana parecen inofensivas hoy, pero al cabo de un año representan miles de pesos que podrías haber invertido.',
+    '2_opt3': '⚠️ <strong>Trampa de dopamina:</strong> Las compras por impulso responden a gratificación rápida. Solución de James Clear: aumenta la fricción borrando tus tarjetas guardadas en tu celular.',
+    
+    // 3. ¿Registras tus gastos diarios?
+    '3_opt1': '🌟 <strong>¡1ª Ley: Hazlo Obvio!</strong> Llevar un registro claro te da el poder de decidir con información real. Lo que se mide se puede optimizar y mejorar.',
+    '3_opt2': '💡 <strong>Falta de consistencia:</strong> Registrar solo de vez en cuando genera lagunas de información. No necesitas tablas complejas: anota en 30 segundos tus gastos en una nota rápida.',
+    '3_opt3': '⚠️ <strong>Ceguera de gastos:</strong> No saber en qué se va el dinero es el mayor obstáculo para prosperar. Inicia hoy con la meta mínima de anotar 1 solo gasto al día.',
+    
+    // 4. ¿Tienes el hábito de ahorrar?
+    '4_opt1': '🌟 <strong>¡Identidad Atómica Sólida!</strong> Has adoptado la identidad de una persona ahorradora e inversionista. Cada depósito es un voto a favor de tu libertad futura.',
+    '4_opt2': '💡 <strong>Ahorro inconstante:</strong> Ahorrar "cuando se puede" depende de la suerte y el estado de ánimo. Convierte el ahorro en un sistema fijo, no en una casualidad.',
+    '4_opt3': '⚠️ <strong>Oportunidad de oro:</strong> No necesitas miles de pesos para comenzar. Un hábito atómico de apartar $20 MXN diarios entrena la disciplina mental antes de que crezcan los montos.',
+    
+    // 5. ¿Qué haces cuando quieres comprar algo que te gusta?
+    '5_opt1': '🌟 <strong>¡Filtro racional!</strong> Preguntarte si realmente lo necesitas te da una pausa consciente frente a los impulsos emocionales de consumo.',
+    '5_opt2': '💡 <strong>Estrategia de enfriamiento:</strong> Dar un tiempo de espera (Regla de las 72 Horas) permite que el cerebro recupere la calma y decida sin el pico de emoción inicial.',
+    '5_opt3': '⚠️ <strong>Compra inmediata:</strong> Comprar en el instante responde a gratificación inmediata. Añade fricción: retira los métodos de pago de un solo clic.',
+    
+    // 6. ¿Qué hábito financiero te gustaría cambiar?
+    '6_opt1': '🎯 <strong>Objetivo fijado:</strong> Dejar de comprar por impulso. Usaremos la 3ª Ley Invertida (Hacerlo Difícil) para crear barreras entre la tentación y el pago.',
+    '6_opt2': '🎯 <strong>Objetivo fijado:</strong> Evitar los gastos hormiga. Usaremos la 1ª Ley Invertida (Hacerlo Invisible) y la sustitución por micro-transferencias de ahorro.',
+    '6_opt3': '🎯 <strong>Objetivo fijado:</strong> Aprender a ahorrar constantemente. Usaremos la 1ª Ley (Hacerlo Obvio) automatizando transferencias el día que recibes tu dinero.',
+    '6_opt4': '🎯 <strong>Objetivo fijado:</strong> Organizar mejor mi dinero. Usaremos la Regla de los 2 Minutos para diseñar un presupuesto simple que no te quite tiempo.'
+  };
+
+  function showOptionInsight(qNum, optVal) {
+    var box = document.getElementById('insightBox' + qNum);
+    var key = qNum + '_' + optVal;
+    if (box && optionInsights[key]) {
+      box.innerHTML = optionInsights[key];
+      box.style.display = 'block';
+    }
+  }
+
+  // 6. Navegación Stepper Directa a Preguntas
+  function jumpToQuestion(qNum) {
+    var block = document.getElementById('qBlock' + qNum);
+    if (block) {
+      block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      block.classList.add('pulse-highlight');
+      setTimeout(function() { block.classList.remove('pulse-highlight'); }, 1200);
+    }
+  }
+
+  // 7. Actualización de Progreso y Salud Atómica en Vivo
+  function updateAtomicProgress() {
+    var form = document.getElementById('atomicHabitsForm');
+    if (!form) return;
+
+    var questions = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
+    var answeredCount = 0;
+    var liveScore = 0;
+    var scoreMap = { 'opt1': 3, 'opt2': 1, 'opt3': 0, 'opt4': 2 };
+
+    questions.forEach(function(q, idx) {
+      var selected = form.querySelector('input[name="' + q + '"]:checked');
+      var block = document.getElementById('qBlock' + (idx + 1));
+      var stepBtn = document.getElementById('stepBtn' + (idx + 1));
+      var chip = document.getElementById('chipQ' + (idx + 1));
+
+      if (selected) {
+        answeredCount++;
+        if (block) block.classList.remove('has-error');
+        if (stepBtn) {
+          stepBtn.classList.add('answered');
+          stepBtn.innerHTML = '✓';
+        }
+        if (chip) chip.classList.add('active');
+
+        // Preguntas 1 a 5 suman puntos de madurez de hábitos
+        if (idx < 5) {
+          liveScore += (scoreMap[selected.value] || 0);
+        }
+      } else {
+        if (stepBtn) {
+          stepBtn.classList.remove('answered');
+          stepBtn.innerHTML = (idx + 1);
+        }
+        if (chip) chip.classList.remove('active');
+      }
+    });
+
+    // Actualizar Contador y Barra (Tu diagnóstico: X de 6 respondidas)
+    var counter = document.getElementById('atomicCounter');
+    var bar = document.getElementById('atomicProgressBar');
+    if (counter) counter.textContent = answeredCount + ' de 6 respondidas';
+    if (bar) bar.style.width = Math.round((answeredCount / 6) * 100) + '%';
+
+    // Diagnóstico en vivo (0 - 100%)
+    var healthPct = answeredCount === 0 ? 0 : Math.round((liveScore / 15) * 100);
+    var livePillNum = document.getElementById('liveScoreNum');
+    if (livePillNum) {
+      livePillNum.textContent = healthPct + '%';
+    }
+
+    // Actualizar Reactor en pestaña 3
+    var reactorTitle = document.getElementById('reactorPowerTitle');
+    var reactorDesc = document.getElementById('reactorPowerDesc');
+    var reactorText = document.getElementById('reactorAtomText');
+    if (reactorTitle) {
+      reactorTitle.textContent = 'Diagnóstico de Hábitos: ' + answeredCount + ' de 6 (' + healthPct + '%)';
+    }
+    if (reactorText) {
+      reactorText.textContent = healthPct > 0 ? healthPct + '%' : '1%';
+    }
+    if (reactorDesc) {
+      reactorDesc.textContent = answeredCount === 6 
+        ? '¡Diagnóstico 100% completado! Haz clic abajo en "Finalizar diagnóstico" para ver tu plan de transformación.'
+        : 'Llevas ' + answeredCount + ' preguntas respondidas. Completa las ' + (6 - answeredCount) + ' restantes para calibrar tu perfil.';
+    }
+
+    var alertBox = document.getElementById('atomicValidationAlert');
+    if (alertBox && answeredCount === 6) {
+      alertBox.style.display = 'none';
+    }
+  }
+
+  // 8. Envío y Diagnóstico Interactivo Completo
+  function submitAtomicDiagnostic(e) {
+    if (e) e.preventDefault();
+    var form = document.getElementById('atomicHabitsForm');
+    if (!form) return;
+
+    var questions = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
+    var unanswered = [];
+    var firstUnansweredBlock = null;
+
+    questions.forEach(function(q, idx) {
+      var selected = form.querySelector('input[name="' + q + '"]:checked');
+      var block = document.getElementById('qBlock' + (idx + 1));
+      if (!selected) {
+        unanswered.push(idx + 1);
+        if (block) block.classList.add('has-error');
+        if (!firstUnansweredBlock) firstUnansweredBlock = block;
+      } else {
+        if (block) block.classList.remove('has-error');
+      }
+    });
+
+    var alertBox = document.getElementById('atomicValidationAlert');
+    var missingCountSpan = document.getElementById('atomicMissingCount');
+
+    if (unanswered.length > 0) {
+      if (alertBox) {
+        if (missingCountSpan) missingCountSpan.textContent = unanswered.length;
+        alertBox.style.display = 'flex';
+      }
+      if (firstUnansweredBlock) {
+        firstUnansweredBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    if (alertBox) alertBox.style.display = 'none';
+
+    // Puntuación de las preguntas 1 a 5 (madurez actual)
+    var scoreMap = { 'opt1': 3, 'opt2': 1, 'opt3': 0 };
+    var score = 0;
+    for (var i = 1; i <= 5; i++) {
+      var sel = form.querySelector('input[name="p' + i + '"]:checked');
+      score += sel ? (scoreMap[sel.value] || 0) : 0;
+    }
+
+    var pctScore = Math.round((score / 15) * 100);
+
+    // Hábito objetivo seleccionado en Pregunta 6
+    var q6Sel = form.querySelector('input[name="p6"]:checked');
+    var targetHabitKey = q6Sel ? q6Sel.value : 'opt1';
+
+    var targetHabitConfig = {
+      'opt1': {
+        title: 'Dejar de comprar por impulso',
+        prompt: 'sentir el deseo urgente de comprar un artículo no esencial',
+        action: 'esperaré 72 horas y calcularé su valor en horas de trabajo antes de realizar el pago',
+        laws: [
+          { num: '1ª Ley Invertida: Hazlo Invisible', title: 'Elimina las Tentaciones', desc: 'Desinstala las apps de compras compulsivas de la pantalla de inicio de tu celular para no ver ofertas.' },
+          { num: '2ª Ley Invertida: Hazlo Poco Atractivo', title: 'Calcula el Tiempo de Vida', desc: 'Convierte el precio del artículo a las horas de trabajo reales que te costó ganarlo: ¿vale 8 horas de tu vida?' },
+          { num: '3ª Ley Invertida: Hazlo Difícil', title: 'Aumenta la Fricción de Pago', desc: 'Borra las tarjetas de crédito almacenadas en navegadores o tiendas digitales para evitar compras en 1 clic.' },
+          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Recompensa el Autocontrol', desc: 'Cada compra impulsiva evitada, transfiere el 50% de su valor a tu fondo de ahorro y felicítate conscientemente.' }
+        ]
+      },
+      'opt2': {
+        title: 'Evitar los gastos hormiga',
+        prompt: 'tener el impulso de comprar un café, snack o comida rápida innecesaria',
+        action: 'transferiré de inmediato esos $50 MXN a mi cuenta de ahorro en menos de 2 minutos',
+        laws: [
+          { num: '1ª Ley: Hazlo Obvio', title: 'Prepara tu Alternativa', desc: 'Lleva tu termo de café o snack preparado desde casa para que la opción económica sea visible y accesible.' },
+          { num: '2ª Ley: Hazlo Atractivo', title: 'Micro-Interés Compuesto', desc: 'Recuerda que $50 MXN diarios evitados representan más de $18,000 MXN al año listos para invertir.' },
+          { num: '3ª Ley: Hazlo Sencillo', title: 'Regla de Sustitución Directa', desc: 'Reemplaza el acto de comprar con un micro-ahorro de 2 minutos en tu banca móvil cada vez que sientas el antojo.' },
+          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Rastreador de Días Limpios', desc: 'Lleva un calendario visual marcando cada día sin gastos hormiga: "No rompas la cadena dos veces seguidas".' }
+        ]
+      },
+      'opt3': {
+        title: 'Aprender a ahorrar constantemente',
+        prompt: 'recibir el depósito de mi sueldo o ingresos por ventas',
+        action: 'apartaré de forma inmediata el 10% a una cuenta de ahorro programado antes de hacer cualquier gasto',
+        laws: [
+          { num: '1ª Ley: Hazlo Obvio', title: 'Págate a Ti Primero', desc: 'Automatiza una orden de transferencia bancaria el mismo día de nómina para que el ahorro ocurra sin esfuerzo.' },
+          { num: '2ª Ley: Hazlo Atractivo', title: 'Bautiza tu Cuenta de Ahorro', desc: 'Renombra tu cuenta de banco como "Fondo de Tranquilidad y Libertad" para vincularlo a tu identidad y paz mental.' },
+          { num: '3ª Ley: Hazlo Sencillo', title: 'Comienza con la Regla del 1%', desc: 'No intentes ahorrar el 50% de golpe; comienza con el 5% o 10% para que el sistema sea fácil y sostenible.' },
+          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Celebra tus Metas Mensuales', desc: 'Al final de cada mes, observa el total acumulado y date una pequeña recompensa sana por mantener la disciplina.' }
+        ]
+      },
+      'opt4': {
+        title: 'Organizar mejor mi dinero',
+        prompt: 'terminar de cenar cada noche antes de dormir',
+        action: 'registraré mis gastos del día en una app simple en menos de 2 minutos',
+        laws: [
+          { num: '1ª Ley: Hazlo Obvio', title: 'Coloca tu App a la Vista', desc: 'Pon el acceso directo de tu app de gastos o bloc de notas en la pantalla principal de tu teléfono.' },
+          { num: '2ª Ley: Hazlo Atractivo', title: 'Claridad vs Estrés', desc: 'Asocia el registro con la sensación de calma y control total sobre tu futuro financiero.' },
+          { num: '3ª Ley: Hazlo Sencillo', title: 'Regla de los 2 Minutos', desc: 'Estandariza antes de optimizar: anota solo el total y categoría rápida sin complicarte con fórmulas complejas.' },
+          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Revisión Semanal Exitosa', desc: 'Dedica 5 minutos los domingos a ver el balance de tu semana y planificar la siguiente con tranquilidad.' }
+        ]
+      }
+    };
+
+    var currentTarget = targetHabitConfig[targetHabitKey] || targetHabitConfig['opt1'];
+
+    var profileTitle = '';
+    var profileBadge = '';
+    var badgeClass = '';
+    var profileDesc = '';
+
+    if (score >= 12) {
+      profileTitle = 'Arquitecto Financiero Consciente';
+      profileBadge = '🏆 Dominio Sólido de Hábitos (Alto)';
+      badgeClass = 'badge-success';
+      profileDesc = '¡Felicidades! Tienes excelentes bases y comprendes la importancia de diseñar sistemas diarios. Para llevar tu dinero al siguiente nivel, enfocaremos tus esfuerzos en optimizar el hábito que elegiste: <strong>' + currentTarget.title + '</strong>.';
+    } else if (score >= 7) {
+      profileTitle = 'Constructor en Transición';
+      profileBadge = '🌱 En Proceso de Mejora (Medio)';
+      badgeClass = 'badge-warning';
+      profileDesc = 'Tienes buenas intenciones y algunos hábitos positivos, pero la falta de sistemas automáticos provoca inconsistencia en tus resultados. Aplicando las 4 Leyes de James Clear lograremos instalar el hábito de <strong>' + currentTarget.title + '</strong> con facilidad.';
+    } else {
+      profileTitle = 'Enfoque Reactivo: Momento de Instalar Sistemas';
+      profileBadge = '💡 Fase de Despertar Financiero (Inicial)';
+      badgeClass = 'badge-alert';
+      profileDesc = 'Actualmente tus comportamientos financieros responden más al impulso y a la inmediatez que a un sistema estructurado. La buena noticia: según <em>Hábitos Atómicos</em>, no necesitas más fuerza de voluntad, sino diseñar un entorno que te facilite tomar buenas decisiones.';
+    }
+
+    var resultBox = document.getElementById('atomicResultSection');
+    if (!resultBox) return;
+
+    var lawsHtml = '';
+    currentTarget.laws.forEach(function(law) {
+      lawsHtml += '<div class="atomic-law-card">' +
+                    '<div class="atomic-law-num">' + law.num + '</div>' +
+                    '<div class="atomic-law-title">' + law.title + '</div>' +
+                    '<p class="atomic-law-desc">' + law.desc + '</p>' +
+                  '</div>';
+    });
+
+    resultBox.innerHTML = 
+      '<div class="atomic-res-header">' +
+        '<div>' +
+          '<span class="atomic-res-badge ' + badgeClass + '">' + profileBadge + '</span>' +
+          '<h3 class="atomic-res-title">' + profileTitle + '</h3>' +
+          '<div class="atomic-res-score">Madurez de Hábitos Actual: <strong>' + score + ' de 15 puntos</strong> (' + pctScore + '% de alineación)</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="atomic-res-body">' +
+        '<p>' + profileDesc + '</p>' +
+        '<div class="atomic-target-box">' +
+          '<div class="atomic-target-title">🎯 Hábito Seleccionado para Transformar: ' + currentTarget.title + '</div>' +
+          '<p style="margin: 0; font-size: 14.5px; color: #e2e8f0;">Siguiendo los principios de James Clear, el cambio duradero no proviene de metas gigantescas, sino de instalar una <strong>Intención de Implementación</strong> clara y reducir la fricción inicial.</p>' +
+        '</div>' +
+        
+        <!-- Creador Interactivo de Intención de Implementación Personalizada -->
+        '<div class="atomic-intention-box">' +
+          '<div class="atomic-intention-head">' +
+            '<span>✍️ Tu Fórmula de Compromiso Atómico (James Clear):</span>' +
+          '</div>' +
+          '<div class="atomic-intention-formula">' +
+            '«Después de <span class="intent-highlight" id="intentPromptText">' + currentTarget.prompt + '</span>, yo <span class="intent-highlight" id="intentActionText">' + currentTarget.action + '</span>.»' +
+          '</div>' +
+          '<button type="button" class="atomic-copy-intent-btn" onclick="copyAtomicCommitment()">' +
+            '📋 Copiar mi compromiso diario' +
+          '</button>' +
+          '<span id="intentCopiedMsg" style="display:none; color:#34d399; font-size:13px; font-weight:600; margin-left:10px;">¡Copiado al portapapeles!</span>' +
+        '</div>' +
+
+        '<h4 style="color: #ffffff; font-size: 16px; margin: 20px 0 10px 0;">Plan de Acción con las 4 Leyes de James Clear para ' + currentTarget.title + ':</h4>' +
+        '<div class="atomic-laws-grid">' + lawsHtml + '</div>' +
+        '<div class="atomic-res-quote">' +
+          '«No te elevas al nivel de tus metas. Caes al nivel de tus sistemas. Tus hábitos son el interés compuesto de la superación personal.»<br>' +
+          '<strong>— James Clear, Hábitos Atómicos</strong>' +
+        '</div>' +
+        '<div class="atomic-res-actions">' +
+          '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()">🔄 Modificar o repetir respuestas</button>' +
+          '<a href="index.php?page=cursos" class="atomic-btn-course">📚 Comenzar Curso: Psicología del Dinero y Hábitos →</a>' +
+        '</div>' +
+      '</div>';
+
+    resultBox.style.display = 'block';
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function copyAtomicCommitment() {
+    var pText = document.getElementById('intentPromptText');
+    var aText = document.getElementById('intentActionText');
+    if (!pText || !aText) return;
+    var full = 'Mi compromiso atómico: «Después de ' + pText.textContent + ', yo ' + aText.textContent + '.»';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(full).then(function() {
+        var msg = document.getElementById('intentCopiedMsg');
+        if (msg) {
+          msg.style.display = 'inline';
+          setTimeout(function() { msg.style.display = 'none'; }, 2500);
+        }
+      });
+    } else {
+      alert(full);
+    }
+  }
+
+  function resetAtomicDiagnostic() {
+    var form = document.getElementById('atomicHabitsForm');
+    if (form) form.reset();
+
+    var counter = document.getElementById('atomicCounter');
+    var bar = document.getElementById('atomicProgressBar');
+    if (counter) counter.textContent = '0 de 6 respondidas';
+    if (bar) bar.style.width = '0%';
+
+    var liveScore = document.getElementById('liveScoreNum');
+    if (liveScore) liveScore.textContent = '0%';
+
+    var resultBox = document.getElementById('atomicResultSection');
+    if (resultBox) {
+      resultBox.style.display = 'none';
+      resultBox.innerHTML = '';
+    }
+
+    var alertBox = document.getElementById('atomicValidationAlert');
+    if (alertBox) alertBox.style.display = 'none';
+
+    for (var i = 1; i <= 6; i++) {
+      var block = document.getElementById('qBlock' + i);
+      var stepBtn = document.getElementById('stepBtn' + i);
+      var chip = document.getElementById('chipQ' + i);
+      var insight = document.getElementById('insightBox' + i);
+      var gloss = document.getElementById('glosario' + i);
+      if (block) block.classList.remove('has-error');
+      if (stepBtn) { stepBtn.classList.remove('answered'); stepBtn.innerHTML = i; }
+      if (chip) chip.classList.remove('active');
+      if (insight) insight.style.display = 'none';
+      if (gloss) gloss.style.display = 'none';
+    }
+
+    // Reiniciar slider a Día 1
+    if (typeof setSimDays === 'function') setSimDays(1);
+
+    var card = document.querySelector('.atomic-card-container');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Inicializar cuadrante 1 por defecto y slider en Día 1
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof selectQuadrant === 'function') selectQuadrant(1);
+    if (typeof setSimDays === 'function') setSimDays(1);
+  });
 
   // Cerrar con Escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' || e.key === 'Esc') {
-      closeChapterModal('modalCapitulo1');
-      closeChapterModal('modalCapitulo2');
-      closeChapterModal('modalCapitulo3');
+      closeStudentTestimonial();
+    }
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
       closeStudentTestimonial();
     }
   });
