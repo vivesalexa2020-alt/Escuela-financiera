@@ -5389,6 +5389,8 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
       position: relative;
       overflow: hidden;
+      overflow-y: auto;
+      max-height: 88vh;
       animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid rgba(0, 0, 0, 0.08);
     }

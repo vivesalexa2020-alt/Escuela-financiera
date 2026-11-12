@@ -346,80 +346,80 @@ CREATE TABLE `puntos_usuario` (
 -- ========================================================
 
 -- ========================================================
--- Materia 1: Unidad 1: Rompe el ciclo (Nivel 1)
+-- Materia 1: Unidad 1: Psicología del dinero y cambio de hábitos (Nivel 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (1, 'finanzas-personales', 1, 'Unidad 1: Rompe el ciclo', 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 1);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (1, 'finanzas-personales', 1, 'Unidad 1: Psicología del dinero y cambio de hábitos', 'Entiende cómo tu mente decide con el dinero, rompe creencias limitantes y convierte la educación financiera en hábitos automáticos.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 1);
 
--- Videos / Lecciones de Unidad 1: Rompe el ciclo
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'Video lección práctica y conceptual: Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'https://www.youtube.com/embed/WF6qLnuh4EA', '14:32', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Gastos hormiga: cómo detectar las fugas invisibles', 'Video lección práctica y conceptual: Gastos hormiga: cómo detectar las fugas invisibles. Enlace oficial: https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP', 'https://www.youtube.com/embed/DT6Nh3aV5Vc', '11:18', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'La regla 50/30/20 explicada con ejemplos reales en México', 'Video lección práctica y conceptual: La regla 50/30/20 explicada con ejemplos reales en México', 'https://www.youtube.com/embed/_7a55m4opPw', '16:05', 3);
+-- Videos / Lecciones de Unidad 1: Psicología del dinero y cambio de hábitos
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'La psicología del dinero: comportamiento antes que conocimiento', 'Video lección práctica y conceptual: La psicología del dinero. Fundamento teórico de Morgen Housel, \'La psicología del dinero\'.', 'https://www.youtube.com/embed/WF6qLnuh4EA', '14:32', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Hábitos atómicos financieros: identidad antes que motivación', 'Video lección práctica y conceptual: Hábitos atómicos (James Clear) y El poder de los hábitos (Charles Duhigg).', 'https://www.youtube.com/embed/DT6Nh3aV5Vc', '12:10', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Cómo tu mente sabotea tu relación con el dinero', 'Video lección práctica y conceptual: Cómo tu mente sabotea tu relación con el dinero. Enlace oficial: https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP', 'https://www.youtube.com/embed/DT6Nh3aV5Vc', '13:45', 3);
 
--- Ejercicios prácticos de Unidad 1: Rompe el ciclo
+-- Ejercicios prácticos de Unidad 1
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (1, 'Quiz: ¿Qué tan saludables son tus finanzas?', 'quiz', 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.', 1);
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (1, 'Rastreador de gastos semanal', 'practica', 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.', 2);
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (1, 'Mi presupuesto 50/30/20', 'proyecto', 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.', 3);
 
--- Audios y Podcasts de Unidad 1: Rompe el ciclo
+-- Audios y Podcasts de Unidad 1
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (1, 'Mitos del dinero que te mantienen pobre', 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', '22:15', 'audio/finanzas-personales-1.mp3', 1);
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (1, '¿Por qué no me alcanza el quincena?', 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', '18:40', 'audio/finanzas-personales-2.mp3', 2);
 
--- Libros y Guías de Unidad 1: Rompe el ciclo
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (1, 'Padre Rico, Padre Pobre', 'Robert T. Kiyosaki', 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', 'ebook', 'libros/finanzas-personales-1.epub', 1);
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (1, 'Pequeño Cerdo Capitalista', 'Sofía Macías', 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', 'pdf', 'libros/finanzas-personales-2.pdf', 2);
+-- Libros y Guías de Unidad 1: Psicología del dinero y cambio de hábitos
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (1, 'La psicología del dinero', 'Morgan Housel', 'Por qué la gente gana, ahorra e invierte distinto: el comportamiento importa más que el conocimiento.', 'ebook', 'libros/finanzas-personales-1.epub', 1);
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (1, 'Hábitos atómicos', 'James Clear', 'Pequeños hábitos financieros diarios componen cambios extraordinarios: identidad primero, resultados después.', 'ebook', 'libros/finanzas-personales-2.epub', 2);
 
 -- ========================================================
--- Materia 2: Unidad 2: Construye tu fortaleza (Nivel 1)
+-- Materia 2: Unidad 2: Aprende a gastar y no gastar de más (Nivel 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (2, 'presupuesto', 1, 'Unidad 2: Construye tu fortaleza', 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 2);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (2, 'presupuesto', 1, 'Unidad 2: Aprende a gastar y no gastar de más', 'Domina la regla 50/30/20, elimina fugas hormiga y diseña un presupuesto base cero para que cada peso tenga un trabajo.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 2);
 
--- Videos / Lecciones de Unidad 2: Construye tu fortaleza
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Cómo crear tu fondo de emergencia desde cero', 'Video lección práctica y conceptual: Cómo crear tu fondo de emergencia desde cero', 'https://www.youtube.com/embed/zA67rkRiGXI', '13:22', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Negociación de créditos: guía paso a paso', 'Video lección práctica y conceptual: Negociación de créditos: guía paso a paso', 'https://www.youtube.com/embed/xnDpXyRsKlU', '17:45', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, '5 errores fatales al manejar tarjetas de crédito', 'Video lección práctica y conceptual: 5 errores fatales al manejar tarjetas de crédito', 'https://www.youtube.com/embed/pTFZrS_8jRk', '10:58', 3);
+-- Videos / Lecciones de Unidad 2: Aprende a gastar y no gastar de más
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'El presupuesto base cero paso a paso (Ramsey)', 'Video lección práctica y conceptual: El presupuesto base cero (Ramsey).', 'https://www.youtube.com/embed/zA67rkRiGXI', '15:30', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'La regla 50/30/20 aplicada con tu ingreso real', 'Video lección práctica y conceptual: La regla 50/30/20 aplicada a tu quincena.', 'https://www.youtube.com/embed/xnDpXyRsKlU', '16:05', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Las 7 fugas invisibles de tu quincena', 'Video lección práctica y conceptual: Las 7 fugas invisibles de tu quincena (Ramsey).', 'https://www.youtube.com/embed/pTFZrS_8jRk', '11:18', 3);
 
--- Ejercicios prácticos de Unidad 2: Construye tu fortaleza
-INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (2, 'Calculadora de fondo de emergencia', 'practica', 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.', 1);
-INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (2, 'Simulación de negociación de deuda', 'simulacion', 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.', 2);
+-- Ejercicios prácticos de Unidad 2: Aprende a gastar y no gastar de más
+INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (2, 'Mi presupuesto base cero personalizado', 'practica', 'Ingresa tu ingreso mensual y define gasto-a-gasto dónde va cada peso aplicando la fórmula base cero.', 1);
+INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (2, 'Simulador de compras por impulso', 'simulacion', 'Analiza 6 compras por impulso reales: ¿las harías en frío, en caliente o nunca?', 2);
 
 -- Audios y Podcasts de Unidad 2: Construye tu fortaleza
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (2, 'Historias de crédito: lecciones aprendidas', 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', '25:10', 'audio/presupuesto-1.mp3', 1);
 
--- Libros y Guías de Unidad 2: Construye tu fortaleza
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (2, 'Guía práctica de presupuestos familiares', 'CONDUSEF', 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', 'pdf', 'libros/presupuesto-1.pdf', 1);
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (2, 'Los secretos de la mente millonaria', 'T. Harv Eker', 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', 'ebook', 'libros/presupuesto-2.epub', 2);
+-- Libros y Guías de Unidad 2: Aprende a gastar y no gastar de más
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (2, 'Tu dinero o tu vida', 'Robin Dominguez y Vicki Robin', 'Mide tu dinero en horas de vida y gasta solo en lo que te hace libre: la guía socrática del gasto intencional.', 'ebook', 'libros/presupuesto-1.epub', 1);
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (2, 'Pequeño Cerdo Capitalista', 'Sofía Macías', 'La guía mexicana más popular de finanzas personales, con lenguaje sencillo y ejemplos cercanos.', 'pdf', 'libros/presupuesto-2.pdf', 2);
 
 -- ========================================================
--- Materia 3: Unidad 3: Multiplica e invierte (Nivel 1)
+-- Materia 3: Unidad 3: No pidas préstamos: sal de tus deudas (Nivel 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (3, 'gasto-hormiga', 1, 'Unidad 3: Multiplica e invierte', 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 3);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (3, 'gasto-hormiga', 1, 'Unidad 3: No pidas préstamos: sal de tus deudas', 'Bola de nieve y avalancha con fundamento conductual: liquida tarjetas y compromisos para nunca más vivir pidiendo prestado.', 'Nivel 1', 'principiante', 12.0, 'img/nivel1.jpg', 3);
 
--- Videos / Lecciones de Unidad 3: Multiplica e invierte
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, '¿Qué es la inflación y cómo te roba silenciosamente?', 'Video lección práctica y conceptual: ¿Qué es la inflación y cómo te roba silenciosamente?', 'https://www.youtube.com/embed/PHe0bXAIuk0', '12:45', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, 'Tu primer portafolio pasivo con poco dinero', 'Video lección práctica y conceptual: Tu primer portafolio pasivo con poco dinero', 'https://www.youtube.com/embed/HCN2GIzOn2U', '19:30', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, 'Interés compuesto: la octava maravilla del mundo', 'Video lección práctica y conceptual: Interés compuesto: la octava maravilla del mundo', 'https://www.youtube.com/embed/WEDIj9JBTC8', '15:12', 3);
+-- Videos / Lecciones de Unidad 3: No pidas préstamos: sal de tus deudas
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, 'El costo real del CAT y las tasas de interés', 'Video lección práctica y conceptual: El costo real del CAT y las tasas de interés.', 'https://www.youtube.com/embed/JGwWNGJdvx8', '16:28', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, 'Bola de nieve vs avalancha: elige tu método', 'Video lección práctica y conceptual: Bola de nieve (Ramsey) vs avalancha.', 'https://www.youtube.com/embed/LK7qEnwi_R0', '18:40', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, 'Renegociación de deudas sin quitas destructivas', 'Video lección práctica y conceptual: Renegociación de deudas sin quitas destructivas. Enlace oficial: https://youtu.be/Hjv473hOiB0', 'https://www.youtube.com/embed/Hjv473hOiB0', '13:05', 3);
 
--- Ejercicios prácticos de Unidad 3: Multiplica e invierte
+-- Ejercicios prácticos de Unidad 3
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (3, 'Calculadora de interés compuesto', 'practica', 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.', 1);
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (3, 'Proyecto: Mi primer portafolio de inversión', 'proyecto', 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.', 2);
 
--- Audios y Podcasts de Unidad 3: Multiplica e invierte
+-- Audios y Podcasts de Unidad 3
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (3, 'Inversiones para principiantes: por dónde empezar', 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', '20:05', 'audio/gasto-hormiga-1.mp3', 1);
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (3, 'La magia del interés compuesto con ejemplos reales', 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', '16:30', 'audio/gasto-hormiga-2.mp3', 2);
 
--- Libros y Guías de Unidad 3: Multiplica e invierte
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (3, 'El inversor inteligente', 'Benjamin Graham', 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', 'ebook', 'libros/gasto-hormiga-1.epub', 1);
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (3, 'Cómo invertir en CETES y más', 'Banco de México', 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', 'pdf', 'libros/gasto-hormiga-2.pdf', 2);
+-- Libros y Guías de Unidad 3: No pidas préstamos: sal de tus deudas
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (3, 'The Total Money Makeover', 'Dave Ramsey', 'El plan bola de nieve paso a paso para salir de deudas y nunca más pedir prestado.', 'ebook', 'libros/gasto-hormiga-1.epub', 1);
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (3, 'Padre Rico, Padre Pobre', 'Robert Kiyosaki', 'La diferencia entre activos y pasivos: construye tu futuro sin depender del crédito.', 'ebook', 'libros/gasto-hormiga-2.epub', 2);
 
 -- ========================================================
--- Materia 4: Ahorro formal y fondo de emergencia (Nivel 1)
+-- Materia 4: Aprende a ahorrar y crea tu fondo de emergencia (Nivel 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (4, 'fondo-emergencia', 1, 'Ahorro formal y fondo de emergencia', 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.', 'Nivel 1', 'intermedio', 12.0, 'img/nivel2.jpg', 4);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (4, 'fondo-emergencia', 1, 'Aprende a ahorrar y crea tu fondo de emergencia', 'Págate primero (principio de Clason) y construye tu escudo de 3 a 6 meses de gastos con un hábito de ahorro automático.', 'Nivel 1', 'intermedio', 12.0, 'img/nivel2.jpg', 4);
 
--- Videos / Lecciones de Ahorro formal y fondo de emergencia
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cuentas de ahorro en México: ¿cuál te conviene?', 'Video lección práctica y conceptual: Cuentas de ahorro en México: ¿cuál te conviene?', 'https://www.youtube.com/embed/9xHOEs6WtaM', '14:50', 1);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'Video lección práctica y conceptual: Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', 'https://www.youtube.com/embed/H48qw1QRGSA', '11:35', 2);
-INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cómo automatizar tu ahorro sin sentirlo', 'Video lección práctica y conceptual: Cómo automatizar tu ahorro sin sentirlo', 'https://www.youtube.com/embed/RgKAFK5djSk', '13:20', 3);
+-- Videos / Lecciones de Aprende a ahorrar y crea tu fondo de emergencia
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Págate primero: el 10% mágico (Clason)', 'Video lección práctica y conceptual: Págate primero (George S. Clason).', 'https://www.youtube.com/embed/9xHOEs6WtaM', '19:30', 1);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cómo automatizar tu ahorro sin sentirlo', 'Video lección práctica y conceptual: Cómo automatizar tu ahorro sin sentirlo', 'https://www.youtube.com/embed/RgKAFK5djSk', '13:20', 2);
+INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Tu fondo de paz mental: 3 a 6 meses', 'Video lección práctica y conceptual: Tu fondo de paz mental: 3 a 6 meses de gastos.', 'https://www.youtube.com/embed/H48qw1QRGSA', '14:50', 3);
 
 -- Ejercicios prácticos de Ahorro formal y fondo de emergencia
 INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) VALUES (4, 'Calculadora de fondo de emergencia avanzada', 'simulacion', 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?', 1);
@@ -430,8 +430,8 @@ INSERT INTO `ejercicios` (`curso_id`, `titulo`, `tipo`, `descripcion`, `orden`) 
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (4, 'Historias de paz financiera', 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', '19:45', 'audio/fondo-emergencia-1.mp3', 1);
 INSERT INTO `audios` (`curso_id`, `titulo`, `descripcion`, `duracion`, `audio_url`, `orden`) VALUES (4, 'El ahorro no es sacrificio, es libertad', 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', '17:20', 'audio/fondo-emergencia-2.mp3', 2);
 
--- Libros y Guías de Ahorro formal y fondo de emergencia
-INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (4, 'El hombre más rico de Babilonia', 'George S. Clason', 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', 'ebook', 'libros/fondo-emergencia-1.epub', 1);
+-- Libros y Guías de Aprende a ahorrar y crea tu fondo de emergencia
+INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (4, 'El hombre más rico de Babilonia', 'George S. Clason', 'Págate primero: el 10% mágico de Arkad para construir tu fondo con disciplina.', 'ebook', 'libros/fondo-emergencia-1.epub', 1);
 INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `archivo_url`, `orden`) VALUES (4, 'Estrategias de ahorro para mexicanos', 'CONDUSEF', 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', 'pdf', 'libros/fondo-emergencia-2.pdf', 2);
 
 -- ========================================================

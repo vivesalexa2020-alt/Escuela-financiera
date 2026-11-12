@@ -1097,110 +1097,110 @@ const RETICULA_SEMESTRES = [
 const RETICULA_MATERIAS = [
   // NIVEL 1 (Básico - Primer mes gratis) — mismas unidades del Aula Demo
   {
-    id: 'finanzas-personales', semestre: 1, icon: '📗',
-    nombre: 'Unidad 1: Rompe el ciclo',
-    desc: 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.',
+    id: 'finanzas-personales', semestre: 1, icon: '🧠',
+    nombre: 'Unidad 1: Psicología del dinero y cambio de hábitos',
+    desc: 'Descubre cómo piensa tu mente con el dinero, elimina creencias que te frenan y convierte la educación financiera en hábito diario (Housel, Clear, Duhigg).',
     temario: [
-      'Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?',
-      'Fugas y micro-gastos hormiga <a href="https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;" title="Ver video en YouTube">▶ Video ↗</a>',
-      'Regla 50/30/20 simplificada',
-      'Método anti-deuda acelerado'
+      'La psicología del dinero: comportamiento antes que conocimiento (Housel)',
+      'Hábitos atómicos financieros: identidad antes que motivación (Clear)',
+      'Las fugas invisibles y por qué repites los errores',
+      'Los 3 errores comunes de presupuestar "en la cabeza"'
     ],
     videos: [
-      { titulo: 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/WF6qLnuh4EA', duracion: '14:32' },
+      { titulo: 'Psicología del dinero: ¿A dónde se va tu dinero?', url: 'https://www.youtube.com/embed/WF6qLnuh4EA', duracion: '14:32' },
       { titulo: 'Gastos hormiga: cómo detectar las fugas invisibles', url: 'https://www.youtube.com/embed/DT6Nh3aV5Vc', externalUrl: 'https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP', duracion: '11:18' },
-      { titulo: 'La regla 50/30/20 explicada con ejemplos reales en México', url: 'https://www.youtube.com/embed/_7a55m4opPw', duracion: '16:05' }
+      { titulo: 'Hábitos atómicos aplicados a tus finanzas personales', url: 'https://www.youtube.com/embed/_7a55m4opPw', duracion: '16:05' }
     ],
     ejercicios: [
-      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado y descubrir tus áreas de mejora.' },
-      { titulo: 'Rastreador de gastos semanal', tipo: 'practica', descripcion: 'Registra todos tus gastos durante 7 días, clasifícalos en necesidades, deseos y ahorro, y calcula tu porcentaje real.' },
-      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20 con tus ingresos reales y presenta un plan de acción.' }
+      { titulo: 'Quiz: ¿Qué tan saludables son tus finanzas?', tipo: 'quiz', descripcion: 'Responde 15 preguntas para obtener tu diagnóstico financiero personalizado.' },
+      { titulo: 'Rastreador de hábitos financieros semanal', tipo: 'practica', descripcion: 'Registra tus hábitos de gasto durante 7 días y clasifícalos en necesidad, deseo y ahorro consciente.' },
+      { titulo: 'Mi presupuesto 50/30/20', tipo: 'proyecto', descripcion: 'Crea tu presupuesto mensual aplicando la regla 50/30/20.' }
     ],
     audios: [
       { titulo: 'Mitos del dinero que te mantienen pobre', descripcion: 'Desmontamos las 7 creencias más comunes sobre el dinero en México que frenan tu crecimiento financiero.', duracion: '22:15' },
-      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Análisis de los patrones de gasto más comunes entre mexicanos y cómo romper el ciclo quincena a quincena.', duracion: '18:40' }
+      { titulo: '¿Por qué no me alcanza el quincena?', descripcion: 'Patrones inconscientes que te sabotajean el dinero cada quincena y cómo romper el ciclo.', duracion: '18:40' }
     ],
     libros: [
-      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert T. Kiyosaki', descripcion: 'El clásico que cambia tu mentalidad sobre el dinero: aprende la diferencia entre activos y pasivos.', tipo: 'ebook' },
-      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía más popular de finanzas personales en México, con lenguaje sencillo y ejemplos locales.', tipo: 'pdf' }
+      { titulo: 'La psicología del dinero', autor: 'Morgan Housel', descripcion: 'Por qué la gente gana, ahorra e invierte diferente: el comportamiento importa más que la inteligencia financiera.', tipo: 'ebook' },
+      { titulo: 'Hábitos atómicos', autor: 'James Clear', descripcion: 'Construye hábitos financieros sólidos con pequeños cambios de identidad, no de motivación.', tipo: 'ebook' }
     ]
   },
   {
-    id: 'presupuesto', semestre: 1, icon: '📘',
-    nombre: 'Unidad 2: Construye tu fortaleza',
-    desc: 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.',
-    temario: ['Fondo de paz y contingencias', 'Negociación inteligente de créditos'],
+    id: 'presupuesto', semestre: 1, icon: '💸',
+    nombre: 'Unidad 2: Aprende a gastar y no gastar de más',
+    desc: 'Domina la regla 50/30/20 y el presupuesto base cero: cada peso con un trabajo, sin sobrantes ni fugas de capital (Ramsey).',
+    temario: ['Presupuesto base cero paso a paso (Ramsey)', 'Regla 50/30/20 aplicada con tu ingreso real', 'Las 7 fugas invisibles de tu quincena', 'Cómo negociar tus varitas de compra por impulso'],
     videos: [
-      { titulo: 'Cómo crear tu fondo de emergencia desde cero', url: 'https://www.youtube.com/embed/zA67rkRiGXI', duracion: '13:22' },
-      { titulo: 'Negociación de créditos: guía paso a paso', url: 'https://www.youtube.com/embed/xnDpXyRsKlU', duracion: '17:45' },
-      { titulo: '5 errores fatales al manejar tarjetas de crédito', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
+      { titulo: 'El presupuesto base cero paso a paso (Ramsey)', url: 'https://www.youtube.com/embed/zA67rkRiGXI', duracion: '15:30' },
+      { titulo: 'La regla 50/30/20 aplicada a tu ingreso real', url: 'https://www.youtube.com/embed/xnDpXyRsKlU', duracion: '16:05' },
+      { titulo: 'Los 5 errores más caros al gastar (tarjetas y quincenas)', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
     ],
     ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia', tipo: 'practica', descripcion: 'Calcula cuánto necesitas ahorrar para cubrir 3 y 6 meses de gastos fijos y variables con tu situación real.' },
-      { titulo: 'Simulación de negociación de deuda', tipo: 'simulacion', descripcion: 'Practica con escenarios reales cómo negociar tasas de interés, quitas y reestructuras con tu banco.' }
+      { titulo: 'Calculadora 50/30/20 personalizada', tipo: 'practica', descripcion: 'Ingresa tu ingreso mensual y obtén tu distribución ideal entre necesidades, deseos y ahorro.' },
+      { titulo: 'Escenario de compra por impulso', tipo: 'simulacion', descripcion: 'Analiza 6 compras por impulso reales: ¿las tomarías en frío, en caliente o nunca?' }
     ],
     audios: [
-      { titulo: 'Historias de crédito: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo salieron de deudas de tarjetas de crédito usando estrategias inteligentes.', duracion: '25:10' }
+      { titulo: 'Historias de gasto: lecciones aprendidas', descripcion: 'Tres personas reales comparten cómo dejaron de gastar de más gracias al presupuesto base cero.', duracion: '25:10' }
     ],
     libros: [
-      { titulo: 'Guía práctica de presupuestos familiares', autor: 'CONDUSEF', descripcion: 'Manual oficial con plantillas y metodologías para organizar las finanzas del hogar mexicano.', tipo: 'pdf' },
-      { titulo: 'Los secretos de la mente millonaria', autor: 'T. Harv Eker', descripcion: 'Descubre cómo tu programación mental sobre el dinero determina tus resultados financieros.', tipo: 'ebook' }
+      { titulo: 'Tu dinero o tu vida', autor: 'Robin Dominguez y Vicki Robin', descripcion: 'Mide tu dinero en horas de vida y gasta solo en lo que te hace libre: la guía socrática del gasto intencional.', tipo: 'ebook' },
+      { titulo: 'Pequeño Cerdo Capitalista', autor: 'Sofía Macías', descripcion: 'La guía mexicana más popular de finanzas personales, con lenguaje sencillo y ejemplos cercanos.', tipo: 'pdf' }
     ]
   },
   {
-    id: 'gasto-hormiga', semestre: 1, icon: '📙',
-    nombre: 'Unidad 3: Multiplica e invierte',
-    desc: 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.',
-    temario: ['Rendimientos reales contra inflación', 'Portafolios pasivos paso a paso'],
+    id: 'gasto-hormiga', semestre: 1, icon: '🔥',
+    nombre: 'Unidad 3: No pidas préstamos: sal de tus deudas',
+    desc: 'Bola de nieve y avalancha con fundamento conductual: liquida tarjetas y créditos para nunca más vivir pidiendo.',
+    temario: ['El costo real del CAT y las tasas de interés', 'Bola de nieve vs avalancha (Ramsey)', 'Renegociación de deudas sin quitas destructivas', 'Quema tus tarjetas: vivir sin pedir prestado'],
     videos: [
-      { titulo: '¿Qué es la inflación y cómo te roba silenciosamente?', url: 'https://www.youtube.com/embed/PHe0bXAIuk0', duracion: '12:45' },
-      { titulo: 'Tu primer portafolio pasivo con poco dinero', url: 'https://www.youtube.com/embed/HCN2GIzOn2U', duracion: '19:30' },
-      { titulo: 'Interés compuesto: la octava maravilla del mundo', url: 'https://www.youtube.com/embed/WEDIj9JBTC8', duracion: '15:12' }
+      { titulo: 'El costo real del CAT y las tasas de interés', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
+      { titulo: 'Bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/LK7qEnwi_R0', duracion: '18:40' },
+      { titulo: 'Renegociación de deudas bancarias sin destruir tu historial', url: 'https://www.youtube.com/embed/Hjv473hOiB0', duracion: '13:05' }
     ],
     ejercicios: [
-      { titulo: 'Calculadora de interés compuesto', tipo: 'practica', descripcion: 'Ingresa tu capital inicial, aportación mensual y tasa de rendimiento para visualizar tu crecimiento a 5, 10 y 20 años.' },
-      { titulo: 'Proyecto: Mi primer portafolio de inversión', tipo: 'proyecto', descripcion: 'Diseña un portafolio diversificado con instrumentos mexicanos, define porcentajes y justifica cada elección.' }
+      { titulo: 'Simulador de pago de deudas', tipo: 'simulacion', descripcion: 'Ingresa tus deudas actuales con tasas y montos. El simulador calcula cuándo las liquidarás con cada método.' },
+      { titulo: 'Quiz: ¿Conoces tu score crediticio?', tipo: 'quiz', descripcion: 'Pon a prueba tus conocimientos sobre Buró de Crédito en México.' },
+      { titulo: 'Caso de estudio: Familia García sale de deudas', tipo: 'caso-estudio', descripcion: 'Analiza el caso real de una familia con $180,000 en deudas y diseña la estrategia óptima de pago.' }
     ],
     audios: [
-      { titulo: 'Inversiones para principiantes: por dónde empezar', descripcion: 'Explicación sencilla de los instrumentos de inversión disponibles en México para quienes nunca han invertido.', duracion: '20:05' },
-      { titulo: 'La magia del interés compuesto con ejemplos reales', descripcion: 'Casos prácticos de cómo $1,000 pesos mensuales pueden convertirse en un patrimonio significativo.', duracion: '16:30' }
+      { titulo: 'Mi camino libre de deudas', descripcion: 'Tres historias reales de mexicanos que liquidaron deudas de más de $100,000 pesos en menos de 2 años.', duracion: '28:30' }
     ],
     libros: [
-      { titulo: 'El inversor inteligente', autor: 'Benjamin Graham', descripcion: 'La biblia de la inversión en valor, con principios atemporales para proteger tu capital de la inflación.', tipo: 'ebook' },
-      { titulo: 'Cómo invertir en CETES y más', autor: 'Banco de México', descripcion: 'Guía oficial paso a paso para abrir tu cuenta en CETES Directo y comenzar a invertir desde $100 pesos.', tipo: 'pdf' }
+      { titulo: 'The Total Money Makeover', autor: 'Dave Ramsey', descripcion: 'El plan bola de nieve paso a paso para salir de deudas y nunca más pedir prestado.', tipo: 'ebook' },
+      { titulo: 'Padre Rico, Padre Pobre', autor: 'Robert Kiyosaki', descripcion: 'La diferencia entre activos y pasivos: construye tu futuro sin depender del crédito.', tipo: 'ebook' }
     ]
   },
 
   // NIVEL 2 (Intermedio)
   {
     id: 'fondo-emergencia', semestre: 1, icon: '🛡️',
-    nombre: 'Ahorro formal y fondo de emergencia',
-    desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
-    temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
+    nombre: 'Aprende a ahorrar y crea tu fondo de emergencia',
+    desc: 'Págate primero (principio de Clason) y construye tu escudo de 3 a 6 meses de gastos con un hábito de ahorro automático.',
+    temario: ['Págate primero: el 10% mágico (Clason)', 'Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
     videos: [
-      { titulo: 'Cuentas de ahorro en México: ¿cuál te conviene?', url: 'https://www.youtube.com/embed/9xHOEs6WtaM', duracion: '14:50' },
-      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/H48qw1QRGSA', duracion: '11:35' },
+      { titulo: 'Págate primero: el 10% mágico (Clason)', url: 'https://www.youtube.com/embed/9xHOEs6WtaM', duracion: '19:30' },
+      { titulo: 'Liquidez vs rendimiento: dónde guardar tu fondo de emergencia', url: 'https://www.youtube.com/embed/H48qw1QRGSA', duracion: '14:50' },
       { titulo: 'Cómo automatizar tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
     ],
     ejercicios: [
-      { titulo: 'Calculadora de fondo de emergencia avanzada', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación del auto. ¿Cuántos meses resistes?' },
-      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan semana a semana para construir tu fondo de emergencia con metas progresivas y seguimiento.' },
-      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: 'Evalúa tu nivel de preparación financiera ante imprevistos con 12 preguntas de situaciones reales.' }
+      { titulo: 'Calculadora de fondo de emergencia', tipo: 'simulacion', descripcion: 'Simula diferentes escenarios: pérdida de empleo, emergencia médica, reparación. ¿Cuántos meses resistes?' },
+      { titulo: 'Plan de ahorro personalizado a 6 meses', tipo: 'practica', descripcion: 'Crea un plan para construir tu fondo con metas progresivas y seguimiento semanal.' },
+      { titulo: 'Quiz: ¿Estás preparado para una emergencia financiera?', tipo: 'quiz', descripcion: '12 preguntas de situaciones reales.' }
     ],
     audios: [
-      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia bien planificado.', duracion: '19:45' },
-      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Cambia tu perspectiva sobre el ahorro: técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
+      { titulo: 'Historias de paz financiera', descripcion: 'Testimonios de personas que evitaron la crisis gracias a su fondo de emergencia.', duracion: '19:45' },
+      { titulo: 'El ahorro no es sacrificio, es libertad', descripcion: 'Técnicas psicológicas para disfrutar el proceso de ahorrar.', duracion: '17:20' }
     ],
     libros: [
-      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Parábolas ancestrales sobre el ahorro y la riqueza que siguen vigentes para las finanzas modernas.', tipo: 'ebook' },
-      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas de ahorro, pagarés y fondos de inversión de bajo riesgo en México.', tipo: 'pdf' }
+      { titulo: 'El hombre más rico de Babilonia', autor: 'George S. Clason', descripcion: 'Págate primero: el 10% mágico de Arkad para construir tu fondo con disciplina.', tipo: 'ebook' },
+      { titulo: 'Estrategias de ahorro para mexicanos', autor: 'CONDUSEF', descripcion: 'Comparativo actualizado de cuentas, pagarés y fondos de bajo riesgo de México.', tipo: 'pdf' }
     ]
   },
   {
     id: 'control-deudas', semestre: 2, icon: '💳',
-    nombre: 'Control de deudas y crédito bancario',
-    desc: 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.',
-    temario: ['El costo real de las tasas de interés', 'Estrategia bola de nieve vs avalancha', 'Renegociación sin quitas destructivas'],
+    nombre: 'Crédito bancario y Buró: negocia como un experto',
+    desc: 'Score crediticio, renegociación sin quitas y cómo usar el crédito a tu favor: CAT, historial, rebus créditos.',
+    temario: ['El CAT y el costo real de las tarjetas', 'Score crediticio: cómo subirlo y cuidarlo', 'Negociación de créditos sin quitas destructivas'],
     videos: [
       { titulo: 'Método bola de nieve vs avalancha: ¿cuál elegir?', url: 'https://www.youtube.com/embed/JGwWNGJdvx8', duracion: '16:28' },
       { titulo: 'Cómo entender tu estado de cuenta y el CAT', url: 'https://www.youtube.com/embed/LK7qEnwi_R0', duracion: '12:15' },

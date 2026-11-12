@@ -170,7 +170,7 @@
   <aside class="demo-progress-bar-strip">
     <div class="container progress-strip-inner">
       <div class="progress-strip-info">
-        <span>📖 Estudiando: <strong>Unidad 1 — Rompe el ciclo financiero</strong></span>
+        <span>📖 Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
         <span>•</span>
         <span id="stripStatus">3 lecciones libres para ver ahora</span>
       </div>
@@ -199,12 +199,12 @@
           <!-- UNIDAD 1 -->
           <div class="unit-accordion">
             <div class="unit-title-bar unit-active" onclick="toggleUnit('unit1')">
-              <span>📖 Unidad 1: Rompe el ciclo</span>
+              <span>📖 Unidad 1: Psicología del dinero</span>
               <span class="unit-badge badge-open" id="unit1Badge">Liberada</span>
             </div>
             <ul class="lesson-list" id="unit1List">
               <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>1. Diagnóstico de tu dinero</span></div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>1. La psicología del dinero (Housel)</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)">
@@ -218,13 +218,13 @@
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>3. Regla 50/30/20 simplificada</span></div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>3. Hábitos atómicos: identidad > motivación (Clear)</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)">
                 <div class="lesson-info">
                   <span class="lesson-icon">▶</span>
-                  <span>4. Método anti-deuda acelerado</span>
+                  <span>4. No pidas préstamos: el método anti-deuda (Ramsey)</span>
                   <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
                     <span>Video</span> ↗
                   </a>
@@ -237,14 +237,14 @@
           <!-- UNIDAD 2 -->
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit2')">
-              <span>🛡 Unidad 2: Construye tu fortaleza</span>
+              <span>💸 Unidad 2: Aprende a gastar</span>
               <span class="unit-badge badge-open" style="background:#e0f2fe; color:#0369a1;">Liberada</span>
             </div>
             <ul class="lesson-list" id="unit2List">
               <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)">
                 <div class="lesson-info">
                   <span class="lesson-icon">▶</span>
-                  <span>5. Fondo de paz y emergencias</span>
+                  <span>5. Págate primero y colchón de emergencia (Clason)</span>
                   <a href="https://youtu.be/vp_B6Z7eF68?si=S854mK2puo4_ystd" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
                     <span>Video</span> ↗
                   </a>
@@ -252,7 +252,7 @@
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Negociación y blindaje</span></div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Presupuesto base cero y no gastar de más (Ramsey)</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
             </ul>
@@ -261,16 +261,16 @@
           <!-- UNIDAD 3 -->
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit3')">
-              <span>📈 Unidad 3: Multiplica e invierte</span>
+              <span>🔥 Unidad 3: No pidas préstamos</span>
               <span class="unit-badge badge-open" style="background:#fef08a; color:#854d0e;">Liberada</span>
             </div>
             <ul class="lesson-list" id="unit3List">
               <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>7. CETES e Interés Compuesto</span></div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: de CETES al interés compuesto</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
               <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Portafolios y Retiro Temprano</span></div>
+                <div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div>
                 <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
             </ul>

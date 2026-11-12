@@ -973,26 +973,6 @@
 
     </div>
 
-    <!-- SECCIÓN PARA INSCRIBIRSE -->
-    <div class="enroll-cta-wrapper">
-      <div class="enroll-badge">
-        <span>🧠 FORMACIÓN INTEGRAL • NEUROVENTAS Y FINANZAS</span>
-      </div>
-      <h2>Aprende a venderle a la mente y transforma tus resultados</h2>
-      <p>
-        Domina la psicología del consumidor, los principios científicos de las neurociencias y las herramientas financieras para llevar tus ingresos y tu vida al siguiente nivel.
-      </p>
-      <div class="cta-button-group">
-        <a href="index.php?page=reticula" class="btn-main-pulse">
-          <span>👉 Inscríbete Ahora Gratis</span>
-        </a>
-      </div>
-      <div class="no-register-note">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Acceso libre • Sin tarjeta de crédito • Comienza en menos de 1 minuto</span>
-      </div>
-    </div>
-
   </div>
 </section>
 </main>
@@ -1581,6 +1561,8 @@
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45) !important;
   position: relative !important;
   overflow: hidden !important;
+  overflow-y: auto !important;
+  max-height: 88vh !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
   margin: auto !important;
 }

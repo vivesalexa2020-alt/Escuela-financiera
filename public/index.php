@@ -12,6 +12,11 @@ require_once dirname(__DIR__) . '/autoload.php';
 use App\Core\Router;
 use App\Core\ErrorHandler;
 
+// Evitar caché heurística del HTML en los navegadores (vista siempre fresca)
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
 // Registrar manejo global de errores
 ErrorHandler::register();
 

@@ -348,16 +348,16 @@
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
       <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Nivel 1: Básico (Primer mes gratis)</h3>
-      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero, diseña tu primer presupuesto y crea tu fondo de emergencia.</p>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Tu relación con el dinero empieza en la mente: aprende psicología del dinero, cambia tus hábitos, aprende a gastar sin sobrantes, sal de deudas y domina el ahorro.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
-        <div style="font-size: 30.5px; margin-bottom: 8px;">📗</div>
-        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Rompe el ciclo</h3>
-        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🧠</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Psicología del dinero y cambio de hábitos</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Entiende por qué tu mente decide mal con el dinero, elimina creencias limitantes y convierte la educación financiera en hábitos automáticos.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
           <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
@@ -375,9 +375,9 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
-        <div style="font-size: 30.5px; margin-bottom: 8px;">📘</div>
-        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Construye tu fortaleza</h3>
-        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">💸</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Aprende a gastar y no gastar de más</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Domina la regla 50/30/20, elimina fugas hormiga y diseña un presupuesto base cero para que cada peso tenga un trabajo.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
           <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
@@ -395,9 +395,9 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
           <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
-        <div style="font-size: 30.5px; margin-bottom: 8px;">📙</div>
-        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: Multiplica e invierte</h3>
-        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.</p>
+        <div style="font-size: 30.5px; margin-bottom: 8px;">🔥</div>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: No pidas préstamos: sal de tus deudas</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Método bola de nieve y avalancha con fundamento conductual: liquida tarjetas y compromisos para nunca más vivir pidiendo.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
           <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
@@ -416,8 +416,8 @@
           <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🛡️</div>
-        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Ahorro formal y fondo de emergencia</h3>
-        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.</p>
+        <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Aprende a ahorrar y crea tu fondo de emergencia</h3>
+        <p class="course-desc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">Págate primero (principio de Clason) y construye tu escudo de 3 a 6 meses de gastos con un hábito de ahorro automático.</p>
         <div style="background: #f7fbf9; border: 1px solid #e1eee7; border-radius: 12px; padding: 10px 12px; margin-bottom: 16px;">
           <div style="font-size: 12px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 6px; letter-spacing: 0.5px;">RECURSOS INCLUIDOS:</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px;">
