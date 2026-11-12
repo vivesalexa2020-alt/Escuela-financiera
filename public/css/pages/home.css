@@ -5715,6 +5715,76 @@
       background: #005a30;
     }
 
+    .svm-share-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #fff8e6;
+      border: 1px solid #fcd34d;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 6px;
+    }
+
+    .svm-share-box[hidden] {
+      display: none;
+    }
+
+    .svm-share-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #fef3c7;
+      color: #b45309;
+      display: grid;
+      place-items: center;
+    }
+
+    .svm-share-text {
+      flex: 1 1 180px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.35;
+    }
+
+    .svm-share-text strong {
+      font-size: 13px;
+      color: #92400e;
+    }
+
+    .svm-share-text span {
+      font-size: 11.5px;
+      color: #b45309;
+    }
+
+    .svm-share-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .svm-share-btn {
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .svm-share-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .svm-share-fb { background: #1877f2; color: #ffffff; }
+    .svm-share-x { background: #000000; color: #ffffff; }
+    .svm-share-wa { background: #25d366; color: #073b1a; }
+    .svm-share-no { background: transparent; color: #92400e; border-color: #f2c94c; }
+
     /* Modals topbar variations for 3 independent chapters */
     .nfm-topbar-blue {
       background: linear-gradient(135deg, #092644 0%, #03528e 100%) !important;

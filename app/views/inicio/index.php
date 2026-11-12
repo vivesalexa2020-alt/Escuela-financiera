@@ -1902,8 +1902,23 @@
           <strong>Comunidad Oficial:</strong> "¡Gran testimonio! Tu disciplina financiera inspira a toda la plataforma."
         </div>
         <div class="svm-comment-input-row">
-          <input type="text" id="svmNewComment" class="svm-comment-input" placeholder="Escribe un mensaje de apoyo o felicitación...">
+          <input type="text" id="svmNewComment" class="svm-comment-input" placeholder="Escribe un mensaje de apoyo o felicitación..." maxlength="280">
           <button type="button" class="svm-send-btn" onclick="postTestimonialComment()">Comentar</button>
+        </div>
+        <div class="svm-share-box" id="svmShareBox" hidden>
+          <span class="svm-share-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 16a3 3 0 0 0-2.24 1.04l-6.68-3.9a3.4 3.4 0 0 0 0-2.28l6.68-3.9A3 3 0 1 0 15 4a3.2 3.2 0 0 0 .04.44L8.36 8.34a3 3 0 1 0 0 7.32l6.68 3.9a3 3 0 1 0 2.96-3.56z"/></svg>
+          </span>
+          <div class="svm-share-text">
+            <strong>¿Quieres compartir tu comentario en redes sociales?</strong>
+            <span>Tu testimonio se publicará con tu cuenta para que se vea que es real.</span>
+          </div>
+          <div class="svm-share-actions">
+            <button type="button" class="svm-share-btn svm-share-fb" onclick="shareTestimonialComment('facebook')">Facebook</button>
+            <button type="button" class="svm-share-btn svm-share-x" onclick="shareTestimonialComment('x')">X</button>
+            <button type="button" class="svm-share-btn svm-share-wa" onclick="shareTestimonialComment('whatsapp')">WhatsApp</button>
+            <button type="button" class="svm-share-btn svm-share-no" onclick="discardTestimonialCommentShare()">Ahora no</button>
+          </div>
         </div>
       </div>
     </div>
@@ -2018,6 +2033,10 @@
     document.getElementById('svmBadge').innerHTML = '<span>🏆</span> ' + data.badge;
     document.getElementById('svmQuote').textContent = data.quote;
     document.getElementById('svmCommentsList').innerHTML = data.defaultComment;
+    lastTestimonialComment = '';
+    discardTestimonialCommentShare();
+    var svmInput = document.getElementById('svmNewComment');
+    if (svmInput) svmInput.value = '';
 
     // Reiniciar video simulado
     videoTotalDuration = data.totalSec || 150;
@@ -2041,6 +2060,10 @@
     document.documentElement.classList.remove('demo-modal-open');
     document.body.classList.remove('demo-modal-open');
     pauseTestimonialVideo();
+    discardTestimonialCommentShare();
+    var svmInput = document.getElementById('svmNewComment');
+    if (svmInput) svmInput.value = '';
+    lastTestimonialComment = '';
   }
 
   function closeStudentComment() {
@@ -2114,17 +2137,54 @@
     updateVideoTimeDisplay();
   }
 
+  var lastTestimonialComment = '';
+
+  function escapeSvmText(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function discardTestimonialCommentShare() {
+    var box = document.getElementById('svmShareBox');
+    if (box) box.hidden = true;
+  }
+
+  function askToShareTestimonialComment() {
+    var box = document.getElementById('svmShareBox');
+    if (box) box.hidden = false;
+  }
+
   function postTestimonialComment() {
     var input = document.getElementById('svmNewComment');
     if (!input || !input.value.trim()) return;
+    var text = input.value.trim();
     var list = document.getElementById('svmCommentsList');
     var newMsg = document.createElement('div');
     newMsg.className = 'svm-comment-sample';
     newMsg.style.marginTop = '6px';
     newMsg.style.borderLeft = '3px solid #10b981';
-    newMsg.innerHTML = '<strong>Tú:</strong> "' + input.value.trim() + '"';
+    newMsg.innerHTML = '<strong>Tú:</strong> "' + escapeSvmText(text) + '"';
     list.appendChild(newMsg);
     input.value = '';
+    lastTestimonialComment = text;
+    askToShareTestimonialComment();
+  }
+
+  function shareTestimonialComment(network) {
+    var comment = lastTestimonialComment || 'Mi testimonio en Educación Financiera';
+    var url = window.location.href;
+    var text = 'Mi testimonio en Educaci\u00f3n Financiera: \u201c' + comment + '\u201d';
+    var share = '';
+    if (network === 'facebook') {
+      share = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    } else if (network === 'x') {
+      share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    } else if (network === 'whatsapp') {
+      share = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+    }
+    if (share) window.open(share, 'share', 'noopener,width=620,height=440');
+    discardTestimonialCommentShare();
   }
 
   // ── Modales de Capítulos Independientes (Sin menú ni dependencias) ──
