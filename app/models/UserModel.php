@@ -28,6 +28,44 @@ class UserModel extends Model {
         return $user ?: null;
     }
 
+    /**
+     * Lista todos los usuarios no eliminados (para el panel de administración)
+     */
+    public function getAll(): array {
+        $stmt = $this->db->prepare("
+            SELECT id, nombre, email, rol, activo, email_verificado, fecha_creacion
+            FROM usuarios
+            WHERE eliminado_en IS NULL
+            ORDER BY fecha_creacion DESC, id DESC
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function countAll(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) FROM usuarios WHERE eliminado_en IS NULL");
+        return (int)$stmt->fetchColumn();
+    }
+
+    public function countByRole(string $rol): int {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM usuarios WHERE rol = ? AND eliminado_en IS NULL");
+        $stmt->execute([$rol]);
+        return (int)$stmt->fetchColumn();
+    }
+
+    /**
+     * Actualiza el rol de un usuario. Solo admite roles válidos del ENUM.
+     */
+    public function updateRole(int $id, string $rol): bool {
+        $permitidos = ['estudiante', 'admin'];
+        if (!in_array($rol, $permitidos, true)) {
+            return false;
+        }
+
+        $stmt = $this->db->prepare("UPDATE usuarios SET rol = ? WHERE id = ? AND eliminado_en IS NULL");
+        return $stmt->execute([$rol, $id]);
+    }
+
     public function emailExists(string $email, ?int $excludeId = null): bool {
         if ($excludeId) {
             $stmt = $this->db->prepare("SELECT id FROM usuarios WHERE email = ? AND id != ? AND eliminado_en IS NULL");
@@ -49,10 +87,10 @@ class UserModel extends Model {
             $stmt->execute([$nombre, $email, $passwordHash, $tokenVerificacion]);
             $userId = (int)$this->lastInsertId();
 
-            // Membresía inicial gratuita
+            // Membresía inicial gratuita: primer mes de prueba del Nivel 1
             $stmt = $this->db->prepare("
-                INSERT INTO membresias (usuario_id, activa, tipo_membresia) 
-                VALUES (?, 1, 'gratis')
+                INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_vencimiento) 
+                VALUES (?, 1, 'gratis', DATE_ADD(NOW(), INTERVAL 1 MONTH))
             ");
             $stmt->execute([$userId]);
 
@@ -133,7 +171,7 @@ class UserModel extends Model {
             $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
             $stmt = $this->db->prepare("
-                INSERT INTO login_logs (usuario_id, email_ingresado, ip_address, user_agent, exitoso) 
+                INSERT INTO login_logs (usuario_id, email, ip_address, user_agent, exitoso) 
                 VALUES (?, ?, ?, ?, ?)
             ");
             $stmt->execute([$userId, $email, $ip, $userAgent, $exitoso ? 1 : 0]);

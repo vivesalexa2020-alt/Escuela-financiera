@@ -18,4 +18,8 @@ return static function (Router $router): void {
     $router->get('/metas',         'PageController@metas');
     $router->get('/configuraciones','PageController@configuraciones');
     $router->get('/suscripcion',   'PageController@suscripcion');
+
+    // Panel de administración (protegido por rol admin en el controlador)
+    $router->get('/admin',               'AdminController@dashboard');
+    $router->post('/admin/usuarios/rol', 'AdminController@updateRole');
 };

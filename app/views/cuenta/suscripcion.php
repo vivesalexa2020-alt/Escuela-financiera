@@ -178,7 +178,7 @@
       </div>
       <h1>Inscripción a la Carrera de Educación Financiera</h1>
       <p>
-        Carrera formativa de 2 años estructurada en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba 100% GRATIS</strong>; para acceder del <strong>Segundo Semestre en adelante</strong> necesitas pagar tu inscripción de $1,500 MXN/mes con cancelación libre.
+        Carrera formativa de 18 meses estructurada en 3 niveles de 6 meses cada uno (Básico, Intermedio y Avanzado). Tu <strong>Primer Mes del Nivel 1 es de prueba 100% GRATIS</strong>; para continuar del <strong>Segundo Mes en adelante</strong> necesitas pagar tu inscripción de $1,500 MXN/mes con cancelación libre.
       </p>
     </div>
   </section>
@@ -201,7 +201,7 @@
         <ul class="benefit-list">
           <li>
             <span class="benefit-icon">✓</span>
-            <span><strong>Programa completo de 2 años (4 Semestres)</strong>: Básico, Intermedio y Avanzado.</span>
+            <span><strong>Programa completo de 18 meses (3 niveles de 6 meses)</strong>: Básico, Intermedio y Avanzado.</span>
           </li>
           <li>
             <span class="benefit-icon">✓</span>
@@ -375,7 +375,7 @@
         return;
       }
 
-      alert("✅ ¡Inscripción activada! Ya puedes acceder a los Semestres 2, 3 y 4. Te redirigiremos a tu Retícula.");
+      alert("✅ ¡Inscripción activada! Ya puedes acceder a los Niveles 2 y 3. Te redirigiremos a tu Retícula.");
       window.location.href = "index.php?page=reticula";
     }
   </script>

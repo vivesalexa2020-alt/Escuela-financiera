@@ -461,10 +461,10 @@
             <div style="font-size: 34.5px; margin-bottom: 8px;">🎁</div>
             <h4>¿Te gustó lo que aprendiste en estos 3 temas?</h4>
             <p>
-              <strong>¡Inscríbete gratis!</strong> Crea tu cuenta en 10 segundos y desbloquea de inmediato <strong>todo tu Semestre 1 completo (Nivel Básico)</strong> de la carrera de 2 años, sin ningún costo ni tarjeta de crédito.
+              <strong>¡Inscríbete gratis!</strong> Crea tu cuenta en 10 segundos y desbloquea de inmediato <strong>tu primer mes del Nivel 1 (Básico)</strong> de la carrera de 18 meses, sin ningún costo ni tarjeta de crédito.
             </p>
             <button class="btn-unlock-unit" onclick="openFreeRegisterModal()">
-              🔓 Inscribirme Gratis y Liberar Semestre 1
+              🔓 Inscribirme Gratis y Liberar Nivel 1
             </button>
           </div>
 

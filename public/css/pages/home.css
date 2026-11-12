@@ -212,6 +212,50 @@
       color: #ffffff;
     }
 
+    /* Agrupación marca + botón de menú lateral (móvil) */
+    .hero-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .home-sidebar-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(40, 199, 111, 0.35);
+      border-radius: 8px;
+      width: 42px;
+      height: 42px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s ease;
+    }
+
+    .home-sidebar-toggle .h-bar {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      background: #FFE585;
+      border-radius: 3px;
+    }
+
+    .home-sidebar-toggle:hover {
+      background: rgba(40, 199, 111, 0.15);
+      border-color: rgba(245, 184, 0, 0.7);
+    }
+
+    @media (max-width: 992px) {
+      .home-sidebar-toggle {
+        display: flex;
+      }
+    }
+
+
     /* Badge central superior */
     .header-center-pill {
       display: flex;

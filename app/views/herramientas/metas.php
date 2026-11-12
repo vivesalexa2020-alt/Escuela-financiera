@@ -1132,7 +1132,7 @@
     <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
       <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
-        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+        <span class="reticula-modal-level" id="reticulaModalLevel">Nivel 1</span>
       </div>
       <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 22.5px;">Materia</h3>
       <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>

@@ -10,7 +10,7 @@
     <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
       <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
-        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+        <span class="reticula-modal-level" id="reticulaModalLevel">Nivel 1</span>
       </div>
       <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 22.5px;">Materia</h3>
       <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>
@@ -336,8 +336,8 @@
     <div class="container">
       <div class="section-header">
         <div>
-          <h2>Nuestros cursos (Programa de 2 Años)</h2>
-          <p>Organizados en 3 niveles (Básico, Intermedio y Avanzado). Tu <strong>Primer Semestre es de prueba y 100% GRATIS</strong>.</p>
+          <h2>Nuestros cursos (Programa de 18 Meses)</h2>
+          <p>Organizados en 3 niveles de 6 meses cada uno (Básico, Intermedio y Avanzado). Tu <strong>Primer Mes del Nivel 1 es de prueba y 100% GRATIS</strong>.</p>
         </div>
         <a href="#cursos" class="link-view-all">
           Ver todos los cursos <span>→</span>
@@ -347,14 +347,13 @@
       <div style="display: flex; flex-direction: column; gap: 40px;">
   <div>
     <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 1: Nivel Básico (Prueba 100% Gratis)</h3>
-      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero y diseña tu primer presupuesto.</p>
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Nivel 1: Básico (Primer mes gratis)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tus cimientos financieros, diagnostica fugas de dinero, diseña tu primer presupuesto y crea tu fondo de emergencia.</p>
     </div>
     <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">📗</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 1: Rompe el ciclo</h3>
@@ -374,8 +373,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">📘</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 2: Construye tu fortaleza</h3>
@@ -395,8 +393,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-basico">Semestre 1 · Básico</span>
-          <span style="font-size: 11.5px; font-weight: 700; color: #00804b; background: #d7f4e6; padding: 2px 8px; border-radius: 999px;">100% GRATIS</span>
+          <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">📙</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Unidad 3: Multiplica e invierte</h3>
@@ -414,17 +411,9 @@
           Ver recursos y lecciones <span>→</span>
         </button>
       </article>
-    </div>
-  </div>
-  <div>
-    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 2: Nivel Intermedio I (Consolidación y Ahorro)</h3>
-      <p style="font-size: 15.5px; color: var(--text-muted);">Construye tu fondo de paz mental, elimina deudas bancarias y domina herramientas digitales.</p>
-    </div>
-    <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+          <span class="course-level level-basico">Nivel 1 · Básico</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🛡️</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Ahorro formal y fondo de emergencia</h3>
@@ -442,9 +431,17 @@
           Ver recursos y lecciones <span>→</span>
         </button>
       </article>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Nivel 2: Intermedio (Consolidación y Ahorro)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Elimina deudas bancarias, domina herramientas digitales y pon a trabajar tu dinero en renta fija y fondos indexados.</p>
+    </div>
+    <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+          <span class="course-level level-intermedio">Nivel 2 · Intermedio</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">💳</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Control de deudas y crédito bancario</h3>
@@ -464,7 +461,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 2 · Intermedio</span>
+          <span class="course-level level-intermedio">Nivel 2 · Intermedio</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🧰</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Materiales y herramientas digitales</h3>
@@ -482,17 +479,9 @@
           Ver recursos y lecciones <span>→</span>
         </button>
       </article>
-    </div>
-  </div>
-  <div>
-    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 3: Nivel Intermedio II (Inversiones y Patrimonio)</h3>
-      <p style="font-size: 15.5px; color: var(--text-muted);">Pon a trabajar tu dinero en CETES, Bonos, ETFs (S&P 500) y optimiza tus deducciones fiscales.</p>
-    </div>
-    <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+          <span class="course-level level-intermedio">Nivel 2 · Intermedio</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">📈</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Estrategias de inversión y renta fija</h3>
@@ -512,7 +501,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+          <span class="course-level level-intermedio">Nivel 2 · Intermedio</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">📊</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Fondos indexados y renta variable</h3>
@@ -530,9 +519,17 @@
           Ver recursos y lecciones <span>→</span>
         </button>
       </article>
+    </div>
+  </div>
+  <div>
+    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
+      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Nivel 3: Avanzado (Inversión y Libertad Financiera)</h3>
+      <p style="font-size: 15.5px; color: var(--text-muted);">Optimiza tus impuestos, crea negocios rentables, invierte en bienes raíces y FIBRAs, y consolida tu retiro anticipado.</p>
+    </div>
+    <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-intermedio">Semestre 3 · Intermedio</span>
+          <span class="course-level level-avanzado">Nivel 3 · Avanzado</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🏛️</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Protección patrimonial e impuestos</h3>
@@ -550,17 +547,9 @@
           Ver recursos y lecciones <span>→</span>
         </button>
       </article>
-    </div>
-  </div>
-  <div>
-    <div style="margin-bottom: 16px; border-bottom: 2px solid #e6f0eb; padding-bottom: 10px;">
-      <h3 style="font-size: 22.5px; font-weight: 800; color: var(--verde-bosque); margin-bottom: 4px;">Semestre 4: Nivel Avanzado (Libertad Financiera)</h3>
-      <p style="font-size: 15.5px; color: var(--text-muted);">Crea negocios rentables, invierte en bienes raíces y FIBRAs, y consolida tu retiro anticipado.</p>
-    </div>
-    <div class="courses-grid">
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+          <span class="course-level level-avanzado">Nivel 3 · Avanzado</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">💡</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Emprendimiento y modelos de negocio</h3>
@@ -580,7 +569,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+          <span class="course-level level-avanzado">Nivel 3 · Avanzado</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🏢</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Inversión inmobiliaria y FIBRAs</h3>
@@ -600,7 +589,7 @@
       </article>
       <article class="course-card">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <span class="course-level level-avanzado">Semestre 4 · Avanzado</span>
+          <span class="course-level level-avanzado">Nivel 3 · Avanzado</span>
         </div>
         <div style="font-size: 30.5px; margin-bottom: 8px;">🏆</div>
         <h3 style="font-size: 18.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Independencia y legado financiero</h3>

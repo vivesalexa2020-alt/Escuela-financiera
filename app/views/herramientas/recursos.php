@@ -283,6 +283,107 @@
     </div>
   </section>
 
+  <section style="padding: 0 0 30px;">
+    <div class="container">
+      <div class="calc-card hormiga-card">
+        <div class="hormiga-header">
+          <div class="hormiga-title-wrap">
+            <span class="hormiga-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="6" rx="2.4" ry="2.6"></ellipse>
+                <ellipse cx="12" cy="12" rx="3.1" ry="3.4"></ellipse>
+                <ellipse cx="12" cy="19" rx="3.8" ry="3.2"></ellipse>
+                <path d="M9.8 5.2 7.4 3.6M14.2 5.2l2.4-1.6M8.9 11H5.6M15.1 11h3.3M8.2 18.2l-2.8 1.4M15.8 18.2l2.8 1.4"></path>
+              </svg>
+            </span>
+            <div>
+              <h2>Registrador de Gastos Hormiga</h2>
+              <p>Registra esos peque&ntilde;os gastos que parecen invisibles. La herramienta calcula cu&aacute;nto suman al mes y al a&ntilde;o, y te ayuda a identificar cu&aacute;les son verdaderos gastos hormiga.</p>
+            </div>
+          </div>
+          <span class="hormiga-live-badge">Herramienta interactiva</span>
+        </div>
+
+        <div class="hormiga-grid">
+          <form class="hormiga-form" id="hormigaForm" autocomplete="off" novalidate>
+            <div class="calc-group">
+              <label for="hormigaConcepto">&iquest;Qu&eacute; gastaste?</label>
+              <input type="text" id="hormigaConcepto" maxlength="60" placeholder="Ej. Caf&eacute; de la ma&ntilde;ana, snack, app..." required>
+            </div>
+            <div class="hormiga-row">
+              <div class="calc-group">
+                <label for="hormigaMonto">Monto por compra ($ MXN)</label>
+                <input type="number" id="hormigaMonto" min="1" step="0.5" placeholder="45" required>
+              </div>
+              <div class="calc-group">
+                <label for="hormigaFrecuencia">Frecuencia</label>
+                <select id="hormigaFrecuencia">
+                  <option value="diario">Diario</option>
+                  <option value="tres_semana" selected>3-4 veces por semana</option>
+                  <option value="semanal">Semanal</option>
+                  <option value="quincenal">Quincenal</option>
+                  <option value="mensual">Mensual</option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-group">
+              <label for="hormigaCategoria">Categor&iacute;a</label>
+              <select id="hormigaCategoria">
+                <option value="cafe">Caf&eacute; y comida</option>
+                <option value="snacks">Snacks y antojos</option>
+                <option value="transporte">Transporte y apps</option>
+                <option value="suscripciones">Suscripciones</option>
+                <option value="compras">Compras impulsivas</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-cta-yellow hormiga-add-btn">+ Registrar gasto</button>
+            <p class="hormiga-form-msg" id="hormigaFormMsg" role="status"></p>
+          </form>
+
+          <div class="hormiga-results">
+            <div class="hormiga-result-main">
+              <span class="hormiga-result-label">Fuga mensual estimada</span>
+              <div class="hormiga-result-value" id="hormigaMensual">$0</div>
+              <div class="hormiga-result-sub">
+                <span>Al a&ntilde;o: <strong id="hormigaAnual">$0</strong></span>
+                <span>En 5 a&ntilde;os invertido al 11%: <strong id="hormigaCinco">$0</strong></span>
+              </div>
+            </div>
+            <div class="hormiga-diagnostico" id="hormigaDiagnostico" data-nivel="vacio">
+              <span class="hormiga-diag-dot"></span>
+              <div>
+                <strong id="hormigaDiagTitulo">A&uacute;n no hay gastos registrados</strong>
+                <p id="hormigaDiagTexto">Agrega tu primer gasto para descubrir el tama&ntilde;o real de la fuga.</p>
+              </div>
+            </div>
+            <div class="hormiga-mini-stats">
+              <div><strong id="hormigaCount">0</strong><span>gastos</span></div>
+              <div><strong id="hormigaHormigaCount">0</strong><span>hormiga</span></div>
+              <div><strong id="hormigaHormigaMensual">$0</strong><span>fuga hormiga / mes</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hormiga-criterios">
+          <strong>As&iacute; identificamos un gasto hormiga:</strong>
+          <span>monto peque&ntilde;o (&le; $200)</span>
+          <span>alta frecuencia (diario a semanal)</span>
+          <span>impulsivo o autom&aacute;tico</span>
+          <span>no aporta valor real</span>
+        </div>
+
+        <div class="hormiga-list-wrap">
+          <div class="hormiga-list-head">
+            <h3>Tu registro</h3>
+            <button type="button" class="hormiga-clear" id="hormigaClearBtn">Vaciar registro</button>
+          </div>
+          <div id="hormigaList" class="hormiga-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <section class="resources-section" id="recursos">
     <div class="container">
       <div class="section-header">

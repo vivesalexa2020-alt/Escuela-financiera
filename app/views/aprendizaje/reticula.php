@@ -222,7 +222,7 @@
         <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
       </div>
       <h1>Tu <span>Retícula Académica</span></h1>
-      <p>Programa formativo de <strong>2 años</strong> dividido en 3 niveles: <strong>Básico, Intermedio y Avanzado</strong>. Tu <strong>Primer Semestre es de prueba y 100% GRATIS</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
+      <p>Programa formativo de <strong>18 meses</strong> dividido en 3 niveles de 6 meses: <strong>Básico, Intermedio y Avanzado</strong>. Tu <strong>Primer Mes del Nivel 1 es de prueba y 100% GRATIS</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
     </div>
   </section>
 
@@ -272,8 +272,8 @@
         <div class="reticula-head">
           <div>
             <span class="reticula-badge">🗺️ Mapa de Aprendizaje</span>
-            <h3>Tu Retícula Académica (2 Años · 4 Semestres)</h3>
-            <p>Carrera completa de <strong>2 años</strong> en 3 niveles (<strong>Básico, Intermedio y Avanzado</strong>). Cursa tu <strong>Primer Semestre de prueba 100% GRATIS</strong> y avanza a tu ritmo hacia tu libertad financiera.</p>
+            <h3>Tu Retícula Académica (18 Meses · 3 Niveles)</h3>
+            <p>Carrera completa de <strong>18 meses</strong> en 3 niveles de 6 meses (<strong>Básico, Intermedio y Avanzado</strong>). Cursa tu <strong>Primer Mes del Nivel 1 de prueba 100% GRATIS</strong> y avanza a tu ritmo hacia tu libertad financiera.</p>
           </div>
           <div class="reticula-resumen" id="reticulaResumen">
             <!-- Se llena con JavaScript -->
@@ -287,7 +287,7 @@
         </div>
 
         <div class="reticula-grid" id="reticulaGrid">
-          <!-- Los semestres y materias se generan con JavaScript -->
+          <!-- Los niveles y materias se generan con JavaScript -->
         </div>
       </section>
     </div>
@@ -462,7 +462,7 @@
     <div class="modal-card modal-card-wide" style="text-align: left; max-width: 650px; max-height: 90vh; overflow-y: auto;">
       <button class="modal-close-btn" onclick="closeReticulaModal()" aria-label="Cerrar">×</button>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px;">
-        <span class="reticula-modal-level" id="reticulaModalLevel">Semestre 1</span>
+        <span class="reticula-modal-level" id="reticulaModalLevel">Nivel 1</span>
       </div>
       <h3 id="reticulaModalTitle" style="margin: 6px 0 4px; font-size: 22.5px;">Materia</h3>
       <p id="reticulaModalDesc" style="color: var(--text-muted); font-size: 15.5px; line-height: 1.5; margin-bottom: 12px;">Descripción de la materia.</p>

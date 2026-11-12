@@ -2024,3 +2024,467 @@ body.user-logged-in .site-header.guest-header,
     display: flex !important;
   }
 }
+
+/* ============================================================
+   HERRAMIENTA: REGISTRADOR DE GASTOS HORMIGA
+   ============================================================ */
+.hormiga-card {
+  background: linear-gradient(180deg, #f4fbf7 0%, #ffffff 60%);
+  border-color: #c9e8d8;
+}
+
+.hormiga-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.hormiga-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hormiga-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0e8a52, #06402d);
+  color: #cbf63e;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 16px rgba(6, 64, 45, 0.22);
+}
+
+.hormiga-header h2 {
+  font-size: 26.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.hormiga-header p {
+  color: var(--text-muted);
+  font-size: 15.5px;
+  line-height: 1.55;
+  max-width: 720px;
+  margin: 0;
+}
+
+.hormiga-live-badge {
+  flex-shrink: 0;
+  background: #d7f4e6;
+  color: #00804b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.hormiga-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+.hormiga-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hormiga-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.hormiga-form select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d4e7de;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #ffffff;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.hormiga-form input:focus,
+.hormiga-form select:focus {
+  outline: none;
+  border-color: #00ba6d;
+  box-shadow: 0 0 0 3px rgba(0, 186, 109, 0.12);
+}
+
+.hormiga-add-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.hormiga-form-msg {
+  display: none;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hormiga-form-msg.error {
+  display: block;
+  color: #e11d48;
+}
+
+.hormiga-form-msg.success {
+  display: block;
+  color: #059669;
+}
+
+.hormiga-results {
+  background: linear-gradient(135deg, #06402d 0%, #032b1d 100%);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hormiga-result-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-light-mint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hormiga-result-value {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--accent-lime);
+  line-height: 1.1;
+  margin: 4px 0 10px;
+}
+
+.hormiga-result-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 12px;
+  font-size: 14px;
+  color: #d2ebe0;
+}
+
+.hormiga-result-sub strong {
+  color: #ffffff;
+}
+
+.hormiga-diagnostico {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.hormiga-diag-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #94a3b8;
+  flex-shrink: 0;
+  margin-top: 4px;
+  box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.18);
+}
+
+.hormiga-diagnostico strong {
+  display: block;
+  font-size: 15.5px;
+  margin-bottom: 2px;
+}
+
+.hormiga-diagnostico p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #d2ebe0;
+}
+
+.hormiga-diagnostico[data-nivel="bajo"] .hormiga-diag-dot {
+  background: #28c76f;
+  box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.2);
+}
+
+.hormiga-diagnostico[data-nivel="medio"] .hormiga-diag-dot {
+  background: #fabb15;
+  box-shadow: 0 0 0 4px rgba(250, 187, 21, 0.2);
+}
+
+.hormiga-diagnostico[data-nivel="alto"] .hormiga-diag-dot {
+  background: #f97316;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+}
+
+.hormiga-diagnostico[data-nivel="critico"] .hormiga-diag-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.22);
+}
+
+.hormiga-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.hormiga-mini-stats > div {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px 8px;
+}
+
+.hormiga-mini-stats strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.hormiga-mini-stats span {
+  font-size: 11.5px;
+  color: var(--text-light-mint);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hormiga-criterios {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f0f9f4;
+  border: 1px dashed #bbf0d0;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #386352;
+}
+
+.hormiga-criterios strong {
+  color: var(--text-dark);
+  margin-right: 4px;
+}
+
+.hormiga-criterios span {
+  background: #ffffff;
+  border: 1px solid #d4e7de;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 600;
+}
+
+.hormiga-list-wrap {
+  margin-top: 26px;
+}
+
+.hormiga-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hormiga-list-head h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.hormiga-clear {
+  background: transparent;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hormiga-clear:hover {
+  background: #fef2f2;
+}
+
+.hormiga-clear:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hormiga-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hormiga-empty {
+  border: 1px dashed #cfe3d9;
+  border-radius: 14px;
+  padding: 26px 18px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  background: #fbfdfc;
+}
+
+.hormiga-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2efe8;
+  border-left: 4px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 14px 16px;
+  flex-wrap: wrap;
+}
+
+.hormiga-item.tipo-hormiga {
+  border-left-color: #ef4444;
+}
+
+.hormiga-item.tipo-posible {
+  border-left-color: #f59e0b;
+}
+
+.hormiga-item.tipo-consciente {
+  border-left-color: #28c76f;
+}
+
+.hormiga-item-main {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.hormiga-item-main h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hormiga-item-main p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.hormiga-item-stats {
+  display: flex;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.hormiga-item-stats div {
+  text-align: right;
+}
+
+.hormiga-item-stats strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.hormiga-item-stats span {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hormiga-item-badge {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.hormiga-item-badge.tipo-hormiga {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.hormiga-item-badge.tipo-posible {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.hormiga-item-badge.tipo-consciente {
+  background: #d7f4e6;
+  color: #00804b;
+}
+
+.hormiga-item-del {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #dc2626;
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.hormiga-item-del:hover {
+  background: #fee2e2;
+  transform: scale(1.06);
+}
+
+@media (max-width: 992px) {
+  .hormiga-grid {
+    grid-template-columns: 1fr;
+  }
+  .hormiga-header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .hormiga-row {
+    grid-template-columns: 1fr;
+  }
+  .hormiga-mini-stats {
+    grid-template-columns: 1fr;
+  }
+  .hormiga-item-stats {
+    gap: 12px;
+  }
+  .hormiga-result-value {
+    font-size: 34.5px;
+  }
+}

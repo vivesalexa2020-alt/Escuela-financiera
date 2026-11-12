@@ -6,6 +6,103 @@
  */
 ?>
 <!-- ============================================================
+       SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
+       ============================================================ -->
+  <aside class="sidebar-left" id="sidebarLeft">
+    <div>
+      <div class="sidebar-brand">
+        <a href="index.php" class="brand-logo">
+          <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 36px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
+    <g>
+      <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
+      <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
+      <rect x="26" y="162" width="26" height="30" rx="8" fill="#e09800"/>
+
+      <rect x="42" y="128" width="156" height="30" rx="8" fill="#cbf63e" transform="rotate(-2 120 143)"/>
+      <rect x="50" y="134" width="140" height="18" rx="4" fill="#f2ffcd" transform="rotate(-2 120 143)"/>
+      <rect x="42" y="128" width="26" height="30" rx="8" fill="#a9cf1e" transform="rotate(-2 120 143)"/>
+
+      <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
+      <rect x="66" y="100" width="108" height="18" rx="4" fill="#d7f4e6" transform="rotate(2 120 109)"/>
+      <rect x="58" y="94" width="26" height="30" rx="8" fill="#bce9d2" transform="rotate(2 120 109)"/>
+    </g>
+
+    <g>
+      <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
+      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
+      <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="none" stroke="#d7f4e6" stroke-width="3"/>
+      <circle cx="120" cy="58" r="7" fill="#fabb15"/>
+      <path d="M120,58 C160,58 196,60 204,62 L204,104" fill="none" stroke="#fabb15" stroke-width="5" stroke-linecap="round"/>
+      <path d="M197,104 h14 l4,26 h-22 z" fill="#fabb15"/>
+      <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </svg>
+          <div>
+            <div>Educación</div>
+            <div>Financiera</div>
+          </div>
+        </a>
+        <button class="sidebar-close-mobile" onclick="toggleSidebar(false)" aria-label="Cerrar menú">✕</button>
+      </div>
+
+      <div class="sidebar-nav-title">MENÚ PRINCIPAL</div>
+      <nav class="sidebar-nav">
+        <a href="index.php" class="sidebar-link active">
+          <span class="sidebar-icon">🏠</span>
+          <span>Inicio</span>
+        </a>
+        <a href="index.php?page=reticula" class="sidebar-link ">
+          <span class="sidebar-icon">🗺️</span>
+          <span>Retícula Académica</span>
+        </a>
+        <a href="index.php?page=aula" class="sidebar-link ">
+          <span class="sidebar-icon">🚀</span>
+          <span>Aula Demo</span>
+        </a>
+        <a href="index.php?page=metas" class="sidebar-link ">
+          <span class="sidebar-icon">🎯</span>
+          <span>Metas</span>
+        </a>
+        <a href="index.php?page=recursos" class="sidebar-link ">
+          <span class="sidebar-icon">🧮</span>
+          <span>Recursos</span>
+        </a>
+        <a href="index.php?page=suscripcion" class="sidebar-link ">
+          <span class="sidebar-icon">💳</span>
+          <span>Membresía</span>
+        </a>
+        <a href="index.php?page=configuraciones" class="sidebar-link ">
+          <span class="sidebar-icon">⚙️</span>
+          <span>Configuraciones</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Perfil del estudiante en la parte inferior del Sidebar -->
+    <div class="sidebar-user-panel">
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebarUserName">Estudiante</div>
+          <div class="sidebar-user-role">Estudiante Activo</div>
+        </div>
+      </div>
+      <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Salir</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Backdrop para cerrar sidebar en responsive -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+
+  <div class="main-wrapper" id="mainWrapper">
+<!-- ============================================================
        SPLASH SCREEN — FONDO ILUSTRADO
        ============================================================ -->
   <div class="splash-screen" id="splashScreen">
@@ -103,22 +200,29 @@
       <!-- HEADER -->
   <header class="site-header hero-header-bar">
     <div class="container nav-wrap hero-nav-wrap">
-      <a href="index.php" class="brand-logo hero-brand">
-        <svg viewBox="0 0 240 210" width="34" height="30" role="img" aria-label="Logo Sombrero de Graduación con Libros">
-          <g>
-            <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
-            <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
-            <rect x="42" y="128" width="156" height="30" rx="8" fill="#28C76F" transform="rotate(-2 120 143)"/>
-            <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
-          </g>
-          <g>
-            <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
-            <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
-            <circle cx="120" cy="58" r="7" fill="#F5B800"/>
-          </g>
-        </svg>
-        <span>Educación <strong>Financiera</strong></span>
-      </a>
+      <div class="hero-brand-group">
+        <button class="home-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">
+          <span class="h-bar"></span>
+          <span class="h-bar"></span>
+          <span class="h-bar"></span>
+        </button>
+        <a href="index.php" class="brand-logo hero-brand">
+          <svg viewBox="0 0 240 210" width="34" height="30" role="img" aria-label="Logo Sombrero de Graduación con Libros">
+            <g>
+              <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
+              <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
+              <rect x="42" y="128" width="156" height="30" rx="8" fill="#28C76F" transform="rotate(-2 120 143)"/>
+              <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
+            </g>
+            <g>
+              <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
+              <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
+              <circle cx="120" cy="58" r="7" fill="#F5B800"/>
+            </g>
+          </svg>
+          <span>Educación <strong>Financiera</strong></span>
+        </a>
+      </div>
 
       <!-- Badge central superior (escritorio y tablets) -->
       <div class="header-center-pill">
@@ -361,11 +465,11 @@
         <!-- FILA DE 3 TARJETAS PRINCIPALES CON ANIMACIÓN INTERACTIVA -->
         <div class="hero-cards-grid">
 
-          <!-- TARJETA 1: Carrera de 2 Años -->
+          <!-- TARJETA 1: Carrera de 18 Meses -->
           <div class="hero-card hero-card-timeline">
             <div class="hcard-header">
               <span class="hcard-icon">⏳</span>
-              <span class="hcard-title">Carrera de 2 Años</span>
+              <span class="hcard-title">Carrera de 18 Meses</span>
             </div>
             <div class="hcard-body timeline-body">
               <!-- Línea de tiempo -->
@@ -375,19 +479,19 @@
                   <!-- Punto 1 -->
                   <div class="tl-point tl-p1">
                     <span class="tl-dot"></span>
-                    <span class="tl-tag">Año 1:<br><small>Fundamentos</small></span>
+                    <span class="tl-tag">Nivel 1:<br><small>Fundamentos</small></span>
                   </div>
                   <!-- Punto 2: Con resplandor especial pulsante -->
                   <div class="tl-point tl-p2 tl-active-node">
                     <span class="tl-flare-halo"></span>
                     <span class="tl-flare-ring-pulse"></span>
                     <span class="tl-dot tl-dot-flare"></span>
-                    <span class="tl-tag">Año 1.5:<br><small>Plan de Acción</small></span>
+                    <span class="tl-tag">Nivel 2:<br><small>Plan de Acción</small></span>
                   </div>
                   <!-- Punto 3 -->
                   <div class="tl-point tl-p3">
                     <span class="tl-dot"></span>
-                    <span class="tl-tag">Año 2:<br><small>Inversión</small></span>
+                    <span class="tl-tag">Nivel 3:<br><small>Inversión</small></span>
                   </div>
                 </div>
               </div>
@@ -428,7 +532,7 @@
                   <path d="M 20 98 Q 18 78 26 66" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round"/>
                 </svg>
                 <div class="hg-badge">
-                  <span>Año 2: Libertad</span>
+                  <span>Nivel 3: Libertad</span>
                 </div>
               </div>
             </div>
@@ -500,12 +604,12 @@
             </div>
           </div>
 
-          <!-- TARJETA 3: 1er Semestre Gratis -->
+          <!-- TARJETA 3: 1er Mes Gratis -->
           <div class="hero-card hero-card-cta">
             <div class="hcard-header">
               <span class="hcard-icon hcard-trophy-pulse">🏆</span>
               <div class="hcard-title-group">
-                <span class="hcard-title">1er Semestre Gratis</span>
+                <span class="hcard-title">1er Mes Gratis</span>
                 <span class="hcard-subtitle">prueba 100% GRATIS</span>
               </div>
             </div>
@@ -939,6 +1043,8 @@
     <p><strong>Educación Financiera</strong> — Plataforma Educativa de Aprendizaje y Transformación.</p>
   </div>
 </footer>
+
+  </div><!-- /main-wrapper -->
 
 <!-- ══════════════════════════════════════════════════════
      MODAL INDEPENDIENTE: CAPÍTULO 1
@@ -1845,6 +1951,7 @@
   </div>
 </div>
 
+<script src="public/js/script.js?v=<?= time() ?>"></script>
 <script>
   // ── Splash screen ──────────────────────────────────────────
   (function() {

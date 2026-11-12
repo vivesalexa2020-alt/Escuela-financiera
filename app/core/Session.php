@@ -80,6 +80,14 @@ class Session {
         return self::userId() !== null;
     }
 
+    public static function role(): string {
+        return (string) self::get('rol', 'estudiante');
+    }
+
+    public static function isAdmin(): bool {
+        return self::role() === 'admin';
+    }
+
     public static function user(): ?array {
         if (!self::isLoggedIn()) {
             return null;
@@ -89,6 +97,7 @@ class Session {
             'id'    => self::get('usuario_id'),
             'name'  => self::get('nombre'),
             'email' => self::get('email'),
+            'rol'   => self::role(),
         ];
     }
 }

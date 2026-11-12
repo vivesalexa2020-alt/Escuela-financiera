@@ -276,6 +276,11 @@ async function handleLoginSubmit(e) {
       await syncMembresiaDesdeAPI();
       updateAuthUI();
       closeLoginModal();
+
+      if (data.user && data.user.rol === 'admin') {
+        window.location.href = 'index.php?page=admin';
+        return;
+      }
     } else {
       if (loginMsg) {
         loginMsg.className = 'form-message error';
@@ -613,7 +618,7 @@ function ensureGuestAuthUI() {
   if (existingBtn) existingBtn.remove();
 
   const userPanel = document.querySelector('.sidebar-user-panel');
-  if (userPanel && !document.getElementById('sidebarGuestLoginBtn')) {
+  if (userPanel && loginModal && !document.getElementById('sidebarGuestLoginBtn')) {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.id = 'sidebarGuestLoginBtn';
@@ -672,7 +677,7 @@ function updateAuthUI() {
     if (navGuestNotice) navGuestNotice.style.display = 'none';
   } else {
     // USUARIO VISITANTE (SIN SESIÓN):
-    // Permitir acceso directo a la retícula académica con Semestre 1 libre (Cero fricción)
+    // Permitir acceso directo a la retícula académica con Nivel 1 libre (Cero fricción)
     document.body.classList.add('user-logged-in');
     document.body.classList.remove('not-logged-in');
 
@@ -700,6 +705,8 @@ function updateAuthUI() {
   renderReticula();
   // Refrescar la página de configuraciones si está presente
   renderConfiguracion();
+  // Refrescar el registro de gastos hormiga según el usuario actual
+  renderGastosHormiga();
 }
 
 // ------------------------------------------------------------
@@ -743,6 +750,252 @@ function calculateCompoundInterest() {
     totalInterestDisplay.textContent = '$' + Math.round(totalInterest).toLocaleString('es-MX');
   }
 }
+
+// ------------------------------------------------------------
+// 10b. REGISTRADOR E IDENTIFICADOR DE GASTOS HORMIGA (RECURSOS)
+// ------------------------------------------------------------
+const HORMIGA_KEY = 'edu_fin_gastos_hormiga_';
+const HORMIGA_FRECUENCIAS = {
+  diario: { label: 'Diario', alMes: 30 },
+  tres_semana: { label: '3-4 veces por semana', alMes: 15 },
+  semanal: { label: 'Semanal', alMes: 4.33 },
+  quincenal: { label: 'Quincenal', alMes: 2 },
+  mensual: { label: 'Mensual', alMes: 1 }
+};
+const HORMIGA_CATEGORIAS = {
+  cafe: 'Café y comida',
+  snacks: 'Snacks y antojos',
+  transporte: 'Transporte y apps',
+  suscripciones: 'Suscripciones',
+  compras: 'Compras impulsivas',
+  otros: 'Otros'
+};
+
+function hormigaStorageKey() {
+  const user = getCurrentUser();
+  return HORMIGA_KEY + ((user && user.email) ? user.email.toLowerCase() : 'invitado');
+}
+
+function getGastosHormiga() {
+  try {
+    const raw = localStorage.getItem(hormigaStorageKey());
+    const lista = raw ? JSON.parse(raw) : [];
+    return Array.isArray(lista) ? lista : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveGastosHormiga(lista) {
+  try {
+    localStorage.setItem(hormigaStorageKey(), JSON.stringify(lista));
+  } catch (e) {}
+}
+
+function clasificarGastoHormiga(monto, frecuencia) {
+  const f = HORMIGA_FRECUENCIAS[frecuencia] || HORMIGA_FRECUENCIAS.mensual;
+  if (monto <= 200 && f.alMes >= 4.33) {
+    return { tipo: 'hormiga', label: 'Gasto hormiga', motivo: 'Monto pequeño con alta frecuencia' };
+  }
+  if (monto <= 500 && f.alMes >= 2) {
+    return { tipo: 'posible', label: 'Posible hormiga', motivo: 'Monto medio con frecuencia recurrente' };
+  }
+  return { tipo: 'consciente', label: 'Gasto consciente', motivo: 'Monto o frecuencia fuera del patrón hormiga' };
+}
+
+function formatHormigaMoney(valor) {
+  return '$' + Math.round(valor || 0).toLocaleString('es-MX');
+}
+
+function escapeHormigaHtml(str) {
+  return String(str).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+function showHormigaMsg(texto, tipo) {
+  const msg = document.getElementById('hormigaFormMsg');
+  if (!msg) return;
+  msg.textContent = texto;
+  msg.className = 'hormiga-form-msg ' + tipo;
+  clearTimeout(showHormigaMsg._timer);
+  showHormigaMsg._timer = setTimeout(function () {
+    msg.textContent = '';
+    msg.className = 'hormiga-form-msg';
+  }, 4200);
+}
+
+function actualizarDiagnosticoHormiga(totalMensual, totalAnual) {
+  const box = document.getElementById('hormigaDiagnostico');
+  const titulo = document.getElementById('hormigaDiagTitulo');
+  const texto = document.getElementById('hormigaDiagTexto');
+  if (!box || !titulo || !texto) return;
+
+  let nivel = 'vacio';
+  let t = 'Aún no hay gastos registrados';
+  let d = 'Agrega tu primer gasto para descubrir el tamaño real de la fuga.';
+
+  if (totalMensual > 0) {
+    if (totalMensual < 500) {
+      nivel = 'bajo';
+      t = 'Fuga bajo control';
+      d = 'Tus gastos hormiga suman ' + formatHormigaMoney(totalMensual) + ' al mes. Mantén el registro y revisa las suscripciones olvidadas.';
+    } else if (totalMensual < 1500) {
+      nivel = 'medio';
+      t = 'Fuga moderada';
+      d = 'Estás dejando escapar ' + formatHormigaMoney(totalMensual) + ' al mes (' + formatHormigaMoney(totalAnual) + ' al año). Recorta a la mitad tus 2 gastos más frecuentes.';
+    } else if (totalMensual < 3000) {
+      nivel = 'alto';
+      t = 'Fuga alta';
+      d = 'Podrías estar perdiendo ' + formatHormigaMoney(totalAnual) + ' al año. Prioriza eliminar los gastos diarios y pon un límite semanal.';
+    } else {
+      nivel = 'critico';
+      t = 'Fuga crítica';
+      d = 'Tus gastos hormiga suman ' + formatHormigaMoney(totalMensual) + ' al mes: casi como pagar una renta extra. Cancela suscripciones y frena los antojos.';
+    }
+  }
+
+  box.setAttribute('data-nivel', nivel);
+  titulo.textContent = t;
+  texto.textContent = d;
+}
+
+function renderGastosHormiga() {
+  const listEl = document.getElementById('hormigaList');
+  if (!listEl) return;
+
+  const lista = getGastosHormiga();
+  let totalMensual = 0;
+  let totalHormigaMensual = 0;
+  let hormigaCount = 0;
+
+  const itemsHtml = lista.map(function (item) {
+    const monto = parseFloat(item.monto) || 0;
+    const f = HORMIGA_FRECUENCIAS[item.frecuencia] || HORMIGA_FRECUENCIAS.mensual;
+    const mensual = monto * f.alMes;
+    const clasif = clasificarGastoHormiga(monto, item.frecuencia);
+
+    totalMensual += mensual;
+    if (clasif.tipo === 'hormiga') {
+      hormigaCount++;
+      totalHormigaMensual += mensual;
+    }
+
+    const categoria = HORMIGA_CATEGORIAS[item.categoria] || 'Otros';
+    return '<article class="hormiga-item tipo-' + clasif.tipo + '">' +
+      '<div class="hormiga-item-main">' +
+        '<h4>' + escapeHormigaHtml(item.concepto || 'Gasto sin nombre') + '</h4>' +
+        '<p>' + categoria + ' &middot; ' + f.label + ' &middot; ' + formatHormigaMoney(monto) + ' por compra</p>' +
+      '</div>' +
+      '<div class="hormiga-item-stats">' +
+        '<div><strong>' + formatHormigaMoney(mensual) + '</strong><span>al mes</span></div>' +
+        '<div><strong>' + formatHormigaMoney(mensual * 12) + '</strong><span>al año</span></div>' +
+      '</div>' +
+      '<span class="hormiga-item-badge tipo-' + clasif.tipo + '" title="' + clasif.motivo + '">' + clasif.label + '</span>' +
+      '<button type="button" class="hormiga-item-del" data-del="' + escapeHormigaHtml(item.id) + '" aria-label="Eliminar gasto" title="Eliminar">&times;</button>' +
+    '</article>';
+  }).join('');
+
+  listEl.innerHTML = itemsHtml || '<div class="hormiga-empty">Todavía no has registrado gastos. Empieza con ese café o snack que compras casi sin pensar.</div>';
+
+  const totalAnual = totalMensual * 12;
+  const mensualEl = document.getElementById('hormigaMensual');
+  const anualEl = document.getElementById('hormigaAnual');
+  const cincoEl = document.getElementById('hormigaCinco');
+  if (mensualEl) mensualEl.textContent = formatHormigaMoney(totalMensual);
+  if (anualEl) anualEl.textContent = formatHormigaMoney(totalAnual);
+  if (cincoEl) {
+    const r = 0.11 / 12;
+    const n = 60;
+    const cinco = totalMensual > 0 ? totalMensual * ((Math.pow(1 + r, n) - 1) / r) : 0;
+    cincoEl.textContent = formatHormigaMoney(cinco);
+  }
+
+  const countEl = document.getElementById('hormigaCount');
+  const hormigaCountEl = document.getElementById('hormigaHormigaCount');
+  const hormigaMensualEl = document.getElementById('hormigaHormigaMensual');
+  if (countEl) countEl.textContent = lista.length;
+  if (hormigaCountEl) hormigaCountEl.textContent = hormigaCount;
+  if (hormigaMensualEl) hormigaMensualEl.textContent = formatHormigaMoney(totalHormigaMensual);
+
+  const clearBtn = document.getElementById('hormigaClearBtn');
+  if (clearBtn) clearBtn.disabled = lista.length === 0;
+
+  actualizarDiagnosticoHormiga(totalMensual, totalAnual);
+}
+
+function initGastosHormiga() {
+  const form = document.getElementById('hormigaForm');
+  if (!form || form.dataset.hormigaReady === '1') return;
+  form.dataset.hormigaReady = '1';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const conceptoInput = document.getElementById('hormigaConcepto');
+    const montoInput = document.getElementById('hormigaMonto');
+    const frecuenciaInput = document.getElementById('hormigaFrecuencia');
+    const categoriaInput = document.getElementById('hormigaCategoria');
+
+    const concepto = (conceptoInput.value || '').trim();
+    const monto = parseFloat(montoInput.value);
+
+    if (!concepto) {
+      showHormigaMsg('Escribe qué gastaste.', 'error');
+      conceptoInput.focus();
+      return;
+    }
+    if (!isFinite(monto) || monto <= 0) {
+      showHormigaMsg('Ingresa un monto válido mayor a 0.', 'error');
+      montoInput.focus();
+      return;
+    }
+
+    const lista = getGastosHormiga();
+    lista.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      concepto: concepto,
+      monto: monto,
+      frecuencia: frecuenciaInput.value,
+      categoria: categoriaInput.value,
+      fecha: new Date().toISOString()
+    });
+    saveGastosHormiga(lista);
+    renderGastosHormiga();
+
+    conceptoInput.value = '';
+    montoInput.value = '';
+    showHormigaMsg('Gasto registrado. Revisa tu diagnóstico.', 'success');
+    conceptoInput.focus();
+  });
+
+  const listEl = document.getElementById('hormigaList');
+  if (listEl) {
+    listEl.addEventListener('click', function (e) {
+      const btn = e.target.closest('[data-del]');
+      if (!btn) return;
+      const id = btn.getAttribute('data-del');
+      const lista = getGastosHormiga().filter(function (item) { return item.id !== id; });
+      saveGastosHormiga(lista);
+      renderGastosHormiga();
+    });
+  }
+
+  const clearBtn = document.getElementById('hormigaClearBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      if (getGastosHormiga().length === 0) return;
+      if (!confirm('¿Vaciar todo el registro de gastos hormiga?')) return;
+      saveGastosHormiga([]);
+      renderGastosHormiga();
+    });
+  }
+
+  renderGastosHormiga();
+}
+
+document.addEventListener('DOMContentLoaded', initGastosHormiga);
+initGastosHormiga();
 
 // ------------------------------------------------------------
 // 11. FAQ ACORDEÓN (NOSOTROS)
@@ -836,14 +1089,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
 
 const RETICULA_SEMESTRES = [
-  { id: 1, anio: 'Año 1', nivel: 'Básico', titulo: 'Semestre 1 (Nivel Básico — Prueba 100% Gratis)', limite: 3, requeridoPrevio: 0, gratis: true },
-  { id: 2, anio: 'Año 1', nivel: 'Intermedio I', titulo: 'Semestre 2 (Nivel Intermedio I — Consolidación)', limite: 3, requeridoPrevio: 2, gratis: false },
-  { id: 3, anio: 'Año 2', nivel: 'Intermedio II', titulo: 'Semestre 3 (Nivel Intermedio II — Inversiones)', limite: 3, requeridoPrevio: 1, gratis: false },
-  { id: 4, anio: 'Año 2', nivel: 'Avanzado', titulo: 'Semestre 4 (Nivel Avanzado — Libertad Financiera)', limite: 3, requeridoPrevio: 1, gratis: false }
+  { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Primer mes gratis)', limite: 4, requeridoPrevio: 0, gratis: true },
+  { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 3, gratis: false },
+  { id: 3, nivel: 'Avanzado', titulo: 'Nivel 3 (Avanzado)', limite: 4, requeridoPrevio: 3, gratis: false }
 ];
 
 const RETICULA_MATERIAS = [
-  // SEMESTRE 1 (Nivel Básico - Prueba 100% Gratis) — mismas unidades del Aula Demo
+  // NIVEL 1 (Básico - Primer mes gratis) — mismas unidades del Aula Demo
   {
     id: 'finanzas-personales', semestre: 1, icon: '📗',
     nombre: 'Unidad 1: Rompe el ciclo',
@@ -919,9 +1171,9 @@ const RETICULA_MATERIAS = [
     ]
   },
 
-  // SEMESTRE 2 (Nivel Intermedio I - Año 1)
+  // NIVEL 2 (Intermedio)
   {
-    id: 'fondo-emergencia', semestre: 2, icon: '🛡️',
+    id: 'fondo-emergencia', semestre: 1, icon: '🛡️',
     nombre: 'Ahorro formal y fondo de emergencia',
     desc: 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.',
     temario: ['Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
@@ -990,9 +1242,9 @@ const RETICULA_MATERIAS = [
     ]
   },
 
-  // SEMESTRE 3 (Nivel Intermedio II - Inversiones - Año 2)
+  // NIVELES 2 y 3 (Inversiones y Patrimonio)
   {
-    id: 'ahorro-inversion', semestre: 3, icon: '📈',
+    id: 'ahorro-inversion', semestre: 2, icon: '📈',
     nombre: 'Estrategias de inversión y renta fija',
     desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
     temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
@@ -1015,7 +1267,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'fondos-bolsa', semestre: 3, icon: '📊',
+    id: 'fondos-bolsa', semestre: 2, icon: '📊',
     nombre: 'Fondos indexados y renta variable',
     desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
     temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
@@ -1062,9 +1314,9 @@ const RETICULA_MATERIAS = [
     ]
   },
 
-  // SEMESTRE 4 (Nivel Avanzado - Libertad Financiera - Año 2)
+  // NIVEL 3 (Avanzado - Libertad Financiera)
   {
-    id: 'emprendimiento', semestre: 4, icon: '💡',
+    id: 'emprendimiento', semestre: 3, icon: '💡',
     nombre: 'Emprendimiento y modelos de negocio',
     desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
     temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
@@ -1088,7 +1340,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'bienes-raices', semestre: 4, icon: '🏢',
+    id: 'bienes-raices', semestre: 3, icon: '🏢',
     nombre: 'Inversión inmobiliaria y FIBRAs',
     desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
     temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
@@ -1111,7 +1363,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'libertad-financiera', semestre: 4, icon: '🏆',
+    id: 'libertad-financiera', semestre: 3, icon: '🏆',
     nombre: 'Independencia y legado financiero',
     desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
     temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
@@ -1195,7 +1447,7 @@ async function resetInscripciones() {
   saveReticulaState({ inscritas: [] });
   closeReticulaModal();
   renderReticula();
-  alert('✅ Tus inscripciones fueron eliminadas. Ya puedes inscribirte de nuevo desde el Semestre 1.');
+  alert('✅ Tus inscripciones fueron eliminadas. Ya puedes inscribirte de nuevo desde el Nivel 1.');
 }
 
 function getMateriaPorId(id) {
@@ -1267,7 +1519,7 @@ function semestreRequierePago(semId) {
 }
 
 function semestreEstaBloqueadoPorPago(semId) {
-  return false; // Todos los semestres liberados para estudio
+  return false; // Todos los niveles liberados para estudio
 }
 
 function semestreEstaBloqueado(state, semId) {
@@ -1312,21 +1564,21 @@ function renderReticula() {
   const resumen = document.getElementById('reticulaResumen');
   if (resumen) {
     let hint;
-    const inscritasSem1 = contarInscritasEnSemestre(state, 1);
-    const limiteSem1 = (getSemestreConfig(1) || {}).limite || 3;
+    const inscritasN1 = contarInscritasEnSemestre(state, 1);
+    const limiteN1 = (getSemestreConfig(1) || {}).limite || 4;
     if (inscritas >= total) {
-      hint = '¡Excelente! Has completado tu retícula formativa de 2 años';
-    } else if (inscritasSem1 < limiteSem1) {
-      const faltan = limiteSem1 - inscritasSem1;
-      hint = 'Semestre 1 (Prueba Gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
-    } else if (contarInscritasEnSemestre(state, 2) < 3) {
+      hint = '¡Excelente! Has completado tu programa de 18 meses';
+    } else if (inscritasN1 < limiteN1) {
+      const faltan = limiteN1 - inscritasN1;
+      hint = 'Nivel 1 (Primer mes gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
+    } else if (contarInscritasEnSemestre(state, 2) < 4) {
       hint = tieneMembresiaActiva()
-        ? '¡Semestre 1 completado! Continúa tu carrera de 2 años en el Semestre 2'
-        : '¡Semestre 1 completado! Activa tu inscripción para continuar en el Semestre 2';
-    } else if (contarInscritasEnSemestre(state, 3) < 3) {
-      hint = '¡Año 2 desbloqueado! Inicia el Semestre 3 de Inversiones';
+        ? '¡Nivel 1 completado! Continúa tu programa de 18 meses en el Nivel 2'
+        : '¡Nivel 1 completado! Activa tu inscripción para continuar en el Nivel 2';
+    } else if (contarInscritasEnSemestre(state, 3) < 4) {
+      hint = '¡Nivel 2 completado! Inicia el Nivel 3 Avanzado';
     } else {
-      hint = '¡Nivel Avanzado! Completa el Semestre 4 de Libertad Financiera y Emprendimiento';
+      hint = '¡Nivel Avanzado! Completa tu programa de 18 meses';
     }
     resumen.innerHTML =
       '<div class="reticula-resumen-num">' + inscritas + '<span> / ' + total + '</span></div>' +
@@ -1890,7 +2142,7 @@ function openReticulaModal(id) {
   const estadoEl = document.getElementById('reticulaModalEstado');
   const actionEl = document.getElementById('reticulaModalAction');
 
-  if (levelEl) levelEl.textContent = (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + ' · ' + m.icon;
+  if (levelEl) levelEl.textContent = (cfg ? cfg.titulo : 'Nivel ' + m.semestre) + ' · ' + m.icon;
   if (titleEl) titleEl.textContent = m.nombre;
   if (descEl) descEl.textContent = m.desc;
   if (temarioEl) {
@@ -2031,7 +2283,7 @@ function openReticulaModal(id) {
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'pago') {
       tipo = 'info';
-      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Semestre ' + m.semestre) + '. Tu Semestre 1 (Nivel Básico) es de prueba 100% GRATIS. Para acceder del Semestre 2 en adelante necesitas pagar tu inscripción de $1,500 MXN (SPEI o Tarjeta).';
+      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Nivel ' + m.semestre) + '. Tu primer mes del Nivel 1 (Básico) es de prueba 100% GRATIS. Para continuar del segundo mes en adelante necesitas pagar tu inscripción de $1,500 MXN/mes (SPEI o Tarjeta).';
       label = 'Pagar inscripción y desbloquear acceso →';
       deshabilitado = false;
     } else if (chk.motivo === 'bloqueado') {
@@ -2039,15 +2291,15 @@ function openReticulaModal(id) {
       const prevSem = m.semestre - 1;
       const faltan = cfg ? Math.max(0, cfg.requeridoPrevio - contarInscritasEnSemestre(state, prevSem)) : 1;
       texto = '🔒 Para inscribir esta materia primero debes completar ' + faltan +
-        (faltan === 1 ? ' materia' : ' materias') + ' del Semestre ' + prevSem + '.';
-      label = 'Completa el semestre anterior';
+        (faltan === 1 ? ' materia' : ' materias') + ' del Nivel ' + prevSem + '.';
+      label = 'Completa el nivel anterior';
       deshabilitado = true;
     } else if (chk.motivo === 'limite') {
       const limite = cfg ? cfg.limite : 1;
       tipo = 'info';
       texto = '⏳ Ya alcanzaste el límite de ' + limite +
-        (limite === 1 ? ' materia' : ' materias') + ' en este semestre. Ya tienes todas las materias disponibles.';
-      label = 'Sin cupo este semestre';
+        (limite === 1 ? ' materia' : ' materias') + ' en este nivel. Ya tienes todas las materias disponibles.';
+      label = 'Sin cupo este nivel';
       deshabilitado = true;
     } else {
       deshabilitado = true;
@@ -2367,7 +2619,7 @@ const FIN_CONOCIMIENTO = [
   },
   {
     claves: ['reticula', 'inscribir', 'inscripcion', 'semestre', 'materia', 'materias', 'curso'],
-    respuesta: 'En tu Retícula Académica puedes inscribir hasta 3 materias por semestre. Entra y haz clic en cada materia para ver su temario e inscribirte.',
+    respuesta: 'En tu Retícula Académica puedes inscribir hasta 4 materias por nivel. Entra y haz clic en cada materia para ver su temario e inscribirte.',
     enlaces: [{ texto: 'Ir a Retícula', href: 'index.php?page=reticula' }]
   },
   {
