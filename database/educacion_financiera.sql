@@ -348,7 +348,7 @@ CREATE TABLE `puntos_usuario` (
 -- ========================================================
 -- Materia 1: Unidad 1: Rompe el ciclo (Semestre 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (1, 'finanzas-personales', 1, 'Unidad 1: Rompe el ciclo', 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.', 'Semestre 1', 'principiante', 12.0, 'public/img/nivel1.jpg', 1);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (1, 'finanzas-personales', 1, 'Unidad 1: Rompe el ciclo', 'Diagnostica tu dinero, detecta fugas y aplica la regla 50/30/20 para tomar el control.', 'Semestre 1', 'principiante', 12.0, 'img/nivel1.jpg', 1);
 
 -- Videos / Lecciones de Unidad 1: Rompe el ciclo
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (1, 'Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'Video lección práctica y conceptual: Diagnóstico financiero personal: ¿A dónde se va tu dinero?', 'https://www.youtube.com/embed/WF6qLnuh4EA', '14:32', 1);
@@ -371,7 +371,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 2: Unidad 2: Construye tu fortaleza (Semestre 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (2, 'presupuesto', 1, 'Unidad 2: Construye tu fortaleza', 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.', 'Semestre 1', 'principiante', 12.0, 'public/img/nivel1.jpg', 2);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (2, 'presupuesto', 1, 'Unidad 2: Construye tu fortaleza', 'Crea tu fondo de paz y aprende a negociar tus créditos de forma inteligente.', 'Semestre 1', 'principiante', 12.0, 'img/nivel1.jpg', 2);
 
 -- Videos / Lecciones de Unidad 2: Construye tu fortaleza
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (2, 'Cómo crear tu fondo de emergencia desde cero', 'Video lección práctica y conceptual: Cómo crear tu fondo de emergencia desde cero', 'https://www.youtube.com/embed/zA67rkRiGXI', '13:22', 1);
@@ -392,7 +392,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 3: Unidad 3: Multiplica e invierte (Semestre 1)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (3, 'gasto-hormiga', 1, 'Unidad 3: Multiplica e invierte', 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.', 'Semestre 1', 'principiante', 12.0, 'public/img/nivel1.jpg', 3);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (3, 'gasto-hormiga', 1, 'Unidad 3: Multiplica e invierte', 'Protege tu dinero de la inflación y da tus primeros pasos en portafolios pasivos.', 'Semestre 1', 'principiante', 12.0, 'img/nivel1.jpg', 3);
 
 -- Videos / Lecciones de Unidad 3: Multiplica e invierte
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (3, '¿Qué es la inflación y cómo te roba silenciosamente?', 'Video lección práctica y conceptual: ¿Qué es la inflación y cómo te roba silenciosamente?', 'https://www.youtube.com/embed/PHe0bXAIuk0', '12:45', 1);
@@ -414,7 +414,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 4: Ahorro formal y fondo de emergencia (Semestre 2)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (4, 'fondo-emergencia', 2, 'Ahorro formal y fondo de emergencia', 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.', 'Semestre 2', 'intermedio', 12.0, 'public/img/nivel2.jpg', 4);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (4, 'fondo-emergencia', 2, 'Ahorro formal y fondo de emergencia', 'Construye tu escudo de tranquilidad financiera para 3 a 6 meses de gastos.', 'Semestre 2', 'intermedio', 12.0, 'img/nivel2.jpg', 4);
 
 -- Videos / Lecciones de Ahorro formal y fondo de emergencia
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (4, 'Cuentas de ahorro en México: ¿cuál te conviene?', 'Video lección práctica y conceptual: Cuentas de ahorro en México: ¿cuál te conviene?', 'https://www.youtube.com/embed/9xHOEs6WtaM', '14:50', 1);
@@ -437,7 +437,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 5: Control de deudas y crédito bancario (Semestre 2)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (5, 'control-deudas', 2, 'Control de deudas y crédito bancario', 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.', 'Semestre 2', 'intermedio', 12.0, 'public/img/nivel2.jpg', 5);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (5, 'control-deudas', 2, 'Control de deudas y crédito bancario', 'Métodos probados (Bola de nieve y Avalancha) para liquidar tarjetas y créditos.', 'Semestre 2', 'intermedio', 12.0, 'img/nivel2.jpg', 5);
 
 -- Videos / Lecciones de Control de deudas y crédito bancario
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (5, 'Método bola de nieve vs avalancha: ¿cuál elegir?', 'Video lección práctica y conceptual: Método bola de nieve vs avalancha: ¿cuál elegir?', 'https://www.youtube.com/embed/JGwWNGJdvx8', '16:28', 1);
@@ -459,7 +459,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 6: Materiales y herramientas digitales (Semestre 2)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (6, 'materiales-herramientas', 2, 'Materiales y herramientas digitales', 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.', 'Semestre 2', 'intermedio', 12.0, 'public/img/nivel2.jpg', 6);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (6, 'materiales-herramientas', 2, 'Materiales y herramientas digitales', 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.', 'Semestre 2', 'intermedio', 12.0, 'img/nivel2.jpg', 6);
 
 -- Videos / Lecciones de Materiales y herramientas digitales
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (6, 'Crea tu plantilla de presupuesto en Excel desde cero', 'Video lección práctica y conceptual: Crea tu plantilla de presupuesto en Excel desde cero', 'https://www.youtube.com/embed/Ct8Gxo8StBU', '22:10', 1);
@@ -480,7 +480,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 7: Estrategias de inversión y renta fija (Semestre 3)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (7, 'ahorro-inversion', 3, 'Estrategias de inversión y renta fija', 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.', 'Semestre 3', 'intermedio', 12.0, 'public/img/nivel3.jpg', 7);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (7, 'ahorro-inversion', 3, 'Estrategias de inversión y renta fija', 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.', 'Semestre 3', 'intermedio', 12.0, 'img/nivel3.jpg', 7);
 
 -- Videos / Lecciones de Estrategias de inversión y renta fija
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (7, 'CETES Directo: tutorial completo para invertir desde $100', 'Video lección práctica y conceptual: CETES Directo: tutorial completo para invertir desde $100', 'https://www.youtube.com/embed/hT_nvWreIhg', '18:25', 1);
@@ -502,7 +502,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 8: Fondos indexados y renta variable (Semestre 3)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (8, 'fondos-bolsa', 3, 'Fondos indexados y renta variable', 'Aprende a invertir a largo plazo en índices globales como el S&P 500.', 'Semestre 3', 'intermedio', 12.0, 'public/img/nivel3.jpg', 8);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (8, 'fondos-bolsa', 3, 'Fondos indexados y renta variable', 'Aprende a invertir a largo plazo en índices globales como el S&P 500.', 'Semestre 3', 'intermedio', 12.0, 'img/nivel3.jpg', 8);
 
 -- Videos / Lecciones de Fondos indexados y renta variable
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (8, 'ETFs explicados: invierte en el S&P 500 desde México', 'Video lección práctica y conceptual: ETFs explicados: invierte en el S&P 500 desde México', 'https://www.youtube.com/embed/fUr4GVauePo', '17:40', 1);
@@ -525,7 +525,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 9: Protección patrimonial e impuestos (Semestre 3)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (9, 'proteccion-impuestos', 3, 'Protección patrimonial e impuestos', 'Seguros indispensables y optimización fiscal para proteger tu capital.', 'Semestre 3', 'intermedio', 12.0, 'public/img/nivel3.jpg', 9);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (9, 'proteccion-impuestos', 3, 'Protección patrimonial e impuestos', 'Seguros indispensables y optimización fiscal para proteger tu capital.', 'Semestre 3', 'intermedio', 12.0, 'img/nivel3.jpg', 9);
 
 -- Videos / Lecciones de Protección patrimonial e impuestos
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (9, 'Seguros que realmente necesitas (y los que no)', 'Video lección práctica y conceptual: Seguros que realmente necesitas (y los que no)', 'https://www.youtube.com/embed/QH2-TGUlwu4', '15:30', 1);
@@ -547,7 +547,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 10: Emprendimiento y modelos de negocio (Semestre 4)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (10, 'emprendimiento', 4, 'Emprendimiento y modelos de negocio', 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.', 'Semestre 4', 'avanzado', 12.0, 'public/img/nivel4.jpg', 10);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (10, 'emprendimiento', 4, 'Emprendimiento y modelos de negocio', 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.', 'Semestre 4', 'avanzado', 12.0, 'img/nivel3.jpg', 10);
 
 -- Videos / Lecciones de Emprendimiento y modelos de negocio
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (10, 'Cómo validar tu idea de negocio sin gastar un peso', 'Video lección práctica y conceptual: Cómo validar tu idea de negocio sin gastar un peso', 'https://www.youtube.com/embed/SqcY0GlETPk', '16:55', 1);
@@ -570,7 +570,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 11: Inversión inmobiliaria y FIBRAs (Semestre 4)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (11, 'bienes-raices', 4, 'Inversión inmobiliaria y FIBRAs', 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.', 'Semestre 4', 'avanzado', 12.0, 'public/img/nivel4.jpg', 11);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (11, 'bienes-raices', 4, 'Inversión inmobiliaria y FIBRAs', 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.', 'Semestre 4', 'avanzado', 12.0, 'img/nivel3.jpg', 11);
 
 -- Videos / Lecciones de Inversión inmobiliaria y FIBRAs
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (11, 'FIBRAs en México: invierte en bienes raíces desde $1,000', 'Video lección práctica y conceptual: FIBRAs en México: invierte en bienes raíces desde $1,000', 'https://www.youtube.com/embed/WI5NKIe0DBk', '17:35', 1);
@@ -592,7 +592,7 @@ INSERT INTO `libros` (`curso_id`, `titulo`, `autor`, `descripcion`, `tipo`, `arc
 -- ========================================================
 -- Materia 12: Independencia y legado financiero (Semestre 4)
 -- ========================================================
-INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (12, 'libertad-financiera', 4, 'Independencia y legado financiero', 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.', 'Semestre 4', 'avanzado', 12.0, 'public/img/nivel4.jpg', 12);
+INSERT INTO `cursos` (`id`, `codigo`, `semestre`, `titulo`, `descripcion`, `categoria`, `nivel`, `duracion_horas`, `imagen_url`, `orden`) VALUES (12, 'libertad-financiera', 4, 'Independencia y legado financiero', 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.', 'Semestre 4', 'avanzado', 12.0, 'img/nivel3.jpg', 12);
 
 -- Videos / Lecciones de Independencia y legado financiero
 INSERT INTO `lecciones` (`curso_id`, `titulo`, `contenido`, `video_url`, `duracion`, `orden`) VALUES (12, 'La regla del 4%: cuánto necesitas para retirarte', 'Video lección práctica y conceptual: La regla del 4%: cuánto necesitas para retirarte', 'https://www.youtube.com/embed/15RJzvoS2nc', '16:40', 1);
