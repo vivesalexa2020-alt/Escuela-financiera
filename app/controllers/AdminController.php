@@ -22,6 +22,11 @@ class AdminController extends Controller {
      * Panel principal de administración (solo rol admin).
      */
     public function dashboard(): void {
+        // Si no hay sesión activa, redirigir al inicio con hash #login
+        if (!Session::isLoggedIn()) {
+            header('Location: index.php#login');
+            exit();
+        }
         $this->requireAdmin();
 
         $this->view('admin/index', [

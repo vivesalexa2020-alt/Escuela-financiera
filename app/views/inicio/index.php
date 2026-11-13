@@ -141,6 +141,19 @@
         <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
       </div>
 
+      <!-- Botón Acceso Admin en header principal -->
+      <div style="display: flex; align-items: center;">
+        <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
+          <a href="index.php?page=admin" class="topbar-admin-btn" title="Panel de Administración">
+            🛡️ Acceso Admin
+          </a>
+        <?php else: ?>
+          <a href="index.php?page=reticula#login" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
+            🛡️ Acceso Admin
+          </a>
+        <?php endif; ?>
+      </div>
+
     </div>
   </header>
 

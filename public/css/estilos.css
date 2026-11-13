@@ -1830,6 +1830,29 @@ body.user-logged-in .logged-topbar {
   gap: 16px;
 }
 
+/* ── Botón Acceso Admin en topbar ── */
+.topbar-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #334155;
+  letter-spacing: 0.02em;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  white-space: nowrap;
+}
+.topbar-admin-btn:hover {
+  background: #0f172a;
+  color: #fabb15;
+  border-color: #fabb15;
+}
+
 .btn-guest-login {
   display: none;
   align-items: center;

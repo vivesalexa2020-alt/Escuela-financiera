@@ -6,7 +6,13 @@
 const SESSION_KEY = 'edu_fin_session';
 
 // Base URL de la API PHP
-const API_BASE = 'api';
+const API_BASE = (function() {
+  // Detecta la carpeta raíz del proyecto automáticamente
+  var path = window.location.pathname;
+  // Sube hasta encontrar la carpeta que contiene index.php
+  var base = path.replace(/\/index\.php.*$/, '').replace(/\/public.*$/, '');
+  return base + '/api';
+})();
 
 // Token CSRF para peticiones autenticadas (se obtiene del endpoint session/login)
 let CSRF_TOKEN = '';
@@ -265,7 +271,7 @@ async function handleLoginSubmit(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      body: JSON.stringify({ email, password: pass })
+      body: JSON.stringify({ email, password: pass, csrf_token: CSRF_TOKEN })
     });
     const data = await res.json();
 
@@ -541,7 +547,7 @@ async function handleSignupSubmit(e) {
 // ------------------------------------------------------------
 function setCurrentUser(user) {
   try {
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email }));
+    localStorage.setItem(SESSION_KEY, JSON.stringify({ name: user.name, email: user.email, rol: user.rol || 'estudiante' }));
   } catch (e) {}
 }
 
@@ -1065,9 +1071,10 @@ function hideSplash() {
 
 // Inicializar estado de interfaz al cargar el DOM
 document.addEventListener('DOMContentLoaded', async () => {
+  // Cargar token CSRF siempre (necesario para login y registro)
+  await loadCsrfToken();
   // Si hay sesión activa, sincronizar datos desde el servidor
   if (getCurrentUser()) {
-    await loadCsrfToken();
     await syncInscripcionesDesdeAPI();
     await syncMembresiaDesdeAPI();
   }
