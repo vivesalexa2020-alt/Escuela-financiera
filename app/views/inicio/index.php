@@ -36,59 +36,79 @@
     <!-- Contenedor centrado con el logo y los textos -->
     <div class="splash-inner">
 
-      <!-- ── ILUSTRACIÓN: Libros apilados + birrete ── -->
-      <svg class="splash-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-           role="img" aria-label="Birrete de graduación sobre libros">
-        <defs>
-          <filter id="bookShadow" x="-10%" y="-10%" width="120%" height="130%">
-            <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="rgba(0,0,0,.28)"/>
-          </filter>
-        </defs>
+      <!-- ── ILUSTRACIÓN: Libro animado con hojas volteándose ── -->
+      <div class="splash-book-wrap">
+        <!-- Birrete flotante arriba -->
+        <div class="splash-cap">🎓</div>
 
-        <!-- LIBRO 1 (abajo) — amarillo dorado, el más ancho -->
-        <rect x="14" y="154" width="172" height="34" rx="9" fill="#f5b800" filter="url(#bookShadow)"/>
-        <rect x="22"  y="160" width="156" height="22" rx="5" fill="#fff3c0"/>
-        <rect x="14"  y="154" width="24"  height="34" rx="9" fill="#d49a00"/>
-        <!-- líneas de páginas -->
-        <line x1="44" y1="156" x2="44" y2="186" stroke="#e8c84a" stroke-width=".8" opacity=".4"/>
+        <!-- Libro 3D con páginas animadas -->
+        <div class="splash-book" aria-label="Libro de educación financiera">
+          <!-- Tapa izquierda (portada) -->
+          <div class="book-cover-left">
+            <span class="book-cover-icon">💰</span>
+            <span class="book-cover-title">Finanzas</span>
+          </div>
 
-        <!-- LIBRO 2 (medio) — verde esmeralda -->
-        <rect x="22" y="120" width="156" height="34" rx="9" fill="#2bbd6e" filter="url(#bookShadow)"
-              transform="rotate(-1.5 100 137)"/>
-        <rect x="30"  y="126" width="140" height="22" rx="5" fill="#d0f5e2"
-              transform="rotate(-1.5 100 137)"/>
-        <rect x="22"  y="120" width="24"  height="34" rx="9" fill="#1e9a58"
-              transform="rotate(-1.5 100 137)"/>
+          <!-- Lomo -->
+          <div class="book-spine"></div>
 
-        <!-- LIBRO 3 (arriba) — azul cielo -->
-        <rect x="30" y="88" width="140" height="34" rx="9" fill="#1a90d4" filter="url(#bookShadow)"
-              transform="rotate(1.5 100 105)"/>
-        <rect x="38"  y="94" width="124" height="22" rx="5" fill="#cde8f8"
-              transform="rotate(1.5 100 105)"/>
-        <rect x="30"  y="88" width="24"  height="34" rx="9" fill="#1270a8"
-              transform="rotate(1.5 100 105)"/>
+          <!-- Tapa derecha (contraportada) -->
+          <div class="book-cover-right">
+            <span class="book-cover-icon">📈</span>
+          </div>
 
-        <!-- BIRRETE DE GRADUACIÓN (encima de los libros) -->
-        <g transform="translate(100,60) scale(1.15)">
-          <!-- Cabeza del birrete (cilindro) -->
-          <ellipse cx="0" cy="6"  rx="28" ry="8"  fill="#1a2550"/>
-          <rect    x="-28" y="-10" width="56" height="18" fill="#1a2550"/>
-          <ellipse cx="0" cy="-10" rx="28" ry="8"  fill="#232e62"/>
-          <!-- Tablero (ala) -->
-          <ellipse cx="0" cy="-12" rx="48" ry="12" fill="#0d1c3e"/>
-          <ellipse cx="0" cy="-14" rx="48" ry="11" fill="#1a2550"/>
-          <ellipse cx="0" cy="-15" rx="46" ry="9.5" fill="#232e62"/>
-          <!-- Botón superior -->
-          <circle  cx="0" cy="-24" r="5"   fill="#f5b800"/>
-          <!-- Cordón -->
-          <path d="M0,-24 C24,-24 36,-20 38,-10 L38,12"
-                fill="none" stroke="#f5b800" stroke-width="3.5" stroke-linecap="round"/>
-          <!-- Borla -->
-          <rect x="32" y="10" width="12" height="18" rx="2" fill="#f5b800"/>
-          <path d="M33,28 l0,10 M38,28 l0,10 M43,28 l0,10"
-                stroke="#f5b800" stroke-width="3" stroke-linecap="round"/>
-        </g>
-      </svg>
+          <!-- Páginas que se voltean (animadas en secuencia) -->
+          <div class="book-page page-1">
+            <div class="page-front">
+              <span class="page-icon">💡</span>
+              <span class="page-text">Hábitos<br>Atómicos</span>
+            </div>
+            <div class="page-back">
+              <span class="page-icon">🎯</span>
+              <span class="page-text">Metas<br>Claras</span>
+            </div>
+          </div>
+
+          <div class="book-page page-2">
+            <div class="page-front">
+              <span class="page-icon">📊</span>
+              <span class="page-text">Ahorra<br>el 1%</span>
+            </div>
+            <div class="page-back">
+              <span class="page-icon">🏦</span>
+              <span class="page-text">Crece<br>Día a Día</span>
+            </div>
+          </div>
+
+          <div class="book-page page-3">
+            <div class="page-front">
+              <span class="page-icon">✅</span>
+              <span class="page-text">Buenos<br>Hábitos</span>
+            </div>
+            <div class="page-back">
+              <span class="page-icon">🚀</span>
+              <span class="page-text">¡Tú<br>Puedes!</span>
+            </div>
+          </div>
+
+          <div class="book-page page-4">
+            <div class="page-front">
+              <span class="page-icon">💸</span>
+              <span class="page-text">Invierte<br>Hoy</span>
+            </div>
+            <div class="page-back">
+              <span class="page-icon">⭐</span>
+              <span class="page-text">Éxito<br>Financiero</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partículas decorativas flotantes -->
+        <span class="splash-particle p1">$</span>
+        <span class="splash-particle p2">%</span>
+        <span class="splash-particle p3">📈</span>
+        <span class="splash-particle p4">💎</span>
+      </div>
 
       <!-- Título -->
       <div class="splash-textblock">
