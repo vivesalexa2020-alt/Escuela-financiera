@@ -1200,7 +1200,7 @@
           <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu contraseña.</span>
         </div>
         <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px;">
-          Ingresar al aula virtual
+          Iniciar sesión
         </button>
       </form>
       <p class="modal-switch-text">

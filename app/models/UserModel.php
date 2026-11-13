@@ -28,6 +28,46 @@ class UserModel extends Model {
         return $user ?: null;
     }
 
+    public function findAnyById(int $id): ?array {
+        $stmt = $this->db->prepare("
+            SELECT id, nombre, email, rol, activo, email_verificado, fecha_creacion
+            FROM usuarios
+            WHERE id = ? AND eliminado_en IS NULL
+        ");
+        $stmt->execute([$id]);
+        $user = $stmt->fetch();
+        return $user ?: null;
+    }
+
+    public function setActive(int $id, bool $activo): bool {
+        $stmt = $this->db->prepare("UPDATE usuarios SET activo = ? WHERE id = ? AND eliminado_en IS NULL");
+        return $stmt->execute([$activo ? 1 : 0, $id]);
+    }
+
+    public function getRecentLogins(int $limit = 15): array {
+        $stmt = $this->db->prepare("
+            SELECT l.id, l.email, l.ip_address, l.exitoso, l.fecha_intent, u.nombre AS usuario_nombre
+            FROM login_logs l
+            LEFT JOIN usuarios u ON u.id = l.usuario_id
+            ORDER BY l.fecha_intent DESC
+            LIMIT " . max(1, min(100, $limit))
+        );
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function getRecentProfileChanges(int $limit = 15): array {
+        $stmt = $this->db->prepare("
+            SELECT c.id, c.campo_cambiado, c.valor_anterior, c.valor_nuevo, c.fecha_cambio, u.nombre AS usuario_nombre, u.email
+            FROM cambios_perfil c
+            LEFT JOIN usuarios u ON u.id = c.usuario_id
+            ORDER BY c.fecha_cambio DESC
+            LIMIT " . max(1, min(100, $limit))
+        );
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     /**
      * Lista todos los usuarios no eliminados (para el panel de administración)
      */

@@ -161,13 +161,18 @@
         <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
       </div>
 
-      <!-- Botón Acceso Admin en header principal -->
-      <div style="display: flex; align-items: center;">
+      <!-- Botones de acceso en header principal -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <?php if (!empty($user)): ?>
+          <a href="index.php?page=aula" class="topbar-admin-btn topbar-aula-btn" title="Entrar al aula virtual">
+            🎓 Ingresar al aula virtual
+          </a>
+        <?php endif; ?>
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
           <a href="index.php?page=admin" class="topbar-admin-btn" title="Panel de Administración">
             🛡️ Acceso Admin
           </a>
-        <?php else: ?>
+        <?php elseif (empty($user)): ?>
           <a href="index.php?page=reticula#login" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
             🛡️ Acceso Admin
           </a>

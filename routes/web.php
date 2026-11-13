@@ -20,6 +20,12 @@ return static function (Router $router): void {
     $router->get('/suscripcion',   'PageController@suscripcion');
 
     // Panel de administración (protegido por rol admin en el controlador)
-    $router->get('/admin',               'AdminController@dashboard');
-    $router->post('/admin/usuarios/rol', 'AdminController@updateRole');
+    $router->get('/admin',                        'AdminController@dashboard');
+    $router->post('/admin/usuarios/rol',          'AdminController@updateRole');
+    $router->post('/admin/usuarios/estado',       'AdminController@updateStatus');
+    $router->post('/admin/usuarios/eliminar',     'AdminController@deleteUser');
+    $router->post('/admin/cursos/estado',         'AdminController@updateCourseStatus');
+    $router->post('/admin/membresias/actualizar', 'AdminController@updateMembership');
+    $router->post('/admin/configuracion',         'AdminController@updateSettings');
+    $router->post('/admin/password',              'AdminController@updatePassword');
 };

@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Core\Session;
+use App\Models\SettingsModel;
 
 class PageController extends Controller {
     public function home(): void {
@@ -38,6 +39,24 @@ class PageController extends Controller {
     }
 
     private function renderPage(string $slug, string $view, string $title, string $bodyClass): void {
+        $settings = new SettingsModel();
+
+        if ($slug !== 'reticula'
+            && Session::get('rol') !== 'admin'
+            && $settings->isEnabled('modo_mantenimiento')) {
+            http_response_code(503);
+            $this->view('errores/mantenimiento', [
+                'pageTitle'   => 'Mantenimiento | ' . $settings->get('nombre_plataforma'),
+                'pageCss'     => [],
+                'bodyClass'   => 'maintenance-page',
+                'user'        => Session::user(),
+                'currentPage' => '',
+                'mensaje'     => $settings->get('mensaje_mantenimiento'),
+                'nombre'      => $settings->get('nombre_plataforma'),
+            ], 'main');
+            return;
+        }
+
         $this->view($view, [
             'pageTitle'   => $title,
             'pageCss'     => ["public/css/pages/{$slug}.css"],

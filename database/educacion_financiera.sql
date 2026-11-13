@@ -639,3 +639,24 @@ INSERT INTO `puntos_usuario` (`usuario_id`, `puntos_totales`, `nivel`) VALUES (1
 
 SET FOREIGN_KEY_CHECKS = 1;
 COMMIT;
+
+-- --------------------------------------------------------
+-- Configuración del sistema (editable desde el panel admin)
+-- --------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `configuraciones` (
+  `clave` VARCHAR(100) NOT NULL PRIMARY KEY,
+  `valor` TEXT NOT NULL,
+  `fecha_actualizacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO `configuraciones` (`clave`, `valor`) VALUES
+('nombre_plataforma', 'Educación Financiera'),
+('correo_soporte', 'soporte@educacionfinanciera.edu'),
+('moneda', 'MXN'),
+('zona_horaria', 'America/Mexico_City'),
+('permitir_registro', '1'),
+('login_max_intentos', '5'),
+('login_ventana_minutos', '15'),
+('modo_mantenimiento', '0'),
+('mensaje_mantenimiento', 'Estamos realizando mejoras en la plataforma. Vuelve en unos minutos.');

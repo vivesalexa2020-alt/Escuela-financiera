@@ -1766,6 +1766,26 @@ body.user-logged-in .logged-topbar {
   text-overflow: ellipsis;
 }
 
+.sidebar-user-role.is-admin {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 12px;
+  margin-top: 3px;
+  border-radius: 999px;
+  border: 1px solid #d9a300;
+  background: #fabb15;
+  color: #3b2a00;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(250, 187, 21, 0.35);
+}
+
 .sidebar-logout-btn {
   background: transparent;
   border: none;
@@ -1851,6 +1871,17 @@ body.user-logged-in .logged-topbar {
   background: #0f172a;
   color: #fabb15;
   border-color: #fabb15;
+}
+
+.topbar-aula-btn {
+  background: #065f46;
+  border-color: #047857;
+  color: #ecfdf5;
+}
+.topbar-aula-btn:hover {
+  background: #047857;
+  color: #ffffff;
+  border-color: #10b981;
 }
 
 .btn-guest-login {

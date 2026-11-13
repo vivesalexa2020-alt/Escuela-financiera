@@ -7,15 +7,18 @@ use App\Core\Csrf;
 use App\Core\RateLimiter;
 use App\Core\Logger;
 use App\Models\UserModel;
+use App\Models\SettingsModel;
 
 class AuthController extends Controller {
     private UserModel $userModel;
     private RateLimiter $rateLimiter;
+    private SettingsModel $settingsModel;
 
     public function __construct() {
         parent::__construct();
         $this->userModel = new UserModel();
         $this->rateLimiter = new RateLimiter();
+        $this->settingsModel = new SettingsModel();
     }
 
     public function login(): void {
@@ -38,8 +41,11 @@ class AuthController extends Controller {
             ], 400);
         }
 
-        // Rate limiting: 5 intentos cada 15 min
-        $rateLimit = $this->rateLimiter->check('login', 5, 15);
+        // Rate limiting configurable desde el panel de administración
+        $settings = $this->settingsModel->getAll();
+        $maxIntentos = max(1, (int)$settings['login_max_intentos']);
+        $ventana = max(1, (int)$settings['login_ventana_minutos']);
+        $rateLimit = $this->rateLimiter->check('login', $maxIntentos, $ventana);
         if (!$rateLimit['permitido']) {
             $this->userModel->logLoginAttempt(null, $email, false);
             $this->jsonResponse([
@@ -99,6 +105,10 @@ class AuthController extends Controller {
 
         // Validar CSRF token (obligatorio en toda petición POST)
         $this->validateCsrf();
+
+        if (!$this->settingsModel->isEnabled('permitir_registro')) {
+            $this->jsonResponse(['success' => false, 'message' => 'El registro de nuevas cuentas está deshabilitado temporalmente.'], 403);
+        }
 
         $nombre   = trim($data['nombre'] ?? '');
         $email    = strtolower(trim($data['email'] ?? ''));
@@ -173,6 +183,13 @@ class AuthController extends Controller {
             $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
         }
 
+        $settings = $this->settingsModel->getAll();
+        $publicSettings = [
+            'permitir_registro'  => (string)$settings['permitir_registro'] === '1',
+            'nombre_plataforma'  => $settings['nombre_plataforma'],
+            'modo_mantenimiento' => (string)$settings['modo_mantenimiento'] === '1',
+        ];
+
         if (Session::isLoggedIn()) {
             $this->jsonResponse([
                 'loggedIn' => true,
@@ -181,10 +198,15 @@ class AuthController extends Controller {
                     'name'  => Session::get('nombre'),
                     'email' => Session::get('email')
                 ],
+                'settings' => $publicSettings,
                 'csrf_token' => Csrf::generateToken()
             ]);
         } else {
-            $this->jsonResponse(['loggedIn' => false]);
+            $this->jsonResponse([
+                'loggedIn'   => false,
+                'settings'   => $publicSettings,
+                'csrf_token' => Csrf::generateToken()
+            ]);
         }
     }
 

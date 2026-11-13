@@ -17,6 +17,9 @@ const API_BASE = (function() {
 // Token CSRF para peticiones autenticadas (se obtiene del endpoint session/login)
 let CSRF_TOKEN = '';
 
+// Configuración pública de la plataforma (la carga el endpoint session)
+let PUBLIC_SETTINGS = { permitir_registro: true, nombre_plataforma: 'Educación Financiera' };
+
 function getCsrfHeaders() {
   return CSRF_TOKEN ? { 'X-CSRF-Token': CSRF_TOKEN } : {};
 }
@@ -26,6 +29,7 @@ async function loadCsrfToken() {
     const res = await fetch(API_BASE + '/index.php?endpoint=session', { credentials: 'include' });
     const data = await res.json();
     if (data && data.csrf_token) CSRF_TOKEN = data.csrf_token;
+    if (data && data.settings) PUBLIC_SETTINGS = Object.assign(PUBLIC_SETTINGS, data.settings);
   } catch (e) { /* sin conexión: se reintentará en la próxima petición */ }
 }
 
@@ -261,6 +265,8 @@ async function handleLoginSubmit(e) {
   }
   if (!valid) return;
 
+  if (!CSRF_TOKEN) await loadCsrfToken();
+
   // Mostrar indicador de carga
   const submitBtn = loginForm ? loginForm.querySelector('button[type="submit"]') : null;
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Iniciando sesión...'; }
@@ -419,6 +425,10 @@ const signupPasswordErr = document.getElementById('signupPasswordErr');
 const signupConfirmErr = document.getElementById('signupConfirmErr');
 
 function openSignupModal() {
+  if (PUBLIC_SETTINGS.permitir_registro === false || PUBLIC_SETTINGS.permitir_registro === '0') {
+    alert('El registro de nuevas cuentas está deshabilitado temporalmente.');
+    return;
+  }
   closeLoginModal();
   closeForgotModal();
   clearSignupErrors();
@@ -499,6 +509,8 @@ async function handleSignupSubmit(e) {
   }
   if (!valid) return;
 
+  if (!CSRF_TOKEN) await loadCsrfToken();
+
   // Mostrar indicador de carga
   const submitBtn = signupForm ? signupForm.querySelector('button[type="submit"]') : null;
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Creando cuenta...'; }
@@ -506,9 +518,9 @@ async function handleSignupSubmit(e) {
   try {
     const res = await fetch(API_BASE + '/index.php?endpoint=registro', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
       credentials: 'include',
-      body: JSON.stringify({ nombre: name, email, password: pass })
+      body: JSON.stringify({ nombre: name, email, password: pass, csrf_token: CSRF_TOKEN })
     });
     const data = await res.json();
 
@@ -623,6 +635,8 @@ function ensureGuestAuthUI() {
   const existingBtn = document.getElementById('guestLoginBtn');
   if (existingBtn) existingBtn.remove();
 
+  if (getCurrentUser()) return;
+
   const userPanel = document.querySelector('.sidebar-user-panel');
   if (userPanel && loginModal && !document.getElementById('sidebarGuestLoginBtn')) {
     const btn = document.createElement('button');
@@ -669,7 +683,10 @@ function updateAuthUI() {
     if (sidebarUserName) sidebarUserName.textContent = displayName;
     if (sidebarUserAvatar) sidebarUserAvatar.textContent = initial;
     if (topbarUserName) topbarUserName.textContent = displayName;
-    if (sidebarUserRole) sidebarUserRole.textContent = 'Estudiante Activo';
+    if (sidebarUserRole) {
+      sidebarUserRole.textContent = user.rol === 'admin' ? '🛡️ Administrador' : 'Estudiante Activo';
+      sidebarUserRole.classList.toggle('is-admin', user.rol === 'admin');
+    }
     if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'flex';
     if (guestLoginBtn) guestLoginBtn.style.display = 'none';
     if (sidebarGuestLoginBtn) sidebarGuestLoginBtn.style.display = 'none';
@@ -690,7 +707,10 @@ function updateAuthUI() {
     if (sidebarUserName) sidebarUserName.textContent = 'Invitado (Demo)';
     if (sidebarUserAvatar) sidebarUserAvatar.textContent = '👋';
     if (topbarUserName) topbarUserName.textContent = 'Invitado';
-    if (sidebarUserRole) sidebarUserRole.textContent = 'Invitado';
+    if (sidebarUserRole) {
+      sidebarUserRole.textContent = 'Invitado';
+      sidebarUserRole.classList.remove('is-admin');
+    }
     if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'none';
     if (guestLoginBtn) guestLoginBtn.remove();
     if (sidebarGuestLoginBtn) sidebarGuestLoginBtn.style.display = 'inline-flex';
@@ -2830,12 +2850,14 @@ function cerrarAsistente() {
 initAsistente();
 
 document.addEventListener('DOMContentLoaded', function () {
-  if (getCurrentUser()) return;
   const hash = (window.location.hash || '').toLowerCase();
   if (hash !== '#login' && hash !== '#signup') return;
+  // #login debe abrir el modal incluso si ya hay una sesión activa,
+  // para permitir cambiar de cuenta (por ejemplo, entrar como administrador).
   if (hash === '#login') {
     openLoginModal();
   } else {
+    if (getCurrentUser()) return;
     openSignupModal();
   }
   if (history.replaceState) {

@@ -27,6 +27,33 @@ class MembershipModel extends Model {
         return $membresia;
     }
 
+    public function getAllWithUsers(): array {
+        $stmt = $this->db->prepare("
+            SELECT m.id, m.usuario_id, m.activa, m.tipo_membresia, m.fecha_inicio, m.fecha_vencimiento,
+                   u.nombre AS usuario_nombre, u.email AS usuario_email
+            FROM membresias m
+            INNER JOIN usuarios u ON u.id = m.usuario_id
+            WHERE u.eliminado_en IS NULL
+            ORDER BY m.fecha_inicio DESC, m.id DESC
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function countActive(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) FROM membresias WHERE activa = 1");
+        return (int)$stmt->fetchColumn();
+    }
+
+    public function updateById(int $id, string $tipo, bool $activa, ?string $fechaVencimiento): bool {
+        $stmt = $this->db->prepare("
+            UPDATE membresias
+            SET tipo_membresia = ?, activa = ?, fecha_vencimiento = ?
+            WHERE id = ?
+        ");
+        return $stmt->execute([$tipo, $activa ? 1 : 0, $fechaVencimiento, $id]);
+    }
+
     public function updateMembership(int $userId, string $tipo, ?string $fechaVencimiento = null): bool {
         $stmt = $this->db->prepare("
             UPDATE membresias 

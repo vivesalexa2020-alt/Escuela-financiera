@@ -36,4 +36,9 @@ class EnrollmentModel extends Model {
         $stmt->execute([$userId, $materiaId]);
         return (bool)$stmt->fetch();
     }
+
+    public function countAll(): int {
+        $stmt = $this->db->query("SELECT COUNT(*) FROM inscripciones");
+        return (int)$stmt->fetchColumn();
+    }
 }

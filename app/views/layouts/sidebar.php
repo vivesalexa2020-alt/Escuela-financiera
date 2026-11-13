@@ -100,7 +100,7 @@ if (empty($currentPage)) {
       <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
       <div class="sidebar-user-details">
         <div class="sidebar-user-name" id="sidebarUserName"><?= htmlspecialchars($user['nombre'] ?? $user['name'] ?? 'Estudiante') ?></div>
-        <div class="sidebar-user-role"><?= !empty($user) ? (htmlspecialchars($user['rol'] ?? 'Estudiante Activo')) : 'Estudiante Activo' ?></div>
+        <div class="sidebar-user-role <?= (!empty($user) && ($user['rol'] ?? '') === 'admin') ? 'is-admin' : '' ?>"><?= !empty($user) ? (($user['rol'] ?? '') === 'admin' ? '🛡️ Administrador' : 'Estudiante Activo') : 'Visitante' ?></div>
       </div>
     </div>
     <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">

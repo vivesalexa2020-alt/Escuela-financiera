@@ -19,6 +19,25 @@ class CourseModel extends Model {
         return $stmt->fetchAll();
     }
 
+    public function getAllForAdmin(): array {
+        $stmt = $this->db->prepare("
+            SELECT c.*,
+                   (SELECT COUNT(*) FROM lecciones WHERE curso_id = c.id AND activo = 1) as total_lecciones,
+                   (SELECT COUNT(*) FROM ejercicios WHERE curso_id = c.id AND activo = 1) as total_ejercicios,
+                   (SELECT COUNT(*) FROM audios WHERE curso_id = c.id AND activo = 1) as total_audios,
+                   (SELECT COUNT(*) FROM libros WHERE curso_id = c.id AND activo = 1) as total_libros
+            FROM cursos c
+            ORDER BY c.semestre, c.orden, c.id
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function setActive(int $id, bool $activo): bool {
+        $stmt = $this->db->prepare("UPDATE cursos SET activo = ? WHERE id = ?");
+        return $stmt->execute([$activo ? 1 : 0, $id]);
+    }
+
     public function getById(int $id): ?array {
         $stmt = $this->db->prepare("
             SELECT c.*, 
