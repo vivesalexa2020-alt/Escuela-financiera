@@ -168,9 +168,15 @@
 
     .curriculum-layout {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 320px minmax(0, 1fr);
       gap: 20px;
       align-items: start;
+    }
+
+    .course-menu-card,
+    .lesson-player-card {
+      min-width: 0;
+      max-width: 100%;
     }
 
     @media (max-width: 960px) {
@@ -311,11 +317,11 @@
     /* COLUMNA DERECHA: REPRODUCTOR Y MATERIAL EN VIVO */
     .lesson-player-card {
       background: var(--blanco);
-      border-radius: 20px;
+      border-radius: 16px;
       box-shadow: 0 4px 20px rgba(52, 58, 64, 0.05);
       border: 1px solid var(--borde-suave);
       padding: 22px;
-      border-radius: 16px;
+      overflow-x: hidden;
     }
 
     .lesson-player-header {
@@ -743,6 +749,8 @@
        ============================================================ */
     .video-player-wrapper {
       position: relative;
+      width: 100%;
+      max-width: 100%;
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;

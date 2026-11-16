@@ -47,7 +47,6 @@
     </div>
     <div class="logged-topbar-right">
       <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
-      <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
     </div>
   </div>
 

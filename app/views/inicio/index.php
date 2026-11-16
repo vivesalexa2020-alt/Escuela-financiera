@@ -591,7 +591,7 @@
       <!-- KPI 2: Nivel de logros -->
       <div class="kpi-card">
         <div class="kpi-icon-wrap" style="color:#d97706; background:#fef3c7;">
-          🏆
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="M7 4h10v3a5 5 0 0 1-10 0V4z" fill="#fbbf24" stroke="#b45309" stroke-width="1.5"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3" stroke="#b45309" stroke-width="1.5" stroke-linecap="round"/><path d="M12 12v4M9 20h6M10 16h4" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="kpi-content">
           <div class="kpi-header-row">
@@ -629,7 +629,7 @@
       <!-- Tarjeta 1: Mariana González -->
       <div class="mock-student-card" onclick="openStudentTestimonial('mariana')" style="cursor: pointer;" title="Clic para ver testimonio en video">
         <div class="msc-header">
-          <span class="msc-medal" title="Medalla de Oro">🥇</span>
+          <span class="msc-medal" title="Medalla de Oro"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="14" r="7" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/><circle cx="12" cy="14" r="4" fill="#fde68a"/><path d="M8 3h3v7l-1.5-1L8 10V3zm5 0h3v7l-1.5-1L13 10V3z" fill="#fbbf24" stroke="#b45309" stroke-width="0.8"/></svg></span>
           <div class="msc-avatar-wrap">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&auto=format&fit=crop&q=80" alt="Mariana González" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #00b4b4, #008080);">
@@ -640,9 +640,10 @@
         <div class="msc-body">
           <h4 class="msc-name">Mariana González</h4>
           <div class="msc-role">29 años • Independiente</div>
-          <p class="msc-quote">
-            "Siempre creí que la educación financiera era para ricos o cursos de vendehumos. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente."
-          </p>
+          <div class="msc-video-preview">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Mariana González" class="msc-video-thumb" loading="lazy">
+            <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+          </div>
           <div class="msc-chart-row">
             <div class="msc-metrics-texts">
               <span>Ahorro mensual:</span>
@@ -663,7 +664,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>14</span>
             </button>
-            <span title="Logro Verificado" style="font-size:18px;">🌱</span>
+            <span title="Logro Verificado" class="msc-badge-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </div>
         </div>
       </div>
@@ -671,7 +672,7 @@
       <!-- Tarjeta 2: Jorge Martínez -->
       <div class="mock-student-card" onclick="openStudentTestimonial('jorge')" style="cursor: pointer;" title="Clic para ver testimonio en video">
         <div class="msc-header">
-          <span class="msc-medal" title="Medalla de Plata">🥈</span>
+          <span class="msc-medal" title="Medalla de Plata"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="12" cy="14" r="7" fill="#9ca3af" stroke="#6b7280" stroke-width="1.5"/><circle cx="12" cy="14" r="4" fill="#e5e7eb"/><path d="M8 3h3v7l-1.5-1L8 10V3zm5 0h3v7l-1.5-1L13 10V3z" fill="#cbd5e1" stroke="#6b7280" stroke-width="0.8"/></svg></span>
           <div class="msc-avatar-wrap">
             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&auto=format&fit=crop&q=80" alt="Jorge Martínez" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #9b59b6, #6c3483);">
@@ -682,9 +683,10 @@
         <div class="msc-body">
           <h4 class="msc-name">Jorge Martínez</h4>
           <div class="msc-role">Vendedor • 28 años</div>
-          <p class="msc-quote">
-            "Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear, ser constante y entender lo que el cliente realmente necesita."
-          </p>
+          <div class="msc-video-preview">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Jorge Martínez" class="msc-video-thumb" loading="lazy">
+            <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+          </div>
           <div class="msc-chart-row">
             <div class="msc-metrics-texts">
               <span>Fondo de emergencia:</span>
@@ -705,7 +707,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>9</span>
             </button>
-            <span title="Control Financiero Logrado" style="font-size:18px;">📊</span>
+            <span title="Control Financiero Logrado" class="msc-badge-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="7" y="11" width="2.5" height="5" rx="1" fill="#0284c7"/><rect x="10.8" y="9" width="2.5" height="7" rx="1" fill="#0ea5e9"/><rect x="14.5" y="7" width="2.5" height="9" rx="1" fill="#38bdf8"/></svg></span>
           </div>
         </div>
       </div>
@@ -713,7 +715,7 @@
       <!-- Tarjeta 3: Ana López -->
       <div class="mock-student-card" onclick="openStudentTestimonial('ana')" style="cursor: pointer;" title="Clic para ver testimonio en video">
         <div class="msc-header">
-          <span class="msc-medal" title="Insignia de Excelencia">🎖️</span>
+          <span class="msc-medal" title="Insignia de Excelencia"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.2l5-.7L12 3z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.2"/><path d="M9 17l3 4 3-4" fill="#bae6fd" stroke="#0284c7" stroke-width="1"/></svg></span>
           <div class="msc-avatar-wrap">
             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=240&auto=format&fit=crop&q=80" alt="Ana López" loading="lazy" onerror="if(!this.dataset.fallback){this.dataset.fallback=1; this.src='https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=240&auto=format&fit=crop&q=80';} else { this.style.display='none'; this.nextElementSibling.style.display='flex'; }">
             <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #e74c3c, #a93226);">
@@ -724,9 +726,10 @@
         <div class="msc-body">
           <h4 class="msc-name">Ana López</h4>
           <div class="msc-role">25 años • Enfermera</div>
-          <p class="msc-quote">
-            "Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses saldé todo y ahora ahorro el 20% de mi sueldo."
-          </p>
+          <div class="msc-video-preview">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Ana López" class="msc-video-thumb" loading="lazy">
+            <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+          </div>
           <div class="msc-chart-row">
             <div class="msc-metrics-texts">
               <span>Deudas liquidadas:</span>
@@ -747,7 +750,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>18</span>
             </button>
-            <span title="Deuda Cero" style="font-size:18px;">💵</span>
+            <span title="Deuda Cero" class="msc-badge-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><ellipse cx="12" cy="8" rx="7" ry="3" fill="#fde68a" stroke="#d97706" stroke-width="1.3"/><path d="M5 8v4c0 1.7 3.1 3 7 3s7-1.3 7-3V8" fill="#fcd34d" stroke="#d97706" stroke-width="1.3"/><path d="M5 12v4c0 1.7 3.1 3 7 3s7-1.3 7-3v-4" fill="#fbbf24" stroke="#d97706" stroke-width="1.3"/></svg></span>
           </div>
         </div>
       </div>
@@ -755,7 +758,7 @@
       <!-- Tarjeta 4: Roberto y Silvia -->
       <div class="mock-student-card" onclick="openStudentTestimonial('roberto')" style="cursor: pointer;" title="Clic para ver testimonio en video">
         <div class="msc-header">
-          <span class="msc-medal" title="Escudo de Protección">🛡️</span>
+          <span class="msc-medal" title="Escudo de Protección"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" fill="#34d399" stroke="#059669" stroke-width="1.3"/><path d="M9.5 12.5l1.8 1.8 3.7-4" stroke="#064e3b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div class="msc-avatar-wrap">
             <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=160&auto=format&fit=crop&q=80" alt="Roberto y Silvia" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="msc-avatar-placeholder" style="display:none; background: linear-gradient(135deg, #4a90d9, #1a5fa0);">
@@ -766,9 +769,10 @@
         <div class="msc-body">
           <h4 class="msc-name">Roberto y Silvia</h4>
           <div class="msc-role">41 años • Pareja y padres</div>
-          <p class="msc-quote">
-            "El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar."
-          </p>
+          <div class="msc-video-preview">
+            <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Roberto y Silvia" class="msc-video-thumb" loading="lazy">
+            <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+          </div>
           <div class="msc-chart-row">
             <div class="msc-metrics-texts">
               <span>Meta familiar:</span>
@@ -789,7 +793,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>7</span>
             </button>
-            <span title="Familia Asegurada" style="font-size:18px;">🏠</span>
+            <span title="Familia Asegurada" class="msc-badge-icon"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V19h12v-8.5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/><rect x="10" y="13" width="4" height="6" rx="1" fill="#93c5fd" stroke="#2563eb" stroke-width="1"/></svg></span>
           </div>
         </div>
       </div>
@@ -802,23 +806,23 @@
   <div class="m-features-bar" style="margin-top: 36px;">
     <div class="container m-features-inner">
       <div class="m-feat">
-        <span class="m-feat-ico">🔥</span>
+        <span class="m-feat-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16z" fill="#86efac" stroke="#16a34a" stroke-width="1.4"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16z" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.4"/><path d="M12 3v16" stroke="#15803d" stroke-width="1.2"/></svg></span>
         <div>Tu futuro financiero<br><strong>también se aprende</strong></div>
       </div>
       <div class="m-feat">
-        <span class="m-feat-ico">💻</span>
+        <span class="m-feat-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/><rect x="5" y="6" width="14" height="8" rx="1" fill="#eff6ff"/><path d="M8 20h8M10 16v4M14 16v4" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"/></svg></span>
         <div>100% en línea<br><strong>y a tu ritmo</strong></div>
       </div>
       <div class="m-feat">
-        <span class="m-feat-ico">🛡️</span>
+        <span class="m-feat-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3l8 3.5V12c0 5.2-3.8 8.8-8 10-4.2-1.2-8-4.8-8-10V6.5L12 3z" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/><path d="M9.2 12.2l1.9 1.9 3.9-4.2" stroke="#065f46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <div>Contenido práctico<br><strong>y fácil de aplicar</strong></div>
       </div>
       <div class="m-feat">
-        <span class="m-feat-ico">⭐</span>
+        <span class="m-feat-ico"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8-4.2-4.1 5.9-.9L12 3.5z" fill="#fde68a" stroke="#d97706" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
         <div>Soporte de mentores<br><strong>y comunidad</strong></div>
       </div>
       <div class="m-feat m-feat-cursive">
-        No es solo un curso,<br>es una nueva forma<br>de ver tu dinero 💚
+        No es solo un curso,<br>es una nueva forma<br>de ver tu dinero <span class="m-feat-ico" style="vertical-align:middle;display:inline-flex;"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10" cy="12" r="5.5" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.4"/><path d="M10 9v6M8.5 10.5h2.2a1.3 1.3 0 1 1 0 2.6H8.5" stroke="#166534" stroke-width="1.3" stroke-linecap="round"/><path d="M16 7c1.5 1 2.5 2.8 2.5 5s-1 4-2.5 5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg></span>
       </div>
     </div>
   </div>
@@ -833,6 +837,10 @@
     
       <!-- TARJETA OSCURA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
       <div class="atomic-card-container">
+        <div class="atomic-form-header">
+          <h2 class="atomic-form-title">Diagnóstico de Hábitos Financieros</h2>
+          <p class="atomic-form-subtitle">Responde estas preguntas para descubrir tu perfil y recibir recomendaciones personalizadas.</p>
+        </div>
 
       <!-- Formulario de Preguntas -->
       <form id="atomicHabitsForm" class="atomic-questions-form" onsubmit="submitAtomicDiagnostic(event)">
