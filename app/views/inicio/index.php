@@ -16,7 +16,9 @@
   <div class="main-wrapper" id="mainWrapper">
 <!-- ============================================================
        SPLASH SCREEN — FONDO ILUSTRADO
+       (Se omite cuando se llega desde "Inicio" con ?skip_splash=1)
        ============================================================ -->
+  <?php if (empty($_GET['skip_splash'])): ?>
   <div class="splash-screen" id="splashScreen">
 
     <!-- Halo solar -->
@@ -127,6 +129,7 @@
     </div>
 
   </div>
+  <?php endif; ?>
   <!-- FIN SPLASH -->
 
       <!-- HEADER -->
@@ -138,7 +141,7 @@
           <span class="h-bar"></span>
           <span class="h-bar"></span>
         </button>
-        <a href="index.php" class="brand-logo hero-brand">
+        <a href="index.php?page=home&skip_splash=1" class="brand-logo hero-brand">
           <svg viewBox="0 0 240 210" width="34" height="30" role="img" aria-label="Logo Sombrero de Graduación con Libros">
             <g>
               <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
@@ -828,442 +831,200 @@
 <section class="atomic-habits-section" id="habitos-atomicos">
   <div class="container">
     
-    <!-- Encabezado de la sección -->
-    <div class="atomic-overview-header">
-      <div class="atomic-tagline">
-        <span>⚛️ Hábitos Atómicos & Finanzas</span>
-      </div>
-      <h2>FORMULARIO: DESCUBRE TUS HÁBITOS FINANCIEROS</h2>
-      <p class="atomic-sub">Inspirado en los fundamentos de <strong>James Clear</strong> aplicados a tus decisiones de dinero</p>
-      <p class="atomic-intro-desc">
-        Descubre qué hábitos tienes actualmente, cuáles afectan tus finanzas y qué pequeños cambios del 1% diario puedes comenzar a realizar. Un diagnóstico interactivo para conocer tus comportamientos y transformarlos paso a paso.
-      </p>
-    </div>
+      <!-- TARJETA OSCURA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
+      <div class="atomic-card-container">
 
-    <!-- TARJETA OSCURA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
-    <div class="atomic-card-container">
-
-      <!-- Encabezado de la tarjeta interactiva -->
-      <div class="atomic-card-head">
-        <div class="atomic-head-flex">
-          <div>
-            <span class="atomic-pill-badge">Actividad interactiva</span>
-            <h3 class="atomic-card-title">¿Qué hábitos están controlando tu dinero?</h3>
-            <p class="atomic-card-subtitle">Antes de cambiar tus finanzas, necesitas conocer tus comportamientos. Responde con sinceridad.</p>
-          </div>
-          <div class="atomic-score-live-pill" id="liveScorePill">
-            <span class="live-score-label">Diagnóstico en vivo</span>
-            <span class="live-score-number" id="liveScoreNum">0%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- BANNER ILUSTRATIVO INTERACTIVO (Reemplaza la imagen estática con interactividad viva) -->
-      <div class="atomic-interactive-banner">
-        <div class="banner-graphic-side">
-          <div class="banner-avatar-wrap" id="bannerAvatarWrap" title="Toca para interactuar">
-            🧑‍💼
-          </div>
-          <div class="banner-graphic-text">
-            <h4>Controla tus comportamientos diarios</h4>
-            <p>Tus hábitos de hoy construyen tu libertad financiera de mañana. Interactúa con las herramientas abajo:</p>
-          </div>
-        </div>
-        <div class="banner-interactive-badges">
-          <button type="button" class="banner-badge-btn" onclick="interactivePiggyBank()" title="Toca para simular un micro-ahorro diario">
-            <span>🐷 Micro-ahorro:</span>
-            <span class="badge-pill-val" id="simPiggyAmount">$0 MXN</span>
-          </button>
-          <div class="banner-badge-btn" style="cursor: default;">
-            <span>📅 Racha del 1%:</span>
-            <span class="badge-pill-val" style="background: #0ea5e9;">21 Días Activos 🔥</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ══════════════════════════════════════════════════════
-           HUB VISUAL INTERACTIVO (Herramientas Dinámicas)
-           ══════════════════════════════════════════════════════ -->
-      <div class="atomic-visual-hub" id="atomicVisualHub">
-
-        <!-- Selector de pestañas interactivas del Hub -->
-        <div class="atomic-hub-tabs">
-          <button type="button" class="atomic-hub-tab active" id="tabBtnSimulador" onclick="switchAtomicTab('simulador')">
-            <span>📈 Simulador del 1% Diario</span>
-          </button>
-          <button type="button" class="atomic-hub-tab" id="tabBtnBucle" onclick="switchAtomicTab('bucle')">
-            <span>🧬 El Bucle del Hábito (4 Leyes)</span>
-          </button>
-          <button type="button" class="atomic-hub-tab" id="tabBtnReactor" onclick="switchAtomicTab('reactor')">
-            <span>⚛️ Reactor de Energía Atómica</span>
-          </button>
-        </div>
-
-        <!-- PANEL 1: SIMULADOR INTERACTIVO DEL 1% DIARIO -->
-        <div class="atomic-hub-panel active" id="tabPanelSimulador">
-          <div class="atomic-sim-header">
-            <div>
-              <span class="atomic-sim-tag">Fórmula Central de James Clear</span>
-              <h4 class="atomic-sim-title">El Interés Compuesto de tus Hábitos</h4>
-              <p class="atomic-sim-sub">Mueve el control deslizante para simular cómo tus micro-decisiones financieras diarias componen con el tiempo.</p>
-            </div>
-            <div class="atomic-metric-pill">
-              <span class="atomic-metric-label">Factor multiplicador:</span>
-              <span class="atomic-metric-val" id="simMultiplierVal">1.01x</span>
-            </div>
-          </div>
-
-          <!-- Slider Interactivo (Inicia y se mantiene en Día 1) -->
-          <div class="atomic-slider-box">
-            <div class="atomic-slider-labels">
-              <span>Día 1</span>
-              <span class="atomic-slider-curr" id="simDaysDisplay">Día 1 (Punto de partida)</span>
-              <span>Día 365</span>
-            </div>
-            <input type="range" min="1" max="365" value="1" class="atomic-range-slider" id="atomicDaysSlider" oninput="updateAtomicSimulator(this.value)">
-            <div class="atomic-slider-presets">
-              <button type="button" class="preset-btn active" onclick="setSimDays(1)">🌱 Día 1 (Inicio)</button>
-              <button type="button" class="preset-btn" onclick="setSimDays(30)">📅 1 Mes (30d)</button>
-              <button type="button" class="preset-btn" onclick="setSimDays(90)">📊 3 Meses (90d)</button>
-              <button type="button" class="preset-btn" onclick="setSimDays(180)">⚡ 6 Meses (180d)</button>
-              <button type="button" class="preset-btn" onclick="setSimDays(365)">🏆 1 Año (365d: 37x)</button>
-            </div>
-          </div>
-
-          <!-- Comparativa Visual Interactiva -->
-          <div class="atomic-comparison-grid">
-            <div class="atomic-comp-card comp-positive">
-              <div class="comp-badge">🌱 1% MEJOR CADA DÍA (1.01<sup>n</sup>)</div>
-              <div class="comp-val" id="compPosValue">+1% (1.01x)</div>
-              <div class="comp-prog-bar"><div class="comp-fill comp-fill-pos" id="compFillPos" style="width: 3%;"></div></div>
-              <p class="comp-desc" id="compPosDesc">Día 1: Tu primer micro-ahorro de $50 MXN. El cambio parece pequeño hoy, pero es la semilla que multiplicará tu dinero con el tiempo.</p>
-            </div>
-            <div class="atomic-comp-card comp-negative">
-              <div class="comp-badge">⚠️ 1% PEOR CADA DÍA (0.99<sup>n</sup>)</div>
-              <div class="comp-val" id="compNegValue">0.99x (-1%)</div>
-              <div class="comp-prog-bar"><div class="comp-fill comp-fill-neg" id="compFillNeg" style="width: 99%;"></div></div>
-              <p class="comp-desc" id="compNegDesc">Día 1: Un gasto impulsivo de $50 MXN. Parece inofensivo en un solo día, pero repetirlo continuamente es lo que drena tu patrimonio.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- PANEL 2: EL BUCLE DEL HÁBITO EN 4 LEYES (CLICABLE) -->
-        <div class="atomic-hub-panel" id="tabPanelBucle" style="display: none;">
-          <div class="atomic-bucle-intro">
-            <span class="atomic-sim-tag">Interactivo: Haz clic en cada cuadrante para explorar su táctica</span>
-            <h4 class="atomic-sim-title">Las 4 Fases de un Hábito Financiero</h4>
-          </div>
-          <div class="atomic-quadrants-grid">
-            <div class="atomic-quadrant-card active" id="quad1" onclick="selectQuadrant(1)">
-              <div class="quad-num">1. SEÑAL</div>
-              <div class="quad-name">Hazlo Obvio 🔍</div>
-              <div class="quad-hint">Toca para ver táctica</div>
-            </div>
-            <div class="atomic-quadrant-card" id="quad2" onclick="selectQuadrant(2)">
-              <div class="quad-num">2. ANHELO</div>
-              <div class="quad-name">Hazlo Atractivo 💡</div>
-              <div class="quad-hint">Toca para ver táctica</div>
-            </div>
-            <div class="atomic-quadrant-card" id="quad3" onclick="selectQuadrant(3)">
-              <div class="quad-num">3. RESPUESTA</div>
-              <div class="quad-name">Hazlo Sencillo ⚡</div>
-              <div class="quad-hint">Toca para ver táctica</div>
-            </div>
-            <div class="atomic-quadrant-card" id="quad4" onclick="selectQuadrant(4)">
-              <div class="quad-num">4. RECOMPENSA</div>
-              <div class="quad-name">Hazlo Satisfactorio 🎁</div>
-              <div class="quad-hint">Toca para ver táctica</div>
-            </div>
-          </div>
-          <div class="atomic-quad-detail-box" id="quadrantDetailBox"></div>
-        </div>
-
-        <!-- PANEL 3: REACTOR DE ENERGÍA ATÓMICA EN VIVO -->
-        <div class="atomic-hub-panel" id="tabPanelReactor" style="display: none;">
-          <div class="atomic-reactor-wrap">
-            <div class="atomic-reactor-stage">
-              <div class="atomic-svg-atom">
-                <svg viewBox="0 0 200 200" class="reactor-core-svg" id="reactorSvgCore">
-                  <defs>
-                    <radialGradient id="atomicGlowGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#34d399" stop-opacity="0.95"/>
-                      <stop offset="60%" stop-color="#10b981" stop-opacity="0.45"/>
-                      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
-                    </radialGradient>
-                  </defs>
-                  <!-- Órbita 1 -->
-                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-1" />
-                  <circle cx="180" cy="100" r="5" class="atom-electron electron-1" />
-                  <!-- Órbita 2 -->
-                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-2" />
-                  <circle cx="180" cy="100" r="5" class="atom-electron electron-2" />
-                  <!-- Órbita 3 -->
-                  <ellipse cx="100" cy="100" rx="80" ry="32" class="atom-orbit orbit-3" />
-                  <circle cx="180" cy="100" r="5" class="atom-electron electron-3" />
-                  <!-- Núcleo con pulso -->
-                  <circle cx="100" cy="100" r="28" fill="url(#atomicGlowGrad)" class="atom-glow-pulse" />
-                  <circle cx="100" cy="100" r="16" fill="#10b981" class="atom-nucleus" />
-                  <text x="100" y="105" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold" id="reactorAtomText">1%</text>
-                </svg>
-              </div>
-              <div class="atomic-reactor-info">
-                <span class="atomic-sim-tag">Energía en Tiempo Real</span>
-                <h4 class="atomic-sim-title" id="reactorPowerTitle">Diagnóstico de Hábitos: 0 de 6</h4>
-                <p class="atomic-reactor-text" id="reactorPowerDesc">A medida que respondes las 6 preguntas abajo, el reactor evalúa la madurez de tus hábitos financieros diarios.</p>
-                <div class="atomic-reactor-chips">
-                  <span class="atom-chip" id="chipQ1" onclick="jumpToQuestion(1)">1. Administrar Ingresos</span>
-                  <span class="atom-chip" id="chipQ2" onclick="jumpToQuestion(2)">2. Compras Innecesarias</span>
-                  <span class="atom-chip" id="chipQ3" onclick="jumpToQuestion(3)">3. Registrar Gastos</span>
-                  <span class="atom-chip" id="chipQ4" onclick="jumpToQuestion(4)">4. Hábito de Ahorrar</span>
-                  <span class="atom-chip" id="chipQ5" onclick="jumpToQuestion(5)">5. Decisión de Compra</span>
-                  <span class="atom-chip" id="chipQ6" onclick="jumpToQuestion(6)">6. Hábito a Transformar</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /atomic-visual-hub -->
-
-      <!-- Barra de progreso interactiva y Navegador Stepper -->
-      <div class="atomic-progress-box">
-        <div class="atomic-progress-labels">
-          <span class="atomic-prog-title">Tu diagnóstico</span>
-          <span class="atomic-prog-count" id="atomicCounter">0 de 6 respondidas</span>
-        </div>
-        <div class="atomic-progress-bar-track">
-          <div class="atomic-progress-bar-fill" id="atomicProgressBar" style="width: 0%;"></div>
-        </div>
-        <!-- Stepper interactivo para saltar de pregunta -->
-        <div class="atomic-stepper-row">
-          <button type="button" class="stepper-step" id="stepBtn1" onclick="jumpToQuestion(1)">1</button>
-          <button type="button" class="stepper-step" id="stepBtn2" onclick="jumpToQuestion(2)">2</button>
-          <button type="button" class="stepper-step" id="stepBtn3" onclick="jumpToQuestion(3)">3</button>
-          <button type="button" class="stepper-step" id="stepBtn4" onclick="jumpToQuestion(4)">4</button>
-          <button type="button" class="stepper-step" id="stepBtn5" onclick="jumpToQuestion(5)">5</button>
-          <button type="button" class="stepper-step" id="stepBtn6" onclick="jumpToQuestion(6)">6</button>
-        </div>
-      </div>
-
-      <!-- Formulario de Preguntas con textos interactivos -->
+      <!-- Formulario de Preguntas -->
       <form id="atomicHabitsForm" class="atomic-questions-form" onsubmit="submitAtomicDiagnostic(event)">
+
+        <!-- Alerta si faltan preguntas -->
+        <div id="atomicValidationAlert" class="atomic-validation-alert" style="display: none;">
+          <span>⚠️ Por favor responde todas las preguntas (<span id="atomicMissingCount">0</span> pendientes) para generar tu diagnóstico interactivo completo.</span>
+        </div>
+
+        <!-- Carrusel: 2 preguntas por diapositiva -->
+        <div class="atomic-carousel" id="atomicCarousel">
+          <div class="atomic-carousel-viewport" id="atomicCarouselViewport">
+          <div class="atomic-carousel-track" id="atomicCarouselTrack">
+
+            <div class="atomic-slide active" data-slide="1" data-label="Preguntas 1 y 2">
 
         <!-- PREGUNTA 1: ADMINISTRACIÓN DE INGRESOS -->
         <div class="atomic-q-block" id="qBlock1">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">1. ¿Cómo administras tu dinero cuando recibes tus ingresos?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario1')">
-              💡 Ver Principio: Págate a ti primero
-            </button>
-          </div>
-          <!-- Texto interactivo expandible -->
-          <div class="atomic-glossary-card" id="glosario1" style="display: none;">
-            <strong>Principio Fundamental (1ª Ley):</strong> Si esperas a ver "qué sobra" a fin de mes, nunca quedará nada. La clave de James Clear es hacer el ahorro automático e invisible al recibir tus ingresos antes de que entre el impulso de gastar.
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p1" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Guardo una parte para ahorrar.</span>
-              <span class="atomic-opt-badge badge-pro">🌱 Págate a ti primero</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p1" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Gasto primero y ahorro si sobra.</span>
-              <span class="atomic-opt-badge badge-neutral">⚖️ Ahorro reactivo</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(1, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p1" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Lo gasto sin llevar un control.</span>
-              <span class="atomic-opt-badge badge-danger">⚠️ Sin sistema</span>
             </label>
           </div>
-          <!-- Micro-feedback interactivo en vivo -->
-          <div class="atomic-live-insight" id="insightBox1" style="display: none;"></div>
         </div>
 
         <!-- PREGUNTA 2: COMPRAS INNECESARIAS -->
         <div class="atomic-q-block" id="qBlock2">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">2. ¿Con qué frecuencia compras cosas que realmente no necesitas?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario2')">
-              💡 Ver Principio: Fricción contra el impulso
-            </button>
-          </div>
-          <div class="atomic-glossary-card" id="glosario2" style="display: none;">
-            <strong>3ª Ley Invertida (Hazlo Difícil):</strong> Las compras impulsivas son un anhelo de dopamina rápida. Desinstala apps de compras impulsivas o borra tus tarjetas guardadas: 20 segundos de fricción son suficientes para enfriar el impulso.
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p2" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Casi nunca.</span>
-              <span class="atomic-opt-badge badge-pro">🌱 Control consciente</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p2" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Algunas veces por semana.</span>
-              <span class="atomic-opt-badge badge-neutral">⚖️ Gastos hormiga</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(2, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p2" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Frecuentemente, por impulso.</span>
-              <span class="atomic-opt-badge badge-danger">⚠️ Gratificación inmediata</span>
             </label>
           </div>
-          <div class="atomic-live-insight" id="insightBox2" style="display: none;"></div>
         </div>
+
+            </div><!-- /slide 1 -->
+
+            <div class="atomic-slide" data-slide="2" data-label="Preguntas 3 y 4">
 
         <!-- PREGUNTA 3: REGISTRO DE GASTOS DIARIOS -->
         <div class="atomic-q-block" id="qBlock3">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">3. ¿Registras tus gastos diarios?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario3')">
-              💡 Ver Principio: Medir para mejorar (Hazlo Obvio)
-            </button>
-          </div>
-          <div class="atomic-glossary-card" id="glosario3" style="display: none;">
-            <strong>Visibilidad y Conciencia:</strong> Lo que no se mide, no se puede mejorar. Llevar un registro no significa pasar horas; basta con abrir una app o bloc de notas durante 30 segundos cada noche (Regla de los 2 Minutos).
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p3" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Sí, llevo un registro.</span>
-              <span class="atomic-opt-badge badge-pro">🌱 Claridad total</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p3" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">A veces lo hago.</span>
-              <span class="atomic-opt-badge badge-neutral">⚖️ Inconstante</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(3, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p3" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">No, nunca los registro.</span>
-              <span class="atomic-opt-badge badge-danger">⚠️ Ceguera financiera</span>
             </label>
           </div>
-          <div class="atomic-live-insight" id="insightBox3" style="display: none;"></div>
         </div>
 
         <!-- PREGUNTA 4: HÁBITO DE AHORRAR -->
         <div class="atomic-q-block" id="qBlock4">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">4. ¿Tienes el hábito de ahorrar?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario4')">
-              💡 Ver Principio: La identidad sobre el resultado
-            </button>
-          </div>
-          <div class="atomic-glossary-card" id="glosario4" style="display: none;">
-            <strong>Cambio de Identidad:</strong> En <em>Hábitos Atómicos</em>, no ahorras para tener una cantidad; ahorras porque te consideras "una persona que cuida de su futuro". Cada peso apartado es un voto a favor de tu nueva identidad financiera.
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p4" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Sí, ahorro constantemente.</span>
-              <span class="atomic-opt-badge badge-pro">🌱 Hábito consolidado</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p4" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Ahorro cuando puedo.</span>
-              <span class="atomic-opt-badge badge-neutral">⚖️ Sin sistema fijo</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(4, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p4" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">No tengo el hábito de ahorrar.</span>
-              <span class="atomic-opt-badge badge-danger">⚠️ Oportunidad de oro</span>
             </label>
           </div>
-          <div class="atomic-live-insight" id="insightBox4" style="display: none;"></div>
         </div>
+
+            </div><!-- /slide 2 -->
+
+            <div class="atomic-slide" data-slide="3" data-label="Preguntas 5 y 6">
 
         <!-- PREGUNTA 5: REACCIÓN AL DESEAR COMPRAR ALGO -->
         <div class="atomic-q-block" id="qBlock5">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">5. ¿Qué haces cuando quieres comprar algo que te gusta?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario5')">
-              💡 Ver Principio: La regla de las 72 horas
-            </button>
-          </div>
-          <div class="atomic-glossary-card" id="glosario5" style="display: none;">
-            <strong>Pausa Emocional:</strong> Esperar 72 horas antes de adquirir cualquier capricho no esencial reduce el pico de dopamina en el cerebro. Si después de 3 días aún lo deseas y cabe en tu presupuesto, cómpralo con tranquilidad.
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p5" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Analizo si realmente lo necesito.</span>
-              <span class="atomic-opt-badge badge-pro">🌱 Pausa analítica</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p5" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Espero un poco y después decido.</span>
-              <span class="atomic-opt-badge badge-neutral">⚖️ Enfriamiento previo</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(5, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p5" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Lo compro inmediatamente.</span>
-              <span class="atomic-opt-badge badge-danger">⚠️ Impulso directo</span>
             </label>
           </div>
-          <div class="atomic-live-insight" id="insightBox5" style="display: none;"></div>
         </div>
 
         <!-- PREGUNTA 6: HÁBITO QUE TE GUSTARÍA CAMBIAR -->
         <div class="atomic-q-block" id="qBlock6">
           <div class="atomic-q-header">
             <h4 class="atomic-q-title">6. ¿Qué hábito financiero te gustaría cambiar?</h4>
-            <button type="button" class="atomic-glossary-btn" onclick="toggleGlossary('glosario6')">
-              💡 Ver Principio: Intención de Implementación
-            </button>
-          </div>
-          <div class="atomic-glossary-card" id="glosario6" style="display: none;">
-            <strong>Tu Foco de Transformación:</strong> Según James Clear, las personas que formulan una <em>Intención de Implementación</em> concreta («Cuando ocurra X, haré Y») tienen 3 veces más probabilidades de éxito que quienes solo tienen buenos deseos.
           </div>
           <div class="atomic-options-group">
-            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt1')">
+            <label class="atomic-option-label">
               <input type="radio" name="p6" value="opt1" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Dejar de comprar por impulso.</span>
-              <span class="atomic-opt-badge badge-target">🎯 Fricción de compra</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt2')">
+            <label class="atomic-option-label">
               <input type="radio" name="p6" value="opt2" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Evitar los gastos hormiga.</span>
-              <span class="atomic-opt-badge badge-target">🎯 Micro-ahorros</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt3')">
+            <label class="atomic-option-label">
               <input type="radio" name="p6" value="opt3" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Aprender a ahorrar constantemente.</span>
-              <span class="atomic-opt-badge badge-target">🎯 Automatización</span>
             </label>
-            <label class="atomic-option-label" onclick="showOptionInsight(6, 'opt4')">
+            <label class="atomic-option-label">
               <input type="radio" name="p6" value="opt4" onchange="updateAtomicProgress()">
               <span class="atomic-radio-circle"></span>
               <span class="atomic-option-text">Organizar mejor mi dinero.</span>
-              <span class="atomic-opt-badge badge-target">🎯 Sistema de 2 minutos</span>
             </label>
           </div>
-          <div class="atomic-live-insight" id="insightBox6" style="display: none;"></div>
         </div>
 
-        <!-- Alerta si faltan preguntas -->
-        <div id="atomicValidationAlert" class="atomic-validation-alert" style="display: none;">
-          <span>⚠️ Por favor responde todas las preguntas (<span id="atomicMissingCount">0</span> pendientes) para generar tu diagnóstico interactivo completo.</span>
-        </div>
+            </div><!-- /slide 3 -->
+
+          </div><!-- /atomic-carousel-track -->
+          </div><!-- /atomic-carousel-viewport -->
+
+          <!-- Navegación del carrusel -->
+          <div class="atomic-carousel-nav">
+            <button type="button" class="atomic-carousel-arrow" id="atomicPrevBtn" onclick="prevAtomicSlide()" disabled>← Anterior</button>
+            <div class="atomic-carousel-status">
+              <span class="atomic-carousel-label" id="atomicSlideLabel">Paso 1 de 3 · Preguntas 1 y 2</span>
+              <div class="atomic-carousel-dots" id="atomicCarouselDots">
+                <button type="button" class="atomic-carousel-dot active" data-slide="1" onclick="goToAtomicSlide(1)" aria-label="Ir a las preguntas 1 y 2"></button>
+                <button type="button" class="atomic-carousel-dot" data-slide="2" onclick="goToAtomicSlide(2)" aria-label="Ir a las preguntas 3 y 4"></button>
+                <button type="button" class="atomic-carousel-dot" data-slide="3" onclick="goToAtomicSlide(3)" aria-label="Ir a las preguntas 5 y 6"></button>
+              </div>
+            </div>
+            <button type="button" class="atomic-carousel-arrow" id="atomicNextBtn" onclick="nextAtomicSlide()">Siguiente →</button>
+          </div>
+        </div><!-- /atomic-carousel -->
 
         <!-- Botón para finalizar -->
         <div class="atomic-submit-wrap">
@@ -1677,9 +1438,13 @@
   // ── Splash screen ──────────────────────────────────────────
   (function() {
     var sp = document.getElementById('splashScreen');
-    if (!sp) return;
+    if (!sp) {
+      try { sessionStorage.setItem('ef_splash_seen', '1'); } catch (e) {}
+      return;
+    }
     function hideSplash() {
       sp.classList.add('hide');
+      try { sessionStorage.setItem('ef_splash_seen', '1'); } catch (e) {}
     }
     window.hideSplash = hideSplash;
     setTimeout(hideSplash, 5200);
@@ -2104,6 +1869,7 @@
     if (!card) return;
     var isHidden = card.style.display === 'none' || card.style.display === '';
     card.style.display = isHidden ? 'block' : 'none';
+    setTimeout(syncAtomicCarouselHeight, 0);
   }
 
   // 5. Micro-Feedback Inmediato al Seleccionar Opciones (Hábitos Financieros)
@@ -2146,16 +1912,103 @@
     if (box && optionInsights[key]) {
       box.innerHTML = optionInsights[key];
       box.style.display = 'block';
+      setTimeout(syncAtomicCarouselHeight, 0);
     }
   }
 
-  // 6. Navegación Stepper Directa a Preguntas
+  // 6. Carrusel del formulario: 2 preguntas por diapositiva
+  var atomicCurrentSlide = 1;
+  var atomicTotalSlides = 3;
+
+  function updateAtomicCarouselUI() {
+    var track = document.getElementById('atomicCarouselTrack');
+    var form = document.getElementById('atomicHabitsForm');
+    if (!track) return;
+
+    track.style.transform = 'translateX(-' + ((atomicCurrentSlide - 1) * 100) + '%)';
+
+    var slides = track.querySelectorAll('.atomic-slide');
+    slides.forEach(function(slide, idx) {
+      slide.classList.toggle('active', idx + 1 === atomicCurrentSlide);
+    });
+
+    var dots = document.querySelectorAll('.atomic-carousel-dot');
+    dots.forEach(function(dot, idx) {
+      dot.classList.toggle('active', idx + 1 === atomicCurrentSlide);
+    });
+
+    var label = document.getElementById('atomicSlideLabel');
+    if (label) {
+      var currentSlideEl = slides[atomicCurrentSlide - 1];
+      var slideLabel = currentSlideEl ? currentSlideEl.getAttribute('data-label') : '';
+      label.textContent = 'Paso ' + atomicCurrentSlide + ' de ' + atomicTotalSlides + (slideLabel ? ' · ' + slideLabel : '');
+    }
+
+    var prevBtn = document.getElementById('atomicPrevBtn');
+    var nextBtn = document.getElementById('atomicNextBtn');
+    if (prevBtn) prevBtn.disabled = atomicCurrentSlide === 1;
+    if (nextBtn) nextBtn.classList.toggle('is-hidden', atomicCurrentSlide === atomicTotalSlides);
+    if (form) form.classList.toggle('atomic-on-last-step', atomicCurrentSlide === atomicTotalSlides);
+
+    observeActiveAtomicSlide();
+  }
+
+  function goToAtomicSlide(n, skipScroll) {
+    atomicCurrentSlide = Math.min(atomicTotalSlides, Math.max(1, parseInt(n, 10) || 1));
+    updateAtomicCarouselUI();
+    if (!skipScroll) {
+      var carousel = document.getElementById('atomicCarousel');
+      if (carousel) {
+        setTimeout(function() {
+          carousel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 60);
+      }
+    }
+  }
+
+  function nextAtomicSlide() {
+    goToAtomicSlide(atomicCurrentSlide + 1);
+  }
+
+  function prevAtomicSlide() {
+    goToAtomicSlide(atomicCurrentSlide - 1);
+  }
+
+  var atomicSlideResizeObserver = null;
+
+  function syncAtomicCarouselHeight() {
+    var viewport = document.getElementById('atomicCarouselViewport');
+    var track = document.getElementById('atomicCarouselTrack');
+    if (!viewport || !track) return;
+    var active = track.querySelector('.atomic-slide.active');
+    if (active) viewport.style.height = active.offsetHeight + 'px';
+  }
+
+  function observeActiveAtomicSlide() {
+    var track = document.getElementById('atomicCarouselTrack');
+    if (!track) return;
+    var active = track.querySelector('.atomic-slide.active');
+    if (!active) return;
+    if (window.ResizeObserver) {
+      if (!atomicSlideResizeObserver) {
+        atomicSlideResizeObserver = new ResizeObserver(syncAtomicCarouselHeight);
+      }
+      atomicSlideResizeObserver.disconnect();
+      atomicSlideResizeObserver.observe(active);
+    }
+    syncAtomicCarouselHeight();
+  }
+
+  // 7. Navegación Stepper Directa a Preguntas
   function jumpToQuestion(qNum) {
+    goToAtomicSlide(Math.ceil(qNum / 2), true);
     var block = document.getElementById('qBlock' + qNum);
     if (block) {
-      block.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      block.classList.add('pulse-highlight');
-      setTimeout(function() { block.classList.remove('pulse-highlight'); }, 1200);
+      setTimeout(function() {
+        block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        block.classList.add('pulse-highlight');
+        setTimeout(function() { block.classList.remove('pulse-highlight'); }, 1200);
+      }, 120);
     }
   }
 
@@ -2263,7 +2116,10 @@
         alertBox.style.display = 'flex';
       }
       if (firstUnansweredBlock) {
-        firstUnansweredBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        goToAtomicSlide(Math.ceil(unanswered[0] / 2), true);
+        setTimeout(function() {
+          firstUnansweredBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 120);
       }
       return;
     }
@@ -2464,6 +2320,9 @@
       if (gloss) gloss.style.display = 'none';
     }
 
+    // Volver al primer carrusel
+    goToAtomicSlide(1, true);
+
     // Reiniciar slider a Día 1
     if (typeof setSimDays === 'function') setSimDays(1);
 
@@ -2471,11 +2330,42 @@
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Inicializar cuadrante 1 por defecto y slider en Día 1
+  // Inicializar cuadrante 1, slider y carrusel
   document.addEventListener('DOMContentLoaded', function() {
     if (typeof selectQuadrant === 'function') selectQuadrant(1);
     if (typeof setSimDays === 'function') setSimDays(1);
+    if (typeof updateAtomicCarouselUI === 'function') updateAtomicCarouselUI();
   });
+
+  // Deslizamiento táctil del carrusel
+  (function initAtomicCarouselSwipe() {
+    var carousel = document.getElementById('atomicCarousel');
+    if (!carousel) return;
+    var startX = 0;
+    var startY = 0;
+    var tracking = false;
+
+    carousel.addEventListener('touchstart', function(e) {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function(e) {
+      if (!tracking) return;
+      tracking = false;
+      var dx = e.changedTouches[0].clientX - startX;
+      var dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) {
+          nextAtomicSlide();
+        } else {
+          prevAtomicSlide();
+        }
+      }
+    }, { passive: true });
+  })();
 
   // Cerrar con Escape
   document.addEventListener('keydown', function(e) {

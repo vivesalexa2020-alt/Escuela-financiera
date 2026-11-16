@@ -23,4 +23,12 @@
 
   <!-- Capa tipográfica global (debe cargar al final) -->
   <link rel="stylesheet" href="public/css/typography.css?v=<?= time() ?>">
+
+  <script>
+    try {
+      if (sessionStorage.getItem('ef_splash_seen') === '1') {
+        document.documentElement.classList.add('splash-seen');
+      }
+    } catch (e) {}
+  </script>
 </head>

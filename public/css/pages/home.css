@@ -3190,6 +3190,9 @@
       visibility: hidden;
       pointer-events: none;
     }
+    .splash-seen .splash-screen {
+      display: none !important;
+    }
 
     /* Halo del sol detrás de la ilustración */
     .splash-sun-halo {
@@ -6224,6 +6227,146 @@
       border-radius: 999px;
       transition: width 0.35s ease;
       box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    /* Carrusel del formulario: 2 preguntas por diapositiva */
+    .atomic-carousel {
+      margin-bottom: 4px;
+    }
+
+    .atomic-carousel-viewport {
+      overflow: hidden;
+      transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .atomic-carousel-track {
+      display: flex;
+      align-items: flex-start;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .atomic-slide {
+      flex: 0 0 100%;
+      min-width: 100%;
+      padding: 0 2px;
+      box-sizing: border-box;
+    }
+
+    .atomic-slide .atomic-q-block:last-child {
+      border-bottom: none;
+    }
+
+    .atomic-carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .atomic-carousel-status {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .atomic-carousel-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .atomic-carousel-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .atomic-carousel-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 1px solid #475569;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .atomic-carousel-dot:hover {
+      border-color: #10b981;
+    }
+
+    .atomic-carousel-dot.active {
+      width: 24px;
+      border-color: #10b981;
+      border-radius: 999px;
+      background: #10b981;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    }
+
+    .atomic-carousel-arrow {
+      padding: 10px 16px;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .atomic-carousel-arrow:hover:not(:disabled) {
+      border-color: #10b981;
+      background: #10b981;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .atomic-carousel-arrow:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .atomic-carousel-arrow.is-hidden {
+      visibility: hidden;
+    }
+
+    .atomic-questions-form .atomic-submit-wrap {
+      display: none;
+    }
+
+    .atomic-questions-form.atomic-on-last-step .atomic-submit-wrap {
+      display: block;
+      animation: fadeInDiag 0.25s ease;
+    }
+
+    @media (max-width: 640px) {
+      .atomic-carousel-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .atomic-carousel-status {
+        order: -1;
+        grid-column: 1 / -1;
+        width: auto;
+      }
+
+      .atomic-carousel-arrow {
+        width: 100%;
+        padding: 10px 12px;
+      }
     }
 
     /* Bloques de preguntas */

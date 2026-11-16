@@ -55,7 +55,7 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.php" class="brand-logo">
+      <a href="index.php?page=home&skip_splash=1" class="brand-logo">
         <svg viewBox="0 0 240 210" width="32" height="28" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
             <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
@@ -73,7 +73,7 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.php">Inicio</a></li>
+        <li><a href="index.php?page=home&skip_splash=1">Inicio</a></li>
         <li><a href="index.php?page=reticula">Aula Demo</a></li>
         <li><a href="index.php?page=reticula">Plan de Estudios</a></li>
         <li><a href="index.php?page=recursos">Recursos</a></li>

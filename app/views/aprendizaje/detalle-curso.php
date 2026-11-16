@@ -55,7 +55,7 @@
   <!-- HEADER INDIVIDUAL DEL AULA -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.php" class="brand-logo">
+      <a href="index.php?page=home&skip_splash=1" class="brand-logo">
         <svg viewBox="0 0 240 210" width="32" height="28" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
             <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
@@ -90,7 +90,7 @@
         <span id="stripStatus">3 lecciones libres para ver ahora</span>
       </div>
       <div>
-        <a href="index.php#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
+        <a href="index.php?page=home&skip_splash=1#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
           Ver historias de éxito y testimonios →
         </a>
       </div>

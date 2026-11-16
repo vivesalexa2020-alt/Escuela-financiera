@@ -11,7 +11,7 @@ if (empty($currentPage)) {
 <aside class="sidebar-left" id="sidebarLeft">
   <div>
     <div class="sidebar-brand">
-      <a href="index.php" class="brand-logo">
+      <a href="index.php?page=home&skip_splash=1" class="brand-logo">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 36px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
             <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -47,7 +47,7 @@ if (empty($currentPage)) {
 
     <nav class="sidebar-nav">
       <div class="sidebar-nav-title">PRINCIPAL</div>
-      <a href="index.php" class="sidebar-link <?= ($currentPage === 'home' || $currentPage === '') ? 'active' : '' ?>">
+      <a href="index.php?page=home&skip_splash=1" class="sidebar-link <?= ($currentPage === 'home' || $currentPage === '') ? 'active' : '' ?>">
         <span class="sidebar-icon">🏠</span>
         <span>Inicio</span>
       </a>
@@ -57,13 +57,13 @@ if (empty($currentPage)) {
         <span class="sidebar-icon">🗺️</span>
         <span>Retícula Académica</span>
       </a>
-      <a href="index.php?page=cursos" class="sidebar-link <?= $currentPage === 'cursos' ? 'active' : '' ?>">
-        <span class="sidebar-icon">📚</span>
-        <span>Cursos</span>
-      </a>
       <a href="index.php?page=aula" class="sidebar-link <?= $currentPage === 'aula' ? 'active' : '' ?>">
         <span class="sidebar-icon">🎓</span>
         <span>Aula Virtual</span>
+      </a>
+      <a href="index.php?page=cursos" class="sidebar-link <?= $currentPage === 'cursos' ? 'active' : '' ?>">
+        <span class="sidebar-icon">📚</span>
+        <span>Cursos</span>
       </a>
 
       <div class="sidebar-nav-title">HERRAMIENTAS</div>

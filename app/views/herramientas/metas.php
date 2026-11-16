@@ -20,7 +20,7 @@
   <header class="site-header guest-header">
     <div class="container">
       <nav class="nav-wrap">
-        <a href="index.php" class="brand-logo">
+        <a href="index.php?page=home&skip_splash=1" class="brand-logo">
           <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 36px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -901,7 +901,7 @@
       <div class="footer-grid">
         <!-- Columna 1: Logo & lema -->
         <div class="footer-brand">
-          <a href="index.php" class="brand-logo">
+          <a href="index.php?page=home&skip_splash=1" class="brand-logo">
             <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 35px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -939,7 +939,7 @@
         <div class="footer-col" id="enlaces">
           <h4>Enlaces rápidos</h4>
           <ul>
-            <li><a href="index.php">Inicio</a></li>
+            <li><a href="index.php?page=home&skip_splash=1">Inicio</a></li>
             <li><a href="index.php?page=recursos">Recursos</a></li>
             <li><a href="#blog">Blog</a></li>
           </ul>

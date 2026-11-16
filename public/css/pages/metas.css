@@ -1256,7 +1256,6 @@
       .dashboard-grid {
         grid-template-columns: 1fr;
       }
-    }
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;

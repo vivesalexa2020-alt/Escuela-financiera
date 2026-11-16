@@ -5631,3 +5631,39 @@ body.user-logged-in .site-header.guest-header,
     display: flex !important;
   }
 }
+
+/* ============================================================
+   SCROLLBARS DELGADAS + SIN DESBORDAMIENTO HORIZONTAL
+   Evita la "barra inferior" ancha en todas las interfaces.
+   ============================================================ */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 64, 45, 0.35) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 64, 45, 0.3);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 64, 45, 0.5);
+  background-clip: content-box;
+}
