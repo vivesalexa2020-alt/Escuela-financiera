@@ -86,7 +86,7 @@
       <div class="progress-strip-info">
         <span>📖 Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
         <span>•</span>
-        <span id="stripStatus">Mes gratis: Unidad 1 (4 lecciones)</span>
+        <span id="stripStatus">Mes gratis: Unidad 1 (8 lecciones)</span>
       </div>
       <div>
         <a href="index.php?page=home&skip_splash=1#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
@@ -106,87 +106,61 @@
           <div class="menu-card-header">
             <h3>
               <span>Plan de Aprendizaje</span>
-              <span class="status-tag" id="menuStatusTag">1 Mes Gratis</span>
+              <span class="status-tag" id="menuStatusTag">8 lecciones gratis</span>
             </h3>
           </div>
 
           <!-- UNIDAD 1 -->
           <div class="unit-accordion">
             <div class="unit-title-bar unit-active" onclick="toggleUnit('unit1')">
-              <span>📖 Unidad 1: Psicología del dinero</span>
-              <span class="unit-badge badge-open" id="unit1Badge">Liberada</span>
+              <span>📖 Unidad 1: Psicología y hábitos financieros</span>
+              <span class="unit-badge badge-open">8 lecciones gratis</span>
             </div>
             <ul class="lesson-list" id="unit1List">
-              <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>1. La psicología del dinero (Housel)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
-                  <span>2. Fugas y micro-gastos hormiga</span>
-                  <a href="https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>3. Hábitos atómicos: identidad > motivación (Clear)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
-                  <span>4. No pidas préstamos: el método anti-deuda (Ramsey)</span>
-                  <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
+              <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>1. Diagnóstico de tu dinero</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>2. Fugas de capital y micro-gastos hormiga</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>3. La Regla 50/30/20 simplificada</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>4. Método anti-deuda acelerado</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>5. Págate primero y colchón de emergencia</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Presupuesto base cero</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: CETES e interés compuesto</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
             </ul>
           </div>
 
           <!-- UNIDAD 2 -->
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit2')">
-              <span>💸 Unidad 2: Aprende a gastar</span>
-              <span class="unit-badge badge-locked">🔒 Bloqueada</span>
+              <span>💸 Unidad 2: Gastos, ahorro y tarjetas</span>
+              <span class="unit-badge badge-locked">🔒 8 lecciones</span>
             </div>
             <ul class="lesson-list" id="unit2List">
-              <li class="lesson-item locked" id="itemLesson5" onclick="selectLesson(5)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">🔒</span>
-                  <span>5. Págate primero y colchón de emergencia (Clason)</span>
-                  <a href="https://youtu.be/vp_B6Z7eF68?si=S854mK2puo4_ystd" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
-              </li>
-              <li class="lesson-item locked" id="itemLesson6" onclick="selectLesson(6)">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>6. Presupuesto base cero y no gastar de más (Ramsey)</span></div>
-                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
-              </li>
+              <li class="lesson-item locked" id="itemLesson9" onclick="selectLesson(9)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>9. Cómo leer tu estado de cuenta sin emociones</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson10" onclick="selectLesson(10)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>10. Gastos fijos vs variables: encuentra tu margen</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson11" onclick="selectLesson(11)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>11. Suscripciones y cargos automáticos</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson12" onclick="selectLesson(12)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>12. Compras inteligentes y costo de oportunidad</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson13" onclick="selectLesson(13)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>13. El fondo de emergencia paso a paso</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson14" onclick="selectLesson(14)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>14. Tarjetas de crédito: paga siempre el total</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson15" onclick="selectLesson(15)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>15. Negocia tasas y comisiones con tu banco</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson16" onclick="selectLesson(16)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>16. Metas de ahorro semanales automatizadas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
           </div>
 
           <!-- UNIDAD 3 -->
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit3')">
-              <span>🔥 Unidad 3: No pidas préstamos</span>
-              <span class="unit-badge badge-locked">🔒 Bloqueada</span>
+              <span>🔥 Unidad 3: Deuda, inversión y libertad</span>
+              <span class="unit-badge badge-locked">🔒 8 lecciones</span>
             </div>
             <ul class="lesson-list" id="unit3List">
-              <li class="lesson-item locked" id="itemLesson7" onclick="selectLesson(7)">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>7. Aprende a ahorrar: de CETES al interés compuesto</span></div>
-                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
-              </li>
-              <li class="lesson-item locked" id="itemLesson8" onclick="selectLesson(8)">
-                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>8. Tu libertad financiera con hábitos sólidos</span></div>
-                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
-              </li>
+              <li class="lesson-item locked" id="itemLesson17" onclick="selectLesson(17)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>17. Deuda buena vs mala: criterios para decidir</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson18" onclick="selectLesson(18)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>18. Bola de nieve vs avalancha</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson19" onclick="selectLesson(19)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>19. Refinanciamiento y consolidación de deudas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson20" onclick="selectLesson(20)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>20. CETES: tu primer rendimiento garantizado</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson21" onclick="selectLesson(21)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>21. Interés compuesto y el tiempo a tu favor</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson22" onclick="selectLesson(22)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>22. Fondos de inversión y ETFs para principiantes</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson23" onclick="selectLesson(23)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>23. Seguros y protección de tu patrimonio</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson24" onclick="selectLesson(24)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>24. Plan de libertad financiera a 18 meses</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
           </div>
 
@@ -198,7 +172,7 @@
           <div class="lesson-player-header">
             <span class="lesson-meta-tag" id="lessonTag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              <span id="lessonTagText">Lección 1 de 4 (Mes Gratis)</span>
+              <span id="lessonTagText">Lección 1 de 8 (Mes Gratis)</span>
             </span>
             <span style="font-size: 15px; color: var(--gris-medio);" id="lessonDuration">Duración: 12 min</span>
           </div>
@@ -410,7 +384,7 @@
               <h4>Lección bloqueada</h4>
               <p>Tu acceso gratuito incluye solamente el <strong>primer mes (Unidad 1)</strong>. Para continuar con las siguientes unidades necesitas la membresía completa.</p>
               <a href="index.php?page=suscripcion" class="btn-unlock-unit">Ver membresía completa →</a>
-              <button type="button" class="locked-back-btn" onclick="selectLesson(4)">Volver a la lección 4</button>
+              <button type="button" class="locked-back-btn" onclick="selectLesson(8)">Volver a la lección 8</button>
             </div>
           </div>
 
@@ -461,7 +435,7 @@
     const lessonsData = {
       1: {
         title: "1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
-        tag: "Lección 1 de 4 (Mes Gratis)",
+        tag: "Lección 1 de 8 (Mes Gratis)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/WF6qLnuh4EA",
         videoCheckpoints: [
@@ -534,7 +508,7 @@
       },
       2: {
         title: "2. Fugas de capital y micro-gastos hormiga",
-        tag: "Lección 2 de 4 (Mes Gratis)",
+        tag: "Lección 2 de 8 (Mes Gratis)",
         duration: "11 min",
         videoUrl: "https://www.youtube.com/embed/DT6Nh3aV5Vc",
         externalUrl: "https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP",
@@ -617,7 +591,7 @@
       },
       3: {
         title: "3. La Regla 50/30/20 simplificada",
-        tag: "Lección 3 de 4 (Mes Gratis)",
+        tag: "Lección 3 de 8 (Mes Gratis)",
         duration: "15 min",
         videoUrl: "https://www.youtube.com/embed/NnL7zHjX0bU",
         videoCheckpoints: [
@@ -690,7 +664,7 @@
       },
       4: {
         title: "4. Método anti-deuda acelerado: Bola de Nieve vs Avalancha",
-        tag: "Lección 4 de 4 (Mes Gratis)",
+        tag: "Lección 4 de 8 (Mes Gratis)",
         duration: "18 min",
         videoUrl: "https://www.youtube.com/embed/SkHPWkxzE7o",
         externalUrl: "https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY",
@@ -1074,6 +1048,47 @@
                </ul>`
       }
     };
+
+    function buildLesson(cfg) {
+      return {
+        title: cfg.id + '. ' + cfg.title,
+        tag: 'Lección ' + (((cfg.id - 1) % 8) + 1) + ' de 8 (' + cfg.unit + ')',
+        duration: '16 min',
+        videoUrl: cfg.videoUrl,
+        videoCheckpoints: [],
+        audio: { title: cfg.audio, desc: 'Episodio complementario de esta lección.', duration: '18 min' },
+        book: { title: cfg.book, author: cfg.author, desc: 'Lectura recomendada para profundizar en el tema.' },
+        exercise: {
+          title: cfg.exerciseTitle,
+          desc: 'Selecciona la respuesta correcta:',
+          options: cfg.options,
+          correct: cfg.correct,
+          explanation: cfg.explanation
+        },
+        body: '<p>' + cfg.explanation + '</p><ul><li><strong>Concepto clave:</strong> ' + cfg.title + '.</li><li><strong>Aplicación práctica:</strong> registra un ejemplo real de tu semana.</li><li><strong>Retroalimentación:</strong> ' + cfg.explanation + '</li></ul>'
+      };
+    }
+
+    [
+      { id: 9, title: 'Cómo leer tu estado de cuenta sin emociones', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/vp_B6Z7eF68', audio: 'Estados de cuenta sin ansiedad', book: 'La psicología del dinero', author: 'Morgan Housel', exerciseTitle: '¿Cuál es el primer paso al revisar tu estado de cuenta?', options: ['Ignorar los cargos pequeños', 'Clasificar cada movimiento por categoría', 'Pagar todo en efectivo', 'Cancelar la cuenta'], correct: 1, explanation: 'Clasificar cada movimiento te da una radiografía real y evita decisiones emocionales.' },
+      { id: 10, title: 'Gastos fijos vs variables: encuentra tu margen', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/zA67rkRiGXI', audio: 'Encuentra tu margen mensual', book: 'Pequeño Cerdo Capitalista', author: 'Sofía Macías', exerciseTitle: '¿Qué gasto es variable por naturaleza?', options: ['Renta mensual', 'Suscripción anual fija', 'Comida y entretenimiento', 'Pago de hipoteca'], correct: 2, explanation: 'Los gastos variables cambian cada mes; ahí está tu margen de ajuste más flexible.' },
+      { id: 11, title: 'Suscripciones y cargos automáticos', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/pTFZrS_8jRk', audio: 'Auditoría de suscripciones', book: 'El milagro financiero', author: 'David Bach', exerciseTitle: '¿Cómo detectar una suscripción olvidada?', options: ['Revisando solo el saldo', 'Buscando cargos recurrentes en tu estado de cuenta', 'Preguntando a un amigo', 'Cancelando todas las tarjetas'], correct: 1, explanation: 'Los cargos recurrentes aparecen mes con mes; revisarlos es la forma más rápida de liberar dinero.' },
+      { id: 12, title: 'Compras inteligentes y costo de oportunidad', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/xnDpXyRsKlU', audio: 'El costo detrás de cada compra', book: 'Pensar, rápido y despacio', author: 'Daniel Kahneman', exerciseTitle: 'Si gastas $500 en algo innecesario, ¿qué debes comparar?', options: ['Solo el precio', 'Lo que ese dinero podría generar invertido', 'La marca del producto', 'La opinión de otros'], correct: 1, explanation: 'El costo de oportunidad mide lo que dejas de ganar al usar tu dinero de otra forma.' },
+      { id: 13, title: 'El fondo de emergencia paso a paso', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/9xHOEs6WtaM', audio: 'Construyendo tu colchón', book: 'Finanzas para mortales', author: 'Morgan Housel', exerciseTitle: '¿Cuántos meses de gastos cubre un fondo recomendable?', options: ['1 mes', 'De 3 a 6 meses', '12 meses', 'Solo 15 días'], correct: 1, explanation: 'De 3 a 6 meses de gastos esenciales te protege sin inmovilizar demasiado capital.' },
+      { id: 14, title: 'Tarjetas de crédito: paga siempre el total', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/H48qw1QRGSA', audio: 'Tarjetas sin intereses', book: 'Domina tu tarjeta de crédito', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué evitas al pagar el saldo total cada mes?', options: ['Comisiones por manejo de cuenta', 'Intereses revolventes', 'Impuestos', 'Seguros'], correct: 1, explanation: 'Pagar el total elimina los intereses revolventes, el costo más caro del crédito.' },
+      { id: 15, title: 'Negocia tasas y comisiones con tu banco', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/RgKAFK5djSk', audio: 'Negocia con tu banco', book: 'La banca explicada fácil', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué información necesitas antes de negociar?', options: ['Solo tu saldo', 'Tasas, comisiones y opciones de la competencia', 'Tu número de cliente', 'El nombre del ejecutivo'], correct: 1, explanation: 'Llegar con datos concretos te permite pedir mejoras con argumentos y no con suposiciones.' },
+      { id: 16, title: 'Metas de ahorro semanales automatizadas', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/NnL7zHjX0bU', audio: 'Ahorro automático cada semana', book: 'Hábitos atómicos', author: 'James Clear', exerciseTitle: '¿Qué hace efectiva a una transferencia automática?', options: ['Depender de tu memoria', 'Programarla el día de tu quincena', 'Esperar a que sobre dinero', 'Hacerla solo cuando hay descuentos'], correct: 1, explanation: 'Automatizar el día de ingresos convierte el ahorro en un hábito, no en una decisión diaria.' },
+      { id: 17, title: 'Deuda buena vs mala: criterios para decidir', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/SkHPWkxzE7o', audio: 'Cuándo endeudarte con criterio', book: 'Padre rico, padre pobre', author: 'Robert Kiyosaki', exerciseTitle: '¿Qué señala una deuda "buena"?', options: ['Que sea pequeña', 'Que financie un activo que genera ingresos', 'Que tenga muchos meses de plazo', 'Que la pida un amigo'], correct: 1, explanation: 'Una deuda es útil cuando el activo financiado genera flujo para pagarla y generar retorno.' },
+      { id: 18, title: 'Bola de nieve vs avalancha', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/FTQbiNvZqaY', audio: 'Elige tu método de pago', book: 'El plan de libertad financiera', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué prioriza el método avalancha?', options: ['La deuda más pequeña', 'La tasa de interés más alta', 'La deuda más antigua', 'El saldo más alto'], correct: 1, explanation: 'La avalancha ataca primero la tasa más alta y reduce el total de intereses pagados.' },
+      { id: 19, title: 'Refinanciamiento y consolidación de deudas', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/byA-aYNNkJk', audio: 'Consolida sin endeudarte más', book: 'Sal de deudas', author: 'Equipo Educación Financiera', exerciseTitle: '¿Cuál es el riesgo principal de consolidar deudas?', options: ['Bajar la tasa', 'Extender el plazo y pagar más intereses', 'Unir varios pagos', 'Mejorar tu historial'], correct: 1, explanation: 'Un plazo más largo puede reducir tu pago mensual pero aumentar el costo total.' },
+      { id: 20, title: 'CETES: tu primer rendimiento garantizado', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/d3UaX-s7eXU', audio: 'CETES sin complicaciones', book: 'Invierte con sentido común', author: 'John C. Bogle', exerciseTitle: '¿Qué respalda a los CETES?', options: ['Una empresa privada', 'El Gobierno de México', 'Un banco comercial', 'Una criptomoneda'], correct: 1, explanation: 'Los CETES son títulos de deuda del gobierno federal y son de los instrumentos más seguros.' },
+      { id: 21, title: 'Interés compuesto y el tiempo a tu favor', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/N2bXEUSAiTI', audio: 'La magia del interés compuesto', book: 'El pequeño libro para invertir', author: 'John C. Bogle', exerciseTitle: '¿Qué acelera el interés compuesto?', options: ['Retirar utilidades cada mes', 'Aportar de forma constante y reinvertir', 'Cambiar de instrumento cada semana', 'Guardar dinero en efectivo'], correct: 1, explanation: 'La constancia y reinvertir los rendimientos hacen que el crecimiento sea exponencial.' },
+      { id: 22, title: 'Fondos de inversión y ETFs para principiantes', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/WI5NKIe0DBk', audio: 'ETFs y fondos indexados', book: 'El camino simple a la riqueza', author: 'JL Collins', exerciseTitle: '¿Qué ventaja ofrece un ETF indexado?', options: ['Garantía de rendimiento', 'Diversificación con baja comisión', 'Evitar impuestos siempre', 'Comprar una sola acción'], correct: 1, explanation: 'Los ETFs indexados diversifican tu inversión con costos muy bajos.' },
+      { id: 23, title: 'Seguros y protección de tu patrimonio', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/SqcY0GlETPk', audio: 'Protege lo que construyes', book: 'Seguros sin letra pequeña', author: 'Equipo Educación Financiera', exerciseTitle: '¿Para qué sirve un fondo de emergencia junto a un seguro?', options: ['Para invertir en criptomonedas', 'Para cubrir deducibles y gastos no previstos', 'Para pagar comisiones', 'Para comprar lujos'], correct: 1, explanation: 'El seguro transfiere grandes riesgos y el fondo cubre los gastos que no cubre la póliza.' },
+      { id: 24, title: 'Plan de libertad financiera a 18 meses', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/vLnPwxZdW4Y', audio: 'Tu plan a 18 meses', book: 'La bolsa o la vida', author: 'Vicki Robin y Joe Dominguez', exerciseTitle: '¿Qué define tu número de libertad financiera?', options: ['Tu sueldo actual', 'Gasto anual x 25 según la regla del 4%', 'El saldo de tu tarjeta', 'El precio de tu casa'], correct: 1, explanation: 'Tu número es el patrimonio necesario para retirar el 4% anual sin agotar el capital.' }
+    ].forEach(function (cfg) {
+      lessonsData[cfg.id] = buildLesson(cfg);
+    });
 
     // ============================================================
     // GESTIÓN DEL CUESTIONARIO INTERACTIVO EN TIEMPO REAL DEL VIDEO
@@ -1485,7 +1500,7 @@
     }
 
     let currentLesson = 1;
-    const MAX_FREE_LESSON = 4;
+    const MAX_FREE_LESSON = 8;
 
     function selectLesson(id) {
       const data = lessonsData[id];
@@ -1495,7 +1510,7 @@
       if (id > MAX_FREE_LESSON) {
         currentLesson = id;
         if (lockedOverlay) lockedOverlay.style.display = 'flex';
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
           const item = document.getElementById('itemLesson' + i);
           if (item) {
             if (i === id) item.classList.add('active');
@@ -1588,7 +1603,7 @@
       const regGate = document.getElementById('registrationGate');
       if (regGate) regGate.style.display = 'none';
 
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
         const item = document.getElementById('itemLesson' + i);
         if (item) {
           if (i === id) item.classList.add('active');

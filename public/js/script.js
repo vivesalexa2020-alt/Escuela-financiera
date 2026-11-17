@@ -1399,6 +1399,104 @@ const RETICULA_MATERIAS = [
   }
 ];
 
+const RETICULA_EXTRAS = {
+  'finanzas-personales': {
+    temas: ['Sesgos cognitivos que afectan tus decisiones', 'Presupuesto emocional y consumo consciente', 'Diario financiero de 30 días', 'Cómo celebrar pequeñas victorias'],
+    videos: [
+      { titulo: 'Sesgos cognitivos y dinero', url: 'https://www.youtube.com/embed/_7a55m4opPw', duracion: '16:05' },
+      { titulo: 'Diario financiero en 30 días', url: 'https://www.youtube.com/embed/WF6qLnuh4EA', duracion: '14:32' }
+    ]
+  },
+  'presupuesto': {
+    temas: ['Presupuesto por bolsillos', 'Regla 50/30/20 con ingresos variables', 'Fondos para imprevistos menores', 'Revisión mensual de desviaciones'],
+    videos: [
+      { titulo: 'Presupuesto por bolsillos paso a paso', url: 'https://www.youtube.com/embed/zA67rkRiGXI', duracion: '15:30' },
+      { titulo: 'Presupuesto con ingresos variables', url: 'https://www.youtube.com/embed/xnDpXyRsKlU', duracion: '16:05' }
+    ]
+  },
+  'gasto-hormiga': {
+    temas: ['Auditoría de suscripciones', 'Compras por impulso y dopamina', 'Costo de oportunidad diario', 'Regla de las 72 horas'],
+    videos: [
+      { titulo: 'Detecta tus fugas invisibles', url: 'https://www.youtube.com/embed/DT6Nh3aV5Vc', duracion: '11:18' },
+      { titulo: 'Compras por impulso: frena la dopamina', url: 'https://www.youtube.com/embed/pTFZrS_8jRk', duracion: '10:58' }
+    ]
+  },
+  'fondo-emergencia': {
+    temas: ['Cálculo del colchón ideal', 'Cuentas de alta liquidez', 'Automatización del ahorro', 'Cuándo usar el fondo de emergencia'],
+    videos: [
+      { titulo: 'Calcula tu fondo de paz mental', url: 'https://www.youtube.com/embed/9xHOEs6WtaM', duracion: '19:30' },
+      { titulo: 'Automatiza tu ahorro sin sentirlo', url: 'https://www.youtube.com/embed/RgKAFK5djSk', duracion: '13:20' }
+    ]
+  },
+  'control-deudas': {
+    temas: ['Inventario completo de deudas', 'Tasas y costos totales', 'Bola de nieve vs avalancha', 'Negociación con acreedores'],
+    videos: [
+      { titulo: 'Inventario de deudas en 15 minutos', url: 'https://www.youtube.com/embed/SkHPWkxzE7o', duracion: '18:00' },
+      { titulo: 'Negocia tus deudas con criterio', url: 'https://www.youtube.com/embed/byA-aYNNkJk', duracion: '17:40' }
+    ]
+  },
+  'materiales-herramientas': {
+    temas: ['Apps de finanzas personales', 'Hojas de cálculo y plantillas', 'Alertas y automatizaciones', 'Seguridad de tus datos financieros'],
+    videos: [
+      { titulo: 'Herramientas digitales para tu dinero', url: 'https://www.youtube.com/embed/Hjv473hOiB0', duracion: '12:45' },
+      { titulo: 'Protege tu información financiera', url: 'https://www.youtube.com/embed/dP15zlyra3c', duracion: '14:10' }
+    ]
+  },
+  'ahorro-inversion': {
+    temas: ['CETES y rendimientos garantizados', 'Interés compuesto en acción', 'Diversificación básica', 'Perfil de riesgo del inversionista'],
+    videos: [
+      { titulo: 'CETES para principiantes', url: 'https://www.youtube.com/embed/d3UaX-s7eXU', duracion: '15:20' },
+      { titulo: 'Interés compuesto y constancia', url: 'https://www.youtube.com/embed/N2bXEUSAiTI', duracion: '18:30' }
+    ]
+  },
+  'fondos-bolsa': {
+    temas: ['ETF vs fondos activos', 'Índices principales del mercado', 'DCA y aportaciones periódicas', 'Comisiones y spreads'],
+    videos: [
+      { titulo: 'ETFs y fondos indexados', url: 'https://www.youtube.com/embed/WI5NKIe0DBk', duracion: '16:40' },
+      { titulo: 'Comisiones que erosionan tu inversión', url: 'https://www.youtube.com/embed/LK7qEnwi_R0', duracion: '13:50' }
+    ]
+  },
+  'proteccion-impuestos': {
+    temas: ['SAT y obligaciones fiscales', 'Deducciones personales', 'Organización de comprobantes', 'Plan fiscal anual'],
+    videos: [
+      { titulo: 'Impuestos sin miedo', url: 'https://www.youtube.com/embed/lp-EO5I60KA', duracion: '17:15' },
+      { titulo: 'Organiza tus comprobantes', url: 'https://www.youtube.com/embed/yQeT95m2r8o', duracion: '12:30' }
+    ]
+  },
+  'emprendimiento': {
+    temas: ['Modelo de negocio validado', 'Flujo de efectivo del negocio', 'Precio, costos y márgenes', 'Financiamiento responsable'],
+    videos: [
+      { titulo: 'Valida tu modelo de negocio', url: 'https://www.youtube.com/embed/5k3f3p4P7-I', duracion: '19:05' },
+      { titulo: 'Flujo de efectivo para emprendedores', url: 'https://www.youtube.com/embed/eTFy8RnUkoU', duracion: '16:25' }
+    ]
+  },
+  'bienes-raices': {
+    temas: ['Compra vs renta con números', 'Enganche y crédito hipotecario', 'Costos ocultos de la propiedad', 'Valor a largo plazo del inmueble'],
+    videos: [
+      { titulo: 'Comprar o rentar: decide con datos', url: 'https://www.youtube.com/embed/Ct8Gxo8StBU', duracion: '18:20' },
+      { titulo: 'Costos de una propiedad', url: 'https://www.youtube.com/embed/QH2-TGUlwu4', duracion: '14:55' }
+    ]
+  },
+  'libertad-financiera': {
+    temas: ['Regla del 4% aplicada', 'Tu número de patrimonio', 'Retiro anticipado y estilo de vida', 'Legado y sucesión patrimonial'],
+    videos: [
+      { titulo: 'Regla del 4% explicada', url: 'https://www.youtube.com/embed/CevxZvSJLk8', duracion: '15:45' },
+      { titulo: 'Diseña tu retiro anticipado', url: 'https://www.youtube.com/embed/eb7wmGOKmBs', duracion: '20:10' }
+    ]
+  }
+};
+
+Object.keys(RETICULA_EXTRAS).forEach(function (id) {
+  const m = RETICULA_MATERIAS.find(function (item) { return item.id === id; });
+  if (!m) return;
+  const extra = RETICULA_EXTRAS[id];
+  m.temario = m.temario.concat(extra.temas);
+  m.videos = m.videos.concat(extra.videos);
+  m.ejercicios = m.ejercicios.concat([{ titulo: 'Práctica: ' + extra.temas[0], tipo: 'practica', descripcion: 'Aplica ' + extra.temas[0].toLowerCase() + ' a tu situación financiera real.' }]);
+  m.audios = m.audios.concat([{ titulo: 'Audio: ' + extra.temas[1], descripcion: 'Profundiza en ' + extra.temas[1].toLowerCase() + ' con ejemplos prácticos.', duracion: '20:00' }]);
+  m.libros = m.libros.concat([{ titulo: 'Guía: ' + extra.temas[2], autor: 'Equipo Educación Financiera', descripcion: 'Material de apoyo para ' + extra.temas[2].toLowerCase() + '.', tipo: 'ebook' }]);
+});
+
 function getReticulaStorageKey() {
   const user = getCurrentUser();
   const who = (user && user.email) ? String(user.email).toLowerCase() : 'invitado';
