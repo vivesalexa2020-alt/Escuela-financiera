@@ -126,6 +126,17 @@
               <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: CETES e interés compuesto</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
               <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
             </ul>
+            <div class="share-card">
+              <div class="share-card-head">📣 Comparte lo que aprendes</div>
+              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
+              <textarea id="shareComment1" class="share-comment" rows="5" readonly></textarea>
+              <div class="share-actions">
+                <button type="button" class="share-btn share-copy" onclick="copiarComentario(1)">📋 Copiar</button>
+                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(1)">📷 Instagram</button>
+                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(1)">▶️ YouTube</button>
+              </div>
+              <div class="share-toast" id="shareToast1"></div>
+            </div>
           </div>
 
           <!-- UNIDAD 2 -->
@@ -144,6 +155,17 @@
               <li class="lesson-item locked" id="itemLesson15" onclick="selectLesson(15)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>15. Negocia tasas y comisiones con tu banco</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson16" onclick="selectLesson(16)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>16. Metas de ahorro semanales automatizadas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
+            <div class="share-card">
+              <div class="share-card-head">📣 Comparte lo que aprendes</div>
+              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
+              <textarea id="shareComment2" class="share-comment" rows="5" readonly></textarea>
+              <div class="share-actions">
+                <button type="button" class="share-btn share-copy" onclick="copiarComentario(2)">📋 Copiar</button>
+                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(2)">📷 Instagram</button>
+                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(2)">▶️ YouTube</button>
+              </div>
+              <div class="share-toast" id="shareToast2"></div>
+            </div>
           </div>
 
           <!-- UNIDAD 3 -->
@@ -162,18 +184,17 @@
               <li class="lesson-item locked" id="itemLesson23" onclick="selectLesson(23)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>23. Seguros y protección de tu patrimonio</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson24" onclick="selectLesson(24)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>24. Plan de libertad financiera a 18 meses</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
-          </div>
-
-          <div class="share-card">
-            <div class="share-card-head">📣 Comparte lo que aprendes</div>
-            <p class="share-card-hint">Copia el comentario y publícalo en Instagram o YouTube.</p>
-            <textarea id="shareComment" class="share-comment" rows="5" readonly></textarea>
-            <div class="share-actions">
-              <button type="button" class="share-btn share-copy" onclick="copiarComentario()">📋 Copiar</button>
-              <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram()">📷 Instagram</button>
-              <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube()">▶️ YouTube</button>
+            <div class="share-card">
+              <div class="share-card-head">📣 Comparte lo que aprendes</div>
+              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
+              <textarea id="shareComment3" class="share-comment" rows="5" readonly></textarea>
+              <div class="share-actions">
+                <button type="button" class="share-btn share-copy" onclick="copiarComentario(3)">📋 Copiar</button>
+                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(3)">📷 Instagram</button>
+                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(3)">▶️ YouTube</button>
+              </div>
+              <div class="share-toast" id="shareToast3"></div>
             </div>
-            <div class="share-toast" id="shareToast"></div>
           </div>
 
         </div>
@@ -1654,33 +1675,42 @@
       return false;
     }
 
-    let shareToastTimer = null;
+    const shareToastTimers = {};
 
-    function buildShareComment() {
-      const data = lessonsData[currentLesson] || lessonsData[1];
+    function lessonForUnit(unit) {
+      const rangos = { 1: [1, 8], 2: [9, 16], 3: [17, 24] };
+      const rango = rangos[unit] || rangos[1];
+      return (currentLesson >= rango[0] && currentLesson <= rango[1]) ? currentLesson : rango[0];
+    }
+
+    function buildShareComment(unit) {
+      const data = lessonsData[lessonForUnit(unit)] || lessonsData[1];
       const titulo = data ? data.title.replace(/^\d+\.\s*/, '') : 'Educación Financiera';
       const url = window.location.origin + window.location.pathname + '?page=aula';
-      return 'Hoy aprendí: ' + titulo + ' en la Aula Virtual de Educación Financiera. ' + url +
+      return 'Hoy aprendí en la Unidad ' + unit + ': ' + titulo + ' en la Aula Virtual de Educación Financiera. ' + url +
         '\n\n#EducacionFinanciera #FinanzasPersonales #Ahorro #Inversiones #LibertadFinanciera #AprendeConNosotros';
     }
 
     function actualizarComentario() {
-      const box = document.getElementById('shareComment');
-      if (box) box.value = buildShareComment();
+      for (let u = 1; u <= 3; u++) {
+        const box = document.getElementById('shareComment' + u);
+        if (box) box.value = buildShareComment(u);
+      }
     }
 
-    function mostrarShareToast(mensaje) {
-      const toast = document.getElementById('shareToast');
+    function mostrarShareToast(unit, mensaje) {
+      const toast = document.getElementById('shareToast' + unit);
       if (!toast) return;
       toast.textContent = mensaje;
       toast.classList.add('show');
-      clearTimeout(shareToastTimer);
-      shareToastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2500);
+      clearTimeout(shareToastTimers[unit]);
+      shareToastTimers[unit] = setTimeout(function () { toast.classList.remove('show'); }, 2500);
     }
 
-    function copiarComentario() {
-      const texto = buildShareComment();
-      const box = document.getElementById('shareComment');
+    function copiarComentario(unit) {
+      unit = unit || 1;
+      const texto = buildShareComment(unit);
+      const box = document.getElementById('shareComment' + unit);
       if (box) {
         box.value = texto;
         box.focus();
@@ -1689,14 +1719,14 @@
       const fallback = function () {
         try {
           document.execCommand('copy');
-          mostrarShareToast('Comentario copiado');
+          mostrarShareToast(unit, 'Comentario copiado');
         } catch (e) {
-          mostrarShareToast('Selecciona y copia el comentario');
+          mostrarShareToast(unit, 'Selecciona y copia el comentario');
         }
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(texto).then(function () {
-          mostrarShareToast('Comentario copiado');
+          mostrarShareToast(unit, 'Comentario copiado');
         }).catch(fallback);
       } else {
         fallback();
@@ -1704,14 +1734,14 @@
       return texto;
     }
 
-    function compartirEnInstagram() {
-      copiarComentario();
+    function compartirEnInstagram(unit) {
+      copiarComentario(unit);
       window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
     }
 
-    function compartirEnYouTube() {
-      copiarComentario();
-      const data = lessonsData[currentLesson] || lessonsData[1];
+    function compartirEnYouTube(unit) {
+      copiarComentario(unit);
+      const data = lessonsData[lessonForUnit(unit)] || lessonsData[1];
       const videoId = data ? getYouTubeVideoId(data.videoUrl) : '';
       const url = videoId ? 'https://www.youtube.com/watch?v=' + videoId : 'https://www.youtube.com/';
       window.open(url, '_blank', 'noopener,noreferrer');
