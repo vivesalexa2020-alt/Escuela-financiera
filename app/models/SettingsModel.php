@@ -14,6 +14,9 @@ class SettingsModel extends Model {
         'login_ventana_minutos'  => '15',
         'modo_mantenimiento'     => '0',
         'mensaje_mantenimiento'  => 'Estamos realizando mejoras en la plataforma. Vuelve en unos minutos.',
+        'anuncio_activo'         => '0',
+        'anuncio_texto'          => '',
+        'anuncio_tipo'           => 'info',
     ];
 
     public function getAll(): array {

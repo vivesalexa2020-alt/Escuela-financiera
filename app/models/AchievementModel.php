@@ -56,6 +56,27 @@ class AchievementModel extends Model {
         return $stmt->execute([$activo ? 1 : 0, $id]);
     }
 
+    public function createLogro(array $data): int {
+        $stmt = $this->db->prepare("
+            INSERT INTO logros (nombre, descripcion, icono, puntos_requeridos, cursos_requeridos, activo)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ");
+        $stmt->execute([
+            $data['nombre'],
+            $data['descripcion'],
+            $data['icono'] ?: '🏅',
+            $data['puntos_requeridos'],
+            $data['cursos_requeridos'] ?: null,
+            $data['activo'] ?? 1,
+        ]);
+        return (int)$this->db->lastInsertId();
+    }
+
+    public function deleteLogro(int $id): bool {
+        $stmt = $this->db->prepare("DELETE FROM logros WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
     public function addPoints(int $userId, int $points): array {
         $stmt = $this->db->prepare("
             INSERT INTO puntos_usuario (usuario_id, puntos_totales, nivel) 
