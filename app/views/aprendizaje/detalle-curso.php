@@ -112,7 +112,7 @@
 
           <!-- UNIDAD 1 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar unit-active" onclick="toggleUnit('unit1')">
+            <div class="unit-title-bar unit-active" id="unitBar1" onclick="toggleUnit('unit1')">
               <span>📖 Unidad 1: Psicología y hábitos financieros</span>
               <span class="unit-badge badge-open">8 lecciones gratis</span>
             </div>
@@ -126,26 +126,15 @@
               <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: CETES e interés compuesto</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
               <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)"><div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
             </ul>
-            <div class="share-card">
-              <div class="share-card-head">📣 Comparte lo que aprendes</div>
-              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
-              <textarea id="shareComment1" class="share-comment" rows="5" readonly></textarea>
-              <div class="share-actions">
-                <button type="button" class="share-btn share-copy" onclick="copiarComentario(1)">📋 Copiar</button>
-                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(1)">📷 Instagram</button>
-                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(1)">▶️ YouTube</button>
-              </div>
-              <div class="share-toast" id="shareToast1"></div>
-            </div>
           </div>
 
           <!-- UNIDAD 2 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="toggleUnit('unit2')">
+            <div class="unit-title-bar" id="unitBar2" onclick="toggleUnit('unit2')">
               <span>💸 Unidad 2: Gastos, ahorro y tarjetas</span>
               <span class="unit-badge badge-locked">🔒 8 lecciones</span>
             </div>
-            <ul class="lesson-list" id="unit2List">
+            <ul class="lesson-list" id="unit2List" style="display: none;">
               <li class="lesson-item locked" id="itemLesson9" onclick="selectLesson(9)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>9. Cómo leer tu estado de cuenta sin emociones</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson10" onclick="selectLesson(10)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>10. Gastos fijos vs variables: encuentra tu margen</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson11" onclick="selectLesson(11)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>11. Suscripciones y cargos automáticos</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
@@ -155,26 +144,15 @@
               <li class="lesson-item locked" id="itemLesson15" onclick="selectLesson(15)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>15. Negocia tasas y comisiones con tu banco</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson16" onclick="selectLesson(16)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>16. Metas de ahorro semanales automatizadas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
-            <div class="share-card">
-              <div class="share-card-head">📣 Comparte lo que aprendes</div>
-              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
-              <textarea id="shareComment2" class="share-comment" rows="5" readonly></textarea>
-              <div class="share-actions">
-                <button type="button" class="share-btn share-copy" onclick="copiarComentario(2)">📋 Copiar</button>
-                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(2)">📷 Instagram</button>
-                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(2)">▶️ YouTube</button>
-              </div>
-              <div class="share-toast" id="shareToast2"></div>
-            </div>
           </div>
 
           <!-- UNIDAD 3 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="toggleUnit('unit3')">
+            <div class="unit-title-bar" id="unitBar3" onclick="toggleUnit('unit3')">
               <span>🔥 Unidad 3: Deuda, inversión y libertad</span>
               <span class="unit-badge badge-locked">🔒 8 lecciones</span>
             </div>
-            <ul class="lesson-list" id="unit3List">
+            <ul class="lesson-list" id="unit3List" style="display: none;">
               <li class="lesson-item locked" id="itemLesson17" onclick="selectLesson(17)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>17. Deuda buena vs mala: criterios para decidir</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson18" onclick="selectLesson(18)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>18. Bola de nieve vs avalancha</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson19" onclick="selectLesson(19)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>19. Refinanciamiento y consolidación de deudas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
@@ -184,17 +162,6 @@
               <li class="lesson-item locked" id="itemLesson23" onclick="selectLesson(23)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>23. Seguros y protección de tu patrimonio</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
               <li class="lesson-item locked" id="itemLesson24" onclick="selectLesson(24)"><div class="lesson-info"><span class="lesson-icon">🔒</span><span>24. Plan de libertad financiera a 18 meses</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
-            <div class="share-card">
-              <div class="share-card-head">📣 Comparte lo que aprendes</div>
-              <p class="share-card-hint">Copia el comentario de esta unidad y publícalo en Instagram o YouTube.</p>
-              <textarea id="shareComment3" class="share-comment" rows="5" readonly></textarea>
-              <div class="share-actions">
-                <button type="button" class="share-btn share-copy" onclick="copiarComentario(3)">📋 Copiar</button>
-                <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram(3)">📷 Instagram</button>
-                <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube(3)">▶️ YouTube</button>
-              </div>
-              <div class="share-toast" id="shareToast3"></div>
-            </div>
           </div>
 
         </div>
@@ -1539,11 +1506,10 @@
       const data = lessonsData[id];
       if (!data) return;
       currentLesson = id;
-      actualizarComentario();
+      toggleUnit(id <= 8 ? 'unit1' : id <= 16 ? 'unit2' : 'unit3');
 
       const lockedOverlay = document.getElementById('lockedLessonOverlay');
       if (id > MAX_FREE_LESSON) {
-        currentLesson = id;
         if (lockedOverlay) lockedOverlay.style.display = 'flex';
         for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
           const item = document.getElementById('itemLesson' + i);
@@ -1666,85 +1632,18 @@
     }
 
     function toggleUnit(unitId) {
-      const list = document.getElementById(unitId + 'List');
-      if (!list) return;
-      list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+      const unidades = ['unit1', 'unit2', 'unit3'];
+      unidades.forEach(function (id) {
+        const list = document.getElementById(id + 'List');
+        const bar = document.getElementById(id + 'Bar');
+        const activa = (id === unitId);
+        if (list) list.style.display = activa ? 'block' : 'none';
+        if (bar) bar.classList.toggle('unit-active', activa);
+      });
     }
 
     function tieneInscripcionActiva() {
       return false;
-    }
-
-    const shareToastTimers = {};
-
-    function lessonForUnit(unit) {
-      const rangos = { 1: [1, 8], 2: [9, 16], 3: [17, 24] };
-      const rango = rangos[unit] || rangos[1];
-      return (currentLesson >= rango[0] && currentLesson <= rango[1]) ? currentLesson : rango[0];
-    }
-
-    function buildShareComment(unit) {
-      const data = lessonsData[lessonForUnit(unit)] || lessonsData[1];
-      const titulo = data ? data.title.replace(/^\d+\.\s*/, '') : 'Educación Financiera';
-      const url = window.location.origin + window.location.pathname + '?page=aula';
-      return 'Hoy aprendí en la Unidad ' + unit + ': ' + titulo + ' en la Aula Virtual de Educación Financiera. ' + url +
-        '\n\n#EducacionFinanciera #FinanzasPersonales #Ahorro #Inversiones #LibertadFinanciera #AprendeConNosotros';
-    }
-
-    function actualizarComentario() {
-      for (let u = 1; u <= 3; u++) {
-        const box = document.getElementById('shareComment' + u);
-        if (box) box.value = buildShareComment(u);
-      }
-    }
-
-    function mostrarShareToast(unit, mensaje) {
-      const toast = document.getElementById('shareToast' + unit);
-      if (!toast) return;
-      toast.textContent = mensaje;
-      toast.classList.add('show');
-      clearTimeout(shareToastTimers[unit]);
-      shareToastTimers[unit] = setTimeout(function () { toast.classList.remove('show'); }, 2500);
-    }
-
-    function copiarComentario(unit) {
-      unit = unit || 1;
-      const texto = buildShareComment(unit);
-      const box = document.getElementById('shareComment' + unit);
-      if (box) {
-        box.value = texto;
-        box.focus();
-        box.select();
-      }
-      const fallback = function () {
-        try {
-          document.execCommand('copy');
-          mostrarShareToast(unit, 'Comentario copiado');
-        } catch (e) {
-          mostrarShareToast(unit, 'Selecciona y copia el comentario');
-        }
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(texto).then(function () {
-          mostrarShareToast(unit, 'Comentario copiado');
-        }).catch(fallback);
-      } else {
-        fallback();
-      }
-      return texto;
-    }
-
-    function compartirEnInstagram(unit) {
-      copiarComentario(unit);
-      window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
-    }
-
-    function compartirEnYouTube(unit) {
-      copiarComentario(unit);
-      const data = lessonsData[lessonForUnit(unit)] || lessonsData[1];
-      const videoId = data ? getYouTubeVideoId(data.videoUrl) : '';
-      const url = videoId ? 'https://www.youtube.com/watch?v=' + videoId : 'https://www.youtube.com/';
-      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     document.addEventListener("DOMContentLoaded", function() {

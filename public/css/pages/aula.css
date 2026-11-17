@@ -219,6 +219,11 @@
 
     .unit-accordion {
       border-bottom: 1px solid var(--borde-suave);
+      margin-bottom: 8px;
+    }
+
+    .unit-accordion:last-child {
+      margin-bottom: 0;
     }
 
     .unit-title-bar {
@@ -376,102 +381,6 @@
       font-size: 14px;
       cursor: pointer;
       text-decoration: underline;
-    }
-
-    .share-card {
-      margin-top: 18px;
-      padding: 16px;
-      background: #f7fbf9;
-      border: 1px solid #dff0e8;
-      border-radius: 14px;
-    }
-
-    .unit-accordion .share-card {
-      margin: 0 16px 16px;
-      padding: 14px;
-      background: #f4faf7;
-    }
-
-    .share-card-head {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--verde-principal);
-      margin-bottom: 4px;
-    }
-
-    .share-card-hint {
-      font-size: 13px;
-      color: var(--gris-medio);
-      margin: 0 0 10px;
-      line-height: 1.4;
-    }
-
-    .share-comment {
-      width: 100%;
-      box-sizing: border-box;
-      resize: vertical;
-      border: 1px solid #cbd5e1;
-      border-radius: 9px;
-      padding: 10px 12px;
-      font-family: inherit;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--gris-oscuro);
-      background: #ffffff;
-    }
-
-    .share-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .share-btn {
-      flex: 1 1 auto;
-      min-width: 92px;
-      border: none;
-      border-radius: 8px;
-      padding: 9px 10px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .share-btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.92;
-    }
-
-    .share-copy {
-      background: var(--verde-principal);
-      color: #ffffff;
-    }
-
-    .share-instagram {
-      background: #dd2a7b;
-      color: #ffffff;
-    }
-
-    .share-youtube {
-      background: #ff0000;
-      color: #ffffff;
-    }
-
-    .share-toast {
-      display: none;
-      margin-top: 9px;
-      padding: 8px 10px;
-      border-radius: 8px;
-      background: #d1fae5;
-      color: #065f46;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .share-toast.show {
-      display: block;
     }
 
     .lesson-player-header {
