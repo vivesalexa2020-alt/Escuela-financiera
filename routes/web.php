@@ -1,6 +1,6 @@
 <?php
 /**
- * Rutas web — páginas que renderizan HTML.
+ * Rutas web - páginas que renderizan HTML.
  * Recibe una instancia de Router y registra las rutas sobre ella.
  */
 
@@ -24,8 +24,10 @@ return static function (Router $router): void {
     $router->post('/admin/usuarios/rol',          'AdminController@updateRole');
     $router->post('/admin/usuarios/estado',       'AdminController@updateStatus');
     $router->post('/admin/usuarios/eliminar',     'AdminController@deleteUser');
+    $router->post('/admin/cursos/actualizar',     'AdminController@updateCourse');
     $router->post('/admin/cursos/estado',         'AdminController@updateCourseStatus');
     $router->post('/admin/membresias/actualizar', 'AdminController@updateMembership');
+    $router->post('/admin/logros/estado',         'AdminController@updateLogroStatus');
     $router->post('/admin/configuracion',         'AdminController@updateSettings');
     $router->post('/admin/password',              'AdminController@updatePassword');
 };

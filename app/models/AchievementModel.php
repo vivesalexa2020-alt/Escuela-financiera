@@ -41,6 +41,21 @@ class AchievementModel extends Model {
         return $stmt->fetchAll();
     }
 
+    public function getAllForAdmin(): array {
+        $stmt = $this->db->query("
+            SELECT l.*,
+                   (SELECT COUNT(*) FROM logros_usuario lu WHERE lu.logro_id = l.id) AS total_desbloqueos
+            FROM logros l
+            ORDER BY l.puntos_requeridos ASC, l.id ASC
+        ");
+        return $stmt->fetchAll();
+    }
+
+    public function setActive(int $id, bool $activo): bool {
+        $stmt = $this->db->prepare("UPDATE logros SET activo = ? WHERE id = ?");
+        return $stmt->execute([$activo ? 1 : 0, $id]);
+    }
+
     public function addPoints(int $userId, int $points): array {
         $stmt = $this->db->prepare("
             INSERT INTO puntos_usuario (usuario_id, puntos_totales, nivel) 

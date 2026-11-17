@@ -28,6 +28,19 @@ class ProgressModel extends Model {
         return $stmt->fetchAll();
     }
 
+    public function getAllForAdmin(): array {
+        $stmt = $this->db->query("
+            SELECT p.*, u.nombre AS usuario_nombre, u.email AS usuario_email,
+                   c.titulo AS curso_titulo, c.codigo AS curso_codigo, c.semestre
+            FROM progreso_usuario p
+            INNER JOIN usuarios u ON u.id = p.usuario_id
+            INNER JOIN cursos c ON c.id = p.curso_id
+            WHERE u.eliminado_en IS NULL
+            ORDER BY p.fecha_actualizacion DESC, p.id DESC
+        ");
+        return $stmt->fetchAll();
+    }
+
     public function saveProgress(int $userId, int $cursoId, ?int $leccionId, int $completado): array {
         // Verificar existencia previa
         $stmt = $this->db->prepare("SELECT id FROM progreso_usuario WHERE usuario_id = ? AND curso_id = ?");

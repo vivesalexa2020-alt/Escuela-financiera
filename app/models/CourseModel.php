@@ -106,4 +106,32 @@ class CourseModel extends Model {
 
         return $curso;
     }
+
+    public function findByIdAdmin(int $id): ?array {
+        $stmt = $this->db->prepare("SELECT * FROM cursos WHERE id = ?");
+        $stmt->execute([$id]);
+        $curso = $stmt->fetch();
+        return $curso ?: null;
+    }
+
+    public function updateBasic(int $id, array $data): bool {
+        $stmt = $this->db->prepare("
+            UPDATE cursos
+            SET codigo = ?, semestre = ?, titulo = ?, descripcion = ?, categoria = ?, nivel = ?, duracion_horas = ?, imagen_url = ?, orden = ?, activo = ?
+            WHERE id = ?
+        ");
+        return $stmt->execute([
+            $data['codigo'],
+            $data['semestre'],
+            $data['titulo'],
+            $data['descripcion'],
+            $data['categoria'],
+            $data['nivel'],
+            $data['duracion_horas'],
+            $data['imagen_url'],
+            $data['orden'],
+            $data['activo'],
+            $id,
+        ]);
+    }
 }

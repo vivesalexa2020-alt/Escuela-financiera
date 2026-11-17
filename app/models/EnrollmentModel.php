@@ -41,4 +41,15 @@ class EnrollmentModel extends Model {
         $stmt = $this->db->query("SELECT COUNT(*) FROM inscripciones");
         return (int)$stmt->fetchColumn();
     }
+
+    public function getAllForAdmin(): array {
+        $stmt = $this->db->query("
+            SELECT i.*, u.nombre AS usuario_nombre, u.email AS usuario_email
+            FROM inscripciones i
+            INNER JOIN usuarios u ON u.id = i.usuario_id
+            WHERE u.eliminado_en IS NULL
+            ORDER BY i.fecha_inscripcion DESC, i.id DESC
+        ");
+        return $stmt->fetchAll();
+    }
 }
