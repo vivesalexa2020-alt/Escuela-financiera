@@ -1423,6 +1423,7 @@
             <button type="button" class="svm-share-btn svm-share-wa" onclick="shareTestimonialComment('whatsapp')">WhatsApp</button>
             <button type="button" class="svm-share-btn svm-share-no" onclick="discardTestimonialCommentShare()">Ahora no</button>
           </div>
+          <div class="svm-share-toast" id="svmShareToast" aria-live="polite"></div>
         </div>
       </div>
     </div>
@@ -1680,7 +1681,6 @@
   }
 
   function copyTestimonialShareText(text, network) {
-    var mensaje = 'Comentario copiado. Pégalo en ' + (network === 'instagram' ? 'Instagram' : 'YouTube') + '.';
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).catch(function () {});
     } else {
@@ -1694,7 +1694,12 @@
       try { document.execCommand('copy'); } catch (e) {}
       document.body.removeChild(ta);
     }
-    alert(mensaje);
+    var toast = document.getElementById('svmShareToast');
+    if (toast) {
+      toast.textContent = 'Comentario copiado. Pégalo en ' + (network === 'instagram' ? 'Instagram' : 'YouTube') + '.';
+      toast.classList.add('show');
+      setTimeout(function () { toast.classList.remove('show'); }, 2200);
+    }
   }
 
   function shareTestimonialComment(network) {
@@ -1705,17 +1710,21 @@
     if (network === 'facebook') {
       share = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
     } else if (network === 'instagram') {
-      window.open('https://www.instagram.com/', 'share', 'noopener,width=620,height=440');
       copyTestimonialShareText(text + ' ' + url, network);
+      window.open('https://www.instagram.com/', '_blank', 'noopener');
+      setTimeout(discardTestimonialCommentShare, 2200);
+      return;
     } else if (network === 'youtube') {
-      window.open('https://www.youtube.com/', 'share', 'noopener,width=620,height=440');
       copyTestimonialShareText(text + ' ' + url, network);
+      window.open('https://www.youtube.com/', '_blank', 'noopener');
+      setTimeout(discardTestimonialCommentShare, 2200);
+      return;
     } else if (network === 'x') {
       share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
     } else if (network === 'whatsapp') {
       share = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
     }
-    if (share) window.open(share, 'share', 'noopener,width=620,height=440');
+    if (share) window.open(share, '_blank', 'noopener');
     discardTestimonialCommentShare();
   }
 

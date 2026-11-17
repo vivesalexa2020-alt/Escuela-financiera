@@ -7192,6 +7192,21 @@
     .svm-share-wa { background: #25d366; color: #073b1a; }
     .svm-share-no { background: transparent; color: #92400e; border-color: #f2c94c; }
 
+    .svm-share-toast {
+      display: none;
+      margin-top: 8px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      background: #d1fae5;
+      color: #065f46;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .svm-share-toast.show {
+      display: block;
+    }
+
     /* Modals topbar variations for 3 independent chapters */
     .nfm-topbar-blue {
       background: linear-gradient(135deg, #092644 0%, #03528e 100%) !important;
