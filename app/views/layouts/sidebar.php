@@ -61,10 +61,6 @@ if (empty($currentPage)) {
         <span class="sidebar-icon">🎓</span>
         <span>Aula Virtual</span>
       </a>
-      <a href="index.php?page=cursos" class="sidebar-link <?= $currentPage === 'cursos' ? 'active' : '' ?>">
-        <span class="sidebar-icon">📚</span>
-        <span>Cursos</span>
-      </a>
 
       <div class="sidebar-nav-title">HERRAMIENTAS</div>
       <a href="index.php?page=metas" class="sidebar-link <?= $currentPage === 'metas' ? 'active' : '' ?>">

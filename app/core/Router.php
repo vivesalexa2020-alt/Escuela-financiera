@@ -73,7 +73,7 @@ class Router {
         ];
     }
 
-    /** Convierte /cursos/{id} en una regex con grupos de captura */
+    /** Convierte /recursos/{id} en una regex con grupos de captura */
     private function pathToRegex(string $path): string {
         $escaped = preg_replace('/\{([a-zA-Z_][a-zA-Z0-9_]*)\}/', '([^/]+)', $path);
         return '#^' . $escaped . '$#';
@@ -98,7 +98,7 @@ class Router {
             $endpoint = trim((string)$_GET['endpoint'], '/');
             $uri      = '/api/' . $endpoint;
         } elseif (isset($_GET['page'])) {
-            // Soporte de enrutamiento por query string: index.php?page=cursos
+            // Soporte de enrutamiento por query string: index.php?page=home
             $page = trim((string)$_GET['page'], '/');
             $uri  = '/' . ($page === '' ? '' : $page);
         }

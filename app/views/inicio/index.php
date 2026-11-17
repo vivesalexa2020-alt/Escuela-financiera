@@ -5,14 +5,6 @@
  * Variables: $pageTitle, $pageCss, $bodyClass, $user
  */
 ?>
-<!-- ============================================================
-       SIDEBAR LATERAL IZQUIERDA (Aparece tras iniciar sesión)
-       ============================================================ -->
-  <?php include __DIR__ . '/../layouts/sidebar.php'; ?>
-
-  <!-- Backdrop para cerrar sidebar en responsive -->
-  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
-
   <div class="main-wrapper" id="mainWrapper">
 <!-- ============================================================
        SPLASH SCREEN — FONDO ILUSTRADO
@@ -136,11 +128,6 @@
   <header class="site-header hero-header-bar">
     <div class="container nav-wrap hero-nav-wrap">
       <div class="hero-brand-group">
-        <button class="home-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">
-          <span class="h-bar"></span>
-          <span class="h-bar"></span>
-          <span class="h-bar"></span>
-        </button>
         <a href="index.php?page=home&skip_splash=1" class="brand-logo hero-brand">
           <svg viewBox="0 0 240 210" width="34" height="30" role="img" aria-label="Logo Sombrero de Graduación con Libros">
             <g>
@@ -166,11 +153,6 @@
 
       <!-- Botones de acceso en header principal -->
       <div style="display: flex; align-items: center; gap: 10px;">
-        <?php if (!empty($user)): ?>
-          <a href="index.php?page=aula" class="topbar-admin-btn topbar-aula-btn" title="Entrar al aula virtual">
-            🎓 Ingresar al aula virtual
-          </a>
-        <?php endif; ?>
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
           <a href="index.php?page=admin" class="topbar-admin-btn" title="Panel de Administración">
             🛡️ Acceso Admin
@@ -1051,6 +1033,10 @@
 
   </div>
 </section>
+
+  <div class="home-probar-wrap">
+    <a href="index.php?page=aula" class="home-probar-btn">Probar</a>
+  </div>
 </main>
 
 <footer class="site-footer">
@@ -2268,7 +2254,6 @@
         '</div>' +
         '<div class="atomic-res-actions">' +
           '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()">🔄 Modificar o repetir respuestas</button>' +
-          '<a href="index.php?page=cursos" class="atomic-btn-course">📚 Comenzar Curso: Psicología del Dinero y Hábitos →</a>' +
         '</div>' +
       '</div>';
 

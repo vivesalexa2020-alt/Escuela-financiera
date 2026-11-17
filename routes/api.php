@@ -23,10 +23,6 @@ return static function (Router $router): void {
         $r->post('/cambiar-password',  'UserController@changePassword');
         $r->post('/eliminar-cuenta',   'UserController@deleteAccount');
 
-        // ── Cursos ────────────────────────────────────────────
-        $r->get('/cursos',        'CourseController@index');
-        $r->get('/cursos/{id}',   'CourseController@show');
-
         // ── Inscripciones ─────────────────────────────────────
         $r->get('/inscripciones',    'EnrollmentController@index');
         $r->post('/inscripciones',   'EnrollmentController@store');

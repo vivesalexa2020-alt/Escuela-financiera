@@ -10,10 +10,6 @@ class PageController extends Controller {
         $this->renderPage('home', 'inicio/index', 'Inicio | Educación Financiera', '');
     }
 
-    public function cursos(): void {
-        $this->renderPage('cursos', 'aprendizaje/cursos', 'Cursos y Programas | Educación Financiera', 'user-logged-in');
-    }
-
     public function aula(): void {
         $this->renderPage('aula', 'aprendizaje/detalle-curso', 'Aula Virtual | Educación Financiera', 'user-logged-in');
     }

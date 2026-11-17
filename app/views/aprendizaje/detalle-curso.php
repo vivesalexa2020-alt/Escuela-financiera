@@ -86,7 +86,7 @@
       <div class="progress-strip-info">
         <span>📖 Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
         <span>•</span>
-        <span id="stripStatus">3 lecciones libres para ver ahora</span>
+        <span id="stripStatus">Mes gratis: Unidad 1 (4 lecciones)</span>
       </div>
       <div>
         <a href="index.php?page=home&skip_splash=1#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
@@ -106,7 +106,7 @@
           <div class="menu-card-header">
             <h3>
               <span>Plan de Aprendizaje</span>
-              <span class="status-tag" id="menuStatusTag">3 Temas Abiertos</span>
+              <span class="status-tag" id="menuStatusTag">1 Mes Gratis</span>
             </h3>
           </div>
 
@@ -143,7 +143,7 @@
                     <span>Video</span> ↗
                   </a>
                 </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Liberada</span>
+                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
               </li>
             </ul>
           </div>
@@ -152,22 +152,22 @@
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit2')">
               <span>💸 Unidad 2: Aprende a gastar</span>
-              <span class="unit-badge badge-open" style="background:#e0f2fe; color:#0369a1;">Liberada</span>
+              <span class="unit-badge badge-locked">🔒 Bloqueada</span>
             </div>
             <ul class="lesson-list" id="unit2List">
-              <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)">
+              <li class="lesson-item locked" id="itemLesson5" onclick="selectLesson(5)">
                 <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
+                  <span class="lesson-icon">🔒</span>
                   <span>5. Págate primero y colchón de emergencia (Clason)</span>
                   <a href="https://youtu.be/vp_B6Z7eF68?si=S854mK2puo4_ystd" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
                     <span>Video</span> ↗
                   </a>
                 </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
+                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
               </li>
-              <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Presupuesto base cero y no gastar de más (Ramsey)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
+              <li class="lesson-item locked" id="itemLesson6" onclick="selectLesson(6)">
+                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>6. Presupuesto base cero y no gastar de más (Ramsey)</span></div>
+                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
               </li>
             </ul>
           </div>
@@ -176,16 +176,16 @@
           <div class="unit-accordion">
             <div class="unit-title-bar" onclick="toggleUnit('unit3')">
               <span>🔥 Unidad 3: No pidas préstamos</span>
-              <span class="unit-badge badge-open" style="background:#fef08a; color:#854d0e;">Liberada</span>
+              <span class="unit-badge badge-locked">🔒 Bloqueada</span>
             </div>
             <ul class="lesson-list" id="unit3List">
-              <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: de CETES al interés compuesto</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
+              <li class="lesson-item locked" id="itemLesson7" onclick="selectLesson(7)">
+                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>7. Aprende a ahorrar: de CETES al interés compuesto</span></div>
+                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
               </li>
-              <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
+              <li class="lesson-item locked" id="itemLesson8" onclick="selectLesson(8)">
+                <div class="lesson-info"><span class="lesson-icon">🔒</span><span>8. Tu libertad financiera con hábitos sólidos</span></div>
+                <span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span>
               </li>
             </ul>
           </div>
@@ -198,7 +198,7 @@
           <div class="lesson-player-header">
             <span class="lesson-meta-tag" id="lessonTag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              <span id="lessonTagText">Lección 1 de 3 (Demo Gratuita)</span>
+              <span id="lessonTagText">Lección 1 de 4 (Mes Gratis)</span>
             </span>
             <span style="font-size: 15px; color: var(--gris-medio);" id="lessonDuration">Duración: 12 min</span>
           </div>
@@ -404,6 +404,16 @@
             </a>
           </div>
 
+          <div class="locked-lesson-overlay" id="lockedLessonOverlay" style="display: none;">
+            <div class="locked-lesson-card">
+              <div class="locked-lesson-icon">🔒</div>
+              <h4>Lección bloqueada</h4>
+              <p>Tu acceso gratuito incluye solamente el <strong>primer mes (Unidad 1)</strong>. Para continuar con las siguientes unidades necesitas la membresía completa.</p>
+              <a href="index.php?page=suscripcion" class="btn-unlock-unit">Ver membresía completa →</a>
+              <button type="button" class="locked-back-btn" onclick="selectLesson(4)">Volver a la lección 4</button>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -451,7 +461,7 @@
     const lessonsData = {
       1: {
         title: "1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
-        tag: "Lección 1 de 8 (Carrera Financiera)",
+        tag: "Lección 1 de 4 (Mes Gratis)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/WF6qLnuh4EA",
         videoCheckpoints: [
@@ -524,7 +534,7 @@
       },
       2: {
         title: "2. Fugas de capital y micro-gastos hormiga",
-        tag: "Lección 2 de 8 (Carrera Financiera)",
+        tag: "Lección 2 de 4 (Mes Gratis)",
         duration: "11 min",
         videoUrl: "https://www.youtube.com/embed/DT6Nh3aV5Vc",
         externalUrl: "https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP",
@@ -607,7 +617,7 @@
       },
       3: {
         title: "3. La Regla 50/30/20 simplificada",
-        tag: "Lección 3 de 8 (Carrera Financiera)",
+        tag: "Lección 3 de 4 (Mes Gratis)",
         duration: "15 min",
         videoUrl: "https://www.youtube.com/embed/NnL7zHjX0bU",
         videoCheckpoints: [
@@ -680,7 +690,7 @@
       },
       4: {
         title: "4. Método anti-deuda acelerado: Bola de Nieve vs Avalancha",
-        tag: "Lección 4 de 8 (Carrera Financiera)",
+        tag: "Lección 4 de 4 (Mes Gratis)",
         duration: "18 min",
         videoUrl: "https://www.youtube.com/embed/SkHPWkxzE7o",
         externalUrl: "https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY",
@@ -1475,11 +1485,33 @@
     }
 
     let currentLesson = 1;
+    const MAX_FREE_LESSON = 4;
 
     function selectLesson(id) {
-      currentLesson = id;
       const data = lessonsData[id];
       if (!data) return;
+
+      const lockedOverlay = document.getElementById('lockedLessonOverlay');
+      if (id > MAX_FREE_LESSON) {
+        currentLesson = id;
+        if (lockedOverlay) lockedOverlay.style.display = 'flex';
+        for (let i = 1; i <= 8; i++) {
+          const item = document.getElementById('itemLesson' + i);
+          if (item) {
+            if (i === id) item.classList.add('active');
+            else item.classList.remove('active');
+          }
+        }
+        const nextBtn = document.getElementById('btnNextLesson');
+        if (nextBtn) {
+          nextBtn.disabled = true;
+          nextBtn.style.opacity = "0.5";
+        }
+        return;
+      }
+
+      if (lockedOverlay) lockedOverlay.style.display = 'none';
+      currentLesson = id;
 
       document.getElementById('playerTitle').textContent = data.title;
       document.getElementById('lessonTagText').textContent = data.tag;
@@ -1569,11 +1601,17 @@
         prevBtn.disabled = (id === 1);
         prevBtn.style.opacity = (id === 1) ? "0.5" : "1";
       }
+
+      const nextBtn = document.getElementById('btnNextLesson');
+      if (nextBtn) {
+        nextBtn.disabled = (id >= MAX_FREE_LESSON);
+        nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+      }
     }
 
     function stepLesson(direction) {
       const nextId = currentLesson + direction;
-      if (nextId >= 1 && nextId <= 8) {
+      if (nextId >= 1 && nextId <= MAX_FREE_LESSON) {
         selectLesson(nextId);
       }
     }
@@ -1585,7 +1623,7 @@
     }
 
     function tieneInscripcionActiva() {
-      return true; // Siempre activa para libre aprendizaje
+      return false;
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -1598,3 +1636,4 @@
   </script>
 
 <script src="public/js/script.js?v=<?= time() ?>"></script>
+

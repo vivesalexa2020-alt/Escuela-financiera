@@ -303,7 +303,7 @@
           <h2>Recursos y herramientas sin restricci&oacute;n</h2>
           <p>Herramientas, simuladores, plantillas y materiales 100% abiertos y sin restricciones para acompa&ntilde;ar tu aprendizaje.</p>
         </div>
-        <a href="#cursos" class="link-view-all">
+        <a href="#recursos" class="link-view-all">
           Ver todos los recursos <span>&rarr;</span>
         </a>
       </div>

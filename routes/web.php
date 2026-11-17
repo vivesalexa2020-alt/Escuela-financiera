@@ -7,11 +7,10 @@
 use App\Core\Router;
 
 return static function (Router $router): void {
-    // Rutas web (acepta tanto /cursos como index.php?page=cursos).
+    // Rutas web (acepta tanto /home como index.php?page=home).
     $router->get('/',              'PageController@home');
     $router->get('/home',          'PageController@home');
     $router->get('/index.php',     'PageController@home');
-    $router->get('/cursos',        'PageController@cursos');
     $router->get('/aula',          'PageController@aula');
     $router->get('/recursos',      'PageController@recursos');
     $router->get('/reticula',      'PageController@reticula');
@@ -26,10 +25,6 @@ return static function (Router $router): void {
     $router->post('/admin/usuarios/rol',          'AdminController@updateRole');
     $router->post('/admin/usuarios/estado',       'AdminController@updateStatus');
     $router->post('/admin/usuarios/eliminar',     'AdminController@deleteUser');
-    $router->post('/admin/cursos/crear',          'AdminController@createCourse');
-    $router->post('/admin/cursos/actualizar',     'AdminController@updateCourse');
-    $router->post('/admin/cursos/estado',         'AdminController@updateCourseStatus');
-    $router->post('/admin/cursos/eliminar',       'AdminController@deleteCourse');
     $router->post('/admin/lecciones/crear',       'AdminController@createLesson');
     $router->post('/admin/lecciones/actualizar',  'AdminController@updateLesson');
     $router->post('/admin/lecciones/eliminar',    'AdminController@deleteLesson');

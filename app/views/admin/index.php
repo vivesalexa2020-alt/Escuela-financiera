@@ -206,7 +206,6 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
     <a class="adm-sidebar-link active" data-tab="dashboard" onclick="showAdminTab('dashboard')"><span class="adm-icon">📊</span> Resumen General</a>
     
     <div class="adm-sidebar-title">ACADÉMICO Y MULTIMEDIA</div>
-    <a class="adm-sidebar-link" data-tab="cursos" onclick="showAdminTab('cursos')"><span class="adm-icon">📚</span> Cursos</a>
     <a class="adm-sidebar-link" data-tab="contenido" onclick="showAdminTab('contenido')"><span class="adm-icon">🎬</span> Contenidos (Videos/Libros)</a>
     <a class="adm-sidebar-link" data-tab="inscripciones" onclick="showAdminTab('inscripciones')"><span class="adm-icon">📝</span> Inscripciones</a>
     <a class="adm-sidebar-link" data-tab="progreso" onclick="showAdminTab('progreso')"><span class="adm-icon">📈</span> Progreso</a>
@@ -259,172 +258,12 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       <div style="padding:18px 20px">
         <div class="adm-quick-grid" style="margin-top:0">
           <a class="adm-quick-btn" onclick="showAdminTab('contenido')"><span style="font-size:20px">🎬</span> Gestionar Videos y Libros</a>
-          <a class="adm-quick-btn" onclick="showAdminTab('cursos')"><span style="font-size:20px">📚</span> Catálogo de Cursos</a>
           <a class="adm-quick-btn" onclick="showAdminTab('usuarios')"><span style="font-size:20px">👥</span> Control de Usuarios</a>
           <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=usuarios" target="_blank"><span style="font-size:20px">📄</span> Descargar Usuarios en PDF</a>
           <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=progreso" target="_blank"><span style="font-size:20px">📄</span> Descargar Progreso en PDF</a>
           <a class="adm-quick-btn" onclick="showAdminTab('config')"><span style="font-size:20px">📢</span> Publicar Aviso Global</a>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ── 2. GESTIÓN DE CURSOS ──────────────────────────────────────── -->
-  <div id="tab-cursos" class="adm-tab-content">
-    <div class="adm-page-header">
-      <div>
-        <h2>Gestión de Cursos</h2>
-        <p>Crea, edita portadas y administra los cursos visibles en el aula</p>
-      </div>
-      <div>
-        <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-curso')">➕ Crear Nuevo Curso</button>
-      </div>
-    </div>
-
-    <!-- Formulario colapsable para crear curso -->
-    <div id="box-nuevo-curso" class="adm-collapse-box" style="display:none">
-      <h3 style="margin:0 0 14px;color:#0f172a;font-size:1.05rem">➕ Registrar Nuevo Curso</h3>
-      <form method="post" action="index.php?page=admin/cursos/crear" enctype="multipart/form-data">
-        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
-        <div class="adm-form-row" style="margin-bottom:12px">
-          <div class="adm-form-group"><label>Código único (ej: FIN-101)</label><input class="adm-input" name="codigo" required placeholder="FIN-101"></div>
-          <div class="adm-form-group"><label>Semestre (1 al 10)</label><input class="adm-input" type="number" name="semestre" min="1" max="10" value="1" required></div>
-          <div class="adm-form-group"><label>Categoría</label><input class="adm-input" name="categoria" placeholder="Finanzas Personales" required></div>
-          <div class="adm-form-group"><label>Nivel</label>
-            <select class="adm-input" name="nivel">
-              <option value="principiante">Principiante</option>
-              <option value="intermedio">Intermedio</option>
-              <option value="avanzado">Avanzado</option>
-            </select>
-          </div>
-          <div class="adm-form-group"><label>Horas estimadas</label><input class="adm-input" type="number" step="0.5" name="duracion_horas" placeholder="10.5"></div>
-          <div class="adm-form-group"><label>Orden</label><input class="adm-input" type="number" name="orden" value="1"></div>
-        </div>
-        <div class="adm-form-group"><label>Título del Curso</label><input class="adm-input" name="titulo" required placeholder="Ej. Hábitos Financieros y Ahorro"></div>
-        <div class="adm-form-group"><label>Descripción Completa</label><textarea class="adm-input" name="descripcion" rows="3" required placeholder="Explica de qué trata el curso y qué aprenderá el estudiante..."></textarea></div>
-        <div class="adm-form-row" style="margin-bottom:14px">
-          <div class="adm-form-group">
-            <label>Subir Imagen de Portada (Archivo local JPG, PNG, WebP)</label>
-            <input class="adm-input" type="file" name="imagen_archivo" accept="image/*">
-          </div>
-          <div class="adm-form-group">
-            <label>O Enlace de Imagen URL</label>
-            <input class="adm-input" name="imagen_url" placeholder="https://... o public/img/...">
-          </div>
-        </div>
-        <div style="display:flex;gap:10px">
-          <button class="adm-action-btn primary" style="padding:9px 18px">Guardar Curso</button>
-          <button type="button" class="adm-action-btn" onclick="toggleElem('box-nuevo-curso')">Cancelar</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="adm-table-card">
-      <div class="adm-table-header">
-        <h3>Catálogo de Cursos (<?= count($cursos) ?>)</h3>
-        <div class="adm-table-actions">
-          <input id="cursoSearch" class="adm-search-input" placeholder="Buscar curso..." oninput="filtrarCursos()">
-        </div>
-      </div>
-      <table class="adm-table">
-        <thead>
-          <tr>
-            <th>Portada</th>
-            <th>Curso / Código</th>
-            <th>Nivel / Sem.</th>
-            <th>Contenido Multimedia</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="cursosTableBody">
-          <?php if (empty($cursos)): ?>
-            <tr><td colspan="6" class="adm-empty">No hay cursos creados.</td></tr>
-          <?php else: foreach ($cursos as $c): ?>
-            <tr class="curso-row" data-titulo="<?= htmlspecialchars(strtolower($c['titulo'])) ?>" data-codigo="<?= htmlspecialchars(strtolower($c['codigo'])) ?>">
-              <td>
-                <?php if (!empty($c['imagen_url'])): ?>
-                  <img src="<?= htmlspecialchars($c['imagen_url']) ?>" style="width:52px;height:38px;border-radius:6px;object-fit:cover" alt="Portada">
-                <?php else: ?>
-                  <div style="width:52px;height:38px;border-radius:6px;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:16px">📚</div>
-                <?php endif; ?>
-              </td>
-              <td>
-                <div style="font-weight:700;color:#0f172a"><?= htmlspecialchars($c['titulo']) ?></div>
-                <div style="font-size:.78rem;color:#64748b"><?= htmlspecialchars($c['codigo']) ?> · <?= htmlspecialchars($c['categoria']) ?></div>
-              </td>
-              <td>
-                <div>Semestre <?= (int)$c['semestre'] ?></div>
-                <span class="adm-badge pill"><?= ucfirst(htmlspecialchars($c['nivel'])) ?></span>
-              </td>
-              <td>
-                <div style="font-size:.8rem;line-height:1.5">
-                  🎥 <strong><?= (int)$c['total_lecciones'] ?></strong> videos · 
-                  📖 <strong><?= (int)$c['total_libros'] ?></strong> libros<br>
-                  🎧 <strong><?= (int)$c['total_audios'] ?></strong> audios · 
-                  ✍️ <strong><?= (int)$c['total_ejercicios'] ?></strong> ejercicios
-                </div>
-              </td>
-              <td>
-                <span class="adm-badge <?= $c['activo'] ? 'activo' : 'inactivo' ?>"><?= $c['activo'] ? 'Activo' : 'Inactivo' ?></span>
-              </td>
-              <td>
-                <div style="display:flex;gap:6px;flex-wrap:wrap">
-                  <a href="index.php?page=admin&tab=contenido&curso_id=<?= (int)$c['id'] ?>" class="adm-action-btn primary" title="Gestionar videos, libros y materiales">
-                    🎬 Contenido
-                  </a>
-                  <form method="post" action="index.php?page=admin/cursos/estado" class="adm-inline-form">
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
-                    <input type="hidden" name="curso_id" value="<?= (int)$c['id'] ?>">
-                    <input type="hidden" name="activo" value="<?= $c['activo'] ? '0' : '1' ?>">
-                    <button class="adm-action-btn <?= $c['activo'] ? 'warning' : 'success' ?>">
-                      <?= $c['activo'] ? 'Desactivar' : 'Activar' ?>
-                    </button>
-                  </form>
-                  <form method="post" action="index.php?page=admin/cursos/eliminar" class="adm-inline-form" onsubmit="return confirm('¿Seguro que deseas eliminar este curso y todo su contenido?');">
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
-                    <input type="hidden" name="curso_id" value="<?= (int)$c['id'] ?>">
-                    <button class="adm-action-btn danger">🗑</button>
-                  </form>
-                </div>
-
-                <!-- Detalle desplegable para editar datos del curso -->
-                <details class="adm-edit-details" style="margin-top:6px">
-                  <summary>Editar datos básicos y portada</summary>
-                  <form method="post" action="index.php?page=admin/cursos/actualizar" enctype="multipart/form-data" style="margin-top:8px">
-                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
-                    <input type="hidden" name="curso_id" value="<?= (int)$c['id'] ?>">
-                    <div class="adm-edit-grid">
-                      <input class="adm-input" name="codigo" value="<?= htmlspecialchars($c['codigo']) ?>" required placeholder="Código">
-                      <input class="adm-input" name="semestre" type="number" min="1" max="10" value="<?= (int)$c['semestre'] ?>" required placeholder="Semestre">
-                      <input class="adm-input" name="categoria" value="<?= htmlspecialchars($c['categoria']) ?>" required placeholder="Categoría">
-                      <select class="adm-input" name="nivel">
-                        <option value="principiante" <?= $c['nivel']==='principiante'?'selected':'' ?>>Principiante</option>
-                        <option value="intermedio" <?= $c['nivel']==='intermedio'?'selected':'' ?>>Intermedio</option>
-                        <option value="avanzado" <?= $c['nivel']==='avanzado'?'selected':'' ?>>Avanzado</option>
-                      </select>
-                      <input class="adm-input" name="duracion_horas" type="number" step="0.5" value="<?= htmlspecialchars((string)$c['duracion_horas']) ?>" placeholder="Horas">
-                      <input class="adm-input" name="orden" type="number" value="<?= (int)$c['orden'] ?>" placeholder="Orden">
-                      <select class="adm-input" name="activo">
-                        <option value="1" <?= $c['activo']?'selected':'' ?>>Activo</option>
-                        <option value="0" <?= !$c['activo']?'selected':'' ?>>Inactivo</option>
-                      </select>
-                      <input class="adm-input" name="titulo" value="<?= htmlspecialchars($c['titulo']) ?>" required style="grid-column:1/-1" placeholder="Título">
-                      <textarea class="adm-input" name="descripcion" required placeholder="Descripción"><?= htmlspecialchars($c['descripcion']) ?></textarea>
-                      <div style="grid-column:1/-1">
-                        <label style="font-size:.78rem;font-weight:600">Cambiar Portada:</label>
-                        <input class="adm-input" type="file" name="imagen_archivo" accept="image/*" style="margin-bottom:6px">
-                        <input class="adm-input" name="imagen_url" value="<?= htmlspecialchars((string)($c['imagen_url']??'')) ?>" placeholder="O URL de imagen externa">
-                      </div>
-                    </div>
-                    <div style="margin-top:8px"><button class="adm-action-btn success">Guardar Cambios</button></div>
-                  </form>
-                </details>
-              </td>
-            </tr>
-          <?php endforeach; endif; ?>
-        </tbody>
-      </table>
     </div>
   </div>
 
@@ -1487,14 +1326,6 @@ function filtrarUsuarios(){
   });
 }
 
-function filtrarCursos(){
-  var s = (document.getElementById('cursoSearch').value || '').toLowerCase();
-  document.querySelectorAll('.curso-row').forEach(function(row){
-    var t = row.getAttribute('data-titulo') || '', c = row.getAttribute('data-codigo') || '';
-    row.style.display = (t.indexOf(s) !== -1 || c.indexOf(s) !== -1) ? '' : 'none';
-  });
-}
-
 function filtrarInscripciones(){
   var s = (document.getElementById('inscSearch').value || '').toLowerCase();
   document.querySelectorAll('.insc-row').forEach(function(row){
@@ -1537,7 +1368,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var p = new URLSearchParams(window.location.search);
   var t = p.get('tab');
   var sec = p.get('sec');
-  var validTabs = ['dashboard','cursos','contenido','inscripciones','progreso','logros','usuarios','membresias','auditoria','config'];
+  var validTabs = ['dashboard','contenido','inscripciones','progreso','logros','usuarios','membresias','auditoria','config'];
   showAdminTab(validTabs.indexOf(t) !== -1 ? t : 'dashboard');
   if(sec){ showSubTab(sec); }
 });

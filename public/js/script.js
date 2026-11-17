@@ -82,26 +82,12 @@ function toggleSidebar(forceState) {
 }
 
 // ------------------------------------------------------------
-// 3. MODALES DE CURSOS Y RECURSOS
+// 3. MODALES DE RECURSOS
 // ------------------------------------------------------------
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
 const modalCloseBtn = document.getElementById('modalCloseBtn');
-
-function openCourseModal(title, desc) {
-  if (!getCurrentUser()) {
-    openLoginModal();
-    if (loginMsg) {
-      loginMsg.className = 'form-message error';
-      loginMsg.textContent = '🔒 Inicia sesión o crea tu cuenta para ver el temario completo de los cursos.';
-    }
-    return;
-  }
-  if (modalTitle) modalTitle.textContent = title;
-  if (modalDescription) modalDescription.textContent = desc;
-  if (modalOverlay) modalOverlay.classList.add('open');
-}
 
 function openResourceModal(title, desc) {
   const t = (title || '').toLowerCase();
@@ -172,15 +158,12 @@ if (searchInput && searchResults) {
   searchInput.addEventListener('input', (e) => {
     const q = e.target.value.toLowerCase().trim();
     if (!q) {
-      searchResults.innerHTML = 'Escribe para encontrar cursos como "Finanzas personales", "Ahorro", "Presupuesto", o calculadoras interactivas.';
+      searchResults.innerHTML = 'Escribe para encontrar recursos como "Presupuesto", "Ahorro" o calculadoras interactivas.';
       return;
     }
 
     const items = [
-      { name: 'Finanzas personales', type: 'Curso', link: 'index.php?page=cursos' },
-      { name: 'Ahorro e inversión', type: 'Curso', link: 'index.php?page=cursos' },
-      { name: 'Presupuesto mensual 50/30/20', type: 'Curso', link: 'index.php?page=cursos' },
-      { name: 'Emprendimiento y negocios', type: 'Curso', link: 'index.php?page=cursos' },
+      { name: 'Presupuesto mensual 50/30/20', type: 'Recurso', link: 'index.php?page=recursos' },
       { name: 'Calculadora de interés compuesto', type: 'Recurso', link: 'index.php?page=recursos' },
       { name: 'Guía de ahorro descargable en PDF', type: 'Recurso', link: 'index.php?page=recursos' }
     ];
@@ -586,7 +569,7 @@ async function logout() {
 
   // Si estamos en una página protegida, redirigir a inicio
   const path = (window.location.pathname + window.location.search).toLowerCase();
-  if (path.includes('page=cursos') || path.includes('page=configuraciones')) {
+  if (path.includes('page=configuraciones')) {
     window.location.href = 'index.php';
   }
 }
@@ -2636,7 +2619,7 @@ const FIN_CONOCIMIENTO = [
   {
     claves: ['ahorro', 'ahorrar', 'guardar dinero', 'fondo de emergencia', 'emergencia'],
     respuesta: 'El ahorro es la base de tu salud financiera: aparta primero una parte de tus ingresos y gasta después. Empieza con un fondo de emergencia de 3 a 6 meses de tus gastos fijos.',
-    enlaces: [{ texto: 'Ver cursos de ahorro', href: 'index.php?page=cursos' }]
+    enlaces: [{ texto: 'Ver recursos de ahorro', href: 'index.php?page=recursos' }]
   },
   {
     claves: ['interes compuesto', 'interes', 'inversion', 'invertir', 'rendimiento', 'capital'],
@@ -2646,7 +2629,7 @@ const FIN_CONOCIMIENTO = [
   {
     claves: ['presupuesto', '50/30/20', 'gastos', 'ingresos', 'planificar'],
     respuesta: 'La regla 50/30/20 sugiere destinar 50% de tus ingresos a necesidades, 30% a gustos y 20% a ahorro o deudas. Es una guía simple para ordenar tus finanzas cada mes.',
-    enlaces: [{ texto: 'Ver curso de presupuesto', href: 'index.php?page=cursos' }]
+    enlaces: [{ texto: 'Ver recursos de presupuesto', href: 'index.php?page=recursos' }]
   },
   {
     claves: ['deuda', 'deudas', 'tarjeta', 'tarjeta de credito', 'credito', 'prestamo'],
