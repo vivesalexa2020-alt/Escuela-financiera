@@ -1098,10 +1098,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
 
 const RETICULA_SEMESTRES = [
-  { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Primer mes gratis)', limite: 4, requeridoPrevio: 0, gratis: true },
-  { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 3, gratis: false },
-  { id: 3, nivel: 'Avanzado', titulo: 'Nivel 3 (Avanzado)', limite: 4, requeridoPrevio: 3, gratis: false }
+  { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Unidad 1 gratis)', limite: 1, requeridoPrevio: 0, gratis: true },
+  { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 1, gratis: false },
+  { id: 3, nivel: 'Avanzado', titulo: 'Nivel 3 (Avanzado)', limite: 4, requeridoPrevio: 1, gratis: false }
 ];
+
+const RETICULA_MATERIA_GRATIS_ID = 'finanzas-personales';
 
 const RETICULA_MATERIAS = [
   // NIVEL 1 (Básico - Primer mes gratis) — mismas unidades del Aula Demo
@@ -1527,8 +1529,16 @@ function semestreRequierePago(semId) {
   return !!(cfg && !cfg.gratis);
 }
 
+function materiaRequierePago(m) {
+  return !!m && m.id !== RETICULA_MATERIA_GRATIS_ID;
+}
+
 function semestreEstaBloqueadoPorPago(semId) {
-  return false; // Todos los niveles liberados para estudio
+  return semestreRequierePago(semId) && !tieneMembresiaActiva();
+}
+
+function materiaEstaBloqueadaPorPago(m) {
+  return materiaRequierePago(m) && !tieneMembresiaActiva();
 }
 
 function semestreEstaBloqueado(state, semId) {
@@ -1546,7 +1556,7 @@ function puedeInscribir(id) {
   const m = getMateriaPorId(id);
   if (!m) return { ok: false, motivo: 'error' };
   if (state.inscritas.indexOf(id) !== -1) return { ok: false, motivo: 'inscrita' };
-  if (semestreEstaBloqueadoPorPago(m.semestre)) return { ok: false, motivo: 'pago' };
+  if (materiaEstaBloqueadaPorPago(m) || semestreEstaBloqueadoPorPago(m.semestre)) return { ok: false, motivo: 'pago' };
   if (semestreEstaBloqueado(state, m.semestre)) return { ok: false, motivo: 'bloqueado' };
   const cfg = getSemestreConfig(m.semestre);
   const limite = cfg ? cfg.limite : 1;
@@ -1579,7 +1589,7 @@ function renderReticula() {
       hint = '¡Excelente! Has completado tu programa de 18 meses';
     } else if (inscritasN1 < limiteN1) {
       const faltan = limiteN1 - inscritasN1;
-      hint = 'Nivel 1 (Primer mes gratis): Inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' más';
+      hint = 'Unidad 1 gratis: inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' para empezar';
     } else if (contarInscritasEnSemestre(state, 2) < 4) {
       hint = tieneMembresiaActiva()
         ? '¡Nivel 1 completado! Continúa tu programa de 18 meses en el Nivel 2'
@@ -1603,7 +1613,7 @@ function renderReticula() {
     const requierePago = semestreEstaBloqueadoPorPago(sem.id);
     const pct = Math.min(100, Math.round((inscritasSem / cfg.limite) * 100));
 
-    const chip = bloqueado
+    const chip = bloqueado || requierePago
       ? '<span class="reticula-semester-chip locked">' + (requierePago ? '🔒 Requiere inscripción' : '🔒 Bloqueado') + '</span>'
       : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
         (cfg.limite === 1 ? ' materia' : ' materias') + '</span>';
@@ -1629,7 +1639,7 @@ function renderReticula() {
 
     var nivelPill = '';
     if (sem.id === 1) {
-      nivelPill = '<span class="reticula-semester-pill">🌱 BÁSICO · MES 1 GRATIS</span>';
+      nivelPill = '<span class="reticula-semester-pill">🌱 BÁSICO · SOLO UNIDAD 1 GRATIS</span>';
     } else if (sem.id === 2) {
       nivelPill = '<span class="reticula-semester-pill">🚀 INTERMEDIO · ESTRATEGIA</span>';
     } else {
@@ -2302,7 +2312,7 @@ function openReticulaModal(id) {
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'pago') {
       tipo = 'info';
-      texto = '🔒 Esta materia pertenece al ' + (cfg ? cfg.titulo : 'Nivel ' + m.semestre) + '. Tu primer mes del Nivel 1 (Básico) es de prueba 100% GRATIS. Para continuar del segundo mes en adelante necesitas pagar tu inscripción de $1,500 MXN/mes (SPEI o Tarjeta).';
+      texto = '🔒 Solo la Unidad 1 (primer mes) es gratis. Para acceder a esta y las demás unidades necesitas la membresía de $1,500 MXN/mes (SPEI o Tarjeta).';
       label = 'Pagar inscripción y desbloquear acceso →';
       deshabilitado = false;
     } else if (chk.motivo === 'bloqueado') {
