@@ -1417,6 +1417,8 @@
           </div>
           <div class="svm-share-actions">
             <button type="button" class="svm-share-btn svm-share-fb" onclick="shareTestimonialComment('facebook')">Facebook</button>
+            <button type="button" class="svm-share-btn svm-share-ig" onclick="shareTestimonialComment('instagram')">Instagram</button>
+            <button type="button" class="svm-share-btn svm-share-yt" onclick="shareTestimonialComment('youtube')">YouTube</button>
             <button type="button" class="svm-share-btn svm-share-x" onclick="shareTestimonialComment('x')">X</button>
             <button type="button" class="svm-share-btn svm-share-wa" onclick="shareTestimonialComment('whatsapp')">WhatsApp</button>
             <button type="button" class="svm-share-btn svm-share-no" onclick="discardTestimonialCommentShare()">Ahora no</button>
@@ -1677,6 +1679,24 @@
     askToShareTestimonialComment();
   }
 
+  function copyTestimonialShareText(text, network) {
+    var mensaje = 'Comentario copiado. Pégalo en ' + (network === 'instagram' ? 'Instagram' : 'YouTube') + '.';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(function () {});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    alert(mensaje);
+  }
+
   function shareTestimonialComment(network) {
     var comment = lastTestimonialComment || 'Mi testimonio en Educación Financiera';
     var url = window.location.href;
@@ -1684,6 +1704,12 @@
     var share = '';
     if (network === 'facebook') {
       share = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    } else if (network === 'instagram') {
+      window.open('https://www.instagram.com/', 'share', 'noopener,width=620,height=440');
+      copyTestimonialShareText(text + ' ' + url, network);
+    } else if (network === 'youtube') {
+      window.open('https://www.youtube.com/', 'share', 'noopener,width=620,height=440');
+      copyTestimonialShareText(text + ' ' + url, network);
     } else if (network === 'x') {
       share = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
     } else if (network === 'whatsapp') {

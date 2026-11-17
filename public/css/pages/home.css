@@ -7186,6 +7186,8 @@
     }
 
     .svm-share-fb { background: #1877f2; color: #ffffff; }
+    .svm-share-ig { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); color: #ffffff; }
+    .svm-share-yt { background: #ff0000; color: #ffffff; }
     .svm-share-x { background: #000000; color: #ffffff; }
     .svm-share-wa { background: #25d366; color: #073b1a; }
     .svm-share-no { background: transparent; color: #92400e; border-color: #f2c94c; }
