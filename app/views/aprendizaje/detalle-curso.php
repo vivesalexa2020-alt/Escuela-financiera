@@ -164,6 +164,18 @@
             </ul>
           </div>
 
+          <div class="share-card">
+            <div class="share-card-head">📣 Comparte lo que aprendes</div>
+            <p class="share-card-hint">Copia el comentario y publícalo en Instagram o YouTube.</p>
+            <textarea id="shareComment" class="share-comment" rows="5" readonly></textarea>
+            <div class="share-actions">
+              <button type="button" class="share-btn share-copy" onclick="copiarComentario()">📋 Copiar</button>
+              <button type="button" class="share-btn share-instagram" onclick="compartirEnInstagram()">📷 Instagram</button>
+              <button type="button" class="share-btn share-youtube" onclick="compartirEnYouTube()">▶️ YouTube</button>
+            </div>
+            <div class="share-toast" id="shareToast"></div>
+          </div>
+
         </div>
 
         <!-- COLUMNA DERECHA: REPRODUCTOR DE LA LECCIÓN -->
@@ -1505,6 +1517,8 @@
     function selectLesson(id) {
       const data = lessonsData[id];
       if (!data) return;
+      currentLesson = id;
+      actualizarComentario();
 
       const lockedOverlay = document.getElementById('lockedLessonOverlay');
       if (id > MAX_FREE_LESSON) {
@@ -1526,7 +1540,6 @@
       }
 
       if (lockedOverlay) lockedOverlay.style.display = 'none';
-      currentLesson = id;
 
       document.getElementById('playerTitle').textContent = data.title;
       document.getElementById('lessonTagText').textContent = data.tag;
@@ -1639,6 +1652,69 @@
 
     function tieneInscripcionActiva() {
       return false;
+    }
+
+    let shareToastTimer = null;
+
+    function buildShareComment() {
+      const data = lessonsData[currentLesson] || lessonsData[1];
+      const titulo = data ? data.title.replace(/^\d+\.\s*/, '') : 'Educación Financiera';
+      const url = window.location.origin + window.location.pathname + '?page=aula';
+      return 'Hoy aprendí: ' + titulo + ' en la Aula Virtual de Educación Financiera. ' + url +
+        '\n\n#EducacionFinanciera #FinanzasPersonales #Ahorro #Inversiones #LibertadFinanciera #AprendeConNosotros';
+    }
+
+    function actualizarComentario() {
+      const box = document.getElementById('shareComment');
+      if (box) box.value = buildShareComment();
+    }
+
+    function mostrarShareToast(mensaje) {
+      const toast = document.getElementById('shareToast');
+      if (!toast) return;
+      toast.textContent = mensaje;
+      toast.classList.add('show');
+      clearTimeout(shareToastTimer);
+      shareToastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2500);
+    }
+
+    function copiarComentario() {
+      const texto = buildShareComment();
+      const box = document.getElementById('shareComment');
+      if (box) {
+        box.value = texto;
+        box.focus();
+        box.select();
+      }
+      const fallback = function () {
+        try {
+          document.execCommand('copy');
+          mostrarShareToast('Comentario copiado');
+        } catch (e) {
+          mostrarShareToast('Selecciona y copia el comentario');
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texto).then(function () {
+          mostrarShareToast('Comentario copiado');
+        }).catch(fallback);
+      } else {
+        fallback();
+      }
+      return texto;
+    }
+
+    function compartirEnInstagram() {
+      copiarComentario();
+      window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
+    }
+
+    function compartirEnYouTube() {
+      copiarComentario();
+      const data = lessonsData[currentLesson] || lessonsData[1];
+      const videoId = data ? getYouTubeVideoId(data.videoUrl) : '';
+      const url = videoId ? 'https://www.youtube.com/watch?v=' + videoId : 'https://www.youtube.com/';
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     document.addEventListener("DOMContentLoaded", function() {
