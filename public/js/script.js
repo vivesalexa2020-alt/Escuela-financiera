@@ -1107,8 +1107,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
 
 const RETICULA_SEMESTRES = [
-  { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Unidad 1 gratis)', limite: 1, requeridoPrevio: 0, gratis: true },
-  { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 1, gratis: false },
+  { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Unidad 1 gratis)', limite: 4, requeridoPrevio: 0, gratis: true },
+  { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 4, gratis: false },
   { id: 3, nivel: 'Avanzado', titulo: 'Nivel 3 (Avanzado)', limite: 4, requeridoPrevio: 1, gratis: false }
 ];
 
@@ -1696,7 +1696,9 @@ function renderReticula() {
       hint = '¡Excelente! Has completado tu programa de 18 meses';
     } else if (inscritasN1 < limiteN1) {
       const faltan = limiteN1 - inscritasN1;
-      hint = 'Unidad 1 gratis: inscríbete a ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' para empezar';
+      hint = tieneMembresiaActiva()
+        ? 'Completa ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' del Nivel 1 para desbloquear el Nivel 2'
+        : 'Unidad 1 gratis: activa tu membresía y completa ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' del Nivel 1';
     } else if (contarInscritasEnSemestre(state, 2) < 4) {
       hint = tieneMembresiaActiva()
         ? '¡Nivel 1 completado! Continúa tu programa de 18 meses en el Nivel 2'
