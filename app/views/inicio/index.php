@@ -158,7 +158,7 @@
             🛡️ Acceso Admin
           </a>
         <?php elseif (empty($user)): ?>
-          <a href="index.php?page=reticula#login" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
+          <a href="index.php#login" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
             🛡️ Acceso Admin
           </a>
         <?php endif; ?>
@@ -1035,7 +1035,7 @@
 </section>
 
   <div class="home-probar-wrap">
-    <a href="index.php?page=reticula&redirect=aula#login" class="home-probar-btn">Probar</a>
+    <a href="index.php?redirect=aula#login" class="home-probar-btn">Probar</a>
   </div>
 </main>
 
