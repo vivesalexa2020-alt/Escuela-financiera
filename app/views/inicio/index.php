@@ -1892,7 +1892,8 @@
 
   function shareTestimonialComment(network) {
     var comment = lastTestimonialComment || 'Mi testimonio en Educación Financiera';
-    var url = window.location.href;
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var url = canonical ? canonical.href : window.location.href.split('#')[0];
     var text = 'Mi testimonio en Educaci\u00f3n Financiera: \u201c' + comment + '\u201d';
     var share = '';
     if (network === 'facebook') {

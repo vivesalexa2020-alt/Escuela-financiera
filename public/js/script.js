@@ -592,11 +592,8 @@ async function logout() {
 
   updateAuthUI();
 
-  // Si estamos en una página protegida, redirigir a inicio
-  const path = (window.location.pathname + window.location.search).toLowerCase();
-  if (path.includes('page=configuraciones')) {
-    window.location.href = 'index.php';
-  }
+  // Al cerrar sesión, volver siempre a la interfaz de inicio
+  window.location.href = 'index.php';
 }
 
 // Sincronizar inscripciones desde la API al iniciar sesión
