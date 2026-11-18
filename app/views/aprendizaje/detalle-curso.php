@@ -70,13 +70,6 @@
         </svg>
         <span>Educación <strong>Financiera</strong> | Aula Virtual</span>
       </a>
-
-      <div class="nav-actions">
-        <div class="demo-pill-badge">
-          <span>⚡ Modo Demo Activo</span>
-        </div>
-        <a href="index.php?page=suscripcion" class="btn-upgrade-nav">Membresía Completa</a>
-      </div>
     </div>
   </header>
 

@@ -11,6 +11,10 @@ class PageController extends Controller {
     }
 
     public function aula(): void {
+        if (!Session::userId()) {
+            header('Location: index.php?page=reticula&redirect=aula#login');
+            exit();
+        }
         $this->renderPage('aula', 'aprendizaje/detalle-curso', 'Aula Virtual | Educación Financiera', 'user-logged-in');
     }
 
