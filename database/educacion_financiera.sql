@@ -627,12 +627,12 @@ INSERT INTO `logros` (`nombre`, `descripcion`, `icono`, `puntos_requeridos`, `cu
 
 -- --------------------------------------------------------
 -- Usuario administrador inicial
--- Email: admin@educacionfinanciera.mx  |  Contraseña: Admin123!
+-- Email: admin@educacionfinanciera.com  |  Contraseña: Admin123!
 -- IMPORTANTE: cambia la contraseña después del primer inicio de sesión.
 -- --------------------------------------------------------
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password_hash`, `rol`, `activo`, `email_verificado`) VALUES
-(1, 'Administrador', 'admin@educacionfinanciera.mx', '$2y$10$aGBuXVXmqc7FxmRXUpWyeOzQOVinbuhsl9llZq0Od4gKe764WX1Sa', 'admin', 1, 1);
+(1, 'Administrador', 'admin@educacionfinanciera.com', '$2y$10$aGBuXVXmqc7FxmRXUpWyeOzQOVinbuhsl9llZq0Od4gKe764WX1Sa', 'admin', 1, 1);
 
 INSERT INTO `membresias` (`usuario_id`, `activa`, `tipo_membresia`) VALUES (1, 1, 'gratis');
 INSERT INTO `puntos_usuario` (`usuario_id`, `puntos_totales`, `nivel`) VALUES (1, 0, 1);
