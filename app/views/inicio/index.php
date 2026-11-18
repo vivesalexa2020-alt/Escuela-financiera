@@ -1035,7 +1035,7 @@
 </section>
 
   <div class="home-probar-wrap">
-    <a href="index.php?page=aula" class="home-probar-btn">Probar</a>
+    <a href="index.php?page=reticula&redirect=aula#login" class="home-probar-btn">Probar</a>
   </div>
 </main>
 

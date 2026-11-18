@@ -276,6 +276,11 @@ async function handleLoginSubmit(e) {
         window.location.href = 'index.php?page=admin';
         return;
       }
+      const redirect = new URLSearchParams(window.location.search).get('redirect');
+      if (redirect === 'aula') {
+        window.location.href = 'index.php?page=aula';
+        return;
+      }
     } else {
       if (loginMsg) {
         loginMsg.className = 'form-message error';
