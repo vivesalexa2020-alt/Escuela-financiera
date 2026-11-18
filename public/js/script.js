@@ -3000,3 +3000,31 @@ document.addEventListener('DOMContentLoaded', function () {
     history.replaceState(null, '', window.location.pathname + window.location.search);
   }
 });
+
+
+// Sincronización en segundo plano de la membresía con el backend
+async function syncMembershipFromBackend() {
+  const user = getCurrentUser();
+  if (!user) return;
+  try {
+    const res = await fetch('index.php?endpoint=membresia', { credentials: 'include' });
+    const data = await res.json();
+    if (data && data.success && data.membresia) {
+      const m = data.membresia;
+      const isPaid = (m.activa == 1 && (m.tipo_membresia === 'pro' || m.tipo_membresia === 'premium'));
+      if (isPaid) {
+        localStorage.setItem(getMembresiaStorageKey(), JSON.stringify({ activa: true, tipo: m.tipo_membresia }));
+        const memLockBanner = document.getElementById('membershipLockBanner');
+        if (memLockBanner) memLockBanner.style.display = 'none';
+        const protectedSection = document.getElementById('protectedContent');
+        if (protectedSection) protectedSection.style.display = 'block';
+        document.querySelectorAll('.sidebar-pill-lock').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.sidebar-link-locked').forEach(l => l.classList.remove('sidebar-link-locked'));
+      }
+    }
+  } catch (e) {}
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  syncMembershipFromBackend();
+});

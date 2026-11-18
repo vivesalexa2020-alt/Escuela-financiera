@@ -36,6 +36,8 @@ return static function (Router $router): void {
         $r->get('/logros', 'AchievementController@index');
 
         // ── Membresía ─────────────────────────────────────────
-        $r->get('/membresia', 'MembershipController@index');
+        $r->get('/membresia',          'MembershipController@index');
+        $r->post('/membresia',         'MembershipController@activate');
+        $r->post('/activar-membresia', 'MembershipController@activate');
     });
 };

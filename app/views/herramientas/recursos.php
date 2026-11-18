@@ -144,7 +144,49 @@
     </div>
   </section>
 
-  <div id="protectedContent" style="display: block !important;">
+  
+  <!-- BANNER DE RESTRICCIÓN DE MEMBRESÍA -->
+  <div id="membershipLockBanner" class="membership-paywall-card" style="<?= !empty($tieneMembresia) ? 'display:none;' : 'display:block;' ?>">
+    <div class="container" style="padding: 24px 20px 60px;">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center; background: #ffffff; border-radius: 20px; padding: 42px 28px; box-shadow: 0 10px 35px rgba(0,0,0,0.07); border: 2px solid #e2e8f0;">
+        <div style="width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; background: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+          <i class="fi fi-sr-lock"></i>
+        </div>
+        <span style="display: inline-block; background: #e0f2fe; color: #0284c7; font-size: 13px; font-weight: 800; padding: 4px 14px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
+          Recursos Exclusivos con Membresía
+        </span>
+        <h2 style="font-size: 26px; font-weight: 900; color: #0f172a; margin: 0 0 12px;">
+          Desbloquea los Recursos y Calculadoras Financieras
+        </h2>
+        <p style="font-size: 16px; color: #64748b; line-height: 1.6; max-width: 620px; margin: 0 auto 24px;">
+          Los simuladores de <strong>Interés Compuesto</strong>, calculadoras interactivas y <strong>Guías Oficiales Descargables</strong> están disponibles de forma ilimitada para alumnos con membresía activa. Tu cuenta actual incluye el primer mes gratis de estudio (Nivel 1).
+        </p>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px 22px; max-width: 540px; margin: 0 auto 26px; text-align: left;">
+          <div style="font-weight: 700; color: #0f172a; margin-bottom: 8px; font-size: 15px;">¿Qué desbloqueas con la Membresía?</div>
+          <ul style="margin: 0; padding-left: 20px; font-size: 14.5px; color: #475569; line-height: 1.6;">
+            <li>Simulador de interés compuesto con aportaciones periódicas en vivo.</li>
+            <li>Calculadora de Fondo de Emergencia y Regla 50/30/20.</li>
+            <li>Descarga de libros digitales y síntesis teóricas de la carrera.</li>
+            <li>Desbloqueo total de los Niveles 2 y 3 en tu Retícula.</li>
+          </ul>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 12px 28px; background: var(--amarillo-dorado, #fabb15); color: #06402d; font-weight: 800; font-size: 16px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 14px rgba(250,187,21,0.35); display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fi fi-rr-credit-card"></i>
+            <span>Activar Membresía ($1,500 MXN / mes)</span>
+          </a>
+          <a href="index.php?page=reticula" style="padding: 12px 22px; background: #f1f5f9; color: #334155; font-weight: 700; font-size: 15.5px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fi fi-rr-book-alt"></i>
+            <span>Ir a mi Mes Gratis (Retícula)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="protectedContent" style="<?= !empty($tieneMembresia) ? 'display:block;' : 'display:none;' ?>">
     
   <section style="padding: 50px 0 20px;">
     <div class="container">

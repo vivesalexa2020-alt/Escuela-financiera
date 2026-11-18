@@ -61,12 +61,27 @@ class PageController extends Controller {
             return;
         }
 
+        $userId = Session::userId();
+        $tieneMembresia = false;
+        if ($userId) {
+            if (Session::isAdmin()) {
+                $tieneMembresia = true;
+            } else {
+                try {
+                    $membershipModel = new \App\Models\MembershipModel();
+                    $mem = $membershipModel->getByUser($userId);
+                    $tieneMembresia = !empty($mem['activa']) && in_array($mem['tipo_membresia'], ['pro', 'premium'], true);
+                } catch (\Throwable $e) {}
+            }
+        }
+
         $this->view($view, [
-            'pageTitle'   => $title,
-            'pageCss'     => ["public/css/pages/{$slug}.css"],
-            'bodyClass'   => $bodyClass,
-            'user'        => Session::user(),
-            'currentPage' => $slug,
+            'pageTitle'      => $title,
+            'pageCss'        => ["public/css/pages/{$slug}.css"],
+            'bodyClass'      => $bodyClass,
+            'user'           => Session::user(),
+            'currentPage'    => $slug,
+            'tieneMembresia' => $tieneMembresia,
         ], 'main');
     }
 }

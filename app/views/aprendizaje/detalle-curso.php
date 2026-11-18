@@ -1493,7 +1493,7 @@
     }
 
     let currentLesson = 1;
-    const MAX_FREE_LESSON = 8;
+    const MAX_FREE_LESSON = (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva())) ? 24 : 8;
 
     function selectLesson(id) {
       const data = lessonsData[id];

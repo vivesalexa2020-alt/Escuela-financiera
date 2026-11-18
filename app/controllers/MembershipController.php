@@ -14,6 +14,11 @@ class MembershipController extends Controller {
     }
 
     public function index(): void {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->activate();
+            return;
+        }
+
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
             $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
         }
@@ -29,6 +34,21 @@ class MembershipController extends Controller {
         } catch (\Exception $e) {
             Logger::error('Error al obtener membresía', ['error' => $e->getMessage()]);
             $this->jsonResponse(['success' => false, 'message' => 'Error al obtener membresía'], 500);
+        }
+    }
+
+    public function activate(): void {
+        $userId = $this->requireAuth();
+        try {
+            $this->membershipModel->updateMembership($userId, 'pro');
+            \App\Core\Session::set('membresia', 'pro');
+            $this->jsonResponse([
+                'success' => true,
+                'message' => 'Membresía Pro activada con éxito'
+            ]);
+        } catch (\Exception $e) {
+            Logger::error('Error al activar membresía', ['error' => $e->getMessage()]);
+            $this->jsonResponse(['success' => false, 'message' => 'Error al activar membresía'], 500);
         }
     }
 }
