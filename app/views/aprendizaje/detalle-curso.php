@@ -129,7 +129,7 @@
           </div>
 
           <!-- UNIDAD 2 -->
-          <div class="unit-accordion">
+          <div class="unit-accordion" id="unitAccordion2" style="display: none;">
             <div class="unit-title-bar" id="unitBar2" onclick="toggleUnit('unit2')">
               <span>💸 Unidad 2: Gastos, ahorro y tarjetas</span>
               <span class="unit-badge badge-locked">🔒 8 lecciones</span>
@@ -147,7 +147,7 @@
           </div>
 
           <!-- UNIDAD 3 -->
-          <div class="unit-accordion">
+          <div class="unit-accordion" id="unitAccordion3" style="display: none;">
             <div class="unit-title-bar" id="unitBar3" onclick="toggleUnit('unit3')">
               <span>🔥 Unidad 3: Deuda, inversión y libertad</span>
               <span class="unit-badge badge-locked">🔒 8 lecciones</span>
@@ -1646,8 +1646,18 @@
       return false;
     }
 
+    function actualizarUnidadesPorMembresia() {
+      const conMembresia = (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva();
+      [2, 3].forEach(function (u) {
+        const accordion = document.getElementById('unitAccordion' + u);
+        if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
+      actualizarUnidadesPorMembresia();
       selectLesson(1);
+      setTimeout(actualizarUnidadesPorMembresia, 400);
       // Inicializar YouTube si la API ya estuviese disponible
       if (window.YT && window.YT.Player) {
         initYouTubePlayer();
