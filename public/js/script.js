@@ -1720,10 +1720,16 @@ function renderReticula() {
     const inscritasSem = contarInscritasEnSemestre(state, sem.id);
     const bloqueado = semestreEstaBloqueado(state, sem.id);
     const requierePago = semestreEstaBloqueadoPorPago(sem.id);
+    const nivelBasicoIncompleto = sem.id === 1 && inscritasSem < cfg.limite;
+    const mostrarCandadoNivel = bloqueado || nivelBasicoIncompleto;
     const pct = Math.min(100, Math.round((inscritasSem / cfg.limite) * 100));
 
-    const chip = bloqueado || requierePago
-      ? '<span class="reticula-semester-chip locked">' + (requierePago ? '🔒 Requiere inscripción' : '🔒 Bloqueado') + '</span>'
+    const chip = mostrarCandadoNivel || requierePago
+      ? '<span class="reticula-semester-chip locked">' + (requierePago
+          ? '🔒 Requiere inscripción'
+          : (sem.id === 1
+              ? (tieneMembresiaActiva() ? '🔒 Completa el Nivel 1' : '🔒 Solo Unidad 1 gratis')
+              : '🔒 Bloqueado')) + '</span>'
       : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
         (cfg.limite === 1 ? ' materia' : ' materias') + '</span>';
 
@@ -1756,7 +1762,7 @@ function renderReticula() {
     }
 
     return '' +
-      '<div class="reticula-semester nivel-' + sem.id + (bloqueado ? ' is-locked' : '') + '">' +
+      '<div class="reticula-semester nivel-' + sem.id + (mostrarCandadoNivel ? ' is-locked' : '') + '">' +
         nivelPill +
         '<div class="reticula-semester-head">' +
           '<h4>' + sem.titulo + '</h4>' +
