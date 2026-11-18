@@ -1711,6 +1711,43 @@ body.user-logged-in .logged-topbar {
   text-align: center;
 }
 
+.sidebar-gate-text {
+  margin: 4px 8px 8px;
+  color: #d2ebe0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.sidebar-gate-btn {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar-gate-primary {
+  background: var(--accent-lime);
+  color: #032d1f;
+  font-weight: 700;
+}
+
+.sidebar-gate-primary:hover {
+  background: #d7f46b;
+  color: #032d1f;
+}
+
+.sidebar-gate-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sidebar-gate-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
 .sidebar-user-panel {
   padding: 16px 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);

@@ -46,66 +46,90 @@ if (empty($currentPage)) {
     </div>
 
     <nav class="sidebar-nav">
-      <div class="sidebar-nav-title">PRINCIPAL</div>
-      <a href="index.php?page=home&skip_splash=1" class="sidebar-link <?= ($currentPage === 'home' || $currentPage === '') ? 'active' : '' ?>">
-        <span class="sidebar-icon">🏠</span>
-        <span>Inicio</span>
-      </a>
+      <?php if (empty($user)): ?>
+        <div class="sidebar-nav-title">ACCESO REQUERIDO</div>
+        <p class="sidebar-gate-text">Inicia sesión o crea tu cuenta para ver el menú y acceder a todas las herramientas.</p>
+        <button type="button" class="sidebar-link sidebar-gate-btn sidebar-gate-primary" onclick="openLoginModal()">
+          <span class="sidebar-icon">🔑</span>
+          <span>Iniciar sesión</span>
+        </button>
+        <button type="button" class="sidebar-link sidebar-gate-btn sidebar-gate-secondary" onclick="openSignupModal()">
+          <span class="sidebar-icon">✨</span>
+          <span>Crear cuenta gratis</span>
+        </button>
+      <?php else: ?>
+        <div class="sidebar-nav-title">PRINCIPAL</div>
+        <a href="index.php?page=home&skip_splash=1" class="sidebar-link <?= ($currentPage === 'home' || $currentPage === '') ? 'active' : '' ?>">
+          <span class="sidebar-icon">🏠</span>
+          <span>Inicio</span>
+        </a>
 
-      <div class="sidebar-nav-title">APRENDIZAJE</div>
-      <a href="index.php?page=reticula" class="sidebar-link <?= $currentPage === 'reticula' ? 'active' : '' ?>">
-        <span class="sidebar-icon">🗺️</span>
-        <span>Retícula Académica</span>
-      </a>
-      <a href="index.php?page=aula" class="sidebar-link <?= $currentPage === 'aula' ? 'active' : '' ?>">
-        <span class="sidebar-icon">🎓</span>
-        <span>Aula Virtual</span>
-      </a>
+        <div class="sidebar-nav-title">APRENDIZAJE</div>
+        <a href="index.php?page=reticula" class="sidebar-link <?= $currentPage === 'reticula' ? 'active' : '' ?>">
+          <span class="sidebar-icon">🗺️</span>
+          <span>Retícula Académica</span>
+        </a>
+        <a href="index.php?page=aula" class="sidebar-link <?= $currentPage === 'aula' ? 'active' : '' ?>">
+          <span class="sidebar-icon">🎓</span>
+          <span>Aula Virtual</span>
+        </a>
 
-      <div class="sidebar-nav-title">HERRAMIENTAS</div>
-      <a href="index.php?page=metas" class="sidebar-link <?= $currentPage === 'metas' ? 'active' : '' ?>">
-        <span class="sidebar-icon">🎯</span>
-        <span>Metas</span>
-      </a>
-      <a href="index.php?page=recursos" class="sidebar-link <?= $currentPage === 'recursos' ? 'active' : '' ?>">
-        <span class="sidebar-icon">🧮</span>
-        <span>Recursos</span>
-      </a>
+        <div class="sidebar-nav-title">HERRAMIENTAS</div>
+        <a href="index.php?page=metas" class="sidebar-link <?= $currentPage === 'metas' ? 'active' : '' ?>">
+          <span class="sidebar-icon">🎯</span>
+          <span>Metas</span>
+        </a>
+        <a href="index.php?page=recursos" class="sidebar-link <?= $currentPage === 'recursos' ? 'active' : '' ?>">
+          <span class="sidebar-icon">🧮</span>
+          <span>Recursos</span>
+        </a>
 
-      <div class="sidebar-nav-title">MI CUENTA</div>
-      <a href="index.php?page=suscripcion" class="sidebar-link <?= $currentPage === 'suscripcion' ? 'active' : '' ?>">
-        <span class="sidebar-icon">💳</span>
-        <span>Membresía</span>
-      </a>
-      <a href="index.php?page=configuraciones" class="sidebar-link <?= $currentPage === 'configuraciones' ? 'active' : '' ?>">
-        <span class="sidebar-icon">⚙️</span>
-        <span>Configuraciones</span>
-      </a>
-      <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
-      <a href="index.php?page=admin" class="sidebar-link <?= $currentPage === 'admin' ? 'active' : '' ?>">
-        <span class="sidebar-icon">🛡️</span>
-        <span>Administración</span>
-      </a>
+        <div class="sidebar-nav-title">MI CUENTA</div>
+        <a href="index.php?page=suscripcion" class="sidebar-link <?= $currentPage === 'suscripcion' ? 'active' : '' ?>">
+          <span class="sidebar-icon">💳</span>
+          <span>Membresía</span>
+        </a>
+        <a href="index.php?page=configuraciones" class="sidebar-link <?= $currentPage === 'configuraciones' ? 'active' : '' ?>">
+          <span class="sidebar-icon">⚙️</span>
+          <span>Configuraciones</span>
+        </a>
+        <?php if (($user['rol'] ?? '') === 'admin'): ?>
+        <a href="index.php?page=admin" class="sidebar-link <?= $currentPage === 'admin' ? 'active' : '' ?>">
+          <span class="sidebar-icon">🛡️</span>
+          <span>Administración</span>
+        </a>
+        <?php endif; ?>
       <?php endif; ?>
     </nav>
   </div>
 
-  <!-- Perfil del estudiante en la parte inferior del Sidebar -->
-  <div class="sidebar-user-panel">
-    <div class="sidebar-user-info">
-      <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
-      <div class="sidebar-user-details">
-        <div class="sidebar-user-name" id="sidebarUserName"><?= htmlspecialchars($user['nombre'] ?? $user['name'] ?? 'Estudiante') ?></div>
-        <div class="sidebar-user-role <?= (!empty($user) && ($user['rol'] ?? '') === 'admin') ? 'is-admin' : '' ?>"><?= !empty($user) ? (($user['rol'] ?? '') === 'admin' ? '🛡️ Administrador' : 'Estudiante Activo') : 'Visitante' ?></div>
+  <?php if (!empty($user)): ?>
+    <div class="sidebar-user-panel">
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-avatar" id="sidebarUserAvatar">👤</div>
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name" id="sidebarUserName"><?= htmlspecialchars($user['nombre'] ?? $user['name'] ?? 'Estudiante') ?></div>
+          <div class="sidebar-user-role <?= ($user['rol'] ?? '') === 'admin' ? 'is-admin' : '' ?>"><?= ($user['rol'] ?? '') === 'admin' ? '🛡️ Administrador' : 'Estudiante Activo' ?></div>
+        </div>
+      </div>
+      <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Salir</span>
+      </button>
+    </div>
+  <?php else: ?>
+    <div class="sidebar-user-panel">
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-avatar">👤</div>
+        <div class="sidebar-user-details">
+          <div class="sidebar-user-name">Visitante</div>
+          <div class="sidebar-user-role">Inicia sesión para continuar</div>
+        </div>
       </div>
     </div>
-    <button class="sidebar-logout-btn" onclick="logout()" title="Cerrar sesión">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-        <polyline points="16 17 21 12 16 7"></polyline>
-        <line x1="21" y1="12" x2="9" y2="12"></line>
-      </svg>
-      <span>Salir</span>
-    </button>
-  </div>
+  <?php endif; ?>
 </aside>

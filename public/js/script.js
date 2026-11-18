@@ -281,6 +281,8 @@ async function handleLoginSubmit(e) {
         window.location.href = 'index.php?page=aula';
         return;
       }
+      window.location.reload();
+      return;
     } else {
       if (loginMsg) {
         loginMsg.className = 'form-message error';
@@ -520,6 +522,8 @@ async function handleSignupSubmit(e) {
       updateAuthUI();
       closeSignupModal();
       if (signupForm) signupForm.reset();
+      window.location.reload();
+      return;
     } else {
       if (signupMsg) {
         signupMsg.className = 'form-message error';
