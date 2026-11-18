@@ -1215,10 +1215,11 @@
       border-radius: 50%;
       width: 32px;
       height: 32px;
-      font-size: 20px;
-      display: grid;
-      place-items: center;
-      transition: background 0.2s;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
     }
 
     .modal-close-btn:hover {
@@ -1680,35 +1681,51 @@ body.user-logged-in .logged-topbar {
 .sidebar-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
   padding: 9px 14px;
-  border-radius: 12px;
-  color: #d2ebe0;
-  font-size: 16px;
+  border-radius: 10px;
+  color: rgba(210, 235, 224, 0.85);
+  font-size: 14.5px;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
+  letter-spacing: 0.01em;
 }
 
 .sidebar-link:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   color: #ffffff;
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 .sidebar-link.active {
-  background: rgba(203, 246, 62, 0.16);
+  background: rgba(203, 246, 62, 0.14);
   color: var(--accent-lime);
   font-weight: 700;
-  border-left: 4px solid var(--accent-lime);
+  border-left: 3px solid var(--accent-lime);
+  padding-left: 11px;
 }
 
-.sidebar-icon {
-  font-size: 20px;
+/* ── Iconos UIcons dentro del sidebar ── */
+.sidebar-icon,
+.sidebar-link > i.fi,
+.sidebar-gate-btn > i.fi {
+  font-size: 17px;
   line-height: 1;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 22px;
-  text-align: center;
+  flex-shrink: 0;
+  transition: color 0.18s;
+}
+
+.sidebar-link.active > i.fi {
+  color: var(--accent-lime);
+}
+
+.sidebar-link:hover > i.fi {
+  color: #ffffff;
 }
 
 .sidebar-gate-text {
@@ -1767,17 +1784,26 @@ body.user-logged-in .logged-topbar {
 }
 
 .sidebar-user-avatar {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--btn-green);
+  background: linear-gradient(135deg, var(--btn-green), #148354);
   color: #ffffff;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 18px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 10px rgba(40, 199, 111, 0.3);
+}
+
+.sidebar-user-avatar i.fi {
+  font-size: 17px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar-user-details {
@@ -5703,4 +5729,63 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(6, 64, 45, 0.5);
   background-clip: content-box;
+}
+
+
+/* ============================================================
+   FLATICON UICONS — AJUSTES DE ALINEACIÓN Y ESCALA PROFESIONAL
+   ============================================================ */
+i.fi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.reticula-materia-ico i {
+  font-size: 26px;
+  color: var(--verde-principal, #00703c);
+  transition: transform 0.25s ease;
+}
+
+.reticula-materia:hover .reticula-materia-ico i {
+  transform: scale(1.12);
+}
+
+.resource-item-icon i {
+  font-size: 19px;
+  color: var(--verde-principal, #00703c);
+}
+
+.settings-card-icon i {
+  font-size: 22px;
+  color: var(--verde-principal, #00703c);
+}
+
+.btn-sidebar-toggle i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.subpage-badge i {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.benefit-icon i {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.fin-close i {
+  font-size: 16px;
+}
+
+.fin-form button i {
+  font-size: 15px;
+}
+
+.modal-close-btn i {
+  font-size: 16px;
 }

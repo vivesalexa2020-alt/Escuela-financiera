@@ -18,7 +18,7 @@
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">☰</button>
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -89,7 +89,7 @@
   <section class="pricing-hero">
     <div class="container">
       <div class="pricing-badge">
-        <span>🔒 Inversión en tu futuro</span>
+        <span><i class="fi fi-sr-lock"></i> Inversión en tu futuro</span>
       </div>
       <h1>Inscripción a la Carrera de Educación Financiera</h1>
       <p>
@@ -115,23 +115,23 @@
 
         <ul class="benefit-list">
           <li>
-            <span class="benefit-icon">✓</span>
+            <span class="benefit-icon"><i class="fi fi-rr-check"></i></span>
             <span><strong>Programa completo de 18 meses (3 niveles de 6 meses)</strong>: Básico, Intermedio y Avanzado.</span>
           </li>
           <li>
-            <span class="benefit-icon">✓</span>
+            <span class="benefit-icon"><i class="fi fi-rr-check"></i></span>
             <span><strong>Método anti-deuda guiado</strong> con plantillas de amortización en Excel.</span>
           </li>
           <li>
-            <span class="benefit-icon">✓</span>
+            <span class="benefit-icon"><i class="fi fi-rr-check"></i></span>
             <span><strong>Fondo de emergencia e inversión inicial</strong> explicados sin rodeos.</span>
           </li>
           <li>
-            <span class="benefit-icon">✓</span>
+            <span class="benefit-icon"><i class="fi fi-rr-check"></i></span>
             <span><strong>Calculadoras interactivas</strong> y recursos exclusivos para alumnos.</span>
           </li>
           <li>
-            <span class="benefit-icon">✓</span>
+            <span class="benefit-icon"><i class="fi fi-rr-check"></i></span>
             <span><strong>Certificado de acreditación</strong> al completar cada nivel formativo.</span>
           </li>
         </ul>
@@ -147,7 +147,7 @@
           <label class="method-card selected" id="methodSpeiLabel" onclick="selectMethod('spei')">
             <input type="radio" name="paymethod" id="paySpei" checked>
             <div class="method-details">
-              <h5>🏦 Transferencia SPEI</h5>
+              <h5><i class="fi fi-rr-bank"></i> Transferencia SPEI</h5>
               <p>Directo desde tu app bancaria.</p>
             </div>
           </label>
@@ -155,7 +155,7 @@
           <label class="method-card" id="methodCardLabel" onclick="selectMethod('card')">
             <input type="radio" name="paymethod" id="payCard">
             <div class="method-details">
-              <h5>💳 Tarjeta Débito/Crédito</h5>
+              <h5><i class="fi fi-rr-credit-card"></i> Tarjeta Débito/Crédito</h5>
               <p>Cobro seguro en línea.</p>
             </div>
           </label>
@@ -193,7 +193,7 @@
           </div>
 
           <p style="font-size: 13.5px; color: var(--gris-medio); margin-top: 14px;">
-            💡 <em>Al realizar tu transferencia, conserva tu comprobante. Tu cuenta se activará automáticamente al reportar la referencia.</em>
+            <i class="fi fi-rr-bulb"></i> <em>Al realizar tu transferencia, conserva tu comprobante. Tu cuenta se activará automáticamente al reportar la referencia.</em>
           </p>
         </div>
 
@@ -264,7 +264,7 @@
     function copyClabe() {
       const clabe = document.getElementById('clabeVal').innerText.replace(/\s+/g, '');
       navigator.clipboard.writeText(clabe).then(() => {
-        alert("📋 ¡CLABE copiada al portapapeles! Ya puedes pegarla en la app de tu banco.");
+        alert("¡CLABE copiada al portapapeles! Ya puedes pegarla en la app de tu banco.");
       }).catch(() => {
         alert("CLABE: " + clabe);
       });
@@ -290,7 +290,7 @@
         return;
       }
 
-      alert("✅ ¡Inscripción activada! Ya puedes acceder a los Niveles 2 y 3. Te redirigiremos a tu Retícula.");
+      alert("¡Inscripción activada! Ya puedes acceder a los Niveles 2 y 3. Te redirigiremos a tu Retícula.");
       window.location.href = "index.php?page=reticula";
     }
   </script>
@@ -301,9 +301,9 @@
     <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
         <h4 id="videoPlayerTitle" style="margin: 0; font-size: 19px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
-          <span>🎥</span> <span>Clase en Video</span>
+          <span><i class="fi fi-rr-play-alt"></i></span> <span>Clase en Video</span>
         </h4>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -319,15 +319,15 @@
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
-          🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
+          <i class="fi fi-rr-headphones"></i> PODCAST & AUDIO-LECCIÓN OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
+        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
           <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 28.5px; color: #06402d; flex-shrink: 0;">
-            🎙️
+            <i class="fi fi-rr-microphone"></i>
           </div>
           <div>
             <h4 id="audioModalTitle" style="font-size: 19px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
@@ -378,14 +378,14 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
-          📚 LECTURA & GUÍA OFICIAL
+          <i class="fi fi-rr-book-alt"></i> LECTURA & GUÍA OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
+        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
         <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 34.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
-          📖
+          <i class="fi fi-rr-book-open-cover"></i>
         </div>
         <div>
           <h3 id="bookModalTitle" style="font-size: 20px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
@@ -396,7 +396,7 @@
 
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
         <h5 style="font-size: 16px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
-          <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
+          <span><i class="fi fi-rr-bulb"></i></span> <span>5 Principios y Lecciones de este libro:</span>
         </h5>
         <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
           <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
@@ -409,7 +409,7 @@
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
         <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
-          <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
+          <span><i class="fi fi-rr-download"></i></span> <span>Descargar Guía Oficial (PDF / HTML)</span>
         </button>
         <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
           Cerrar
@@ -423,9 +423,9 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
-          📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
+          <i class="fi fi-rr-edit"></i> ACTIVIDAD PRÁCTICA DEL MÓDULO
         </span>
-        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
+        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <h3 id="exerciseModalTitle" style="font-size: 19px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
       <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 15.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>

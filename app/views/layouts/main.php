@@ -15,7 +15,7 @@ try {
     if ($anuncioTipo === 'alerta') $bannerBg = '#e11d48';
     if (($bodyClass ?? '') !== 'admin-page' && $anuncioActivo && $anuncioTexto !== '') {
         echo '<div style="background:' . $bannerBg . ';color:#fff;padding:10px 20px;text-align:center;font-size:14px;font-weight:600;position:sticky;top:0;z-index:99999;box-shadow:0 2px 10px rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;gap:8px;">'
-           . '<span>📢 ' . htmlspecialchars($anuncioTexto) . '</span>'
+           . '<span><i class="fi fi-rr-bullhorn"></i> ' . htmlspecialchars($anuncioTexto) . '</span>'
            . '</div>';
     }
 } catch (\Throwable $e) {}

@@ -12,7 +12,7 @@ class PageController extends Controller {
 
     public function aula(): void {
         if (!Session::userId()) {
-            header('Location: index.php?redirect=aula#login');
+            header('Location: index.php?page=home');
             exit();
         }
         $this->renderPage('aula', 'aprendizaje/detalle-curso', 'Aula Virtual | Educación Financiera', 'user-logged-in');
@@ -24,7 +24,7 @@ class PageController extends Controller {
 
     public function reticula(): void {
         if (!Session::userId()) {
-            header('Location: index.php#login');
+            header('Location: index.php?page=home');
             exit();
         }
         $this->renderPage('reticula', 'aprendizaje/reticula', 'Retícula Académica | Educación Financiera', 'user-logged-in');

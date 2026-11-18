@@ -98,7 +98,7 @@ $ejerciciosCurso = $ejerciciosCurso ?? [];
 .adm-sidebar-link{display:flex;align-items:center;gap:10px;padding:11px 20px;color:var(--adm-sidebar-link);font-size:13.5px;text-decoration:none;border-left:4px solid transparent;cursor:pointer;transition:all .15s}
 .adm-sidebar-link:hover{background:rgba(255,255,255,0.07);color:#fff}
 .adm-sidebar-link.active{background:rgba(255,255,255,0.12);color:var(--adm-sidebar-active);border-left-color:var(--adm-sidebar-active);font-weight:700}
-.adm-icon{width:22px;text-align:center;font-size:15px}
+.adm-icon{width:22px;text-align:center;font-size:16px;display:inline-flex;align-items:center;justify-content:center}
 .adm-sidebar-footer{padding:16px 20px;border-top:1px solid var(--adm-sidebar-border);display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.15)}
 .adm-sidebar-avatar{width:36px;height:36px;border-radius:50%;background:var(--adm-accent);color:#06402d;display:flex;align-items:center;justify-content:center;font-weight:800}
 .adm-sidebar-user-name{color:#e2e8f0;font-size:13px;font-weight:600}
@@ -118,7 +118,7 @@ $ejerciciosCurso = $ejerciciosCurso ?? [];
 .adm-kpi.purple::before{background:linear-gradient(90deg, #7c3aed, #a855f7)}
 .adm-kpi.blue::before{background:linear-gradient(90deg, #0284c7, #38bdf8)}
 .adm-kpi.gold::before{background:linear-gradient(90deg, #d97706, #fabb15)}
-.adm-kpi-icon{font-size:22px;margin-bottom:6px}
+.adm-kpi-icon{font-size:22px;margin-bottom:6px;display:inline-flex;align-items:center;justify-content:center}
 .adm-kpi-number{font-size:1.85rem;font-weight:800;color:#0f172a}
 .adm-kpi-label{font-size:.82rem;color:#64748b;margin-top:4px}
 .adm-table-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;margin-bottom:24px;box-shadow:0 3px 12px rgba(0,0,0,0.02)}
@@ -195,29 +195,29 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       <button class="adm-theme-btn adm-theme-fintech" onclick="setAdminTheme('fintech')" title="Azul Fintech"></button>
       <button class="adm-theme-btn adm-theme-dark" onclick="setAdminTheme('dark')" title="Modo Oscuro"></button>
     </div>
-    <a href="index.php?page=aula" class="adm-btn-student">🎓 Ir al aula</a>
-    <button class="adm-btn-logout" onclick="adminLogout()">Cerrar sesión</button>
+    <a href="index.php?page=aula" class="adm-btn-student"><i class="fi fi-rr-graduation-cap" style="margin-right:5px;font-size:13px;"></i> Ir al aula</a>
+    <button class="adm-btn-logout" onclick="adminLogout()"><i class="fi fi-rr-sign-out-alt" style="margin-right:5px;font-size:13px;"></i> Cerrar sesión</button>
   </div>
 </div>
 
 <aside class="adm-sidebar">
   <nav class="adm-sidebar-nav">
     <div class="adm-sidebar-title">PANEL PRINCIPAL</div>
-    <a class="adm-sidebar-link active" data-tab="dashboard" onclick="showAdminTab('dashboard')"><span class="adm-icon">📊</span> Resumen General</a>
+    <a class="adm-sidebar-link active" data-tab="dashboard" onclick="showAdminTab('dashboard')"><i class="fi fi-rr-chart-pie adm-icon"></i> Resumen General</a>
     
     <div class="adm-sidebar-title">ACADÉMICO Y MULTIMEDIA</div>
-    <a class="adm-sidebar-link" data-tab="contenido" onclick="showAdminTab('contenido')"><span class="adm-icon">🎬</span> Contenidos (Videos/Libros)</a>
-    <a class="adm-sidebar-link" data-tab="inscripciones" onclick="showAdminTab('inscripciones')"><span class="adm-icon">📝</span> Inscripciones</a>
-    <a class="adm-sidebar-link" data-tab="progreso" onclick="showAdminTab('progreso')"><span class="adm-icon">📈</span> Progreso</a>
-    <a class="adm-sidebar-link" data-tab="logros" onclick="showAdminTab('logros')"><span class="adm-icon">🏆</span> Logros</a>
+    <a class="adm-sidebar-link" data-tab="contenido" onclick="showAdminTab('contenido')"><i class="fi fi-rr-film adm-icon"></i> Contenidos (Videos/Libros)</a>
+    <a class="adm-sidebar-link" data-tab="inscripciones" onclick="showAdminTab('inscripciones')"><i class="fi fi-rr-document-signed adm-icon"></i> Inscripciones</a>
+    <a class="adm-sidebar-link" data-tab="progreso" onclick="showAdminTab('progreso')"><i class="fi fi-rr-chart-histogram adm-icon"></i> Progreso</a>
+    <a class="adm-sidebar-link" data-tab="logros" onclick="showAdminTab('logros')"><i class="fi fi-rr-trophy adm-icon"></i> Logros</a>
     
     <div class="adm-sidebar-title">USUARIOS Y ACCESOS</div>
-    <a class="adm-sidebar-link" data-tab="usuarios" onclick="showAdminTab('usuarios')"><span class="adm-icon">👥</span> Usuarios</a>
-    <a class="adm-sidebar-link" data-tab="membresias" onclick="showAdminTab('membresias')"><span class="adm-icon">💳</span> Membresías</a>
+    <a class="adm-sidebar-link" data-tab="usuarios" onclick="showAdminTab('usuarios')"><i class="fi fi-rr-users-alt adm-icon"></i> Usuarios</a>
+    <a class="adm-sidebar-link" data-tab="membresias" onclick="showAdminTab('membresias')"><i class="fi fi-rr-credit-card adm-icon"></i> Membresías</a>
     
     <div class="adm-sidebar-title">SISTEMA</div>
-    <a class="adm-sidebar-link" data-tab="auditoria" onclick="showAdminTab('auditoria')"><span class="adm-icon">🛡</span> Auditoría</a>
-    <a class="adm-sidebar-link" data-tab="config" onclick="showAdminTab('config')"><span class="adm-icon">⚙</span> Configuración y Anuncios</a>
+    <a class="adm-sidebar-link" data-tab="auditoria" onclick="showAdminTab('auditoria')"><i class="fi fi-rr-shield-check adm-icon"></i> Auditoría</a>
+    <a class="adm-sidebar-link" data-tab="config" onclick="showAdminTab('config')"><i class="fi fi-rr-settings adm-icon"></i> Configuración y Anuncios</a>
   </nav>
   <div class="adm-sidebar-footer">
     <div class="adm-sidebar-avatar"><?= strtoupper(mb_substr($adminName,0,1)) ?></div>
@@ -228,7 +228,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
 <main class="adm-main">
   <?php if (!empty($flash)): ?>
     <div class="adm-flash <?= htmlspecialchars($flash['tipo']) ?>">
-      <span><?= $flash['tipo'] === 'ok' ? '✅' : '⚠️' ?></span>
+      <span><i class="fi <?= $flash['tipo'] === 'ok' ? 'fi-rr-check-circle' : 'fi-rr-exclamation' ?>"></i></span>
       <span><?= htmlspecialchars($flash['texto']) ?></span>
     </div>
   <?php endif; ?>
@@ -243,25 +243,25 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
     </div>
     
     <div class="adm-kpi-grid">
-      <div class="adm-kpi green"><div class="adm-kpi-icon">👥</div><div class="adm-kpi-number"><?= $totalEstudiantes ?></div><div class="adm-kpi-label">Estudiantes registrados</div></div>
-      <div class="adm-kpi purple"><div class="adm-kpi-icon">🛡</div><div class="adm-kpi-number"><?= $totalAdmins ?></div><div class="adm-kpi-label">Administradores</div></div>
-      <div class="adm-kpi blue"><div class="adm-kpi-icon">📚</div><div class="adm-kpi-number"><?= $totalCursosActivos ?> / <?= $totalCursos ?></div><div class="adm-kpi-label">Cursos activos</div></div>
-      <div class="adm-kpi gold"><div class="adm-kpi-icon">🎥</div><div class="adm-kpi-number"><?= $totalLecciones ?></div><div class="adm-kpi-label">Videos y Lecciones</div></div>
-      <div class="adm-kpi green"><div class="adm-kpi-icon">📖</div><div class="adm-kpi-number"><?= $totalLibros ?></div><div class="adm-kpi-label">Libros y Ebooks</div></div>
-      <div class="adm-kpi purple"><div class="adm-kpi-icon">🎧</div><div class="adm-kpi-number"><?= $totalAudios ?></div><div class="adm-kpi-label">Audios Educativos</div></div>
-      <div class="adm-kpi blue"><div class="adm-kpi-icon">✍️</div><div class="adm-kpi-number"><?= $totalEjercicios ?></div><div class="adm-kpi-label">Ejercicios y Prácticas</div></div>
-      <div class="adm-kpi gold"><div class="adm-kpi-icon">💳</div><div class="adm-kpi-number"><?= $totalMembresias ?></div><div class="adm-kpi-label">Membresías activas</div></div>
+      <div class="adm-kpi green"><div class="adm-kpi-icon"><i class="fi fi-rr-users-alt"></i></div><div class="adm-kpi-number"><?= $totalEstudiantes ?></div><div class="adm-kpi-label">Estudiantes registrados</div></div>
+      <div class="adm-kpi purple"><div class="adm-kpi-icon"><i class="fi fi-rr-shield-check"></i></div><div class="adm-kpi-number"><?= $totalAdmins ?></div><div class="adm-kpi-label">Administradores</div></div>
+      <div class="adm-kpi blue"><div class="adm-kpi-icon"><i class="fi fi-rr-book-alt"></i></div><div class="adm-kpi-number"><?= $totalCursosActivos ?> / <?= $totalCursos ?></div><div class="adm-kpi-label">Cursos activos</div></div>
+      <div class="adm-kpi gold"><div class="adm-kpi-icon"><i class="fi fi-rr-video-camera-alt"></i></div><div class="adm-kpi-number"><?= $totalLecciones ?></div><div class="adm-kpi-label">Videos y Lecciones</div></div>
+      <div class="adm-kpi green"><div class="adm-kpi-icon"><i class="fi fi-rr-book-open-cover"></i></div><div class="adm-kpi-number"><?= $totalLibros ?></div><div class="adm-kpi-label">Libros y Ebooks</div></div>
+      <div class="adm-kpi purple"><div class="adm-kpi-icon"><i class="fi fi-rr-headphones"></i></div><div class="adm-kpi-number"><?= $totalAudios ?></div><div class="adm-kpi-label">Audios Educativos</div></div>
+      <div class="adm-kpi blue"><div class="adm-kpi-icon"><i class="fi fi-rr-edit"></i></div><div class="adm-kpi-number"><?= $totalEjercicios ?></div><div class="adm-kpi-label">Ejercicios y Prácticas</div></div>
+      <div class="adm-kpi gold"><div class="adm-kpi-icon"><i class="fi fi-rr-credit-card"></i></div><div class="adm-kpi-number"><?= $totalMembresias ?></div><div class="adm-kpi-label">Membresías activas</div></div>
     </div>
 
     <div class="adm-table-card">
-      <div class="adm-table-header"><h3>⚡ Accesos Rápidos y Tareas Frecuentes</h3></div>
+      <div class="adm-table-header"><h3><i class="fi fi-sr-bolt" style="color:#f5b800;margin-right:6px;"></i> Accesos Rápidos y Tareas Frecuentes</h3></div>
       <div style="padding:18px 20px">
         <div class="adm-quick-grid" style="margin-top:0">
-          <a class="adm-quick-btn" onclick="showAdminTab('contenido')"><span style="font-size:20px">🎬</span> Gestionar Videos y Libros</a>
-          <a class="adm-quick-btn" onclick="showAdminTab('usuarios')"><span style="font-size:20px">👥</span> Control de Usuarios</a>
-          <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=usuarios" target="_blank"><span style="font-size:20px">📄</span> Descargar Usuarios en PDF</a>
-          <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=progreso" target="_blank"><span style="font-size:20px">📄</span> Descargar Progreso en PDF</a>
-          <a class="adm-quick-btn" onclick="showAdminTab('config')"><span style="font-size:20px">📢</span> Publicar Aviso Global</a>
+          <a class="adm-quick-btn" onclick="showAdminTab('contenido')"><i class="fi fi-rr-film" style="font-size:20px"></i> Gestionar Videos y Libros</a>
+          <a class="adm-quick-btn" onclick="showAdminTab('usuarios')"><i class="fi fi-rr-users-alt" style="font-size:20px"></i> Control de Usuarios</a>
+          <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=usuarios" target="_blank"><i class="fi fi-rr-file-pdf" style="font-size:20px"></i> Descargar Usuarios en PDF</a>
+          <a class="adm-quick-btn" href="index.php?page=admin/exportar-pdf&tipo=progreso" target="_blank"><i class="fi fi-rr-file-pdf" style="font-size:20px"></i> Descargar Progreso en PDF</a>
+          <a class="adm-quick-btn" onclick="showAdminTab('config')"><i class="fi fi-rr-bullhorn" style="font-size:20px"></i> Publicar Aviso Global</a>
         </div>
       </div>
     </div>
@@ -296,7 +296,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
         <?php if (!empty($selectedCurso['imagen_url'])): ?>
           <img src="<?= htmlspecialchars($selectedCurso['imagen_url']) ?>" class="adm-course-thumb" alt="Portada">
         <?php else: ?>
-          <div class="adm-course-thumb">📚</div>
+          <div class="adm-course-thumb"><i class="fi fi-rr-book-alt"></i></div>
         <?php endif; ?>
         <div style="flex:1">
           <div style="font-size:1.15rem;font-weight:800;color:#0f172a"><?= htmlspecialchars($selectedCurso['titulo']) ?></div>
@@ -308,23 +308,23 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
           </div>
         </div>
         <div>
-          <a href="index.php?page=aula" target="_blank" class="adm-action-btn">👁 Ver en el Aula</a>
+          <a href="index.php?page=aula" target="_blank" class="adm-action-btn"><i class="fi fi-rr-eye"></i> Ver en el Aula</a>
         </div>
       </div>
 
       <!-- Sub-pestañas de contenidos -->
       <div class="adm-subtabs">
-        <button class="adm-subtab-btn active" data-sub="videos" onclick="showSubTab('videos')">🎥 Videos y Lecciones (<?= count($leccionesCurso) ?>)</button>
-        <button class="adm-subtab-btn" data-sub="libros" onclick="showSubTab('libros')">📖 Libros y Ebooks (<?= count($librosCurso) ?>)</button>
-        <button class="adm-subtab-btn" data-sub="audios" onclick="showSubTab('audios')">🎧 Audios y Podcasts (<?= count($audiosCurso) ?>)</button>
-        <button class="adm-subtab-btn" data-sub="ejercicios" onclick="showSubTab('ejercicios')">✍️ Ejercicios y Quizzes (<?= count($ejerciciosCurso) ?>)</button>
+        <button class="adm-subtab-btn active" data-sub="videos" onclick="showSubTab('videos')"><i class="fi fi-rr-video-camera-alt" style="margin-right:4px;"></i> Videos y Lecciones (<?= count($leccionesCurso) ?>)</button>
+        <button class="adm-subtab-btn" data-sub="libros" onclick="showSubTab('libros')"><i class="fi fi-rr-book-open-cover" style="margin-right:4px;"></i> Libros y Ebooks (<?= count($librosCurso) ?>)</button>
+        <button class="adm-subtab-btn" data-sub="audios" onclick="showSubTab('audios')"><i class="fi fi-rr-headphones" style="margin-right:4px;"></i> Audios y Podcasts (<?= count($audiosCurso) ?>)</button>
+        <button class="adm-subtab-btn" data-sub="ejercicios" onclick="showSubTab('ejercicios')"><i class="fi fi-rr-edit" style="margin-right:4px;"></i> Ejercicios y Quizzes (<?= count($ejerciciosCurso) ?>)</button>
       </div>
 
       <!-- SUB-TAB: VIDEOS / LECCIONES -->
       <div id="sub-videos" class="adm-subcontent active">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
           <h3 style="margin:0;font-size:1.05rem;color:#0f172a">Lista de Lecciones y Videos</h3>
-          <button class="adm-action-btn primary" onclick="toggleElem('box-nueva-leccion')">➕ Agregar Nueva Lección</button>
+          <button class="adm-action-btn primary" onclick="toggleElem('box-nueva-leccion')"><i class="fi fi-rr-plus"></i> Agregar Nueva Lección</button>
         </div>
 
         <div id="box-nueva-leccion" class="adm-collapse-box" style="display:none">
@@ -412,7 +412,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                         <input type="hidden" name="leccion_id" value="<?= (int)$lec['id'] ?>">
                         <input type="hidden" name="curso_id" value="<?= (int)$selectedCurso['id'] ?>">
-                        <button class="adm-action-btn danger">🗑</button>
+                        <button class="adm-action-btn danger" title="Eliminar"><i class="fi fi-rr-trash"></i></button>
                       </form>
                     </div>
                   </td>
@@ -427,7 +427,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       <div id="sub-libros" class="adm-subcontent">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
           <h3 style="margin:0;font-size:1.05rem;color:#0f172a">Libros, Ebooks y Lecturas Recomendadas</h3>
-          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-libro')">➕ Agregar Libro / Ebook</button>
+          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-libro')"><i class="fi fi-rr-plus"></i> Agregar Libro / Ebook</button>
         </div>
 
         <div id="box-nuevo-libro" class="adm-collapse-box" style="display:none">
@@ -488,7 +488,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                 <tr>
                   <td style="font-weight:700;color:#64748b">#<?= (int)$lib['orden'] ?></td>
                   <td>
-                    <div style="font-weight:700;color:#0f172a">📄 <?= htmlspecialchars($lib['titulo']) ?></div>
+                    <div style="font-weight:700;color:#0f172a"><i class="fi fi-rr-file-pdf" style="color:#ef4444;margin-right:4px;"></i> <?= htmlspecialchars($lib['titulo']) ?></div>
                     <div style="font-size:.78rem;color:#64748b"><?= htmlspecialchars($lib['descripcion'] ?: 'Sin descripción') ?></div>
                   </td>
                   <td><?= htmlspecialchars($lib['autor'] ?: 'Anónimo') ?></td>
@@ -496,7 +496,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                   <td>
                     <?php if (!empty($lib['archivo_url'])): ?>
                       <a href="<?= htmlspecialchars($lib['archivo_url']) ?>" target="_blank" style="color:#0ea5e9;font-weight:600;font-size:.82rem">
-                        📥 Descargar PDF
+                        <i class="fi fi-rr-download" style="margin-right:4px;"></i> Descargar PDF
                       </a>
                     <?php else: ?>
                       <span style="color:#94a3b8;font-size:.8rem">Sin archivo</span>
@@ -529,7 +529,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                         <input type="hidden" name="libro_id" value="<?= (int)$lib['id'] ?>">
                         <input type="hidden" name="curso_id" value="<?= (int)$selectedCurso['id'] ?>">
-                        <button class="adm-action-btn danger">🗑</button>
+                        <button class="adm-action-btn danger" title="Eliminar"><i class="fi fi-rr-trash"></i></button>
                       </form>
                     </div>
                   </td>
@@ -544,7 +544,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       <div id="sub-audios" class="adm-subcontent">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
           <h3 style="margin:0;font-size:1.05rem;color:#0f172a">Audios y Podcasts Educativos</h3>
-          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-audio')">➕ Agregar Audio</button>
+          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-audio')"><i class="fi fi-rr-plus"></i> Agregar Audio</button>
         </div>
 
         <div id="box-nuevo-audio" class="adm-collapse-box" style="display:none">
@@ -596,10 +596,10 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                 <tr>
                   <td style="font-weight:700;color:#64748b">#<?= (int)$aud['orden'] ?></td>
                   <td>
-                    <div style="font-weight:700;color:#0f172a">🎧 <?= htmlspecialchars($aud['titulo']) ?></div>
+                    <div style="font-weight:700;color:#0f172a"><i class="fi fi-rr-headphones"></i> <?= htmlspecialchars($aud['titulo']) ?></div>
                     <div style="font-size:.78rem;color:#64748b"><?= htmlspecialchars($aud['descripcion'] ?: 'Sin notas') ?></div>
                   </td>
-                  <td><span class="adm-badge pill">⏱ <?= htmlspecialchars($aud['duracion']) ?></span></td>
+                  <td><span class="adm-badge pill"><i class="fi fi-rr-clock"></i> <?= htmlspecialchars($aud['duracion']) ?></span></td>
                   <td>
                     <?php if (!empty($aud['audio_url'])): ?>
                       <audio controls style="height:32px;max-width:220px">
@@ -636,7 +636,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                         <input type="hidden" name="audio_id" value="<?= (int)$aud['id'] ?>">
                         <input type="hidden" name="curso_id" value="<?= (int)$selectedCurso['id'] ?>">
-                        <button class="adm-action-btn danger">🗑</button>
+                        <button class="adm-action-btn danger" title="Eliminar"><i class="fi fi-rr-trash"></i></button>
                       </form>
                     </div>
                   </td>
@@ -651,7 +651,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       <div id="sub-ejercicios" class="adm-subcontent">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
           <h3 style="margin:0;font-size:1.05rem;color:#0f172a">Ejercicios Prácticos y Evaluaciones</h3>
-          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-ejercicio')">➕ Agregar Ejercicio</button>
+          <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-ejercicio')"><i class="fi fi-rr-plus"></i> Agregar Ejercicio</button>
         </div>
 
         <div id="box-nuevo-ejercicio" class="adm-collapse-box" style="display:none">
@@ -699,7 +699,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
               <?php else: foreach ($ejerciciosCurso as $ej): ?>
                 <tr>
                   <td style="font-weight:700;color:#64748b">#<?= (int)$ej['orden'] ?></td>
-                  <td><div style="font-weight:700;color:#0f172a">✍️ <?= htmlspecialchars($ej['titulo']) ?></div></td>
+                  <td><div style="font-weight:700;color:#0f172a"><i class="fi fi-rr-edit" style="color:#6366f1;margin-right:4px;"></i> <?= htmlspecialchars($ej['titulo']) ?></div></td>
                   <td><span class="adm-badge pill"><?= ucfirst(htmlspecialchars($ej['tipo'])) ?></span></td>
                   <td style="font-size:.82rem;color:#475569;max-width:350px">
                     <?= htmlspecialchars(mb_strimwidth($ej['descripcion'], 0, 110, '...')) ?>
@@ -725,7 +725,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                         <input type="hidden" name="ejercicio_id" value="<?= (int)$ej['id'] ?>">
                         <input type="hidden" name="curso_id" value="<?= (int)$selectedCurso['id'] ?>">
-                        <button class="adm-action-btn danger">🗑</button>
+                        <button class="adm-action-btn danger" title="Eliminar"><i class="fi fi-rr-trash"></i></button>
                       </form>
                     </div>
                   </td>
@@ -749,10 +749,10 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       </div>
       <div style="display:flex;gap:8px">
         <a href="index.php?page=admin/exportar-pdf&tipo=usuarios" target="_blank" class="adm-action-btn primary">
-          📄 Descargar Reporte en PDF
+          <i class="fi fi-rr-file-pdf"></i> Descargar Reporte en PDF
         </a>
         <a href="index.php?page=admin/exportar&tipo=usuarios" class="adm-action-btn" title="Descargar versión Excel">
-          📥 Excel (.csv)
+          <i class="fi fi-rr-file-spreadsheet"></i> Excel (.csv)
         </a>
       </div>
     </div>
@@ -843,10 +843,10 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       </div>
       <div style="display:flex;gap:8px">
         <a href="index.php?page=admin/exportar-pdf&tipo=inscripciones" target="_blank" class="adm-action-btn primary">
-          📄 Descargar Reporte en PDF
+          <i class="fi fi-rr-file-pdf"></i> Descargar Reporte en PDF
         </a>
         <a href="index.php?page=admin/exportar&tipo=inscripciones" class="adm-action-btn" title="Descargar versión Excel">
-          📥 Excel (.csv)
+          <i class="fi fi-rr-file-spreadsheet"></i> Excel (.csv)
         </a>
       </div>
     </div>
@@ -896,10 +896,10 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       </div>
       <div style="display:flex;gap:8px">
         <a href="index.php?page=admin/exportar-pdf&tipo=progreso" target="_blank" class="adm-action-btn primary">
-          📄 Descargar Reporte en PDF
+          <i class="fi fi-rr-file-pdf"></i> Descargar Reporte en PDF
         </a>
         <a href="index.php?page=admin/exportar&tipo=progreso" class="adm-action-btn" title="Descargar versión Excel">
-          📥 Excel (.csv)
+          <i class="fi fi-rr-file-spreadsheet"></i> Excel (.csv)
         </a>
       </div>
     </div>
@@ -960,18 +960,18 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
         <p>Insignias y medallas que los alumnos desbloquean al completar retos y acumular puntos</p>
       </div>
       <div>
-        <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-logro')">➕ Crear Nuevo Logro</button>
+        <button class="adm-action-btn primary" onclick="toggleElem('box-nuevo-logro')"><i class="fi fi-rr-plus"></i> Crear Nuevo Logro</button>
       </div>
     </div>
 
     <!-- Formulario para crear logro -->
     <div id="box-nuevo-logro" class="adm-collapse-box" style="display:none">
-      <h3 style="margin:0 0 12px;color:#0f172a">➕ Crear Nueva Insignia o Logro</h3>
+      <h3 style="margin:0 0 12px;color:#0f172a"><i class="fi fi-rr-trophy" style="color:#f5b800;margin-right:6px;"></i> Crear Nueva Insignia o Logro</h3>
       <form method="post" action="index.php?page=admin/logros/crear">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
         <div class="adm-form-row" style="margin-bottom:10px">
           <div class="adm-form-group"><label>Nombre del Logro</label><input class="adm-input" name="nombre" required placeholder="Ej: Maestro del Presupuesto"></div>
-          <div class="adm-form-group"><label>Icono Emoji (ej: 🏆, ⭐, 💰, 🚀)</label><input class="adm-input" name="icono" value="🏅" required></div>
+          <div class="adm-form-group"><label>Icono o Clase (ej: fi-rr-trophy, fi-rr-star)</label><input class="adm-input" name="icono" value="fi-rr-medal" required></div>
           <div class="adm-form-group"><label>Puntos requeridos</label><input class="adm-input" type="number" name="puntos_requeridos" value="100" min="0"></div>
           <div class="adm-form-group"><label>Cursos completados requeridos</label><input class="adm-input" type="number" name="cursos_requeridos" placeholder="Opcional"></div>
         </div>
@@ -1006,7 +1006,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
             <tr>
               <td>#<?= (int)$l['id'] ?></td>
               <td>
-                <div style="font-weight:700;color:#0f172a;font-size:.95rem"><?= htmlspecialchars($l['icono'] ?? '🏅') ?> <?= htmlspecialchars($l['nombre']) ?></div>
+                <div style="font-weight:700;color:#0f172a;font-size:.95rem"><?php if (!empty($l['icono']) && strpos($l['icono'], 'fi-') !== false): ?><i class="fi <?= htmlspecialchars($l['icono']) ?>"></i><?php else: ?><i class="fi fi-rr-medal"></i><?php endif; ?> <?= htmlspecialchars($l['nombre']) ?></div>
                 <div style="font-size:.78rem;color:#64748b"><?= htmlspecialchars($l['descripcion']) ?></div>
               </td>
               <td style="font-size:.82rem;color:#475569">
@@ -1028,7 +1028,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                   <form method="post" action="index.php?page=admin/logros/eliminar" class="adm-inline-form" onsubmit="return confirm('¿Eliminar este logro?');">
                     <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                     <input type="hidden" name="logro_id" value="<?= (int)$l['id'] ?>">
-                    <button class="adm-action-btn danger">🗑</button>
+                    <button class="adm-action-btn danger" title="Eliminar"><i class="fi fi-rr-trash"></i></button>
                   </form>
                 </div>
               </td>
@@ -1049,9 +1049,9 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
     </div>
     
     <div class="adm-mem-grid">
-      <div class="adm-mem-card"><div class="mem-icon">🌱</div><h4>Plan Gratis</h4><p class="mem-desc">Acceso básico inicial</p><span class="adm-badge gratis"><?= $memPorTipo['gratis'] ?> activas</span></div>
-      <div class="adm-mem-card"><div class="mem-icon">⭐</div><h4>Plan Pro</h4><p class="mem-desc">Acceso ampliado de cursos</p><span class="adm-badge pro"><?= $memPorTipo['pro'] ?> activas</span></div>
-      <div class="adm-mem-card"><div class="mem-icon">💎</div><h4>Plan Premium</h4><p class="mem-desc">Acceso total ilimitado</p><span class="adm-badge premium"><?= $memPorTipo['premium'] ?> activas</span></div>
+      <div class="adm-mem-card"><div class="mem-icon"><i class="fi fi-rr-leaf"></i></div><h4>Plan Gratis</h4><p class="mem-desc">Acceso básico inicial</p><span class="adm-badge gratis"><?= $memPorTipo['gratis'] ?> activas</span></div>
+      <div class="adm-mem-card"><div class="mem-icon"><i class="fi fi-rr-star"></i></div><h4>Plan Pro</h4><p class="mem-desc">Acceso ampliado de cursos</p><span class="adm-badge pro"><?= $memPorTipo['pro'] ?> activas</span></div>
+      <div class="adm-mem-card"><div class="mem-icon"><i class="fi fi-rr-gem"></i></div><h4>Plan Premium</h4><p class="mem-desc">Acceso total ilimitado</p><span class="adm-badge premium"><?= $memPorTipo['premium'] ?> activas</span></div>
     </div>
 
     <div class="adm-table-card" style="margin-top:20px">
@@ -1178,7 +1178,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       
       <!-- Sección de Anuncio Global -->
       <div class="adm-config-card" style="margin-bottom:20px;border-left:4px solid #0ea5e9">
-        <h3>📢 Anuncio Global para Estudiantes</h3>
+        <h3><i class="fi fi-rr-bullhorn" style="color:#0ea5e9;margin-right:6px;"></i> Anuncio Global para Estudiantes</h3>
         <p style="font-size:.85rem;color:#64748b;margin:0 0 14px">
           Muestra una barra destacada en la parte superior del aula virtual para todos los alumnos conectados.
         </p>
@@ -1273,7 +1273,7 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
       </div>
 
       <div style="margin-bottom:28px">
-        <button class="adm-action-btn primary" style="padding:10px 22px;font-size:.9rem">💾 Guardar Toda la Configuración</button>
+        <button class="adm-action-btn primary" style="padding:10px 22px;font-size:.9rem"><i class="fi fi-rr-disk"></i> Guardar Toda la Configuración</button>
       </div>
     </form>
 

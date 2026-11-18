@@ -276,7 +276,12 @@ async function handleLoginSubmit(e) {
         window.location.href = 'index.php?page=admin';
         return;
       }
-      const redirect = new URLSearchParams(window.location.search).get('redirect');
+      let redirect = new URLSearchParams(window.location.search).get('redirect');
+      if (!redirect) {
+        try { redirect = sessionStorage.getItem('ef_redirect_after_login'); } catch (e) {}
+      }
+      try { sessionStorage.removeItem('ef_redirect_after_login'); } catch (e) {}
+
       if (redirect === 'aula') {
         window.location.href = 'index.php?page=aula';
         return;
@@ -522,6 +527,17 @@ async function handleSignupSubmit(e) {
       updateAuthUI();
       closeSignupModal();
       if (signupForm) signupForm.reset();
+
+      let redirect = new URLSearchParams(window.location.search).get('redirect');
+      if (!redirect) {
+        try { redirect = sessionStorage.getItem('ef_redirect_after_login'); } catch (e) {}
+      }
+      try { sessionStorage.removeItem('ef_redirect_after_login'); } catch (e) {}
+
+      if (redirect === 'aula') {
+        window.location.href = 'index.php?page=aula';
+        return;
+      }
       window.location.reload();
       return;
     } else {
@@ -676,7 +692,7 @@ function updateAuthUI() {
     if (sidebarUserAvatar) sidebarUserAvatar.textContent = initial;
     if (topbarUserName) topbarUserName.textContent = displayName;
     if (sidebarUserRole) {
-      sidebarUserRole.textContent = user.rol === 'admin' ? '🛡️ Administrador' : 'Estudiante Activo';
+      sidebarUserRole.textContent = user.rol === 'admin' ? 'Administrador' : 'Estudiante Activo';
       sidebarUserRole.classList.toggle('is-admin', user.rol === 'admin');
     }
     if (sidebarLogoutBtn) sidebarLogoutBtn.style.display = 'flex';
@@ -697,7 +713,7 @@ function updateAuthUI() {
     document.body.classList.remove('not-logged-in');
 
     if (sidebarUserName) sidebarUserName.textContent = 'Invitado (Demo)';
-    if (sidebarUserAvatar) sidebarUserAvatar.textContent = '👋';
+    if (sidebarUserAvatar) sidebarUserAvatar.textContent = 'E';
     if (topbarUserName) topbarUserName.textContent = 'Invitado';
     if (sidebarUserRole) {
       sidebarUserRole.textContent = 'Invitado';
@@ -1117,7 +1133,7 @@ const RETICULA_MATERIA_GRATIS_ID = 'finanzas-personales';
 const RETICULA_MATERIAS = [
   // NIVEL 1 (Básico - Primer mes gratis) — mismas unidades del Aula Demo
   {
-    id: 'finanzas-personales', semestre: 1, icon: '🧠',
+    id: 'finanzas-personales', semestre: 1, icon: '<i class="fi fi-rr-brain"></i>',
     nombre: 'Unidad 1: Psicología del dinero y cambio de hábitos',
     desc: 'Descubre cómo piensa tu mente con el dinero, elimina creencias que te frenan y convierte la educación financiera en hábito diario (Housel, Clear, Duhigg).',
     temario: [
@@ -1146,7 +1162,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'presupuesto', semestre: 1, icon: '💸',
+    id: 'presupuesto', semestre: 1, icon: '<i class="fi fi-rr-money-bill-wave"></i>',
     nombre: 'Unidad 2: Aprende a gastar y no gastar de más',
     desc: 'Domina la regla 50/30/20 y el presupuesto base cero: cada peso con un trabajo, sin sobrantes ni fugas de capital (Ramsey).',
     temario: ['Presupuesto base cero paso a paso (Ramsey)', 'Regla 50/30/20 aplicada con tu ingreso real', 'Las 7 fugas invisibles de tu quincena', 'Cómo negociar tus varitas de compra por impulso'],
@@ -1168,7 +1184,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'gasto-hormiga', semestre: 1, icon: '🔥',
+    id: 'gasto-hormiga', semestre: 1, icon: '<i class="fi fi-rr-flame"></i>',
     nombre: 'Unidad 3: No pidas préstamos: sal de tus deudas',
     desc: 'Bola de nieve y avalancha con fundamento conductual: liquida tarjetas y créditos para nunca más vivir pidiendo.',
     temario: ['El costo real del CAT y las tasas de interés', 'Bola de nieve vs avalancha (Ramsey)', 'Renegociación de deudas sin quitas destructivas', 'Quema tus tarjetas: vivir sin pedir prestado'],
@@ -1193,7 +1209,7 @@ const RETICULA_MATERIAS = [
 
   // NIVEL 2 (Intermedio)
   {
-    id: 'fondo-emergencia', semestre: 1, icon: '🛡️',
+    id: 'fondo-emergencia', semestre: 1, icon: '<i class="fi fi-rr-shield-check"></i>',
     nombre: 'Aprende a ahorrar y crea tu fondo de emergencia',
     desc: 'Págate primero (principio de Clason) y construye tu escudo de 3 a 6 meses de gastos con un hábito de ahorro automático.',
     temario: ['Págate primero: el 10% mágico (Clason)', 'Cálculo de tu fondo de paz mental', 'Cuentas de ahorro de alta liquidez', 'Estrategias antibloqueo'],
@@ -1217,7 +1233,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'control-deudas', semestre: 2, icon: '💳',
+    id: 'control-deudas', semestre: 2, icon: '<i class="fi fi-rr-credit-card"></i>',
     nombre: 'Crédito bancario y Buró: negocia como un experto',
     desc: 'Score crediticio, renegociación sin quitas y cómo usar el crédito a tu favor: CAT, historial, rebus créditos.',
     temario: ['El CAT y el costo real de las tarjetas', 'Score crediticio: cómo subirlo y cuidarlo', 'Negociación de créditos sin quitas destructivas'],
@@ -1240,7 +1256,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'materiales-herramientas', semestre: 2, icon: '🧰',
+    id: 'materiales-herramientas', semestre: 2, icon: '<i class="fi fi-rr-tools"></i>',
     nombre: 'Materiales y herramientas digitales',
     desc: 'Plantillas automatizadas en Excel, calculadoras y apps para gestionar tus finanzas.',
     temario: ['Plantillas financieras automatizadas', 'Apps de seguimiento en tiempo real', 'Calculadoras de amortización'],
@@ -1264,7 +1280,7 @@ const RETICULA_MATERIAS = [
 
   // NIVELES 2 y 3 (Inversiones y Patrimonio)
   {
-    id: 'ahorro-inversion', semestre: 2, icon: '📈',
+    id: 'ahorro-inversion', semestre: 2, icon: '<i class="fi fi-rr-chart-line-up"></i>',
     nombre: 'Estrategias de inversión y renta fija',
     desc: 'Pon tu dinero a trabajar con instrumentos regulados de bajo riesgo y renta fija.',
     temario: ['CETES Directo y Bonos gubernamentales', 'Interés compuesto y valor del dinero en el tiempo', 'Inflación vs rendimiento real'],
@@ -1287,7 +1303,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'fondos-bolsa', semestre: 2, icon: '📊',
+    id: 'fondos-bolsa', semestre: 2, icon: '<i class="fi fi-rr-chart-histogram"></i>',
     nombre: 'Fondos indexados y renta variable',
     desc: 'Aprende a invertir a largo plazo en índices globales como el S&P 500.',
     temario: ['Qué son los ETFs y fondos indexados', 'Aportaciones periódicas (Dollar Cost Averaging)', 'Gestión del riesgo y horizonte temporal'],
@@ -1311,7 +1327,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'proteccion-impuestos', semestre: 3, icon: '🏛️',
+    id: 'proteccion-impuestos', semestre: 3, icon: '<i class="fi fi-rr-bank"></i>',
     nombre: 'Protección patrimonial e impuestos',
     desc: 'Seguros indispensables y optimización fiscal para proteger tu capital.',
     temario: ['Seguros de gastos médicos y vida', 'Deducciones personales para devolución de impuestos', 'Plan personal de retiro (PPR)'],
@@ -1336,7 +1352,7 @@ const RETICULA_MATERIAS = [
 
   // NIVEL 3 (Avanzado - Libertad Financiera)
   {
-    id: 'emprendimiento', semestre: 3, icon: '💡',
+    id: 'emprendimiento', semestre: 3, icon: '<i class="fi fi-rr-bulb"></i>',
     nombre: 'Emprendimiento y modelos de negocio',
     desc: 'Valida ideas, crea negocios rentables y diversifica tus fuentes de ingresos.',
     temario: ['Validación de ideas de negocio con bajo capital', 'Flujo de caja del negocio', 'Estrategias de ventas y pricing'],
@@ -1360,7 +1376,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'bienes-raices', semestre: 3, icon: '🏢',
+    id: 'bienes-raices', semestre: 3, icon: '<i class="fi fi-rr-building"></i>',
     nombre: 'Inversión inmobiliaria y FIBRAs',
     desc: 'Participa en el sector inmobiliario con bajo capital a través de FIBRAs y rentas.',
     temario: ['Fideicomisos de bienes raíces (FIBRAs)', 'Rentas tradicionales vs temporales', 'Plusvalía y flujo constante'],
@@ -1383,7 +1399,7 @@ const RETICULA_MATERIAS = [
     ]
   },
   {
-    id: 'libertad-financiera', semestre: 3, icon: '🏆',
+    id: 'libertad-financiera', semestre: 3, icon: '<i class="fi fi-rr-trophy"></i>',
     nombre: 'Independencia y legado financiero',
     desc: 'Consolida tu portafolio patrimonial definitivo para vivir de tus rentas e inversiones.',
     temario: ['La regla del 4% para retiro', 'Portafolios todo terreno', 'Plan financiero a 10 y 20 años'],
@@ -1565,7 +1581,7 @@ async function resetInscripciones() {
   saveReticulaState({ inscritas: [] });
   closeReticulaModal();
   renderReticula();
-  alert('✅ Tus inscripciones fueron eliminadas. Ya puedes inscribirte de nuevo desde el Nivel 1.');
+  alert('Tus inscripciones fueron eliminadas. Ya puedes inscribirte de nuevo desde el Nivel 1.');
 }
 
 function getMateriaPorId(id) {
@@ -1711,7 +1727,7 @@ function renderReticula() {
     resumen.innerHTML =
       '<div class="reticula-resumen-num">' + inscritas + '<span> / ' + total + '</span></div>' +
       '<div class="reticula-resumen-txt">materias inscritas en tu retícula</div>' +
-      '<div class="reticula-resumen-hint">🎯 ' + hint + '</div>';
+      '<div class="reticula-resumen-hint"><i class="fi fi-rr-target"></i> ' + hint + '</div>';
   }
 
   grid.innerHTML = RETICULA_SEMESTRES.map(function (sem) {
@@ -1726,18 +1742,18 @@ function renderReticula() {
 
     const chip = mostrarCandadoNivel || requierePago
       ? '<span class="reticula-semester-chip locked">' + (requierePago
-          ? '🔒 Requiere inscripción'
+          ? '<i class="fi fi-sr-lock"></i> Requiere inscripción'
           : (sem.id === 1
-              ? (tieneMembresiaActiva() ? '🔒 Completa el Nivel 1' : '🔒 Solo Unidad 1 gratis')
-              : '🔒 Bloqueado')) + '</span>'
+              ? (tieneMembresiaActiva() ? '<i class="fi fi-sr-lock"></i> Completa el Nivel 1' : '<i class="fi fi-sr-lock"></i> Solo Unidad 1 gratis')
+              : '<i class="fi fi-sr-lock"></i> Bloqueado')) + '</span>'
       : '<span class="reticula-semester-chip">' + inscritasSem + ' / ' + cfg.limite +
         (cfg.limite === 1 ? ' materia' : ' materias') + '</span>';
 
     const cards = materias.map(function (m) {
       const st = estadoMateria(m.id, state);
       let etiqueta = 'Disponible';
-      if (st === 'inscrita') etiqueta = '✓ Inscrita';
-      else if (st === 'bloqueada') etiqueta = '🔒 Bloqueada';
+      if (st === 'inscrita') etiqueta = '<i class="fi fi-rr-check"></i> Inscrita';
+      else if (st === 'bloqueada') etiqueta = '<i class="fi fi-sr-lock"></i> Bloqueada';
       const accionClick = (st === 'inscrita')
         ? "window.location.href='index.php?page=aula'"
         : "openReticulaModal('" + m.id + "')";
@@ -1754,11 +1770,11 @@ function renderReticula() {
 
     var nivelPill = '';
     if (sem.id === 1) {
-      nivelPill = '<span class="reticula-semester-pill">🌱 BÁSICO · SOLO UNIDAD 1 GRATIS</span>';
+      nivelPill = '<span class="reticula-semester-pill"><i class="fi fi-rr-leaf"></i> BÁSICO · SOLO UNIDAD 1 GRATIS</span>';
     } else if (sem.id === 2) {
-      nivelPill = '<span class="reticula-semester-pill">🚀 INTERMEDIO · ESTRATEGIA</span>';
+      nivelPill = '<span class="reticula-semester-pill"><i class="fi fi-rr-rocket"></i> INTERMEDIO · ESTRATEGIA</span>';
     } else {
-      nivelPill = '<span class="reticula-semester-pill">👑 AVANZADO · MAESTRÍA</span>';
+      nivelPill = '<span class="reticula-semester-pill"><i class="fi fi-rr-crown"></i> AVANZADO · MAESTRÍA</span>';
     }
 
     return '' +
@@ -1825,7 +1841,7 @@ function abrirEjercicioMateria(titulo, descripcion) {
   const feedbackEl = document.getElementById('exerciseModalFeedback');
 
   if (!modal) {
-    alert('📝 ' + titulo + '\n\n' + descripcion);
+    alert(titulo + '\n\n' + descripcion);
     return;
   }
 
@@ -1842,7 +1858,7 @@ function abrirEjercicioMateria(titulo, descripcion) {
     optionsEl.innerHTML = 
       '<div style="background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:12px; padding:16px; margin-bottom:12px;">' +
         '<label style="display:block; font-size:15px; font-weight:700; color:#1e293b; margin-bottom:6px;">' +
-          '💵 Ingresa tu Ingreso Mensual Neto ($ MXN):' +
+          '<i class="fi fi-rr-money-bill-wave"></i> Ingresa tu Ingreso Mensual Neto ($ MXN):' +
         '</label>' +
         '<div style="display:flex; gap:10px; margin-bottom:14px;">' +
           '<input type="number" id="inputPresupuestoUser" value="16000" min="1000" step="500" style="flex:1; padding:10px 14px; border:1.5px solid #94a3b8; border-radius:8px; font-size:17px; font-weight:700;" oninput="recalcularPresupuestoModal()">' +
@@ -1851,21 +1867,21 @@ function abrirEjercicioMateria(titulo, descripcion) {
         '<div style="display:flex; flex-direction:column; gap:8px;">' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #00703C; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
             '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#00703C;">' +
-              '<span>🏠 50% Necesidades Básicas:</span>' +
+              '<span><i class="fi fi-rr-home"></i> 50% Necesidades Básicas:</span>' +
               '<span id="resPresupuesto50">$8,000 MXN</span>' +
             '</div>' +
             '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">Renta, despensa, transporte y servicios fijos indispensables.</div>' +
           '</div>' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #f59e0b; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
             '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#d97706;">' +
-              '<span>🎉 30% Deseos y Estilo de Vida:</span>' +
+              '<span><i class="fi fi-rr-cocktail"></i> 30% Deseos y Estilo de Vida:</span>' +
               '<span id="resPresupuesto30">$4,800 MXN</span>' +
             '</div>' +
             '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">Salidas, entretenimiento y gustos personales sin culpa.</div>' +
           '</div>' +
           '<div style="background:#ffffff; padding:10px 14px; border-left:4px solid #28C76F; border-radius:6px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">' +
             '<div style="display:flex; justify-content:space-between; font-size:15px; font-weight:700; color:#047857;">' +
-              '<span>🛡️ 20% Ahorro e Inversión:</span>' +
+              '<span><i class="fi fi-rr-shield-check"></i> 20% Ahorro e Inversión:</span>' +
               '<span id="resPresupuesto20">$3,200 MXN</span>' +
             '</div>' +
             '<div style="font-size:13.5px; color:#64748b; margin-top:2px;">En 1 año acumulas <strong>$38,400 MXN</strong> directo a tu patrimonio personal.</div>' +
@@ -1900,7 +1916,7 @@ function abrirEjercicioMateria(titulo, descripcion) {
           '<div style="font-size:14.5px; font-weight:600;">Meta de tu Fondo de Paz Mental:</div>' +
           '<div style="font-size:26.5px; font-weight:800; color:#047857; margin:2px 0;" id="resFondoTotal">$57,000 MXN</div>' +
           '<div style="font-size:14px; color:#065f46; line-height:1.4;">' +
-            '💡 <strong>Regla de oro:</strong> Guardar en cuentas a la vista con rendimiento (CETES Directo Bonddia o cuenta con rendimiento diario). Nunca arriesgar en renta variable.' +
+            '<i class="fi fi-rr-bulb"></i> <strong>Regla de oro:</strong> Guardar en cuentas a la vista con rendimiento (CETES Directo Bonddia o cuenta con rendimiento diario). Nunca arriesgar en renta variable.' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -1940,7 +1956,7 @@ function abrirEjercicioMateria(titulo, descripcion) {
             '<span style="font-size:24.5px; font-weight:800; color:#047857;" id="resCetesTotal">$98,400 MXN</span>' +
           '</div>' +
           '<div style="font-size:14px; color:#047857; margin-top:3px;" id="resCetesInteres">' +
-            '📈 Ganancia pura por interés compuesto: <strong>$23,400 MXN</strong> sobre tu ahorro.' +
+            '<i class="fi fi-rr-chart-line-up"></i> Ganancia pura por interés compuesto: <strong>$23,400 MXN</strong> sobre tu ahorro.' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -1998,12 +2014,12 @@ function abrirEjercicioMateria(titulo, descripcion) {
 
   optionsEl.innerHTML = 
     '<div style="font-size:16px; font-weight:600; color:#1e293b; margin-bottom:12px; line-height:1.5;">' +
-      '❓ ' + pregunta +
+      '<i class="fi fi-rr-interrogation"></i> ' + pregunta +
     '</div>' +
     '<div style="display:flex; flex-direction:column; gap:8px;">' +
       opciones.map(function(opt, idx) {
         return '<div class="exercise-option" onclick="seleccionarOpcionModal(' + idx + ')" id="modalOpt' + idx + '" style="background:#ffffff; border:1.5px solid #d4e7de; border-radius:10px; padding:12px 16px; cursor:pointer; font-size:15.5px; display:flex; align-items:center; gap:10px; transition:all 0.2s ease;">' +
-          '<span style="font-size:18px;">🔘</span> <span>' + opt + '</span>' +
+          '<span style="display:inline-flex; align-items:center; color:#94a3b8;"><i class="fi fi-rr-circle"></i></span> <span>' + opt + '</span>' +
         '</div>';
       }).join('') +
     '</div>';
@@ -2059,7 +2075,7 @@ function recalcularCetesModal() {
   const ganancia = Math.round(total - totalAportado);
   totEl.textContent = '$' + Math.round(total).toLocaleString('es-MX') + ' MXN';
   if (intEl) {
-    intEl.innerHTML = '📈 Ganancia pura por interés compuesto: <strong>$' + ganancia.toLocaleString('es-MX') + ' MXN</strong> sobre tu ahorro.';
+    intEl.innerHTML = '<i class="fi fi-rr-chart-line-up"></i> Ganancia pura por interés compuesto: <strong>$' + ganancia.toLocaleString('es-MX') + ' MXN</strong> sobre tu ahorro.';
   }
 }
 
@@ -2093,7 +2109,7 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Actividad práctica resuelta y guardada!</strong><br>Has configurado tus números financieros con éxito.<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '<i class="fi fi-sr-sparkles" style="color:#059669;"></i> <strong>¡Actividad práctica resuelta y guardada!</strong><br>Has configurado tus números financieros con éxito.<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
     return;
   }
 
@@ -2101,7 +2117,7 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#fef2f2';
     feedbackEl.style.color = '#b91c1c';
     feedbackEl.style.border = '1px solid #fecaca';
-    feedbackEl.textContent = '⚠️ Por favor selecciona una opción antes de comprobar tu respuesta.';
+    feedbackEl.innerHTML = '<i class="fi fi-rr-exclamation"></i> Por favor selecciona una opción antes de comprobar tu respuesta.';
     return;
   }
 
@@ -2109,12 +2125,12 @@ function comprobarEjercicioModal() {
     feedbackEl.style.background = '#ecfdf5';
     feedbackEl.style.color = '#047857';
     feedbackEl.style.border = '1px solid #a7f3d0';
-    feedbackEl.innerHTML = '🎉 <strong>¡Respuesta correcta!</strong> ' + (currentExerciseExplanation || 'Has demostrado aplicar el criterio financiero adecuado.') + '<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
+    feedbackEl.innerHTML = '<i class="fi fi-sr-sparkles" style="color:#059669;"></i> <strong>¡Respuesta correcta!</strong> ' + (currentExerciseExplanation || 'Has demostrado aplicar el criterio financiero adecuado.') + '<br><span style="font-size:14px;">+50 Puntos añadidos a tu perfil de estudiante.</span>';
   } else {
     feedbackEl.style.background = '#fffbeb';
     feedbackEl.style.color = '#b45309';
     feedbackEl.style.border = '1px solid #fde68a';
-    feedbackEl.textContent = '❌ Esa no es la mejor opción financiera. Analiza la situación con el método visto en la video-clase e inténtalo de nuevo.';
+    feedbackEl.innerHTML = '<i class="fi fi-sr-cross-circle" style="color:#ef4444;"></i> Esa no es la mejor opción financiera. Analiza la situación con el método visto en la video-clase e inténtalo de nuevo.';
   }
 }
 
@@ -2132,7 +2148,7 @@ let synthUtterance = null;
 function reproducirAudioMateria(titulo, duracion, descripcion) {
   const modal = document.getElementById('audioPlayerModal');
   if (!modal) {
-    alert('🎧 Reproduciendo podcast: ' + titulo);
+    alert('Reproduciendo podcast: ' + titulo);
     return;
   }
 
@@ -2159,7 +2175,7 @@ function toggleAudioPlayback() {
   audioIsPlaying = !audioIsPlaying;
   
   if (audioIsPlaying) {
-    if (btn) btn.innerHTML = '⏸️ Pausar reproducción';
+    if (btn) btn.innerHTML = '<i class="fi fi-rr-pause"></i> Pausar reproducción';
     if (wave) wave.classList.add('playing');
     playSyntheticVoiceSample();
     audioInterval = setInterval(function() {
@@ -2167,7 +2183,7 @@ function toggleAudioPlayback() {
       updateAudioDisplay();
     }, 1000);
   } else {
-    if (btn) btn.innerHTML = '▶️ Iniciar reproducción';
+    if (btn) btn.innerHTML = '<i class="fi fi-rr-play"></i> Iniciar reproducción';
     if (wave) wave.classList.remove('playing');
     clearInterval(audioInterval);
     stopSyntheticVoice();
@@ -2215,7 +2231,7 @@ function stopSyntheticVoice() {
 function abrirLibroMateria(titulo, autor, descripcion) {
   const modal = document.getElementById('bookReaderModal');
   if (!modal) {
-    alert('📚 Libro: ' + titulo + ' por ' + autor);
+    alert('Libro: ' + titulo + ' por ' + autor);
     return;
   }
 
@@ -2268,7 +2284,7 @@ function descargarGuiaPdfActual() {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  alert('📥 ¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
+  alert('¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
 }
 
 function openReticulaModal(id) {
@@ -2310,17 +2326,17 @@ function openReticulaModal(id) {
       videosEl.innerHTML = m.videos.map(function (v, idx) {
         return '<div class="resource-item-card">' +
           '<div class="resource-item-left">' +
-            '<div class="resource-item-icon">🎬</div>' +
+            '<div class="resource-item-icon"><i class="fi fi-rr-film"></i></div>' +
             '<div class="resource-item-info">' +
               '<h5>Clase ' + (idx + 1) + ': ' + v.titulo + '</h5>' +
               '<div class="resource-meta-tags">' +
                 '<span class="resource-pill pill-video">Video lección</span>' +
-                '<span class="resource-pill pill-duration">⏱️ ' + v.duracion + '</span>' +
+                '<span class="resource-pill pill-duration"><i class="fi fi-rr-clock"></i> ' + v.duracion + '</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
           '<div style="display:flex; gap:6px; align-items:center;">' +
-            '<button type="button" class="btn-resource-action" onclick="reproducirVideoMateria(\'' + v.titulo.replace(/'/g, "\\'") + '\', \'' + v.url + '\')">▶ Ver video</button>' +
+            '<button type="button" class="btn-resource-action" onclick="reproducirVideoMateria(\'' + v.titulo.replace(/'/g, "\\'") + '\', \'' + v.url + '\')"><i class="fi fi-rr-play"></i> Ver video</button>' +
             (v.externalUrl ? '<a href="' + v.externalUrl + '" target="_blank" rel="noopener noreferrer" class="btn-resource-action" style="background:#fee2e2; color:#dc2626; text-decoration:none; display:inline-flex; align-items:center;" title="Abrir en YouTube">YouTube ↗</a>' : '') +
           '</div>' +
         '</div>';
@@ -2339,7 +2355,7 @@ function openReticulaModal(id) {
         const tipoLabel = (e.tipo || 'Práctica').toUpperCase();
         return '<div class="resource-item-card">' +
           '<div class="resource-item-left">' +
-            '<div class="resource-item-icon">📝</div>' +
+            '<div class="resource-item-icon"><i class="fi fi-rr-edit"></i></div>' +
             '<div class="resource-item-info">' +
               '<h5>' + (idx + 1) + '. ' + e.titulo + '</h5>' +
               '<p>' + e.descripcion + '</p>' +
@@ -2363,17 +2379,17 @@ function openReticulaModal(id) {
       audiosEl.innerHTML = m.audios.map(function (a, idx) {
         return '<div class="resource-item-card">' +
           '<div class="resource-item-left">' +
-            '<div class="resource-item-icon">🎧</div>' +
+            '<div class="resource-item-icon"><i class="fi fi-rr-headphones"></i></div>' +
             '<div class="resource-item-info">' +
               '<h5>Episodio ' + (idx + 1) + ': ' + a.titulo + '</h5>' +
               '<p>' + a.descripcion + '</p>' +
               '<div class="resource-meta-tags">' +
                 '<span class="resource-pill pill-audio">Podcast / Audio</span>' +
-                '<span class="resource-pill pill-duration">⏱️ ' + a.duracion + '</span>' +
+                '<span class="resource-pill pill-duration"><i class="fi fi-rr-clock"></i> ' + a.duracion + '</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
-          '<button type="button" class="btn-resource-action" onclick="reproducirAudioMateria(\'' + a.titulo.replace(/'/g, "\\'") + '\', \'' + a.duracion + '\', \'' + (a.descripcion || '').replace(/'/g, "\\'") + '\')">▶ Escuchar</button>' +
+          '<button type="button" class="btn-resource-action" onclick="reproducirAudioMateria(\'' + a.titulo.replace(/'/g, "\\'") + '\', \'' + a.duracion + '\', \'' + (a.descripcion || '').replace(/'/g, "\\'") + '\')"><i class="fi fi-rr-play"></i> Escuchar</button>' +
         '</div>';
       }).join('');
     } else {
@@ -2388,7 +2404,7 @@ function openReticulaModal(id) {
       librosEl.innerHTML = m.libros.map(function (l, idx) {
         return '<div class="resource-item-card">' +
           '<div class="resource-item-left">' +
-            '<div class="resource-item-icon">📖</div>' +
+            '<div class="resource-item-icon"><i class="fi fi-rr-book-alt"></i></div>' +
             '<div class="resource-item-info">' +
               '<h5>' + l.titulo + '</h5>' +
               '<p><strong>Autor:</strong> ' + l.autor + ' · ' + l.descripcion + '</p>' +
@@ -2398,7 +2414,7 @@ function openReticulaModal(id) {
               '</div>' +
             '</div>' +
           '</div>' +
-          '<button type="button" class="btn-resource-action" onclick="abrirLibroMateria(\'' + l.titulo.replace(/'/g, "\\'") + '\', \'' + l.autor.replace(/'/g, "\\'") + '\', \'' + (l.descripcion || '').replace(/'/g, "\\'") + '\')">📥 Descargar</button>' +
+          '<button type="button" class="btn-resource-action" onclick="abrirLibroMateria(\'' + l.titulo.replace(/'/g, "\\'") + '\', \'' + l.autor.replace(/'/g, "\\'") + '\', \'' + (l.descripcion || '').replace(/'/g, "\\'") + '\')"><i class="fi fi-rr-download"></i> Descargar</button>' +
         '</div>';
       }).join('');
     } else {
@@ -2416,32 +2432,32 @@ function openReticulaModal(id) {
 
   if (state.inscritas.indexOf(id) !== -1) {
     tipo = 'ok';
-    texto = '✓ Materia activa. ¡Explora las pestañas de Videos, Ejercicios Interactivos, Podcasts y Libros!';
-    label = '▶ Abrir lección en Aula Virtual';
+    texto = '<i class="fi fi-rr-check"></i> Materia activa. ¡Explora las pestañas de Videos, Ejercicios Interactivos, Podcasts y Libros!';
+    label = '<i class="fi fi-rr-play"></i> Abrir lección en Aula Virtual';
     deshabilitado = false;
   } else {
     const chk = puedeInscribir(id);
     if (chk.ok) {
       tipo = 'warn';
-      texto = '🟡 Materia disponible. Puedes inscribirte ahora mismo y acceder a todos sus recursos.';
+      texto = '<i class="fi fi-sr-circle" style="color:#f59e0b;font-size:11px;"></i> Materia disponible. Puedes inscribirte ahora mismo y acceder a todos sus recursos.';
       label = 'Inscribirme a esta materia';
     } else if (chk.motivo === 'pago') {
       tipo = 'info';
-      texto = '🔒 Solo la Unidad 1 (primer mes) es gratis. Para acceder a esta y las demás unidades necesitas la membresía de $1,500 MXN/mes (SPEI o Tarjeta).';
+      texto = '<i class="fi fi-sr-lock"></i> Solo la Unidad 1 (primer mes) es gratis. Para acceder a esta y las demás unidades necesitas la membresía de $1,500 MXN/mes (SPEI o Tarjeta).';
       label = 'Pagar inscripción y desbloquear acceso →';
       deshabilitado = false;
     } else if (chk.motivo === 'bloqueado') {
       tipo = 'info';
       const prevSem = m.semestre - 1;
       const faltan = cfg ? Math.max(0, cfg.requeridoPrevio - contarInscritasEnSemestre(state, prevSem)) : 1;
-      texto = '🔒 Para inscribir esta materia primero debes completar ' + faltan +
+      texto = '<i class="fi fi-sr-lock"></i> Para inscribir esta materia primero debes completar ' + faltan +
         (faltan === 1 ? ' materia' : ' materias') + ' del Nivel ' + prevSem + '.';
       label = 'Completa el nivel anterior';
       deshabilitado = true;
     } else if (chk.motivo === 'limite') {
       const limite = cfg ? cfg.limite : 1;
       tipo = 'info';
-      texto = '⏳ Ya alcanzaste el límite de ' + limite +
+      texto = '<i class="fi fi-rr-clock"></i> Ya alcanzaste el límite de ' + limite +
         (limite === 1 ? ' materia' : ' materias') + ' en este nivel. Ya tienes todas las materias disponibles.';
       label = 'Sin cupo este nivel';
       deshabilitado = true;
@@ -2590,7 +2606,7 @@ async function handleProfileSubmit(e) {
     if (data.success) {
       setCurrentUser({ name: name, email: email });
       updateAuthUI();
-      if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado correctamente.'; }
+      if (msg) { msg.className = 'form-message success'; msg.innerHTML = '<i class="fi fi-rr-check-circle"></i> Perfil actualizado correctamente.'; }
     } else {
       if (msg) { msg.className = 'form-message error'; msg.textContent = data.message || 'Error al actualizar el perfil.'; }
     }
@@ -2598,7 +2614,7 @@ async function handleProfileSubmit(e) {
     // Si no hay respuesta del backend, actualizar al menos en almacenamiento local
     setCurrentUser({ name: name, email: email });
     updateAuthUI();
-    if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Perfil actualizado localmente.'; }
+    if (msg) { msg.className = 'form-message success'; msg.innerHTML = '<i class="fi fi-rr-check-circle"></i> Perfil actualizado localmente.'; }
   } finally {
     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Guardar cambios'; }
   }
@@ -2660,7 +2676,7 @@ async function handlePasswordSubmit(e) {
     const data = await res.json();
 
     if (data.success) {
-      if (msg) { msg.className = 'form-message success'; msg.textContent = '✅ Contraseña actualizada correctamente.'; }
+      if (msg) { msg.className = 'form-message success'; msg.innerHTML = '<i class="fi fi-rr-check-circle"></i> Contraseña actualizada correctamente.'; }
       const form = document.getElementById('configPasswordForm');
       if (form) form.reset();
     } else {
@@ -2778,12 +2794,12 @@ const FIN_CONOCIMIENTO = [
   },
   {
     claves: ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'hey', 'saludos', 'que tal'],
-    respuesta: '¡Hola! Soy NEXO 🤖. Puedo explicarte conceptos de finanzas o guiarte por la plataforma. ¿Qué necesitas?',
+    respuesta: '¡Hola! Soy NEXO. Puedo explicarte conceptos de finanzas o guiarte por la plataforma. ¿Qué necesitas?',
     enlaces: []
   },
   {
     claves: ['gracias', 'muchas gracias', 'perfecto', 'excelente', 'genial'],
-    respuesta: '¡Con gusto! 💚 Si tienes otra duda sobre tus finanzas, aquí estoy.',
+    respuesta: '¡Con gusto! Si tienes otra duda sobre tus finanzas, aquí estoy.',
     enlaces: []
   }
 ];
@@ -2864,13 +2880,13 @@ function initAsistente() {
     '<div class="fin-header">' +
       '<div class="fin-avatar">' + nexoBotHTML + '</div>' +
       '<div class="fin-header-text"><strong>NEXO</strong><span><i class="fin-online-dot"></i>En línea · Asistente financiero</span></div>' +
-      '<button class="fin-close" id="finClose" type="button" aria-label="Cerrar">×</button>' +
+      '<button class="fin-close" id="finClose" type="button" aria-label="Cerrar"><i class="fi fi-rr-cross-small"></i></button>' +
     '</div>' +
     '<div class="fin-messages" id="finMessages"></div>' +
     '<div class="fin-chips" id="finChips"></div>' +
     '<form class="fin-form" id="finForm">' +
       '<input type="text" id="finInput" placeholder="Escribe tu pregunta..." autocomplete="off" />' +
-      '<button type="submit" aria-label="Enviar">➤</button>' +
+      '<button type="submit" aria-label="Enviar"><i class="fi fi-rr-paper-plane"></i></button>' +
     '</form>';
 
   document.body.appendChild(btn);
@@ -2911,7 +2927,7 @@ function initAsistente() {
       if (tema) {
         agregar('bot', finConstruirRespuesta(tema));
       } else {
-        agregar('bot', 'Aún estoy aprendiendo sobre ese tema 🤔. Prueba con una de estas preguntas o escríbela de otra forma:');
+        agregar('bot', 'Aún estoy aprendiendo sobre ese tema. Prueba con una de estas preguntas o escríbela de otra forma:');
         pintarSugerencias();
       }
     }, 420);
@@ -2937,7 +2953,7 @@ function initAsistente() {
     if (abrir) {
       if (!yaSaludo) {
         yaSaludo = true;
-        agregar('bot', '¡Hola! Soy <strong>NEXO</strong> 🤖, tu asistente financiero. ¿En qué te ayudo hoy?');
+        agregar('bot', '¡Hola! Soy <strong>NEXO</strong>, tu asistente financiero. ¿En qué te ayudo hoy?');
         pintarSugerencias();
       }
       setTimeout(function () { input.focus(); }, 150);
@@ -2959,6 +2975,18 @@ initAsistente();
 
 document.addEventListener('DOMContentLoaded', function () {
   const hash = (window.location.hash || '').toLowerCase();
+
+  // En la página de inicio, nunca abrir el modal de login automáticamente al cargar
+  const isInicio = !!(document.getElementById('btnHomeProbar') || document.querySelector('.home-probar-wrap') || document.getElementById('splashScreen'));
+  if (isInicio) {
+    if (hash === '#login' || hash === '#signup') {
+      if (history.replaceState) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+    return;
+  }
+
   if (hash !== '#login' && hash !== '#signup') return;
   // #login debe abrir el modal incluso si ya hay una sesión activa,
   // para permitir cambiar de cuenta (por ejemplo, entrar como administrador).

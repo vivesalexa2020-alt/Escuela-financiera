@@ -35,7 +35,7 @@ class AdminController extends Controller {
 
     public function dashboard(): void {
         if (!Session::isLoggedIn()) {
-            header('Location: index.php?page=reticula#login');
+            header('Location: index.php?page=home');
             exit();
         }
         $this->requireAdmin();

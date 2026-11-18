@@ -33,13 +33,13 @@
       <!-- ── ILUSTRACIÓN: Libro animado con hojas volteándose ── -->
       <div class="splash-book-wrap">
         <!-- Birrete flotante arriba -->
-        <div class="splash-cap">🎓</div>
+        <div class="splash-cap"><i class="fi fi-rr-graduation-cap"></i></div>
 
         <!-- Libro 3D con páginas animadas -->
         <div class="splash-book" aria-label="Libro de educación financiera">
           <!-- Tapa izquierda (portada) -->
           <div class="book-cover-left">
-            <span class="book-cover-icon">💰</span>
+            <span class="book-cover-icon"><i class="fi fi-rr-sack-dollar"></i></span>
             <span class="book-cover-title">Finanzas</span>
           </div>
 
@@ -48,50 +48,50 @@
 
           <!-- Tapa derecha (contraportada) -->
           <div class="book-cover-right">
-            <span class="book-cover-icon">📈</span>
+            <span class="book-cover-icon"><i class="fi fi-rr-chart-line-up"></i></span>
           </div>
 
           <!-- Páginas que se voltean (animadas en secuencia) -->
           <div class="book-page page-1">
             <div class="page-front">
-              <span class="page-icon">💡</span>
+              <span class="page-icon"><i class="fi fi-rr-bulb"></i></span>
               <span class="page-text">Hábitos<br>Atómicos</span>
             </div>
             <div class="page-back">
-              <span class="page-icon">🎯</span>
+              <span class="page-icon"><i class="fi fi-rr-target"></i></span>
               <span class="page-text">Metas<br>Claras</span>
             </div>
           </div>
 
           <div class="book-page page-2">
             <div class="page-front">
-              <span class="page-icon">📊</span>
+              <span class="page-icon"><i class="fi fi-rr-chart-histogram"></i></span>
               <span class="page-text">Ahorra<br>el 1%</span>
             </div>
             <div class="page-back">
-              <span class="page-icon">🏦</span>
+              <span class="page-icon"><i class="fi fi-rr-bank"></i></span>
               <span class="page-text">Crece<br>Día a Día</span>
             </div>
           </div>
 
           <div class="book-page page-3">
             <div class="page-front">
-              <span class="page-icon">✅</span>
+              <span class="page-icon"><i class="fi fi-rr-check"></i></span>
               <span class="page-text">Buenos<br>Hábitos</span>
             </div>
             <div class="page-back">
-              <span class="page-icon">🚀</span>
+              <span class="page-icon"><i class="fi fi-rr-rocket"></i></span>
               <span class="page-text">¡Tú<br>Puedes!</span>
             </div>
           </div>
 
           <div class="book-page page-4">
             <div class="page-front">
-              <span class="page-icon">💸</span>
+              <span class="page-icon"><i class="fi fi-rr-money-bill-wave"></i></span>
               <span class="page-text">Invierte<br>Hoy</span>
             </div>
             <div class="page-back">
-              <span class="page-icon">⭐</span>
+              <span class="page-icon"><i class="fi fi-sr-star" style="color:#f59e0b;"></i></span>
               <span class="page-text">Éxito<br>Financiero</span>
             </div>
           </div>
@@ -100,8 +100,8 @@
         <!-- Partículas decorativas flotantes -->
         <span class="splash-particle p1">$</span>
         <span class="splash-particle p2">%</span>
-        <span class="splash-particle p3">📈</span>
-        <span class="splash-particle p4">💎</span>
+        <span class="splash-particle p3"><i class="fi fi-rr-chart-line-up"></i></span>
+        <span class="splash-particle p4"><i class="fi fi-rr-gem"></i></span>
       </div>
 
       <!-- Título -->
@@ -148,18 +148,20 @@
 
       <!-- Badge central superior (escritorio y tablets) -->
       <div class="header-center-pill">
-        <span class="hero-top-badge">✨ ¡RESULTADOS REALES, COMPROBADOS!</span>
+        <span class="hero-top-badge"><i class="fi fi-sr-sparkles" style="color: #F5B800; font-size: 13px; vertical-align: middle; margin-right: 5px;"></i>¡RESULTADOS REALES, COMPROBADOS!</span>
       </div>
 
       <!-- Botones de acceso en header principal -->
       <div style="display: flex; align-items: center; gap: 10px;">
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
           <a href="index.php?page=admin" class="topbar-admin-btn" title="Panel de Administración">
-            🛡️ Acceso Admin
+            <i class="fi fi-sr-shield-check" style="font-size: 14px; color: #fabb15;"></i>
+            <span>Acceso Admin</span>
           </a>
         <?php elseif (empty($user)): ?>
-          <a href="index.php#login" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
-            🛡️ Acceso Admin
+          <a href="javascript:void(0)" onclick="openLoginModal(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
+            <i class="fi fi-sr-shield-check" style="font-size: 14px; color: #fabb15;"></i>
+            <span>Acceso Admin</span>
           </a>
         <?php endif; ?>
       </div>
@@ -454,7 +456,7 @@
           <!-- TARJETA 2: 3 Niveles -->
           <div class="hero-card hero-card-levels">
             <div class="hcard-header">
-              <span class="hcard-icon">🎓</span>
+              <span class="hcard-icon"><i class="fi fi-rr-graduation-cap"></i></span>
               <span class="hcard-title">3 Niveles</span>
             </div>
             <div class="hcard-body levels-body">
@@ -555,9 +557,7 @@
     <div class="students-kpi-bar">
       <!-- KPI 1: Curso activo -->
       <div class="kpi-card">
-        <div class="kpi-icon-wrap" style="color:#059669; background:#ecfdf5;">
-          📖
-        </div>
+        <div class="kpi-icon-wrap" style="color:#059669; background:#ecfdf5;"><i class="fi fi-rr-book-alt"></i></div>
         <div class="kpi-content">
           <div class="kpi-header-row">
             <span class="kpi-label">Curso activo</span>
@@ -589,9 +589,7 @@
 
       <!-- KPI 3: Puntos y Reconocimientos -->
       <div class="kpi-card">
-        <div class="kpi-icon-wrap" style="color:#2563eb; background:#eff6ff;">
-          🎖️
-        </div>
+        <div class="kpi-icon-wrap" style="color:#2563eb; background:#eff6ff;"><i class="fi fi-rr-medal"></i></div>
         <div class="kpi-content">
           <div class="kpi-header-row">
             <span class="kpi-label">Puntos y reconocimientos</span>
@@ -829,7 +827,7 @@
 
         <!-- Alerta si faltan preguntas -->
         <div id="atomicValidationAlert" class="atomic-validation-alert" style="display: none;">
-          <span>⚠️ Por favor responde todas las preguntas (<span id="atomicMissingCount">0</span> pendientes) para generar tu diagnóstico interactivo completo.</span>
+          <span><i class="fi fi-rr-exclamation"></i> Por favor responde todas las preguntas (<span id="atomicMissingCount">0</span> pendientes) para generar tu diagnóstico interactivo completo.</span>
         </div>
 
         <!-- Carrusel: 2 preguntas por diapositiva -->
@@ -1035,13 +1033,24 @@
 </section>
 
   <div class="home-probar-wrap">
-    <a href="index.php?redirect=aula#login" class="home-probar-btn">Probar</a>
+    <?php if (!empty($user)): ?>
+      <a href="index.php?page=aula" class="home-probar-btn" id="btnHomeProbar">
+        <span>Probar</span>
+        <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
+      </a>
+    <?php else: ?>
+      <a href="index.php?page=aula" class="home-probar-btn" id="btnHomeProbar" onclick="return handleProbarClick(event)">
+        <span>Probar</span>
+        <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
+      </a>
+    <?php endif; ?>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="container">
+  <div class="container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
     <p><strong>Educación Financiera</strong> — Plataforma Educativa de Aprendizaje y Transformación.</p>
+    <p style="font-size: 13px; opacity: 0.75; margin: 0;">Iconos por <a href="https://www.flaticon.es/uicons" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">Flaticon UIcons</a></p>
   </div>
 </footer>
 
@@ -1384,11 +1393,11 @@
 
     <div class="svm-body">
       <div class="svm-video-title" id="svmTitle">
-        <span>🎬</span> Testimonio en video de estudiante
+        <span><i class="fi fi-rr-film"></i></span> Testimonio en video de estudiante
       </div>
 
       <div class="svm-achievement-badge" id="svmBadge">
-        <span>🏆</span> Logro verificado
+        <span><i class="fi fi-rr-trophy"></i></span> Logro verificado
       </div>
 
       <div class="svm-quote-box">
@@ -1398,7 +1407,7 @@
       <div class="svm-comments-section">
         <div class="svm-comments-label">
           <span>Comentarios de la comunidad:</span>
-          <span style="color:#00703c; font-size:13px;">🟢 En línea</span>
+          <span style="color:#00703c; font-size:13px;"><i class="fi fi-sr-circle" style="font-size:10px;"></i> En línea</span>
         </div>
         <div class="svm-comment-sample" id="svmCommentsList">
           <strong>Comunidad Oficial:</strong> "¡Gran testimonio! Tu disciplina financiera inspira a toda la plataforma."
@@ -1430,8 +1439,187 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════════════
+     MODALES DE AUTENTICACIÓN (login / recuperación / registro)
+     Necesarios para el botón "Probar" y para #login / #signup
+     ══════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close-btn" onclick="closeLoginModal()" aria-label="Cerrar"><i class="fi fi-rr-cross-small"></i></button>
+    <div style="display: flex; justify-content: center; margin-bottom: 12px;">
+      <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 54px; height: 48px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
+        <g>
+          <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
+          <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
+          <rect x="26" y="162" width="26" height="30" rx="8" fill="#e09800"/>
+          <rect x="42" y="128" width="156" height="30" rx="8" fill="#cbf63e" transform="rotate(-2 120 143)"/>
+          <rect x="50" y="134" width="140" height="18" rx="4" fill="#f2ffcd" transform="rotate(-2 120 143)"/>
+          <rect x="42" y="128" width="26" height="30" rx="8" fill="#a9cf1e" transform="rotate(-2 120 143)"/>
+          <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
+          <rect x="66" y="100" width="108" height="18" rx="4" fill="#d7f4e6" transform="rotate(2 120 109)"/>
+          <rect x="58" y="94" width="26" height="30" rx="8" fill="#bce9d2" transform="rotate(2 120 109)"/>
+        </g>
+        <g>
+          <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
+          <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
+          <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="none" stroke="#d7f4e6" stroke-width="3"/>
+          <circle cx="120" cy="58" r="7" fill="#fabb15"/>
+          <path d="M120,58 C160,58 196,60 204,62 L204,104" fill="none" stroke="#fabb15" stroke-width="5" stroke-linecap="round"/>
+          <path d="M197,104 h14 l4,26 h-22 z" fill="#fabb15"/>
+          <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <h3>Iniciar sesión</h3>
+    <p>Accede a tu aula virtual para acceder al menú completo y continuar tus cursos.</p>
+    <div id="loginMsg" class="form-message"></div>
+    <form id="loginForm" onsubmit="handleLoginSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+        <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+        <span id="loginEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+      </div>
+      <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+          <button type="button" onclick="openForgotModal()" style="background: none; border: none; font-size: 13.5px; color: #00ba6d; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0;">¿Olvidaste tu contraseña?</button>
+        </div>
+        <div class="password-field">
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+          <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('loginPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <span id="loginPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu contraseña.</span>
+      </div>
+      <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px;">
+        <i class="fi fi-sr-sign-in-alt"></i>
+        <span>Iniciar sesión</span>
+      </button>
+    </form>
+    <p class="modal-switch-text">¿No tienes cuenta? <button type="button" onclick="openSignupModal()">Crear cuenta</button></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="forgotModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close-btn" onclick="closeForgotModal()" aria-label="Cerrar"><i class="fi fi-rr-cross-small"></i></button>
+    <h3>Recuperar contraseña</h3>
+    <p>Ingresa tu correo registrado y define una nueva contraseña para restablecer tu acceso.</p>
+    <div id="forgotMsg" class="form-message"></div>
+    <form id="forgotForm" onsubmit="handleForgotSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico registrado</label>
+        <input type="email" id="forgotEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+        <span id="forgotEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+      </div>
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nueva contraseña</label>
+        <div class="password-field">
+          <input type="password" id="forgotPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+          <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <span id="forgotPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+      </div>
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar nueva contraseña</label>
+        <div class="password-field">
+          <input type="password" id="forgotConfirm" required minlength="6" placeholder="Repite tu nueva contraseña">
+          <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('forgotConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <span id="forgotConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+      </div>
+      <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px;">
+        <i class="fi fi-rr-key"></i>
+        <span>Restablecer mi contraseña</span>
+      </button>
+    </form>
+    <p class="modal-switch-text">¿Recordaste tu contraseña? <button type="button" onclick="openLoginModal()">Iniciar sesión</button></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close-btn" onclick="closeSignupModal()" aria-label="Cerrar"><i class="fi fi-rr-cross-small"></i></button>
+    <h3>Crear cuenta</h3>
+    <p>Regístrate gratis para acceder a tu aula virtual y desbloquear el menú de la escuela.</p>
+    <div id="signupMsg" class="form-message"></div>
+    <form id="signupForm" onsubmit="handleSignupSubmit(event)" style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Nombre completo</label>
+        <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+        <span id="signupNameErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa tu nombre completo.</span>
+      </div>
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Correo electrónico</label>
+        <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width: 100%; padding: 10px 14px; border: 1px solid #d4e7de; border-radius: 10px; font-family: inherit; font-size: 15px; margin-top: 4px; box-sizing: border-box;">
+        <span id="signupEmailErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Ingresa un correo electrónico válido.</span>
+      </div>
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Contraseña</label>
+        <div class="password-field">
+          <input type="password" id="signupPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+          <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupPassword', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <span id="signupPasswordErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">La contraseña debe tener al menos 6 caracteres.</span>
+      </div>
+      <div>
+        <label style="font-size: 14px; font-weight: 600; color: var(--text-dark);">Confirmar contraseña</label>
+        <div class="password-field">
+          <input type="password" id="signupConfirm" required minlength="6" placeholder="Repite tu nueva contraseña">
+          <button type="button" class="btn-toggle-eye" onclick="togglePasswordVisibility('signupConfirm', this)" aria-label="Mostrar contraseña" title="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+        <span id="signupConfirmErr" style="display:none; color: #e11d48; font-size: 13px; margin-top: 2px;">Las contraseñas no coinciden.</span>
+      </div>
+      <button type="submit" class="btn-cta-yellow" style="width: 100%; justify-content: center; margin-top: 8px; display: inline-flex; align-items: center; gap: 8px;">
+        <i class="fi fi-rr-user-add"></i>
+        <span>Registrarme y acceder</span>
+      </button>
+    </form>
+    <p class="modal-switch-text">¿Ya tienes cuenta? <button type="button" onclick="openLoginModal()">Iniciar sesión</button></p>
+  </div>
+</div>
+
 <script src="public/js/script.js?v=<?= time() ?>"></script>
 <script>
+  // ── Botón "Probar" en Inicio (abre el login directamente al hacer clic) ──
+  function handleProbarClick(event) {
+    if (typeof getCurrentUser === 'function' && getCurrentUser()) {
+      return true;
+    }
+    if (event) event.preventDefault();
+    try {
+      sessionStorage.setItem('ef_redirect_after_login', 'aula');
+    } catch (e) {}
+    if (typeof openLoginModal === 'function') {
+      openLoginModal();
+    }
+    return false;
+  }
+
   // ── Splash screen ──────────────────────────────────────────
   (function() {
     var sp = document.getElementById('splashScreen');
@@ -1467,48 +1655,48 @@
     mariana: {
       name: 'Mariana González',
       role: '29 años • Emprendedora Independiente',
-      medal: '🥇',
+      medal: '<i class="fi fi-rr-medal"></i>',
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80',
-      duration: '⏱️ 2:45 min',
+      duration: '2:45 min',
       totalSec: 165,
       title: 'Cómo logré ahorrar e invertir el 35% de mis ingresos',
-      badge: '📈 +35% de ahorro mensual e inversión activa',
+      badge: '<i class="fi fi-rr-chart-line-up"></i> +35% de ahorro mensual e inversión activa',
       quote: 'Siempre creí que la educación financiera era para ricos o cursos de vendehumos. Esta plataforma me dio plantillas simples que apliqué de inmediato. Pasé de no saber a dónde se iba mi dinero a invertir mensualmente.',
       defaultComment: '<strong>Carlos R.:</strong> "Mariana, qué gran cambio. Yo también empecé con las plantillas y son oro puro."'
     },
     jorge: {
       name: 'Jorge Martínez',
       role: 'Vendedor Profesional • 28 años',
-      medal: '🥈',
+      medal: '<i class="fi fi-rr-medal"></i>',
       photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80',
-      duration: '⏱️ 3:12 min',
+      duration: '3:12 min',
       totalSec: 192,
       title: 'De vivir al día con comisiones a tener 6 meses de fondo de emergencia',
-      badge: '🛡️ Fondo de emergencia completo garantizado',
+      badge: '<i class="fi fi-rr-shield-check"></i> Fondo de emergencia completo garantizado',
       quote: 'Pasaba de comisión en comisión sin guardar nada y ahora ya tengo mi fondo de emergencia. El curso me enseñó a planear, ser constante y entender lo que el cliente realmente necesita.',
       defaultComment: '<strong>Laura T.:</strong> "¡Felicidades Jorge! Aplicar hábitos atómicos en el ahorro cambia por completo las finanzas."'
     },
     ana: {
       name: 'Ana López',
       role: '25 años • Enfermera',
-      medal: '🎖️',
+      medal: '<i class="fi fi-rr-medal"></i>',
       photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=80',
-      duration: '⏱️ 2:18 min',
+      duration: '2:18 min',
       totalSec: 138,
       title: 'Liquidando $28,500 MXN en deudas con presupuesto base cero',
-      badge: '💵 $28,500 MXN en deudas totalmente liquidadas',
+      badge: '<i class="fi fi-rr-money-bill-wave"></i> $28,500 MXN en deudas totalmente liquidadas',
       quote: 'Tenía varias deudas pequeñas que me ahogaban y no veía la salida. Aprendí a hacer un presupuesto base cero y a negociar. En 8 meses saldé todo y ahora ahorro el 20% de mi sueldo.',
       defaultComment: '<strong>Dr. Mendoza:</strong> "Admirable Ana, en el sector salud los horarios son duros pero organizarte hace toda la diferencia."'
     },
     roberto: {
       name: 'Roberto y Silvia',
       role: '41 años • Pareja y padres de familia',
-      medal: '🛡️',
+      medal: '<i class="fi fi-rr-shield-check"></i>',
       photo: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=500&auto=format&fit=crop&q=80',
-      duration: '⏱️ 3:30 min',
+      duration: '3:30 min',
       totalSec: 210,
       title: 'Paz financiera en familia: construyendo el fondo universitario',
-      badge: '🏠 Plan patrimonial y fondo educativo consolidado',
+      badge: '<i class="fi fi-rr-home"></i> Plan patrimonial y fondo educativo consolidado',
       quote: 'El dinero era motivo de discusiones cada fin de mes. Al tomar el curso juntos fijamos metas claras para la educación de nuestros hijos. Hoy tenemos tranquilidad y control total de nuestra economía familiar.',
       defaultComment: '<strong>Familia Ramos:</strong> "Qué inspiración ver a una pareja crecer financieramente de la mano."'
     }
@@ -1538,8 +1726,8 @@
     document.getElementById('svmAvatar').src = data.photo;
     document.getElementById('svmVideoPoster').src = data.photo;
     document.getElementById('svmDuration').textContent = data.duration;
-    document.getElementById('svmTitle').innerHTML = '<span>🎬</span> ' + data.title;
-    document.getElementById('svmBadge').innerHTML = '<span>🏆</span> ' + data.badge;
+    document.getElementById('svmTitle').innerHTML = '<span><i class="fi fi-rr-film"></i></span> ' + data.title;
+    document.getElementById('svmBadge').innerHTML = '<span><i class="fi fi-rr-trophy"></i></span> ' + data.badge;
     document.getElementById('svmQuote').textContent = data.quote;
     document.getElementById('svmCommentsList').innerHTML = data.defaultComment;
     lastTestimonialComment = '';
@@ -1850,25 +2038,25 @@
     1: {
       name: '1ª Ley: Hazlo Obvio (La Señal)',
       desc: 'No dejes que tu dinero dependa de acordarte a fin de mes. Diseña tu entorno para que el estímulo del ahorro sea inevitable.',
-      action: '🎯 Táctica: Regla de la Nómina Inmediata',
+      action: '<i class="fi fi-rr-target"></i> Táctica: Regla de la Nómina Inmediata',
       example: 'El mismo día que recibes tu salario o ingresos por ventas, programa una transferencia automatizada a una cuenta apartada (ej. CETES Directo). Si no ves el dinero disponible en tu cuenta corriente, no lo gastarás.'
     },
     2: {
       name: '2ª Ley: Hazlo Atractivo (El Anhelo)',
       desc: 'El cerebro humano busca dopamina. Si ves el ahorro como "privación" o "aburrimiento", tu mente lo saboteará.',
-      action: '🎯 Táctica: Vinculación con Tu Identidad',
+      action: '<i class="fi fi-rr-target"></i> Táctica: Vinculación con Tu Identidad',
       example: 'Renombra tu cuenta de banco de "Ahorro" a "Fondo de Libertad y Tranquilidad". Asocia cada peso guardado no con lo que te estás perdiendo hoy, sino con la libertad y paz mental que estás comprando para tu futuro.'
     },
     3: {
       name: '3ª Ley: Hazlo Sencillo (La Respuesta)',
       desc: 'Reduce la fricción para los buenos hábitos financieros y auméntala drásticamente para los malos hábitos.',
-      action: '🎯 Táctica: Regla de los 20 Segundos de Fricción',
+      action: '<i class="fi fi-rr-target"></i> Táctica: Regla de los 20 Segundos de Fricción',
       example: 'Elimina las tarjetas de crédito guardadas en MercadoLibre o Amazon. Obligarte a buscar la cartera, sacar la tarjeta y escribir los 16 dígitos toma 20 segundos: tiempo suficiente para enfriar el impulso de compra.'
     },
     4: {
       name: '4ª Ley: Hazlo Satisfactorio (La Recompensa)',
       desc: 'Lo que se recompensa de inmediato se repite; lo que se castiga se evita. Necesitas sentir satisfacción instantánea al ahorrar.',
-      action: '🎯 Táctica: Rastreador Visual de Hábitos',
+      action: '<i class="fi fi-rr-target"></i> Táctica: Rastreador Visual de Hábitos',
       example: 'Lleva una cadena visual de días sin compras innecesarias. Marcar una palomita verde cada día activa un golpe de dopamina sano. La regla de James Clear: "Nunca rompas la cadena dos veces seguidas".'
     }
   };
@@ -1904,35 +2092,35 @@
   // 5. Micro-Feedback Inmediato al Seleccionar Opciones (Hábitos Financieros)
   var optionInsights = {
     // 1. ¿Cómo administras tu dinero cuando recibes tus ingresos?
-    '1_opt1': '🌟 <strong>¡Excelente hábito!</strong> Aplicas el principio fundamental: "Págate a ti mismo primero". Priorizar el ahorro antes del gasto asegura que tus fondos de libertad crezcan sin depender de lo que sobre.',
-    '1_opt2': '💡 <strong>Hábito reactivo:</strong> Si esperas a ver qué sobra a fin de mes, casi nunca sobrará. James Clear recomienda programar un traspaso automático el día exacto de pago.',
-    '1_opt3': '⚠️ <strong>Punto ciego crítico:</strong> Gastar sin control genera estrés y desorden. Para romper este ciclo, basta aplicar la Regla de los 2 Minutos y registrar tus compras diarias.',
+    '1_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Excelente hábito!</strong> Aplicas el principio fundamental: "Págate a ti mismo primero". Priorizar el ahorro antes del gasto asegura que tus fondos de libertad crezcan sin depender de lo que sobre.',
+    '1_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Hábito reactivo:</strong> Si esperas a ver qué sobra a fin de mes, casi nunca sobrará. James Clear recomienda programar un traspaso automático el día exacto de pago.',
+    '1_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Punto ciego crítico:</strong> Gastar sin control genera estrés y desorden. Para romper este ciclo, basta aplicar la Regla de los 2 Minutos y registrar tus compras diarias.',
     
     // 2. ¿Con qué frecuencia compras cosas que realmente no necesitas?
-    '2_opt1': '🌟 <strong>¡Gran autocontrol!</strong> Sabes diferenciar entre un deseo momentáneo y una necesidad real, protegiendo tu dinero de compras impulsivas.',
-    '2_opt2': '💡 <strong>Cuidado con los gastos hormiga:</strong> Varias compras pequeñas a la semana parecen inofensivas hoy, pero al cabo de un año representan miles de pesos que podrías haber invertido.',
-    '2_opt3': '⚠️ <strong>Trampa de dopamina:</strong> Las compras por impulso responden a gratificación rápida. Solución de James Clear: aumenta la fricción borrando tus tarjetas guardadas en tu celular.',
+    '2_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Gran autocontrol!</strong> Sabes diferenciar entre un deseo momentáneo y una necesidad real, protegiendo tu dinero de compras impulsivas.',
+    '2_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Cuidado con los gastos hormiga:</strong> Varias compras pequeñas a la semana parecen inofensivas hoy, pero al cabo de un año representan miles de pesos que podrías haber invertido.',
+    '2_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Trampa de dopamina:</strong> Las compras por impulso responden a gratificación rápida. Solución de James Clear: aumenta la fricción borrando tus tarjetas guardadas en tu celular.',
     
     // 3. ¿Registras tus gastos diarios?
-    '3_opt1': '🌟 <strong>¡1ª Ley: Hazlo Obvio!</strong> Llevar un registro claro te da el poder de decidir con información real. Lo que se mide se puede optimizar y mejorar.',
-    '3_opt2': '💡 <strong>Falta de consistencia:</strong> Registrar solo de vez en cuando genera lagunas de información. No necesitas tablas complejas: anota en 30 segundos tus gastos en una nota rápida.',
-    '3_opt3': '⚠️ <strong>Ceguera de gastos:</strong> No saber en qué se va el dinero es el mayor obstáculo para prosperar. Inicia hoy con la meta mínima de anotar 1 solo gasto al día.',
+    '3_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡1ª Ley: Hazlo Obvio!</strong> Llevar un registro claro te da el poder de decidir con información real. Lo que se mide se puede optimizar y mejorar.',
+    '3_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Falta de consistencia:</strong> Registrar solo de vez en cuando genera lagunas de información. No necesitas tablas complejas: anota en 30 segundos tus gastos en una nota rápida.',
+    '3_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Ceguera de gastos:</strong> No saber en qué se va el dinero es el mayor obstáculo para prosperar. Inicia hoy con la meta mínima de anotar 1 solo gasto al día.',
     
     // 4. ¿Tienes el hábito de ahorrar?
-    '4_opt1': '🌟 <strong>¡Identidad Atómica Sólida!</strong> Has adoptado la identidad de una persona ahorradora e inversionista. Cada depósito es un voto a favor de tu libertad futura.',
-    '4_opt2': '💡 <strong>Ahorro inconstante:</strong> Ahorrar "cuando se puede" depende de la suerte y el estado de ánimo. Convierte el ahorro en un sistema fijo, no en una casualidad.',
-    '4_opt3': '⚠️ <strong>Oportunidad de oro:</strong> No necesitas miles de pesos para comenzar. Un hábito atómico de apartar $20 MXN diarios entrena la disciplina mental antes de que crezcan los montos.',
+    '4_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Identidad Atómica Sólida!</strong> Has adoptado la identidad de una persona ahorradora e inversionista. Cada depósito es un voto a favor de tu libertad futura.',
+    '4_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Ahorro inconstante:</strong> Ahorrar "cuando se puede" depende de la suerte y el estado de ánimo. Convierte el ahorro en un sistema fijo, no en una casualidad.',
+    '4_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Oportunidad de oro:</strong> No necesitas miles de pesos para comenzar. Un hábito atómico de apartar $20 MXN diarios entrena la disciplina mental antes de que crezcan los montos.',
     
     // 5. ¿Qué haces cuando quieres comprar algo que te gusta?
-    '5_opt1': '🌟 <strong>¡Filtro racional!</strong> Preguntarte si realmente lo necesitas te da una pausa consciente frente a los impulsos emocionales de consumo.',
-    '5_opt2': '💡 <strong>Estrategia de enfriamiento:</strong> Dar un tiempo de espera (Regla de las 72 Horas) permite que el cerebro recupere la calma y decida sin el pico de emoción inicial.',
-    '5_opt3': '⚠️ <strong>Compra inmediata:</strong> Comprar en el instante responde a gratificación inmediata. Añade fricción: retira los métodos de pago de un solo clic.',
+    '5_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Filtro racional!</strong> Preguntarte si realmente lo necesitas te da una pausa consciente frente a los impulsos emocionales de consumo.',
+    '5_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Estrategia de enfriamiento:</strong> Dar un tiempo de espera (Regla de las 72 Horas) permite que el cerebro recupere la calma y decida sin el pico de emoción inicial.',
+    '5_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Compra inmediata:</strong> Comprar en el instante responde a gratificación inmediata. Añade fricción: retira los métodos de pago de un solo clic.',
     
     // 6. ¿Qué hábito financiero te gustaría cambiar?
-    '6_opt1': '🎯 <strong>Objetivo fijado:</strong> Dejar de comprar por impulso. Usaremos la 3ª Ley Invertida (Hacerlo Difícil) para crear barreras entre la tentación y el pago.',
-    '6_opt2': '🎯 <strong>Objetivo fijado:</strong> Evitar los gastos hormiga. Usaremos la 1ª Ley Invertida (Hacerlo Invisible) y la sustitución por micro-transferencias de ahorro.',
-    '6_opt3': '🎯 <strong>Objetivo fijado:</strong> Aprender a ahorrar constantemente. Usaremos la 1ª Ley (Hacerlo Obvio) automatizando transferencias el día que recibes tu dinero.',
-    '6_opt4': '🎯 <strong>Objetivo fijado:</strong> Organizar mejor mi dinero. Usaremos la Regla de los 2 Minutos para diseñar un presupuesto simple que no te quite tiempo.'
+    '6_opt1': '<i class="fi fi-rr-target"></i> <strong>Objetivo fijado:</strong> Dejar de comprar por impulso. Usaremos la 3ª Ley Invertida (Hacerlo Difícil) para crear barreras entre la tentación y el pago.',
+    '6_opt2': '<i class="fi fi-rr-target"></i> <strong>Objetivo fijado:</strong> Evitar los gastos hormiga. Usaremos la 1ª Ley Invertida (Hacerlo Invisible) y la sustitución por micro-transferencias de ahorro.',
+    '6_opt3': '<i class="fi fi-rr-target"></i> <strong>Objetivo fijado:</strong> Aprender a ahorrar constantemente. Usaremos la 1ª Ley (Hacerlo Obvio) automatizando transferencias el día que recibes tu dinero.',
+    '6_opt4': '<i class="fi fi-rr-target"></i> <strong>Objetivo fijado:</strong> Organizar mejor mi dinero. Usaremos la Regla de los 2 Minutos para diseñar un presupuesto simple que no te quite tiempo.'
   };
 
   function showOptionInsight(qNum, optVal) {
@@ -2062,7 +2250,7 @@
         if (block) block.classList.remove('has-error');
         if (stepBtn) {
           stepBtn.classList.add('answered');
-          stepBtn.innerHTML = '✓';
+          stepBtn.innerHTML = '<i class="fi fi-rr-check"></i>';
         }
         if (chip) chip.classList.add('active');
 
@@ -2225,17 +2413,17 @@
 
     if (score >= 12) {
       profileTitle = 'Arquitecto Financiero Consciente';
-      profileBadge = '🏆 Dominio Sólido de Hábitos (Alto)';
+      profileBadge = '<i class="fi fi-rr-trophy"></i> Dominio Sólido de Hábitos (Alto)';
       badgeClass = 'badge-success';
       profileDesc = '¡Felicidades! Tienes excelentes bases y comprendes la importancia de diseñar sistemas diarios. Para llevar tu dinero al siguiente nivel, enfocaremos tus esfuerzos en optimizar el hábito que elegiste: <strong>' + currentTarget.title + '</strong>.';
     } else if (score >= 7) {
       profileTitle = 'Constructor en Transición';
-      profileBadge = '🌱 En Proceso de Mejora (Medio)';
+      profileBadge = '<i class="fi fi-rr-leaf"></i> En Proceso de Mejora (Medio)';
       badgeClass = 'badge-warning';
       profileDesc = 'Tienes buenas intenciones y algunos hábitos positivos, pero la falta de sistemas automáticos provoca inconsistencia en tus resultados. Aplicando las 4 Leyes de James Clear lograremos instalar el hábito de <strong>' + currentTarget.title + '</strong> con facilidad.';
     } else {
       profileTitle = 'Enfoque Reactivo: Momento de Instalar Sistemas';
-      profileBadge = '💡 Fase de Despertar Financiero (Inicial)';
+      profileBadge = '<i class="fi fi-rr-bulb"></i> Fase de Despertar Financiero (Inicial)';
       badgeClass = 'badge-alert';
       profileDesc = 'Actualmente tus comportamientos financieros responden más al impulso y a la inmediatez que a un sistema estructurado. La buena noticia: según <em>Hábitos Atómicos</em>, no necesitas más fuerza de voluntad, sino diseñar un entorno que te facilite tomar buenas decisiones.';
     }
@@ -2263,20 +2451,20 @@
       '<div class="atomic-res-body">' +
         '<p>' + profileDesc + '</p>' +
         '<div class="atomic-target-box">' +
-          '<div class="atomic-target-title">🎯 Hábito Seleccionado para Transformar: ' + currentTarget.title + '</div>' +
+          '<div class="atomic-target-title"><i class="fi fi-rr-target"></i> Hábito Seleccionado para Transformar: ' + currentTarget.title + '</div>' +
           '<p style="margin: 0; font-size: 14.5px; color: #e2e8f0;">Siguiendo los principios de James Clear, el cambio duradero no proviene de metas gigantescas, sino de instalar una <strong>Intención de Implementación</strong> clara y reducir la fricción inicial.</p>' +
         '</div>' +
         
         <!-- Creador Interactivo de Intención de Implementación Personalizada -->
         '<div class="atomic-intention-box">' +
           '<div class="atomic-intention-head">' +
-            '<span>✍️ Tu Fórmula de Compromiso Atómico (James Clear):</span>' +
+            '<span><i class="fi fi-rr-edit"></i> Tu Fórmula de Compromiso Atómico (James Clear):</span>' +
           '</div>' +
           '<div class="atomic-intention-formula">' +
             '«Después de <span class="intent-highlight" id="intentPromptText">' + currentTarget.prompt + '</span>, yo <span class="intent-highlight" id="intentActionText">' + currentTarget.action + '</span>.»' +
           '</div>' +
           '<button type="button" class="atomic-copy-intent-btn" onclick="copyAtomicCommitment()">' +
-            '📋 Copiar mi compromiso diario' +
+            '<i class="fi fi-rr-copy"></i> Copiar mi compromiso diario' +
           '</button>' +
           '<span id="intentCopiedMsg" style="display:none; color:#34d399; font-size:13px; font-weight:600; margin-left:10px;">¡Copiado al portapapeles!</span>' +
         '</div>' +
@@ -2288,7 +2476,7 @@
           '<strong>— James Clear, Hábitos Atómicos</strong>' +
         '</div>' +
         '<div class="atomic-res-actions">' +
-          '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()">🔄 Modificar o repetir respuestas</button>' +
+          '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()"><i class="fi fi-rr-refresh"></i> Modificar o repetir respuestas</button>' +
         '</div>' +
       '</div>';
 
