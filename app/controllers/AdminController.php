@@ -134,7 +134,7 @@ class AdminController extends Controller {
 
             $this->userModel->verifyEmail($newId, $token);
 
-            $this->redirectTo('admin', ['ok' => 1, 'tab' => 'usuarios']);
+            $this->redirectTo('admin', ['ok' => 'usuario_creado', 'tab' => 'usuarios']);
         } catch (\Throwable $e) {
             Logger::error('Error al crear usuario desde admin', ['error' => $e->getMessage()]);
             $this->redirectTo('admin', ['error' => 'db', 'tab' => 'usuarios']);
@@ -184,7 +184,7 @@ class AdminController extends Controller {
                 }
             }
 
-            $this->redirectTo('admin', ['ok' => 1, 'tab' => 'usuarios']);
+            $this->redirectTo('admin', ['ok' => 'usuario_actualizado', 'tab' => 'usuarios']);
         } catch (\Throwable $e) {
             Logger::error('Error al editar usuario desde admin', ['error' => $e->getMessage()]);
             $this->redirectTo('admin', ['error' => 'db', 'tab' => 'usuarios']);
@@ -273,7 +273,7 @@ class AdminController extends Controller {
             'orden'          => (int)($data['orden'] ?? 0)
         ]);
 
-        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido', 'curso_id' => $id]);
+        $this->redirectTo('admin', ['ok' => 'curso_creado', 'tab' => 'contenido', 'curso_id' => $id]);
     }
 
     public function updateCourse(): void {
@@ -307,7 +307,7 @@ class AdminController extends Controller {
             'orden'          => (int)($data['orden'] ?? 0)
         ]);
 
-        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido', 'curso_id' => $id]);
+        $this->redirectTo('admin', ['ok' => 'curso_actualizado', 'tab' => 'contenido', 'curso_id' => $id]);
     }
 
     public function deleteCourse(): void {
@@ -320,7 +320,7 @@ class AdminController extends Controller {
         if ($id <= 0) { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'contenido']); }
 
         $this->courseModel->deleteCourse($id);
-        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido']);
+        $this->redirectTo('admin', ['ok' => 'curso_eliminado', 'tab' => 'contenido']);
     }
 
     // ── GESTIÓN DE LECCIONES / VIDEOS ────────────────────────────────
@@ -1023,8 +1023,25 @@ class AdminController extends Controller {
         if (isset($_GET['ok'])) {
             $ok = is_string($_GET['ok']) ? $_GET['ok'] : '';
             $map = [
-                'config'   => 'Configuración guardada correctamente.',
-                'password' => 'Contraseña actualizada correctamente.',
+                'config'              => 'Configuración guardada correctamente.',
+                'password'            => 'Contraseña actualizada correctamente.',
+                'curso_creado'        => 'Curso creado exitosamente.',
+                'curso_actualizado'   => 'Datos del curso actualizados correctamente.',
+                'curso_eliminado'     => 'Curso eliminado del sistema.',
+                'usuario_creado'      => 'Nuevo usuario registrado correctamente.',
+                'usuario_actualizado' => 'Usuario actualizado correctamente.',
+                'leccion_creada'      => 'Lección agregada correctamente.',
+                'leccion_actualizada' => 'Lección actualizada correctamente.',
+                'leccion_eliminada'   => 'Lección eliminada.',
+                'libro_guardado'      => 'Libro o material guardado correctamente.',
+                'libro_eliminado'     => 'Libro eliminado.',
+                'audio_guardado'      => 'Audio guardado correctamente.',
+                'audio_eliminado'     => 'Audio eliminado.',
+                'ejercicio_guardado'  => 'Ejercicio guardado correctamente.',
+                'ejercicio_eliminado' => 'Ejercicio eliminado.',
+                'logro_guardado'      => 'Insignia o logro guardado.',
+                'logro_eliminado'     => 'Logro eliminado.',
+                'membresia_guardada'  => 'Membresía actualizada correctamente.',
             ];
             return ['tipo' => 'ok', 'texto' => $map[$ok] ?? 'Operación realizada correctamente.'];
         }
