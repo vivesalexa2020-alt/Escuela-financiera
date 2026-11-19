@@ -154,14 +154,14 @@
       <!-- Botones de acceso en header principal -->
       <div style="display: flex; align-items: center; gap: 10px;">
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
-          <a href="index.php?page=admin" class="topbar-admin-btn" title="Panel de Administración">
-            <i class="fi fi-sr-shield-check" style="font-size: 14px; color: #fabb15;"></i>
-            <span>Acceso Admin</span>
+          <a href="index.php?page=admin" class="topbar-admin-btn" title="Ir al Panel de Administración">
+            <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
+            <span>Panel Admin</span>
           </a>
-        <?php elseif (empty($user)): ?>
-          <a href="javascript:void(0)" onclick="openLoginModal(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Iniciar sesión como Administrador">
-            <i class="fi fi-sr-shield-check" style="font-size: 14px; color: #fabb15;"></i>
-            <span>Acceso Admin</span>
+        <?php else: ?>
+          <a href="javascript:void(0)" onclick="openAdminLogin(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Acceso al Panel de Administrador">
+            <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
+            <span>Panel Admin</span>
           </a>
         <?php endif; ?>
       </div>
@@ -2591,10 +2591,66 @@
     }
   });
 
-  // Cerrar con Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' || e.key === 'Esc') {
-      closeStudentTestimonial();
+  // Función para abrir modal de inicio de sesión de Administrador
+  window.openAdminLogin = function() {
+    if (typeof openLoginModal === 'function') {
+      openLoginModal();
+      const title = document.querySelector('#loginModal h3');
+      if (title) title.innerHTML = '<i class="fi fi-sr-shield-check" style="color:#fabb15; margin-right:8px;"></i>Acceso Administrador';
+      const subtitle = document.querySelector('#loginModal p');
+      if (subtitle) subtitle.textContent = 'Ingresa tus credenciales de administrador para acceder al panel de control.';
+      const emailInput = document.getElementById('loginEmail');
+      if (emailInput && (!emailInput.value || emailInput.value === 'tu@correo.com')) {
+        emailInput.value = 'admin@educacionfinanciera.com';
+      }
+      const passwordInput = document.getElementById('loginPassword');
+      if (passwordInput) {
+        setTimeout(function() { passwordInput.focus(); }, 150);
+      }
+    } else {
+      window.location.href = 'index.php?page=home&skip_splash=1#login';
+    }
+  };
+
+  // Abrir modal automáticamente si la URL incluye ?admin_login=1
+  document.addEventListener('DOMContentLoaded', function() {
+    if (new URLSearchParams(window.location.search).get('admin_login') === '1') {
+      setTimeout(function() {
+        if (typeof openAdminLogin === 'function') openAdminLogin();
+      }, 350);
     }
   });
 </script>
+
+<style>
+/* Estilos destacados para el botón de Panel Admin en el header */
+.topbar-admin-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #fabb15 !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  border: 1.5px solid #fabb15 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+  box-shadow: 0 3px 12px rgba(250, 187, 21, 0.3) !important;
+  cursor: pointer !important;
+  z-index: 101 !important;
+}
+.topbar-admin-btn:hover {
+  background: #fabb15 !important;
+  color: #042e20 !important;
+  border-color: #fabb15 !important;
+  box-shadow: 0 4px 20px rgba(250, 187, 21, 0.6) !important;
+  transform: translateY(-2px) !important;
+}
+.topbar-admin-btn:hover i {
+  color: #042e20 !important;
+}
+</style>

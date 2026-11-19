@@ -34,11 +34,10 @@ class AdminController extends Controller {
     }
 
     public function dashboard(): void {
-        if (!Session::isLoggedIn()) {
-            header('Location: index.php?page=home');
+        if (!Session::isLoggedIn() || !Session::isAdmin()) {
+            header('Location: index.php?page=home&admin_login=1');
             exit();
         }
-        $this->requireAdmin();
 
         $usuarios      = $this->userModel->getAll();
         $cursos        = $this->courseModel->getAllForAdmin();
