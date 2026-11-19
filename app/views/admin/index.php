@@ -748,6 +748,9 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
         <p><?= $totalUsuarios ?> usuarios registrados en la plataforma</p>
       </div>
       <div style="display:flex;gap:8px">
+        <button type="button" class="adm-action-btn success" onclick="toggleElem('box-nuevo-usuario')">
+          <i class="fi fi-rr-user-add"></i> + Nuevo Alumno / Admin
+        </button>
         <a href="index.php?page=admin/exportar-pdf&tipo=usuarios" target="_blank" class="adm-action-btn primary">
           <i class="fi fi-rr-file-pdf"></i> Descargar Reporte en PDF
         </a>
@@ -755,6 +758,49 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
           <i class="fi fi-rr-file-spreadsheet"></i> Excel (.csv)
         </a>
       </div>
+    </div>
+
+    <!-- Caja colapsable para crear nuevo usuario / estudiante -->
+    <div id="box-nuevo-usuario" class="adm-collapse-box" style="display:none; margin-bottom:18px;">
+      <h4 style="margin:0 0 12px;color:#0f172a"><i class="fi fi-rr-user-add" style="margin-right:6px;color:#16a34a"></i>Registrar Nuevo Usuario / Estudiante</h4>
+      <form method="post" action="index.php?page=admin/usuarios/crear">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+        <div class="adm-form-row" style="margin-bottom:10px">
+          <div class="adm-form-group">
+            <label>Nombre Completo</label>
+            <input class="adm-input" name="nombre" required placeholder="Ej: Carlos Ramírez">
+          </div>
+          <div class="adm-form-group">
+            <label>Correo Electrónico</label>
+            <input class="adm-input" type="email" name="email" required placeholder="alumno@correo.com">
+          </div>
+          <div class="adm-form-group">
+            <label>Contraseña Inicial (mín. 6 caracteres)</label>
+            <input class="adm-input" type="password" name="password" required placeholder="••••••••">
+          </div>
+        </div>
+        <div class="adm-form-row" style="margin-bottom:14px">
+          <div class="adm-form-group">
+            <label>Rol de Usuario</label>
+            <select name="rol" class="adm-select">
+              <option value="estudiante" selected>Estudiante</option>
+              <option value="admin">Administrador</option>
+            </select>
+          </div>
+          <div class="adm-form-group">
+            <label>Membresía Inicial</label>
+            <select name="tipo_membresia" class="adm-select">
+              <option value="gratis" selected>Gratis (1 mes de prueba)</option>
+              <option value="pro">Pro (Acceso completo)</option>
+              <option value="premium">Premium (Acceso total anual)</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button type="submit" class="adm-action-btn success"><i class="fi fi-rr-check"></i> Guardar Usuario</button>
+          <button type="button" class="adm-action-btn" onclick="toggleElem('box-nuevo-usuario')">Cancelar</button>
+        </div>
+      </form>
     </div>
     
     <div class="adm-table-card">
@@ -813,6 +859,9 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                 </form>
               </td>
               <td>
+                <button type="button" class="adm-action-btn" style="background:#0284c7;color:#fff;" onclick="toggleElem('edit-user-<?= (int)$u['id'] ?>')">
+                  <i class="fi fi-rr-edit"></i> Editar
+                </button>
                 <form method="post" action="index.php?page=admin/usuarios/estado" class="adm-inline-form">
                   <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                   <input type="hidden" name="usuario_id" value="<?= (int)$u['id'] ?>">
@@ -825,6 +874,44 @@ table.adm-table th{background:#f8fafc;color:#475569;font-size:.73rem;font-weight
                   <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
                   <input type="hidden" name="usuario_id" value="<?= (int)$u['id'] ?>">
                   <button class="adm-action-btn danger" <?= $isSelf ? 'disabled' : '' ?>>Eliminar</button>
+                </form>
+              </td>
+            </tr>
+            <tr id="edit-user-<?= (int)$u['id'] ?>" style="display:none;background:#f8fafc">
+              <td colspan="8" style="padding:14px;">
+                <form method="post" action="index.php?page=admin/usuarios/editar" style="background:#fff;border:1px solid #cbd5e1;padding:16px;border-radius:10px;text-align:left;">
+                  <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+                  <input type="hidden" name="usuario_id" value="<?= (int)$u['id'] ?>">
+                  <h4 style="margin:0 0 10px;color:#0f172a;font-size:0.95rem;">
+                    <i class="fi fi-rr-edit" style="color:#0284c7;margin-right:6px"></i>Editar Usuario #<?= (int)$u['id'] ?>: <?= htmlspecialchars($u['nombre']) ?>
+                  </h4>
+                  <div class="adm-form-row" style="margin-bottom:10px">
+                    <div class="adm-form-group">
+                      <label>Nombre Completo</label>
+                      <input class="adm-input" name="nombre" value="<?= htmlspecialchars($u['nombre']) ?>" required>
+                    </div>
+                    <div class="adm-form-group">
+                      <label>Email</label>
+                      <input class="adm-input" type="email" name="email" value="<?= htmlspecialchars($u['email']) ?>" required>
+                    </div>
+                    <div class="adm-form-group">
+                      <label>Nueva Contraseña (dejar en blanco para conservar actual)</label>
+                      <input class="adm-input" type="password" name="password" placeholder="Nueva contraseña (opcional)">
+                    </div>
+                  </div>
+                  <div class="adm-form-row" style="margin-bottom:12px">
+                    <div class="adm-form-group">
+                      <label>Rol de Usuario</label>
+                      <select name="rol" class="adm-select" <?= $isSelf ? 'disabled' : '' ?>>
+                        <option value="estudiante" <?= $u['rol']==='estudiante'?'selected':'' ?>>Estudiante</option>
+                        <option value="admin" <?= $u['rol']==='admin'?'selected':'' ?>>Administrador</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div style="display:flex;gap:10px">
+                    <button type="submit" class="adm-action-btn primary"><i class="fi fi-rr-disk"></i> Guardar Cambios</button>
+                    <button type="button" class="adm-action-btn" onclick="toggleElem('edit-user-<?= (int)$u['id'] ?>')">Cancelar</button>
+                  </div>
                 </form>
               </td>
             </tr>

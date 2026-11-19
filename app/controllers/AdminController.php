@@ -99,6 +99,98 @@ class AdminController extends Controller {
 
     // ── GESTIÓN DE USUARIOS ──────────────────────────────────────────
 
+    public function createUser(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'usuarios']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'usuarios']); }
+
+        $nombre = trim((string)($data['nombre'] ?? ''));
+        $email  = strtolower(trim((string)($data['email'] ?? '')));
+        $pass   = (string)($data['password'] ?? '');
+        $rol    = in_array($data['rol'] ?? '', ['estudiante', 'admin'], true) ? $data['rol'] : 'estudiante';
+        $tipoMembresia = in_array($data['tipo_membresia'] ?? '', ['gratis', 'pro', 'premium'], true) ? $data['tipo_membresia'] : 'gratis';
+
+        if ($nombre === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($pass) < 6) {
+            $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'usuarios']);
+        }
+
+        if ($this->userModel->emailExists($email)) {
+            $this->redirectTo('admin', ['error' => 'email_exists', 'tab' => 'usuarios']);
+        }
+
+        try {
+            $hash = password_hash($pass, PASSWORD_DEFAULT);
+            $token = bin2hex(random_bytes(32));
+            $newId = $this->userModel->create($nombre, $email, $hash, $token);
+
+            if ($rol !== 'estudiante') {
+                $this->userModel->updateRole($newId, $rol);
+            }
+
+            if ($tipoMembresia !== 'gratis') {
+                $this->membershipModel->updateMembership($newId, $tipoMembresia);
+            }
+
+            $this->userModel->verifyEmail($newId, $token);
+
+            $this->redirectTo('admin', ['ok' => 1, 'tab' => 'usuarios']);
+        } catch (\Throwable $e) {
+            Logger::error('Error al crear usuario desde admin', ['error' => $e->getMessage()]);
+            $this->redirectTo('admin', ['error' => 'db', 'tab' => 'usuarios']);
+        }
+    }
+
+    public function editUser(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'usuarios']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'usuarios']); }
+
+        $id     = (int)($data['usuario_id'] ?? 0);
+        $nombre = trim((string)($data['nombre'] ?? ''));
+        $email  = strtolower(trim((string)($data['email'] ?? '')));
+        $pass   = (string)($data['password'] ?? '');
+        $rol    = in_array($data['rol'] ?? '', ['estudiante', 'admin'], true) ? $data['rol'] : null;
+
+        if ($id <= 0 || $nombre === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'usuarios']);
+        }
+
+        if ($this->userModel->emailExists($email, $id)) {
+            $this->redirectTo('admin', ['error' => 'email_exists', 'tab' => 'usuarios']);
+        }
+
+        $target = $this->userModel->findAnyById($id);
+        if (!$target) { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'usuarios']); }
+
+        if ($target['rol'] === 'admin' && $rol === 'estudiante' && $this->userModel->countByRole('admin') <= 1) {
+            $this->redirectTo('admin', ['error' => 'ultimo_admin', 'tab' => 'usuarios']);
+        }
+
+        try {
+            $this->userModel->updateProfile($id, $nombre, $email);
+
+            if ($rol !== null) {
+                $this->userModel->updateRole($id, $rol);
+            }
+
+            if (!empty($pass)) {
+                if (strlen($pass) >= 6) {
+                    $newHash = password_hash($pass, PASSWORD_DEFAULT);
+                    $this->userModel->updatePassword($id, $newHash);
+                } else {
+                    $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'usuarios']);
+                }
+            }
+
+            $this->redirectTo('admin', ['ok' => 1, 'tab' => 'usuarios']);
+        } catch (\Throwable $e) {
+            Logger::error('Error al editar usuario desde admin', ['error' => $e->getMessage()]);
+            $this->redirectTo('admin', ['error' => 'db', 'tab' => 'usuarios']);
+        }
+    }
+
     public function updateRole(): void {
         $this->requireAdmin();
         if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin'); }
@@ -944,6 +1036,7 @@ class AdminController extends Controller {
                 'datos'            => 'Datos inválidos. Revisa los campos del formulario.',
                 'db'               => 'Error al procesar la solicitud en la base de datos.',
                 'password_actual'  => 'La contraseña actual no es correcta.',
+                'email_exists'     => 'Ya existe una cuenta registrada con ese correo electrónico.',
                 'password_coincide'=> 'La nueva contraseña y su confirmación no coinciden.',
                 'password_debil'   => 'La nueva contraseña debe tener al menos 8 caracteres e incluir mayúscula, número y carácter especial.',
             ];

@@ -22,6 +22,8 @@ return static function (Router $router): void {
     $router->get('/admin',                        'AdminController@dashboard');
     $router->get('/admin/exportar-pdf',           'AdminController@exportPdf');
     $router->get('/admin/exportar',               'AdminController@exportCsv');
+    $router->post('/admin/usuarios/crear',        'AdminController@createUser');
+    $router->post('/admin/usuarios/editar',       'AdminController@editUser');
     $router->post('/admin/usuarios/rol',          'AdminController@updateRole');
     $router->post('/admin/usuarios/estado',       'AdminController@updateStatus');
     $router->post('/admin/usuarios/eliminar',     'AdminController@deleteUser');

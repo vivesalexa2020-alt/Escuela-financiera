@@ -1628,6 +1628,8 @@ function getMembresia() {
 }
 
 function tieneMembresiaActiva() {
+  const user = getCurrentUser();
+  if (user && user.rol === "admin") return true;
   return getMembresia().activa === true;
 }
 
@@ -1662,6 +1664,8 @@ function materiaEstaBloqueadaPorPago(m) {
 }
 
 function semestreEstaBloqueado(state, semId) {
+  const user = getCurrentUser();
+  if (user && user.rol === "admin") return false;
   const cfg = getSemestreConfig(semId);
   if (!cfg) return false;
   if (semestreEstaBloqueadoPorPago(semId)) return true;
