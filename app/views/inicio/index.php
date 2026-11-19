@@ -1039,13 +1039,10 @@
         </div>
         <p class="atomic-mini-text" id="atomicMiniSummary"></p>
         <div class="atomic-mini-actions">
-          <button type="button" class="atomic-btn-outline" id="atomicDetailBtn" onclick="toggleAtomicDetail()"><i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado</button>
+          <button type="button" class="atomic-btn-outline" onclick="resetAtomicDiagnostic()"><i class="fi fi-rr-refresh" aria-hidden="true"></i> Repetir diagnóstico</button>
           <button type="button" class="atomic-btn-exit" onclick="exitAtomicDiagnostic()"><i class="fi fi-rr-sign-out-alt" aria-hidden="true"></i> Salir del diagnóstico</button>
         </div>
       </div>
-
-      <!-- RESULTADO DETALLADO DEL DIAGNÓSTICO (Generado con JS) -->
-      <div id="atomicResultSection" class="atomic-result-box" style="display: none;"></div>
 
     </div><!-- /atomic-card-container -->
 
@@ -2384,82 +2381,32 @@
     var q6Sel = form.querySelector('input[name="p6"]:checked');
     var targetHabitKey = q6Sel ? q6Sel.value : 'opt1';
 
-    var targetHabitConfig = {
-      'opt1': {
-        title: 'Dejar de comprar por impulso',
-        prompt: 'sentir el deseo urgente de comprar un artículo no esencial',
-        action: 'esperaré 72 horas y calcularé su valor en horas de trabajo antes de realizar el pago',
-        laws: [
-          { num: '1ª Ley Invertida: Hazlo Invisible', title: 'Elimina las Tentaciones', desc: 'Desinstala las apps de compras compulsivas de la pantalla de inicio de tu celular para no ver ofertas.' },
-          { num: '2ª Ley Invertida: Hazlo Poco Atractivo', title: 'Calcula el Tiempo de Vida', desc: 'Convierte el precio del artículo a las horas de trabajo reales que te costó ganarlo: ¿vale 8 horas de tu vida?' },
-          { num: '3ª Ley Invertida: Hazlo Difícil', title: 'Aumenta la Fricción de Pago', desc: 'Borra las tarjetas de crédito almacenadas en navegadores o tiendas digitales para evitar compras en 1 clic.' },
-          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Recompensa el Autocontrol', desc: 'Cada compra impulsiva evitada, transfiere el 50% de su valor a tu fondo de ahorro y felicítate conscientemente.' }
-        ]
-      },
-      'opt2': {
-        title: 'Evitar los gastos hormiga',
-        prompt: 'tener el impulso de comprar un café, snack o comida rápida innecesaria',
-        action: 'transferiré de inmediato esos $50 MXN a mi cuenta de ahorro en menos de 2 minutos',
-        laws: [
-          { num: '1ª Ley: Hazlo Obvio', title: 'Prepara tu Alternativa', desc: 'Lleva tu termo de café o snack preparado desde casa para que la opción económica sea visible y accesible.' },
-          { num: '2ª Ley: Hazlo Atractivo', title: 'Micro-Interés Compuesto', desc: 'Recuerda que $50 MXN diarios evitados representan más de $18,000 MXN al año listos para invertir.' },
-          { num: '3ª Ley: Hazlo Sencillo', title: 'Regla de Sustitución Directa', desc: 'Reemplaza el acto de comprar con un micro-ahorro de 2 minutos en tu banca móvil cada vez que sientas el antojo.' },
-          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Rastreador de Días Limpios', desc: 'Lleva un calendario visual marcando cada día sin gastos hormiga: "No rompas la cadena dos veces seguidas".' }
-        ]
-      },
-      'opt3': {
-        title: 'Aprender a ahorrar constantemente',
-        prompt: 'recibir el depósito de mi sueldo o ingresos por ventas',
-        action: 'apartaré de forma inmediata el 10% a una cuenta de ahorro programado antes de hacer cualquier gasto',
-        laws: [
-          { num: '1ª Ley: Hazlo Obvio', title: 'Págate a Ti Primero', desc: 'Automatiza una orden de transferencia bancaria el mismo día de nómina para que el ahorro ocurra sin esfuerzo.' },
-          { num: '2ª Ley: Hazlo Atractivo', title: 'Bautiza tu Cuenta de Ahorro', desc: 'Renombra tu cuenta de banco como "Fondo de Tranquilidad y Libertad" para vincularlo a tu identidad y paz mental.' },
-          { num: '3ª Ley: Hazlo Sencillo', title: 'Comienza con la Regla del 1%', desc: 'No intentes ahorrar el 50% de golpe; comienza con el 5% o 10% para que el sistema sea fácil y sostenible.' },
-          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Celebra tus Metas Mensuales', desc: 'Al final de cada mes, observa el total acumulado y date una pequeña recompensa sana por mantener la disciplina.' }
-        ]
-      },
-      'opt4': {
-        title: 'Organizar mejor mi dinero',
-        prompt: 'terminar de cenar cada noche antes de dormir',
-        action: 'registraré mis gastos del día en una app simple en menos de 2 minutos',
-        laws: [
-          { num: '1ª Ley: Hazlo Obvio', title: 'Coloca tu App a la Vista', desc: 'Pon el acceso directo de tu app de gastos o bloc de notas en la pantalla principal de tu teléfono.' },
-          { num: '2ª Ley: Hazlo Atractivo', title: 'Claridad vs Estrés', desc: 'Asocia el registro con la sensación de calma y control total sobre tu futuro financiero.' },
-          { num: '3ª Ley: Hazlo Sencillo', title: 'Regla de los 2 Minutos', desc: 'Estandariza antes de optimizar: anota solo el total y categoría rápida sin complicarte con fórmulas complejas.' },
-          { num: '4ª Ley: Hazlo Satisfactorio', title: 'Revisión Semanal Exitosa', desc: 'Dedica 5 minutos los domingos a ver el balance de tu semana y planificar la siguiente con tranquilidad.' }
-        ]
-      }
+    var targetHabitTitles = {
+      'opt1': 'Dejar de comprar por impulso',
+      'opt2': 'Evitar los gastos hormiga',
+      'opt3': 'Aprender a ahorrar constantemente',
+      'opt4': 'Organizar mejor mi dinero'
     };
-
-    var currentTarget = targetHabitConfig[targetHabitKey] || targetHabitConfig['opt1'];
+    var targetHabitTitle = targetHabitTitles[targetHabitKey] || targetHabitTitles['opt1'];
 
     var profileTitle = '';
-    var profileBadge = '';
-    var badgeClass = '';
     var profileDesc = '';
 
     if (score >= 12) {
       profileTitle = 'Arquitecto Financiero Consciente';
-      profileBadge = '<i class="fi fi-rr-trophy"></i> Dominio Sólido de Hábitos (Alto)';
-      badgeClass = 'badge-success';
-      profileDesc = '¡Felicidades! Tienes excelentes bases y comprendes la importancia de diseñar sistemas diarios. Para llevar tu dinero al siguiente nivel, enfocaremos tus esfuerzos en optimizar el hábito que elegiste: <strong>' + currentTarget.title + '</strong>.';
+      profileDesc = '¡Felicidades! Tienes excelentes bases y comprendes la importancia de diseñar sistemas diarios. Tu siguiente paso es optimizar: <strong>' + targetHabitTitle + '</strong>.';
     } else if (score >= 7) {
       profileTitle = 'Constructor en Transición';
-      profileBadge = '<i class="fi fi-rr-leaf"></i> En Proceso de Mejora (Medio)';
-      badgeClass = 'badge-warning';
-      profileDesc = 'Tienes buenas intenciones y algunos hábitos positivos, pero la falta de sistemas automáticos provoca inconsistencia en tus resultados. Aplicando las 4 Leyes de James Clear lograremos instalar el hábito de <strong>' + currentTarget.title + '</strong> con facilidad.';
+      profileDesc = 'Tienes buenas intenciones y algunos hábitos positivos, pero aún faltan sistemas automáticos. Puedes fortalecer: <strong>' + targetHabitTitle + '</strong>.';
     } else {
       profileTitle = 'Enfoque Reactivo: Momento de Instalar Sistemas';
-      profileBadge = '<i class="fi fi-rr-bulb"></i> Fase de Despertar Financiero (Inicial)';
-      badgeClass = 'badge-alert';
-      profileDesc = 'Actualmente tus comportamientos financieros responden más al impulso y a la inmediatez que a un sistema estructurado. La buena noticia: según <em>Hábitos Atómicos</em>, no necesitas más fuerza de voluntad, sino diseñar un entorno que te facilite tomar buenas decisiones.';
+      profileDesc = 'Tus decisiones responden más al impulso que a un sistema. Empieza con una acción pequeña y constante: <strong>' + targetHabitTitle + '</strong>.';
     }
 
     var miniBox = document.getElementById('atomicMiniAnalysis');
     var miniProfile = document.getElementById('atomicMiniProfile');
     var miniScore = document.getElementById('atomicMiniScore');
     var miniSummary = document.getElementById('atomicMiniSummary');
-    var detailBtn = document.getElementById('atomicDetailBtn');
 
     if (miniProfile) miniProfile.textContent = profileTitle;
     if (miniScore) miniScore.textContent = pctScore + '%';
@@ -2473,80 +2420,10 @@
       miniSummary.textContent = 'Madurez de hábitos: ' + score + ' de 15 puntos. ' +
         (summaryText[targetHabitKey] || summaryText['opt1']);
     }
-    if (detailBtn) detailBtn.innerHTML = '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
     if (miniBox) {
       miniBox.style.display = 'block';
       miniBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    var resultBox = document.getElementById('atomicResultSection');
-    if (!resultBox) return;
-    resultBox.style.display = 'none';
-
-    var lawsHtml = '';
-    currentTarget.laws.forEach(function(law) {
-      lawsHtml += '<div class="atomic-law-card">' +
-                    '<div class="atomic-law-num">' + law.num + '</div>' +
-                    '<div class="atomic-law-title">' + law.title + '</div>' +
-                    '<p class="atomic-law-desc">' + law.desc + '</p>' +
-                  '</div>';
-    });
-
-    resultBox.innerHTML = 
-      '<div class="atomic-res-header">' +
-        '<div>' +
-          '<span class="atomic-res-badge ' + badgeClass + '">' + profileBadge + '</span>' +
-          '<h3 class="atomic-res-title">' + profileTitle + '</h3>' +
-          '<div class="atomic-res-score">Madurez de Hábitos Actual: <strong>' + score + ' de 15 puntos</strong> (' + pctScore + '% de alineación)</div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="atomic-res-body">' +
-        '<p>' + profileDesc + '</p>' +
-        '<div class="atomic-target-box">' +
-          '<div class="atomic-target-title"><i class="fi fi-rr-target"></i> Hábito Seleccionado para Transformar: ' + currentTarget.title + '</div>' +
-          '<p style="margin: 0; font-size: 14.5px; color: var(--gris-oscuro);">Siguiendo los principios de James Clear, el cambio duradero no proviene de metas gigantescas, sino de instalar una <strong>Intención de Implementación</strong> clara y reducir la fricción inicial.</p>' +
-        '</div>' +
-        
-        <!-- Creador Interactivo de Intención de Implementación Personalizada -->
-        '<div class="atomic-intention-box">' +
-          '<div class="atomic-intention-head">' +
-            '<span><i class="fi fi-rr-edit"></i> Tu Fórmula de Compromiso Atómico (James Clear):</span>' +
-          '</div>' +
-          '<div class="atomic-intention-formula">' +
-            '«Después de <span class="intent-highlight" id="intentPromptText">' + currentTarget.prompt + '</span>, yo <span class="intent-highlight" id="intentActionText">' + currentTarget.action + '</span>.»' +
-          '</div>' +
-          '<button type="button" class="atomic-copy-intent-btn" onclick="copyAtomicCommitment()">' +
-            '<i class="fi fi-rr-copy"></i> Copiar mi compromiso diario' +
-          '</button>' +
-          '<span id="intentCopiedMsg" style="display:none; color:var(--verde-principal); font-size:13px; font-weight:600; margin-left:10px;">¡Copiado al portapapeles!</span>' +
-        '</div>' +
-
-        '<h4 style="color: var(--verde-bosque); font-size: 16px; margin: 20px 0 10px 0;">Plan de Acción con las 4 Leyes de James Clear para ' + currentTarget.title + ':</h4>' +
-        '<div class="atomic-laws-grid">' + lawsHtml + '</div>' +
-        '<div class="atomic-res-quote">' +
-          '«No te elevas al nivel de tus metas. Caes al nivel de tus sistemas. Tus hábitos son el interés compuesto de la superación personal.»<br>' +
-          '<strong>— James Clear, Hábitos Atómicos</strong>' +
-        '</div>' +
-        '<div class="atomic-res-actions">' +
-          '<button type="button" class="atomic-btn-restart" onclick="toggleAtomicDetail()"><i class="fi fi-rr-list-check"></i> Volver al análisis breve</button>' +
-          '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()"><i class="fi fi-rr-refresh"></i> Modificar o repetir respuestas</button>' +
-          '<button type="button" class="atomic-btn-restart" onclick="exitAtomicDiagnostic()"><i class="fi fi-rr-sign-out-alt"></i> Salir del diagnóstico</button>' +
-        '</div>' +
-      '</div>';
-  }
-
-  function toggleAtomicDetail() {
-    var resultBox = document.getElementById('atomicResultSection');
-    var detailBtn = document.getElementById('atomicDetailBtn');
-    if (!resultBox) return;
-    var willShow = resultBox.style.display !== 'block';
-    resultBox.style.display = willShow ? 'block' : 'none';
-    if (detailBtn) {
-      detailBtn.innerHTML = willShow
-        ? '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ocultar plan detallado'
-        : '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
-    }
-    if (willShow) resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function exitAtomicDiagnostic() {
@@ -2569,24 +2446,6 @@
     if (notice) notice.style.display = 'none';
   }
 
-  function copyAtomicCommitment() {
-    var pText = document.getElementById('intentPromptText');
-    var aText = document.getElementById('intentActionText');
-    if (!pText || !aText) return;
-    var full = 'Mi compromiso atómico: «Después de ' + pText.textContent + ', yo ' + aText.textContent + '.»';
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(full).then(function() {
-        var msg = document.getElementById('intentCopiedMsg');
-        if (msg) {
-          msg.style.display = 'inline';
-          setTimeout(function() { msg.style.display = 'none'; }, 2500);
-        }
-      });
-    } else {
-      alert(full);
-    }
-  }
-
   function resetAtomicDiagnostic() {
     var form = document.getElementById('atomicHabitsForm');
     if (form) form.reset();
@@ -2599,17 +2458,8 @@
     var liveScore = document.getElementById('liveScoreNum');
     if (liveScore) liveScore.textContent = '0%';
 
-    var resultBox = document.getElementById('atomicResultSection');
-    if (resultBox) {
-      resultBox.style.display = 'none';
-      resultBox.innerHTML = '';
-    }
-
     var miniBox = document.getElementById('atomicMiniAnalysis');
     if (miniBox) miniBox.style.display = 'none';
-
-    var detailBtn = document.getElementById('atomicDetailBtn');
-    if (detailBtn) detailBtn.innerHTML = '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
 
     reopenAtomicDiagnostic();
 
