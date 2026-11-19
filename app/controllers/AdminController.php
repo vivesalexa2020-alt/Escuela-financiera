@@ -153,6 +153,85 @@ class AdminController extends Controller {
         $this->redirectTo('admin', ['error' => 'db', 'tab' => 'usuarios']);
     }
 
+    // ── GESTIÓN DE CURSOS ───────────────────────────────────────────
+
+    public function createCourse(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'contenido']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'contenido']); }
+
+        $titulo = trim((string)($data['titulo'] ?? ''));
+        $codigo = trim((string)($data['codigo'] ?? ''));
+        if ($titulo === '' || $codigo === '') {
+            $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'contenido']);
+        }
+
+        $imagenUrl = $this->handleFileUpload('imagen', 'cursos', ['jpg', 'jpeg', 'png', 'webp']);
+
+        $id = $this->courseModel->createCourse([
+            'codigo'         => $codigo,
+            'semestre'       => max(1, (int)($data['semestre'] ?? 1)),
+            'titulo'         => $titulo,
+            'descripcion'    => trim((string)($data['descripcion'] ?? '')),
+            'categoria'      => trim((string)($data['categoria'] ?? 'General')),
+            'nivel'          => in_array($data['nivel'] ?? '', ['principiante', 'intermedio', 'avanzado'], true) ? $data['nivel'] : 'principiante',
+            'duracion_horas' => (float)($data['duracion_horas'] ?? 1.0),
+            'imagen_url'     => $imagenUrl,
+            'activo'         => isset($data['activo']) ? 1 : 0,
+            'orden'          => (int)($data['orden'] ?? 0)
+        ]);
+
+        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido', 'curso_id' => $id]);
+    }
+
+    public function updateCourse(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'contenido']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'contenido']); }
+
+        $id     = (int)($data['id'] ?? 0);
+        $titulo = trim((string)($data['titulo'] ?? ''));
+        $codigo = trim((string)($data['codigo'] ?? ''));
+        if ($id <= 0 || $titulo === '' || $codigo === '') {
+            $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'contenido', 'curso_id' => $id]);
+        }
+
+        $actual = $this->courseModel->findByIdAdmin($id);
+        if (!$actual) { $this->redirectTo('admin', ['error' => 'not_found', 'tab' => 'contenido']); }
+
+        $imagenUrl = $this->handleFileUpload('imagen', 'cursos', ['jpg', 'jpeg', 'png', 'webp']) ?? ($actual['imagen_url'] ?? null);
+
+        $this->courseModel->updateCourse($id, [
+            'codigo'         => $codigo,
+            'semestre'       => max(1, (int)($data['semestre'] ?? 1)),
+            'titulo'         => $titulo,
+            'descripcion'    => trim((string)($data['descripcion'] ?? '')),
+            'categoria'      => trim((string)($data['categoria'] ?? 'General')),
+            'nivel'          => in_array($data['nivel'] ?? '', ['principiante', 'intermedio', 'avanzado'], true) ? $data['nivel'] : 'principiante',
+            'duracion_horas' => (float)($data['duracion_horas'] ?? 1.0),
+            'imagen_url'     => $imagenUrl,
+            'activo'         => isset($data['activo']) ? 1 : 0,
+            'orden'          => (int)($data['orden'] ?? 0)
+        ]);
+
+        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido', 'curso_id' => $id]);
+    }
+
+    public function deleteCourse(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'contenido']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'contenido']); }
+
+        $id = (int)($data['id'] ?? 0);
+        if ($id <= 0) { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'contenido']); }
+
+        $this->courseModel->deleteCourse($id);
+        $this->redirectTo('admin', ['ok' => 1, 'tab' => 'contenido']);
+    }
+
     // ── GESTIÓN DE LECCIONES / VIDEOS ────────────────────────────────
 
     public function createLesson(): void {
@@ -811,6 +890,31 @@ class AdminController extends Controller {
         if (!in_array($ext, $allowedExtensions, true)) {
             return null;
         }
+
+        // Validación de tipo MIME real si la extensión fileinfo está disponible
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            if ($finfo) {
+                $mime = finfo_file($finfo, $file['tmp_name']);
+                finfo_close($finfo);
+
+                $allowedMimes = [
+                    'pdf'  => ['application/pdf'],
+                    'mp3'  => ['audio/mpeg', 'audio/mp3'],
+                    'm4a'  => ['audio/m4a', 'audio/x-m4a', 'audio/mp4'],
+                    'wav'  => ['audio/wav', 'audio/x-wav'],
+                    'jpg'  => ['image/jpeg'],
+                    'jpeg' => ['image/jpeg'],
+                    'png'  => ['image/png'],
+                    'webp' => ['image/webp'],
+                ];
+
+                if (isset($allowedMimes[$ext]) && !in_array($mime, $allowedMimes[$ext], true)) {
+                    return null;
+                }
+            }
+        }
+
         $targetDir = dirname(__DIR__, 2) . '/public/uploads/' . trim($targetSubdir, '/') . '/';
         if (!is_dir($targetDir)) {
             @mkdir($targetDir, 0755, true);

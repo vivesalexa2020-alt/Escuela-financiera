@@ -24,9 +24,10 @@ return static function (Router $router): void {
         $r->post('/eliminar-cuenta',   'UserController@deleteAccount');
 
         // ── Inscripciones ─────────────────────────────────────
-        $r->get('/inscripciones',    'EnrollmentController@index');
-        $r->post('/inscripciones',   'EnrollmentController@store');
-        $r->delete('/inscripciones', 'EnrollmentController@destroy');
+        $r->get('/inscripciones',          'EnrollmentController@index');
+        $r->post('/inscripciones',         'EnrollmentController@store');
+        $r->delete('/inscripciones',       'EnrollmentController@destroy');
+        $r->post('/inscripciones/eliminar','EnrollmentController@destroy');
 
         // ── Progreso ──────────────────────────────────────────
         $r->get('/progreso',  'ProgressController@index');
@@ -36,8 +37,7 @@ return static function (Router $router): void {
         $r->get('/logros', 'AchievementController@index');
 
         // ── Membresía ─────────────────────────────────────────
-        $r->get('/membresia',          'MembershipController@index');
-        $r->post('/membresia',         'MembershipController@activate');
-        $r->post('/activar-membresia', 'MembershipController@activate');
+        $r->get('/membresia',  'MembershipController@index');
+        $r->post('/membresia', 'MembershipController@activate');
     });
 };

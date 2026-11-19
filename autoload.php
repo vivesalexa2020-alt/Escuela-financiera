@@ -24,14 +24,17 @@ spl_autoload_register(function ($class) {
     }
 
     $className = array_pop($parts);
-    if ($namespaceRoot === 'Config' && $className === 'Database') {
-        $className = 'database';
-    }
-
     $subdirectory = $parts ? implode('/', $parts) . '/' : '';
     $file = $directories[$namespaceRoot] . $subdirectory . $className . '.php';
 
     if (file_exists($file)) {
         require_once $file;
+        return;
+    }
+
+    $lowerFile = $directories[$namespaceRoot] . $subdirectory . strtolower($className) . '.php';
+    if (file_exists($lowerFile)) {
+        require_once $lowerFile;
+        return;
     }
 });

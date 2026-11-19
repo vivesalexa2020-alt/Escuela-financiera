@@ -5,11 +5,9 @@ use App\Core\Model;
 
 class EnrollmentModel extends Model {
     public function getUserEnrollments(int $userId): array {
-        $stmt = $this->db->prepare("SELECT materia_id, semestre, fecha_inscripcion FROM inscripciones WHERE usuario_id = ?");
+        $stmt = $this->db->prepare("SELECT materia_id FROM inscripciones WHERE usuario_id = ?");
         $stmt->execute([$userId]);
-        $rows = $stmt->fetchAll();
-
-        return array_map(fn($row) => $row['materia_id'], $rows);
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN) ?: [];
     }
 
     public function getUserEnrollmentDetails(int $userId): array {

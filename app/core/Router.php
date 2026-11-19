@@ -111,10 +111,8 @@ class Router {
             }
         }
 
-        $uri = '/' . trim($uri, '/');
-        if ($uri === '') {
-            $uri = '/';
-        }
+        $trimmed = trim($uri, '/');
+        $uri = $trimmed === '' ? '/' : '/' . $trimmed;
 
         foreach ($this->routes as $route) {
             if ($route['method'] !== 'ANY' && $route['method'] !== $method) {
@@ -135,11 +133,15 @@ class Router {
 
         // Si no se encontró ninguna ruta
         http_response_code(404);
-        if (strpos($uri, '/api') === 0 || ($_SERVER['HTTP_ACCEPT'] ?? '') === 'application/json') {
+        $isApi = str_starts_with($uri, '/api/') || $uri === '/api' || ($_SERVER['HTTP_ACCEPT'] ?? '') === 'application/json';
+        if ($isApi) {
             header('Content-Type: application/json; charset=utf-8');
             echo json_encode(['success' => false, 'message' => 'Ruta no encontrada']);
         } else {
-            echo "<h1>404 Not Found</h1><p>La ruta '{$uri}' no existe en esta aplicación.</p>";
+            $escapedUri = htmlspecialchars($uri, ENT_QUOTES, 'UTF-8');
+            echo "<!DOCTYPE html><html lang='es'><head><meta charset='utf-8'><title>404 Not Found</title></head><body>";
+            echo "<h1>404 Not Found</h1><p>La ruta '{$escapedUri}' no existe en esta aplicación.</p>";
+            echo "</body></html>";
         }
     }
 
@@ -179,8 +181,10 @@ class Router {
 
     /** Ejecuta el handler (callable o string "Controller@method") */
     private function executeHandler(string|callable $handler, array $params = []): void {
+        $indexedParams = array_values($params);
+
         if (is_callable($handler)) {
-            call_user_func_array($handler, $params);
+            call_user_func_array($handler, $indexedParams);
             return;
         }
 
@@ -193,7 +197,7 @@ class Router {
             if (class_exists($fullClass)) {
                 $controller = new $fullClass();
                 if (method_exists($controller, $method)) {
-                    call_user_func_array([$controller, $method], $params);
+                    call_user_func_array([$controller, $method], $indexedParams);
                     return;
                 }
             }

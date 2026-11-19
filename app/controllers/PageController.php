@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Core\Session;
+use App\Core\Logger;
 use App\Models\SettingsModel;
 
 class PageController extends Controller {
@@ -19,6 +20,10 @@ class PageController extends Controller {
     }
 
     public function recursos(): void {
+        if (!Session::userId()) {
+            header('Location: index.php?page=home');
+            exit();
+        }
         $this->renderPage('recursos', 'herramientas/recursos', 'Recursos y Herramientas | Educación Financiera', 'user-logged-in');
     }
 
@@ -31,14 +36,26 @@ class PageController extends Controller {
     }
 
     public function metas(): void {
+        if (!Session::userId()) {
+            header('Location: index.php?page=home');
+            exit();
+        }
         $this->renderPage('metas', 'herramientas/metas', 'Mis Metas Financieras | Educación Financiera', 'user-logged-in');
     }
 
     public function configuraciones(): void {
+        if (!Session::userId()) {
+            header('Location: index.php?page=home');
+            exit();
+        }
         $this->renderPage('configuraciones', 'cuenta/configuraciones', 'Configuración de Perfil | Educación Financiera', 'user-logged-in');
     }
 
     public function suscripcion(): void {
+        if (!Session::userId()) {
+            header('Location: index.php?page=home');
+            exit();
+        }
         $this->renderPage('suscripcion', 'cuenta/suscripcion', 'Planes y Membresías | Educación Financiera', 'user-logged-in');
     }
 
@@ -46,7 +63,7 @@ class PageController extends Controller {
         $settings = new SettingsModel();
 
         if ($slug !== 'reticula'
-            && Session::get('rol') !== 'admin'
+            && !Session::isAdmin()
             && $settings->isEnabled('modo_mantenimiento')) {
             http_response_code(503);
             $this->view('errores/mantenimiento', [
@@ -71,7 +88,9 @@ class PageController extends Controller {
                     $membershipModel = new \App\Models\MembershipModel();
                     $mem = $membershipModel->getByUser($userId);
                     $tieneMembresia = !empty($mem['activa']) && in_array($mem['tipo_membresia'], ['pro', 'premium'], true);
-                } catch (\Throwable $e) {}
+                } catch (\Throwable $e) {
+                    Logger::warning('Error consultando membresía en renderPage', ['error' => $e->getMessage()]);
+                }
             }
         }
 

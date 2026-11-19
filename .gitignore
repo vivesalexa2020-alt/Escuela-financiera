@@ -21,6 +21,7 @@ storage/logs/*
 # Subidas de archivos
 public/uploads/*
 !public/uploads/*/.gitkeep
+!public/uploads/.htaccess
 
 # Archivos de sistema
 .DS_Store

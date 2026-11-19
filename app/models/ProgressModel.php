@@ -8,13 +8,34 @@ class ProgressModel extends Model {
     public function getByCourse(int $userId, int $cursoId): ?array {
         $stmt = $this->db->prepare("
             SELECT p.*, 
-                   (SELECT COUNT(*) FROM lecciones WHERE curso_id = ? AND activo = 1) as total_lecciones
+                   (SELECT COUNT(*) FROM lecciones WHERE curso_id = :cid1 AND activo = 1) as total_lecciones,
+                   (SELECT COUNT(DISTINCT pl.leccion_id) 
+                    FROM progreso_lecciones pl
+                    INNER JOIN lecciones l ON l.id = pl.leccion_id
+                    WHERE pl.usuario_id = :uid1 AND pl.curso_id = :cid2 AND pl.completado = 1 AND l.activo = 1
+                   ) as lecciones_completadas
             FROM progreso_usuario p 
-            WHERE p.usuario_id = ? AND p.curso_id = ?
+            WHERE p.usuario_id = :uid2 AND p.curso_id = :cid3
         ");
-        $stmt->execute([$cursoId, $userId, $cursoId]);
+        $stmt->execute([
+            ':cid1' => $cursoId,
+            ':uid1' => $userId,
+            ':cid2' => $cursoId,
+            ':uid2' => $userId,
+            ':cid3' => $cursoId
+        ]);
         $row = $stmt->fetch();
         return $row ?: null;
+    }
+
+    public function getCompletedLessonIds(int $userId, int $cursoId): array {
+        $stmt = $this->db->prepare("
+            SELECT leccion_id 
+            FROM progreso_lecciones 
+            WHERE usuario_id = ? AND curso_id = ? AND completado = 1
+        ");
+        $stmt->execute([$userId, $cursoId]);
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN) ?: [];
     }
 
     public function getAllByUser(int $userId): array {
@@ -42,76 +63,104 @@ class ProgressModel extends Model {
     }
 
     public function saveProgress(int $userId, int $cursoId, ?int $leccionId, int $completado): array {
-        // Verificar existencia previa
-        $stmt = $this->db->prepare("SELECT id FROM progreso_usuario WHERE usuario_id = ? AND curso_id = ?");
-        $stmt->execute([$userId, $cursoId]);
-        $existente = $stmt->fetch();
-
-        if ($existente) {
-            if ($leccionId) {
-                $stmt = $this->db->prepare("
-                    UPDATE progreso_usuario 
-                    SET leccion_id = ?, completado = ?, fecha_actualizacion = NOW() 
-                    WHERE usuario_id = ? AND curso_id = ?
-                ");
-                $stmt->execute([$leccionId, $completado, $userId, $cursoId]);
+        $this->db->beginTransaction();
+        try {
+            // 1. Guardar progreso de lección individual
+            if ($leccionId !== null && $leccionId > 0) {
+                if ($completado === 1) {
+                    $stmt = $this->db->prepare("
+                        INSERT INTO progreso_lecciones (usuario_id, curso_id, leccion_id, completado, fecha_completado) 
+                        VALUES (?, ?, ?, 1, NOW())
+                        ON DUPLICATE KEY UPDATE completado = 1, fecha_completado = NOW()
+                    ");
+                    $stmt->execute([$userId, $cursoId, $leccionId]);
+                } else {
+                    $stmt = $this->db->prepare("
+                        UPDATE progreso_lecciones 
+                        SET completado = 0 
+                        WHERE usuario_id = ? AND leccion_id = ?
+                    ");
+                    $stmt->execute([$userId, $leccionId]);
+                }
             }
-        } else {
-            $stmt = $this->db->prepare("
-                INSERT INTO progreso_usuario (usuario_id, curso_id, leccion_id, completado, fecha_inicio) 
-                VALUES (?, ?, ?, ?, NOW())
-            ");
-            $stmt->execute([$userId, $cursoId, $leccionId, $completado]);
-        }
 
-        // Calcular porcentaje
-        $stmt = $this->db->prepare("SELECT COUNT(*) FROM lecciones WHERE curso_id = ? AND activo = 1");
-        $stmt->execute([$cursoId]);
-        $totalLecciones = (int)$stmt->fetchColumn();
+            // 2. Conteo de lecciones del curso
+            $stmt = $this->db->prepare("SELECT COUNT(*) FROM lecciones WHERE curso_id = ? AND activo = 1");
+            $stmt->execute([$cursoId]);
+            $totalLecciones = (int)$stmt->fetchColumn();
 
-        $porcentaje = 0;
-        if ($totalLecciones > 0) {
+            // 3. Conteo de lecciones completadas del curso
             $stmt = $this->db->prepare("
-                SELECT COUNT(*) FROM progreso_usuario 
-                WHERE usuario_id = ? AND curso_id = ? AND completado = 1
+                SELECT COUNT(DISTINCT pl.leccion_id) 
+                FROM progreso_lecciones pl
+                INNER JOIN lecciones l ON l.id = pl.leccion_id
+                WHERE pl.usuario_id = ? AND pl.curso_id = ? AND pl.completado = 1 AND l.activo = 1
             ");
             $stmt->execute([$userId, $cursoId]);
             $leccionesCompletadas = (int)$stmt->fetchColumn();
 
-            $porcentaje = round(($leccionesCompletadas / $totalLecciones) * 100, 2);
+            $porcentaje = $totalLecciones > 0 ? round(($leccionesCompletadas / $totalLecciones) * 100, 2) : 0.00;
+            $isCompletado = ($porcentaje >= 100.0) ? 1 : 0;
 
-            $stmt = $this->db->prepare("
-                UPDATE progreso_usuario 
-                SET porcentaje = ? 
-                WHERE usuario_id = ? AND curso_id = ?
-            ");
-            $stmt->execute([$porcentaje, $userId, $cursoId]);
+            // 4. Verificar si el curso ya existía y si ya estaba completado
+            $stmt = $this->db->prepare("SELECT id, fecha_completado FROM progreso_usuario WHERE usuario_id = ? AND curso_id = ?");
+            $stmt->execute([$userId, $cursoId]);
+            $existente = $stmt->fetch();
 
-            // Si completó 100%, registrar fecha y otorgar XP
-            if ($porcentaje >= 100) {
+            $yaEstabaCompletado = ($existente && !empty($existente['fecha_completado']));
+
+            if ($existente) {
                 $stmt = $this->db->prepare("
                     UPDATE progreso_usuario 
-                    SET fecha_completado = NOW() 
+                    SET leccion_id = COALESCE(?, leccion_id),
+                        completado = ?,
+                        porcentaje = ?,
+                        fecha_completado = CASE 
+                            WHEN ? = 1 AND fecha_completado IS NULL THEN NOW() 
+                            ELSE fecha_completado 
+                        END,
+                        fecha_actualizacion = NOW()
                     WHERE usuario_id = ? AND curso_id = ?
                 ");
-                $stmt->execute([$userId, $cursoId]);
+                $stmt->execute([$leccionId, $isCompletado, $porcentaje, $isCompletado, $userId, $cursoId]);
+            } else {
+                $stmt = $this->db->prepare("
+                    INSERT INTO progreso_usuario (usuario_id, curso_id, leccion_id, completado, porcentaje, fecha_inicio, fecha_completado) 
+                    VALUES (?, ?, ?, ?, ?, NOW(), CASE WHEN ? = 1 THEN NOW() ELSE NULL END)
+                ");
+                $stmt->execute([$userId, $cursoId, $leccionId, $isCompletado, $porcentaje, $isCompletado]);
+            }
 
+            // 5. Otorgar XP sólo UNA VEZ cuando alcanza 100% por primera vez
+            if ($isCompletado === 1 && !$yaEstabaCompletado) {
                 $stmt = $this->db->prepare("
                     INSERT INTO puntos_usuario (usuario_id, puntos_totales, nivel) 
                     VALUES (?, 100, 1) 
                     ON DUPLICATE KEY UPDATE 
                     puntos_totales = puntos_totales + 100,
-                    nivel = FLOOR(puntos_totales / 500) + 1
+                    nivel = FLOOR((puntos_totales + 100) / 500) + 1
                 ");
                 $stmt->execute([$userId]);
 
-                Logger::info('Curso completado con éxito', ['usuario_id' => $userId, 'curso_id' => $cursoId]);
+                Logger::info('Curso completado con éxito por primera vez', ['usuario_id' => $userId, 'curso_id' => $cursoId]);
             }
-        }
 
-        return [
-            'porcentaje' => $porcentaje,
-            'completado' => $porcentaje >= 100,
-        ];
+            $this->db->commit();
+
+            return [
+                'porcentaje' => $porcentaje,
+                'completado' => (bool)$isCompletado,
+                'total_lecciones' => $totalLecciones,
+                'lecciones_completadas' => $leccionesCompletadas
+            ];
+        } catch (\Throwable $e) {
+            $this->db->rollBack();
+            Logger::error('Error al guardar progreso', [
+                'error' => $e->getMessage(),
+                'usuario_id' => $userId,
+                'curso_id' => $cursoId
+            ]);
+            throw $e;
+        }
     }
 }

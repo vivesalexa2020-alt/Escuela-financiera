@@ -150,6 +150,7 @@ class AuthController extends Controller {
             Session::set('usuario_id', $usuarioId);
             Session::set('nombre', $nombre);
             Session::set('email', $email);
+            Session::set('rol', 'estudiante');
 
             $csrf = Csrf::generateToken();
 

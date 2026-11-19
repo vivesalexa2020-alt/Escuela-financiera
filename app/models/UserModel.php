@@ -28,6 +28,17 @@ class UserModel extends Model {
         return $user ?: null;
     }
 
+    public function findByIdWithPassword(int $id): ?array {
+        $stmt = $this->db->prepare("
+            SELECT id, nombre, email, password_hash, rol, email_verificado, fecha_creacion 
+            FROM usuarios 
+            WHERE id = ? AND activo = 1 AND eliminado_en IS NULL
+        ");
+        $stmt->execute([$id]);
+        $user = $stmt->fetch();
+        return $user ?: null;
+    }
+
     public function findAnyById(int $id): ?array {
         $stmt = $this->db->prepare("
             SELECT id, nombre, email, rol, activo, email_verificado, fecha_creacion
@@ -107,7 +118,7 @@ class UserModel extends Model {
     }
 
     public function emailExists(string $email, ?int $excludeId = null): bool {
-        if ($excludeId) {
+        if ($excludeId !== null) {
             $stmt = $this->db->prepare("SELECT id FROM usuarios WHERE email = ? AND id != ? AND eliminado_en IS NULL");
             $stmt->execute([$email, $excludeId]);
         } else {
@@ -215,8 +226,8 @@ class UserModel extends Model {
                 VALUES (?, ?, ?, ?, ?)
             ");
             $stmt->execute([$userId, $email, $ip, $userAgent, $exitoso ? 1 : 0]);
-        } catch (\Exception $e) {
-            // Silencioso para no interrumpir el flujo principal
+        } catch (\Throwable $e) {
+            Logger::warning('No se pudo registrar log de login', ['error' => $e->getMessage()]);
         }
     }
 
@@ -227,8 +238,8 @@ class UserModel extends Model {
                 VALUES (?, ?, ?, ?, ?)
             ");
             $stmt->execute([$userId, $campo, $anterior, $nuevo, $ip]);
-        } catch (\Exception $e) {
-            // Silencioso
+        } catch (\Throwable $e) {
+            Logger::warning('No se pudo registrar cambio de perfil en auditoría', ['error' => $e->getMessage()]);
         }
     }
 }

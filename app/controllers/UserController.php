@@ -89,9 +89,7 @@ class UserController extends Controller {
         }
 
         try {
-            $usuario = $this->userModel->findById($userId);
-            // Necesitamos el hash actual
-            $userWithHash = $this->userModel->findByEmail($usuario['email']);
+            $userWithHash = $this->userModel->findByIdWithPassword($userId);
 
             if (!$userWithHash || !password_verify($passwordActual, $userWithHash['password_hash'])) {
                 $this->jsonResponse(['success' => false, 'message' => 'Tu contraseña actual no es correcta'], 400);
@@ -120,7 +118,17 @@ class UserController extends Controller {
 
         $this->validateCsrf($data['csrf_token'] ?? null);
 
+        $password = trim($data['password_actual'] ?? ($data['password'] ?? ''));
+        if (empty($password)) {
+            $this->jsonResponse(['success' => false, 'message' => 'Debes ingresar tu contraseña actual para confirmar la eliminación de la cuenta'], 400);
+        }
+
         try {
+            $user = $this->userModel->findByIdWithPassword($userId);
+            if (!$user || !password_verify($password, $user['password_hash'])) {
+                $this->jsonResponse(['success' => false, 'message' => 'Contraseña incorrecta'], 400);
+            }
+
             $ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
             $this->userModel->softDelete($userId, $ip);
 

@@ -3,6 +3,7 @@ namespace App\Core;
 
 use PDO;
 use App\Config\Database;
+use App\Core\Logger;
 
 class RateLimiter {
     private PDO $pdo;
@@ -41,7 +42,11 @@ class RateLimiter {
         $registro = $stmt->fetch();
 
         if (!$registro) {
-            $stmt = $this->pdo->prepare("INSERT INTO rate_limits (ip_address, accion, intentos) VALUES (?, ?, 1)");
+            $stmt = $this->pdo->prepare("
+                INSERT INTO rate_limits (ip_address, accion, intentos, fecha_ultimo_intento) 
+                VALUES (?, ?, 1, NOW())
+                ON DUPLICATE KEY UPDATE intentos = intentos + 1, fecha_ultimo_intento = NOW()
+            ");
             $stmt->execute([$ip, $accion]);
             return ['permitido' => true];
         }

@@ -25,6 +25,62 @@ class CourseModel extends Model {
         return $curso ?: null;
     }
 
+    public function createCourse(array $data): int {
+        $stmt = $this->db->prepare("
+            INSERT INTO cursos (codigo, semestre, titulo, descripcion, categoria, nivel, duracion_horas, imagen_url, activo, orden)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ");
+        $stmt->execute([
+            $data['codigo'],
+            $data['semestre'] ?? 1,
+            $data['titulo'],
+            $data['descripcion'] ?? '',
+            $data['categoria'] ?? 'General',
+            $data['nivel'] ?? 'principiante',
+            $data['duracion_horas'] ?? 1.0,
+            $data['imagen_url'] ?? null,
+            isset($data['activo']) ? (int)$data['activo'] : 1,
+            $data['orden'] ?? 0
+        ]);
+        return (int)$this->db->lastInsertId();
+    }
+
+    public function updateCourse(int $id, array $data): bool {
+        $stmt = $this->db->prepare("
+            UPDATE cursos
+            SET codigo = ?, semestre = ?, titulo = ?, descripcion = ?, categoria = ?, nivel = ?, duracion_horas = ?, imagen_url = ?, activo = ?, orden = ?
+            WHERE id = ?
+        ");
+        return $stmt->execute([
+            $data['codigo'],
+            $data['semestre'] ?? 1,
+            $data['titulo'],
+            $data['descripcion'] ?? '',
+            $data['categoria'] ?? 'General',
+            $data['nivel'] ?? 'principiante',
+            $data['duracion_horas'] ?? 1.0,
+            $data['imagen_url'] ?? null,
+            isset($data['activo']) ? (int)$data['activo'] : 1,
+            $data['orden'] ?? 0,
+            $id
+        ]);
+    }
+
+    public function deleteCourse(int $id): bool {
+        $stmt = $this->db->prepare("DELETE FROM cursos WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
+
+    public function getActiveLessons(int $cursoId): array {
+        $stmt = $this->db->prepare("
+            SELECT * FROM lecciones 
+            WHERE curso_id = ? AND activo = 1
+            ORDER BY orden ASC, id ASC
+        ");
+        $stmt->execute([$cursoId]);
+        return $stmt->fetchAll();
+    }
+
     // ── LECCIONES (VIDEOS) ──────────────────────────────────────────
 
     public function getAllLessons(int $cursoId): array {

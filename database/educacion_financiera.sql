@@ -291,6 +291,26 @@ CREATE TABLE `progreso_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
+-- Tabla: progreso_lecciones (progreso por lección individual)
+-- --------------------------------------------------------
+
+DROP TABLE IF EXISTS `progreso_lecciones`;
+CREATE TABLE `progreso_lecciones` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `usuario_id` INT UNSIGNED NOT NULL,
+  `curso_id` INT UNSIGNED NOT NULL,
+  `leccion_id` INT UNSIGNED NOT NULL,
+  `completado` TINYINT(1) NOT NULL DEFAULT 1,
+  `fecha_completado` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_usuario_leccion` (`usuario_id`, `leccion_id`),
+  KEY `idx_prog_lec_usuario_curso` (`usuario_id`, `curso_id`),
+  CONSTRAINT `fk_prog_lec_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_prog_lec_curso` FOREIGN KEY (`curso_id`) REFERENCES `cursos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_prog_lec_leccion` FOREIGN KEY (`leccion_id`) REFERENCES `lecciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 -- Tabla: logros (badges y recompensas)
 -- --------------------------------------------------------
 

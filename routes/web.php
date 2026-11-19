@@ -25,6 +25,9 @@ return static function (Router $router): void {
     $router->post('/admin/usuarios/rol',          'AdminController@updateRole');
     $router->post('/admin/usuarios/estado',       'AdminController@updateStatus');
     $router->post('/admin/usuarios/eliminar',     'AdminController@deleteUser');
+    $router->post('/admin/cursos/crear',          'AdminController@createCourse');
+    $router->post('/admin/cursos/actualizar',     'AdminController@updateCourse');
+    $router->post('/admin/cursos/eliminar',       'AdminController@deleteCourse');
     $router->post('/admin/lecciones/crear',       'AdminController@createLesson');
     $router->post('/admin/lecciones/actualizar',  'AdminController@updateLesson');
     $router->post('/admin/lecciones/eliminar',    'AdminController@deleteLesson');
