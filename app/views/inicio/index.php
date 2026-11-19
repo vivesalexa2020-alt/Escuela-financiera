@@ -156,12 +156,12 @@
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
           <a href="index.php?page=admin" class="topbar-admin-btn" title="Ir al Panel de Administración">
             <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
-            <span>Panel Admin</span>
+            <span>Acceder como Administrador</span>
           </a>
         <?php else: ?>
           <a href="javascript:void(0)" onclick="openAdminLogin(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Acceso al Panel de Administrador">
             <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
-            <span>Panel Admin</span>
+            <span>Acceder como Administrador</span>
           </a>
         <?php endif; ?>
       </div>
