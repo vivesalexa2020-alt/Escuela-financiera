@@ -6764,6 +6764,611 @@
     }
 
     /* ============================================================
+       DIAGNÓSTICO DE HÁBITOS — TEMA INSTITUCIONAL VERDE
+       ============================================================ */
+    .atomic-habits-section {
+      background: linear-gradient(180deg, #f8fcf9 0%, #eef8f2 100%);
+    }
+
+    .atomic-overview-header h2 { color: var(--verde-bosque); }
+    .atomic-sub { color: var(--verde-principal); }
+    .atomic-intro-desc { color: var(--gris-medio); }
+    .atomic-tagline span {
+      background: #eafaf1;
+      color: var(--verde-principal);
+      border-color: #bbf0d0;
+    }
+
+    .atomic-card-container {
+      background: var(--blanco);
+      border: 1px solid #cbe8d9;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(6, 64, 45, 0.10);
+      color: var(--gris-oscuro);
+    }
+
+    .atomic-form-header {
+      position: relative;
+      padding-right: 118px;
+    }
+
+    .atomic-form-title { color: var(--verde-bosque); }
+    .atomic-form-subtitle { color: var(--gris-medio); }
+
+    .atomic-exit-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border: 1px solid #cbe8d9;
+      border-radius: 999px;
+      background: #f4fbf7;
+      color: var(--verde-principal);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .atomic-exit-btn:hover {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+    }
+
+    .atomic-score-live-pill {
+      background: #eafaf1;
+      border-color: #bbf0d0;
+    }
+
+    .live-score-label { color: var(--gris-medio); }
+
+    .live-score-number {
+      color: var(--verde-principal);
+      text-shadow: none;
+    }
+
+    .atomic-pill-badge {
+      background: #eafaf1;
+      color: var(--verde-principal);
+      border-color: #bbf0d0;
+    }
+
+    .atomic-card-title { color: var(--verde-bosque); }
+    .atomic-card-subtitle { color: var(--gris-medio); }
+
+    .atomic-interactive-banner {
+      background: linear-gradient(135deg, #f0faf5 0%, #f8fcf9 100%);
+      border-color: #cbe8d9;
+    }
+
+    .banner-graphic-text h4 { color: var(--verde-bosque); }
+    .banner-graphic-text p { color: var(--gris-medio); }
+
+    .banner-badge-btn {
+      background: #ffffff;
+      border-color: #d4e7de;
+      color: var(--gris-oscuro);
+    }
+
+    .banner-badge-btn:hover {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+    }
+
+    .banner-badge-btn .badge-pill-val {
+      background: var(--verde-principal);
+      color: #ffffff;
+    }
+
+    .atomic-visual-hub {
+      background: #f8fcf9;
+      border-color: #cbe8d9;
+      box-shadow: inset 0 2px 8px rgba(6, 64, 45, 0.04);
+    }
+
+    .atomic-hub-tabs { border-bottom-color: #d4e7de; }
+
+    .atomic-hub-tab {
+      background: #ffffff;
+      border-color: #d4e7de;
+      color: var(--gris-medio);
+    }
+
+    .atomic-hub-tab:hover { color: var(--verde-principal); }
+
+    .atomic-hub-tab.active {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+      color: var(--verde-principal);
+      box-shadow: none;
+    }
+
+    .atomic-sim-tag { color: var(--verde-principal); }
+    .atomic-sim-title { color: var(--verde-bosque); }
+    .atomic-sim-sub { color: var(--gris-medio); }
+
+    .atomic-metric-pill {
+      background: #eafaf1;
+      border-color: #bbf0d0;
+    }
+
+    .atomic-metric-label { color: var(--gris-medio); }
+    .atomic-metric-val { color: var(--verde-principal); }
+
+    .atomic-slider-box {
+      background: #ffffff;
+      border-color: #d4e7de;
+    }
+
+    .atomic-slider-labels { color: var(--gris-medio); }
+    .atomic-slider-curr { color: var(--verde-principal); }
+    .atomic-range-slider { background: #d4e7de; }
+    .atomic-range-slider::-webkit-slider-thumb {
+      background: var(--verde-principal);
+      box-shadow: 0 2px 8px rgba(0, 112, 60, 0.3);
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border-color: #d4e7de;
+      color: var(--gris-oscuro);
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+    }
+
+    .comp-positive {
+      background: #f0faf5;
+      border-color: #bbf0d0;
+    }
+
+    .comp-negative {
+      background: #fff7ed;
+      border-color: #fdba74;
+    }
+
+    .comp-positive .comp-badge { color: var(--verde-principal); }
+    .comp-negative .comp-badge { color: #c2410c; }
+    .comp-positive .comp-val { color: var(--verde-bosque); }
+    .comp-negative .comp-val { color: #9a3412; }
+    .comp-prog-bar { background: #e9ecef; }
+    .comp-fill-pos { background: var(--verde-principal); }
+    .comp-fill-neg { background: #ea580c; }
+    .comp-desc { color: var(--gris-oscuro); }
+
+    .atomic-quadrant-card {
+      background: #ffffff;
+      border-color: #d4e7de;
+    }
+
+    .atomic-quadrant-card:hover { background: #f4fbf7; }
+
+    .atomic-quadrant-card.active {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+      box-shadow: 0 0 0 2px rgba(0, 112, 60, 0.12);
+    }
+
+    .quad-num { color: var(--verde-principal); }
+    .quad-name { color: var(--verde-bosque); }
+    .quad-hint { color: var(--gris-medio); }
+
+    .atomic-quad-detail-box {
+      background: #f8fcf9;
+      border-color: #bbf0d0;
+    }
+
+    .quad-detail-title { color: var(--verde-principal); }
+    .quad-detail-desc { color: var(--gris-oscuro); }
+
+    .quad-detail-tactic {
+      background: #eafaf1;
+      border-left-color: var(--verde-principal);
+      color: var(--gris-oscuro);
+    }
+
+    .atom-orbit { stroke: rgba(0, 112, 60, 0.3); }
+    .atom-electron { fill: var(--verde-principal); filter: drop-shadow(0 0 4px rgba(0, 112, 60, 0.5)); }
+    .atomic-reactor-text { color: var(--gris-medio); }
+
+    .atom-chip {
+      background: #ffffff;
+      border-color: #d4e7de;
+      color: var(--gris-medio);
+    }
+
+    .atom-chip:hover { border-color: var(--verde-principal); color: var(--verde-principal); }
+    .atom-chip.active {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+      color: var(--verde-principal);
+      box-shadow: none;
+    }
+
+    .stepper-step {
+      background: #f8fcf9;
+      border-color: #d4e7de;
+      color: var(--gris-medio);
+    }
+
+    .stepper-step:hover {
+      background: #eafaf1;
+      color: var(--verde-principal);
+    }
+
+    .stepper-step.answered {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+      box-shadow: none;
+    }
+
+    .atomic-glossary-btn {
+      background: #eafaf1;
+      border-color: #bbf0d0;
+      color: var(--verde-principal);
+    }
+
+    .atomic-glossary-btn:hover {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+    }
+
+    .atomic-glossary-card {
+      background: #f0faf5;
+      border-left-color: var(--verde-principal);
+      color: var(--gris-oscuro);
+    }
+
+    .badge-pro { background: #eafaf1; color: var(--verde-principal); }
+    .badge-neutral { background: #fff8e6; color: #92610a; }
+    .badge-danger { background: #fff1f2; color: #be123c; }
+    .badge-target { background: #eef2ff; color: #4338ca; }
+
+    .atomic-live-insight {
+      background: #f4fbf7;
+      border-color: #bbf0d0;
+      color: var(--gris-oscuro);
+    }
+
+    @keyframes blockPulse {
+      0% { transform: scale(1); box-shadow: none; }
+      50% { transform: scale(1.015); box-shadow: 0 0 18px rgba(0, 112, 60, 0.25); border-color: var(--verde-principal); }
+      100% { transform: scale(1); box-shadow: none; }
+    }
+
+    .atomic-intention-box {
+      background: #fff8e6;
+      border-color: #fcd34d;
+    }
+
+    .atomic-intention-head,
+    .intent-highlight { color: #8a5a00; }
+    .atomic-intention-formula { color: var(--gris-oscuro); }
+    .atomic-copy-intent-btn {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+    }
+    .atomic-copy-intent-btn:hover { background: var(--verde-bosque); }
+
+    .atomic-progress-box {
+      background: #f8fcf9;
+      border-color: #d4e7de;
+    }
+
+    .atomic-prog-title { color: var(--verde-bosque); }
+    .atomic-prog-count { color: var(--verde-principal); }
+    .atomic-progress-bar-track { background: #d4e7de; }
+    .atomic-progress-bar-fill {
+      background: linear-gradient(90deg, var(--verde-principal) 0%, var(--verde-claro) 100%);
+      box-shadow: none;
+    }
+
+    .atomic-carousel-nav { border-top-color: #e3f1e9; }
+    .atomic-carousel-label { color: var(--gris-medio); }
+    .atomic-carousel-dot { border-color: #a7d4bf; }
+    .atomic-carousel-dot:hover { border-color: var(--verde-principal); }
+    .atomic-carousel-dot.active {
+      border-color: var(--verde-principal);
+      background: var(--verde-principal);
+      box-shadow: 0 0 0 3px rgba(0, 112, 60, 0.12);
+    }
+
+    .atomic-carousel-arrow {
+      background: #ffffff;
+      border-color: #cbe8d9;
+      color: var(--verde-principal);
+    }
+
+    .atomic-carousel-arrow:hover:not(:disabled) {
+      background: var(--verde-principal);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 112, 60, 0.2);
+    }
+
+    .atomic-carousel-arrow:disabled { opacity: 0.45; }
+
+    .atomic-q-block { border-bottom-color: #e3f1e9; }
+    .atomic-q-block.has-error {
+      border-color: #fca5a5;
+      background: #fff5f5;
+    }
+
+    .atomic-q-title { color: var(--verde-bosque); }
+
+    .atomic-option-label {
+      background: #f9fdfb;
+      border-color: #d4e7de;
+    }
+
+    .atomic-option-label:hover {
+      background: #f0faf5;
+      border-color: var(--verde-claro);
+    }
+
+    .atomic-option-label:has(input[type="radio"]:checked) {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+      box-shadow: 0 0 0 1px rgba(0, 112, 60, 0.12);
+    }
+
+    .atomic-radio-circle {
+      border-color: #9dc9b5;
+      background: #ffffff;
+    }
+
+    .atomic-option-label:hover .atomic-radio-circle { border-color: var(--verde-principal); }
+    .atomic-option-label input[type="radio"]:checked + .atomic-radio-circle { border-color: var(--verde-principal); }
+
+    .atomic-option-label input[type="radio"]:checked + .atomic-radio-circle::after {
+      background: var(--verde-principal);
+      box-shadow: none;
+    }
+
+    .atomic-option-text { color: var(--gris-oscuro); }
+    .atomic-option-label input[type="radio"]:checked ~ .atomic-option-text {
+      color: var(--verde-bosque);
+      font-weight: 600;
+    }
+
+    .atomic-validation-alert {
+      background: #fff7ed;
+      border-color: #fdba74;
+      color: #9a3412;
+    }
+
+    .atomic-btn-submit {
+      background: linear-gradient(135deg, var(--verde-principal) 0%, var(--verde-bosque) 100%);
+      border-color: var(--verde-principal);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(0, 112, 60, 0.22);
+    }
+
+    .atomic-btn-submit:hover {
+      background: linear-gradient(135deg, var(--verde-bosque) 0%, var(--verde-principal) 100%);
+      border-color: var(--verde-bosque);
+      box-shadow: 0 12px 28px rgba(0, 112, 60, 0.3);
+    }
+
+    /* Análisis breve al finalizar el cuestionario */
+    .atomic-mini-analysis {
+      margin-top: 24px;
+      background: #f4fbf7;
+      border: 1px solid #bfe5d4;
+      border-left: 4px solid var(--verde-principal);
+      border-radius: 16px;
+      padding: 18px 22px;
+      animation: fadeInDiag 0.35s ease;
+    }
+
+    .atomic-mini-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .atomic-mini-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #e2f5e9;
+      color: var(--verde-principal);
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .atomic-mini-copy { flex: 1; min-width: 180px; }
+
+    .atomic-mini-label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--verde-principal);
+    }
+
+    .atomic-mini-profile {
+      margin: 2px 0 0;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--verde-bosque);
+      line-height: 1.3;
+    }
+
+    .atomic-mini-score {
+      background: var(--verde-principal);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .atomic-mini-text {
+      margin: 12px 0 16px;
+      font-size: 14px;
+      color: var(--gris-oscuro);
+      line-height: 1.55;
+    }
+
+    .atomic-mini-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .atomic-btn-outline,
+    .atomic-btn-exit {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .atomic-btn-outline {
+      background: var(--verde-principal);
+      border: 1px solid var(--verde-principal);
+      color: #ffffff;
+    }
+
+    .atomic-btn-outline:hover {
+      background: var(--verde-bosque);
+      border-color: var(--verde-bosque);
+    }
+
+    .atomic-btn-exit {
+      background: #ffffff;
+      border: 1px solid #cbe8d9;
+      color: var(--verde-principal);
+    }
+
+    .atomic-btn-exit:hover {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+    }
+
+    .atomic-exit-notice {
+      max-width: 1140px;
+      margin: 18px auto 0;
+      background: #ffffff;
+      border: 1px dashed #86efac;
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--gris-oscuro);
+      font-size: 14px;
+    }
+
+    .atomic-exit-notice button {
+      background: var(--verde-principal);
+      border: 1px solid var(--verde-principal);
+      color: #ffffff;
+      padding: 9px 16px;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .atomic-exit-notice button:hover { background: var(--verde-bosque); }
+
+    /* Resultado detallado (se abre desde el análisis breve) */
+    .atomic-result-box {
+      background: #ffffff;
+      border-color: #cbe8d9;
+      box-shadow: 0 15px 40px rgba(6, 64, 45, 0.10);
+      color: var(--gris-oscuro);
+    }
+
+    .atomic-res-header { border-bottom-color: #e3f1e9; }
+    .atomic-res-title { color: var(--verde-bosque); }
+    .atomic-res-score { color: var(--gris-medio); }
+    .atomic-res-body { color: var(--gris-oscuro); }
+
+    .badge-success {
+      background: #eafaf1;
+      color: var(--verde-principal);
+      border-color: #bbf0d0;
+    }
+
+    .badge-warning {
+      background: #fff8e6;
+      color: #92610a;
+      border-color: #fcd34d;
+    }
+
+    .badge-alert {
+      background: #fff1f2;
+      color: #be123c;
+      border-color: #fecdd3;
+    }
+
+    .atomic-target-box {
+      background: #f0faf5;
+      border-color: #86efac;
+    }
+
+    .atomic-target-title { color: var(--verde-principal); }
+    .atomic-res-quote {
+      background: #f4fbf7;
+      border-left-color: var(--verde-principal);
+      color: var(--gris-oscuro);
+    }
+
+    .atomic-law-card {
+      background: #f9fdfb;
+      border-color: #d4e7de;
+    }
+
+    .atomic-law-num { color: var(--verde-principal); }
+    .atomic-law-title { color: var(--verde-bosque); }
+    .atomic-law-desc { color: var(--gris-oscuro); }
+
+    .atomic-btn-restart {
+      background: #ffffff;
+      border-color: #cbe8d9;
+      color: var(--verde-principal);
+    }
+
+    .atomic-btn-restart:hover {
+      background: #eafaf1;
+      border-color: var(--verde-principal);
+      color: var(--verde-bosque);
+    }
+
+    @media (max-width: 640px) {
+      .atomic-form-header { padding-right: 0; }
+      .atomic-exit-btn { position: static; margin-bottom: 12px; }
+      .atomic-mini-analysis { padding: 16px; }
+      .atomic-mini-actions .atomic-btn-outline,
+      .atomic-mini-actions .atomic-btn-exit { width: 100%; justify-content: center; }
+    }
+
+    /* ============================================================
        MODAL DE TESTIMONIO EN VIDEO (ESTUDIANTES)
        ============================================================ */
     .student-video-modal {

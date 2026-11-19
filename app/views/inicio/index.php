@@ -91,7 +91,7 @@
               <span class="page-text">Invierte<br>Hoy</span>
             </div>
             <div class="page-back">
-              <span class="page-icon"><i class="fi fi-sr-star" style="color:#f59e0b;"></i></span>
+              <span class="page-icon"><i class="fi fi-sr-star" style="color:#F5B800;"></i></span>
               <span class="page-text">Éxito<br>Financiero</span>
             </div>
           </div>
@@ -815,9 +815,12 @@
 <section class="atomic-habits-section" id="habitos-atomicos">
   <div class="container">
     
-      <!-- TARJETA OSCURA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
+      <!-- TARJETA PRINCIPAL DEL FORMULARIO / DIAGNÓSTICO -->
       <div class="atomic-card-container">
         <div class="atomic-form-header">
+          <button type="button" class="atomic-exit-btn" onclick="exitAtomicDiagnostic()" aria-label="Salir del diagnóstico">
+            <i class="fi fi-rr-cross-small" aria-hidden="true"></i> Salir
+          </button>
           <h2 class="atomic-form-title">Diagnóstico de Hábitos Financieros</h2>
           <p class="atomic-form-subtitle">Responde estas preguntas para descubrir tu perfil y recibir recomendaciones personalizadas.</p>
         </div>
@@ -1024,10 +1027,33 @@
 
       </form>
 
-      <!-- RESULTADO DEL DIAGNÓSTICO (Generado con JS) -->
+      <!-- ANÁLISIS BREVE DEL DIAGNÓSTICO (Generado con JS) -->
+      <div id="atomicMiniAnalysis" class="atomic-mini-analysis" style="display: none;" aria-live="polite">
+        <div class="atomic-mini-head">
+          <span class="atomic-mini-icon"><i class="fi fi-rr-chart-histogram" aria-hidden="true"></i></span>
+          <div class="atomic-mini-copy">
+            <span class="atomic-mini-label">Tu análisis rápido</span>
+            <h3 class="atomic-mini-profile" id="atomicMiniProfile"></h3>
+          </div>
+          <span class="atomic-mini-score" id="atomicMiniScore">0%</span>
+        </div>
+        <p class="atomic-mini-text" id="atomicMiniSummary"></p>
+        <div class="atomic-mini-actions">
+          <button type="button" class="atomic-btn-outline" id="atomicDetailBtn" onclick="toggleAtomicDetail()"><i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado</button>
+          <button type="button" class="atomic-btn-exit" onclick="exitAtomicDiagnostic()"><i class="fi fi-rr-sign-out-alt" aria-hidden="true"></i> Salir del diagnóstico</button>
+        </div>
+      </div>
+
+      <!-- RESULTADO DETALLADO DEL DIAGNÓSTICO (Generado con JS) -->
       <div id="atomicResultSection" class="atomic-result-box" style="display: none;"></div>
 
     </div><!-- /atomic-card-container -->
+
+    <!-- AVISO AL SALIR DEL ESPACIO DE DIAGNÓSTICO -->
+    <div id="atomicExitNotice" class="atomic-exit-notice" style="display: none;">
+      <span><i class="fi fi-rr-info" aria-hidden="true"></i> Saliste del diagnóstico. Tus respuestas se conservarán si vuelves a entrar.</span>
+      <button type="button" onclick="reopenAtomicDiagnostic()">Volver al diagnóstico</button>
+    </div>
 
   </div>
 </section>
@@ -2093,29 +2119,29 @@
   // 5. Micro-Feedback Inmediato al Seleccionar Opciones (Hábitos Financieros)
   var optionInsights = {
     // 1. ¿Cómo administras tu dinero cuando recibes tus ingresos?
-    '1_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Excelente hábito!</strong> Aplicas el principio fundamental: "Págate a ti mismo primero". Priorizar el ahorro antes del gasto asegura que tus fondos de libertad crezcan sin depender de lo que sobre.',
-    '1_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Hábito reactivo:</strong> Si esperas a ver qué sobra a fin de mes, casi nunca sobrará. James Clear recomienda programar un traspaso automático el día exacto de pago.',
-    '1_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Punto ciego crítico:</strong> Gastar sin control genera estrés y desorden. Para romper este ciclo, basta aplicar la Regla de los 2 Minutos y registrar tus compras diarias.',
+    '1_opt1': '<i class="fi fi-sr-star" style="color:#F5B800;"></i> <strong>¡Excelente hábito!</strong> Aplicas el principio fundamental: "Págate a ti mismo primero". Priorizar el ahorro antes del gasto asegura que tus fondos de libertad crezcan sin depender de lo que sobre.',
+    '1_opt2': '<i class="fi fi-rr-bulb" style="color:#F5B800;"></i> <strong>Hábito reactivo:</strong> Si esperas a ver qué sobra a fin de mes, casi nunca sobrará. James Clear recomienda programar un traspaso automático el día exacto de pago.',
+    '1_opt3': '<i class="fi fi-rr-exclamation" style="color:#c2410c;"></i> <strong>Punto ciego crítico:</strong> Gastar sin control genera estrés y desorden. Para romper este ciclo, basta aplicar la Regla de los 2 Minutos y registrar tus compras diarias.',
     
     // 2. ¿Con qué frecuencia compras cosas que realmente no necesitas?
-    '2_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Gran autocontrol!</strong> Sabes diferenciar entre un deseo momentáneo y una necesidad real, protegiendo tu dinero de compras impulsivas.',
-    '2_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Cuidado con los gastos hormiga:</strong> Varias compras pequeñas a la semana parecen inofensivas hoy, pero al cabo de un año representan miles de pesos que podrías haber invertido.',
-    '2_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Trampa de dopamina:</strong> Las compras por impulso responden a gratificación rápida. Solución de James Clear: aumenta la fricción borrando tus tarjetas guardadas en tu celular.',
+    '2_opt1': '<i class="fi fi-sr-star" style="color:#F5B800;"></i> <strong>¡Gran autocontrol!</strong> Sabes diferenciar entre un deseo momentáneo y una necesidad real, protegiendo tu dinero de compras impulsivas.',
+    '2_opt2': '<i class="fi fi-rr-bulb" style="color:#F5B800;"></i> <strong>Cuidado con los gastos hormiga:</strong> Varias compras pequeñas a la semana parecen inofensivas hoy, pero al cabo de un año representan miles de pesos que podrías haber invertido.',
+    '2_opt3': '<i class="fi fi-rr-exclamation" style="color:#c2410c;"></i> <strong>Trampa de dopamina:</strong> Las compras por impulso responden a gratificación rápida. Solución de James Clear: aumenta la fricción borrando tus tarjetas guardadas en tu celular.',
     
     // 3. ¿Registras tus gastos diarios?
-    '3_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡1ª Ley: Hazlo Obvio!</strong> Llevar un registro claro te da el poder de decidir con información real. Lo que se mide se puede optimizar y mejorar.',
-    '3_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Falta de consistencia:</strong> Registrar solo de vez en cuando genera lagunas de información. No necesitas tablas complejas: anota en 30 segundos tus gastos en una nota rápida.',
-    '3_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Ceguera de gastos:</strong> No saber en qué se va el dinero es el mayor obstáculo para prosperar. Inicia hoy con la meta mínima de anotar 1 solo gasto al día.',
+    '3_opt1': '<i class="fi fi-sr-star" style="color:#F5B800;"></i> <strong>¡1ª Ley: Hazlo Obvio!</strong> Llevar un registro claro te da el poder de decidir con información real. Lo que se mide se puede optimizar y mejorar.',
+    '3_opt2': '<i class="fi fi-rr-bulb" style="color:#F5B800;"></i> <strong>Falta de consistencia:</strong> Registrar solo de vez en cuando genera lagunas de información. No necesitas tablas complejas: anota en 30 segundos tus gastos en una nota rápida.',
+    '3_opt3': '<i class="fi fi-rr-exclamation" style="color:#c2410c;"></i> <strong>Ceguera de gastos:</strong> No saber en qué se va el dinero es el mayor obstáculo para prosperar. Inicia hoy con la meta mínima de anotar 1 solo gasto al día.',
     
     // 4. ¿Tienes el hábito de ahorrar?
-    '4_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Identidad Atómica Sólida!</strong> Has adoptado la identidad de una persona ahorradora e inversionista. Cada depósito es un voto a favor de tu libertad futura.',
-    '4_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Ahorro inconstante:</strong> Ahorrar "cuando se puede" depende de la suerte y el estado de ánimo. Convierte el ahorro en un sistema fijo, no en una casualidad.',
-    '4_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Oportunidad de oro:</strong> No necesitas miles de pesos para comenzar. Un hábito atómico de apartar $20 MXN diarios entrena la disciplina mental antes de que crezcan los montos.',
+    '4_opt1': '<i class="fi fi-sr-star" style="color:#F5B800;"></i> <strong>¡Identidad Atómica Sólida!</strong> Has adoptado la identidad de una persona ahorradora e inversionista. Cada depósito es un voto a favor de tu libertad futura.',
+    '4_opt2': '<i class="fi fi-rr-bulb" style="color:#F5B800;"></i> <strong>Ahorro inconstante:</strong> Ahorrar "cuando se puede" depende de la suerte y el estado de ánimo. Convierte el ahorro en un sistema fijo, no en una casualidad.',
+    '4_opt3': '<i class="fi fi-rr-exclamation" style="color:#c2410c;"></i> <strong>Oportunidad de oro:</strong> No necesitas miles de pesos para comenzar. Un hábito atómico de apartar $20 MXN diarios entrena la disciplina mental antes de que crezcan los montos.',
     
     // 5. ¿Qué haces cuando quieres comprar algo que te gusta?
-    '5_opt1': '<i class="fi fi-sr-star" style="color:#f59e0b;"></i> <strong>¡Filtro racional!</strong> Preguntarte si realmente lo necesitas te da una pausa consciente frente a los impulsos emocionales de consumo.',
-    '5_opt2': '<i class="fi fi-rr-bulb" style="color:#eab308;"></i> <strong>Estrategia de enfriamiento:</strong> Dar un tiempo de espera (Regla de las 72 Horas) permite que el cerebro recupere la calma y decida sin el pico de emoción inicial.',
-    '5_opt3': '<i class="fi fi-rr-exclamation" style="color:#ef4444;"></i> <strong>Compra inmediata:</strong> Comprar en el instante responde a gratificación inmediata. Añade fricción: retira los métodos de pago de un solo clic.',
+    '5_opt1': '<i class="fi fi-sr-star" style="color:#F5B800;"></i> <strong>¡Filtro racional!</strong> Preguntarte si realmente lo necesitas te da una pausa consciente frente a los impulsos emocionales de consumo.',
+    '5_opt2': '<i class="fi fi-rr-bulb" style="color:#F5B800;"></i> <strong>Estrategia de enfriamiento:</strong> Dar un tiempo de espera (Regla de las 72 Horas) permite que el cerebro recupere la calma y decida sin el pico de emoción inicial.',
+    '5_opt3': '<i class="fi fi-rr-exclamation" style="color:#c2410c;"></i> <strong>Compra inmediata:</strong> Comprar en el instante responde a gratificación inmediata. Añade fricción: retira los métodos de pago de un solo clic.',
     
     // 6. ¿Qué hábito financiero te gustaría cambiar?
     '6_opt1': '<i class="fi fi-rr-target"></i> <strong>Objetivo fijado:</strong> Dejar de comprar por impulso. Usaremos la 3ª Ley Invertida (Hacerlo Difícil) para crear barreras entre la tentación y el pago.',
@@ -2429,8 +2455,33 @@
       profileDesc = 'Actualmente tus comportamientos financieros responden más al impulso y a la inmediatez que a un sistema estructurado. La buena noticia: según <em>Hábitos Atómicos</em>, no necesitas más fuerza de voluntad, sino diseñar un entorno que te facilite tomar buenas decisiones.';
     }
 
+    var miniBox = document.getElementById('atomicMiniAnalysis');
+    var miniProfile = document.getElementById('atomicMiniProfile');
+    var miniScore = document.getElementById('atomicMiniScore');
+    var miniSummary = document.getElementById('atomicMiniSummary');
+    var detailBtn = document.getElementById('atomicDetailBtn');
+
+    if (miniProfile) miniProfile.textContent = profileTitle;
+    if (miniScore) miniScore.textContent = pctScore + '%';
+    if (miniSummary) {
+      var summaryText = {
+        'opt1': 'Tu próximo paso: crear fricción antes de pagar y aplicar la regla de las 72 horas.',
+        'opt2': 'Tu próximo paso: convertir cada gasto hormiga evitado en un micro-ahorro automático.',
+        'opt3': 'Tu próximo paso: apartar el 10% de tus ingresos el mismo día que te paguen.',
+        'opt4': 'Tu próximo paso: registrar tus gastos en 2 minutos cada noche.'
+      };
+      miniSummary.textContent = 'Madurez de hábitos: ' + score + ' de 15 puntos. ' +
+        (summaryText[targetHabitKey] || summaryText['opt1']);
+    }
+    if (detailBtn) detailBtn.innerHTML = '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
+    if (miniBox) {
+      miniBox.style.display = 'block';
+      miniBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     var resultBox = document.getElementById('atomicResultSection');
     if (!resultBox) return;
+    resultBox.style.display = 'none';
 
     var lawsHtml = '';
     currentTarget.laws.forEach(function(law) {
@@ -2453,7 +2504,7 @@
         '<p>' + profileDesc + '</p>' +
         '<div class="atomic-target-box">' +
           '<div class="atomic-target-title"><i class="fi fi-rr-target"></i> Hábito Seleccionado para Transformar: ' + currentTarget.title + '</div>' +
-          '<p style="margin: 0; font-size: 14.5px; color: #e2e8f0;">Siguiendo los principios de James Clear, el cambio duradero no proviene de metas gigantescas, sino de instalar una <strong>Intención de Implementación</strong> clara y reducir la fricción inicial.</p>' +
+          '<p style="margin: 0; font-size: 14.5px; color: var(--gris-oscuro);">Siguiendo los principios de James Clear, el cambio duradero no proviene de metas gigantescas, sino de instalar una <strong>Intención de Implementación</strong> clara y reducir la fricción inicial.</p>' +
         '</div>' +
         
         <!-- Creador Interactivo de Intención de Implementación Personalizada -->
@@ -2467,22 +2518,55 @@
           '<button type="button" class="atomic-copy-intent-btn" onclick="copyAtomicCommitment()">' +
             '<i class="fi fi-rr-copy"></i> Copiar mi compromiso diario' +
           '</button>' +
-          '<span id="intentCopiedMsg" style="display:none; color:#34d399; font-size:13px; font-weight:600; margin-left:10px;">¡Copiado al portapapeles!</span>' +
+          '<span id="intentCopiedMsg" style="display:none; color:var(--verde-principal); font-size:13px; font-weight:600; margin-left:10px;">¡Copiado al portapapeles!</span>' +
         '</div>' +
 
-        '<h4 style="color: #ffffff; font-size: 16px; margin: 20px 0 10px 0;">Plan de Acción con las 4 Leyes de James Clear para ' + currentTarget.title + ':</h4>' +
+        '<h4 style="color: var(--verde-bosque); font-size: 16px; margin: 20px 0 10px 0;">Plan de Acción con las 4 Leyes de James Clear para ' + currentTarget.title + ':</h4>' +
         '<div class="atomic-laws-grid">' + lawsHtml + '</div>' +
         '<div class="atomic-res-quote">' +
           '«No te elevas al nivel de tus metas. Caes al nivel de tus sistemas. Tus hábitos son el interés compuesto de la superación personal.»<br>' +
           '<strong>— James Clear, Hábitos Atómicos</strong>' +
         '</div>' +
         '<div class="atomic-res-actions">' +
+          '<button type="button" class="atomic-btn-restart" onclick="toggleAtomicDetail()"><i class="fi fi-rr-list-check"></i> Volver al análisis breve</button>' +
           '<button type="button" class="atomic-btn-restart" onclick="resetAtomicDiagnostic()"><i class="fi fi-rr-refresh"></i> Modificar o repetir respuestas</button>' +
+          '<button type="button" class="atomic-btn-restart" onclick="exitAtomicDiagnostic()"><i class="fi fi-rr-sign-out-alt"></i> Salir del diagnóstico</button>' +
         '</div>' +
       '</div>';
+  }
 
-    resultBox.style.display = 'block';
-    resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  function toggleAtomicDetail() {
+    var resultBox = document.getElementById('atomicResultSection');
+    var detailBtn = document.getElementById('atomicDetailBtn');
+    if (!resultBox) return;
+    var willShow = resultBox.style.display !== 'block';
+    resultBox.style.display = willShow ? 'block' : 'none';
+    if (detailBtn) {
+      detailBtn.innerHTML = willShow
+        ? '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ocultar plan detallado'
+        : '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
+    }
+    if (willShow) resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function exitAtomicDiagnostic() {
+    var card = document.querySelector('.atomic-card-container');
+    var notice = document.getElementById('atomicExitNotice');
+    if (card) card.style.display = 'none';
+    if (notice) {
+      notice.style.display = 'flex';
+      notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function reopenAtomicDiagnostic() {
+    var card = document.querySelector('.atomic-card-container');
+    var notice = document.getElementById('atomicExitNotice');
+    if (card) {
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (notice) notice.style.display = 'none';
   }
 
   function copyAtomicCommitment() {
@@ -2520,6 +2604,14 @@
       resultBox.style.display = 'none';
       resultBox.innerHTML = '';
     }
+
+    var miniBox = document.getElementById('atomicMiniAnalysis');
+    if (miniBox) miniBox.style.display = 'none';
+
+    var detailBtn = document.getElementById('atomicDetailBtn');
+    if (detailBtn) detailBtn.innerHTML = '<i class="fi fi-rr-list-check" aria-hidden="true"></i> Ver plan detallado';
+
+    reopenAtomicDiagnostic();
 
     var alertBox = document.getElementById('atomicValidationAlert');
     if (alertBox) alertBox.style.display = 'none';
