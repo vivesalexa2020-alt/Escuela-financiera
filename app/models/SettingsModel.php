@@ -16,10 +16,22 @@ class SettingsModel extends Model {
         'mensaje_mantenimiento'  => 'Estamos realizando mejoras en la plataforma. Vuelve en unos minutos.',
     ];
 
+    public function __construct() {
+        try {
+            parent::__construct();
+        } catch (\Throwable $e) {
+            // Sin BD: se trabajará solo con valores por defecto
+            $this->db = null;
+        }
+    }
+
     public function getAll(): array {
         $settings = self::DEFAULTS;
 
         try {
+            if ($this->db === null) {
+                return $settings;
+            }
             $stmt = $this->db->query("SELECT clave, valor FROM configuraciones");
             foreach ($stmt->fetchAll() as $row) {
                 if (array_key_exists($row['clave'], $settings)) {
@@ -43,7 +55,7 @@ class SettingsModel extends Model {
     }
 
     public function setMany(array $values): bool {
-        if (empty($values)) {
+        if (empty($values) || $this->db === null) {
             return false;
         }
 

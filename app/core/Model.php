@@ -5,7 +5,7 @@ use PDO;
 use App\Config\Database;
 
 abstract class Model {
-    protected PDO $db;
+    protected ?PDO $db;
 
     public function __construct(?PDO $db = null) {
         $this->db = $db ?? Database::getConnection();
