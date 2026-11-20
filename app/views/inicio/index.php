@@ -159,6 +159,12 @@
             <span>Acceder como Administrador</span>
           </a>
         <?php else: ?>
+          <?php if (empty($user)): ?>
+            <a href="javascript:void(0)" onclick="openLoginModal(); return false;" class="topbar-login-btn" id="btnLoginEstudiante" title="Iniciar sesión de estudiante">
+              <i class="fi fi-sr-sign-in-alt"></i>
+              <span>Iniciar sesión</span>
+            </a>
+          <?php endif; ?>
           <a href="javascript:void(0)" onclick="openAdminLogin(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Acceso al Panel de Administrador">
             <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
             <span>Acceder como Administrador</span>
@@ -2593,6 +2599,36 @@
   transform: translateY(-2px) !important;
 }
 .topbar-admin-btn:hover i {
+  color: #042e20 !important;
+}
+/* Botón de acceso para estudiantes en el header */
+.topbar-login-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 18px !important;
+  background: linear-gradient(135deg, #00703C 0%, #06402d 100%) !important;
+  color: #ffffff !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  border: 1.5px solid #28C76F !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.25s ease !important;
+  white-space: nowrap !important;
+  box-shadow: 0 3px 12px rgba(40, 199, 111, 0.3) !important;
+  cursor: pointer !important;
+  z-index: 101 !important;
+}
+.topbar-login-btn:hover {
+  background: #28C76F !important;
+  color: #042e20 !important;
+  border-color: #28C76F !important;
+  box-shadow: 0 4px 20px rgba(40, 199, 111, 0.6) !important;
+  transform: translateY(-2px) !important;
+}
+.topbar-login-btn:hover i {
   color: #042e20 !important;
 }
 </style>

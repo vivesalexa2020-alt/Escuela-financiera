@@ -30,6 +30,9 @@ async function loadCsrfToken() {
     const data = await res.json();
     if (data && data.csrf_token) CSRF_TOKEN = data.csrf_token;
     if (data && data.settings) PUBLIC_SETTINGS = Object.assign(PUBLIC_SETTINGS, data.settings);
+    if (data && data.loggedIn === false) {
+      try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
+    }
   } catch (e) { /* sin conexión: se reintentará en la próxima petición */ }
 }
 
@@ -192,11 +195,19 @@ const loginPassword = document.getElementById('loginPassword');
 const loginMsg = document.getElementById('loginMsg');
 const loginEmailErr = document.getElementById('loginEmailErr');
 const loginPasswordErr = document.getElementById('loginPasswordErr');
+let loginTitleDefault = null;
+let loginSubtitleDefault = null;
 
 function openLoginModal() {
   closeSignupModal();
   closeForgotModal();
   clearLoginErrors();
+  const modalTitle = document.querySelector('#loginModal h3');
+  const modalSubtitle = document.querySelector('#loginModal p');
+  if (modalTitle && loginTitleDefault === null) loginTitleDefault = modalTitle.innerHTML;
+  if (modalSubtitle && loginSubtitleDefault === null) loginSubtitleDefault = modalSubtitle.textContent;
+  if (modalTitle && loginTitleDefault !== null) modalTitle.innerHTML = loginTitleDefault;
+  if (modalSubtitle && loginSubtitleDefault !== null) modalSubtitle.textContent = loginSubtitleDefault;
   if (loginMsg) {
     loginMsg.className = 'form-message';
     loginMsg.textContent = '';
@@ -262,7 +273,27 @@ async function handleLoginSubmit(e) {
       credentials: 'include',
       body: JSON.stringify({ email, password: pass, csrf_token: CSRF_TOKEN })
     });
-    const data = await res.json();
+    const raw = await res.text();
+    let data;
+    try {
+      data = JSON.parse(raw);
+    } catch (e) {
+      if (loginMsg) {
+        loginMsg.className = 'form-message error';
+        loginMsg.textContent = 'Respuesta inválida del servidor (HTTP ' + res.status + ').';
+      }
+      return;
+    }
+
+    if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
+
+    if (!res.ok && !data.success) {
+      if (loginMsg) {
+        loginMsg.className = 'form-message error';
+        loginMsg.textContent = data.message || 'No se pudo iniciar sesión (HTTP ' + res.status + ').';
+      }
+      return;
+    }
 
     if (data.success) {
       setCurrentUser(data.user);
