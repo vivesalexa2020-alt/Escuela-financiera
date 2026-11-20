@@ -18,6 +18,11 @@ api/logs/
 storage/logs/*
 !storage/logs/.gitkeep
 
+# Subidas de archivos
+public/uploads/*
+!public/uploads/*/.gitkeep
+!public/uploads/.htaccess
+
 # Archivos de sistema
 .DS_Store
 Thumbs.db

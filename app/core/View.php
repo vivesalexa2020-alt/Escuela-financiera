@@ -5,7 +5,9 @@ class View {
     private static string $viewsDir;
 
     private static function init(): void {
-        self::$viewsDir = dirname(__DIR__) . '/views';
+        if (!isset(self::$viewsDir)) {
+            self::$viewsDir = dirname(__DIR__) . '/views';
+        }
     }
 
     /**
@@ -26,7 +28,8 @@ class View {
                 $viewFile = $viewFileHtml;
             } else {
                 http_response_code(404);
-                echo "<h1>Error 404: Vista no encontrada</h1><p>{$viewPath}</p>";
+                $escaped = htmlspecialchars($viewPath, ENT_QUOTES, 'UTF-8');
+                echo "<h1>Error 404: Vista no encontrada</h1><p>{$escaped}</p>";
                 return;
             }
         }

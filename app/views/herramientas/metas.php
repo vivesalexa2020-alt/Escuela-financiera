@@ -20,7 +20,7 @@
   <header class="site-header guest-header">
     <div class="container">
       <nav class="nav-wrap">
-        <a href="index.php" class="brand-logo">
+        <a href="index.php?page=home&skip_splash=1" class="brand-logo">
           <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 36px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -54,7 +54,7 @@
 
         <!-- Aviso en la parte superior: Menú bloqueado -->
         <div id="navGuestNotice" onclick="openLoginModal()" style="display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--accent-lime); background: rgba(203, 246, 62, 0.12); padding: 7px 18px; border-radius: 999px; border: 1px solid rgba(203, 246, 62, 0.35); cursor: pointer; font-weight: 600; transition: all 0.2s;" title="Haz clic para iniciar sesión">
-          <span>🔒</span> Inicia sesión para acceder al menú
+          <span><i class="fi fi-sr-lock"></i></span> Inicia sesión para acceder al menú
         </div>
 
         <div class="nav-actions">
@@ -68,7 +68,7 @@
       <!-- Barra superior del estudiante (tras iniciar sesión) -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">☰</button>
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
@@ -138,20 +138,62 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <span class="subpage-badge" style="margin: 0;">&#x1F3AF; Metas y H&aacute;bitos Financieros</span>
+        <span class="subpage-badge" style="margin: 0;"><i class="fi fi-rr-target"></i> Metas y H&aacute;bitos Financieros</span>
       </div>
       <h1>Mis <span>Metas Financieras</span></h1>
       <p>Organiza tu crecimiento con herramientas para crear h&aacute;bitos, simulador de decisiones y plan de recuperaci&oacute;n.</p>
     </div>
   </section>
 
-  <div id="protectedContent" style="display: block !important;">
+  
+  <!-- BANNER DE RESTRICCIÓN DE MEMBRESÍA -->
+  <div id="membershipLockBanner" class="membership-paywall-card" style="<?= !empty($tieneMembresia) ? 'display:none;' : 'display:block;' ?>">
+    <div class="container" style="padding: 24px 20px 60px;">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center; background: #ffffff; border-radius: 20px; padding: 42px 28px; box-shadow: 0 10px 35px rgba(0,0,0,0.07); border: 2px solid #e2e8f0;">
+        <div style="width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; background: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+          <i class="fi fi-sr-lock"></i>
+        </div>
+        <span style="display: inline-block; background: #e0f2fe; color: #0284c7; font-size: 13px; font-weight: 800; padding: 4px 14px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
+          Herramienta Exclusiva para Alumnos con Membresía
+        </span>
+        <h2 style="font-size: 26px; font-weight: 900; color: #0f172a; margin: 0 0 12px;">
+          Desbloquea tus Metas Financieras y Simuladores
+        </h2>
+        <p style="font-size: 16px; color: #64748b; line-height: 1.6; max-width: 620px; margin: 0 auto 24px;">
+          Tu cuenta actual incluye el <strong>primer mes de prueba 100% gratuito</strong> en la Retícula y Aula Virtual (Nivel 1). Para acceder al <strong>Simulador de Metas de Ahorro</strong>, los <strong>Retos Semanales</strong>, el <strong>Plan Anti-Deuda Bola de Nieve</strong> y los <strong>Niveles 2 y 3</strong>, activa tu membresía de $1,500 MXN/mes con cancelación libre.
+        </p>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px 22px; max-width: 540px; margin: 0 auto 26px; text-align: left;">
+          <div style="font-weight: 700; color: #0f172a; margin-bottom: 8px; font-size: 15px;">¿Qué incluye la Membresía Completa?</div>
+          <ul style="margin: 0; padding-left: 20px; font-size: 14.5px; color: #475569; line-height: 1.6;">
+            <li>Acceso total a las herramientas interactivas de Metas y Hábitos.</li>
+            <li>Simuladores de ahorro, retos semanales y estrategia anti-deuda.</li>
+            <li>Niveles 2 (Intermedio) y 3 (Avanzado) con 16 materias completas.</li>
+            <li>Certificación oficial de acreditación al terminar cada nivel.</li>
+          </ul>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 12px 28px; background: var(--amarillo-dorado, #fabb15); color: #06402d; font-weight: 800; font-size: 16px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 14px rgba(250,187,21,0.35); display: inline-flex; align-items: center; gap: 8px;">
+            <i class="fi fi-rr-credit-card"></i>
+            <span>Activar Membresía ($1,500 MXN / mes)</span>
+          </a>
+          <a href="index.php?page=aula" style="padding: 12px 22px; background: #f1f5f9; color: #334155; font-weight: 700; font-size: 15.5px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fi fi-rr-graduation-cap"></i>
+            <span>Ir a mi Mes Gratis (Aula)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="protectedContent" style="<?= !empty($tieneMembresia) ? 'display:block;' : 'display:none;' ?>">
     <div class="container" style="padding: 48px 20px 20px;">
       <!-- BANNER SUPERIOR PRINCIPIANTES -->
       <div style="background: linear-gradient(135deg, #053724 0%, #0d5f3e 100%); color: #ffffff; border-radius: 18px; padding: 24px 28px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(5,55,36,0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
         <div style="max-width: 680px;">
           <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(203,246,62,0.2); color: #cbf63e; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
-            <span>&#x2728;</span> Dise&ntilde;ado para Principiantes &bull; 100% Pr&aacute;ctico
+            <span><i class="fi fi-sr-sparkles"></i></span> Dise&ntilde;ado para Principiantes &bull; 100% Pr&aacute;ctico
           </div>
           <h2 style="font-size: 26.5px; font-weight: 900; color: #ffffff; margin: 0 0 6px;">Tu Centro de Metas y Transformaci&oacute;n Financiera</h2>
           <p style="font-size: 16.5px; color: #d7f4e6; margin: 0; line-height: 1.5;">
@@ -178,7 +220,7 @@
           
           <button type="button" class="metas-tab-btn active" id="tabBtnMetas" onclick="switchMetasTab('metas')" 
                   style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #00703C; cursor: pointer; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #00703C 0%, #064e2e 100%); color: #ffffff; box-shadow: 0 6px 18px rgba(0,112,60,0.25); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 30.5px; background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">&#x1F3AF;</span>
+            <span style="font-size: 30.5px; background: rgba(255,255,255,0.2); width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;"><i class="fi fi-rr-target" style="font-size:24px;"></i></span>
             <div>
               <div style="font-size: 17px; font-weight: 800;">1. Metas de Ahorro</div>
               <div style="font-size: 14px; opacity: 0.9; font-weight: 500;">Calcula y visualiza tu progreso</div>
@@ -187,7 +229,7 @@
 
           <button type="button" class="metas-tab-btn" id="tabBtnRetos" onclick="switchMetasTab('retos')" 
                   style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 30.5px; background: #fef3c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #d97706;">&#x1F3C6;</span>
+            <span style="font-size: 30.5px; background: #fef3c7; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #d97706;"><i class="fi fi-rr-trophy" style="font-size:24px;"></i></span>
             <div>
               <div style="font-size: 17px; font-weight: 800;">2. Retos Semanales</div>
               <div style="font-size: 14px; color: #64748b; font-weight: 500;">Desaf&iacute;os r&aacute;pidos con medallas</div>
@@ -196,7 +238,7 @@
 
           <button type="button" class="metas-tab-btn" id="tabBtnDeudas" onclick="switchMetasTab('deudas')" 
                   style="padding: 16px 20px; border-radius: 14px; font-weight: 800; font-size: 17px; border: 2px solid #e2e8f0; cursor: pointer; display: flex; align-items: center; gap: 12px; background: #ffffff; color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: all 0.25s ease; text-align: left;">
-            <span style="font-size: 30.5px; background: #fee2e2; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #dc2626;">&#x1F6E1;&#xFE0F;</span>
+            <span style="font-size: 30.5px; background: #fee2e2; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #dc2626;"><i class="fi fi-rr-shield-check" style="font-size:24px;"></i></span>
             <div>
               <div style="font-size: 17px; font-weight: 800;">3. M&eacute;todo Anti-Deuda</div>
               <div style="font-size: 14px; color: #64748b; font-weight: 500;">Estrategia Bola de Nieve</div>
@@ -215,7 +257,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
               <div>
                 <span style="background: #dcfce7; color: #15803d; font-size: 14px; font-weight: 800; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px;">
-                  &#x1F4B0; Simulador de Ahorro Paso a Paso
+                  <i class="fi fi-rr-sack-dollar"></i> Simulador de Ahorro Paso a Paso
                 </span>
                 <h3 style="font-size: 23.5px; font-weight: 900; color: #064e3b; margin: 0 0 4px;">&iquest;Qu&eacute; sue&ntilde;o o meta quieres alcanzar?</h3>
                 <p style="font-size: 15.5px; color: #475569; margin: 0;">Escribe tu meta e ingresa un aporte mensual c&oacute;modo (Â¡incluso desde $500 o $1,500 MXN!).</p>
@@ -225,31 +267,31 @@
             <form id="formNuevaMeta" onsubmit="agregarNuevaMeta(event)" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; align-items: flex-end;">
               <div>
                 <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
-                  &#x1F3AF; Nombre de la Meta
+                  <i class="fi fi-rr-target"></i> Nombre de la Meta
                 </label>
                 <input type="text" id="metaNombre" placeholder="Ej. Fondo de emergencia o Viaje" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
                 <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
-                  &#x1F4B5; Monto Objetivo ($ MXN)
+                  <i class="fi fi-rr-money-bill-wave"></i> Monto Objetivo ($ MXN)
                 </label>
                 <input type="number" id="metaObjetivo" placeholder="Ej. 15000" min="500" step="500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
                 <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
-                  &#x1F9FE; &iquest;Cu&aacute;nto tienes hoy? ($)
+                  <i class="fi fi-rr-receipt"></i> &iquest;Cu&aacute;nto tienes hoy? ($)
                 </label>
                 <input type="number" id="metaActual" placeholder="Ej. 2000" min="0" step="100" value="0" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
                 <label style="display: block; font-size: 14.5px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
-                  &#x1F4C5; Aporte mensual ($ MXN)
+                  <i class="fi fi-rr-calendar"></i> Aporte mensual ($ MXN)
                 </label>
                 <input type="number" id="metaAporte" placeholder="Ej. 1500" min="100" step="100" value="1500" required style="width: 100%; padding: 11px 14px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 700; background: #ffffff;">
               </div>
               <div>
                 <button type="submit" style="width: 100%; padding: 12px 18px; background: linear-gradient(135deg, #00703C 0%, #15803d 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 800; font-size: 16.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,112,60,0.3); transition: transform 0.15s ease;">
-                  <span>&#x2728;</span> Agregar Meta
+                  <span><i class="fi fi-rr-plus"></i></span> Agregar Meta
                 </button>
               </div>
             </form>
@@ -262,7 +304,7 @@
               <p style="font-size: 15.5px; color: #64748b; margin: 0;">Presiona los botones verdes <strong>+Abonar</strong> para simular tus aportes y ver crecer tu barra.</p>
             </div>
             <button type="button" onclick="restablecerMetasEjemplo()" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 7px 14px; border-radius: 8px; font-size: 14.5px; font-weight: 700; cursor: pointer;">
-              &#x21BA; Cargar Metas Recomendadas
+              <i class="fi fi-rr-refresh"></i> Cargar Metas Recomendadas
             </button>
           </div>
 
@@ -283,7 +325,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
               <div>
                 <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(250,187,21,0.25); color: #fabb15; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 8px;">
-                  <span>&#x1F3C6;</span> Nivel 1: Constructor de Disciplina
+                  <span><i class="fi fi-rr-trophy"></i></span> Nivel 1: Constructor de Disciplina
                 </div>
                 <h3 style="font-size: 25.5px; font-weight: 900; margin: 0 0 6px; color: #ffffff;">5 Retos F&aacute;ciles de Transformaci&oacute;n</h3>
                 <p style="font-size: 16px; color: #c7d2fe; margin: 0; max-width: 650px;">
@@ -319,7 +361,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
               <div>
                 <span style="background: #ffe4e6; color: #e11d48; font-size: 14px; font-weight: 800; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px;">
-                  &#x1F9CA; M&eacute;todo Psicol&oacute;gico Comprobado
+                  <i class="fi fi-rr-snowflakes"></i> M&eacute;todo Psicol&oacute;gico Comprobado
                 </span>
                 <h3 style="font-size: 24.5px; font-weight: 900; color: #881337; margin: 0 0 6px;">&iquest;C&oacute;mo funciona la Bola de Nieve?</h3>
                 <p style="font-size: 16px; color: #4c0519; margin: 0; max-width: 680px; line-height: 1.5;">
@@ -329,7 +371,7 @@
 
               <!-- APORTE EXTRA MENSUAL VIBRANTE -->
               <div style="background: #ffffff; padding: 12px 18px; border-radius: 12px; border: 2px solid #fb7185; box-shadow: 0 4px 12px rgba(225,29,72,0.1);">
-                <label style="font-size: 14px; font-weight: 800; color: #9f1239; display: block; margin-bottom: 4px;">&#x26A1; Aporte extra mensual:</label>
+                <label style="font-size: 14px; font-weight: 800; color: #9f1239; display: block; margin-bottom: 4px;"><i class="fi fi-rr-bolt"></i> Aporte extra mensual:</label>
                 <div style="display: flex; align-items: center; gap: 6px;">
                   <span style="font-size: 18px; font-weight: 900; color: #e11d48;">$</span>
                   <input type="number" id="inputAporteExtraBola" value="1000" min="0" step="200" oninput="calcularBolaDeNieve()" 
@@ -469,7 +511,7 @@
               actual: 7500, 
               aporte: 1500, 
               colorTheme: 'green',
-              icono: '&#x1F6E1;&#xFE0F;' 
+              icono: '<i class="fi fi-rr-shield-check"></i>' 
             },
             { 
               id: 2, 
@@ -479,7 +521,7 @@
               actual: 4000, 
               aporte: 1500, 
               colorTheme: 'blue',
-              icono: '&#x1F4C8;' 
+              icono: '<i class="fi fi-rr-chart-line-up"></i>' 
             },
             { 
               id: 3, 
@@ -489,7 +531,7 @@
               actual: 6000, 
               aporte: 1500, 
               colorTheme: 'amber',
-              icono: '&#x1F4BB;' 
+              icono: '<i class="fi fi-rr-laptop"></i>' 
             }
           ];
           guardarMetas();
@@ -534,7 +576,7 @@
               '<div>' +
                 '<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">' +
                   '<div style="display: flex; align-items: center; gap: 10px;">' +
-                    '<span style="font-size: 30.5px; background: #ffffff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">' + (m.icono || '&#x1F3AF;') + '</span>' +
+                    '<span style="font-size: 30.5px; background: #ffffff; width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">' + (m.icono || '<i class="fi fi-rr-target"></i>') + '</span>' +
                     '<div>' +
                       '<span style="background:' + th.badgeBg + '; color:' + th.badgeColor + '; font-size: 13px; font-weight: 800; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;">' + (m.categoria || 'Ahorro') + '</span>' +
                       '<h4 style="font-size: 18.5px; font-weight: 900; color:#0f172a; margin: 4px 0 0;">' + m.nombre + '</h4>' +
@@ -568,7 +610,7 @@
 
               '<div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">' +
                 '<span style="font-size: 14.5px; color:#334155; font-weight: 700;">' +
-                  (restante === 0 ? '&#x1F389; &iexcl;META LOGRADA!' : '&#x23F3; Llegar&aacute;s en <strong>' + meses + ' mes(es)</strong>') +
+                  (restante === 0 ? '<i class="fi fi-sr-sparkles" style="color:#f59e0b;"></i> &iexcl;META LOGRADA!' : '<i class="fi fi-rr-clock"></i> Llegar&aacute;s en <strong>' + meses + ' mes(es)</strong>') +
                 '</span>' +
                 '<div style="display: flex; gap: 6px;">' +
                   '<button type="button" onclick="abonarMeta(' + m.id + ', 500)" style="padding: 7px 12px; font-size: 14px; font-weight: 800; background:#ffffff; color:' + th.badgeColor + '; border:1.5px solid ' + th.border + '; border-radius:8px; cursor:pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">+$500</button>' +
@@ -597,7 +639,7 @@
             actual: actual,
             aporte: aporte,
             colorTheme: misMetas.length % 3 === 0 ? 'green' : (misMetas.length % 3 === 1 ? 'blue' : 'amber'),
-            icono: '&#x1F3AF;'
+            icono: '<i class="fi fi-rr-target"></i>'
           });
 
           guardarMetas();
@@ -633,7 +675,7 @@
             desc: 'Apunta cada gasto peque&ntilde;o de tu d&iacute;a (caf&eacute; comercial, botanas, comisiones de apps). Elige 2 que puedas evitar y guarda $50 MXN diarios en un sobre.',
             ahorro: '$350 MXN en 7 d&iacute;as',
             duracion: '1 Semana',
-            icono: '&#x2615;',
+            icono: '<i class="fi fi-rr-coffee"></i>',
             theme: { bg: '#fffbeb', border: '#fcd34d', badgeBg: '#fef3c7', badgeColor: '#92400e', iconBg: '#fde68a' }
           },
           {
@@ -642,7 +684,7 @@
             desc: 'Aparta tus primeros $1,000 MXN en una alcanc&iacute;a o cuenta bancaria sin tarjeta f&iacute;sica. Solo se toca si ocurre una aut&eacute;ntica emergencia m&eacute;dica o dom&eacute;stica.',
             ahorro: '$1,000 MXN ahorrados',
             duracion: '15 d&iacute;as',
-            icono: '&#x1F331;',
+            icono: '<i class="fi fi-rr-leaf"></i>',
             theme: { bg: '#f0fdf4', border: '#86efac', badgeBg: '#dcfce7', badgeColor: '#166534', iconBg: '#bbf7d0' }
           },
           {
@@ -651,7 +693,7 @@
             desc: 'Pasa s&aacute;bado y domingo cocinando rico en casa y organizando paseos al aire libre o pel&iacute;culas con amigos. Demu&eacute;strale a tu cerebro que relajarse no cuesta dinero.',
             ahorro: '$400 a $800 MXN libres',
             duracion: 'Fin de semana',
-            icono: '&#x1F3AE;',
+            icono: '<i class="fi fi-rr-gamepad"></i>',
             theme: { bg: '#faf5ff', border: '#d8b4fe', badgeBg: '#f3e8ff', badgeColor: '#6b21a8', iconBg: '#e9d5ff' }
           },
           {
@@ -660,7 +702,7 @@
             desc: 'Abre tu banca m&oacute;vil, revisa tus cobros autom&aacute;ticos del &uacute;ltimo mes y cancela de inmediato al menos 1 membres&iacute;a o aplicaci&oacute;n que no uses todos los d&iacute;as.',
             ahorro: '$150 a $350 MXN al mes',
             duracion: '15 minutos',
-            icono: '&#x1F4F1;',
+            icono: '<i class="fi fi-rr-smartphone"></i>',
             theme: { bg: '#f0f9ff', border: '#7dd3fc', badgeBg: '#e0f2fe', badgeColor: '#075985', iconBg: '#bae6fd' }
           },
           {
@@ -669,7 +711,7 @@
             desc: 'Abre tu cuenta en CETES Directo o usa el simulador para apartar tus primeros $100 MXN en deuda gubernamental respaldada. Vence el miedo a invertir.',
             ahorro: 'H&aacute;bito de inversi&oacute;n',
             duracion: '1 d&iacute;a',
-            icono: '&#x1F48E;',
+            icono: '<i class="fi fi-rr-gem"></i>',
             theme: { bg: '#fff1f2', border: '#fda4af', badgeBg: '#ffe4e6', badgeColor: '#9f1239', iconBg: '#fecdd3' }
           }
         ];
@@ -711,7 +753,7 @@
             card.innerHTML = 
               '<div style="display: flex; align-items: flex-start; gap: 16px; flex: 1;">' +
                 '<div style="font-size: 28.5px; width: 48px; height: 48px; border-radius: 12px; background:' + (completado ? '#d1fae5' : th.iconBg) + '; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">' +
-                  (completado ? '&#x2705;' : r.icono) +
+                  (completado ? '<i class="fi fi-sr-check-circle" style="color:#10b981;"></i>' : r.icono) +
                 '</div>' +
                 '<div style="flex: 1;">' +
                   '<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px;">' +
@@ -719,12 +761,12 @@
                     '<span style="font-size: 13px; font-weight: 800; background:' + (completado ? '#a7f3d0' : th.badgeBg) + '; color:' + (completado ? '#064e3b' : th.badgeColor) + '; padding: 3px 8px; border-radius: 6px;">' + r.duracion + '</span>' +
                   '</div>' +
                   '<p style="font-size: 15.5px; color:' + (completado ? '#047857' : '#475569') + '; margin: 0 0 6px; line-height: 1.45;">' + r.desc + '</p>' +
-                  '<div style="font-size: 14.5px; font-weight: 800; color:' + (completado ? '#059669' : '#00703C') + ';">&#x1F4A1; Recompensa estimada: ' + r.ahorro + '</div>' +
+                  '<div style="font-size: 14.5px; font-weight: 800; color:' + (completado ? '#059669' : '#00703C') + ';"><i class="fi fi-rr-bulb"></i> Recompensa estimada: ' + r.ahorro + '</div>' +
                 '</div>' +
               '</div>' +
               '<div>' +
                 '<button type="button" onclick="toggleReto(\'' + r.id + '\')" style="padding: 10px 20px; border-radius: 24px; font-weight: 800; font-size: 15.5px; cursor: pointer; border: none; background:' + (completado ? '#10b981' : '#00703C') + '; color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.12); transition: transform 0.15s ease;">' +
-                  (completado ? '&#x2714; &iexcl;Logrado!' : 'Marcar Hecho') +
+                  (completado ? '<i class="fi fi-rr-check"></i> &iexcl;Logrado!' : 'Marcar Hecho') +
                 '</button>' +
               '</div>';
 
@@ -759,9 +801,9 @@
           misDeudas.sort((a, b) => a.saldo - b.saldo);
 
           const badgeStyles = [
-            { bg: '#fee2e2', color: '#b91c1c', border: '#fca5a5', label: '&#x1F525; Paso 1: Pagar Primero' },
-            { bg: '#fef3c7', color: '#b45309', border: '#fcd34d', label: '&#x23F3; Paso 2: Pagar M&iacute;nimo' },
-            { bg: '#e0f2fe', color: '#0369a1', border: '#7dd3fc', label: '&#x1F6E1;&#xFE0F; Paso 3: Al Final' }
+            { bg: '#fee2e2', color: '#b91c1c', border: '#fca5a5', label: '<i class="fi fi-rr-flame"></i> Paso 1: Pagar Primero' },
+            { bg: '#fef3c7', color: '#b45309', border: '#fcd34d', label: '<i class="fi fi-rr-clock"></i> Paso 2: Pagar M&iacute;nimo' },
+            { bg: '#e0f2fe', color: '#0369a1', border: '#7dd3fc', label: '<i class="fi fi-rr-shield-check"></i> Paso 3: Al Final' }
           ];
 
           misDeudas.forEach((d, idx) => {
@@ -820,7 +862,7 @@
           if (misDeudas.length === 0) {
             resContainer.innerHTML = 
               '<div style="text-align:center; padding:30px; background:#f0fdf4; border-radius:16px; border:2px dashed #86efac;">' +
-                '<div style="font-size:38.5px; margin-bottom:8px;">&#x1F389;</div>' +
+                '<div style="font-size:36px; margin-bottom:8px; color:#10b981;"><i class="fi fi-sr-sparkles"></i></div>' +
                 '<div style="font-size:20px; font-weight:900; color:#15803d;">&iexcl;Felicidades! No tienes compromisos pendientes.</div>' +
                 '<p style="font-size:15.5px; color:#166534; margin:4px 0 0;">Todo tu dinero extra puede ir directo a tus metas de inversi&oacute;n y patrimonio.</p>' +
               '</div>';
@@ -855,7 +897,7 @@
               '</div>' +
             '</div>' +
             '<div style="background: linear-gradient(135deg, #053724 0%, #032518 100%); color:#ffffff; padding: 18px 22px; border-radius: 14px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(5,55,36,0.15);">' +
-              '<div style="font-size: 34.5px; flex-shrink: 0;">&#x1F3AF;</div>' +
+              '<div style="font-size: 32px; flex-shrink: 0; color:#cbf63e;"><i class="fi fi-rr-target"></i></div>' +
               '<div>' +
                 '<div style="font-size: 17px; font-weight: 900; color: #cbf63e; margin-bottom: 2px;">Plan de Ataque Inmediato:</div>' +
                 '<p style="font-size: 15.5px; color: #d7f4e6; margin: 0; line-height: 1.45;">' +
@@ -901,7 +943,7 @@
       <div class="footer-grid">
         <!-- Columna 1: Logo & lema -->
         <div class="footer-brand">
-          <a href="index.php" class="brand-logo">
+          <a href="index.php?page=home&skip_splash=1" class="brand-logo">
             <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 35px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -939,7 +981,7 @@
         <div class="footer-col" id="enlaces">
           <h4>Enlaces rápidos</h4>
           <ul>
-            <li><a href="index.php">Inicio</a></li>
+            <li><a href="index.php?page=home&skip_splash=1">Inicio</a></li>
             <li><a href="index.php?page=recursos">Recursos</a></li>
             <li><a href="#blog">Blog</a></li>
           </ul>
@@ -1052,19 +1094,19 @@
       <!-- Tabs de recursos -->
       <div class="reticula-tabs">
         <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
-          📋 Temario
+          <i class="fi fi-rr-list-check"></i> Temario
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
-          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
+          <i class="fi fi-rr-video-camera-alt"></i> Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
-          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
+          <i class="fi fi-rr-edit"></i> Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
-          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
+          <i class="fi fi-rr-headphones"></i> Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
-          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
+          <i class="fi fi-rr-book-alt"></i> Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
         </button>
       </div>
 
@@ -1372,16 +1414,16 @@
     <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 22.5px;">🎬</span>
+          <span style="font-size: 22.5px;"><i class="fi fi-rr-film"></i></span>
           <h3 id="videoPlayerTitle" style="font-size: 19px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
         </div>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <span style="font-size: 14.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
+        <span style="font-size: 14.5px; color: var(--text-muted);"><i class="fi fi-rr-check-circle" style="color:#10b981;"></i> Clase interactiva de Educación Financiera</span>
         <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15px;">Terminar de ver</button>
       </div>
     </div>
@@ -1394,7 +1436,7 @@
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <span style="font-size: 13px; font-weight: 800; background: #e0e7ff; color: #4338ca; padding: 3px 10px; border-radius: 999px;" id="exerciseModalType">ACTIVIDAD PRÁCTICA</span>
-        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">×</button>
+        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <h3 id="exerciseModalTitle" style="font-size: 20px; margin: 0 0 8px; color: var(--text-dark); font-weight: 800;">Título del ejercicio</h3>
       <p id="exerciseModalDesc" style="font-size: 15.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">Descripción del ejercicio.</p>
@@ -1418,9 +1460,9 @@
     <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
         <h4 id="videoPlayerTitle" style="margin: 0; font-size: 19px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
-          <span>🎥</span> <span>Clase en Video</span>
+          <span><i class="fi fi-rr-play-alt"></i></span> <span>Clase en Video</span>
         </h4>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1436,15 +1478,15 @@
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
-          🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
+          <i class="fi fi-rr-headphones"></i> PODCAST & AUDIO-LECCIÓN OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
+        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
           <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 28.5px; color: #06402d; flex-shrink: 0;">
-            🎙️
+            <i class="fi fi-rr-microphone"></i>
           </div>
           <div>
             <h4 id="audioModalTitle" style="font-size: 19px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
@@ -1495,14 +1537,14 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
-          📚 LECTURA & GUÍA OFICIAL
+          <i class="fi fi-rr-book-alt"></i> LECTURA & GUÍA OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
+        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
         <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 34.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
-          📖
+          <i class="fi fi-rr-book-open-cover"></i>
         </div>
         <div>
           <h3 id="bookModalTitle" style="font-size: 20px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
@@ -1513,7 +1555,7 @@
 
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
         <h5 style="font-size: 16px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
-          <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
+          <span><i class="fi fi-rr-bulb"></i></span> <span>5 Principios y Lecciones de este libro:</span>
         </h5>
         <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
           <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
@@ -1526,7 +1568,7 @@
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
         <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
-          <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
+          <span><i class="fi fi-rr-download"></i></span> <span>Descargar Guía Oficial (PDF / HTML)</span>
         </button>
         <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
           Cerrar
@@ -1540,9 +1582,9 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
-          📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
+          <i class="fi fi-rr-edit"></i> ACTIVIDAD PRÁCTICA DEL MÓDULO
         </span>
-        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
+        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <h3 id="exerciseModalTitle" style="font-size: 19px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
       <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 15.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>

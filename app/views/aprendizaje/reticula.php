@@ -20,7 +20,7 @@
   <header class="site-header guest-header">
     <div class="container">
       <nav class="nav-wrap">
-        <a href="index.php" class="brand-logo">
+        <a href="index.php?page=home&skip_splash=1" class="brand-logo">
           <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 42px; height: 36px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -61,7 +61,7 @@
       <!-- Barra superior del estudiante (tras iniciar sesión) -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">☰</button>
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
@@ -131,7 +131,7 @@
       <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
     </g>
   </svg>
-        <span class="subpage-badge" style="margin: 0;">🗺️ Mapa de Aprendizaje</span>
+        <span class="subpage-badge" style="margin: 0;"><i class="fi fi-rr-map" style="margin-right:6px;"></i> Mapa de Aprendizaje</span>
       </div>
       <h1>Tu <span>Retícula Académica</span></h1>
       <p>Programa formativo de <strong>18 meses</strong> dividido en 3 niveles de 6 meses: <strong>Básico, Intermedio y Avanzado</strong>. Tu <strong>Primer Mes del Nivel 1 es de prueba y 100% GRATIS</strong>. Haz clic en cada materia para ver su temario e inscribirte.</p>
@@ -183,7 +183,7 @@
       <section class="reticula-section" id="reticula">
         <div class="reticula-head">
           <div>
-            <span class="reticula-badge">🗺️ Mapa de Aprendizaje</span>
+            <span class="reticula-badge"><i class="fi fi-rr-map" style="margin-right:6px;"></i> Mapa de Aprendizaje</span>
             <h3>Tu Retícula Académica (18 Meses · 3 Niveles)</h3>
             <p>Carrera completa de <strong>18 meses</strong> en 3 niveles de 6 meses (<strong>Básico, Intermedio y Avanzado</strong>). Cursa tu <strong>Primer Mes del Nivel 1 de prueba 100% GRATIS</strong> y avanza a tu ritmo hacia tu libertad financiera.</p>
           </div>
@@ -194,7 +194,7 @@
 
         <div style="display: flex; justify-content: flex-end; margin: 0 0 16px;">
           <button type="button" class="btn-cta-outline" onclick="resetInscripciones()" style="padding: 8px 16px; font-size: 15px; color: var(--text-dark); border-color: var(--btn-green);">
-            🗑️ Quitar inscripciones
+            <i class="fi fi-rr-trash" style="margin-right:6px;"></i> Quitar inscripciones
           </button>
         </div>
 
@@ -231,7 +231,7 @@
       <div class="footer-grid">
         <!-- Columna 1: Logo & lema -->
         <div class="footer-brand">
-          <a href="index.php" class="brand-logo">
+          <a href="index.php?page=home&skip_splash=1" class="brand-logo">
             <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 40px; height: 35px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
     <g>
       <rect x="26" y="162" width="188" height="30" rx="8" fill="#fabb15"/>
@@ -269,7 +269,7 @@
         <div class="footer-col" id="enlaces">
           <h4>Enlaces rápidos</h4>
           <ul>
-            <li><a href="index.php">Inicio</a></li>
+            <li><a href="index.php?page=home&skip_splash=1">Inicio</a></li>
             <li><a href="index.php?page=recursos">Recursos</a></li>
             <li><a href="#blog">Blog</a></li>
           </ul>
@@ -382,19 +382,19 @@
       <!-- Tabs de recursos -->
       <div class="reticula-tabs">
         <button type="button" class="reticula-tab-btn active" onclick="switchReticulaTab('temario')" id="tabBtn-temario">
-          📋 Temario
+          <i class="fi fi-rr-list-check" style="margin-right:4px;"></i> Temario
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('videos')" id="tabBtn-videos">
-          🎥 Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
+          <i class="fi fi-rr-video-camera-alt" style="margin-right:4px;"></i> Videos <span class="reticula-tab-badge" id="badgeVideos">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('ejercicios')" id="tabBtn-ejercicios">
-          📝 Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
+          <i class="fi fi-rr-edit" style="margin-right:4px;"></i> Ejercicios <span class="reticula-tab-badge" id="badgeEjercicios">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('audios')" id="tabBtn-audios">
-          🎧 Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
+          <i class="fi fi-rr-headphones" style="margin-right:4px;"></i> Audios <span class="reticula-tab-badge" id="badgeAudios">0</span>
         </button>
         <button type="button" class="reticula-tab-btn" onclick="switchReticulaTab('libros')" id="tabBtn-libros">
-          📚 Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
+          <i class="fi fi-rr-book-alt" style="margin-right:4px;"></i> Libros <span class="reticula-tab-badge" id="badgeLibros">0</span>
         </button>
       </div>
 
@@ -702,16 +702,16 @@
     <div class="modal-card" style="text-align: left; max-width: 720px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 22.5px;">🎬</span>
+          <i class="fi fi-rr-play-alt" style="font-size: 20px; color: var(--amarillo-dorado);"></i>
           <h3 id="videoPlayerTitle" style="font-size: 19px; margin: 0; color: var(--text-dark); font-weight: 700;">Video Clase</h3>
         </div>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">×</button>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; background: #000; margin-bottom: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
-        <span style="font-size: 14.5px; color: var(--text-muted);">✅ Clase interactiva de Educación Financiera</span>
+        <span style="font-size: 14.5px; color: var(--text-muted);"><i class="fi fi-rr-check-circle" style="color:var(--btn-green);margin-right:4px;"></i> Clase interactiva de Educación Financiera</span>
         <button class="btn-cta-yellow" onclick="closeVideoPlayerModal()" style="padding: 8px 18px; font-size: 15px;">Terminar de ver</button>
       </div>
     </div>
@@ -725,9 +725,9 @@
     <div class="modal-card" style="text-align: left; max-width: 760px; padding: 22px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
         <h4 id="videoPlayerTitle" style="margin: 0; font-size: 19px; color: var(--gris-oscuro); display: flex; align-items: center; gap: 8px;">
-          <span>🎥</span> <span>Clase en Video</span>
+          <i class="fi fi-rr-play-alt"></i> <span>Clase en Video</span>
         </h4>
-        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor">✕</button>
+        <button class="modal-close-btn" onclick="closeVideoPlayerModal()" style="position: static;" aria-label="Cerrar reproductor"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
         <iframe id="videoPlayerIframe" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="" title="Reproductor de Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -743,15 +743,15 @@
     <div class="modal-card" style="text-align: left; max-width: 580px; padding: 24px; width: 95%; background: #ffffff;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 999px;">
-          🎧 PODCAST & AUDIO-LECCIÓN OFICIAL
+          <i class="fi fi-rr-headphones" style="margin-right:4px;"></i> PODCAST & AUDIO-LECCIÓN OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio">✕</button>
+        <button class="modal-close-btn" onclick="closeAudioPlayerModal()" style="position: static;" aria-label="Cerrar audio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="background: linear-gradient(135deg, #053724 0%, #06402d 100%); color: #ffffff; padding: 22px; border-radius: 14px; margin-bottom: 18px;">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
-          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 28.5px; color: #06402d; flex-shrink: 0;">
-            🎙️
+          <div style="width: 54px; height: 54px; border-radius: 14px; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 24px; color: #06402d; flex-shrink: 0;">
+            <i class="fi fi-rr-microphone"></i>
           </div>
           <div>
             <h4 id="audioModalTitle" style="font-size: 19px; margin: 0 0 4px; font-weight: 700; color: #ffffff;">Título del Audio</h4>
@@ -788,7 +788,7 @@
 
       <div style="display: flex; gap: 12px; justify-content: space-between; align-items: center;">
         <button type="button" id="btnPlayAudioModal" onclick="toggleAudioPlayback()" class="btn-cta-yellow" style="flex: 1; padding: 12px; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-          ▶️ Iniciar reproducción
+          <i class="fi fi-rr-play"></i> Iniciar reproducción
         </button>
         <button type="button" onclick="closeAudioPlayerModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 12px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
           Cerrar
@@ -802,14 +802,14 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%; max-height: 90vh; overflow-y: auto;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #fef08a; color: #854d0e; padding: 4px 10px; border-radius: 999px;">
-          📚 LECTURA & GUÍA OFICIAL
+          <i class="fi fi-rr-book-alt" style="margin-right:4px;"></i> LECTURA & GUÍA OFICIAL
         </span>
-        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro">✕</button>
+        <button class="modal-close-btn" onclick="closeBookReaderModal()" style="position: static;" aria-label="Cerrar libro"><i class="fi fi-rr-cross-small"></i></button>
       </div>
 
       <div style="display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;">
-        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 34.5px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
-          📖
+        <div style="width: 58px; height: 76px; background: linear-gradient(135deg, #00703C, #06402d); border-radius: 8px; display: grid; place-items: center; font-size: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0; color: #ffffff;">
+          <i class="fi fi-rr-book-open-cover"></i>
         </div>
         <div>
           <h3 id="bookModalTitle" style="font-size: 20px; margin: 0 0 4px; font-weight: 700; color: var(--gris-oscuro);">Título del Libro</h3>
@@ -820,7 +820,7 @@
 
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 18px;">
         <h5 style="font-size: 16px; font-weight: 700; color: var(--verde-principal); margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
-          <span>💡</span> <span>5 Principios y Lecciones de este libro:</span>
+          <i class="fi fi-rr-bulb"></i> <span>5 Principios y Lecciones de este libro:</span>
         </h5>
         <ul id="bookModalLessons" style="margin: 0; padding-left: 20px; font-size: 15px; color: #334155; line-height: 1.6;">
           <li><strong>Principio 1:</strong> La diferencia entre ingresos activos y generación de flujo pasivo.</li>
@@ -833,7 +833,7 @@
 
       <div style="display: flex; gap: 12px; justify-content: flex-end; align-items: center;">
         <button type="button" onclick="descargarGuiaPdfActual()" class="btn-cta-yellow" style="padding: 10px 18px; font-size: 15.5px; display: flex; align-items: center; gap: 8px;">
-          <span>📥</span> <span>Descargar Guía Oficial (PDF / HTML)</span>
+          <i class="fi fi-rr-download"></i> <span>Descargar Guía Oficial (PDF / HTML)</span>
         </button>
         <button type="button" onclick="closeBookReaderModal()" style="background: #f1f5f9; color: var(--gris-oscuro); border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 10px; font-weight: 600; cursor: pointer;">
           Cerrar
@@ -847,9 +847,9 @@
     <div class="modal-card" style="text-align: left; max-width: 620px; padding: 24px; width: 95%;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
         <span style="font-size: 13px; font-weight: 700; text-transform: uppercase; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 999px;">
-          📝 ACTIVIDAD PRÁCTICA DEL MÓDULO
+          <i class="fi fi-rr-edit" style="margin-right:4px;"></i> ACTIVIDAD PRÁCTICA DEL MÓDULO
         </span>
-        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio">✕</button>
+        <button class="modal-close-btn" onclick="closeExercisePlayerModal()" style="position: static;" aria-label="Cerrar ejercicio"><i class="fi fi-rr-cross-small"></i></button>
       </div>
       <h3 id="exerciseModalTitle" style="font-size: 19px; margin: 0 0 6px; font-weight: 700; color: var(--gris-oscuro);">Título del Ejercicio</h3>
       <p id="exerciseModalDesc" style="color: var(--gris-medio); font-size: 15.5px; line-height: 1.5; margin-bottom: 16px;">Instrucciones para resolver el ejercicio.</p>

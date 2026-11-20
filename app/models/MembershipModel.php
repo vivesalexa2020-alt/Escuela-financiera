@@ -14,13 +14,17 @@ class MembershipModel extends Model {
         $membresia = $stmt->fetch();
 
         if (!$membresia) {
-            $stmt = $this->db->prepare("INSERT INTO membresias (usuario_id, activa, tipo_membresia) VALUES (?, 1, 'gratis')");
+            $stmt = $this->db->prepare("
+                INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_inicio, fecha_vencimiento) 
+                VALUES (?, 1, 'gratis', NOW(), DATE_ADD(NOW(), INTERVAL 1 MONTH))
+                ON DUPLICATE KEY UPDATE activa = 1
+            ");
             $stmt->execute([$userId]);
             $membresia = [
                 'activa'            => 1,
                 'tipo_membresia'    => 'gratis',
                 'fecha_inicio'      => date('Y-m-d H:i:s'),
-                'fecha_vencimiento' => null
+                'fecha_vencimiento' => date('Y-m-d H:i:s', strtotime('+1 month'))
             ];
         }
 
@@ -28,7 +32,7 @@ class MembershipModel extends Model {
     }
 
     public function getAllWithUsers(): array {
-        $stmt = $this->db->prepare("
+        $stmt = $this->db->query("
             SELECT m.id, m.usuario_id, m.activa, m.tipo_membresia, m.fecha_inicio, m.fecha_vencimiento,
                    u.nombre AS usuario_nombre, u.email AS usuario_email
             FROM membresias m
@@ -36,8 +40,7 @@ class MembershipModel extends Model {
             WHERE u.eliminado_en IS NULL
             ORDER BY m.fecha_inicio DESC, m.id DESC
         ");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll() ?: [];
     }
 
     public function countActive(): int {
@@ -55,11 +58,27 @@ class MembershipModel extends Model {
     }
 
     public function updateMembership(int $userId, string $tipo, ?string $fechaVencimiento = null): bool {
+        if ($fechaVencimiento === null) {
+            $interval = ($tipo === 'gratis') ? '1 MONTH' : '1 YEAR';
+            $stmt = $this->db->prepare("
+                INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_inicio, fecha_vencimiento)
+                VALUES (?, 1, ?, NOW(), DATE_ADD(NOW(), INTERVAL {$interval}))
+                ON DUPLICATE KEY UPDATE 
+                tipo_membresia = VALUES(tipo_membresia),
+                activa = 1,
+                fecha_vencimiento = DATE_ADD(NOW(), INTERVAL {$interval})
+            ");
+            return $stmt->execute([$userId, $tipo]);
+        }
+
         $stmt = $this->db->prepare("
-            UPDATE membresias 
-            SET tipo_membresia = ?, activa = 1, fecha_vencimiento = ? 
-            WHERE usuario_id = ?
+            INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_inicio, fecha_vencimiento)
+            VALUES (?, 1, ?, NOW(), ?)
+            ON DUPLICATE KEY UPDATE 
+            tipo_membresia = VALUES(tipo_membresia),
+            activa = 1,
+            fecha_vencimiento = VALUES(fecha_vencimiento)
         ");
-        return $stmt->execute([$tipo, $fechaVencimiento, $userId]);
+        return $stmt->execute([$userId, $tipo, $fechaVencimiento]);
     }
 }

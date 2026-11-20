@@ -18,7 +18,7 @@
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral">☰</button>
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -47,7 +47,6 @@
     </div>
     <div class="logged-topbar-right">
       <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
-      <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
     </div>
   </div>
 
@@ -55,7 +54,7 @@
   <!-- HEADER INDIVIDUAL DEL AULA -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="index.php" class="brand-logo">
+      <a href="index.php?page=home&skip_splash=1" class="brand-logo">
         <svg viewBox="0 0 240 210" width="32" height="28" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
             <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
@@ -71,13 +70,6 @@
         </svg>
         <span>Educación <strong>Financiera</strong> | Aula Virtual</span>
       </a>
-
-      <div class="nav-actions">
-        <div class="demo-pill-badge">
-          <span>⚡ Modo Demo Activo</span>
-        </div>
-        <a href="index.php?page=suscripcion" class="btn-upgrade-nav">Membresía Completa</a>
-      </div>
     </div>
   </header>
 
@@ -85,12 +77,12 @@
   <aside class="demo-progress-bar-strip">
     <div class="container progress-strip-inner">
       <div class="progress-strip-info">
-        <span>📖 Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
+        <span><i class="fi fi-rr-book-open-cover" style="margin-right:5px;"></i> Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
         <span>•</span>
-        <span id="stripStatus">3 lecciones libres para ver ahora</span>
+        <span id="stripStatus">Mes gratis: Unidad 1 (8 lecciones)</span>
       </div>
       <div>
-        <a href="index.php#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
+        <a href="index.php?page=home&skip_splash=1#testimonios" style="color: var(--verde-principal); font-weight: 600; font-size: 14.5px;">
           Ver historias de éxito y testimonios →
         </a>
       </div>
@@ -107,87 +99,61 @@
           <div class="menu-card-header">
             <h3>
               <span>Plan de Aprendizaje</span>
-              <span class="status-tag" id="menuStatusTag">3 Temas Abiertos</span>
+              <span class="status-tag" id="menuStatusTag">8 lecciones gratis</span>
             </h3>
           </div>
 
           <!-- UNIDAD 1 -->
           <div class="unit-accordion">
-            <div class="unit-title-bar unit-active" onclick="toggleUnit('unit1')">
-              <span>📖 Unidad 1: Psicología del dinero</span>
-              <span class="unit-badge badge-open" id="unit1Badge">Liberada</span>
+            <div class="unit-title-bar unit-active" id="unitBar1" onclick="toggleUnit('unit1')">
+              <span><i class="fi fi-rr-book-open-cover" style="margin-right:6px;"></i> Unidad 1: Psicología y hábitos financieros</span>
+              <span class="unit-badge badge-open">8 lecciones gratis</span>
             </div>
             <ul class="lesson-list" id="unit1List">
-              <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>1. La psicología del dinero (Housel)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
-                  <span>2. Fugas y micro-gastos hormiga</span>
-                  <a href="https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>3. Hábitos atómicos: identidad > motivación (Clear)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
-                  <span>4. No pidas préstamos: el método anti-deuda (Ramsey)</span>
-                  <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Liberada</span>
-              </li>
+              <li class="lesson-item active" id="itemLesson1" onclick="selectLesson(1)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>1. Diagnóstico de tu dinero</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson2" onclick="selectLesson(2)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>2. Fugas de capital y micro-gastos hormiga</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson3" onclick="selectLesson(3)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>3. La Regla 50/30/20 simplificada</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson4" onclick="selectLesson(4)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>4. Método anti-deuda acelerado</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>5. Págate primero y colchón de emergencia</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>6. Presupuesto base cero</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>7. Aprende a ahorrar: CETES e interés compuesto</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
+              <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-rr-play-alt"></i></span><span>8. Tu libertad financiera con hábitos sólidos</span></div><span class="lesson-status" style="color: var(--verde-claro);">Gratis</span></li>
             </ul>
           </div>
 
           <!-- UNIDAD 2 -->
-          <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="toggleUnit('unit2')">
-              <span>💸 Unidad 2: Aprende a gastar</span>
-              <span class="unit-badge badge-open" style="background:#e0f2fe; color:#0369a1;">Liberada</span>
+          <div class="unit-accordion" id="unitAccordion2" style="display: none;">
+            <div class="unit-title-bar" id="unitBar2" onclick="toggleUnit('unit2')">
+              <span><i class="fi fi-rr-wallet" style="margin-right:6px;"></i> Unidad 2: Gastos, ahorro y tarjetas</span>
+              <span class="unit-badge badge-locked"><i class="fi fi-sr-lock"></i> 8 lecciones</span>
             </div>
-            <ul class="lesson-list" id="unit2List">
-              <li class="lesson-item" id="itemLesson5" onclick="selectLesson(5)">
-                <div class="lesson-info">
-                  <span class="lesson-icon">▶</span>
-                  <span>5. Págate primero y colchón de emergencia (Clason)</span>
-                  <a href="https://youtu.be/vp_B6Z7eF68?si=S854mK2puo4_ystd" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" title="Ver video explicativo en YouTube (abrir en otra pestaña)" style="display:inline-flex; align-items:center; gap:2px; font-size:11px; color:#dc2626; background:#fee2e2; padding:1px 6px; border-radius:4px; margin-left:6px; font-weight:700; text-decoration:none;">
-                    <span>Video</span> ↗
-                  </a>
-                </div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson6" onclick="selectLesson(6)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>6. Presupuesto base cero y no gastar de más (Ramsey)</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
+            <ul class="lesson-list" id="unit2List" style="display: none;">
+              <li class="lesson-item locked" id="itemLesson9" onclick="selectLesson(9)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>9. Cómo leer tu estado de cuenta sin emociones</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson10" onclick="selectLesson(10)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>10. Gastos fijos vs variables: encuentra tu margen</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson11" onclick="selectLesson(11)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>11. Suscripciones y cargos automáticos</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson12" onclick="selectLesson(12)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>12. Compras inteligentes y costo de oportunidad</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson13" onclick="selectLesson(13)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>13. El fondo de emergencia paso a paso</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson14" onclick="selectLesson(14)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>14. Tarjetas de crédito: paga siempre el total</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson15" onclick="selectLesson(15)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>15. Negocia tasas y comisiones con tu banco</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson16" onclick="selectLesson(16)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>16. Metas de ahorro semanales automatizadas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
           </div>
 
           <!-- UNIDAD 3 -->
-          <div class="unit-accordion">
-            <div class="unit-title-bar" onclick="toggleUnit('unit3')">
-              <span>🔥 Unidad 3: No pidas préstamos</span>
-              <span class="unit-badge badge-open" style="background:#fef08a; color:#854d0e;">Liberada</span>
+          <div class="unit-accordion" id="unitAccordion3" style="display: none;">
+            <div class="unit-title-bar" id="unitBar3" onclick="toggleUnit('unit3')">
+              <span><i class="fi fi-rr-chart-line-up" style="margin-right:6px;"></i> Unidad 3: Deuda, inversión y libertad</span>
+              <span class="unit-badge badge-locked"><i class="fi fi-sr-lock"></i> 8 lecciones</span>
             </div>
-            <ul class="lesson-list" id="unit3List">
-              <li class="lesson-item" id="itemLesson7" onclick="selectLesson(7)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>7. Aprende a ahorrar: de CETES al interés compuesto</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
-              <li class="lesson-item" id="itemLesson8" onclick="selectLesson(8)">
-                <div class="lesson-info"><span class="lesson-icon">▶</span><span>8. Tu libertad financiera con hábitos sólidos</span></div>
-                <span class="lesson-status" style="color: var(--verde-claro);">Gratis</span>
-              </li>
+            <ul class="lesson-list" id="unit3List" style="display: none;">
+              <li class="lesson-item locked" id="itemLesson17" onclick="selectLesson(17)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>17. Deuda buena vs mala: criterios para decidir</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson18" onclick="selectLesson(18)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>18. Bola de nieve vs avalancha</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson19" onclick="selectLesson(19)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>19. Refinanciamiento y consolidación de deudas</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson20" onclick="selectLesson(20)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>20. CETES: tu primer rendimiento garantizado</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson21" onclick="selectLesson(21)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>21. Interés compuesto y el tiempo a tu favor</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson22" onclick="selectLesson(22)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>22. Fondos de inversión y ETFs para principiantes</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson23" onclick="selectLesson(23)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>23. Seguros y protección de tu patrimonio</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
+              <li class="lesson-item locked" id="itemLesson24" onclick="selectLesson(24)"><div class="lesson-info"><span class="lesson-icon"><i class="fi fi-sr-lock"></i></span><span>24. Plan de libertad financiera a 18 meses</span></div><span class="lesson-status" style="color: var(--gris-medio);">Bloqueada</span></li>
             </ul>
           </div>
 
@@ -199,7 +165,7 @@
           <div class="lesson-player-header">
             <span class="lesson-meta-tag" id="lessonTag">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-              <span id="lessonTagText">Lección 1 de 3 (Demo Gratuita)</span>
+              <span id="lessonTagText">Lección 1 de 8 (Mes Gratis)</span>
             </span>
             <span style="font-size: 15px; color: var(--gris-medio);" id="lessonDuration">Duración: 12 min</span>
           </div>
@@ -209,19 +175,19 @@
           <!-- TABS DE RECURSOS DE LA LECCIÓN -->
           <div class="lesson-content-tabs">
             <button type="button" class="lesson-tab-btn active" id="btnTabVideo" onclick="switchLessonTab('video')">
-              🎥 Video Clase
+              <i class="fi fi-rr-play-alt" style="margin-right:5px;"></i> Video Clase
             </button>
             <button type="button" class="lesson-tab-btn" id="btnTabEjercicio" onclick="switchLessonTab('ejercicio')">
-              📝 Ejercicio Práctico
+              <i class="fi fi-rr-edit" style="margin-right:5px;"></i> Ejercicio Práctico
             </button>
             <button type="button" class="lesson-tab-btn" id="btnTabAudio" onclick="switchLessonTab('audio')">
-              🎧 Audio / Podcast
+              <i class="fi fi-rr-headphones" style="margin-right:5px;"></i> Audio / Podcast
             </button>
             <button type="button" class="lesson-tab-btn" id="btnTabLibro" onclick="switchLessonTab('libro')">
-              📚 Lectura / Libro
+              <i class="fi fi-rr-book-alt" style="margin-right:5px;"></i> Lectura / Libro
             </button>
             <button type="button" class="lesson-tab-btn" id="btnTabTexto" onclick="switchLessonTab('texto')">
-              📄 Resumen Teórico
+              <i class="fi fi-rr-document" style="margin-right:5px;"></i> Resumen Teórico
             </button>
           </div>
 
@@ -234,7 +200,7 @@
               <div class="vquiz-overlay" id="videoQuizOverlay" aria-modal="true" role="dialog">
                 <div class="vquiz-card">
                   <div class="vquiz-header">
-                    <span class="vquiz-badge-time" id="vquizTimeBadge">⏱️ Minuto 0:30</span>
+                    <span class="vquiz-badge-time" id="vquizTimeBadge"><i class="fi fi-rr-clock"></i> Minuto 0:30</span>
                     <span class="vquiz-badge-step" id="vquizStepBadge">Pregunta 1 de 3</span>
                   </div>
                   <h4 class="vquiz-question-title" id="vquizTitle">Pregunta de comprensión</h4>
@@ -247,13 +213,13 @@
                   <div class="vquiz-actions">
                     <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                       <button type="button" class="vquiz-btn-submit" id="vquizBtnSubmit" onclick="checkVideoQuestion()">
-                        ✓ Comprobar respuesta
+                        <i class="fi fi-rr-check"></i> Comprobar respuesta
                       </button>
                       <button type="button" class="vquiz-btn-continue" id="vquizBtnContinue" onclick="resumeVideoAfterQuiz()">
-                        ▶ Continuar clase
+                        <i class="fi fi-rr-play"></i> Continuar clase
                       </button>
                       <button type="button" class="vquiz-btn-rewind" id="vquizBtnRewind" onclick="rewindVideoSegment()">
-                        ⏪ Repasar (-15s)
+                        <i class="fi fi-rr-rewind"></i> Repasar (-15s)
                       </button>
                     </div>
                     <button type="button" class="vquiz-btn-skip" onclick="skipVideoQuestion()" title="Continuar el video sin responder">
@@ -268,7 +234,7 @@
             <!-- ENLACE EXTERNO PARA VER EN YOUTUBE EN OTRA PESTAÑA -->
             <div class="video-ext-bar" id="videoExtBar" style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0 14px; padding: 10px 14px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); flex-wrap: wrap; gap: 8px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #fee2e2; border-radius: 50%; color: #dc2626; font-size: 13px;">▶</span>
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: #fee2e2; border-radius: 50%; color: #dc2626; font-size: 13px;"><i class="fi fi-rr-play"></i></span>
                 <span style="font-size: 13px; color: #475569; font-weight: 500;" id="videoExtBarText">¿Prefieres ver el video explicativo directamente en YouTube?</span>
               </div>
               <a id="btnExternalVideo" href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 7px 14px; border-radius: 8px; font-size: 12.5px; font-weight: 700; transition: all 0.2s ease;">
@@ -281,7 +247,7 @@
             <div class="vquiz-bar-card">
               <div class="vquiz-bar-header">
                 <div class="vquiz-bar-title">
-                  <span>🎯 Cuestionario en video:</span>
+                  <span><i class="fi fi-rr-bullseye-arrow"></i> Cuestionario en video:</span>
                   <span style="font-weight: 500; font-size: 14px; color: #64748b;">Preguntas de comprensión durante la transmisión</span>
                 </div>
                 <div class="vquiz-bar-controls">
@@ -290,7 +256,7 @@
                     <span>Pausa automática</span>
                   </label>
                   <span class="vquiz-score-pill" id="vquizScorePill">
-                    ⭐ <span id="vquizScoreText">0/3 superadas</span>
+                    <i class="fi fi-sr-star" style="color: #f59e0b;"></i> <span id="vquizScoreText">0/3 superadas</span>
                   </span>
                 </div>
               </div>
@@ -302,7 +268,7 @@
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; background: #f7fbf9; border: 1px solid #dff0e8; border-radius: 10px; padding: 10px 14px; font-size: 15px;">
-              <span>💡 <strong>Evaluación en tiempo real:</strong> Cada pregunta responde a la sección recién explicada para maximizar tu retención.</span>
+              <span><i class="fi fi-rr-bulb" style="color: #eab308;"></i> <strong>Evaluación en tiempo real:</strong> Cada pregunta responde a la sección recién explicada para maximizar tu retención.</span>
               <button type="button" onclick="switchLessonTab('ejercicio')" style="background: var(--verde-claro); color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">Resolver ejercicio práctico →</button>
             </div>
           </div>
@@ -328,7 +294,7 @@
           <div class="lesson-tab-pane" id="paneAudio" style="display: none;">
             <div class="audio-player-box">
               <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 22.5px; color: #06402d;">🎧</div>
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--amarillo-dorado); display: grid; place-items: center; font-size: 22.5px; color: #06402d; font-size: 20px;"><i class="fi fi-rr-headphones"></i></div>
                 <div>
                   <h4 style="font-size: 18px; margin: 0; font-weight: 700;" id="audioTitle">Episodio de Audio</h4>
                   <span style="font-size: 14px; opacity: 0.8;" id="audioDuration">Duración: 18 min</span>
@@ -339,9 +305,9 @@
               </p>
               <div style="background: rgba(255,255,255,0.12); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
                 <button type="button" onclick="togglePlayAudioDemo(this)" style="background: var(--verde-claro); color: white; border: none; padding: 8px 18px; border-radius: 999px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                  ▶ Reproducir episodio
+                  <i class="fi fi-rr-play"></i> Reproducir episodio
                 </button>
-                <span style="font-size: 14px; opacity: 0.85;">🔊 Audio HD Disponible</span>
+                <span style="font-size: 14px; opacity: 0.85;"><i class="fi fi-rr-volume"></i> Audio HD Disponible</span>
               </div>
             </div>
           </div>
@@ -350,7 +316,7 @@
           <div class="lesson-tab-pane" id="paneLibro" style="display: none;">
             <div class="book-download-card">
               <div style="display: flex; align-items: flex-start; gap: 14px;">
-                <div style="font-size: 40.5px;">📖</div>
+                <div style="font-size: 34px; display:flex; align-items:center; color: var(--verde-principal);"><i class="fi fi-rr-book-alt"></i></div>
                 <div>
                   <span style="font-size: 11.5px; font-weight: 700; background: #fef08a; color: #854d0e; padding: 2px 8px; border-radius: 999px;">GUÍA OFICIAL RECOMENDADA</span>
                   <h4 style="font-size: 18px; font-weight: 700; color: var(--gris-oscuro); margin: 6px 0 4px;" id="bookTitle">Libro Recomendado</h4>
@@ -359,7 +325,7 @@
                 </div>
               </div>
               <button type="button" onclick="downloadBookDemo()" style="background: var(--verde-principal); color: white; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;">
-                📥 Descargar PDF
+                <i class="fi fi-rr-download"></i> Descargar PDF
               </button>
             </div>
           </div>
@@ -373,13 +339,13 @@
 
           <!-- GATE DE REGISTRO EN LECCIÓN 4 -->
           <div class="gate-callout" id="registrationGate" style="display: none;">
-            <div style="font-size: 34.5px; margin-bottom: 8px;">🎁</div>
+            <div style="font-size: 34.5px; margin-bottom: 8px; color: #f59e0b; display:flex; justify-content:center;"><i class="fi fi-rr-gift"></i></div>
             <h4>¿Te gustó lo que aprendiste en estos 3 temas?</h4>
             <p>
               <strong>¡Inscríbete gratis!</strong> Crea tu cuenta en 10 segundos y desbloquea de inmediato <strong>tu primer mes del Nivel 1 (Básico)</strong> de la carrera de 18 meses, sin ningún costo ni tarjeta de crédito.
             </p>
             <button class="btn-unlock-unit" onclick="openFreeRegisterModal()">
-              🔓 Inscribirme Gratis y Liberar Nivel 1
+              <i class="fi fi-rr-lock-open-alt"></i> Inscribirme Gratis y Liberar Nivel 1
             </button>
           </div>
 
@@ -405,6 +371,16 @@
             </a>
           </div>
 
+          <div class="locked-lesson-overlay" id="lockedLessonOverlay" style="display: none;">
+            <div class="locked-lesson-card">
+              <div class="locked-lesson-icon"><i class="fi fi-sr-lock"></i></div>
+              <h4>Lección bloqueada</h4>
+              <p>Tu acceso gratuito incluye solamente el <strong>primer mes (Unidad 1)</strong>. Para continuar con las siguientes unidades necesitas la membresía completa.</p>
+              <a href="index.php?page=suscripcion" class="btn-unlock-unit">Ver membresía completa →</a>
+              <button type="button" class="locked-back-btn" onclick="selectLesson(8)">Volver a la lección 8</button>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -414,8 +390,8 @@
   <!-- MODAL: REGISTRO GRATIS (DESBLOQUEA UNIDAD 1 COMPLETA) -->
   <div class="modal-backdrop" id="freeRegisterModal" role="dialog" aria-modal="true">
     <div class="modal-panel">
-      <button class="modal-close" onclick="closeFreeRegisterModal()">✕</button>
-      <div style="font-size: 34.5px; margin-bottom: 8px;">🎓</div>
+      <button class="modal-close" onclick="closeFreeRegisterModal()"><i class="fi fi-rr-cross-small"></i></button>
+      <div style="font-size: 34.5px; margin-bottom: 8px; color: var(--verde-principal); display:flex; justify-content:center;"><i class="fi fi-rr-graduation-cap"></i></div>
       <h3>Libera la Unidad 1 Completa</h3>
       <p>Crea tu acceso gratuito para desbloquear las 4 lecciones y guardar tu avance.</p>
 
@@ -433,7 +409,7 @@
           <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" required>
         </div>
         <button type="submit" class="btn-submit-modal">
-          ✅ Activar Acceso Gratuito Inmediato
+          <i class="fi fi-rr-check"></i> Activar Acceso Gratuito Inmediato
         </button>
       </form>
     </div>
@@ -452,7 +428,7 @@
     const lessonsData = {
       1: {
         title: "1. Diagnóstico de tu dinero: ¿A dónde se va lo que ganas?",
-        tag: "Lección 1 de 8 (Carrera Financiera)",
+        tag: "Lección 1 de 8 (Mes Gratis)",
         duration: "14 min",
         videoUrl: "https://www.youtube.com/embed/WF6qLnuh4EA",
         videoCheckpoints: [
@@ -525,7 +501,7 @@
       },
       2: {
         title: "2. Fugas de capital y micro-gastos hormiga",
-        tag: "Lección 2 de 8 (Carrera Financiera)",
+        tag: "Lección 2 de 8 (Mes Gratis)",
         duration: "11 min",
         videoUrl: "https://www.youtube.com/embed/DT6Nh3aV5Vc",
         externalUrl: "https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP",
@@ -598,7 +574,7 @@
                </ul>
                <div style="margin-top: 18px; padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
                  <div>
-                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;">📺 Video explicativo: Fugas y Micro-Gastos Hormiga</div>
+                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;"><i class="fi fi-rr-play-alt"></i> Video explicativo: Fugas y Micro-Gastos Hormiga</div>
                    <div style="font-size: 12.5px; color: #b91c1c; margin-top: 2px;">Aprende a detectar fugas de dinero invisibles y proteger tu flujo mensual.</div>
                  </div>
                  <a href="https://youtu.be/DT6Nh3aV5Vc?si=7Goupsx4H4p_JuUP" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 4px rgba(220,38,38,0.2);">
@@ -608,7 +584,7 @@
       },
       3: {
         title: "3. La Regla 50/30/20 simplificada",
-        tag: "Lección 3 de 8 (Carrera Financiera)",
+        tag: "Lección 3 de 8 (Mes Gratis)",
         duration: "15 min",
         videoUrl: "https://www.youtube.com/embed/NnL7zHjX0bU",
         videoCheckpoints: [
@@ -681,7 +657,7 @@
       },
       4: {
         title: "4. Método anti-deuda acelerado: Bola de Nieve vs Avalancha",
-        tag: "Lección 4 de 8 (Carrera Financiera)",
+        tag: "Lección 4 de 8 (Mes Gratis)",
         duration: "18 min",
         videoUrl: "https://www.youtube.com/embed/SkHPWkxzE7o",
         externalUrl: "https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY",
@@ -754,7 +730,7 @@
                </ul>
                <div style="margin-top: 18px; padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
                  <div>
-                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;">📺 Video explicativo del Método Anti-Deuda</div>
+                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;"><i class="fi fi-rr-play-alt"></i> Video explicativo del Método Anti-Deuda</div>
                    <div style="font-size: 12.5px; color: #b91c1c; margin-top: 2px;">Bola de Nieve vs Avalancha: ¿cuál es mejor para pagar tus deudas?</div>
                  </div>
                  <a href="https://youtu.be/SkHPWkxzE7o?si=AA9chSyG1lcZaSrY" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 4px rgba(220,38,38,0.2);">
@@ -837,7 +813,7 @@
                </ul>
                <div style="margin-top: 18px; padding: 14px 16px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
                  <div>
-                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;">📺 Video explicativo: Fondo de Paz y Emergencias</div>
+                   <div style="font-weight: 700; color: #991b1b; font-size: 14px;"><i class="fi fi-rr-play-alt"></i> Video explicativo: Fondo de Paz y Emergencias</div>
                    <div style="font-size: 12.5px; color: #b91c1c; margin-top: 2px;">Fondo de Emergencia con Poco Dinero: Guía Paso a Paso.</div>
                  </div>
                  <a href="https://youtu.be/vp_B6Z7eF68?si=S854mK2puo4_ystd" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #dc2626; color: #ffffff; text-decoration: none; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 4px rgba(220,38,38,0.2);">
@@ -1066,6 +1042,47 @@
       }
     };
 
+    function buildLesson(cfg) {
+      return {
+        title: cfg.id + '. ' + cfg.title,
+        tag: 'Lección ' + (((cfg.id - 1) % 8) + 1) + ' de 8 (' + cfg.unit + ')',
+        duration: '16 min',
+        videoUrl: cfg.videoUrl,
+        videoCheckpoints: [],
+        audio: { title: cfg.audio, desc: 'Episodio complementario de esta lección.', duration: '18 min' },
+        book: { title: cfg.book, author: cfg.author, desc: 'Lectura recomendada para profundizar en el tema.' },
+        exercise: {
+          title: cfg.exerciseTitle,
+          desc: 'Selecciona la respuesta correcta:',
+          options: cfg.options,
+          correct: cfg.correct,
+          explanation: cfg.explanation
+        },
+        body: '<p>' + cfg.explanation + '</p><ul><li><strong>Concepto clave:</strong> ' + cfg.title + '.</li><li><strong>Aplicación práctica:</strong> registra un ejemplo real de tu semana.</li><li><strong>Retroalimentación:</strong> ' + cfg.explanation + '</li></ul>'
+      };
+    }
+
+    [
+      { id: 9, title: 'Cómo leer tu estado de cuenta sin emociones', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/vp_B6Z7eF68', audio: 'Estados de cuenta sin ansiedad', book: 'La psicología del dinero', author: 'Morgan Housel', exerciseTitle: '¿Cuál es el primer paso al revisar tu estado de cuenta?', options: ['Ignorar los cargos pequeños', 'Clasificar cada movimiento por categoría', 'Pagar todo en efectivo', 'Cancelar la cuenta'], correct: 1, explanation: 'Clasificar cada movimiento te da una radiografía real y evita decisiones emocionales.' },
+      { id: 10, title: 'Gastos fijos vs variables: encuentra tu margen', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/zA67rkRiGXI', audio: 'Encuentra tu margen mensual', book: 'Pequeño Cerdo Capitalista', author: 'Sofía Macías', exerciseTitle: '¿Qué gasto es variable por naturaleza?', options: ['Renta mensual', 'Suscripción anual fija', 'Comida y entretenimiento', 'Pago de hipoteca'], correct: 2, explanation: 'Los gastos variables cambian cada mes; ahí está tu margen de ajuste más flexible.' },
+      { id: 11, title: 'Suscripciones y cargos automáticos', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/pTFZrS_8jRk', audio: 'Auditoría de suscripciones', book: 'El milagro financiero', author: 'David Bach', exerciseTitle: '¿Cómo detectar una suscripción olvidada?', options: ['Revisando solo el saldo', 'Buscando cargos recurrentes en tu estado de cuenta', 'Preguntando a un amigo', 'Cancelando todas las tarjetas'], correct: 1, explanation: 'Los cargos recurrentes aparecen mes con mes; revisarlos es la forma más rápida de liberar dinero.' },
+      { id: 12, title: 'Compras inteligentes y costo de oportunidad', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/xnDpXyRsKlU', audio: 'El costo detrás de cada compra', book: 'Pensar, rápido y despacio', author: 'Daniel Kahneman', exerciseTitle: 'Si gastas $500 en algo innecesario, ¿qué debes comparar?', options: ['Solo el precio', 'Lo que ese dinero podría generar invertido', 'La marca del producto', 'La opinión de otros'], correct: 1, explanation: 'El costo de oportunidad mide lo que dejas de ganar al usar tu dinero de otra forma.' },
+      { id: 13, title: 'El fondo de emergencia paso a paso', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/9xHOEs6WtaM', audio: 'Construyendo tu colchón', book: 'Finanzas para mortales', author: 'Morgan Housel', exerciseTitle: '¿Cuántos meses de gastos cubre un fondo recomendable?', options: ['1 mes', 'De 3 a 6 meses', '12 meses', 'Solo 15 días'], correct: 1, explanation: 'De 3 a 6 meses de gastos esenciales te protege sin inmovilizar demasiado capital.' },
+      { id: 14, title: 'Tarjetas de crédito: paga siempre el total', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/H48qw1QRGSA', audio: 'Tarjetas sin intereses', book: 'Domina tu tarjeta de crédito', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué evitas al pagar el saldo total cada mes?', options: ['Comisiones por manejo de cuenta', 'Intereses revolventes', 'Impuestos', 'Seguros'], correct: 1, explanation: 'Pagar el total elimina los intereses revolventes, el costo más caro del crédito.' },
+      { id: 15, title: 'Negocia tasas y comisiones con tu banco', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/RgKAFK5djSk', audio: 'Negocia con tu banco', book: 'La banca explicada fácil', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué información necesitas antes de negociar?', options: ['Solo tu saldo', 'Tasas, comisiones y opciones de la competencia', 'Tu número de cliente', 'El nombre del ejecutivo'], correct: 1, explanation: 'Llegar con datos concretos te permite pedir mejoras con argumentos y no con suposiciones.' },
+      { id: 16, title: 'Metas de ahorro semanales automatizadas', unit: 'Unidad 2 · Mes 2', videoUrl: 'https://www.youtube.com/embed/NnL7zHjX0bU', audio: 'Ahorro automático cada semana', book: 'Hábitos atómicos', author: 'James Clear', exerciseTitle: '¿Qué hace efectiva a una transferencia automática?', options: ['Depender de tu memoria', 'Programarla el día de tu quincena', 'Esperar a que sobre dinero', 'Hacerla solo cuando hay descuentos'], correct: 1, explanation: 'Automatizar el día de ingresos convierte el ahorro en un hábito, no en una decisión diaria.' },
+      { id: 17, title: 'Deuda buena vs mala: criterios para decidir', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/SkHPWkxzE7o', audio: 'Cuándo endeudarte con criterio', book: 'Padre rico, padre pobre', author: 'Robert Kiyosaki', exerciseTitle: '¿Qué señala una deuda "buena"?', options: ['Que sea pequeña', 'Que financie un activo que genera ingresos', 'Que tenga muchos meses de plazo', 'Que la pida un amigo'], correct: 1, explanation: 'Una deuda es útil cuando el activo financiado genera flujo para pagarla y generar retorno.' },
+      { id: 18, title: 'Bola de nieve vs avalancha', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/FTQbiNvZqaY', audio: 'Elige tu método de pago', book: 'El plan de libertad financiera', author: 'Equipo Educación Financiera', exerciseTitle: '¿Qué prioriza el método avalancha?', options: ['La deuda más pequeña', 'La tasa de interés más alta', 'La deuda más antigua', 'El saldo más alto'], correct: 1, explanation: 'La avalancha ataca primero la tasa más alta y reduce el total de intereses pagados.' },
+      { id: 19, title: 'Refinanciamiento y consolidación de deudas', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/byA-aYNNkJk', audio: 'Consolida sin endeudarte más', book: 'Sal de deudas', author: 'Equipo Educación Financiera', exerciseTitle: '¿Cuál es el riesgo principal de consolidar deudas?', options: ['Bajar la tasa', 'Extender el plazo y pagar más intereses', 'Unir varios pagos', 'Mejorar tu historial'], correct: 1, explanation: 'Un plazo más largo puede reducir tu pago mensual pero aumentar el costo total.' },
+      { id: 20, title: 'CETES: tu primer rendimiento garantizado', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/d3UaX-s7eXU', audio: 'CETES sin complicaciones', book: 'Invierte con sentido común', author: 'John C. Bogle', exerciseTitle: '¿Qué respalda a los CETES?', options: ['Una empresa privada', 'El Gobierno de México', 'Un banco comercial', 'Una criptomoneda'], correct: 1, explanation: 'Los CETES son títulos de deuda del gobierno federal y son de los instrumentos más seguros.' },
+      { id: 21, title: 'Interés compuesto y el tiempo a tu favor', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/N2bXEUSAiTI', audio: 'La magia del interés compuesto', book: 'El pequeño libro para invertir', author: 'John C. Bogle', exerciseTitle: '¿Qué acelera el interés compuesto?', options: ['Retirar utilidades cada mes', 'Aportar de forma constante y reinvertir', 'Cambiar de instrumento cada semana', 'Guardar dinero en efectivo'], correct: 1, explanation: 'La constancia y reinvertir los rendimientos hacen que el crecimiento sea exponencial.' },
+      { id: 22, title: 'Fondos de inversión y ETFs para principiantes', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/WI5NKIe0DBk', audio: 'ETFs y fondos indexados', book: 'El camino simple a la riqueza', author: 'JL Collins', exerciseTitle: '¿Qué ventaja ofrece un ETF indexado?', options: ['Garantía de rendimiento', 'Diversificación con baja comisión', 'Evitar impuestos siempre', 'Comprar una sola acción'], correct: 1, explanation: 'Los ETFs indexados diversifican tu inversión con costos muy bajos.' },
+      { id: 23, title: 'Seguros y protección de tu patrimonio', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/SqcY0GlETPk', audio: 'Protege lo que construyes', book: 'Seguros sin letra pequeña', author: 'Equipo Educación Financiera', exerciseTitle: '¿Para qué sirve un fondo de emergencia junto a un seguro?', options: ['Para invertir en criptomonedas', 'Para cubrir deducibles y gastos no previstos', 'Para pagar comisiones', 'Para comprar lujos'], correct: 1, explanation: 'El seguro transfiere grandes riesgos y el fondo cubre los gastos que no cubre la póliza.' },
+      { id: 24, title: 'Plan de libertad financiera a 18 meses', unit: 'Unidad 3 · Mes 3', videoUrl: 'https://www.youtube.com/embed/vLnPwxZdW4Y', audio: 'Tu plan a 18 meses', book: 'La bolsa o la vida', author: 'Vicki Robin y Joe Dominguez', exerciseTitle: '¿Qué define tu número de libertad financiera?', options: ['Tu sueldo actual', 'Gasto anual x 25 según la regla del 4%', 'El saldo de tu tarjeta', 'El precio de tu casa'], correct: 1, explanation: 'Tu número es el patrimonio necesario para retirar el 4% anual sin agotar el capital.' }
+    ].forEach(function (cfg) {
+      lessonsData[cfg.id] = buildLesson(cfg);
+    });
+
     // ============================================================
     // GESTIÓN DEL CUESTIONARIO INTERACTIVO EN TIEMPO REAL DEL VIDEO
     // ============================================================
@@ -1250,7 +1267,7 @@
       if (vquizSelectedOption === null) {
         feedback.className = 'vquiz-feedback error';
         feedback.style.display = 'block';
-        feedback.textContent = '⚠️ Por favor selecciona una de las opciones antes de comprobar.';
+        feedback.innerHTML = '<i class="fi fi-rr-exclamation"></i> Por favor selecciona una de las opciones antes de comprobar.';
         return;
       }
 
@@ -1258,7 +1275,7 @@
         markVquizAnswered(currentLesson, vquizActiveCheckpoint);
         feedback.className = 'vquiz-feedback success';
         feedback.style.display = 'block';
-        feedback.innerHTML = `🎉 <strong>¡Excelente comprensión!</strong> ${cp.explanation}<br><span style="font-size:14px; font-weight:700;">+25 Puntos ganados en tu progreso ⭐</span>`;
+        feedback.innerHTML = `<i class="fi fi-sr-sparkles" style="color:#f59e0b;"></i> <strong>¡Excelente comprensión!</strong> ${cp.explanation}<br><span style="font-size:14px; font-weight:700;">+25 Puntos ganados en tu progreso <i class="fi fi-sr-star" style="color:#f59e0b;"></i></span>`;
         
         document.getElementById('vquizBtnSubmit').style.display = 'none';
         document.getElementById('vquizBtnContinue').style.display = 'inline-flex';
@@ -1268,7 +1285,7 @@
       } else {
         feedback.className = 'vquiz-feedback error';
         feedback.style.display = 'block';
-        feedback.innerHTML = `❌ <strong>Esa no es la respuesta correcta.</strong> Puedes repasar el fragmento reciente del video o intentarlo de nuevo.`;
+        feedback.innerHTML = `<i class="fi fi-sr-cross-circle" style="color:#ef4444;"></i> <strong>Esa no es la respuesta correcta.</strong> Puedes repasar el fragmento reciente del video o intentarlo de nuevo.`;
 
         document.getElementById('vquizBtnRewind').style.display = 'inline-flex';
       }
@@ -1340,7 +1357,7 @@
         const answered = isVquizAnswered(lessonId, idx);
         if (answered) completedCount++;
         return `<button type="button" class="vquiz-chip-btn ${answered ? 'completed' : ''}" id="vquizChip_${idx}" onclick="jumpToVideoCheckpoint(${idx})" title="Clic para ir a este punto y responder">
-          <span>${answered ? '✅' : '⏱️ ' + cp.timeLabel}</span>
+          <span>${answered ? '<i class="fi fi-rr-check"></i>' : '<i class="fi fi-rr-clock"></i> ' + cp.timeLabel}</span>
           <span>Pregunta ${idx + 1}: ${cp.title.length > 34 ? cp.title.substring(0, 32) + '...' : cp.title}</span>
         </button>`;
       }).join('');
@@ -1361,7 +1378,7 @@
         setTimeout(() => {
           const feedback = document.getElementById('vquizFeedback');
           if (feedback) {
-            feedback.innerHTML += `<div style="margin-top:8px; padding-top:8px; border-top:1px dashed #6ee7b7; font-weight:700; color:#06402d;">🏆 ¡Felicitaciones! Has completado todas las preguntas de comprensión de este video.</div>`;
+            feedback.innerHTML += `<div style="margin-top:8px; padding-top:8px; border-top:1px dashed #6ee7b7; font-weight:700; color:#06402d;"><i class="fi fi-rr-trophy"></i> ¡Felicitaciones! Has completado todas las preguntas de comprensión de este video.</div>`;
           }
         }, 300);
       }
@@ -1410,25 +1427,25 @@
         feedback.style.display = 'block';
         feedback.style.background = '#fef2f2';
         feedback.style.color = '#b91c1c';
-        feedback.textContent = '⚠️ Por favor selecciona una opción antes de comprobar.';
+        feedback.innerHTML = '<i class="fi fi-rr-exclamation"></i> Por favor selecciona una opción antes de comprobar.';
         return;
       }
       feedback.style.display = 'block';
       if (selectedOptionIndex === data.exercise.correct) {
         feedback.style.background = '#ecfdf5';
         feedback.style.color = '#047857';
-        feedback.innerHTML = '🎉 ' + data.exercise.explanation + '<br><strong>+50 Puntos ganados en tu progreso.</strong>';
+        feedback.innerHTML = '<i class="fi fi-sr-sparkles" style="color:#f59e0b;"></i> ' + data.exercise.explanation + '<br><strong>+50 Puntos ganados en tu progreso.</strong>';
       } else {
         feedback.style.background = '#fffbeb';
         feedback.style.color = '#b45309';
-        feedback.textContent = '❌ Esa no es la respuesta correcta. Revisa el video o el resumen teórico e inténtalo de nuevo.';
+        feedback.innerHTML = '<i class="fi fi-sr-cross-circle" style="color:#ef4444;"></i> Esa no es la respuesta correcta. Revisa el video o el resumen teórico e inténtalo de nuevo.';
       }
     }
 
     function togglePlayAudioDemo(btn) {
       if (!window.audioDemoActive) {
         window.audioDemoActive = true;
-        btn.innerHTML = '⏸ Pausar episodio';
+        btn.innerHTML = '<i class="fi fi-rr-pause"></i> Pausar episodio';
         btn.style.background = '#e11d48';
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
@@ -1440,7 +1457,7 @@
         }
       } else {
         window.audioDemoActive = false;
-        btn.innerHTML = '▶ Reproducir episodio';
+        btn.innerHTML = '<i class="fi fi-rr-play"></i> Reproducir episodio';
         btn.style.background = 'var(--verde-claro)';
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
@@ -1472,15 +1489,37 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      alert('📥 ¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
+      alert('¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
     }
 
     let currentLesson = 1;
+    const MAX_FREE_LESSON = (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva())) ? 24 : 8;
 
     function selectLesson(id) {
-      currentLesson = id;
       const data = lessonsData[id];
       if (!data) return;
+      currentLesson = id;
+      toggleUnit(id <= 8 ? 'unit1' : id <= 16 ? 'unit2' : 'unit3');
+
+      const lockedOverlay = document.getElementById('lockedLessonOverlay');
+      if (id > MAX_FREE_LESSON) {
+        if (lockedOverlay) lockedOverlay.style.display = 'flex';
+        for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
+          const item = document.getElementById('itemLesson' + i);
+          if (item) {
+            if (i === id) item.classList.add('active');
+            else item.classList.remove('active');
+          }
+        }
+        const nextBtn = document.getElementById('btnNextLesson');
+        if (nextBtn) {
+          nextBtn.disabled = true;
+          nextBtn.style.opacity = "0.5";
+        }
+        return;
+      }
+
+      if (lockedOverlay) lockedOverlay.style.display = 'none';
 
       document.getElementById('playerTitle').textContent = data.title;
       document.getElementById('lessonTagText').textContent = data.tag;
@@ -1532,7 +1571,7 @@
         document.getElementById('exerciseTitle').textContent = data.exercise.title;
         document.getElementById('exerciseDesc').textContent = data.exercise.desc;
         const optHtml = data.exercise.options.map((opt, idx) => {
-          return '<div class="exercise-option" onclick="selectExerciseOption(' + idx + ')"><span>📝</span> <span>' + opt + '</span></div>';
+          return '<div class="exercise-option" onclick="selectExerciseOption(' + idx + ')"><span><i class="fi fi-rr-edit"></i></span> <span>' + opt + '</span></div>';
         }).join('');
         document.getElementById('exerciseOptionsContainer').innerHTML = optHtml;
       }
@@ -1557,7 +1596,7 @@
       const regGate = document.getElementById('registrationGate');
       if (regGate) regGate.style.display = 'none';
 
-      for (let i = 1; i <= 8; i++) {
+      for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
         const item = document.getElementById('itemLesson' + i);
         if (item) {
           if (i === id) item.classList.add('active');
@@ -1570,27 +1609,48 @@
         prevBtn.disabled = (id === 1);
         prevBtn.style.opacity = (id === 1) ? "0.5" : "1";
       }
+
+      const nextBtn = document.getElementById('btnNextLesson');
+      if (nextBtn) {
+        nextBtn.disabled = (id >= MAX_FREE_LESSON);
+        nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+      }
     }
 
     function stepLesson(direction) {
       const nextId = currentLesson + direction;
-      if (nextId >= 1 && nextId <= 8) {
+      if (nextId >= 1 && nextId <= MAX_FREE_LESSON) {
         selectLesson(nextId);
       }
     }
 
     function toggleUnit(unitId) {
-      const list = document.getElementById(unitId + 'List');
-      if (!list) return;
-      list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+      const unidades = ['unit1', 'unit2', 'unit3'];
+      unidades.forEach(function (id) {
+        const list = document.getElementById(id + 'List');
+        const bar = document.getElementById(id + 'Bar');
+        const activa = (id === unitId);
+        if (list) list.style.display = activa ? 'block' : 'none';
+        if (bar) bar.classList.toggle('unit-active', activa);
+      });
     }
 
     function tieneInscripcionActiva() {
-      return true; // Siempre activa para libre aprendizaje
+      return false;
+    }
+
+    function actualizarUnidadesPorMembresia() {
+      const conMembresia = (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva();
+      [2, 3].forEach(function (u) {
+        const accordion = document.getElementById('unitAccordion' + u);
+        if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';
+      });
     }
 
     document.addEventListener("DOMContentLoaded", function() {
+      actualizarUnidadesPorMembresia();
       selectLesson(1);
+      setTimeout(actualizarUnidadesPorMembresia, 400);
       // Inicializar YouTube si la API ya estuviese disponible
       if (window.YT && window.YT.Player) {
         initYouTubePlayer();
@@ -1599,3 +1659,4 @@
   </script>
 
 <script src="public/js/script.js?v=<?= time() ?>"></script>
+

@@ -1,11 +1,11 @@
 # Educación Financiera
 
-Plataforma web de educación financiera con sistema de autenticación, cursos interactivos, gamificación y seguimiento de progreso.
+Plataforma web de educación financiera con sistema de autenticación, retícula académica, gamificación y seguimiento de progreso.
 
 ## 📋 Características
 
 - **Sistema de autenticación completo**: Registro, login, recuperación de contraseña
-- **Cursos dinámicos**: Gestión de cursos y lecciones desde base de datos
+- **Contenido académico**: Gestión de lecciones y materiales desde base de datos
 - **Sistema de membresías**: Gratis, Pro, Premium
 - **Gamificación**: Puntos, niveles, logros y badges
 - **Arquitectura MVC**: Modelo-Vista-Controlador organizado profesionalmente
@@ -35,11 +35,11 @@ EDUCACION_FINANCIERA/
 │
 ├── app/                         # Arquitectura MVC
 │   ├── core/                    # Router, modelos base, vistas, sesión y seguridad
-│   ├── controllers/             # Auth, Course, User, Progress, Membership, etc.
-│   ├── models/                  # User, Course, Enrollment, Progress, Achievement y Membership
+│   ├── controllers/             # Auth, User, Progress, Membership, etc.
+│   ├── models/                  # Course (contenido), User, Enrollment, Progress, Achievement y Membership
 │   └── views/                   # Vistas organizadas por sección
 │       ├── inicio/index.php
-│       ├── aprendizaje/         # cursos.php, detalle-curso.php, reticula.php
+│       ├── aprendizaje/         # detalle-curso.php, reticula.php
 │       ├── herramientas/        # metas.php, recursos.php
 │       ├── cuenta/              # configuraciones.php, suscripcion.php
 │       └── layouts/             # header.php, main.php
@@ -110,7 +110,7 @@ EDUCACION_FINANCIERA/
 
 5. **Acceder a la plataforma**
    - **Vistas MVC**: `http://localhost/EDUCACION_FINANCIERA/public/index.php` o `index.php`
-   - **Páginas**: `index.php?page=home|cursos|aula|recursos|reticula|metas|configuraciones|suscripcion`
+    - **Páginas**: `index.php?page=home|aula|recursos|reticula|metas|configuraciones|suscripcion`
    - **API REST MVC**: `http://localhost/EDUCACION_FINANCIERA/api/index.php?endpoint=session`
 
 ## 📱 API Endpoints
@@ -127,8 +127,6 @@ EDUCACION_FINANCIERA/
 | `?endpoint=actualizar-perfil` | POST | Actualizar perfil |
 | `?endpoint=cambiar-password` | POST | Cambiar contraseña |
 | `?endpoint=eliminar-cuenta` | POST | Eliminar cuenta (soft delete) |
-| `?endpoint=cursos` | GET | Listar cursos |
-| `?endpoint=cursos&id=1` | GET | Detalle de curso |
 | `?endpoint=inscripciones` | GET/POST/DELETE | Inscripciones a materias |
 | `?endpoint=progreso` | GET/POST | Progreso de usuario |
 | `?endpoint=logros` | GET | Logros y puntos |

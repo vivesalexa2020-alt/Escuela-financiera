@@ -79,6 +79,7 @@ abstract class Controller {
         http_response_code(403);
         if ($this->wantsJson()) {
             $this->jsonResponse(['success' => false, 'message' => $message], 403);
+            return;
         }
 
         header('Content-Type: text/html; charset=utf-8');

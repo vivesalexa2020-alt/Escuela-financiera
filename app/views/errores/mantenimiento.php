@@ -3,6 +3,6 @@
     <div style="font-size:3rem;line-height:1;margin-bottom:18px;">🚧</div>
     <h1 style="margin:0 0 12px;font-size:1.55rem;font-weight:800;color:#0f172a;"><?= htmlspecialchars($nombre ?? 'Educación Financiera') ?></h1>
     <p style="margin:0 0 26px;font-size:.95rem;line-height:1.65;color:#475569;"><?= htmlspecialchars($mensaje ?? 'Estamos realizando mejoras en la plataforma. Vuelve en unos minutos.') ?></p>
-    <a href="index.php?page=reticula#login" style="display:inline-block;background:#0ea5e9;color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;padding:12px 24px;border-radius:10px;">Acceso administrador</a>
+    <a href="index.php#login" style="display:inline-block;background:#0ea5e9;color:#fff;text-decoration:none;font-weight:700;font-size:.88rem;padding:12px 24px;border-radius:10px;">Acceso administrador</a>
   </div>
 </div>
