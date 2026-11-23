@@ -113,6 +113,21 @@ class MembershipModel extends Model {
         return $stmt->fetchAll() ?: [];
     }
 
+    public function obtenerUnidadesPagadas(int $userId): array {
+        $stmt = $this->db->prepare("
+            SELECT DISTINCT unidad
+            FROM pagos
+            WHERE usuario_id = ? AND estado = 'aprobado' AND unidad BETWEEN 2 AND 12
+            ORDER BY unidad
+        ");
+        $stmt->execute([$userId]);
+        $unidades = [];
+        foreach ($stmt->fetchAll() as $pago) {
+            $unidades[] = (int)$pago['unidad'];
+        }
+        return $unidades;
+    }
+
     public function actualizarEstadoPago(int $id, string $estado, int $revisadoPor, string $notas = ''): bool {
         $stmt = $this->db->prepare("
             UPDATE pagos

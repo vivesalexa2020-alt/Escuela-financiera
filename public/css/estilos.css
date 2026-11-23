@@ -3033,13 +3033,15 @@ body.user-logged-in .logged-topbar {
   color: var(--text-muted);
 }
 
-.reticula-materia.is-inscrita {
+.reticula-materia.is-inscrita,
+.reticula-materia.is-completada {
   border-color: #22c55e !important;
   background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%) !important;
   box-shadow: 0 4px 14px rgba(34, 197, 94, 0.12) !important;
 }
 
-.reticula-materia.is-inscrita .reticula-materia-estado {
+.reticula-materia.is-inscrita .reticula-materia-estado,
+.reticula-materia.is-completada .reticula-materia-estado {
   background: linear-gradient(135deg, #16a34a, #22c55e) !important;
   color: #ffffff !important;
   font-weight: 700;

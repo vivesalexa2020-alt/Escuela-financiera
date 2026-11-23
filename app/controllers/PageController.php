@@ -60,7 +60,24 @@ class PageController extends Controller {
             header('Location: index.php?page=home');
             exit();
         }
-        $this->renderPage('reticula', 'aprendizaje/reticula', 'Retícula Académica | Educación Financiera', 'user-logged-in');
+
+        $unidadesPagadas = [];
+        try {
+            $membershipModel = new \App\Models\MembershipModel();
+            $unidadesPagadas = Session::isAdmin()
+                ? range(2, 12)
+                : $membershipModel->obtenerUnidadesPagadas((int)Session::userId());
+        } catch (\Throwable $e) {
+            Logger::warning('Error consultando unidades pagadas en retícula', ['error' => $e->getMessage()]);
+        }
+
+        $this->renderPage(
+            'reticula',
+            'aprendizaje/reticula',
+            'Retícula Académica | Educación Financiera',
+            'user-logged-in',
+            ['unidadesPagadas' => $unidadesPagadas]
+        );
     }
 
     public function metas(): void {

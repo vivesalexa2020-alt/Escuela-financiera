@@ -731,6 +731,9 @@ async function syncMembresiaDesdeAPI() {
         tipo: data.membresia.tipo_membresia,
         fecha: data.membresia.fecha_inicio
       }));
+      if (Array.isArray(data.unidades_pagadas)) {
+        localStorage.setItem(RETICULA_PAGADAS_KEY + String(user.email).toLowerCase(), JSON.stringify(data.unidades_pagadas));
+      }
     }
   } catch (e) { /* sin conexión, usar cache local */ }
 }
@@ -1220,14 +1223,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 // 15. RETÍCULA ACADÉMICA INTERACTIVA
 // ------------------------------------------------------------
 const RETICULA_ARRAY_KEY = 'edu_fin_reticula_';
+const RETICULA_PAGADAS_KEY = 'edu_fin_unidades_pagadas_';
 
 const RETICULA_SEMESTRES = [
   { id: 1, nivel: 'Básico', titulo: 'Nivel 1 (Básico — Unidad 1 gratis)', limite: 4, requeridoPrevio: 0, gratis: true },
   { id: 2, nivel: 'Intermedio', titulo: 'Nivel 2 (Intermedio)', limite: 4, requeridoPrevio: 4, gratis: false },
   { id: 3, nivel: 'Avanzado', titulo: 'Nivel 3 (Avanzado)', limite: 4, requeridoPrevio: 1, gratis: false }
 ];
-
-const RETICULA_MATERIA_GRATIS_ID = 'finanzas-personales';
 
 const RETICULA_MATERIAS = [
   // NIVEL 1 (Básico - Primer mes gratis) — mismas unidades del Aula Demo
@@ -1658,6 +1660,41 @@ function saveReticulaState(state) {
   });
 }
 
+function reticulaUsuarioAutenticado() {
+  if (typeof RETICULA_USUARIO_AUTENTICADO !== 'undefined' && RETICULA_USUARIO_AUTENTICADO === true) return true;
+  return !!getCurrentUser();
+}
+
+function getUnidadesPagadas() {
+  if (typeof RETICULA_UNIDADES_PAGADAS !== 'undefined' && Array.isArray(RETICULA_UNIDADES_PAGADAS)) {
+    return RETICULA_UNIDADES_PAGADAS.map(Number);
+  }
+  const user = getCurrentUser();
+  const who = (user && user.email) ? String(user.email).toLowerCase() : 'invitado';
+  try {
+    const raw = localStorage.getItem(RETICULA_PAGADAS_KEY + who);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(parsed)) return parsed.map(Number);
+  } catch (e) {}
+  return [];
+}
+
+function getUnidadMateria(m) {
+  const idx = RETICULA_MATERIAS.indexOf(m);
+  return idx >= 0 ? idx + 1 : 0;
+}
+
+function unidadEstaDesbloqueada(unidad) {
+  if (unidad <= 1) return true;
+  if (getUnidadesPagadas().indexOf(unidad) !== -1) return true;
+  if (unidad === 2 && tieneMembresiaActiva()) return true;
+  return false;
+}
+
+function materiaEstaCompletada(m) {
+  return !!m && getUnidadMateria(m) === 1 && reticulaUsuarioAutenticado();
+}
+
 async function resetInscripciones() {
   if (!confirm('¿Quitar todas las materias inscritas de tu retícula? Esta acción no se puede deshacer.')) return;
 
@@ -1695,6 +1732,13 @@ function contarInscritasEnSemestre(state, semId) {
   return state.inscritas.filter(function (id) {
     const m = getMateriaPorId(id);
     return m && m.semestre === semId;
+  }).length;
+}
+
+function contarAvanceEnSemestre(state, semId) {
+  return RETICULA_MATERIAS.filter(function (m) {
+    return m.semestre === semId
+      && (state.inscritas.indexOf(m.id) !== -1 || materiaEstaCompletada(m));
   }).length;
 }
 
@@ -1754,15 +1798,18 @@ function semestreRequierePago(semId) {
 }
 
 function materiaRequierePago(m) {
-  return !!m && m.id !== RETICULA_MATERIA_GRATIS_ID;
+  return !!m && getUnidadMateria(m) > 1;
 }
 
 function semestreEstaBloqueadoPorPago(semId) {
-  return semestreRequierePago(semId) && !tieneMembresiaActiva();
+  if (!semestreRequierePago(semId)) return false;
+  return !RETICULA_MATERIAS.some(function (m) {
+    return m.semestre === semId && !materiaEstaBloqueadaPorPago(m);
+  });
 }
 
 function materiaEstaBloqueadaPorPago(m) {
-  return materiaRequierePago(m) && !tieneMembresiaActiva();
+  return materiaRequierePago(m) && !unidadEstaDesbloqueada(getUnidadMateria(m));
 }
 
 function semestreEstaBloqueado(state, semId) {
@@ -1774,7 +1821,7 @@ function semestreEstaBloqueado(state, semId) {
   if (cfg.requeridoPrevio <= 0) return false;
   const prev = RETICULA_SEMESTRES.find(function (s) { return s.id === semId - 1; });
   if (!prev) return false;
-  return contarInscritasEnSemestre(state, prev.id) < cfg.requeridoPrevio;
+  return contarAvanceEnSemestre(state, prev.id) < cfg.requeridoPrevio;
 }
 
 function puedeInscribir(id) {
@@ -1793,6 +1840,8 @@ function puedeInscribir(id) {
 }
 
 function estadoMateria(id, state) {
+  const m = getMateriaPorId(id);
+  if (materiaEstaCompletada(m)) return 'completada';
   if (state.inscritas.indexOf(id) !== -1) return 'inscrita';
   if (puedeInscribir(id).ok) return 'disponible';
   return 'bloqueada';
@@ -1809,7 +1858,7 @@ function renderReticula() {
   const resumen = document.getElementById('reticulaResumen');
   if (resumen) {
     let hint;
-    const inscritasN1 = contarInscritasEnSemestre(state, 1);
+    const inscritasN1 = contarAvanceEnSemestre(state, 1);
     const limiteN1 = (getSemestreConfig(1) || {}).limite || 4;
     if (inscritas >= total) {
       hint = '¡Excelente! Has completado tu programa de 18 meses';
@@ -1818,11 +1867,11 @@ function renderReticula() {
       hint = tieneMembresiaActiva()
         ? 'Completa ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' del Nivel 1 para desbloquear el Nivel 2'
         : 'Unidad 1 gratis: activa tu membresía y completa ' + faltan + ' materia' + (faltan === 1 ? '' : 's') + ' del Nivel 1';
-    } else if (contarInscritasEnSemestre(state, 2) < 4) {
+    } else if (contarAvanceEnSemestre(state, 2) < 4) {
       hint = tieneMembresiaActiva()
         ? '¡Nivel 1 completado! Continúa tu programa de 18 meses en el Nivel 2'
         : '¡Nivel 1 completado! Activa tu inscripción para continuar en el Nivel 2';
-    } else if (contarInscritasEnSemestre(state, 3) < 4) {
+    } else if (contarAvanceEnSemestre(state, 3) < 4) {
       hint = '¡Nivel 2 completado! Inicia el Nivel 3 Avanzado';
     } else {
       hint = '¡Nivel Avanzado! Completa tu programa de 18 meses';
@@ -1836,11 +1885,12 @@ function renderReticula() {
   grid.innerHTML = RETICULA_SEMESTRES.map(function (sem) {
     const cfg = sem;
     const materias = RETICULA_MATERIAS.filter(function (m) { return m.semestre === sem.id; });
-    const inscritasSem = contarInscritasEnSemestre(state, sem.id);
+    const inscritasSem = contarAvanceEnSemestre(state, sem.id);
     const bloqueado = semestreEstaBloqueado(state, sem.id);
     const requierePago = semestreEstaBloqueadoPorPago(sem.id);
     const nivelBasicoIncompleto = sem.id === 1 && inscritasSem < cfg.limite;
-    const mostrarCandadoNivel = bloqueado || nivelBasicoIncompleto;
+    const hayMateriasDisponibles = materias.some(function (m) { return !materiaEstaBloqueadaPorPago(m); });
+    const mostrarCandadoNivel = (bloqueado || nivelBasicoIncompleto) && !hayMateriasDisponibles;
     const pct = Math.min(100, Math.round((inscritasSem / cfg.limite) * 100));
 
     const chip = mostrarCandadoNivel || requierePago
@@ -1855,9 +1905,10 @@ function renderReticula() {
     const cards = materias.map(function (m) {
       const st = estadoMateria(m.id, state);
       let etiqueta = 'Disponible';
-      if (st === 'inscrita') etiqueta = '<i class="fi fi-rr-check"></i> Inscrita';
+      if (st === 'completada') etiqueta = '<i class="fi fi-rr-check-double"></i> Completada';
+      else if (st === 'inscrita') etiqueta = '<i class="fi fi-rr-check"></i> Inscrita';
       else if (st === 'bloqueada') etiqueta = '<i class="fi fi-sr-lock"></i> Bloqueada';
-      const accionClick = (st === 'inscrita')
+      const accionClick = (st === 'inscrita' || st === 'completada')
         ? "window.location.href='index.php?page=aula'"
         : "openReticulaModal('" + m.id + "')";
       return '' +
@@ -2533,7 +2584,12 @@ function openReticulaModal(id) {
   let label = 'Inscribirme';
   let deshabilitado = false;
 
-  if (state.inscritas.indexOf(id) !== -1) {
+  if (estadoMateria(id, state) === 'completada') {
+    tipo = 'ok';
+    texto = '<i class="fi fi-rr-check-double"></i> Unidad completada. Puedes repasar sus recursos cuando quieras en el Aula Virtual.';
+    label = '<i class="fi fi-rr-play"></i> Abrir lección en Aula Virtual';
+    deshabilitado = false;
+  } else if (state.inscritas.indexOf(id) !== -1) {
     tipo = 'ok';
     texto = '<i class="fi fi-rr-check"></i> Materia activa. ¡Explora las pestañas de Videos, Ejercicios Interactivos, Podcasts y Libros!';
     label = '<i class="fi fi-rr-play"></i> Abrir lección en Aula Virtual';
@@ -2552,7 +2608,7 @@ function openReticulaModal(id) {
     } else if (chk.motivo === 'bloqueado') {
       tipo = 'info';
       const prevSem = m.semestre - 1;
-      const faltan = cfg ? Math.max(0, cfg.requeridoPrevio - contarInscritasEnSemestre(state, prevSem)) : 1;
+      const faltan = cfg ? Math.max(0, cfg.requeridoPrevio - contarAvanceEnSemestre(state, prevSem)) : 1;
       texto = '<i class="fi fi-sr-lock"></i> Para inscribir esta materia primero debes completar ' + faltan +
         (faltan === 1 ? ' materia' : ' materias') + ' del Nivel ' + prevSem + '.';
       label = 'Completa el nivel anterior';

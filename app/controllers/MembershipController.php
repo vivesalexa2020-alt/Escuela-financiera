@@ -24,8 +24,9 @@ class MembershipController extends Controller {
         try {
             $membresia = $this->membershipModel->getByUser($userId);
             $this->jsonResponse([
-                'success'   => true,
-                'membresia' => $membresia
+                'success'          => true,
+                'membresia'        => $membresia,
+                'unidades_pagadas' => $this->membershipModel->obtenerUnidadesPagadas($userId)
             ]);
         } catch (\Throwable $e) {
             Logger::error('Error al obtener membresía', ['error' => $e->getMessage()]);

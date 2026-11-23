@@ -693,6 +693,10 @@
   </div>
 
 
+  <script>
+    const RETICULA_USUARIO_AUTENTICADO = <?= !empty($user) ? 'true' : 'false' ?>;
+    const RETICULA_UNIDADES_PAGADAS = <?= json_encode(array_values($unidadesPagadas ?? [])) ?>;
+  </script>
   <script src="public/js/script.js?v=<?= time() ?>"></script>
 
   <!-- ============================================================
