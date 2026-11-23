@@ -93,6 +93,8 @@ if (($user['rol'] ?? '') === 'admin') {
           <span>Membresía</span>
           <?php if ($tieneMembresia): ?>
             <span class="sidebar-pill-active"><i class="fi fi-sr-badge-check"></i> Activa</span>
+          <?php else: ?>
+            <span class="sidebar-pill-upgrade">Activar</span>
           <?php endif; ?>
         </a>
         <a href="index.php?page=configuraciones" class="sidebar-link <?= $currentPage === 'configuraciones' ? 'active' : '' ?>">

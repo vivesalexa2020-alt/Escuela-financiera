@@ -58,26 +58,23 @@ class MembershipModel extends Model {
     }
 
     public function updateMembership(int $userId, string $tipo, ?string $fechaVencimiento = null): bool {
-        if ($fechaVencimiento === null) {
-            $interval = ($tipo === 'gratis') ? '1 MONTH' : '1 YEAR';
+        $fechaVencimiento = $fechaVencimiento
+            ?? date('Y-m-d H:i:s', strtotime($tipo === 'gratis' ? '+1 month' : '+1 year'));
+
+        $existe = $this->db->prepare("SELECT COUNT(*) FROM membresias WHERE usuario_id = ?");
+        $existe->execute([$userId]);
+        if ((int)$existe->fetchColumn() > 0) {
             $stmt = $this->db->prepare("
-                INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_inicio, fecha_vencimiento)
-                VALUES (?, 1, ?, NOW(), DATE_ADD(NOW(), INTERVAL {$interval}))
-                ON DUPLICATE KEY UPDATE 
-                tipo_membresia = VALUES(tipo_membresia),
-                activa = 1,
-                fecha_vencimiento = DATE_ADD(NOW(), INTERVAL {$interval})
+                UPDATE membresias
+                SET tipo_membresia = ?, activa = 1, fecha_vencimiento = ?
+                WHERE usuario_id = ?
             ");
-            return $stmt->execute([$userId, $tipo]);
+            return $stmt->execute([$tipo, $fechaVencimiento, $userId]);
         }
 
         $stmt = $this->db->prepare("
             INSERT INTO membresias (usuario_id, activa, tipo_membresia, fecha_inicio, fecha_vencimiento)
             VALUES (?, 1, ?, NOW(), ?)
-            ON DUPLICATE KEY UPDATE 
-            tipo_membresia = VALUES(tipo_membresia),
-            activa = 1,
-            fecha_vencimiento = VALUES(fecha_vencimiento)
         ");
         return $stmt->execute([$userId, $tipo, $fechaVencimiento]);
     }

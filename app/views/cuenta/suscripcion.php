@@ -7,7 +7,7 @@
 $esCheckout = !empty($esCheckout);
 $unidadCheckout = isset($unidadCheckout) ? (int)$unidadCheckout : 0;
 $pagarUnidad3 = $esCheckout && $unidadCheckout === 3;
-$requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
+$requiereLogin = $esCheckout && empty($user);
 ?>
 <?php if (!$esCheckout): ?>
 <!-- ============================================================
@@ -233,12 +233,7 @@ $requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
           </div>
         </div>
 
-        <?php if ($pagarUnidad3): ?>
-          <div class="checkout-login-gate is-ready">
-            <h4><i class="fi fi-rr-credit-card"></i> Pago de la Unidad 3</h4>
-            <p>Inicia sesión completada. Registra tu pago para desbloquear Deuda, inversión y libertad financiera.</p>
-          </div>
-        <?php elseif ($requiereLogin): ?>
+        <?php if ($requiereLogin): ?>
           <div class="checkout-login-gate">
             <h4><i class="fi fi-sr-lock"></i> Paso 1: inicia sesión</h4>
             <p>Necesitas una cuenta de estudiante para registrar tu pago y desbloquear la siguiente unidad.</p>
@@ -250,6 +245,11 @@ $requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
                 <i class="fi fi-rr-user-add"></i> Crear cuenta gratis
               </button>
             </div>
+          </div>
+        <?php elseif ($pagarUnidad3): ?>
+          <div class="checkout-login-gate is-ready">
+            <h4><i class="fi fi-rr-credit-card"></i> Pago de la Unidad 3</h4>
+            <p>Inicia sesión completada. Registra tu pago para desbloquear Deuda, inversión y libertad financiera.</p>
           </div>
         <?php else: ?>
           <div class="checkout-login-gate is-ready">
@@ -375,7 +375,7 @@ $requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
       });
     }
 
-    function handlePayAction() {
+    async function handlePayAction() {
       let quien = '';
       try {
         const usuario = (typeof getCurrentUser === 'function' ? getCurrentUser() : null);
@@ -386,9 +386,7 @@ $requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
         if (emailServidor) quien = String(emailServidor).toLowerCase();
       }
       if (!quien) {
-        if (unidadCheckout === 3) {
-          alert('Vuelve al aula e inicia sesión para registrar el pago de la Unidad 3.');
-        } else if (typeof openLoginModal === 'function') {
+        if (typeof openLoginModal === 'function') {
           openLoginModal();
         } else {
           alert('Inicia sesión para registrar tu pago.');
@@ -397,20 +395,46 @@ $requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
       }
 
       const usaTarjeta = document.getElementById('payCard').checked;
-      try {
-        localStorage.setItem('edu_fin_membresia_' + quien, JSON.stringify({
-          activa: true,
-          metodo: usaTarjeta ? 'tarjeta' : 'spei',
-          fecha: Date.now()
-        }));
-      } catch (e) {
-        alert("No se pudo guardar tu inscripción. Revisa que tu navegador permita el almacenamiento local.");
-        return;
-      }
+      const unidadPendiente = localStorage.getItem('ef_unidad_pendiente_desbloqueo') || String(unidadCheckout || 2);
+      const botonPago = document.querySelector('.btn-complete-pay');
+      if (botonPago) botonPago.disabled = true;
 
-      const unidadPendiente = localStorage.getItem('ef_unidad_pendiente_desbloqueo') || '2';
-      alert("¡Membresía activada! La Unidad " + unidadPendiente + " quedará disponible al volver al Aula.");
-      window.location.href = "index.php?page=aula&preview=1";
+      try {
+        await loadCsrfToken();
+        const res = await fetch(API_BASE + '/index.php?endpoint=membresia', {
+          method: 'POST',
+          headers: Object.assign({ 'Content-Type': 'application/json' }, getCsrfHeaders()),
+          credentials: 'include',
+          body: JSON.stringify({
+            tipo: 'pro',
+            metodo_pago: usaTarjeta ? 'tarjeta' : 'spei',
+            referencia: 'unidad-' + unidadPendiente,
+            csrf_token: CSRF_TOKEN
+          })
+        });
+        const out = await res.json().catch(function() { return {}; });
+        if (!res.ok || !out.success) {
+          alert(out.message || 'No se pudo activar la membresía. Intenta de nuevo.');
+          return;
+        }
+        if (out.csrf_token) CSRF_TOKEN = out.csrf_token;
+        try {
+          localStorage.setItem('edu_fin_membresia_' + quien, JSON.stringify({
+            activa: true,
+            metodo: usaTarjeta ? 'tarjeta' : 'spei',
+            fecha: Date.now()
+          }));
+        } catch (e) {
+          alert("No se pudo guardar tu inscripción. Revisa que tu navegador permita el almacenamiento local.");
+          return;
+        }
+        alert("¡Membresía activada! La Unidad " + unidadPendiente + " quedará disponible al volver al Aula.");
+        window.location.href = "index.php?page=aula&preview=1";
+      } catch (e) {
+        alert('No se pudo registrar el pago. Revisa tu conexión e inténtalo de nuevo.');
+      } finally {
+        if (botonPago) botonPago.disabled = false;
+      }
     }
   </script>
   <script src="public/js/script.js?v=<?= time() ?>"></script>

@@ -1894,25 +1894,12 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         || (typeof getCurrentUser === 'function' && !!getCurrentUser());
       if (sidebar && (conAcceso || conSesion)) {
         Array.prototype.forEach.call(
-          sidebar.querySelectorAll('.sidebar-pill-free, .sidebar-pill-lock, .sidebar-pill-upgrade'),
+          sidebar.querySelectorAll('.sidebar-pill-free, .sidebar-pill-lock'),
           function (pill) { pill.remove(); }
         );
         Array.prototype.forEach.call(
           sidebar.querySelectorAll('.sidebar-link-locked'),
           function (link) { link.classList.remove('sidebar-link-locked'); }
-        );
-      }
-      if (sidebar && conAcceso) {
-        Array.prototype.forEach.call(
-          sidebar.querySelectorAll('a[href="index.php?page=suscripcion"]'),
-          function (link) {
-            if (!link.querySelector('.sidebar-pill-active')) {
-              const pill = document.createElement('span');
-              pill.className = 'sidebar-pill-active';
-              pill.innerHTML = '<i class="fi fi-sr-badge-check"></i> Activa';
-              link.appendChild(pill);
-            }
-          }
         );
       }
     }
