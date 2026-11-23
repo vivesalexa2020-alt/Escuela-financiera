@@ -5,6 +5,10 @@
  * Variables: $pageTitle, $pageCss, $bodyClass, $user, $esDemo
  */
 $esDemo = !empty($esDemo);
+$cursoDemoId = isset($cursoDemoId) ? (int)$cursoDemoId : 1;
+$leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
+    ? array_values(array_map('intval', $leccionesDemoIds))
+    : [];
 ?>
 <?php if (!$esDemo): ?>
 <!-- ============================================================
@@ -1599,6 +1603,8 @@ $esDemo = !empty($esDemo);
 
     let currentLesson = 1;
     const ES_DEMO = <?= $esDemo ? 'true' : 'false' ?>;
+    const CURSO_DEMO_ID = <?= (int)$cursoDemoId ?>;
+    const LECCIONES_DEMO_IDS = <?= json_encode($leccionesDemoIds) ?>;
     let MAX_FREE_LESSON = (!ES_DEMO && (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva()))) ? 24 : 8;
 
     function selectLesson(id) {
@@ -1619,7 +1625,7 @@ $esDemo = !empty($esDemo);
               : '<i class="fi fi-rr-trophy"></i> Guardar progreso y desbloquear →';
             triggerBtn.onclick = function() {
               if (isLogged) {
-                window.location.href = 'index.php?page=suscripcion';
+                irASuscripcionDesdeModal();
               } else {
                 openSaveProgressModal('locked_lesson_' + id);
               }
@@ -1780,8 +1786,10 @@ $esDemo = !empty($esDemo);
       return false;
     }
 
+    let desbloqueoMembresiaActivo = false;
+
     function actualizarUnidadesPorMembresia() {
-      const conMembresia = !ES_DEMO && (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva();
+      const conMembresia = desbloqueoMembresiaActivo || (!ES_DEMO && (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva());
       [2, 3].forEach(function (u) {
         const accordion = document.getElementById('unitAccordion' + u);
         if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';
@@ -1791,10 +1799,35 @@ $esDemo = !empty($esDemo);
       }
     }
 
+    function desbloquearUnidadesPorMembresia() {
+      desbloqueoMembresiaActivo = true;
+      MAX_FREE_LESSON = 24;
+      actualizarUnidadesPorMembresia();
+    }
+
+    async function irASuscripcionDesdeModal() {
+      if (typeof guardarProgresoPendiente === 'function') await guardarProgresoPendiente();
+      window.location.href = 'index.php?page=suscripcion';
+    }
+
+    async function continuarConMembresiaDesdeModal() {
+      closeSaveProgressModal();
+      if (typeof guardarProgresoPendiente === 'function') await guardarProgresoPendiente();
+      desbloquearUnidadesPorMembresia();
+      selectLesson(9);
+    }
+
     // ============================================================
     // OPCIÓN 4: FLUJO INTELIGENTE "GUARDAR PROGRESO / MEMBRESÍA"
     // ============================================================
     function onCompletarUnidadGratis() {
+      try {
+        localStorage.setItem('ef_progreso_unidad1', 'completada');
+        sessionStorage.setItem('ef_progreso_unidad1_datos', JSON.stringify({
+          curso_id: CURSO_DEMO_ID,
+          lecciones: LECCIONES_DEMO_IDS
+        }));
+      } catch (err) {}
       openSaveProgressModal('unit1_complete');
     }
 
@@ -1844,7 +1877,7 @@ $esDemo = !empty($esDemo);
           <div class="membership-card-active">
             <h4><i class="fi fi-rr-check-circle"></i> Membresía Activa</h4>
             <p>¡Tu cuenta tiene acceso completo a la carrera! La Unidad 2 ha sido desbloqueada.</p>
-            <button type="button" class="btn-membership-action success" onclick="closeSaveProgressModal(); MAX_FREE_LESSON = 24; actualizarUnidadesPorMembresia(); selectLesson(9);">
+            <button type="button" class="btn-membership-action success" onclick="continuarConMembresiaDesdeModal();">
               <i class="fi fi-rr-play"></i> Continuar a la Unidad 2 (Lección 9) →
             </button>
           </div>
@@ -1854,7 +1887,7 @@ $esDemo = !empty($esDemo);
           <div class="membership-card-paywall">
             <h4><i class="fi fi-rr-lock"></i> Desbloquea las Unidades 2 y 3</h4>
             <p>Has finalizado con éxito tus 8 lecciones gratuitas. Para continuar con Gastos, Tarjetas, Deuda y CETES, activa tu membresía de la carrera.</p>
-            <a href="index.php?page=suscripcion" class="btn-membership-action primary">
+            <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal();">
               <i class="fi fi-rr-credit-card"></i> Ver Planes y Membresía ($1,500 MXN/mes) →
             </a>
             <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(8);">
@@ -1937,11 +1970,11 @@ $esDemo = !empty($esDemo);
             localStorage.setItem('ef_progreso_unidad1', 'completada');
           } catch(err) {}
 
-          setTimeout(function() {
+          setTimeout(async function() {
+            await guardarProgresoPendiente();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
             if (tieneMem) {
-              MAX_FREE_LESSON = 24;
-              actualizarUnidadesPorMembresia();
+              desbloquearUnidadesPorMembresia();
               closeSaveProgressModal();
               selectLesson(9);
             } else {
@@ -2003,11 +2036,11 @@ $esDemo = !empty($esDemo);
 
           showSaveAlert('¡Sesión iniciada y progreso sincronizado! 🎉 Verificando membresía...', 'success');
 
-          setTimeout(function() {
+          setTimeout(async function() {
+            await guardarProgresoPendiente();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
             if (tieneMem) {
-              MAX_FREE_LESSON = 24;
-              actualizarUnidadesPorMembresia();
+              desbloquearUnidadesPorMembresia();
               closeSaveProgressModal();
               selectLesson(9);
             } else {

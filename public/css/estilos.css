@@ -2666,7 +2666,6 @@ body.user-logged-in .logged-topbar {
     max-width: 320px;
   }
 }
-}
 
 /* ============================================================
    RETÍCULA ACADÉMICA INTERACTIVA
@@ -5300,6 +5299,8 @@ body.user-logged-in .logged-topbar {
   border: 2px solid var(--amarillo-dorado);
   background: linear-gradient(145deg, rgba(245, 184, 0, 0.18) 0%, rgba(3, 45, 31, 0.88) 100%);
 }
+
+.story-card.featured:hover {
   background: linear-gradient(145deg, rgba(245, 184, 0, 0.12) 0%, rgba(6, 64, 45, 0.7) 100%);
 }
 

@@ -36,6 +36,45 @@ async function loadCsrfToken() {
   } catch (e) { /* sin conexión: se reintentará en la próxima petición */ }
 }
 
+async function guardarProgresoPendiente() {
+  let raw = null;
+  try { raw = sessionStorage.getItem('ef_progreso_unidad1_datos'); } catch (e) { return false; }
+  if (!raw) return false;
+
+  let datos = null;
+  try { datos = JSON.parse(raw); } catch (e) { return false; }
+
+  const cursoId = Number(datos && datos.curso_id);
+  const lecciones = Array.isArray(datos && datos.lecciones)
+    ? datos.lecciones.map(Number).filter(function(id) { return id > 0; })
+    : [];
+
+  if (!cursoId || !lecciones.length) {
+    try { sessionStorage.removeItem('ef_progreso_unidad1_datos'); } catch (e) {}
+    return false;
+  }
+
+  await loadCsrfToken();
+
+  try {
+    for (const leccionId of lecciones) {
+      const res = await fetch(API_BASE + '/index.php?endpoint=progreso', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
+        credentials: 'include',
+        body: JSON.stringify({ curso_id: cursoId, leccion_id: leccionId, completado: 1, csrf_token: CSRF_TOKEN })
+      });
+      const out = await res.json().catch(function() { return {}; });
+      if (!res.ok || !out.success) return false;
+      if (out.csrf_token) CSRF_TOKEN = out.csrf_token;
+    }
+    try { sessionStorage.removeItem('ef_progreso_unidad1_datos'); } catch (e) {}
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 // ------------------------------------------------------------
 // 1. ALTERNAR VISIBILIDAD DE CONTRASEÑA (OJITO)
 // ------------------------------------------------------------
@@ -300,6 +339,7 @@ async function handleLoginSubmit(e) {
       if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
+      await guardarProgresoPendiente();
       updateAuthUI();
       closeLoginModal();
 
@@ -559,6 +599,7 @@ async function handleSignupSubmit(e) {
       if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
+      await guardarProgresoPendiente();
       updateAuthUI();
       closeSignupModal();
       if (signupForm) signupForm.reset();

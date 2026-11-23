@@ -19,6 +19,17 @@ class PageController extends Controller {
             exit();
         }
 
+        $cursoDemoId = 1;
+        $leccionesDemoIds = [];
+        try {
+            $courseModel = new \App\Models\CourseModel();
+            foreach ($courseModel->getActiveLessons($cursoDemoId) as $leccion) {
+                $leccionesDemoIds[] = (int)$leccion['id'];
+            }
+        } catch (\Throwable $e) {
+            Logger::warning('Error consultando lecciones de la unidad gratuita', ['error' => $e->getMessage()]);
+        }
+
         $bodyClass = $esDemo ? 'demo-preview' : 'user-logged-in';
         $title = $esDemo
             ? 'Unidad 1 Gratis | Educación Financiera'
@@ -28,7 +39,11 @@ class PageController extends Controller {
             'aprendizaje/detalle-curso',
             $title,
             $bodyClass,
-            ['esDemo' => $esDemo]
+            [
+                'esDemo'           => $esDemo,
+                'cursoDemoId'      => $cursoDemoId,
+                'leccionesDemoIds' => $leccionesDemoIds,
+            ]
         );
     }
 
