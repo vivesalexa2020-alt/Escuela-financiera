@@ -15,7 +15,7 @@ class PageController extends Controller {
         $esDemo = isset($_GET['preview']) && (string)$_GET['preview'] === '1';
 
         if (!Session::userId() && !$esDemo) {
-            header('Location: index.php?page=home');
+            header('Location: index.php?page=aula&preview=1');
             exit();
         }
 
@@ -66,7 +66,7 @@ class PageController extends Controller {
 
     public function suscripcion(): void {
         if (!Session::userId()) {
-            header('Location: index.php?page=home');
+            header('Location: index.php?page=home&login=1&redirect=suscripcion');
             exit();
         }
         $this->renderPage('suscripcion', 'cuenta/suscripcion', 'Planes y Membresías | Educación Financiera', 'user-logged-in');

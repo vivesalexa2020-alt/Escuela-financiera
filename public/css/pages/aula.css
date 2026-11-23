@@ -1220,3 +1220,366 @@
       background: var(--verde-bosque, #06402d);
       transform: translateY(-1px);
     }
+
+    /* ============================================================
+       OPCIÓN 4: MODAL DE GUARDAR PROGRESO / COMPLETAR UNIDAD 1
+       ============================================================ */
+    .save-progress-panel {
+      max-width: 520px;
+      width: 100%;
+      border-radius: 24px;
+      padding: 32px 28px;
+      text-align: center;
+      background: #ffffff;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .save-progress-header {
+      margin-bottom: 20px;
+    }
+
+    .save-progress-trophy {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .trophy-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fde68a 100%);
+      border: 3px solid #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      color: #d97706;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+      animation: bounceTrophy 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes bounceTrophy {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-6px) scale(1.05); }
+    }
+
+    .confetti-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .dot-1 { background: #28C76F; top: 0; left: -10px; }
+    .dot-2 { background: #0284c7; top: 12px; right: -12px; }
+    .dot-3 { background: #f43f5e; bottom: 4px; left: -8px; }
+    .dot-4 { background: #f59e0b; bottom: 0; right: -6px; }
+
+    .badge-completed-unit {
+      display: inline-block;
+      background: #e8f9ee;
+      color: #00703c;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid #b7ebd0;
+      margin-bottom: 8px;
+    }
+
+    .save-progress-panel h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gris-oscuro, #1e293b);
+      margin: 4px 0 8px;
+      line-height: 1.3;
+    }
+
+    .save-progress-panel p {
+      font-size: 14.5px;
+      color: var(--gris-medio, #64748b);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .save-progress-summary-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+
+    .summary-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 12.5px;
+      color: #475569;
+      flex: 1;
+    }
+
+    .summary-pill i {
+      font-size: 18px;
+    }
+
+    .summary-pill strong {
+      color: var(--gris-oscuro, #1e293b);
+    }
+
+    .save-tabs-nav {
+      display: flex;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      gap: 4px;
+    }
+
+    .save-tab-btn {
+      flex: 1;
+      padding: 9px 12px;
+      border: 0;
+      background: transparent;
+      border-radius: 9px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #64748b;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .save-tab-btn.active {
+      background: #ffffff;
+      color: var(--verde-principal, #00703c);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .save-flow-form {
+      text-align: left;
+    }
+
+    .input-hint {
+      display: block;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .btn-submit-save {
+      width: 100%;
+      background: var(--verde-principal, #00703c);
+      color: #ffffff;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 15.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(0, 112, 60, 0.35);
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn-submit-save:hover {
+      background: var(--verde-bosque, #06402d);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit-save:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .save-progress-alert {
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      margin-bottom: 14px;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .save-progress-alert.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    .save-progress-alert.success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #047857;
+    }
+
+    .save-modal-foot-note {
+      font-size: 12px !important;
+      color: #94a3b8 !important;
+      margin-top: 16px !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .link-forgot-pass {
+      color: var(--verde-principal, #00703c);
+      font-size: 13px;
+      text-decoration: underline;
+    }
+
+    /* Sección para usuario logueado en el modal */
+    .logged-save-box {
+      text-align: center;
+      padding: 16px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .logged-save-msg {
+      font-size: 15px !important;
+      color: #1e293b !important;
+      margin-bottom: 14px !important;
+    }
+
+    .membership-card-active {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .membership-card-active h4 {
+      color: #065f46;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .membership-card-active p {
+      color: #047857 !important;
+      font-size: 14px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .membership-card-paywall {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .membership-card-paywall h4 {
+      color: #92400e;
+      font-size: 17px;
+      font-weight: 800;
+      margin: 0 0 6px;
+    }
+
+    .membership-card-paywall p {
+      color: #78350f !important;
+      font-size: 14px !important;
+      margin-bottom: 16px !important;
+    }
+
+    .btn-membership-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 0;
+      transition: all 0.2s ease;
+    }
+
+    .btn-membership-action.primary {
+      background: #f59e0b;
+      color: #0f172a;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+    .btn-membership-action.primary:hover {
+      background: #d97706;
+      color: #fff;
+    }
+
+    .btn-membership-action.success {
+      background: #00703c;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 112, 60, 0.3);
+    }
+    .btn-membership-action.success:hover {
+      background: #06402d;
+    }
+
+    .btn-membership-action.secondary {
+      background: #e2e8f0;
+      color: #334155;
+      margin-top: 8px;
+    }
+    .btn-membership-action.secondary:hover {
+      background: #cbd5e1;
+    }
+
+    /* Botón Siguiente cuando llega a lección 8 (Final de Unidad 1) */
+    .btn-step-next.btn-next-finish {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.45) !important;
+      border: none !important;
+      animation: pulseFinishBtn 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulseFinishBtn {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    .finish-unit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef3c7;
+      color: #b45309;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .locked-lesson-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      margin-top: 14px;
+    }

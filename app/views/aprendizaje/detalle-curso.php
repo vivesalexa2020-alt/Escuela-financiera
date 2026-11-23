@@ -379,24 +379,29 @@ $esDemo = !empty($esDemo);
             </button>
           </div>
 
-          <!-- BANNER OPCIONAL PARA CUANDO SE LIBERA UNIDAD 1 -->
+          <!-- BANNER AL COMPLETAR UNIDAD 1 (OPCIÓN 4: GUARDAR PROGRESO) -->
           <div class="finish-unit-banner" id="finishUnitBanner" style="display: none;">
-            <div>
-              <h4>¿Listo para dominar las Unidades 2 y 3?</h4>
-              <p>Continúa tu transformación financiera con la membresía mensual completa.</p>
+            <div class="finish-unit-banner-content">
+              <div class="finish-unit-badge"><i class="fi fi-sr-sparkles"></i> ¡Felicidades! Completaste la Unidad 1</div>
+              <h4>¿Listo para guardar tu avance y continuar a la Unidad 2?</h4>
+              <p id="finishUnitBannerDesc">Has terminado las 8 lecciones gratuitas. Guarda tu progreso ahora para asegurar tus puntos y desbloquear las Unidades 2 y 3 con la membresía mensual.</p>
             </div>
-            <a href="index.php?page=suscripcion" class="btn-goto-sub">
-              Ver Membresía y Pagos (SPEI / Tarjeta) →
-            </a>
+            <button type="button" class="btn-goto-sub" onclick="onCompletarUnidadGratis()">
+              <i class="fi fi-rr-disk"></i> Guardar mi progreso →
+            </button>
           </div>
 
           <div class="locked-lesson-overlay" id="lockedLessonOverlay" style="display: none;">
             <div class="locked-lesson-card">
               <div class="locked-lesson-icon"><i class="fi fi-sr-lock"></i></div>
-              <h4>Lección bloqueada</h4>
-              <p>Tu acceso gratuito incluye solamente el <strong>primer mes (Unidad 1)</strong>. Para continuar con las siguientes unidades necesitas la membresía completa.</p>
-              <a href="index.php?page=suscripcion" class="btn-unlock-unit">Ver membresía completa →</a>
-              <button type="button" class="locked-back-btn" onclick="selectLesson(8)">Volver a la lección 8</button>
+              <h4 id="lockedLessonTitle">Lección de la Unidad 2 bloqueada</h4>
+              <p id="lockedLessonDesc">Tu acceso de prueba incluye las <strong>8 lecciones gratuitas de la Unidad 1</strong>. Guarda tu progreso e inicia sesión para activar tu membresía y continuar con tu carrera formativa.</p>
+              <div class="locked-lesson-btn-group">
+                <button type="button" class="btn-unlock-unit" id="btnUnlockModalTrigger" onclick="openSaveProgressModal('locked_lesson')">
+                  <i class="fi fi-rr-trophy"></i> Guardar progreso y desbloquear →
+                </button>
+                <button type="button" class="locked-back-btn" onclick="selectLesson(8)">Volver a la Lección 8</button>
+              </div>
             </div>
           </div>
 
@@ -406,31 +411,112 @@ $esDemo = !empty($esDemo);
     </div>
   </main>
 
-  <!-- MODAL: REGISTRO GRATIS (DESBLOQUEA UNIDAD 1 COMPLETA) -->
-  <div class="modal-backdrop" id="freeRegisterModal" role="dialog" aria-modal="true">
-    <div class="modal-panel">
-      <button class="modal-close" onclick="closeFreeRegisterModal()"><i class="fi fi-rr-cross-small"></i></button>
-      <div style="font-size: 34.5px; margin-bottom: 8px; color: var(--verde-principal); display:flex; justify-content:center;"><i class="fi fi-rr-graduation-cap"></i></div>
-      <h3>Libera la Unidad 1 Completa</h3>
-      <p>Crea tu acceso gratuito para desbloquear las 4 lecciones y guardar tu avance.</p>
+  <!-- ============================================================
+       OPCIÓN 4: MODAL INTELIGENTE DE "GUARDAR TU PROGRESO"
+       ============================================================ -->
+  <div class="modal-backdrop" id="saveProgressModal" role="dialog" aria-modal="true" style="display: none;">
+    <div class="modal-panel save-progress-panel">
+      <button type="button" class="modal-close" onclick="closeSaveProgressModal()" aria-label="Cerrar"><i class="fi fi-rr-cross-small"></i></button>
 
-      <form onsubmit="handleFreeRegister(event)">
-        <div class="modal-form-group">
-          <label>Nombre completo</label>
-          <input type="text" id="regName" placeholder="Tu nombre" required>
+      <!-- CABECERA DE CELEBRACIÓN -->
+      <div class="save-progress-header">
+        <div class="save-progress-trophy">
+          <div class="trophy-circle"><i class="fi fi-sr-trophy-star"></i></div>
+          <span class="confetti-dot dot-1"></span>
+          <span class="confetti-dot dot-2"></span>
+          <span class="confetti-dot dot-3"></span>
+          <span class="confetti-dot dot-4"></span>
         </div>
-        <div class="modal-form-group">
-          <label>Correo electrónico</label>
-          <input type="email" id="regEmail" placeholder="tucorreo@ejemplo.com" required>
+        <div class="badge-completed-unit"><span>🎉 Unidad 1 Completada al 100%</span></div>
+        <h3 id="saveProgressTitle">¡Felicidades por completar la Unidad 1!</h3>
+        <p id="saveProgressSubtitle">Has terminado las 8 lecciones de tu mes de prueba gratuito. Guarda tu progreso para asegurar tus puntos y desbloquear las siguientes unidades.</p>
+      </div>
+
+      <!-- RESUMEN VISUAL DE PROGRESO -->
+      <div class="save-progress-summary-card">
+        <div class="summary-pill">
+          <i class="fi fi-rr-check-circle" style="color: #28C76F;"></i>
+          <span><strong>8/8</strong> Lecciones vistas</span>
         </div>
-        <div class="modal-form-group">
-          <label>Crea una contraseña</label>
-          <input type="password" id="regPass" placeholder="Mínimo 6 caracteres" required>
+        <div class="summary-pill">
+          <i class="fi fi-rr-flame" style="color: #f59e0b;"></i>
+          <span><strong>+400 XP</strong> Acumulados</span>
         </div>
-        <button type="submit" class="btn-submit-modal">
-          <i class="fi fi-rr-check"></i> Activar Acceso Gratuito Inmediato
-        </button>
-      </form>
+        <div class="summary-pill">
+          <i class="fi fi-rr-diploma" style="color: #0284c7;"></i>
+          <span>Insignia <strong>Iniciado</strong></span>
+        </div>
+      </div>
+
+      <!-- ESTADO A: SI EL USUARIO YA TIENE SESIÓN INICIADA -->
+      <div id="saveProgressLoggedInSection" style="display: none;">
+        <div class="logged-save-box">
+          <p class="logged-save-msg" id="loggedSaveMsg">
+            ¡Hola, <strong id="loggedSaveName">Estudiante</strong>! Tu avance de las 8 lecciones ha sido guardado exitosamente en tu cuenta.
+          </p>
+          <div id="membershipStatusBox" class="membership-status-box">
+            <!-- Rellenado dinámicamente si tiene membresía o si necesita pagar membresía -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ESTADO B: SI EL USUARIO NO ESTÁ LOGUEADO (INVITADO) -->
+      <div id="saveProgressGuestSection">
+        <!-- PESTAÑAS: CREAR CUENTA vs INICIAR SESIÓN -->
+        <div class="save-tabs-nav">
+          <button type="button" class="save-tab-btn active" id="tabBtnRegister" onclick="switchSaveProgressTab('register')">
+            <i class="fi fi-rr-user-add"></i> Crear cuenta gratis
+          </button>
+          <button type="button" class="save-tab-btn" id="tabBtnLogin" onclick="switchSaveProgressTab('login')">
+            <i class="fi fi-rr-sign-in-alt"></i> Ya tengo cuenta
+          </button>
+        </div>
+
+        <div id="saveProgressAlert" class="save-progress-alert" style="display: none;"></div>
+
+        <!-- FORMULARIO DE REGISTRO RÁPIDO -->
+        <form id="formSaveRegister" onsubmit="handleSaveProgressRegister(event)" class="save-flow-form">
+          <div class="modal-form-group">
+            <label for="saveRegName">Nombre completo</label>
+            <input type="text" id="saveRegName" placeholder="Tu nombre y apellido" required autocomplete="name">
+          </div>
+          <div class="modal-form-group">
+            <label for="saveRegEmail">Correo electrónico</label>
+            <input type="email" id="saveRegEmail" placeholder="tucorreo@ejemplo.com" required autocomplete="email">
+          </div>
+          <div class="modal-form-group">
+            <label for="saveRegPass">Crea tu contraseña</label>
+            <input type="password" id="saveRegPass" placeholder="Mínimo 8 caracteres (mayúscula, número y símbolo)" required autocomplete="new-password">
+            <span class="input-hint">Mínimo 8 caracteres, incluye al menos una mayúscula, un número y un símbolo.</span>
+          </div>
+          <button type="submit" class="btn-submit-save" id="btnSubmitRegister">
+            <i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →
+          </button>
+        </form>
+
+        <!-- FORMULARIO DE INICIO DE SESIÓN -->
+        <form id="formSaveLogin" onsubmit="handleSaveProgressLogin(event)" class="save-flow-form" style="display: none;">
+          <div class="modal-form-group">
+            <label for="saveLogEmail">Correo electrónico</label>
+            <input type="email" id="saveLogEmail" placeholder="tucorreo@ejemplo.com" required autocomplete="email">
+          </div>
+          <div class="modal-form-group">
+            <label for="saveLogPass">Contraseña</label>
+            <input type="password" id="saveLogPass" placeholder="Tu contraseña" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn-submit-save" id="btnSubmitLogin">
+            <i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →
+          </button>
+          <div style="text-align: center; margin-top: 10px;">
+            <a href="index.php?page=home#login" class="link-forgot-pass">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+
+        <p class="save-modal-foot-note">
+          <i class="fi fi-rr-shield-check"></i> Tu información está 100% segura. Al guardar tu progreso, el sistema verificará automáticamente tu membresía.
+        </p>
+      </div>
+
     </div>
   </div>
 
@@ -1513,7 +1599,7 @@ $esDemo = !empty($esDemo);
 
     let currentLesson = 1;
     const ES_DEMO = <?= $esDemo ? 'true' : 'false' ?>;
-    const MAX_FREE_LESSON = (!ES_DEMO && (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva()))) ? 24 : 8;
+    let MAX_FREE_LESSON = (!ES_DEMO && (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva()))) ? 24 : 8;
 
     function selectLesson(id) {
       const data = lessonsData[id];
@@ -1523,7 +1609,23 @@ $esDemo = !empty($esDemo);
 
       const lockedOverlay = document.getElementById('lockedLessonOverlay');
       if (id > MAX_FREE_LESSON) {
-        if (lockedOverlay) lockedOverlay.style.display = 'flex';
+        if (lockedOverlay) {
+          lockedOverlay.style.display = 'flex';
+          const triggerBtn = document.getElementById('btnUnlockModalTrigger');
+          const isLogged = (typeof getCurrentUser === 'function' && getCurrentUser()) || <?= !empty($user) ? 'true' : 'false' ?>;
+          if (triggerBtn) {
+            triggerBtn.innerHTML = isLogged 
+              ? '<i class="fi fi-rr-credit-card"></i> Activar membresía mensual →'
+              : '<i class="fi fi-rr-trophy"></i> Guardar progreso y desbloquear →';
+            triggerBtn.onclick = function() {
+              if (isLogged) {
+                window.location.href = 'index.php?page=suscripcion';
+              } else {
+                openSaveProgressModal('locked_lesson_' + id);
+              }
+            };
+          }
+        }
         for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
           const item = document.getElementById('itemLesson' + i);
           if (item) {
@@ -1569,8 +1671,6 @@ $esDemo = !empty($esDemo);
         }
       }
 
-      // Renderizar barra de checkpoints del video
-      
       // Actualizar enlace externo de YouTube para abrir en otra pestaña
       const extBtn = document.getElementById('btnExternalVideo');
       if (extBtn) {
@@ -1616,6 +1716,12 @@ $esDemo = !empty($esDemo);
       const regGate = document.getElementById('registrationGate');
       if (regGate) regGate.style.display = 'none';
 
+      // Mostrar banner de felicitación en la lección 8
+      const finishBanner = document.getElementById('finishUnitBanner');
+      if (finishBanner) {
+        finishBanner.style.display = (id === 8 && MAX_FREE_LESSON <= 8) ? 'flex' : 'none';
+      }
+
       for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
         const item = document.getElementById('itemLesson' + i);
         if (item) {
@@ -1632,15 +1738,30 @@ $esDemo = !empty($esDemo);
 
       const nextBtn = document.getElementById('btnNextLesson');
       if (nextBtn) {
-        nextBtn.disabled = (id >= MAX_FREE_LESSON);
-        nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+        if (id === 8 && MAX_FREE_LESSON <= 8) {
+          nextBtn.disabled = false;
+          nextBtn.style.opacity = "1";
+          nextBtn.classList.add('btn-next-finish');
+          nextBtn.innerHTML = '<span>🎉 Completar Unidad 1</span> <span>→</span>';
+        } else {
+          nextBtn.classList.remove('btn-next-finish');
+          nextBtn.innerHTML = '<span>Siguiente lección</span> <span>→</span>';
+          nextBtn.disabled = (id >= MAX_FREE_LESSON);
+          nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+        }
       }
     }
 
     function stepLesson(direction) {
+      if (currentLesson === 8 && direction === 1 && MAX_FREE_LESSON <= 8) {
+        onCompletarUnidadGratis();
+        return;
+      }
       const nextId = currentLesson + direction;
       if (nextId >= 1 && nextId <= MAX_FREE_LESSON) {
         selectLesson(nextId);
+      } else if (nextId > MAX_FREE_LESSON) {
+        onCompletarUnidadGratis();
       }
     }
 
@@ -1665,6 +1786,257 @@ $esDemo = !empty($esDemo);
         const accordion = document.getElementById('unitAccordion' + u);
         if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';
       });
+      if (conMembresia) {
+        MAX_FREE_LESSON = 24;
+      }
+    }
+
+    // ============================================================
+    // OPCIÓN 4: FLUJO INTELIGENTE "GUARDAR PROGRESO / MEMBRESÍA"
+    // ============================================================
+    function onCompletarUnidadGratis() {
+      openSaveProgressModal('unit1_complete');
+    }
+
+    function openSaveProgressModal(triggerSource) {
+      const modal = document.getElementById('saveProgressModal');
+      if (!modal) return;
+      modal.classList.add('open');
+      modal.style.display = 'flex';
+
+      const user = (typeof getCurrentUser === 'function' ? getCurrentUser() : null) || <?= !empty($user) ? json_encode($user) : 'null' ?>;
+      const loggedSection = document.getElementById('saveProgressLoggedInSection');
+      const guestSection = document.getElementById('saveProgressGuestSection');
+      const alertBox = document.getElementById('saveProgressAlert');
+      if (alertBox) alertBox.style.display = 'none';
+
+      if (user && (user.id || user.name || user.email)) {
+        if (loggedSection) loggedSection.style.display = 'block';
+        if (guestSection) guestSection.style.display = 'none';
+        const nameEl = document.getElementById('loggedSaveName');
+        if (nameEl) nameEl.textContent = user.name || user.nombre || user.email || 'Estudiante';
+
+        renderMembershipBoxInModal(user);
+      } else {
+        if (loggedSection) loggedSection.style.display = 'none';
+        if (guestSection) guestSection.style.display = 'block';
+        switchSaveProgressTab('register');
+      }
+    }
+
+    function closeSaveProgressModal() {
+      const modal = document.getElementById('saveProgressModal');
+      if (!modal) return;
+      modal.classList.remove('open');
+      modal.style.display = 'none';
+    }
+
+    function renderMembershipBoxInModal(user) {
+      const box = document.getElementById('membershipStatusBox');
+      if (!box) return;
+
+      const tieneMem = (user && user.rol === 'admin') 
+        || <?= !empty($tieneMembresia) ? 'true' : 'false' ?> 
+        || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+
+      if (tieneMem) {
+        box.innerHTML = `
+          <div class="membership-card-active">
+            <h4><i class="fi fi-rr-check-circle"></i> Membresía Activa</h4>
+            <p>¡Tu cuenta tiene acceso completo a la carrera! La Unidad 2 ha sido desbloqueada.</p>
+            <button type="button" class="btn-membership-action success" onclick="closeSaveProgressModal(); MAX_FREE_LESSON = 24; actualizarUnidadesPorMembresia(); selectLesson(9);">
+              <i class="fi fi-rr-play"></i> Continuar a la Unidad 2 (Lección 9) →
+            </button>
+          </div>
+        `;
+      } else {
+        box.innerHTML = `
+          <div class="membership-card-paywall">
+            <h4><i class="fi fi-rr-lock"></i> Desbloquea las Unidades 2 y 3</h4>
+            <p>Has finalizado con éxito tus 8 lecciones gratuitas. Para continuar con Gastos, Tarjetas, Deuda y CETES, activa tu membresía de la carrera.</p>
+            <a href="index.php?page=suscripcion" class="btn-membership-action primary">
+              <i class="fi fi-rr-credit-card"></i> Ver Planes y Membresía ($1,500 MXN/mes) →
+            </a>
+            <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(8);">
+              Repasar Lección 8
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    function switchSaveProgressTab(tab) {
+      const regTab = document.getElementById('tabBtnRegister');
+      const logTab = document.getElementById('tabBtnLogin');
+      const formReg = document.getElementById('formSaveRegister');
+      const formLog = document.getElementById('formSaveLogin');
+      const alertBox = document.getElementById('saveProgressAlert');
+      if (alertBox) alertBox.style.display = 'none';
+
+      if (tab === 'register') {
+        if (regTab) regTab.classList.add('active');
+        if (logTab) logTab.classList.remove('active');
+        if (formReg) formReg.style.display = 'block';
+        if (formLog) formLog.style.display = 'none';
+      } else {
+        if (logTab) logTab.classList.add('active');
+        if (regTab) regTab.classList.remove('active');
+        if (formLog) formLog.style.display = 'block';
+        if (formReg) formReg.style.display = 'none';
+      }
+    }
+
+    async function handleSaveProgressRegister(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('saveProgressAlert');
+      const submitBtn = document.getElementById('btnSubmitRegister');
+
+      const name = document.getElementById('saveRegName').value.trim();
+      const email = document.getElementById('saveRegEmail').value.trim();
+      const pass = document.getElementById('saveRegPass').value;
+
+      if (!name || !email || !pass) {
+        showSaveAlert('Todos los campos son obligatorios.', 'error');
+        return;
+      }
+      if (pass.length < 8) {
+        showSaveAlert('La contraseña debe tener al menos 8 caracteres.', 'error');
+        return;
+      }
+      if (!/[A-Z]/.test(pass) || !/[0-9]/.test(pass) || !/[!@#$%^&*(),.?":{}|<>]/.test(pass)) {
+        showSaveAlert('La contraseña debe incluir al menos una mayúscula, un número y un símbolo especial.', 'error');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fi fi-rr-spinner"></i> Guardando tu progreso...';
+      }
+
+      try {
+        if (!CSRF_TOKEN && typeof loadCsrfToken === 'function') await loadCsrfToken();
+
+        const res = await fetch(API_BASE + '/index.php?endpoint=registro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
+          credentials: 'include',
+          body: JSON.stringify({ nombre: name, email: email, password: pass, csrf_token: CSRF_TOKEN })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          if (typeof setCurrentUser === 'function') setCurrentUser(data.user);
+          if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
+          if (typeof syncInscripcionesDesdeAPI === 'function') await syncInscripcionesDesdeAPI();
+          if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
+          if (typeof updateAuthUI === 'function') updateAuthUI();
+
+          showSaveAlert('¡Cuenta creada y progreso guardado con éxito! 🎉 Redirigiendo a tu membresía...', 'success');
+
+          try {
+            localStorage.setItem('ef_progreso_unidad1', 'completada');
+          } catch(err) {}
+
+          setTimeout(function() {
+            const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+            if (tieneMem) {
+              MAX_FREE_LESSON = 24;
+              actualizarUnidadesPorMembresia();
+              closeSaveProgressModal();
+              selectLesson(9);
+            } else {
+              window.location.href = 'index.php?page=suscripcion';
+            }
+          }, 1400);
+
+        } else {
+          showSaveAlert(data.message || 'Error al guardar progreso. Intenta de nuevo.', 'error');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →';
+          }
+        }
+      } catch (err) {
+        showSaveAlert('Error de conexión con el servidor. Intenta de nuevo.', 'error');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →';
+        }
+      }
+    }
+
+    async function handleSaveProgressLogin(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('saveProgressAlert');
+      const submitBtn = document.getElementById('btnSubmitLogin');
+
+      const email = document.getElementById('saveLogEmail').value.trim();
+      const pass = document.getElementById('saveLogPass').value;
+
+      if (!email || !pass) {
+        showSaveAlert('Ingresa tu correo y contraseña.', 'error');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fi fi-rr-spinner"></i> Verificando credenciales...';
+      }
+
+      try {
+        if (!CSRF_TOKEN && typeof loadCsrfToken === 'function') await loadCsrfToken();
+
+        const res = await fetch(API_BASE + '/index.php?endpoint=login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', ...getCsrfHeaders() },
+          credentials: 'include',
+          body: JSON.stringify({ email: email, password: pass, csrf_token: CSRF_TOKEN })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          if (typeof setCurrentUser === 'function') setCurrentUser(data.user);
+          if (data.csrf_token) CSRF_TOKEN = data.csrf_token;
+          if (typeof syncInscripcionesDesdeAPI === 'function') await syncInscripcionesDesdeAPI();
+          if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
+          if (typeof updateAuthUI === 'function') updateAuthUI();
+
+          showSaveAlert('¡Sesión iniciada y progreso sincronizado! 🎉 Verificando membresía...', 'success');
+
+          setTimeout(function() {
+            const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+            if (tieneMem) {
+              MAX_FREE_LESSON = 24;
+              actualizarUnidadesPorMembresia();
+              closeSaveProgressModal();
+              selectLesson(9);
+            } else {
+              window.location.href = 'index.php?page=suscripcion';
+            }
+          }, 1400);
+
+        } else {
+          showSaveAlert(data.message || 'Correo o contraseña incorrectos.', 'error');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →';
+          }
+        }
+      } catch (err) {
+        showSaveAlert('Error de conexión con el servidor. Intenta de nuevo.', 'error');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →';
+        }
+      }
+    }
+
+    function showSaveAlert(msg, type) {
+      const alertBox = document.getElementById('saveProgressAlert');
+      if (!alertBox) return;
+      alertBox.className = 'save-progress-alert ' + type;
+      alertBox.innerHTML = (type === 'success' ? '<i class="fi fi-rr-check-circle"></i> ' : '<i class="fi fi-rr-cross-circle"></i> ') + msg;
+      alertBox.style.display = 'block';
     }
 
     document.addEventListener("DOMContentLoaded", function() {

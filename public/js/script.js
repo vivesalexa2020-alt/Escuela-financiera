@@ -317,6 +317,10 @@ async function handleLoginSubmit(e) {
         window.location.href = 'index.php?page=aula';
         return;
       }
+      if (redirect === 'suscripcion') {
+        window.location.href = 'index.php?page=suscripcion';
+        return;
+      }
       window.location.reload();
       return;
     } else {
@@ -567,6 +571,10 @@ async function handleSignupSubmit(e) {
 
       if (redirect === 'aula') {
         window.location.href = 'index.php?page=aula';
+        return;
+      }
+      if (redirect === 'suscripcion') {
+        window.location.href = 'index.php?page=suscripcion';
         return;
       }
       window.location.reload();
