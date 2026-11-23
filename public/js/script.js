@@ -781,6 +781,12 @@ function updateAuthUI() {
   const guestLanding = document.getElementById('guestLanding');
   const studentDashboard = document.getElementById('studentDashboard');
   const navGuestNotice = document.getElementById('navGuestNotice');
+  const probarBtn = document.getElementById('btnHomeProbar');
+  if (probarBtn) {
+    const probarLabel = probarBtn.querySelector('span');
+    probarBtn.setAttribute('href', user ? 'index.php?page=aula' : 'index.php?page=aula&preview=1');
+    if (probarLabel) probarLabel.textContent = user ? 'Ir al Aula' : 'Probar';
+  }
 
   if (user) {
     // USUARIO AUTENTICADO:

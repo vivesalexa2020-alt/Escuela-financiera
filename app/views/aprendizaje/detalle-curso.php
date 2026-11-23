@@ -10,6 +10,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     ? array_values(array_map('intval', $leccionesDemoIds))
     : [];
 ?>
+<?php if (!$esDemo): ?>
 <!-- ============================================================
      SIDEBAR LATERAL IZQUIERDA (MENÚ PRINCIPAL)
      ============================================================ -->
@@ -17,13 +18,16 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
 
 <!-- Backdrop para cerrar sidebar en responsive -->
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+<?php endif; ?>
 
   <div class="main-wrapper" id="mainWrapper">
 
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
+      <?php if (!$esDemo): ?>
       <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
+      <?php endif; ?>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -1894,8 +1898,6 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       const conAcceso = unidadesDesbloqueadas.indexOf(2) !== -1;
       const unidadMax = Math.max.apply(null, unidadesDesbloqueadas);
       const totalLecciones = unidadMax * 8;
-      document.body.classList.toggle('has-full-access', conAcceso);
-
       const menuTag = document.getElementById('menuStatusTag');
       if (menuTag) menuTag.textContent = totalLecciones + ' lecciones disponibles';
       const stripStatus = document.getElementById('stripStatus');

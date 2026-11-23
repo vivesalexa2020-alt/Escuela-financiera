@@ -14,6 +14,11 @@ class PageController extends Controller {
     public function aula(): void {
         $esDemo = isset($_GET['preview']) && (string)$_GET['preview'] === '1';
 
+        if (Session::userId() && $esDemo) {
+            header('Location: index.php?page=aula');
+            exit();
+        }
+
         if (!Session::userId() && !$esDemo) {
             header('Location: index.php?page=aula&preview=1');
             exit();
