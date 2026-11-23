@@ -447,3 +447,64 @@
       font-size: 15px;
       margin-top: auto;
     }
+
+    body.checkout-preview .main-wrapper {
+      margin-left: 0 !important;
+    }
+
+    body.checkout-preview .sidebar-left,
+    body.checkout-preview .sidebar-backdrop,
+    body.checkout-preview .btn-sidebar-toggle {
+      display: none !important;
+    }
+
+    .checkout-login-gate {
+      background: var(--amarillo-suave);
+      border: 1px solid #f2d68a;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .checkout-login-gate.is-ready {
+      background: #eafaf1;
+      border-color: #b7e4cd;
+    }
+
+    .checkout-login-gate h4 {
+      font-size: 16px;
+      color: var(--verde-bosque);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checkout-login-gate p {
+      font-size: 14px;
+      color: var(--gris-medio);
+      margin-bottom: 12px;
+    }
+
+    .checkout-gate-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .checkout-gate-actions button {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-gate-login {
+      background: var(--verde-principal);
+      color: #fff;
+    }
+
+    .btn-gate-signup {
+      background: var(--amarillo-dorado);
+      color: var(--verde-bosque);
+    }

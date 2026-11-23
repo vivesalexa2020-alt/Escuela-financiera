@@ -71,41 +71,27 @@ if (($user['rol'] ?? '') === 'admin') {
         <a href="index.php?page=reticula" class="sidebar-link <?= $currentPage === 'reticula' ? 'active' : '' ?>">
           <i class="fi fi-rr-book-alt sidebar-icon"></i>
           <span>Retícula Académica</span>
-          <?php if (!$tieneMembresia): ?>
-            <span class="sidebar-pill-free">Mes 1 Gratis</span>
-          <?php endif; ?>
         </a>
         <a href="index.php?page=aula" class="sidebar-link <?= $currentPage === 'aula' ? 'active' : '' ?>">
           <i class="fi fi-rr-graduation-cap sidebar-icon"></i>
           <span>Aula Virtual</span>
-          <?php if (!$tieneMembresia): ?>
-            <span class="sidebar-pill-free">Mes 1 Gratis</span>
-          <?php endif; ?>
         </a>
 
         <div class="sidebar-nav-title">HERRAMIENTAS</div>
-        <a href="index.php?page=metas" class="sidebar-link <?= $currentPage === 'metas' ? 'active' : '' ?> <?= !$tieneMembresia ? 'sidebar-link-locked' : '' ?>">
+        <a href="index.php?page=metas" class="sidebar-link <?= $currentPage === 'metas' ? 'active' : '' ?>">
           <i class="fi fi-rr-target sidebar-icon"></i>
           <span>Metas</span>
-          <?php if (!$tieneMembresia): ?>
-            <span class="sidebar-pill-lock"><i class="fi fi-sr-lock"></i> PRO</span>
-          <?php endif; ?>
         </a>
-        <a href="index.php?page=recursos" class="sidebar-link <?= $currentPage === 'recursos' ? 'active' : '' ?> <?= !$tieneMembresia ? 'sidebar-link-locked' : '' ?>">
+        <a href="index.php?page=recursos" class="sidebar-link <?= $currentPage === 'recursos' ? 'active' : '' ?>">
           <i class="fi fi-rr-calculator sidebar-icon"></i>
           <span>Recursos</span>
-          <?php if (!$tieneMembresia): ?>
-            <span class="sidebar-pill-lock"><i class="fi fi-sr-lock"></i> PRO</span>
-          <?php endif; ?>
         </a>
 
         <div class="sidebar-nav-title">MI CUENTA</div>
-        <a href="index.php?page=suscripcion" class="sidebar-link <?= $currentPage === 'suscripcion' ? 'active' : '' ?> <?= !$tieneMembresia ? 'sidebar-link-upgrade' : '' ?>">
+        <a href="index.php?page=suscripcion" class="sidebar-link <?= $currentPage === 'suscripcion' ? 'active' : '' ?>">
           <i class="fi fi-rr-credit-card sidebar-icon"></i>
           <span>Membresía</span>
-          <?php if (!$tieneMembresia): ?>
-            <span class="sidebar-pill-upgrade">Activar</span>
-          <?php else: ?>
+          <?php if ($tieneMembresia): ?>
             <span class="sidebar-pill-active"><i class="fi fi-sr-badge-check"></i> Activa</span>
           <?php endif; ?>
         </a>

@@ -2,9 +2,14 @@
 /**
  * Vista: Planes y MembresÃ­as
  * Contenido migrado desde suscripcion.html (legacy/html).
- * Variables: $pageTitle, $pageCss, $bodyClass, $user
- */
+ * Variables: $pageTitle, $pageCss, $bodyClass, $user, $esCheckout, $unidadCheckout
+  */
+$esCheckout = !empty($esCheckout);
+$unidadCheckout = isset($unidadCheckout) ? (int)$unidadCheckout : 0;
+$pagarUnidad3 = $esCheckout && $unidadCheckout === 3;
+$requiereLogin = $esCheckout && !$pagarUnidad3 && empty($user);
 ?>
+<?php if (!$esCheckout): ?>
 <!-- ============================================================
      SIDEBAR LATERAL IZQUIERDA (MENÚ PRINCIPAL)
      ============================================================ -->
@@ -12,13 +17,16 @@
 
   <!-- Backdrop para cerrar sidebar en responsive -->
   <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+<?php endif; ?>
 
   <div class="main-wrapper" id="mainWrapper">
 
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
+      <?php if (!$esCheckout): ?>
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
+      <?php endif; ?>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -46,8 +54,14 @@
       </div>
     </div>
     <div class="logged-topbar-right">
-      <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
-      <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
+      <?php if ($esCheckout): ?>
+        <a href="index.php?page=aula&preview=1" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">
+          <i class="fi fi-rr-arrow-left"></i> Volver al aula
+        </a>
+      <?php else: ?>
+        <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
+        <a href="index.php?page=suscripcion" class="btn-cta-upgrade" style="padding: 6px 14px; font-size: 15px; font-weight: 700; background: var(--amarillo-dorado); color: #06402d; border-radius: 8px; text-decoration: none;">Membresía Completa</a>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -219,8 +233,33 @@
           </div>
         </div>
 
+        <?php if ($pagarUnidad3): ?>
+          <div class="checkout-login-gate is-ready">
+            <h4><i class="fi fi-rr-credit-card"></i> Pago de la Unidad 3</h4>
+            <p>Inicia sesión completada. Registra tu pago para desbloquear Deuda, inversión y libertad financiera.</p>
+          </div>
+        <?php elseif ($requiereLogin): ?>
+          <div class="checkout-login-gate">
+            <h4><i class="fi fi-sr-lock"></i> Paso 1: inicia sesión</h4>
+            <p>Necesitas una cuenta de estudiante para registrar tu pago y desbloquear la siguiente unidad.</p>
+            <div class="checkout-gate-actions">
+              <button type="button" class="btn-gate-login" onclick="openLoginModal()">
+                <i class="fi fi-sr-sign-in-alt"></i> Iniciar sesión
+              </button>
+              <button type="button" class="btn-gate-signup" onclick="openSignupModal()">
+                <i class="fi fi-rr-user-add"></i> Crear cuenta gratis
+              </button>
+            </div>
+          </div>
+        <?php else: ?>
+          <div class="checkout-login-gate is-ready">
+            <h4><i class="fi fi-rr-check-circle"></i> Paso 1 completado</h4>
+            <p>Sesión activa. Ahora registra tu pago para activar la membresía de la unidad.</p>
+          </div>
+        <?php endif; ?>
+
         <button class="btn-complete-pay" onclick="handlePayAction()">
-          Confirmar y Activar Inscripción ($1,500 MXN)
+          Paso 2: Registrar pago y activar membresía ($1,500 MXN)
         </button>
 
         <div class="secure-note">
@@ -239,7 +278,73 @@
     </div>
   </footer>
 
+  <?php if ($requiereLogin): ?>
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeLoginModal()">×</button>
+      <h3>Iniciar sesión</h3>
+      <p>Accede con tu cuenta de estudiante para continuar con el pago.</p>
+      <div id="loginMsg" class="form-message"></div>
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)" style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+        <div>
+          <label style="font-size:14px;font-weight:600;">Correo electrónico</label>
+          <input type="email" id="loginEmail" required placeholder="tu@correo.com" style="width:100%;padding:10px 14px;border:1px solid #d4e7de;border-radius:10px;font-family:inherit;font-size:15px;margin-top:4px;box-sizing:border-box;">
+          <span id="loginEmailErr" style="display:none;color:#e11d48;font-size:13px;">Ingresa un correo válido.</span>
+        </div>
+        <div>
+          <label style="font-size:14px;font-weight:600;">Contraseña</label>
+          <div class="password-field">
+            <input type="password" id="loginPassword" required placeholder="••••••••">
+          </div>
+          <span id="loginPasswordErr" style="display:none;color:#e11d48;font-size:13px;">Ingresa tu contraseña.</span>
+        </div>
+        <button type="submit" class="btn-cta-yellow" style="width:100%;justify-content:center;margin-top:8px;">Iniciar sesión</button>
+      </form>
+      <p class="modal-switch-text">¿No tienes cuenta? <button type="button" onclick="openSignupModal()">Crear cuenta</button></p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="signupModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeSignupModal()">×</button>
+      <h3>Crear cuenta</h3>
+      <p>Regístrate gratis y después registra tu pago para activar la unidad.</p>
+      <div id="signupMsg" class="form-message"></div>
+      <form id="signupForm" onsubmit="handleSignupSubmit(event)" style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+        <div>
+          <label style="font-size:14px;font-weight:600;">Nombre completo</label>
+          <input type="text" id="signupName" required placeholder="Tu nombre completo" style="width:100%;padding:10px 14px;border:1px solid #d4e7de;border-radius:10px;font-family:inherit;font-size:15px;margin-top:4px;box-sizing:border-box;">
+          <span id="signupNameErr" style="display:none;color:#e11d48;font-size:13px;">Ingresa tu nombre.</span>
+        </div>
+        <div>
+          <label style="font-size:14px;font-weight:600;">Correo electrónico</label>
+          <input type="email" id="signupEmail" required placeholder="tu@correo.com" style="width:100%;padding:10px 14px;border:1px solid #d4e7de;border-radius:10px;font-family:inherit;font-size:15px;margin-top:4px;box-sizing:border-box;">
+          <span id="signupEmailErr" style="display:none;color:#e11d48;font-size:13px;">Ingresa un correo válido.</span>
+        </div>
+        <div>
+          <label style="font-size:14px;font-weight:600;">Contraseña</label>
+          <div class="password-field">
+            <input type="password" id="signupPassword" required minlength="6" placeholder="Mínimo 6 caracteres">
+          </div>
+          <span id="signupPasswordErr" style="display:none;color:#e11d48;font-size:13px;">Mínimo 6 caracteres.</span>
+        </div>
+        <div>
+          <label style="font-size:14px;font-weight:600;">Confirmar contraseña</label>
+          <div class="password-field">
+            <input type="password" id="signupConfirm" required minlength="6" placeholder="Repite tu contraseña">
+          </div>
+          <span id="signupConfirmErr" style="display:none;color:#e11d48;font-size:13px;">Las contraseñas no coinciden.</span>
+        </div>
+        <button type="submit" class="btn-cta-yellow" style="width:100%;justify-content:center;margin-top:8px;">Registrarme y continuar</button>
+      </form>
+      <p class="modal-switch-text">¿Ya tienes cuenta? <button type="button" onclick="openLoginModal()">Iniciar sesión</button></p>
+    </div>
+  </div>
+  <?php endif; ?>
+
   <script>
+    const unidadCheckout = <?= (int)$unidadCheckout ?>;
+
     function selectMethod(method) {
       const speiLabel = document.getElementById('methodSpeiLabel');
       const cardLabel = document.getElementById('methodCardLabel');
@@ -271,14 +376,27 @@
     }
 
     function handlePayAction() {
-      const usaTarjeta = document.getElementById('payCard').checked;
-      let quien = 'invitado';
+      let quien = '';
       try {
-        const sesion = localStorage.getItem('edu_fin_session');
-        const usuario = sesion ? JSON.parse(sesion) : null;
+        const usuario = (typeof getCurrentUser === 'function' ? getCurrentUser() : null);
         if (usuario && usuario.email) quien = String(usuario.email).toLowerCase();
       } catch (e) {}
+      if (!quien) {
+        const emailServidor = <?= !empty($user['email']) ? json_encode($user['email']) : "''" ?>;
+        if (emailServidor) quien = String(emailServidor).toLowerCase();
+      }
+      if (!quien) {
+        if (unidadCheckout === 3) {
+          alert('Vuelve al aula e inicia sesión para registrar el pago de la Unidad 3.');
+        } else if (typeof openLoginModal === 'function') {
+          openLoginModal();
+        } else {
+          alert('Inicia sesión para registrar tu pago.');
+        }
+        return;
+      }
 
+      const usaTarjeta = document.getElementById('payCard').checked;
       try {
         localStorage.setItem('edu_fin_membresia_' + quien, JSON.stringify({
           activa: true,
@@ -290,8 +408,9 @@
         return;
       }
 
-      alert("¡Inscripción activada! Ya puedes acceder a los Niveles 2 y 3. Te redirigiremos a tu Retícula.");
-      window.location.href = "index.php?page=reticula";
+      const unidadPendiente = localStorage.getItem('ef_unidad_pendiente_desbloqueo') || '2';
+      alert("¡Membresía activada! La Unidad " + unidadPendiente + " quedará disponible al volver al Aula.");
+      window.location.href = "index.php?page=aula&preview=1";
     }
   </script>
   <script src="public/js/script.js?v=<?= time() ?>"></script>

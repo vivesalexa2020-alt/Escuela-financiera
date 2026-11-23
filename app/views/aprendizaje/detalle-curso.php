@@ -10,24 +10,20 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     ? array_values(array_map('intval', $leccionesDemoIds))
     : [];
 ?>
-<?php if (!$esDemo): ?>
 <!-- ============================================================
      SIDEBAR LATERAL IZQUIERDA (MENÚ PRINCIPAL)
      ============================================================ -->
-  <?php include __DIR__ . '/../layouts/sidebar.php'; ?>
+<?php include __DIR__ . '/../layouts/sidebar.php'; ?>
 
-  <!-- Backdrop para cerrar sidebar en responsive -->
-  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
-<?php endif; ?>
+<!-- Backdrop para cerrar sidebar en responsive -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
 
   <div class="main-wrapper" id="mainWrapper">
 
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <?php if (!$esDemo): ?>
-        <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
-      <?php endif; ?>
+      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -51,7 +47,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
           </g>
         </svg>
-        <div class="page-current-title"><?= $esDemo ? 'Unidad 1 Gratis' : 'Aula Virtual Demo' ?></div>
+        <div class="page-current-title" id="pageCurrentTitle"><?= $esDemo ? 'Unidad 1 Gratis' : 'Aula Virtual Demo' ?></div>
       </div>
     </div>
     <div class="logged-topbar-right">
@@ -100,7 +96,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
   <aside class="demo-progress-bar-strip">
     <div class="container progress-strip-inner">
       <div class="progress-strip-info">
-        <span><i class="fi fi-rr-book-open-cover" style="margin-right:5px;"></i> Estudiando: <strong>Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
+        <span><i class="fi fi-rr-book-open-cover" style="margin-right:5px;"></i> Estudiando: <strong id="stripUnitName">Unidad 1 — Psicología del dinero y cambio de hábitos</strong></span>
         <span>•</span>
         <span id="stripStatus">Mes gratis: Unidad 1 (8 lecciones)</span>
       </div>
@@ -1643,6 +1639,15 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     if (unidadesDesbloqueadas.indexOf(1) === -1) unidadesDesbloqueadas.push(1);
     try { localStorage.setItem(STORAGE_UNIDADES, JSON.stringify(unidadesDesbloqueadas)); } catch (e) {}
 
+    let unidadesCompletadas = [];
+    try {
+      [1, 2, 3].forEach(function (unidad) {
+        if (localStorage.getItem('ef_progreso_unidad' + unidad) === 'completada') {
+          unidadesCompletadas.push(unidad);
+        }
+      });
+    } catch (e) {}
+
     let MAX_FREE_LESSON = Math.max.apply(null, unidadesDesbloqueadas) * 8;
     let accesoUnidad2Activo = unidadesDesbloqueadas.indexOf(2) !== -1;
     let accesoUnidad3Activo = unidadesDesbloqueadas.indexOf(3) !== -1;
@@ -1863,19 +1868,92 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       return false;
     }
 
+    function actualizarMenuLateralPorAcceso() {
+      const conAcceso = unidadesDesbloqueadas.indexOf(2) !== -1;
+      const unidadMax = Math.max.apply(null, unidadesDesbloqueadas);
+      const totalLecciones = unidadMax * 8;
+      document.body.classList.toggle('has-full-access', conAcceso);
+
+      const menuTag = document.getElementById('menuStatusTag');
+      if (menuTag) menuTag.textContent = totalLecciones + ' lecciones disponibles';
+      const stripStatus = document.getElementById('stripStatus');
+      if (stripStatus) stripStatus.textContent = conAcceso
+        ? 'Acceso activo: Unidad ' + unidadMax + ' (' + totalLecciones + ' lecciones)'
+        : 'Mes gratis: Unidad 1 (8 lecciones)';
+      const stripUnit = document.getElementById('stripUnitName');
+      if (stripUnit) stripUnit.textContent = conAcceso
+        ? 'Unidad ' + unidadMax + ' — ' + (accesoUnidad3Activo ? 'Deuda, inversión y libertad' : 'Gastos, ahorro y tarjetas')
+        : 'Unidad 1 — Psicología del dinero y cambio de hábitos';
+      const pageTitle = document.getElementById('pageCurrentTitle');
+      if (pageTitle && <?= $esDemo ? 'true' : 'false' ?>) {
+        pageTitle.textContent = conAcceso ? 'Aula Virtual · Acceso activo' : 'Unidad 1 Gratis';
+      }
+
+      const sidebar = document.getElementById('sidebarLeft');
+      const conSesion = USUARIO_AUTENTICADO
+        || (typeof getCurrentUser === 'function' && !!getCurrentUser());
+      if (sidebar && (conAcceso || conSesion)) {
+        Array.prototype.forEach.call(
+          sidebar.querySelectorAll('.sidebar-pill-free, .sidebar-pill-lock, .sidebar-pill-upgrade'),
+          function (pill) { pill.remove(); }
+        );
+        Array.prototype.forEach.call(
+          sidebar.querySelectorAll('.sidebar-link-locked'),
+          function (link) { link.classList.remove('sidebar-link-locked'); }
+        );
+      }
+      if (sidebar && conAcceso) {
+        Array.prototype.forEach.call(
+          sidebar.querySelectorAll('a[href="index.php?page=suscripcion"]'),
+          function (link) {
+            if (!link.querySelector('.sidebar-pill-active')) {
+              const pill = document.createElement('span');
+              pill.className = 'sidebar-pill-active';
+              pill.innerHTML = '<i class="fi fi-sr-badge-check"></i> Activa';
+              link.appendChild(pill);
+            }
+          }
+        );
+      }
+    }
+
     function actualizarUnidadesPorAcceso() {
       accesoUnidad2Activo = unidadesDesbloqueadas.indexOf(2) !== -1;
       accesoUnidad3Activo = unidadesDesbloqueadas.indexOf(3) !== -1;
       MAX_FREE_LESSON = Math.max.apply(null, unidadesDesbloqueadas) * 8;
+
+      const unidad1Completada = unidadesCompletadas.indexOf(1) !== -1;
+      const badge1 = document.querySelector('#unitBar1 .unit-badge');
+      if (badge1) {
+        badge1.className = 'unit-badge badge-open';
+        badge1.innerHTML = unidad1Completada
+          ? '<i class="fi fi-rr-check-circle"></i> Completada'
+          : '8 lecciones gratis';
+      }
+      for (let i = 1; i <= 8; i++) {
+        const item = document.getElementById('itemLesson' + i);
+        if (!item) continue;
+        const status = item.querySelector('.lesson-status');
+        if (status) {
+          status.textContent = unidad1Completada ? 'Completada' : 'Gratis';
+          status.style.color = 'var(--verde-claro)';
+        }
+        const icon = item.querySelector('.lesson-icon i');
+        if (icon && unidad1Completada) icon.className = 'fi fi-rr-check-circle';
+      }
+
       [2, 3].forEach(function (u) {
         const abierta = (u === 2) ? accesoUnidad2Activo : accesoUnidad3Activo;
+        const completada = unidadesCompletadas.indexOf(u) !== -1;
         const accordion = document.getElementById('unitAccordion' + u);
         if (accordion) accordion.style.display = abierta ? 'block' : 'none';
 
         const badge = document.querySelector('#unitBar' + u + ' .unit-badge');
         if (badge) {
           badge.className = 'unit-badge ' + (abierta ? 'badge-open' : 'badge-locked');
-          badge.innerHTML = abierta ? '8 lecciones disponibles' : '<i class="fi fi-sr-lock"></i> 8 lecciones';
+          badge.innerHTML = completada
+            ? '<i class="fi fi-rr-check-circle"></i> Completada'
+            : (abierta ? '8 lecciones disponibles' : '<i class="fi fi-sr-lock"></i> 8 lecciones');
         }
 
         const inicio = (u === 2) ? 9 : 17;
@@ -1885,13 +1963,16 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           item.classList.toggle('locked', !abierta);
           const status = item.querySelector('.lesson-status');
           if (status) {
-            status.textContent = abierta ? 'Disponible' : 'Bloqueada';
+            status.textContent = completada ? 'Completada' : (abierta ? 'Disponible' : 'Bloqueada');
             status.style.color = abierta ? 'var(--verde-claro)' : 'var(--gris-medio)';
           }
           const icon = item.querySelector('.lesson-icon i');
-          if (icon) icon.className = abierta ? 'fi fi-rr-play-alt' : 'fi fi-sr-lock';
+          if (icon) icon.className = completada
+            ? 'fi fi-rr-check-circle'
+            : (abierta ? 'fi fi-rr-play-alt' : 'fi fi-sr-lock');
         }
       });
+      actualizarMenuLateralPorAcceso();
     }
 
     function desbloquearUnidad(unidad) {
@@ -1902,10 +1983,39 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       actualizarUnidadesPorAcceso();
     }
 
-    function tieneMembresiaParaSiguienteUnidad() {
-      return MEMBRESIA_ACTIVA_SERVER
-        || membresiaLocalActiva()
-        || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+    function tieneAccesoAUnidad(unidad) {
+      return unidadesDesbloqueadas.indexOf(unidad) !== -1;
+    }
+
+    function marcarUnidadCompletada(unidad) {
+      if (unidad < 1 || unidad > 3) return;
+      if (unidadesCompletadas.indexOf(unidad) === -1) unidadesCompletadas.push(unidad);
+      try { localStorage.setItem('ef_progreso_unidad' + unidad, 'completada'); } catch (e) {}
+      actualizarUnidadesPorAcceso();
+    }
+
+    async function sincronizarProgresoUnidades() {
+      if (!USUARIO_AUTENTICADO) return;
+      try {
+        const res = await fetch(API_BASE + '/index.php?endpoint=progreso&curso_id=' + CURSO_DEMO_ID, {
+          credentials: 'include'
+        });
+        const data = await res.json();
+        if (!data.success) return;
+        const ids = Array.isArray(data.lecciones_completadas)
+          ? data.lecciones_completadas.map(Number)
+          : [];
+        const esperadas = LECCIONES_DEMO_IDS.length || 8;
+        if (data.completado || ids.length >= esperadas) marcarUnidadCompletada(1);
+        [[9, 16, 2], [17, 24, 3]].forEach(function (bloque) {
+          const completadas = ids.filter(function (id) { return id >= bloque[0] && id <= bloque[1]; }).length;
+          if (completadas >= 8) marcarUnidadCompletada(bloque[2]);
+        });
+      } catch (e) {}
+    }
+
+    function tieneMembresiaParaSiguienteUnidad(unidad) {
+      return tieneAccesoAUnidad(unidad);
     }
 
     async function irASuscripcionDesdeModal(unidad) {
@@ -1913,26 +2023,24 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         try { localStorage.setItem(STORAGE_PENDIENTE, String(unidad)); } catch (e) {}
       }
       if (typeof guardarProgresoPendiente === 'function') await guardarProgresoPendiente();
-      window.location.href = 'index.php?page=suscripcion';
+      window.location.href = 'index.php?page=suscripcion&checkout=1&unidad=' + unidad;
     }
 
     async function continuarConUnidad2DesdeModal() {
-      if (!tieneMembresiaParaSiguienteUnidad()) {
+      if (!tieneMembresiaParaSiguienteUnidad(2)) {
         await irASuscripcionDesdeModal(2);
         return;
       }
       closeSaveProgressModal();
-      desbloquearUnidad(2);
       selectLesson(9);
     }
 
     async function continuarConUnidad3DesdeModal() {
-      if (!tieneMembresiaParaSiguienteUnidad()) {
+      if (!tieneMembresiaParaSiguienteUnidad(3)) {
         await irASuscripcionDesdeModal(3);
         return;
       }
       closeSaveProgressModal();
-      desbloquearUnidad(3);
       selectLesson(17);
     }
 
@@ -1941,8 +2049,8 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     // ============================================================
     function onCompletarUnidadGratis() {
       const unidad = currentLesson >= 16 ? 2 : 1;
+      marcarUnidadCompletada(unidad);
       try {
-        localStorage.setItem('ef_progreso_unidad' + unidad, 'completada');
         if (unidad === 1) {
           sessionStorage.setItem('ef_progreso_unidad1_datos', JSON.stringify({
             curso_id: CURSO_DEMO_ID,
@@ -2021,16 +2129,15 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
 
       const modal = document.getElementById('saveProgressModal');
       const motivo = modal ? (modal.dataset.motivo || 'unidad2') : 'unidad2';
-      const tieneMem = (user && user.rol === 'admin')
-        || MEMBRESIA_ACTIVA_SERVER
-        || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+      const accesoUnidad2 = tieneAccesoAUnidad(2);
+      const accesoUnidad3 = tieneAccesoAUnidad(3);
 
       if (motivo === 'unidad2') {
-        if (tieneMem) {
+        if (accesoUnidad2) {
           box.innerHTML = `
             <div class="membership-card-active">
-              <h4><i class="fi fi-rr-check-circle"></i> Membresía activa</h4>
-              <p>Tu membresía está activa. La Unidad 2 (Gastos, ahorro y tarjetas) está desbloqueada.</p>
+              <h4><i class="fi fi-rr-check-circle"></i> Unidad 2 disponible</h4>
+              <p>Ya pagaste la membresía de esta unidad. Puedes continuar con Gastos, ahorro y tarjetas.</p>
               <button type="button" class="btn-membership-action success" onclick="continuarConUnidad2DesdeModal();">
                 <i class="fi fi-rr-play"></i> Continuar a la Unidad 2 (Lección 9) →
               </button>
@@ -2040,9 +2147,9 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           box.innerHTML = `
             <div class="membership-card-paywall">
               <h4><i class="fi fi-rr-lock"></i> Desbloquea la Unidad 2</h4>
-              <p>Para continuar con Gastos, ahorro y tarjetas necesitas una membresía activa. Actívala para desbloquear la Unidad 2.</p>
-              <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(2);">
-                <i class="fi fi-rr-credit-card"></i> Activar membresía ($1,500 MXN/mes) →
+              <p>Para continuar con Gastos, ahorro y tarjetas necesitas activar tu membresía de esta unidad.</p>
+              <a href="index.php?page=suscripcion&checkout=1&unidad=2" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(2);">
+                <i class="fi fi-rr-credit-card"></i> Pagar membresía ($1,500 MXN/mes) →
               </a>
               <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(8);">
                 Repasar Lección 8
@@ -2053,11 +2160,11 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         return;
       }
 
-      if (tieneMem) {
+      if (accesoUnidad3) {
         box.innerHTML = `
           <div class="membership-card-active">
-            <h4><i class="fi fi-rr-check-circle"></i> Membresía Activa</h4>
-            <p>Tu membresía está activa. La Unidad 3 (Deuda, inversión y libertad) ya está desbloqueada.</p>
+            <h4><i class="fi fi-rr-check-circle"></i> Unidad 3 disponible</h4>
+            <p>Ya pagaste la membresía de esta unidad. Puedes continuar con Deuda, inversión y libertad financiera.</p>
             <button type="button" class="btn-membership-action success" onclick="continuarConUnidad3DesdeModal();">
               <i class="fi fi-rr-play"></i> Continuar a la Unidad 3 (Lección 17) →
             </button>
@@ -2067,9 +2174,9 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         box.innerHTML = `
           <div class="membership-card-paywall">
             <h4><i class="fi fi-rr-lock"></i> Desbloquea la Unidad 3</h4>
-            <p>Completaste la Unidad 2. Para seguir con Deuda, inversión y libertad financiera, activa tu membresía mensual.</p>
-            <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(3);">
-              <i class="fi fi-rr-credit-card"></i> Activar membresía ($1,500 MXN/mes) →
+            <p>Completaste la Unidad 2. Para seguir con Deuda, inversión y libertad financiera, paga la membresía de esta unidad.</p>
+            <a href="index.php?page=suscripcion&checkout=1&unidad=3" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(3);">
+              <i class="fi fi-rr-credit-card"></i> Pagar membresía ($1,500 MXN/mes) →
             </a>
             <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(16);">
               Repasar Lección 16
@@ -2156,13 +2263,17 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             const motivo = modalEl ? (modalEl.dataset.motivo || 'unidad2') : 'unidad2';
             const unidad = motivo === 'unidad3' ? 3 : 2;
             await guardarProgresoPendiente();
+            if (typeof sincronizarProgresoUnidades === 'function') await sincronizarProgresoUnidades();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
             closeSaveProgressModal();
-            if (!tieneMem) {
-              await irASuscripcionDesdeModal(unidad);
-              return;
+            if (!tieneAccesoAUnidad(unidad)) {
+              if (unidad === 2 && tieneMem) {
+                desbloquearUnidad(2);
+              } else {
+                await irASuscripcionDesdeModal(unidad);
+                return;
+              }
             }
-            desbloquearUnidad(unidad);
             selectLesson(unidad === 3 ? 17 : 9);
           }, 1400);
 
@@ -2225,13 +2336,17 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             const motivo = modalEl ? (modalEl.dataset.motivo || 'unidad2') : 'unidad2';
             const unidad = motivo === 'unidad3' ? 3 : 2;
             await guardarProgresoPendiente();
+            if (typeof sincronizarProgresoUnidades === 'function') await sincronizarProgresoUnidades();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
             closeSaveProgressModal();
-            if (!tieneMem) {
-              await irASuscripcionDesdeModal(unidad);
-              return;
+            if (!tieneAccesoAUnidad(unidad)) {
+              if (unidad === 2 && tieneMem) {
+                desbloquearUnidad(2);
+              } else {
+                await irASuscripcionDesdeModal(unidad);
+                return;
+              }
             }
-            desbloquearUnidad(unidad);
             selectLesson(unidad === 3 ? 17 : 9);
           }, 1400);
 
@@ -2261,8 +2376,14 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
 
     document.addEventListener("DOMContentLoaded", function() {
       actualizarUnidadesPorAcceso();
+      sincronizarProgresoUnidades();
       selectLesson(1);
       setTimeout(actualizarUnidadesPorAcceso, 400);
+      if (accesoUnidad2Activo) {
+        setTimeout(function() {
+          toggleUnit(accesoUnidad3Activo ? 'unit3' : 'unit2');
+        }, 450);
+      }
       // Inicializar YouTube si la API ya estuviese disponible
       if (window.YT && window.YT.Player) {
         initYouTubePlayer();

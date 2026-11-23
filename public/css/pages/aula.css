@@ -1191,13 +1191,26 @@
       font-weight: 700;
     }
 
-    /* Vista previa de la Unidad 1: sin menú lateral */
+    /* Vista previa de la Unidad 1: sin menú lateral hasta desbloquear la Unidad 2 */
     body.demo-preview .main-wrapper {
       margin-left: 0 !important;
     }
 
+    body.demo-preview:not(.has-full-access) .sidebar-left,
+    body.demo-preview:not(.has-full-access) .sidebar-backdrop {
+      display: none !important;
+    }
+
     body.demo-preview .btn-sidebar-toggle {
       display: none !important;
+    }
+
+    body.demo-preview.has-full-access .main-wrapper {
+      margin-left: 260px !important;
+    }
+
+    body.demo-preview.has-full-access .btn-sidebar-toggle {
+      display: inline-flex !important;
     }
 
     .demo-login-btn {

@@ -80,11 +80,25 @@ class PageController extends Controller {
     }
 
     public function suscripcion(): void {
-        if (!Session::userId()) {
+        $esCheckout = isset($_GET['checkout']) && (string)$_GET['checkout'] === '1';
+        $unidadCheckout = isset($_GET['unidad']) ? (int)$_GET['unidad'] : 0;
+
+        if (!Session::userId() && !$esCheckout) {
             header('Location: index.php?page=home&login=1&redirect=suscripcion');
             exit();
         }
-        $this->renderPage('suscripcion', 'cuenta/suscripcion', 'Planes y Membresías | Educación Financiera', 'user-logged-in');
+
+        $bodyClass = $esCheckout ? 'checkout-preview' : 'user-logged-in';
+        $this->renderPage(
+            'suscripcion',
+            'cuenta/suscripcion',
+            'Planes y Membresías | Educación Financiera',
+            $bodyClass,
+            [
+                'esCheckout'     => $esCheckout,
+                'unidadCheckout' => $unidadCheckout,
+            ]
+        );
     }
 
     private function renderPage(string $slug, string $view, string $title, string $bodyClass, array $extraData = []): void {

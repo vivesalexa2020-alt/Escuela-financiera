@@ -340,7 +340,9 @@ async function handleLoginSubmit(e) {
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       await guardarProgresoPendiente();
-      if (typeof irASuscripcionDesdeModal === 'function') {
+      if (typeof sincronizarProgresoUnidades === 'function') await sincronizarProgresoUnidades();
+      const enCheckoutSuscripcion = /[?&]page=suscripcion(?:&|$)/.test(window.location.search);
+      if (!enCheckoutSuscripcion && typeof irASuscripcionDesdeModal === 'function') {
         const memActiva = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
         if (!memActiva) {
           await irASuscripcionDesdeModal(2);
@@ -359,6 +361,7 @@ async function handleLoginSubmit(e) {
       if (!redirect) {
         try { redirect = sessionStorage.getItem('ef_redirect_after_login'); } catch (e) {}
       }
+      if (enCheckoutSuscripcion) redirect = '';
       try { sessionStorage.removeItem('ef_redirect_after_login'); } catch (e) {}
 
       if (redirect === 'aula') {
@@ -608,7 +611,9 @@ async function handleSignupSubmit(e) {
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       await guardarProgresoPendiente();
-      if (typeof irASuscripcionDesdeModal === 'function') {
+      if (typeof sincronizarProgresoUnidades === 'function') await sincronizarProgresoUnidades();
+      const enCheckoutSuscripcion = /[?&]page=suscripcion(?:&|$)/.test(window.location.search);
+      if (!enCheckoutSuscripcion && typeof irASuscripcionDesdeModal === 'function') {
         const memActiva = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
         if (!memActiva) {
           await irASuscripcionDesdeModal(2);
@@ -624,6 +629,7 @@ async function handleSignupSubmit(e) {
       if (!redirect) {
         try { redirect = sessionStorage.getItem('ef_redirect_after_login'); } catch (e) {}
       }
+      if (enCheckoutSuscripcion) redirect = '';
       try { sessionStorage.removeItem('ef_redirect_after_login'); } catch (e) {}
 
       if (redirect === 'aula') {
