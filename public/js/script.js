@@ -340,6 +340,14 @@ async function handleLoginSubmit(e) {
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       await guardarProgresoPendiente();
+      if (typeof irASuscripcionDesdeModal === 'function') {
+        const memActiva = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+        if (!memActiva) {
+          await irASuscripcionDesdeModal(2);
+          return;
+        }
+        if (typeof desbloquearUnidad === 'function') desbloquearUnidad(2);
+      }
       updateAuthUI();
       closeLoginModal();
 
@@ -600,6 +608,14 @@ async function handleSignupSubmit(e) {
       await syncInscripcionesDesdeAPI();
       await syncMembresiaDesdeAPI();
       await guardarProgresoPendiente();
+      if (typeof irASuscripcionDesdeModal === 'function') {
+        const memActiva = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+        if (!memActiva) {
+          await irASuscripcionDesdeModal(2);
+          return;
+        }
+        if (typeof desbloquearUnidad === 'function') desbloquearUnidad(2);
+      }
       updateAuthUI();
       closeSignupModal();
       if (signupForm) signupForm.reset();

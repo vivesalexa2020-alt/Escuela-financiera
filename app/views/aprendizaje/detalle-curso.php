@@ -62,9 +62,9 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <span>Iniciar sesión</span>
           </button>
         <?php else: ?>
-          <a href="index.php?page=aula" class="demo-login-btn">
-            <i class="fi fi-rr-layout-grid"></i>
-            <span>Ir al panel completo</span>
+          <a href="index.php?page=home&skip_splash=1" class="demo-login-btn">
+            <i class="fi fi-rr-home"></i>
+            <span>Regresar al inicio</span>
           </a>
         <?php endif; ?>
       <?php else: ?>
@@ -386,11 +386,11 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           <!-- BANNER AL COMPLETAR UNIDAD 1 (OPCIÓN 4: GUARDAR PROGRESO) -->
           <div class="finish-unit-banner" id="finishUnitBanner" style="display: none;">
             <div class="finish-unit-banner-content">
-              <div class="finish-unit-badge"><i class="fi fi-sr-sparkles"></i> ¡Felicidades! Completaste la Unidad 1</div>
-              <h4>¿Listo para guardar tu avance y continuar a la Unidad 2?</h4>
-              <p id="finishUnitBannerDesc">Has terminado las 8 lecciones gratuitas. Guarda tu progreso ahora para asegurar tus puntos y desbloquear las Unidades 2 y 3 con la membresía mensual.</p>
+              <div class="finish-unit-badge" id="finishUnitBadge"><i class="fi fi-sr-sparkles"></i> ¡Felicidades! Completaste la Unidad 1</div>
+              <h4 id="finishUnitTitle">¿Listo para guardar tu avance y continuar a la Unidad 2?</h4>
+              <p id="finishUnitBannerDesc">Has terminado las 8 lecciones gratuitas. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.</p>
             </div>
-            <button type="button" class="btn-goto-sub" onclick="onCompletarUnidadGratis()">
+            <button type="button" class="btn-goto-sub" id="finishUnitButton" onclick="onCompletarUnidadGratis()">
               <i class="fi fi-rr-disk"></i> Guardar mi progreso →
             </button>
           </div>
@@ -399,12 +399,12 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <div class="locked-lesson-card">
               <div class="locked-lesson-icon"><i class="fi fi-sr-lock"></i></div>
               <h4 id="lockedLessonTitle">Lección de la Unidad 2 bloqueada</h4>
-              <p id="lockedLessonDesc">Tu acceso de prueba incluye las <strong>8 lecciones gratuitas de la Unidad 1</strong>. Guarda tu progreso e inicia sesión para activar tu membresía y continuar con tu carrera formativa.</p>
+              <p id="lockedLessonDesc">Tu acceso de prueba incluye las <strong>8 lecciones gratuitas de la Unidad 1</strong>. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.</p>
               <div class="locked-lesson-btn-group">
-                <button type="button" class="btn-unlock-unit" id="btnUnlockModalTrigger" onclick="openSaveProgressModal('locked_lesson')">
-                  <i class="fi fi-rr-trophy"></i> Guardar progreso y desbloquear →
+                <button type="button" class="btn-unlock-unit" id="btnUnlockModalTrigger" onclick="openSaveProgressModal('locked_unit2')">
+                  <i class="fi fi-rr-trophy"></i> Desbloquear Unidad 2 →
                 </button>
-                <button type="button" class="locked-back-btn" onclick="selectLesson(8)">Volver a la Lección 8</button>
+                <button type="button" class="locked-back-btn" id="lockedBackBtn" onclick="selectLesson(8)">Volver a la Lección 8</button>
               </div>
             </div>
           </div>
@@ -431,16 +431,16 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           <span class="confetti-dot dot-3"></span>
           <span class="confetti-dot dot-4"></span>
         </div>
-        <div class="badge-completed-unit"><span>🎉 Unidad 1 Completada al 100%</span></div>
+        <div class="badge-completed-unit"><span id="saveProgressBadge">🎉 Unidad 1 Completada al 100%</span></div>
         <h3 id="saveProgressTitle">¡Felicidades por completar la Unidad 1!</h3>
-        <p id="saveProgressSubtitle">Has terminado las 8 lecciones de tu mes de prueba gratuito. Guarda tu progreso para asegurar tus puntos y desbloquear las siguientes unidades.</p>
+        <p id="saveProgressSubtitle">Has terminado las 8 lecciones de tu mes de prueba gratuito. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.</p>
       </div>
 
       <!-- RESUMEN VISUAL DE PROGRESO -->
       <div class="save-progress-summary-card">
         <div class="summary-pill">
           <i class="fi fi-rr-check-circle" style="color: #28C76F;"></i>
-          <span><strong>8/8</strong> Lecciones vistas</span>
+          <span id="saveProgressLessons"><strong>8/8</strong> Lecciones vistas</span>
         </div>
         <div class="summary-pill">
           <i class="fi fi-rr-flame" style="color: #f59e0b;"></i>
@@ -517,7 +517,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         </form>
 
         <p class="save-modal-foot-note">
-          <i class="fi fi-rr-shield-check"></i> Tu información está 100% segura. Al guardar tu progreso, el sistema verificará automáticamente tu membresía.
+          <i class="fi fi-rr-shield-check"></i> Tu información está 100% segura. Al guardar tu progreso, el sistema verificará tu sesión y membresía.
         </p>
       </div>
 
@@ -1601,11 +1601,51 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       alert('¡Descarga iniciada! Se ha generado tu guía oficial en formato digital para consulta sin conexión.');
     }
 
+    function membresiaLocalActiva() {
+      try {
+        const sesion = JSON.parse(localStorage.getItem('edu_fin_session') || 'null');
+        const email = (sesion && sesion.email) || <?= !empty($user['email']) ? json_encode($user['email']) : "''" ?>;
+        if (!email) return false;
+        const mem = JSON.parse(localStorage.getItem('edu_fin_membresia_' + String(email).toLowerCase()) || 'null');
+        return !!(mem && mem.activa);
+      } catch (e) {
+        return false;
+      }
+    }
+
     let currentLesson = 1;
-    const ES_DEMO = <?= $esDemo ? 'true' : 'false' ?>;
     const CURSO_DEMO_ID = <?= (int)$cursoDemoId ?>;
     const LECCIONES_DEMO_IDS = <?= json_encode($leccionesDemoIds) ?>;
-    let MAX_FREE_LESSON = (!ES_DEMO && (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva()))) ? 24 : 8;
+    const USUARIO_AUTENTICADO = <?= !empty($user) ? 'true' : 'false' ?>;
+    const MEMBRESIA_ACTIVA_SERVER = <?= !empty($tieneMembresia) ? 'true' : 'false' ?>;
+    const STORAGE_UNIDADES = 'ef_unidades_desbloqueadas';
+    const STORAGE_PENDIENTE = 'ef_unidad_pendiente_desbloqueo';
+
+    let unidadesDesbloqueadas = [1];
+    try {
+      const guardadas = JSON.parse(localStorage.getItem(STORAGE_UNIDADES) || '[]');
+      if (Array.isArray(guardadas)) {
+        const validas = guardadas.map(Number).filter(function(n) { return n >= 1 && n <= 3; });
+        if (validas.length) unidadesDesbloqueadas = validas;
+      }
+    } catch (e) {}
+
+    const MEMBRESIA_ACTIVA = MEMBRESIA_ACTIVA_SERVER || membresiaLocalActiva();
+    if (!MEMBRESIA_ACTIVA) {
+      unidadesDesbloqueadas = [1];
+    } else {
+      if (unidadesDesbloqueadas.indexOf(2) === -1) unidadesDesbloqueadas.push(2);
+      let pendiente = 0;
+      try { pendiente = Number(localStorage.getItem(STORAGE_PENDIENTE) || 0); } catch (e) {}
+      if (pendiente === 3 && unidadesDesbloqueadas.indexOf(3) === -1) unidadesDesbloqueadas.push(3);
+      try { localStorage.removeItem(STORAGE_PENDIENTE); } catch (e) {}
+    }
+    if (unidadesDesbloqueadas.indexOf(1) === -1) unidadesDesbloqueadas.push(1);
+    try { localStorage.setItem(STORAGE_UNIDADES, JSON.stringify(unidadesDesbloqueadas)); } catch (e) {}
+
+    let MAX_FREE_LESSON = Math.max.apply(null, unidadesDesbloqueadas) * 8;
+    let accesoUnidad2Activo = unidadesDesbloqueadas.indexOf(2) !== -1;
+    let accesoUnidad3Activo = unidadesDesbloqueadas.indexOf(3) !== -1;
 
     function selectLesson(id) {
       const data = lessonsData[id];
@@ -1617,17 +1657,35 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       if (id > MAX_FREE_LESSON) {
         if (lockedOverlay) {
           lockedOverlay.style.display = 'flex';
+          const necesitaUnidad3 = id > 16;
+          const lockedTitle = document.getElementById('lockedLessonTitle');
+          if (lockedTitle) lockedTitle.textContent = necesitaUnidad3
+            ? 'Lección de la Unidad 3 bloqueada'
+            : 'Lección de la Unidad 2 bloqueada';
+          const lockedDesc = document.getElementById('lockedLessonDesc');
+          if (lockedDesc) lockedDesc.innerHTML = necesitaUnidad3
+            ? 'Ya tienes acceso a las Unidades 1 y 2. Para continuar con Deuda, inversión y libertad financiera, activa tu membresía mensual.'
+            : 'Tu acceso de prueba incluye las <strong>8 lecciones gratuitas de la Unidad 1</strong>. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.';
+          const backBtn = document.getElementById('lockedBackBtn');
+          if (backBtn) {
+            backBtn.textContent = necesitaUnidad3 ? 'Volver a la Lección 16' : 'Volver a la Lección 8';
+            backBtn.onclick = function() { selectLesson(necesitaUnidad3 ? 16 : 8); };
+          }
           const triggerBtn = document.getElementById('btnUnlockModalTrigger');
           const isLogged = (typeof getCurrentUser === 'function' && getCurrentUser()) || <?= !empty($user) ? 'true' : 'false' ?>;
           if (triggerBtn) {
-            triggerBtn.innerHTML = isLogged 
-              ? '<i class="fi fi-rr-credit-card"></i> Activar membresía mensual →'
-              : '<i class="fi fi-rr-trophy"></i> Guardar progreso y desbloquear →';
+            triggerBtn.innerHTML = isLogged
+              ? (necesitaUnidad3
+                ? '<i class="fi fi-rr-credit-card"></i> Activar membresía y desbloquear Unidad 3 →'
+                : '<i class="fi fi-rr-credit-card"></i> Activar membresía y desbloquear Unidad 2 →')
+              : (necesitaUnidad3
+                ? '<i class="fi fi-rr-credit-card"></i> Ver membresía para la Unidad 3 →'
+                : '<i class="fi fi-rr-trophy"></i> Iniciar sesión o crear cuenta →');
             triggerBtn.onclick = function() {
               if (isLogged) {
-                irASuscripcionDesdeModal();
+                irASuscripcionDesdeModal(necesitaUnidad3 ? 3 : 2);
               } else {
-                openSaveProgressModal('locked_lesson_' + id);
+                openSaveProgressModal(necesitaUnidad3 ? 'unidad3' : 'locked_unit2');
               }
             };
           }
@@ -1722,10 +1780,27 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       const regGate = document.getElementById('registrationGate');
       if (regGate) regGate.style.display = 'none';
 
-      // Mostrar banner de felicitación en la lección 8
+      const completandoUnidad = (id === 8 && MAX_FREE_LESSON <= 8) || (id === 16 && MAX_FREE_LESSON <= 16);
       const finishBanner = document.getElementById('finishUnitBanner');
       if (finishBanner) {
-        finishBanner.style.display = (id === 8 && MAX_FREE_LESSON <= 8) ? 'flex' : 'none';
+        finishBanner.style.display = completandoUnidad ? 'flex' : 'none';
+        if (completandoUnidad) {
+          const unidad = id === 8 ? 1 : 2;
+          const finishBadge = document.getElementById('finishUnitBadge');
+          if (finishBadge) finishBadge.innerHTML = '<i class="fi fi-sr-sparkles"></i> ¡Felicidades! Completaste la Unidad ' + unidad;
+          const finishTitle = document.getElementById('finishUnitTitle');
+          if (finishTitle) finishTitle.textContent = unidad === 1
+            ? '¿Listo para guardar tu avance y continuar a la Unidad 2?'
+            : '¿Listo para desbloquear la Unidad 3?';
+          const finishDesc = document.getElementById('finishUnitBannerDesc');
+          if (finishDesc) finishDesc.textContent = unidad === 1
+            ? 'Has terminado las 8 lecciones gratuitas. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.'
+            : 'Has terminado la Unidad 2. Activa tu membresía mensual para seguir con Deuda, inversión y libertad financiera.';
+          const finishButton = document.getElementById('finishUnitButton');
+          if (finishButton) finishButton.innerHTML = unidad === 1
+            ? '<i class="fi fi-rr-disk"></i> Guardar mi progreso →'
+            : '<i class="fi fi-rr-credit-card"></i> Desbloquear Unidad 3 →';
+        }
       }
 
       for (let i = 1; i <= Object.keys(lessonsData).length; i++) {
@@ -1744,11 +1819,13 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
 
       const nextBtn = document.getElementById('btnNextLesson');
       if (nextBtn) {
-        if (id === 8 && MAX_FREE_LESSON <= 8) {
+        if (completandoUnidad) {
           nextBtn.disabled = false;
           nextBtn.style.opacity = "1";
           nextBtn.classList.add('btn-next-finish');
-          nextBtn.innerHTML = '<span>🎉 Completar Unidad 1</span> <span>→</span>';
+          nextBtn.innerHTML = id === 8
+            ? '<span>🎉 Completar Unidad 1</span> <span>→</span>'
+            : '<span>🔒 Desbloquear Unidad 3</span> <span>→</span>';
         } else {
           nextBtn.classList.remove('btn-next-finish');
           nextBtn.innerHTML = '<span>Siguiente lección</span> <span>→</span>';
@@ -1759,7 +1836,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     }
 
     function stepLesson(direction) {
-      if (currentLesson === 8 && direction === 1 && MAX_FREE_LESSON <= 8) {
+      if (direction === 1 && ((currentLesson === 8 && MAX_FREE_LESSON <= 8) || (currentLesson === 16 && MAX_FREE_LESSON <= 16))) {
         onCompletarUnidadGratis();
         return;
       }
@@ -1786,49 +1863,94 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       return false;
     }
 
-    let desbloqueoMembresiaActivo = false;
-
-    function actualizarUnidadesPorMembresia() {
-      const conMembresia = desbloqueoMembresiaActivo || (!ES_DEMO && (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva());
+    function actualizarUnidadesPorAcceso() {
+      accesoUnidad2Activo = unidadesDesbloqueadas.indexOf(2) !== -1;
+      accesoUnidad3Activo = unidadesDesbloqueadas.indexOf(3) !== -1;
+      MAX_FREE_LESSON = Math.max.apply(null, unidadesDesbloqueadas) * 8;
       [2, 3].forEach(function (u) {
+        const abierta = (u === 2) ? accesoUnidad2Activo : accesoUnidad3Activo;
         const accordion = document.getElementById('unitAccordion' + u);
-        if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';
+        if (accordion) accordion.style.display = abierta ? 'block' : 'none';
+
+        const badge = document.querySelector('#unitBar' + u + ' .unit-badge');
+        if (badge) {
+          badge.className = 'unit-badge ' + (abierta ? 'badge-open' : 'badge-locked');
+          badge.innerHTML = abierta ? '8 lecciones disponibles' : '<i class="fi fi-sr-lock"></i> 8 lecciones';
+        }
+
+        const inicio = (u === 2) ? 9 : 17;
+        for (let i = inicio; i <= inicio + 7; i++) {
+          const item = document.getElementById('itemLesson' + i);
+          if (!item) continue;
+          item.classList.toggle('locked', !abierta);
+          const status = item.querySelector('.lesson-status');
+          if (status) {
+            status.textContent = abierta ? 'Disponible' : 'Bloqueada';
+            status.style.color = abierta ? 'var(--verde-claro)' : 'var(--gris-medio)';
+          }
+          const icon = item.querySelector('.lesson-icon i');
+          if (icon) icon.className = abierta ? 'fi fi-rr-play-alt' : 'fi fi-sr-lock';
+        }
       });
-      if (conMembresia) {
-        MAX_FREE_LESSON = 24;
+    }
+
+    function desbloquearUnidad(unidad) {
+      if (unidad < 2 || unidad > 3) return;
+      if (unidadesDesbloqueadas.indexOf(unidad) === -1) unidadesDesbloqueadas.push(unidad);
+      try { localStorage.setItem(STORAGE_UNIDADES, JSON.stringify(unidadesDesbloqueadas)); } catch (e) {}
+      try { localStorage.removeItem(STORAGE_PENDIENTE); } catch (e) {}
+      actualizarUnidadesPorAcceso();
+    }
+
+    function tieneMembresiaParaSiguienteUnidad() {
+      return MEMBRESIA_ACTIVA_SERVER
+        || membresiaLocalActiva()
+        || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+    }
+
+    async function irASuscripcionDesdeModal(unidad) {
+      if (unidad) {
+        try { localStorage.setItem(STORAGE_PENDIENTE, String(unidad)); } catch (e) {}
       }
-    }
-
-    function desbloquearUnidadesPorMembresia() {
-      desbloqueoMembresiaActivo = true;
-      MAX_FREE_LESSON = 24;
-      actualizarUnidadesPorMembresia();
-    }
-
-    async function irASuscripcionDesdeModal() {
       if (typeof guardarProgresoPendiente === 'function') await guardarProgresoPendiente();
       window.location.href = 'index.php?page=suscripcion';
     }
 
-    async function continuarConMembresiaDesdeModal() {
+    async function continuarConUnidad2DesdeModal() {
+      if (!tieneMembresiaParaSiguienteUnidad()) {
+        await irASuscripcionDesdeModal(2);
+        return;
+      }
       closeSaveProgressModal();
-      if (typeof guardarProgresoPendiente === 'function') await guardarProgresoPendiente();
-      desbloquearUnidadesPorMembresia();
+      desbloquearUnidad(2);
       selectLesson(9);
+    }
+
+    async function continuarConUnidad3DesdeModal() {
+      if (!tieneMembresiaParaSiguienteUnidad()) {
+        await irASuscripcionDesdeModal(3);
+        return;
+      }
+      closeSaveProgressModal();
+      desbloquearUnidad(3);
+      selectLesson(17);
     }
 
     // ============================================================
     // OPCIÓN 4: FLUJO INTELIGENTE "GUARDAR PROGRESO / MEMBRESÍA"
     // ============================================================
     function onCompletarUnidadGratis() {
+      const unidad = currentLesson >= 16 ? 2 : 1;
       try {
-        localStorage.setItem('ef_progreso_unidad1', 'completada');
-        sessionStorage.setItem('ef_progreso_unidad1_datos', JSON.stringify({
-          curso_id: CURSO_DEMO_ID,
-          lecciones: LECCIONES_DEMO_IDS
-        }));
+        localStorage.setItem('ef_progreso_unidad' + unidad, 'completada');
+        if (unidad === 1) {
+          sessionStorage.setItem('ef_progreso_unidad1_datos', JSON.stringify({
+            curso_id: CURSO_DEMO_ID,
+            lecciones: LECCIONES_DEMO_IDS
+          }));
+        }
       } catch (err) {}
-      openSaveProgressModal('unit1_complete');
+      openSaveProgressModal('unit' + unidad + '_complete');
     }
 
     function openSaveProgressModal(triggerSource) {
@@ -1836,6 +1958,35 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       if (!modal) return;
       modal.classList.add('open');
       modal.style.display = 'flex';
+
+      const origen = String(triggerSource || '');
+      const esBloqueoUnidad2 = origen.indexOf('locked_unit2') !== -1;
+      const esUnidad3 = origen.indexOf('unit2') !== -1
+        || origen.indexOf('unidad3') !== -1
+        || /lesson_(1[7-9]|2[0-4])$/.test(origen);
+      const motivo = esUnidad3 ? 'unidad3' : 'unidad2';
+      modal.dataset.motivo = motivo;
+
+      const badge = document.getElementById('saveProgressBadge');
+      if (badge) badge.textContent = esBloqueoUnidad2
+        ? '🔒 Unidad 2 bloqueada'
+        : (esUnidad3 ? '🎉 Unidad 2 Completada al 100%' : '🎉 Unidad 1 Completada al 100%');
+      const title = document.getElementById('saveProgressTitle');
+      if (title) title.textContent = esBloqueoUnidad2
+        ? 'Desbloquea la Unidad 2 con tu cuenta'
+        : (esUnidad3 ? '¡Felicidades por completar la Unidad 2!' : '¡Felicidades por completar la Unidad 1!');
+      const subtitle = document.getElementById('saveProgressSubtitle');
+      if (subtitle) subtitle.textContent = esBloqueoUnidad2
+        ? 'Inicia sesión y activa tu membresía para desbloquear las 8 lecciones de Gastos, ahorro y tarjetas.'
+        : (esUnidad3
+          ? 'Has terminado las 8 lecciones de la Unidad 2. Activa tu membresía para desbloquear la Unidad 3 y seguir avanzando.'
+          : 'Has terminado las 8 lecciones de tu mes de prueba gratuito. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.');
+      const lessons = document.getElementById('saveProgressLessons');
+      if (lessons) lessons.innerHTML = esUnidad3 ? '<strong>16/16</strong> Lecciones vistas' : '<strong>8/8</strong> Lecciones vistas';
+      const foot = document.querySelector('.save-modal-foot-note');
+      if (foot) foot.innerHTML = '<i class="fi fi-rr-shield-check"></i> ' + (esUnidad3
+        ? 'Tu acceso es progresivo: al activar tu membresía se desbloqueará la Unidad 3 de inmediato.'
+        : 'Tu acceso es progresivo: cada unidad requiere sesión activa y membresía pagada.');
 
       const user = (typeof getCurrentUser === 'function' ? getCurrentUser() : null) || <?= !empty($user) ? json_encode($user) : 'null' ?>;
       const loggedSection = document.getElementById('saveProgressLoggedInSection');
@@ -1868,30 +2019,60 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       const box = document.getElementById('membershipStatusBox');
       if (!box) return;
 
-      const tieneMem = (user && user.rol === 'admin') 
-        || <?= !empty($tieneMembresia) ? 'true' : 'false' ?> 
+      const modal = document.getElementById('saveProgressModal');
+      const motivo = modal ? (modal.dataset.motivo || 'unidad2') : 'unidad2';
+      const tieneMem = (user && user.rol === 'admin')
+        || MEMBRESIA_ACTIVA_SERVER
         || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
+
+      if (motivo === 'unidad2') {
+        if (tieneMem) {
+          box.innerHTML = `
+            <div class="membership-card-active">
+              <h4><i class="fi fi-rr-check-circle"></i> Membresía activa</h4>
+              <p>Tu membresía está activa. La Unidad 2 (Gastos, ahorro y tarjetas) está desbloqueada.</p>
+              <button type="button" class="btn-membership-action success" onclick="continuarConUnidad2DesdeModal();">
+                <i class="fi fi-rr-play"></i> Continuar a la Unidad 2 (Lección 9) →
+              </button>
+            </div>
+          `;
+        } else {
+          box.innerHTML = `
+            <div class="membership-card-paywall">
+              <h4><i class="fi fi-rr-lock"></i> Desbloquea la Unidad 2</h4>
+              <p>Para continuar con Gastos, ahorro y tarjetas necesitas una membresía activa. Actívala para desbloquear la Unidad 2.</p>
+              <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(2);">
+                <i class="fi fi-rr-credit-card"></i> Activar membresía ($1,500 MXN/mes) →
+              </a>
+              <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(8);">
+                Repasar Lección 8
+              </button>
+            </div>
+          `;
+        }
+        return;
+      }
 
       if (tieneMem) {
         box.innerHTML = `
           <div class="membership-card-active">
             <h4><i class="fi fi-rr-check-circle"></i> Membresía Activa</h4>
-            <p>¡Tu cuenta tiene acceso completo a la carrera! La Unidad 2 ha sido desbloqueada.</p>
-            <button type="button" class="btn-membership-action success" onclick="continuarConMembresiaDesdeModal();">
-              <i class="fi fi-rr-play"></i> Continuar a la Unidad 2 (Lección 9) →
+            <p>Tu membresía está activa. La Unidad 3 (Deuda, inversión y libertad) ya está desbloqueada.</p>
+            <button type="button" class="btn-membership-action success" onclick="continuarConUnidad3DesdeModal();">
+              <i class="fi fi-rr-play"></i> Continuar a la Unidad 3 (Lección 17) →
             </button>
           </div>
         `;
       } else {
         box.innerHTML = `
           <div class="membership-card-paywall">
-            <h4><i class="fi fi-rr-lock"></i> Desbloquea las Unidades 2 y 3</h4>
-            <p>Has finalizado con éxito tus 8 lecciones gratuitas. Para continuar con Gastos, Tarjetas, Deuda y CETES, activa tu membresía de la carrera.</p>
-            <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal();">
-              <i class="fi fi-rr-credit-card"></i> Ver Planes y Membresía ($1,500 MXN/mes) →
+            <h4><i class="fi fi-rr-lock"></i> Desbloquea la Unidad 3</h4>
+            <p>Completaste la Unidad 2. Para seguir con Deuda, inversión y libertad financiera, activa tu membresía mensual.</p>
+            <a href="index.php?page=suscripcion" class="btn-membership-action primary" onclick="event.preventDefault(); irASuscripcionDesdeModal(3);">
+              <i class="fi fi-rr-credit-card"></i> Activar membresía ($1,500 MXN/mes) →
             </a>
-            <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(8);">
-              Repasar Lección 8
+            <button type="button" class="btn-membership-action secondary" onclick="closeSaveProgressModal(); selectLesson(16);">
+              Repasar Lección 16
             </button>
           </div>
         `;
@@ -1964,22 +2145,25 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
           if (typeof updateAuthUI === 'function') updateAuthUI();
 
-          showSaveAlert('¡Cuenta creada y progreso guardado con éxito! 🎉 Redirigiendo a tu membresía...', 'success');
+          showSaveAlert('¡Cuenta creada y progreso guardado con éxito! 🎉 Verificando tu membresía...', 'success');
 
           try {
             localStorage.setItem('ef_progreso_unidad1', 'completada');
           } catch(err) {}
 
           setTimeout(async function() {
+            const modalEl = document.getElementById('saveProgressModal');
+            const motivo = modalEl ? (modalEl.dataset.motivo || 'unidad2') : 'unidad2';
+            const unidad = motivo === 'unidad3' ? 3 : 2;
             await guardarProgresoPendiente();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
-            if (tieneMem) {
-              desbloquearUnidadesPorMembresia();
-              closeSaveProgressModal();
-              selectLesson(9);
-            } else {
-              window.location.href = 'index.php?page=suscripcion';
+            closeSaveProgressModal();
+            if (!tieneMem) {
+              await irASuscripcionDesdeModal(unidad);
+              return;
             }
+            desbloquearUnidad(unidad);
+            selectLesson(unidad === 3 ? 17 : 9);
           }, 1400);
 
         } else {
@@ -2034,18 +2218,21 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
           if (typeof updateAuthUI === 'function') updateAuthUI();
 
-          showSaveAlert('¡Sesión iniciada y progreso sincronizado! 🎉 Verificando membresía...', 'success');
+          showSaveAlert('¡Sesión iniciada y progreso sincronizado! 🎉 Actualizando tu acceso...', 'success');
 
           setTimeout(async function() {
+            const modalEl = document.getElementById('saveProgressModal');
+            const motivo = modalEl ? (modalEl.dataset.motivo || 'unidad2') : 'unidad2';
+            const unidad = motivo === 'unidad3' ? 3 : 2;
             await guardarProgresoPendiente();
             const tieneMem = (data.user && data.user.rol === 'admin') || (typeof tieneMembresiaActiva === 'function' && tieneMembresiaActiva());
-            if (tieneMem) {
-              desbloquearUnidadesPorMembresia();
-              closeSaveProgressModal();
-              selectLesson(9);
-            } else {
-              window.location.href = 'index.php?page=suscripcion';
+            closeSaveProgressModal();
+            if (!tieneMem) {
+              await irASuscripcionDesdeModal(unidad);
+              return;
             }
+            desbloquearUnidad(unidad);
+            selectLesson(unidad === 3 ? 17 : 9);
           }, 1400);
 
         } else {
@@ -2073,9 +2260,9 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-      actualizarUnidadesPorMembresia();
+      actualizarUnidadesPorAcceso();
       selectLesson(1);
-      setTimeout(actualizarUnidadesPorMembresia, 400);
+      setTimeout(actualizarUnidadesPorAcceso, 400);
       // Inicializar YouTube si la API ya estuviese disponible
       if (window.YT && window.YT.Player) {
         initYouTubePlayer();
