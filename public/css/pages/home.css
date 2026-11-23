@@ -8037,17 +8037,18 @@
       margin: 0 0 6px;
       font-size: 1.6rem;
       font-weight: 800;
-      color: #f8fafc;
+      color: var(--verde-principal);
     }
     .atomic-form-subtitle {
       margin: 0 auto;
       max-width: 720px;
       font-size: 0.98rem;
-      color: rgba(248, 250, 252, 0.82);
+      color: var(--gris-medio);
       line-height: 1.5;
     }
 
     /* Iconos realistas (SVG) */
+
     .kpi-icon-wrap svg, .m-feat-ico svg, .msc-medal svg, .msc-badge-icon svg { display: block; }
     .kpi-icon-wrap { font-size: 0; }
     .m-feat-ico { font-size: 0; display: inline-flex; align-items: center; justify-content: center; }

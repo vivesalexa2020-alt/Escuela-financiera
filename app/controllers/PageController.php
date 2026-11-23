@@ -12,11 +12,24 @@ class PageController extends Controller {
     }
 
     public function aula(): void {
-        if (!Session::userId()) {
+        $esDemo = isset($_GET['preview']) && (string)$_GET['preview'] === '1';
+
+        if (!Session::userId() && !$esDemo) {
             header('Location: index.php?page=home');
             exit();
         }
-        $this->renderPage('aula', 'aprendizaje/detalle-curso', 'Aula Virtual | Educación Financiera', 'user-logged-in');
+
+        $bodyClass = $esDemo ? 'demo-preview' : 'user-logged-in';
+        $title = $esDemo
+            ? 'Unidad 1 Gratis | Educación Financiera'
+            : 'Aula Virtual | Educación Financiera';
+        $this->renderPage(
+            'aula',
+            'aprendizaje/detalle-curso',
+            $title,
+            $bodyClass,
+            ['esDemo' => $esDemo]
+        );
     }
 
     public function recursos(): void {
@@ -59,7 +72,7 @@ class PageController extends Controller {
         $this->renderPage('suscripcion', 'cuenta/suscripcion', 'Planes y Membresías | Educación Financiera', 'user-logged-in');
     }
 
-    private function renderPage(string $slug, string $view, string $title, string $bodyClass): void {
+    private function renderPage(string $slug, string $view, string $title, string $bodyClass, array $extraData = []): void {
         $settings = new SettingsModel();
 
         if ($slug !== 'reticula'
@@ -94,13 +107,13 @@ class PageController extends Controller {
             }
         }
 
-        $this->view($view, [
+        $this->view($view, array_merge([
             'pageTitle'      => $title,
             'pageCss'        => ["public/css/pages/{$slug}.css"],
             'bodyClass'      => $bodyClass,
             'user'           => Session::user(),
             'currentPage'    => $slug,
             'tieneMembresia' => $tieneMembresia,
-        ], 'main');
+        ], $extraData), 'main');
     }
 }

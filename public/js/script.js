@@ -3005,12 +3005,28 @@ function cerrarAsistente() {
 // (La inicialización ocurre en el evento DOMContentLoaded de arriba)
 initAsistente();
 
+function irALoginDesdeDemo() {
+  try {
+    sessionStorage.setItem('ef_redirect_after_login', 'aula');
+  } catch (e) {}
+  window.location.href = 'index.php?page=home&login=1';
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const hash = (window.location.hash || '').toLowerCase();
 
   // En la página de inicio, nunca abrir el modal de login automáticamente al cargar
   const isInicio = !!(document.getElementById('btnHomeProbar') || document.querySelector('.home-probar-wrap') || document.getElementById('splashScreen'));
   if (isInicio) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('login') === '1') {
+      openLoginModal();
+      params.delete('login');
+      const query = params.toString();
+      if (history.replaceState) {
+        history.replaceState(null, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+      }
+    }
     if (hash === '#login' || hash === '#signup') {
       if (history.replaceState) {
         history.replaceState(null, '', window.location.pathname + window.location.search);

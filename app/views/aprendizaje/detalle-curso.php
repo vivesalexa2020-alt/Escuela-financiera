@@ -2,9 +2,11 @@
 /**
  * Vista: Aula Virtual
  * Contenido migrado desde aula-demo.html (legacy/html).
- * Variables: $pageTitle, $pageCss, $bodyClass, $user
+ * Variables: $pageTitle, $pageCss, $bodyClass, $user, $esDemo
  */
+$esDemo = !empty($esDemo);
 ?>
+<?php if (!$esDemo): ?>
 <!-- ============================================================
      SIDEBAR LATERAL IZQUIERDA (MENÚ PRINCIPAL)
      ============================================================ -->
@@ -12,13 +14,16 @@
 
   <!-- Backdrop para cerrar sidebar en responsive -->
   <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
+<?php endif; ?>
 
   <div class="main-wrapper" id="mainWrapper">
 
   <!-- Barra superior del estudiante -->
   <div class="logged-topbar">
     <div class="logged-topbar-left">
-      <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
+      <?php if (!$esDemo): ?>
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()" aria-label="Abrir menú lateral"><i class="fi fi-rr-menu-burger"></i></button>
+      <?php endif; ?>
       <div style="display: flex; align-items: center; gap: 10px;">
         <svg viewBox="0 0 240 210" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 24px; flex-shrink: 0;" role="img" aria-label="Logo Sombrero de Graduación con Libros">
           <g>
@@ -42,11 +47,25 @@
             <path d="M199,130 l1,14 M204,130 l0,14 M209,130 l-1,14" stroke="#fabb15" stroke-width="4" stroke-linecap="round"/>
           </g>
         </svg>
-        <div class="page-current-title">Aula Virtual Demo</div>
+        <div class="page-current-title"><?= $esDemo ? 'Unidad 1 Gratis' : 'Aula Virtual Demo' ?></div>
       </div>
     </div>
     <div class="logged-topbar-right">
-      <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
+      <?php if ($esDemo): ?>
+        <?php if (empty($user)): ?>
+          <button type="button" class="demo-login-btn" onclick="irALoginDesdeDemo()">
+            <i class="fi fi-sr-sign-in-alt"></i>
+            <span>Iniciar sesión</span>
+          </button>
+        <?php else: ?>
+          <a href="index.php?page=aula" class="demo-login-btn">
+            <i class="fi fi-rr-layout-grid"></i>
+            <span>Ir al panel completo</span>
+          </a>
+        <?php endif; ?>
+      <?php else: ?>
+        <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -1493,7 +1512,8 @@
     }
 
     let currentLesson = 1;
-    const MAX_FREE_LESSON = (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva())) ? 24 : 8;
+    const ES_DEMO = <?= $esDemo ? 'true' : 'false' ?>;
+    const MAX_FREE_LESSON = (!ES_DEMO && (<?= !empty($tieneMembresia) ? "true" : "false" ?> || (typeof tieneMembresiaActiva === "function" && tieneMembresiaActiva()))) ? 24 : 8;
 
     function selectLesson(id) {
       const data = lessonsData[id];
@@ -1640,7 +1660,7 @@
     }
 
     function actualizarUnidadesPorMembresia() {
-      const conMembresia = (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva();
+      const conMembresia = !ES_DEMO && (typeof tieneMembresiaActiva === 'function') && tieneMembresiaActiva();
       [2, 3].forEach(function (u) {
         const accordion = document.getElementById('unitAccordion' + u);
         if (accordion) accordion.style.display = conMembresia ? 'block' : 'none';

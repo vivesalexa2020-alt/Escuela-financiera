@@ -146,11 +146,6 @@
         </a>
       </div>
 
-      <!-- Badge central superior (escritorio y tablets) -->
-      <div class="header-center-pill">
-        <span class="hero-top-badge"><i class="fi fi-sr-sparkles" style="color: #F5B800; font-size: 13px; vertical-align: middle; margin-right: 5px;"></i>¡RESULTADOS REALES, COMPROBADOS!</span>
-      </div>
-
       <!-- Botones de acceso en header principal -->
       <div style="display: flex; align-items: center; gap: 10px;">
         <?php if (!empty($user) && ($user['rol'] ?? '') === 'admin'): ?>
@@ -159,12 +154,6 @@
             <span>Acceder como Administrador</span>
           </a>
         <?php else: ?>
-          <?php if (empty($user)): ?>
-            <a href="javascript:void(0)" onclick="openLoginModal(); return false;" class="topbar-login-btn" id="btnLoginEstudiante" title="Iniciar sesión de estudiante">
-              <i class="fi fi-sr-sign-in-alt"></i>
-              <span>Iniciar sesión</span>
-            </a>
-          <?php endif; ?>
           <a href="javascript:void(0)" onclick="openAdminLogin(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Acceso al Panel de Administrador">
             <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
             <span>Acceder como Administrador</span>
@@ -1062,17 +1051,10 @@
 </section>
 
   <div class="home-probar-wrap">
-    <?php if (!empty($user)): ?>
-      <a href="index.php?page=aula" class="home-probar-btn" id="btnHomeProbar">
-        <span>Probar</span>
-        <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
-      </a>
-    <?php else: ?>
-      <a href="index.php?page=aula" class="home-probar-btn" id="btnHomeProbar" onclick="return handleProbarClick(event)">
-        <span>Probar</span>
-        <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
-      </a>
-    <?php endif; ?>
+    <a href="index.php?page=aula&preview=1" class="home-probar-btn" id="btnHomeProbar">
+      <span>Probar</span>
+      <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
+    </a>
   </div>
 </main>
 
@@ -1634,21 +1616,6 @@
 
 <script src="public/js/script.js?v=<?= time() ?>"></script>
 <script>
-  // ── Botón "Probar" en Inicio (abre el login directamente al hacer clic) ──
-  function handleProbarClick(event) {
-    if (typeof getCurrentUser === 'function' && getCurrentUser()) {
-      return true;
-    }
-    if (event) event.preventDefault();
-    try {
-      sessionStorage.setItem('ef_redirect_after_login', 'aula');
-    } catch (e) {}
-    if (typeof openLoginModal === 'function') {
-      openLoginModal();
-    }
-    return false;
-  }
-
   // ── Splash screen ──────────────────────────────────────────
   (function() {
     var sp = document.getElementById('splashScreen');
