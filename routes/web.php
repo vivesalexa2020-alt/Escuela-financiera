@@ -43,6 +43,7 @@ return static function (Router $router): void {
     $router->post('/admin/ejercicios/actualizar', 'AdminController@updateExercise');
     $router->post('/admin/ejercicios/eliminar',   'AdminController@deleteExercise');
     $router->post('/admin/membresias/actualizar', 'AdminController@updateMembership');
+    $router->post('/admin/pagos/actualizar',      'AdminController@updatePaymentStatus');
     $router->post('/admin/logros/crear',          'AdminController@createLogro');
     $router->post('/admin/logros/estado',         'AdminController@updateLogroStatus');
     $router->post('/admin/logros/eliminar',       'AdminController@deleteLogro');

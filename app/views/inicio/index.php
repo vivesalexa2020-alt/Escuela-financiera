@@ -153,20 +153,16 @@
             <i class="fi fi-sr-sign-in-alt" style="font-size: 15px; color: #fabb15;"></i>
             <span>Iniciar sesión</span>
           </button>
-          <button type="button" class="topbar-admin-btn topbar-aula-btn" onclick="openSignupModal(); return false;">
-            <i class="fi fi-rr-user-add" style="font-size: 15px; color: #fabb15;"></i>
-            <span>Crear cuenta</span>
-          </button>
         <?php elseif (($user['rol'] ?? '') === 'admin'): ?>
           <a href="index.php?page=admin" class="topbar-admin-btn" title="Ir al Panel de Administración">
             <i class="fi fi-sr-shield-check" style="font-size: 15px; color: #fabb15;"></i>
             <span>Acceder como Administrador</span>
           </a>
         <?php else: ?>
-          <a href="index.php?page=aula&preview=1" class="topbar-admin-btn topbar-aula-btn">
+          <button type="button" class="topbar-admin-btn topbar-aula-btn" onclick="irALoginDesdeAula(); return false;">
             <i class="fi fi-rr-graduation-cap" style="font-size: 15px; color: #fabb15;"></i>
             <span>Ir al aula</span>
-          </a>
+          </button>
         <?php endif; ?>
         <?php if (empty($user) || ($user['rol'] ?? '') !== 'admin'): ?>
           <a href="javascript:void(0)" onclick="openAdminLogin(); return false;" class="topbar-admin-btn" id="btnAccesoAdmin" title="Acceso al Panel de Administrador">

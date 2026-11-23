@@ -2,8 +2,8 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
+use App\Core\Csrf;
 use App\Core\Logger;
-use App\Core\Session;
 use App\Models\MembershipModel;
 
 class MembershipController extends Controller {
@@ -33,7 +33,7 @@ class MembershipController extends Controller {
         }
     }
 
-    public function activate(): void {
+    public function registrarPago(): void {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->jsonResponse(['success' => false, 'message' => 'Método no permitido'], 405);
         }
@@ -44,40 +44,60 @@ class MembershipController extends Controller {
         $this->validateCsrf($data['csrf_token'] ?? null);
 
         $tipo = strtolower(trim($data['tipo'] ?? 'pro'));
-        $permitidos = ['pro', 'premium'];
-        if (!in_array($tipo, $permitidos, true)) {
-            $this->jsonResponse(['success' => false, 'message' => 'Tipo de membresía no válido. Opciones: pro, premium'], 400);
+        if ($tipo !== 'pro') {
+            $this->jsonResponse(['success' => false, 'message' => 'Plan no válido para este pago'], 400);
         }
 
-        // Validación de pago / método
-        $metodoPago = trim($data['metodo_pago'] ?? ($data['metodo'] ?? ''));
-        $referencia = trim($data['referencia_pago'] ?? ($data['referencia'] ?? ''));
+        $metodoPago = strtolower(trim($data['metodo_pago'] ?? ($data['metodo'] ?? '')));
+        if (!in_array($metodoPago, ['spei', 'tarjeta'], true)) {
+            $this->jsonResponse(['success' => false, 'message' => 'Selecciona un método de pago válido'], 400);
+        }
 
-        if (empty($metodoPago) && empty($referencia)) {
+        $referencia = trim((string)($data['referencia_pago'] ?? ($data['referencia'] ?? '')));
+        if (!preg_match('/^[A-Za-z0-9\-_. ]{6,100}$/', $referencia)) {
             $this->jsonResponse([
                 'success' => false,
-                'message' => 'Se requiere confirmación o comprobante de método de pago para activar la suscripción'
+                'message' => 'Ingresa la referencia o folio de tu pago (entre 6 y 100 caracteres)'
             ], 400);
         }
 
-        try {
-            $this->membershipModel->updateMembership($userId, $tipo);
-            Session::set('membresia', $tipo);
+        $monto = (float)($data['monto'] ?? 1500);
+        if (abs($monto - 1500.0) > 0.01) {
+            $this->jsonResponse(['success' => false, 'message' => 'El monto de la membresía debe ser $1,500 MXN'], 400);
+        }
 
-            Logger::info('Membresía activada', [
+        $unidad = (int)($data['unidad'] ?? 2);
+        if (!in_array($unidad, [2, 3], true)) {
+            $this->jsonResponse(['success' => false, 'message' => 'Unidad no válida'], 400);
+        }
+
+        try {
+            if ($this->membershipModel->referenciaPagoExiste($referencia)) {
+                $this->jsonResponse([
+                    'success' => false,
+                    'message' => 'Esa referencia ya fue registrada. Revisa tu comprobante o contacta a soporte.'
+                ], 409);
+            }
+
+            $pagoId = $this->membershipModel->crearSolicitudPago($userId, $unidad, 1500.0, $metodoPago, $referencia);
+
+            Logger::info('Solicitud de pago registrada pendiente de revisión', [
+                'pago_id'    => $pagoId,
                 'usuario_id' => $userId,
-                'tipo' => $tipo,
-                'metodo' => $metodoPago
+                'unidad'     => $unidad,
+                'metodo'     => $metodoPago
             ]);
 
             $this->jsonResponse([
                 'success' => true,
-                'message' => "Membresía {$tipo} activada con éxito",
-                'tipo'    => $tipo
-            ]);
+                'estado'  => 'pendiente',
+                'pago_id' => $pagoId,
+                'message' => 'Pago registrado. Un administrador debe confirmarlo antes de activar tu membresía.',
+                'csrf_token' => Csrf::generateToken()
+            ], 201);
         } catch (\Throwable $e) {
-            Logger::error('Error al activar membresía', ['error' => $e->getMessage()]);
-            $this->jsonResponse(['success' => false, 'message' => 'Error al procesar la activación de membresía'], 500);
+            Logger::error('Error al registrar solicitud de pago', ['error' => $e->getMessage()]);
+            $this->jsonResponse(['success' => false, 'message' => 'No se pudo registrar tu pago. Intenta de nuevo.'], 500);
         }
     }
 }

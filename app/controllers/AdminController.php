@@ -63,6 +63,13 @@ class AdminController extends Controller {
             }
         }
 
+        try {
+            $pagosPendientes = $this->membershipModel->obtenerPagosPendientes();
+        } catch (\Throwable $e) {
+            Logger::warning('No se pudieron obtener pagos pendientes', ['error' => $e->getMessage()]);
+            $pagosPendientes = [];
+        }
+
         $this->view('admin/index', [
             'pageTitle' => 'Panel de Administración | Educación Financiera',
             'pageCss'   => [],
@@ -87,6 +94,7 @@ class AdminController extends Controller {
             'audiosCurso'     => $audiosCurso,
             'ejerciciosCurso' => $ejerciciosCurso,
             'membresias'      => $this->membershipModel->getAllWithUsers(),
+            'pagosPendientes' => $pagosPendientes,
             'inscripciones'   => $inscripciones,
             'progresos'       => $progresos,
             'logros'          => $logros,
@@ -641,6 +649,42 @@ class AdminController extends Controller {
         if ($fecha !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $fecha)) { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'membresias']); }
         if ($this->membershipModel->updateById($id, $tipo, $activa === '1', $fecha === '' ? null : $fecha)) { $this->redirectTo('admin', ['ok' => 1, 'tab' => 'membresias']); }
         $this->redirectTo('admin', ['error' => 'db', 'tab' => 'membresias']);
+    }
+
+    public function updatePaymentStatus(): void {
+        $this->requireAdmin();
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') { $this->redirectTo('admin', ['tab' => 'membresias']); }
+        $data = $this->getRequestData();
+        if (!Csrf::validateToken($data['csrf_token'] ?? '')) { $this->redirectTo('admin', ['error' => 'csrf', 'tab' => 'membresias']); }
+
+        $pagoId = (int)($data['pago_id'] ?? 0);
+        $estado = (string)($data['estado'] ?? '');
+        if ($pagoId <= 0 || !in_array($estado, ['aprobado', 'rechazado'], true)) { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'membresias']); }
+
+        try {
+            $pago = $this->membershipModel->obtenerPagoPorId($pagoId);
+            if (!$pago || $pago['estado'] !== 'pendiente') { $this->redirectTo('admin', ['error' => 'datos', 'tab' => 'membresias']); }
+
+            $notas = trim((string)($data['notas'] ?? ''));
+            if (!$this->membershipModel->actualizarEstadoPago($pagoId, $estado, (int)Session::userId(), $notas)) {
+                $this->redirectTo('admin', ['error' => 'db', 'tab' => 'membresias']);
+            }
+
+            if ($estado === 'aprobado') {
+                $this->membershipModel->updateMembership((int)$pago['usuario_id'], 'pro');
+            }
+
+            Logger::info('Revisión de pago completada', [
+                'pago_id'    => $pagoId,
+                'usuario_id' => (int)$pago['usuario_id'],
+                'estado'     => $estado,
+                'admin_id'   => (int)Session::userId()
+            ]);
+            $this->redirectTo('admin', ['ok' => 1, 'tab' => 'membresias']);
+        } catch (\Throwable $e) {
+            Logger::error('Error al revisar pago', ['error' => $e->getMessage()]);
+            $this->redirectTo('admin', ['error' => 'db', 'tab' => 'membresias']);
+        }
     }
 
     // ── GESTIÓN DE LOGROS ────────────────────────────────────────────

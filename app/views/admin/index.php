@@ -1559,7 +1559,57 @@ table.adm-table tr:hover td{background:rgba(0,0,0,0.015)}
       </div>
     </div>
     
-    <div class="adm-mem-grid">
+    <div class="adm-table-card">
+      <div class="adm-table-header"><h3>Pagos pendientes de verificación (<?= count($pagosPendientes ?? []) ?>)</h3></div>
+      <div class="adm-table-responsive">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>Estudiante</th>
+              <th>Referencia</th>
+              <th>Unidad</th>
+              <th>Monto</th>
+              <th>Método</th>
+              <th>Fecha</th>
+              <th>Revisión</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php if (empty($pagosPendientes)): ?>
+              <tr><td colspan="7" class="adm-empty">No hay pagos pendientes de revisión.</td></tr>
+            <?php else: foreach ($pagosPendientes as $p): ?>
+              <tr>
+                <td>
+                  <div style="font-weight:600;color:var(--adm-text)"><?= htmlspecialchars($p['usuario_nombre']) ?></div>
+                  <div style="font-size:.75rem;color:var(--adm-muted)"><?= htmlspecialchars($p['usuario_email']) ?></div>
+                </td>
+                <td><strong><?= htmlspecialchars($p['referencia']) ?></strong></td>
+                <td>Unidad <?= (int)$p['unidad'] ?></td>
+                <td>$<?= number_format((float)$p['monto'], 2) ?> MXN</td>
+                <td><?= $p['metodo_pago'] === 'tarjeta' ? 'Tarjeta' : 'SPEI' ?></td>
+                <td><?= htmlspecialchars($p['fecha_creacion']) ?></td>
+                <td>
+                  <form method="post" action="index.php?page=admin/pagos/actualizar" class="adm-inline-form" style="display:inline-flex;gap:6px;">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+                    <input type="hidden" name="pago_id" value="<?= (int)$p['id'] ?>">
+                    <input type="hidden" name="estado" value="aprobado">
+                    <button class="adm-action-btn success" onclick="return confirm('¿Confirmar el pago de <?= htmlspecialchars($p['usuario_nombre'], ENT_QUOTES) ?> y activar su membresía?');">Aprobar</button>
+                  </form>
+                  <form method="post" action="index.php?page=admin/pagos/actualizar" class="adm-inline-form" style="display:inline-flex;gap:6px;">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+                    <input type="hidden" name="pago_id" value="<?= (int)$p['id'] ?>">
+                    <input type="hidden" name="estado" value="rechazado">
+                    <button class="adm-action-btn danger" onclick="return confirm('¿Rechazar este pago?');">Rechazar</button>
+                  </form>
+                </td>
+              </tr>
+            <?php endforeach; endif; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="adm-mem-grid" style="margin-top:20px">
       <div class="adm-mem-card"><div class="mem-icon" style="color:#10b981"><i class="fi fi-rr-leaf"></i></div><h4>Plan Gratis</h4><p class="mem-desc">Acceso básico inicial (1 mes)</p><span class="adm-badge gratis"><?= $memPorTipo['gratis'] ?> activas</span></div>
       <div class="adm-mem-card"><div class="mem-icon" style="color:#f59e0b"><i class="fi fi-rr-star"></i></div><h4>Plan Pro</h4><p class="mem-desc">Acceso ampliado de cursos</p><span class="adm-badge pro"><?= $memPorTipo['pro'] ?> activas</span></div>
       <div class="adm-mem-card"><div class="mem-icon" style="color:#8b5cf6"><i class="fi fi-rr-gem"></i></div><h4>Plan Premium</h4><p class="mem-desc">Acceso total anual + tutorías</p><span class="adm-badge premium"><?= $memPorTipo['premium'] ?> activas</span></div>

@@ -2,10 +2,11 @@
 /**
  * Vista: Planes y MembresÃ­as
  * Contenido migrado desde suscripcion.html (legacy/html).
- * Variables: $pageTitle, $pageCss, $bodyClass, $user, $esCheckout, $unidadCheckout
+ * Variables: $pageTitle, $pageCss, $bodyClass, $user, $esCheckout, $unidadCheckout, $pagoPendiente
   */
 $esCheckout = !empty($esCheckout);
 $unidadCheckout = isset($unidadCheckout) ? (int)$unidadCheckout : 0;
+$pagoPendiente = !empty($pagoPendiente);
 $pagarUnidad3 = $esCheckout && $unidadCheckout === 3;
 $requiereLogin = $esCheckout && empty($user);
 ?>
@@ -66,38 +67,6 @@ $requiereLogin = $esCheckout && empty($user);
   </div>
 
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="index.php?page=home&skip_splash=1" class="brand-logo">
-        <svg viewBox="0 0 240 210" width="32" height="28" role="img" aria-label="Logo Sombrero de Graduación con Libros">
-          <g>
-            <rect x="26" y="162" width="188" height="30" rx="8" fill="#F5B800"/>
-            <rect x="34" y="168" width="172" height="18" rx="4" fill="#fff6dd"/>
-            <rect x="42" y="128" width="156" height="30" rx="8" fill="#28C76F" transform="rotate(-2 120 143)"/>
-            <rect x="58" y="94" width="124" height="30" rx="8" fill="#ffffff" transform="rotate(2 120 109)"/>
-          </g>
-          <g>
-            <path d="M88,66 L88,90 C88,106 152,106 152,90 L152,66 L120,82 Z" fill="#032d1f"/>
-            <path d="M120,14 L216,58 L120,102 L24,58 Z" fill="#ffffff"/>
-            <circle cx="120" cy="58" r="7" fill="#F5B800"/>
-          </g>
-        </svg>
-        <span>Educación <strong>Financiera</strong></span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="index.php?page=home&skip_splash=1">Inicio</a></li>
-        <li><a href="index.php?page=reticula">Aula Demo</a></li>
-        <li><a href="index.php?page=reticula">Plan de Estudios</a></li>
-        <li><a href="index.php?page=recursos">Recursos</a></li>
-      </ul>
-
-      <div>
-        <a href="index.php?page=reticula" class="btn-nav-demo">← Volver a la Retícula</a>
-      </div>
-    </div>
-  </header>
 
   <!-- HERO -->
   <section class="pricing-hero">
@@ -207,7 +176,7 @@ $requiereLogin = $esCheckout && empty($user);
           </div>
 
           <p style="font-size: 13.5px; color: var(--gris-medio); margin-top: 14px;">
-            <i class="fi fi-rr-bulb"></i> <em>Al realizar tu transferencia, conserva tu comprobante. Tu cuenta se activará automáticamente al reportar la referencia.</em>
+            <i class="fi fi-rr-bulb"></i> <em>Conserva tu comprobante. El pago quedará en revisión y tu cuenta se activará cuando un administrador lo confirme.</em>
           </p>
         </div>
 
@@ -233,6 +202,21 @@ $requiereLogin = $esCheckout && empty($user);
           </div>
         </div>
 
+        <div class="form-group" style="margin-top:16px;">
+          <label for="payReference">Referencia o folio de tu pago *</label>
+          <input type="text" id="payReference" maxlength="100" placeholder="Ej. EDU-8429-123456" autocomplete="off">
+          <small style="display:block;margin-top:6px;color:var(--gris-medio);">
+            Usa la referencia SPEI o el número de autorización de tu tarjeta. Sin este dato no podemos revisar tu pago.
+          </small>
+        </div>
+
+        <?php if ($pagoPendiente): ?>
+          <div class="checkout-login-gate is-ready" style="margin-top:16px;border-color:#f59e0b;background:#fffbeb;">
+            <h4><i class="fi fi-rr-clock"></i> Pago registrado, en revisión</h4>
+            <p>Recibimos tu referencia. Un administrador debe confirmar el pago antes de activar la membresía y desbloquear la unidad. Vuelve a cargar esta página para ver el estado actualizado.</p>
+          </div>
+        <?php endif; ?>
+
         <?php if ($requiereLogin): ?>
           <div class="checkout-login-gate">
             <h4><i class="fi fi-sr-lock"></i> Paso 1: inicia sesión</h4>
@@ -254,13 +238,14 @@ $requiereLogin = $esCheckout && empty($user);
         <?php else: ?>
           <div class="checkout-login-gate is-ready">
             <h4><i class="fi fi-rr-check-circle"></i> Paso 1 completado</h4>
-            <p>Sesión activa. Ahora registra tu pago para activar la membresía de la unidad.</p>
+            <p>Sesión activa. Ahora registra tu pago para revisión; la membresía se activará cuando se confirme.</p>
           </div>
         <?php endif; ?>
 
         <button class="btn-complete-pay" onclick="handlePayAction()">
-          Paso 2: Registrar pago y activar membresía ($1,500 MXN)
+          Paso 2: Registrar pago para revisión ($1,500 MXN)
         </button>
+        <div id="pagoMsg" class="form-message" style="margin-top:12px;"></div>
 
         <div class="secure-note">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -375,6 +360,13 @@ $requiereLogin = $esCheckout && empty($user);
       });
     }
 
+    function mostrarMensajePago(texto, esError) {
+      const caja = document.getElementById('pagoMsg');
+      if (!caja) return;
+      caja.className = 'form-message' + (esError ? ' error' : ' success');
+      caja.textContent = texto;
+    }
+
     async function handlePayAction() {
       let quien = '';
       try {
@@ -386,18 +378,27 @@ $requiereLogin = $esCheckout && empty($user);
         if (emailServidor) quien = String(emailServidor).toLowerCase();
       }
       if (!quien) {
-        if (typeof openLoginModal === 'function') {
-          openLoginModal();
-        } else {
-          alert('Inicia sesión para registrar tu pago.');
-        }
+        mostrarMensajePago('Inicia sesión para registrar tu pago.', true);
+        if (typeof openLoginModal === 'function') openLoginModal();
         return;
       }
 
-      const usaTarjeta = document.getElementById('payCard').checked;
+      const metodoPago = document.getElementById('payCard').checked ? 'tarjeta' : 'spei';
+      const referenciaInput = document.getElementById('payReference');
+      const referencia = referenciaInput ? referenciaInput.value.trim() : '';
+      if (!/^[A-Za-z0-9\-_. ]{6,100}$/.test(referencia)) {
+        mostrarMensajePago('Ingresa la referencia o folio de tu pago (entre 6 y 100 caracteres).', true);
+        if (referenciaInput) referenciaInput.focus();
+        return;
+      }
+
       const unidadPendiente = localStorage.getItem('ef_unidad_pendiente_desbloqueo') || String(unidadCheckout || 2);
       const botonPago = document.querySelector('.btn-complete-pay');
-      if (botonPago) botonPago.disabled = true;
+      mostrarMensajePago('', false);
+      if (botonPago) {
+        botonPago.disabled = true;
+        botonPago.textContent = 'Registrando pago...';
+      }
 
       try {
         await loadCsrfToken();
@@ -407,33 +408,29 @@ $requiereLogin = $esCheckout && empty($user);
           credentials: 'include',
           body: JSON.stringify({
             tipo: 'pro',
-            metodo_pago: usaTarjeta ? 'tarjeta' : 'spei',
-            referencia: 'unidad-' + unidadPendiente,
+            metodo_pago: metodoPago,
+            referencia: referencia,
+            monto: 1500,
+            unidad: Number(unidadPendiente) || 2,
             csrf_token: CSRF_TOKEN
           })
         });
         const out = await res.json().catch(function() { return {}; });
+        if (out && out.csrf_token) CSRF_TOKEN = out.csrf_token;
         if (!res.ok || !out.success) {
-          alert(out.message || 'No se pudo activar la membresía. Intenta de nuevo.');
+          mostrarMensajePago(out.message || 'No se pudo registrar el pago. Intenta de nuevo.', true);
           return;
         }
-        if (out.csrf_token) CSRF_TOKEN = out.csrf_token;
-        try {
-          localStorage.setItem('edu_fin_membresia_' + quien, JSON.stringify({
-            activa: true,
-            metodo: usaTarjeta ? 'tarjeta' : 'spei',
-            fecha: Date.now()
-          }));
-        } catch (e) {
-          alert("No se pudo guardar tu inscripción. Revisa que tu navegador permita el almacenamiento local.");
-          return;
-        }
-        alert("¡Membresía activada! La Unidad " + unidadPendiente + " quedará disponible al volver al Aula.");
-        window.location.href = "index.php?page=aula&preview=1";
+        window.location.href = 'index.php?page=suscripcion&checkout=1&unidad='
+          + encodeURIComponent(unidadPendiente) + '&pago=pendiente';
+        return;
       } catch (e) {
-        alert('No se pudo registrar el pago. Revisa tu conexión e inténtalo de nuevo.');
+        mostrarMensajePago('No se pudo registrar el pago. Revisa tu conexión e inténtalo de nuevo.', true);
       } finally {
-        if (botonPago) botonPago.disabled = false;
+        if (botonPago) {
+          botonPago.disabled = false;
+          botonPago.textContent = 'Paso 2: Registrar pago para revisión ($1,500 MXN)';
+        }
       }
     }
   </script>

@@ -384,7 +384,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <div class="finish-unit-banner-content">
               <div class="finish-unit-badge" id="finishUnitBadge"><i class="fi fi-sr-sparkles"></i> ¡Felicidades! Completaste la Unidad 1</div>
               <h4 id="finishUnitTitle">¿Listo para guardar tu avance y continuar a la Unidad 2?</h4>
-              <p id="finishUnitBannerDesc">Has terminado las 8 lecciones gratuitas. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.</p>
+              <p id="finishUnitBannerDesc">Has terminado las 8 lecciones gratuitas. Crea tu cuenta y luego accede al pago de membresía para desbloquear la Unidad 2.</p>
             </div>
             <button type="button" class="btn-goto-sub" id="finishUnitButton" onclick="onCompletarUnidadGratis()">
               <i class="fi fi-rr-disk"></i> Guardar mi progreso →
@@ -432,6 +432,16 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         <p id="saveProgressSubtitle">Has terminado las 8 lecciones de tu mes de prueba gratuito. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.</p>
       </div>
 
+      <!-- ACCESO SIEMPRE VISIBLE A CREAR CUENTA -->
+      <div id="saveProgressCreateAccountBar" style="display:none;align-items:center;justify-content:space-between;gap:10px;margin:14px 0;padding:10px 14px;border:1px dashed #86efac;background:#f0fdf4;border-radius:12px;">
+        <div style="font-size:13px;color:#065f46;font-weight:700;">
+          <i class="fi fi-rr-user-add"></i> Paso 1: Crear cuenta
+        </div>
+        <button type="button" class="btn-membership-action secondary" style="width:auto;padding:8px 12px;margin-top:0;font-size:13px;" onclick="cambiarCuentaDesdeModal()">
+          Crear cuenta
+        </button>
+      </div>
+
       <!-- RESUMEN VISUAL DE PROGRESO -->
       <div class="save-progress-summary-card">
         <div class="summary-pill">
@@ -457,15 +467,24 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           <div id="membershipStatusBox" class="membership-status-box">
             <!-- Rellenado dinámicamente si tiene membresía o si necesita pagar membresía -->
           </div>
+          <button type="button" class="btn-membership-action secondary" style="margin-top:12px;" onclick="cambiarCuentaDesdeModal()">
+            <i class="fi fi-rr-user-add"></i> Crear otra cuenta
+          </button>
         </div>
       </div>
 
       <!-- ESTADO B: SI EL USUARIO NO ESTÁ LOGUEADO (INVITADO) -->
       <div id="saveProgressGuestSection">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-size:13.5px;font-weight:700;">
+          <span style="background:#065f46;color:#ecfdf5;padding:6px 12px;border-radius:999px;">1. Crear cuenta</span>
+          <span style="color:#64748b;">→</span>
+          <span style="background:#f1f5f9;color:#475569;padding:6px 12px;border-radius:999px;">2. Paga tu membresía</span>
+        </div>
+
         <!-- PESTAÑAS: CREAR CUENTA vs INICIAR SESIÓN -->
         <div class="save-tabs-nav">
           <button type="button" class="save-tab-btn active" id="tabBtnRegister" onclick="switchSaveProgressTab('register')">
-            <i class="fi fi-rr-user-add"></i> Crear cuenta gratis
+            <i class="fi fi-rr-user-add"></i> Crear cuenta
           </button>
           <button type="button" class="save-tab-btn" id="tabBtnLogin" onclick="switchSaveProgressTab('login')">
             <i class="fi fi-rr-sign-in-alt"></i> Ya tengo cuenta
@@ -490,7 +509,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <span class="input-hint">Mínimo 8 caracteres, incluye al menos una mayúscula, un número y un símbolo.</span>
           </div>
           <button type="submit" class="btn-submit-save" id="btnSubmitRegister">
-            <i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →
+            <i class="fi fi-rr-user-add"></i> Crear cuenta y continuar al pago →
           </button>
         </form>
 
@@ -505,7 +524,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             <input type="password" id="saveLogPass" placeholder="Tu contraseña" required autocomplete="current-password">
           </div>
           <button type="submit" class="btn-submit-save" id="btnSubmitLogin">
-            <i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →
+            <i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y continuar al pago →
           </button>
           <div style="text-align: center; margin-top: 10px;">
             <a href="index.php?page=home#login" class="link-forgot-pass">¿Olvidaste tu contraseña?</a>
@@ -513,7 +532,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         </form>
 
         <p class="save-modal-foot-note">
-          <i class="fi fi-rr-shield-check"></i> Tu información está 100% segura. Al guardar tu progreso, el sistema verificará tu sesión y membresía.
+          <i class="fi fi-rr-shield-check"></i> Paso 1: crea tu cuenta para guardar tu avance. Paso 2: registrarás tu pago de membresía para desbloquear la siguiente unidad.
         </p>
       </div>
 
@@ -1799,7 +1818,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
             : '¿Listo para desbloquear la Unidad 3?';
           const finishDesc = document.getElementById('finishUnitBannerDesc');
           if (finishDesc) finishDesc.textContent = unidad === 1
-            ? 'Has terminado las 8 lecciones gratuitas. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.'
+            ? 'Has terminado las 8 lecciones gratuitas. Crea tu cuenta y luego accede al pago de membresía para desbloquear la Unidad 2.'
             : 'Has terminado la Unidad 2. Activa tu membresía mensual para seguir con Deuda, inversión y libertad financiera.';
           const finishButton = document.getElementById('finishUnitButton');
           if (finishButton) finishButton.innerHTML = unidad === 1
@@ -1824,18 +1843,21 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
 
       const nextBtn = document.getElementById('btnNextLesson');
       if (nextBtn) {
-        if (completandoUnidad) {
-          nextBtn.disabled = false;
-          nextBtn.style.opacity = "1";
-          nextBtn.classList.add('btn-next-finish');
-          nextBtn.innerHTML = id === 8
-            ? '<span>🎉 Completar Unidad 1</span> <span>→</span>'
-            : '<span>🔒 Desbloquear Unidad 3</span> <span>→</span>';
+        if (completandoUnidad && id === 8) {
+          nextBtn.style.display = 'none';
         } else {
-          nextBtn.classList.remove('btn-next-finish');
-          nextBtn.innerHTML = '<span>Siguiente lección</span> <span>→</span>';
-          nextBtn.disabled = (id >= MAX_FREE_LESSON);
-          nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+          nextBtn.style.display = '';
+          if (completandoUnidad) {
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = "1";
+            nextBtn.classList.add('btn-next-finish');
+            nextBtn.innerHTML = '<span>🔒 Desbloquear Unidad 3</span> <span>→</span>';
+          } else {
+            nextBtn.classList.remove('btn-next-finish');
+            nextBtn.innerHTML = '<span>Siguiente lección</span> <span>→</span>';
+            nextBtn.disabled = (id >= MAX_FREE_LESSON);
+            nextBtn.style.opacity = (id >= MAX_FREE_LESSON) ? "0.5" : "1";
+          }
         }
       }
     }
@@ -2075,7 +2097,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         ? 'Inicia sesión y activa tu membresía para desbloquear las 8 lecciones de Gastos, ahorro y tarjetas.'
         : (esUnidad3
           ? 'Has terminado las 8 lecciones de la Unidad 2. Activa tu membresía para desbloquear la Unidad 3 y seguir avanzando.'
-          : 'Has terminado las 8 lecciones de tu mes de prueba gratuito. Inicia sesión y activa tu membresía para desbloquear la Unidad 2.');
+          : 'Has terminado las 8 lecciones de tu mes de prueba gratuito. Crea tu cuenta o inicia sesión y después registra tu pago de membresía.');
       const lessons = document.getElementById('saveProgressLessons');
       if (lessons) lessons.innerHTML = esUnidad3 ? '<strong>16/16</strong> Lecciones vistas' : '<strong>8/8</strong> Lecciones vistas';
       const foot = document.querySelector('.save-modal-foot-note');
@@ -2083,13 +2105,16 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
         ? 'Tu acceso es progresivo: al activar tu membresía se desbloqueará la Unidad 3 de inmediato.'
         : 'Tu acceso es progresivo: cada unidad requiere sesión activa y membresía pagada.');
 
-      const user = (typeof getCurrentUser === 'function' ? getCurrentUser() : null) || <?= !empty($user) ? json_encode($user) : 'null' ?>;
+      const user = <?= !empty($user) ? json_encode($user) : 'null' ?>;
       const loggedSection = document.getElementById('saveProgressLoggedInSection');
       const guestSection = document.getElementById('saveProgressGuestSection');
+      const createBar = document.getElementById('saveProgressCreateAccountBar');
       const alertBox = document.getElementById('saveProgressAlert');
       if (alertBox) alertBox.style.display = 'none';
+      if (createBar) createBar.style.display = 'none';
 
       if (user && (user.id || user.name || user.email)) {
+        if (createBar) createBar.style.display = 'flex';
         if (loggedSection) loggedSection.style.display = 'block';
         if (guestSection) guestSection.style.display = 'none';
         const nameEl = document.getElementById('loggedSaveName');
@@ -2194,6 +2219,20 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
       }
     }
 
+    async function cambiarCuentaDesdeModal() {
+      if (typeof logout === 'function') {
+        await logout();
+      }
+      const loggedSection = document.getElementById('saveProgressLoggedInSection');
+      const guestSection = document.getElementById('saveProgressGuestSection');
+      const createBar = document.getElementById('saveProgressCreateAccountBar');
+      if (loggedSection) loggedSection.style.display = 'none';
+      if (guestSection) guestSection.style.display = 'block';
+      if (createBar) createBar.style.display = 'none';
+      switchSaveProgressTab('register');
+      if (typeof updateAuthUI === 'function') updateAuthUI();
+    }
+
     async function handleSaveProgressRegister(e) {
       e.preventDefault();
       const alertBox = document.getElementById('saveProgressAlert');
@@ -2239,7 +2278,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
           if (typeof updateAuthUI === 'function') updateAuthUI();
 
-          showSaveAlert('¡Cuenta creada y progreso guardado con éxito! 🎉 Verificando tu membresía...', 'success');
+          showSaveAlert('¡Cuenta creada! Ahora te llevamos al pago de membresía para guardar tu avance.', 'success');
 
           try {
             localStorage.setItem('ef_progreso_unidad1', 'completada');
@@ -2268,14 +2307,14 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           showSaveAlert(data.message || 'Error al guardar progreso. Intenta de nuevo.', 'error');
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →';
+            submitBtn.innerHTML = '<i class="fi fi-rr-user-add"></i> Crear cuenta y continuar al pago →';
           }
         }
       } catch (err) {
         showSaveAlert('Error de conexión con el servidor. Intenta de nuevo.', 'error');
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fi fi-rr-disk"></i> Guardar mi progreso y continuar →';
+          submitBtn.innerHTML = '<i class="fi fi-rr-user-add"></i> Crear cuenta y continuar al pago →';
         }
       }
     }
@@ -2316,7 +2355,7 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           if (typeof syncMembresiaDesdeAPI === 'function') await syncMembresiaDesdeAPI();
           if (typeof updateAuthUI === 'function') updateAuthUI();
 
-          showSaveAlert('¡Sesión iniciada y progreso sincronizado! 🎉 Actualizando tu acceso...', 'success');
+          showSaveAlert('¡Sesión iniciada! Ahora te llevamos al pago de membresía para continuar.', 'success');
 
           setTimeout(async function() {
             const modalEl = document.getElementById('saveProgressModal');
@@ -2341,14 +2380,14 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
           showSaveAlert(data.message || 'Correo o contraseña incorrectos.', 'error');
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →';
+            submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y continuar al pago →';
           }
         }
       } catch (err) {
         showSaveAlert('Error de conexión con el servidor. Intenta de nuevo.', 'error');
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y guardar mi avance →';
+          submitBtn.innerHTML = '<i class="fi fi-rr-sign-in-alt"></i> Iniciar sesión y continuar al pago →';
         }
       }
     }

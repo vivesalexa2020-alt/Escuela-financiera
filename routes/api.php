@@ -38,6 +38,6 @@ return static function (Router $router): void {
 
         // ── Membresía ─────────────────────────────────────────
         $r->get('/membresia',  'MembershipController@index');
-        $r->post('/membresia', 'MembershipController@activate');
+        $r->post('/membresia', 'MembershipController@registrarPago');
     });
 };

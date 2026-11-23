@@ -82,6 +82,7 @@ class PageController extends Controller {
     public function suscripcion(): void {
         $esCheckout = isset($_GET['checkout']) && (string)$_GET['checkout'] === '1';
         $unidadCheckout = isset($_GET['unidad']) ? (int)$_GET['unidad'] : 0;
+        $pagoPendiente = isset($_GET['pago']) && (string)$_GET['pago'] === 'pendiente';
 
         if (!Session::userId() && !$esCheckout) {
             header('Location: index.php?page=home&login=1&redirect=suscripcion');
@@ -97,6 +98,7 @@ class PageController extends Controller {
             [
                 'esCheckout'     => $esCheckout,
                 'unidadCheckout' => $unidadCheckout,
+                'pagoPendiente'  => $pagoPendiente,
             ]
         );
     }

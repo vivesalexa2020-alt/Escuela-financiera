@@ -78,4 +78,47 @@ class MembershipModel extends Model {
         ");
         return $stmt->execute([$userId, $tipo, $fechaVencimiento]);
     }
+
+    public function crearSolicitudPago(int $userId, int $unidad, float $monto, string $metodo, string $referencia): int {
+        $stmt = $this->db->prepare("
+            INSERT INTO pagos (usuario_id, unidad, monto, metodo_pago, referencia, estado)
+            VALUES (?, ?, ?, ?, ?, 'pendiente')
+        ");
+        $stmt->execute([$userId, $unidad, $monto, $metodo, $referencia]);
+        return (int)$this->lastInsertId();
+    }
+
+    public function referenciaPagoExiste(string $referencia): bool {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM pagos WHERE referencia = ?");
+        $stmt->execute([$referencia]);
+        return (int)$stmt->fetchColumn() > 0;
+    }
+
+    public function obtenerPagoPorId(int $id): ?array {
+        $stmt = $this->db->prepare("SELECT * FROM pagos WHERE id = ?");
+        $stmt->execute([$id]);
+        $pago = $stmt->fetch();
+        return $pago ?: null;
+    }
+
+    public function obtenerPagosPendientes(): array {
+        $stmt = $this->db->query("
+            SELECT p.id, p.usuario_id, p.unidad, p.monto, p.metodo_pago, p.referencia, p.estado, p.fecha_creacion,
+                   u.nombre AS usuario_nombre, u.email AS usuario_email
+            FROM pagos p
+            INNER JOIN usuarios u ON u.id = p.usuario_id
+            WHERE p.estado = 'pendiente'
+            ORDER BY p.fecha_creacion DESC, p.id DESC
+        ");
+        return $stmt->fetchAll() ?: [];
+    }
+
+    public function actualizarEstadoPago(int $id, string $estado, int $revisadoPor, string $notas = ''): bool {
+        $stmt = $this->db->prepare("
+            UPDATE pagos
+            SET estado = ?, fecha_revision = NOW(), revisado_por = ?, notas = ?
+            WHERE id = ? AND estado = 'pendiente'
+        ");
+        return $stmt->execute([$estado, $revisadoPor, $notas, $id]);
+    }
 }
