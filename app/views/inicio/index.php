@@ -378,9 +378,6 @@
             Personas reales que recuperaron su<br>
             paz y transformaron sus finanzas
           </h1>
-          <p class="hero-paragraph">
-            Aquí no hay fórmulas mágicas ni promesas vacías. Descubre cómo personas con ingresos comunes <span class="hero-highlight">lograron liquidar deudas</span> y crear <span class="hero-highlight">ahorros de emergencia</span> con nuestro método práctico, y <span class="hero-highlight">empezar a invertir. <svg class="inline-arrow-icon" viewBox="0 0 14 14" width="13" height="13"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H4.5M11.5 2.5V9.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </p>
         </div>
 
         <!-- FILA DE 3 TARJETAS PRINCIPALES CON ANIMACIÓN INTERACTIVA -->
@@ -555,56 +552,6 @@
             <path d="M5 45 C25 45 45 25 55 5" stroke="#28C76F" stroke-width="3" stroke-linecap="round"/>
             <path d="M48 3 L55 5 L50 12" stroke="#28C76F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── BARRA SUPERIOR DE MÉTRICAS (100% EN ESPAÑOL) ── -->
-    <div class="students-kpi-bar">
-      <!-- KPI 1: Curso activo -->
-      <div class="kpi-card">
-        <div class="kpi-icon-wrap" style="color:#059669; background:#ecfdf5;"><i class="fi fi-rr-book-alt"></i></div>
-        <div class="kpi-content">
-          <div class="kpi-header-row">
-            <span class="kpi-label">Curso activo</span>
-            <span class="kpi-value-tag">65% completado</span>
-          </div>
-          <div class="kpi-sub">Hábitos Atómicos & Finanzas</div>
-          <div class="kpi-progress-bar">
-            <div class="kpi-progress-fill" style="width: 65%;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- KPI 2: Nivel de logros -->
-      <div class="kpi-card">
-        <div class="kpi-icon-wrap" style="color:#d97706; background:#fef3c7;">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true"><path d="M7 4h10v3a5 5 0 0 1-10 0V4z" fill="#fbbf24" stroke="#b45309" stroke-width="1.5"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3" stroke="#b45309" stroke-width="1.5" stroke-linecap="round"/><path d="M12 12v4M9 20h6M10 16h4" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <div class="kpi-content">
-          <div class="kpi-header-row">
-            <span class="kpi-label">Nivel de logros</span>
-            <span class="kpi-value-tag">3 de 5 metas</span>
-          </div>
-          <div class="kpi-sub">Metas alcanzadas y certificaciones</div>
-          <div class="kpi-progress-bar">
-            <div class="kpi-progress-fill" style="width: 60%; background: linear-gradient(90deg,#f59e0b,#d97706);"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- KPI 3: Puntos y Reconocimientos -->
-      <div class="kpi-card">
-        <div class="kpi-icon-wrap" style="color:#2563eb; background:#eff6ff;"><i class="fi fi-rr-medal"></i></div>
-        <div class="kpi-content">
-          <div class="kpi-header-row">
-            <span class="kpi-label">Puntos y reconocimientos</span>
-            <span class="kpi-value-tag" style="color:#1d4ed8;">1,520 pts</span>
-          </div>
-          <div class="kpi-sub">Nivel 4 • Rango Avanzado</div>
-          <div class="kpi-progress-bar">
-            <div class="kpi-progress-fill" style="width: 78%; background: linear-gradient(90deg,#3b82f6,#1d4ed8);"></div>
-          </div>
         </div>
       </div>
     </div>
