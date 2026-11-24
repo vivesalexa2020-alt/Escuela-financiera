@@ -577,22 +577,39 @@
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Mariana González" class="msc-video-thumb" loading="lazy">
             <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
           </div>
-          <div class="msc-chart-row">
-            <div class="msc-metrics-texts">
-              <span>Ahorro mensual:</span>
-              <strong>+35% ingresos</strong>
-            </div>
-            <!-- Mini Sparkline SVG -->
-            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
-              <path d="M2 24 C15 22, 25 14, 38 16 C50 18, 58 6, 68 4" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M2 24 C15 22, 25 14, 38 16 C50 18, 58 6, 68 4 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
-            </svg>
-          </div>
           <div class="msc-actions-row">
-            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              <span>Me gusta</span> <span class="like-count">48</span>
-            </button>
+            <div class="msc-reaction-box" onclick="event.stopPropagation();">
+              <div class="msc-reactions-tray" role="toolbar" aria-label="Reacciones">
+                <button type="button" class="msc-reaction-opt" data-reaction="like" data-emoji="👍" data-label="Me gusta" data-color="#1877f2" onclick="selectCardReaction(this, event);" aria-label="Me gusta">
+                  <span class="msc-opt-emoji">👍</span>
+                  <span class="msc-opt-tooltip">Me gusta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="love" data-emoji="❤️" data-label="Me encanta" data-color="#f33e5b" onclick="selectCardReaction(this, event);" aria-label="Me encanta">
+                  <span class="msc-opt-emoji">❤️</span>
+                  <span class="msc-opt-tooltip">Me encanta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="care" data-emoji="🥰" data-label="Me importa" data-color="#f59e0b" onclick="selectCardReaction(this, event);" aria-label="Me importa">
+                  <span class="msc-opt-emoji">🥰</span>
+                  <span class="msc-opt-tooltip">Me importa</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="wow" data-emoji="😮" data-label="Me asombra" data-color="#eab308" onclick="selectCardReaction(this, event);" aria-label="Me asombra">
+                  <span class="msc-opt-emoji">😮</span>
+                  <span class="msc-opt-tooltip">Me asombra</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="inspire" data-emoji="👏" data-label="Me inspira" data-color="#10b981" onclick="selectCardReaction(this, event);" aria-label="Me inspira">
+                  <span class="msc-opt-emoji">👏</span>
+                  <span class="msc-opt-tooltip">Me inspira</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="fire" data-emoji="🔥" data-label="Imparable" data-color="#f97316" onclick="selectCardReaction(this, event);" aria-label="Imparable">
+                  <span class="msc-opt-emoji">🔥</span>
+                  <span class="msc-opt-tooltip">Imparable</span>
+                </button>
+              </div>
+              <button type="button" class="msc-action-btn msc-reaction-main-btn" onclick="toggleCardDefaultReaction(this, event);" aria-label="Reaccionar">
+                <span class="msc-btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <span class="msc-btn-label">Me gusta</span> <span class="like-count">48</span>
+              </button>
+            </div>
             <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('mariana'); event.stopPropagation();">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>14</span>
@@ -620,22 +637,39 @@
             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Jorge Martínez" class="msc-video-thumb" loading="lazy">
             <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
           </div>
-          <div class="msc-chart-row">
-            <div class="msc-metrics-texts">
-              <span>Fondo de emergencia:</span>
-              <strong>6 meses listos</strong>
-            </div>
-            <!-- Mini Sparkline SVG -->
-            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
-              <path d="M2 22 C18 20, 30 10, 45 12 C54 14, 60 4, 68 2" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M2 22 C18 20, 30 10, 45 12 C54 14, 60 4, 68 2 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
-            </svg>
-          </div>
           <div class="msc-actions-row">
-            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              <span>Me gusta</span> <span class="like-count">35</span>
-            </button>
+            <div class="msc-reaction-box" onclick="event.stopPropagation();">
+              <div class="msc-reactions-tray" role="toolbar" aria-label="Reacciones">
+                <button type="button" class="msc-reaction-opt" data-reaction="like" data-emoji="👍" data-label="Me gusta" data-color="#1877f2" onclick="selectCardReaction(this, event);" aria-label="Me gusta">
+                  <span class="msc-opt-emoji">👍</span>
+                  <span class="msc-opt-tooltip">Me gusta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="love" data-emoji="❤️" data-label="Me encanta" data-color="#f33e5b" onclick="selectCardReaction(this, event);" aria-label="Me encanta">
+                  <span class="msc-opt-emoji">❤️</span>
+                  <span class="msc-opt-tooltip">Me encanta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="care" data-emoji="🥰" data-label="Me importa" data-color="#f59e0b" onclick="selectCardReaction(this, event);" aria-label="Me importa">
+                  <span class="msc-opt-emoji">🥰</span>
+                  <span class="msc-opt-tooltip">Me importa</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="wow" data-emoji="😮" data-label="Me asombra" data-color="#eab308" onclick="selectCardReaction(this, event);" aria-label="Me asombra">
+                  <span class="msc-opt-emoji">😮</span>
+                  <span class="msc-opt-tooltip">Me asombra</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="inspire" data-emoji="👏" data-label="Me inspira" data-color="#10b981" onclick="selectCardReaction(this, event);" aria-label="Me inspira">
+                  <span class="msc-opt-emoji">👏</span>
+                  <span class="msc-opt-tooltip">Me inspira</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="fire" data-emoji="🔥" data-label="Imparable" data-color="#f97316" onclick="selectCardReaction(this, event);" aria-label="Imparable">
+                  <span class="msc-opt-emoji">🔥</span>
+                  <span class="msc-opt-tooltip">Imparable</span>
+                </button>
+              </div>
+              <button type="button" class="msc-action-btn msc-reaction-main-btn" onclick="toggleCardDefaultReaction(this, event);" aria-label="Reaccionar">
+                <span class="msc-btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <span class="msc-btn-label">Me gusta</span> <span class="like-count">35</span>
+              </button>
+            </div>
             <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('jorge'); event.stopPropagation();">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>9</span>
@@ -663,22 +697,39 @@
             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Ana López" class="msc-video-thumb" loading="lazy">
             <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
           </div>
-          <div class="msc-chart-row">
-            <div class="msc-metrics-texts">
-              <span>Deudas liquidadas:</span>
-              <strong>$28,500 MXN</strong>
-            </div>
-            <!-- Mini velocímetro / arco SVG -->
-            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
-              <path d="M10 24 A 20 20 0 0 1 60 24" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
-              <path d="M10 24 A 20 20 0 0 1 52 10" stroke="#00703c" stroke-width="4.5" stroke-linecap="round"/>
-            </svg>
-          </div>
           <div class="msc-actions-row">
-            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              <span>Me gusta</span> <span class="like-count">62</span>
-            </button>
+            <div class="msc-reaction-box" onclick="event.stopPropagation();">
+              <div class="msc-reactions-tray" role="toolbar" aria-label="Reacciones">
+                <button type="button" class="msc-reaction-opt" data-reaction="like" data-emoji="👍" data-label="Me gusta" data-color="#1877f2" onclick="selectCardReaction(this, event);" aria-label="Me gusta">
+                  <span class="msc-opt-emoji">👍</span>
+                  <span class="msc-opt-tooltip">Me gusta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="love" data-emoji="❤️" data-label="Me encanta" data-color="#f33e5b" onclick="selectCardReaction(this, event);" aria-label="Me encanta">
+                  <span class="msc-opt-emoji">❤️</span>
+                  <span class="msc-opt-tooltip">Me encanta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="care" data-emoji="🥰" data-label="Me importa" data-color="#f59e0b" onclick="selectCardReaction(this, event);" aria-label="Me importa">
+                  <span class="msc-opt-emoji">🥰</span>
+                  <span class="msc-opt-tooltip">Me importa</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="wow" data-emoji="😮" data-label="Me asombra" data-color="#eab308" onclick="selectCardReaction(this, event);" aria-label="Me asombra">
+                  <span class="msc-opt-emoji">😮</span>
+                  <span class="msc-opt-tooltip">Me asombra</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="inspire" data-emoji="👏" data-label="Me inspira" data-color="#10b981" onclick="selectCardReaction(this, event);" aria-label="Me inspira">
+                  <span class="msc-opt-emoji">👏</span>
+                  <span class="msc-opt-tooltip">Me inspira</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="fire" data-emoji="🔥" data-label="Imparable" data-color="#f97316" onclick="selectCardReaction(this, event);" aria-label="Imparable">
+                  <span class="msc-opt-emoji">🔥</span>
+                  <span class="msc-opt-tooltip">Imparable</span>
+                </button>
+              </div>
+              <button type="button" class="msc-action-btn msc-reaction-main-btn" onclick="toggleCardDefaultReaction(this, event);" aria-label="Reaccionar">
+                <span class="msc-btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <span class="msc-btn-label">Me gusta</span> <span class="like-count">62</span>
+              </button>
+            </div>
             <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('ana'); event.stopPropagation();">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>18</span>
@@ -706,22 +757,39 @@
             <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=500&auto=format&fit=crop&q=80" alt="Video testimonio de Roberto y Silvia" class="msc-video-thumb" loading="lazy">
             <span class="msc-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
           </div>
-          <div class="msc-chart-row">
-            <div class="msc-metrics-texts">
-              <span>Meta familiar:</span>
-              <strong>Fondo universitario</strong>
-            </div>
-            <!-- Mini Sparkline SVG -->
-            <svg class="msc-chart-svg" viewBox="0 0 70 28" fill="none">
-              <path d="M2 24 C16 22, 28 16, 40 12 C52 8, 60 4, 68 2" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M2 24 C16 22, 28 16, 40 12 C52 8, 60 4, 68 2 L68 28 L2 28 Z" fill="rgba(16,185,129,0.12)"/>
-            </svg>
-          </div>
           <div class="msc-actions-row">
-            <button type="button" class="msc-action-btn" onclick="toggleLike(this); event.stopPropagation();">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              <span>Me gusta</span> <span class="like-count">29</span>
-            </button>
+            <div class="msc-reaction-box" onclick="event.stopPropagation();">
+              <div class="msc-reactions-tray" role="toolbar" aria-label="Reacciones">
+                <button type="button" class="msc-reaction-opt" data-reaction="like" data-emoji="👍" data-label="Me gusta" data-color="#1877f2" onclick="selectCardReaction(this, event);" aria-label="Me gusta">
+                  <span class="msc-opt-emoji">👍</span>
+                  <span class="msc-opt-tooltip">Me gusta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="love" data-emoji="❤️" data-label="Me encanta" data-color="#f33e5b" onclick="selectCardReaction(this, event);" aria-label="Me encanta">
+                  <span class="msc-opt-emoji">❤️</span>
+                  <span class="msc-opt-tooltip">Me encanta</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="care" data-emoji="🥰" data-label="Me importa" data-color="#f59e0b" onclick="selectCardReaction(this, event);" aria-label="Me importa">
+                  <span class="msc-opt-emoji">🥰</span>
+                  <span class="msc-opt-tooltip">Me importa</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="wow" data-emoji="😮" data-label="Me asombra" data-color="#eab308" onclick="selectCardReaction(this, event);" aria-label="Me asombra">
+                  <span class="msc-opt-emoji">😮</span>
+                  <span class="msc-opt-tooltip">Me asombra</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="inspire" data-emoji="👏" data-label="Me inspira" data-color="#10b981" onclick="selectCardReaction(this, event);" aria-label="Me inspira">
+                  <span class="msc-opt-emoji">👏</span>
+                  <span class="msc-opt-tooltip">Me inspira</span>
+                </button>
+                <button type="button" class="msc-reaction-opt" data-reaction="fire" data-emoji="🔥" data-label="Imparable" data-color="#f97316" onclick="selectCardReaction(this, event);" aria-label="Imparable">
+                  <span class="msc-opt-emoji">🔥</span>
+                  <span class="msc-opt-tooltip">Imparable</span>
+                </button>
+              </div>
+              <button type="button" class="msc-action-btn msc-reaction-main-btn" onclick="toggleCardDefaultReaction(this, event);" aria-label="Reaccionar">
+                <span class="msc-btn-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <span class="msc-btn-label">Me gusta</span> <span class="like-count">29</span>
+              </button>
+            </div>
             <button type="button" class="msc-action-btn" onclick="openStudentTestimonial('roberto'); event.stopPropagation();">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span>Comentarios</span> <span>7</span>
@@ -1588,21 +1656,107 @@
     window.hideSplash = hideSplash;
     setTimeout(hideSplash, 5200);
   })();
+  // ── Reacciones estilo Facebook (Emojis interactivos) ──────────
+  var DEFAULT_REACTION_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
 
-  // ── Likes interactivos (Me gusta) ──────────────────────────
-  function toggleLike(btn) {
-    if (!btn) return;
-    var countEl = btn.querySelector('.like-count');
-    var isLiked = btn.classList.contains('liked');
+  function selectCardReaction(optBtn, e) {
+    if (e) e.stopPropagation();
+    var box = optBtn.closest('.msc-reaction-box');
+    if (!box) return;
+    var mainBtn = box.querySelector('.msc-reaction-main-btn');
+    var countEl = box.querySelector('.like-count');
+    var iconEl = box.querySelector('.msc-btn-icon');
+    var labelEl = box.querySelector('.msc-btn-label');
+
+    var reaction = optBtn.getAttribute('data-reaction');
+    var emoji = optBtn.getAttribute('data-emoji');
+    var label = optBtn.getAttribute('data-label');
+    var color = optBtn.getAttribute('data-color');
+
+    var currentReaction = mainBtn ? mainBtn.getAttribute('data-active-reaction') : null;
     var count = parseInt(countEl ? countEl.textContent : '0', 10);
-    if (isLiked) {
-      btn.classList.remove('liked');
+
+    if (currentReaction === reaction) {
+      mainBtn.removeAttribute('data-active-reaction');
+      mainBtn.classList.remove('has-reaction', 'liked');
+      mainBtn.style.color = '';
+      if (iconEl) iconEl.innerHTML = DEFAULT_REACTION_ICON;
+      if (labelEl) labelEl.textContent = 'Me gusta';
       if (countEl) countEl.textContent = Math.max(0, count - 1);
     } else {
-      btn.classList.add('liked');
+      if (!currentReaction) {
+        if (countEl) countEl.textContent = count + 1;
+      }
+      mainBtn.setAttribute('data-active-reaction', reaction);
+      mainBtn.classList.add('has-reaction', 'liked');
+      mainBtn.style.color = color;
+      if (iconEl) iconEl.textContent = emoji;
+      if (labelEl) labelEl.textContent = label;
+    }
+    box.classList.remove('tray-open');
+  }
+
+  function toggleCardDefaultReaction(mainBtn, e) {
+    if (e) e.stopPropagation();
+    var box = mainBtn.closest('.msc-reaction-box');
+    if (!box) return;
+    var countEl = box.querySelector('.like-count');
+    var iconEl = box.querySelector('.msc-btn-icon');
+    var labelEl = box.querySelector('.msc-btn-label');
+
+    var currentReaction = mainBtn.getAttribute('data-active-reaction');
+    var count = parseInt(countEl ? countEl.textContent : '0', 10);
+
+    if (currentReaction) {
+      mainBtn.removeAttribute('data-active-reaction');
+      mainBtn.classList.remove('has-reaction', 'liked');
+      mainBtn.style.color = '';
+      if (iconEl) iconEl.innerHTML = DEFAULT_REACTION_ICON;
+      if (labelEl) labelEl.textContent = 'Me gusta';
+      if (countEl) countEl.textContent = Math.max(0, count - 1);
+    } else {
+      mainBtn.setAttribute('data-active-reaction', 'like');
+      mainBtn.classList.add('has-reaction', 'liked');
+      mainBtn.style.color = '#1877f2';
+      if (iconEl) iconEl.textContent = '👍';
+      if (labelEl) labelEl.textContent = 'Me gusta';
       if (countEl) countEl.textContent = count + 1;
     }
+    box.classList.remove('tray-open');
   }
+
+  function toggleLike(btn) {
+    toggleCardDefaultReaction(btn);
+  }
+
+  // Soporte touch en móviles para cerrar bandeja al hacer clic fuera
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.msc-reaction-box')) {
+      document.querySelectorAll('.msc-reaction-box.tray-open').forEach(function(b) {
+        b.classList.remove('tray-open');
+      });
+    }
+  });
+
+  // Mantener presionado en móvil para abrir bandeja
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.msc-reaction-box').forEach(function(box) {
+      var touchTimer = null;
+      var mainBtn = box.querySelector('.msc-reaction-main-btn');
+      if (!mainBtn) return;
+      mainBtn.addEventListener('touchstart', function(e) {
+        touchTimer = setTimeout(function() {
+          box.classList.add('tray-open');
+        }, 320);
+      }, { passive: true });
+      mainBtn.addEventListener('touchend', function(e) {
+        if (touchTimer) clearTimeout(touchTimer);
+      });
+      mainBtn.addEventListener('touchmove', function(e) {
+        if (touchTimer) clearTimeout(touchTimer);
+      });
+    });
+  });
 
   // ── Datos de los Estudiantes para el Video Testimonial ──────
   var studentDirectory = {
