@@ -6,16 +6,21 @@
   <title><?= htmlspecialchars($pageTitle ?? 'Educación Financiera') ?></title>
   <?php
     $siteName = \App\Config\AppConfig::APP_NAME;
+    $assetVersion = \App\Config\AppConfig::APP_VERSION;
+    $forwardedProto = strtolower((string)($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? ''));
+    $forwardedHost = (string)($_SERVER['HTTP_X_FORWARDED_HOST'] ?? '');
     $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-      || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+      || $forwardedProto === 'https'
+      || (int)($_SERVER['HTTP_X_FORWARDED_PORT'] ?? 0) === 443;
     $scheme = $isHttps ? 'https' : 'http';
-    $host = preg_replace('/[^A-Za-z0-9.:\[\]-]/', '', (string)($_SERVER['HTTP_HOST'] ?? 'localhost'));
+    $rawHost = $forwardedHost !== '' ? strtok($forwardedHost, ',') : (string)($_SERVER['HTTP_HOST'] ?? 'localhost');
+    $host = preg_replace('/[^A-Za-z0-9.:\[\]-]/', '', (string)$rawHost);
     $scriptPath = str_replace('\\', '/', (string)($_SERVER['SCRIPT_NAME'] ?? '/'));
     $basePath = preg_replace('#/index\.php.*$#', '', $scriptPath);
     $basePath = preg_replace('#/public/?$#', '', $basePath);
     $requestPath = strtok((string)($_SERVER['REQUEST_URI'] ?? '/'), '?');
     $canonicalUrl = $scheme . '://' . $host . $requestPath;
-    $ogImageUrl = $scheme . '://' . $host . $basePath . '/public/img/experiencia-educacion.png';
+    $ogImageUrl = $scheme . '://' . $host . $basePath . '/public/img/experiencia-educacion-og.jpg';
     $ogDescription = 'Aprende educación financiera con cursos, herramientas y comunidad para ahorrar, invertir y cumplir tus metas.';
   ?>
   <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>">
@@ -25,6 +30,9 @@
   <meta property="og:description" content="<?= htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8') ?>">
   <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>">
   <meta property="og:image" content="<?= htmlspecialchars($ogImageUrl, ENT_QUOTES, 'UTF-8') ?>">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="654">
+  <meta property="og:image:height" content="468">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? $siteName, ENT_QUOTES, 'UTF-8') ?>">
   <meta name="twitter:description" content="<?= htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8') ?>">
@@ -44,15 +52,15 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css">
 
   <!-- Estilos Globales -->
-  <link rel="stylesheet" href="public/css/estilos.css?v=<?= time() ?>">
+  <link rel="stylesheet" href="public/css/estilos.css?v=<?= $assetVersion ?>">
 
   <!-- Estilos específicos de la página -->
   <?php foreach ((array)($pageCss ?? []) as $cssFile): ?>
-    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=<?= time() ?>">
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssFile) ?>?v=<?= $assetVersion ?>">
   <?php endforeach; ?>
 
   <!-- Capa tipográfica global (debe cargar al final) -->
-  <link rel="stylesheet" href="public/css/typography.css?v=<?= time() ?>">
+  <link rel="stylesheet" href="public/css/typography.css?v=<?= $assetVersion ?>">
 
   <script>
     try {

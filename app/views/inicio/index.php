@@ -1640,7 +1640,7 @@
   </div>
 </div>
 
-<script src="public/js/script.js?v=<?= time() ?>"></script>
+<script src="public/js/script.js?v=<?= \App\Config\AppConfig::APP_VERSION ?>"></script>
 <script>
   // ── Splash screen ──────────────────────────────────────────
   (function() {
@@ -2021,7 +2021,11 @@
     } else if (network === 'whatsapp') {
       share = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
     }
-    if (share) window.open(share, '_blank', 'noopener');
+    if (network === 'facebook' && share) {
+      window.open(share, 'fb-share', 'noopener,noreferrer,width=620,height=440');
+    } else if (share) {
+      window.open(share, '_blank', 'noopener');
+    }
     discardTestimonialCommentShare();
   }
 
