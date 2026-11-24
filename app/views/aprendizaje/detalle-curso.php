@@ -56,17 +56,10 @@ $leccionesDemoIds = isset($leccionesDemoIds) && is_array($leccionesDemoIds)
     </div>
     <div class="logged-topbar-right">
       <?php if ($esDemo): ?>
-        <?php if (empty($user)): ?>
-          <button type="button" class="demo-login-btn" onclick="irALoginDesdeDemo()">
-            <i class="fi fi-sr-sign-in-alt"></i>
-            <span>Iniciar sesión</span>
-          </button>
-        <?php else: ?>
-          <a href="index.php?page=home&skip_splash=1" class="demo-login-btn">
-            <i class="fi fi-rr-home"></i>
-            <span>Regresar al inicio</span>
-          </a>
-        <?php endif; ?>
+        <a href="index.php?page=home&skip_splash=1" class="demo-login-btn">
+          <i class="fi fi-rr-home"></i>
+          <span>Regresar al inicio</span>
+        </a>
       <?php else: ?>
         <span class="topbar-greeting">Hola, <strong id="topbarUserName">Estudiante</strong></span>
       <?php endif; ?>

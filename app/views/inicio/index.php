@@ -1077,7 +1077,7 @@
 </section>
 
   <div class="home-probar-wrap">
-    <a href="index.php?page=aula&preview=1" class="home-probar-btn" id="btnHomeProbar">
+    <a href="index.php?page=aula&amp;preview=1" class="home-probar-btn" id="btnHomeProbar">
       <span>Probar</span>
       <i class="fi fi-rr-arrow-small-right" style="font-size: 28px; line-height: 1; margin-left: 8px;"></i>
     </a>
