@@ -1626,7 +1626,7 @@
   </div>
 </div>
 
-<script src="public/js/script.js?v=<?= \App\Config\AppConfig::APP_VERSION ?>"></script>
+<script src="public/js/script.js?v=<?= time() ?>"></script>
 <script>
   // ── Splash screen ──────────────────────────────────────────
   (function() {
@@ -2607,6 +2607,16 @@
       closeStudentTestimonial();
     }
   });
+
+  // Función para abrir modal de inicio de sesión desde el header
+  window.abrirLoginDesdeHeader = function() {
+    try { sessionStorage.setItem('ef_redirect_after_login', 'aula'); } catch (e) {}
+    if (typeof openLoginModal === 'function') {
+      openLoginModal();
+      return;
+    }
+    window.location.href = 'index.php?page=home&login=1';
+  };
 
   // Función para abrir modal de inicio de sesión de Administrador
   window.openAdminLogin = function() {

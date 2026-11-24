@@ -3150,17 +3150,6 @@ function irALoginDesdeAula() {
   window.location.href = 'index.php?page=home&login=1';
 }
 
-function abrirLoginDesdeHeader() {
-  try {
-    sessionStorage.setItem('ef_redirect_after_login', 'aula');
-  } catch (e) {}
-  if (typeof openLoginModal === 'function') {
-    openLoginModal();
-    return;
-  }
-  window.location.href = 'index.php?page=home&login=1';
-}
-
 document.addEventListener('DOMContentLoaded', function () {
   const hash = (window.location.hash || '').toLowerCase();
 
